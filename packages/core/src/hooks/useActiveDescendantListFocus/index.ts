@@ -1,4 +1,6 @@
-import React, { useMemo, useState, useCallback, MutableRefObject } from "react";
+import { type MutableRefObject } from "react";
+import type React from "react";
+import { useMemo, useState, useCallback } from "react";
 import {
   useSupportArrowsKeyboardNavigation,
   useSupportPressItemKeyboardNavigation,

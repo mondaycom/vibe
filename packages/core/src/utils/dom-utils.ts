@@ -1,4 +1,4 @@
-import { memoize as _memoize } from "lodash-es";
+import { memoize as _memoize } from "es-toolkit";
 
 export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array<string> | string) {
   if (!classOrClassesName) return false;
@@ -13,7 +13,7 @@ export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array
   return !!domElement.parentElement.closest(selector);
 }
 
-export const getScrollableParent = _memoize(
+const _getScrollableParent = _memoize(
   (node: HTMLElement): HTMLElement => {
     if (!node) {
       return null;
@@ -26,8 +26,12 @@ export const getScrollableParent = _memoize(
     }
     return document.body;
   },
-  (node: HTMLElement) => node.outerHTML
+  {
+    getCacheKey: (node: HTMLElement) => node.outerHTML
+  }
 );
+
+export const getScrollableParent: (node: HTMLElement) => HTMLElement = _getScrollableParent;
 
 const isNodeVerticallyScrollable = (node: HTMLElement): boolean => {
   return ["auto", "scroll"].includes(getComputedStyle(node).getPropertyValue("overflow-y"));

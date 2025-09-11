@@ -3,47 +3,76 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import Clickable from "../Clickable/Clickable";
 import Text from "../Text/Text";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { type VibeComponentProps } from "../../types";
 import Tooltip from "../Tooltip/Tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface RadioButtonProps extends VibeComponentProps {
-  /**  class to be added to wrapping component */
-  className?: string;
-  /** class to add to the  text/label */
+  /**
+   * Class name applied to the label text.
+   */
   labelClassName?: string;
-  /** class to be added to the radiobutton */
+  /**
+   * Class name applied to the radio button element.
+   */
   radioButtonClassName?: string;
-  /** text value */
+  /**
+   * The label text displayed next to the radio button.
+   */
   text?: string;
-  /** The input control's value. When specified in the HTML, this is the initial value, and from then on it can be altered or retrieved at any time using JavaScript to access the respective HTMLInputElement object's value property. The value attribute is always optional, though should be considered mandatory for checkbox, radio, and hidden.l */
+  /**
+   * The value associated with the radio button.
+   */
   value?: string;
-  /** A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted. */
+  /**
+   * The name of the radio button group.
+   */
   name?: string;
-  /** is autoFocus */
+  /**
+   * If true, the radio button automatically receives focus on mount.
+   */
   autoFocus?: boolean;
-  /** is disabled */
+  /**
+   * If true, the radio button is disabled.
+   */
   disabled?: boolean;
-  /** why the input is disabled */
+  /**
+   * The reason why the radio button is disabled, displayed in a tooltip.
+   */
   disabledReason?: string;
-  /** default checked value*/
+  /**
+   * If true, the radio button is checked by default.
+   */
   defaultChecked?: boolean;
+  /**
+   * The child elements inside the radio button.
+   */
   children?: React.ReactNode;
-  /** callback function when value changed */
+  /**
+   * Callback fired when the radio button selection changes.
+   */
   onSelect?: (event: React.ChangeEvent<HTMLInputElement | null>) => void;
-  /** controlled the radio button state */
+  /**
+   * If provided, controls the checked state of the radio button.
+   */
   checked?: boolean;
-  /** react to click on children */
+  /**
+   * If true, clicking on children will trigger selection.
+   */
   retainChildClick?: boolean;
-  /** add tab index to the children */
+  /**
+   * The tab index applied to the children.
+   */
   childrenTabIndex?: string;
-  /** disabled animation */
+  /**
+   * If true, disables the label animation.
+   */
   noLabelAnimation?: boolean;
 }
 
-const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwardRef(
+const RadioButton = forwardRef(
   (
     {
       className,
@@ -99,6 +128,7 @@ const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> & object = forwa
       <Tooltip content={tooltipContent}>
         <label
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
+          data-vibe={ComponentVibeId.RADIO_BUTTON}
           className={cx(styles.radioButton, className, {
             [styles.disabled]: disabled,
             disabled: disabled

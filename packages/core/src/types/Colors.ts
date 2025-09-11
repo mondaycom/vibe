@@ -10,7 +10,8 @@ const MapStateSelectedColor = {
 const MapStateSelectedHoverColor = {
   positive: "--positive-color-selected-hover",
   negative: "--negative-color-selected-hover",
-  primary: "--primary-selected-hover-color"
+  primary: "--primary-selected-hover-color",
+  warning: "--warning-color-selected-hover"
 };
 
 type ContentColor = (typeof contentColors)[number];

@@ -1,80 +1,106 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../BaseListItem/BaseListItem";
-import { VibeComponent } from "../../types";
 import styles from "./BaseList.module.scss";
-import { BaseListProps } from "./BaseList.types";
+import { type BaseListProps } from "./BaseList.types";
 import { Flex } from "../Flex";
-import { TextType } from "../Text";
+import { type TextType } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";
 import { Divider } from "../Divider";
 
-const BaseList: VibeComponent<BaseListProps<any>, HTMLUListElement> = forwardRef(
-  <T extends Record<string, unknown>>(
+const BaseList = forwardRef(
+  <Item extends Record<string, unknown>>(
     {
       options,
-      selectedItem,
+      selectedItems,
       highlightedIndex,
+      menuAriaLabel,
       getMenuProps,
       getItemProps,
       size = "medium",
       withGroupDivider = false,
       dir = "ltr",
-      optionRenderer,
+      itemRenderer,
+      menuRenderer,
       noOptionsMessage = "No results",
-      stickyGroupTitle = false
-    }: BaseListProps<T>,
+      stickyGroupTitle = false,
+      renderOptions = true,
+      onScroll,
+      maxMenuHeight = 300
+    }: BaseListProps<Item>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
 
-    return (
-      <ul ref={ref} dir={dir} className={styles.wrapper} {...getMenuProps?.()}>
-        {options.every(group => group.options?.length === 0) ? (
-          typeof noOptionsMessage === "string" ? (
+    const defaultContent = renderOptions ? (
+      options.every(group => group.options?.length === 0) ? (
+        <div role="status">
+          {typeof noOptionsMessage === "string" ? (
             <Flex justify="center">
-              <BaseListItem label={noOptionsMessage} size={size} readOnly />
+              <BaseListItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
             </Flex>
           ) : (
             noOptionsMessage
-          )
-        ) : (
-          options.map((group, groupIndex) => (
-            <React.Fragment key={group.label ?? groupIndex}>
-              {group.label && (
-                <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
-                  <Text type={textVariant} color="inherit">
-                    {group.label}
-                  </Text>
-                </li>
-              )}
-              {group.options.map((item, itemIndex) => {
-                const itemProps = getItemProps?.({ item, index: item.index as number }) ?? {};
-                const isHighlighted =
-                  highlightedIndex !== undefined && highlightedIndex === item.index && !item.disabled;
-                const isSelected =
-                  selectedItem?.value !== undefined && selectedItem?.value === item.value && !item.disabled;
+          )}
+        </div>
+      ) : (
+        options.map((group, groupIndex) => (
+          <React.Fragment key={group.label ?? groupIndex}>
+            {group.label && (
+              <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
+                <Text type={textVariant} color="inherit">
+                  {group.label}
+                </Text>
+              </li>
+            )}
+            {group.options.map((option, itemIndex) => {
+              const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+              const isHighlighted =
+                highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+              const isSelected =
+                selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
-                return (
-                  <BaseListItem
-                    {...itemProps}
-                    label={item.label as string}
-                    key={typeof item.value === "string" ? item.value : itemIndex}
-                    size={size}
-                    highlighted={isHighlighted}
-                    selected={isSelected}
-                    optionRenderer={optionRenderer}
-                    {...item}
-                  />
-                );
-              })}
-              {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-            </React.Fragment>
-          ))
-        )}
+              return (
+                <BaseListItem<Item>
+                  itemProps={itemProps}
+                  key={typeof option.value === "string" ? option.value : itemIndex}
+                  size={size}
+                  highlighted={isHighlighted}
+                  selected={isSelected}
+                  itemRenderer={itemRenderer}
+                  item={option}
+                  role="option"
+                />
+              );
+            })}
+            {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
+          </React.Fragment>
+        ))
+      )
+    ) : null;
+
+    return (
+      <ul
+        ref={ref}
+        dir={dir}
+        className={styles.wrapper}
+        {...getMenuProps?.({ "aria-label": menuAriaLabel })}
+        onScroll={onScroll}
+        style={{ maxHeight: maxMenuHeight }}
+      >
+        {menuRenderer && renderOptions
+          ? menuRenderer({
+              children: defaultContent,
+              filteredOptions: options,
+              selectedItem: selectedItems?.[0] || null,
+              selectedItems: selectedItems || []
+            })
+          : defaultContent}
       </ul>
     );
   }
 );
 
-export default BaseList;
+export default BaseList as <Item extends Record<string, unknown>>(
+  props: BaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
+) => React.ReactElement;

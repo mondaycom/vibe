@@ -19,10 +19,12 @@ export default function Container({ children, selectProps, ...otherProps }) {
     withMandatoryDefaultOptions,
     readOnly
   } = selectProps;
-  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size } = customProps;
+  const { selectedOptions, onSelectedDelete, isMultiline, popupsContainerSelector, size, dialogClassName } =
+    customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipWrapperClassName = classes["chip-with-input-wrapper"];
   const chipClassName = cx(
@@ -42,6 +44,14 @@ export default function Container({ children, selectProps, ...otherProps }) {
   useEffect(() => {
     setIsCounterShown(hiddenOptionsCount > 0);
   }, [hiddenOptionsCount]);
+
+  const handleDialogShow = useCallback(() => {
+    setIsDialogOpen(true);
+  }, []);
+
+  const handleDialogHide = useCallback(() => {
+    setIsDialogOpen(false);
+  }, []);
 
   const onDelete = useCallback(
     option => {
@@ -72,6 +82,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
             readOnly={readOnly || (withMandatoryDefaultOptions && option.isMandatory)}
             allowTextSelection={readOnly}
             leftRenderer={option.leftRenderer}
+            rightRenderer={option.rightRenderer}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
             color={overrideChipColor}
@@ -123,7 +134,12 @@ export default function Container({ children, selectProps, ...otherProps }) {
           {isCounterShown && (
             <Dialog
               content={() => (
-                <DialogContentContainer className={classes.valueDialogContent}>
+                <DialogContentContainer
+                  className={classes.valueDialogContent}
+                  onMouseDown={e => {
+                    e.stopPropagation();
+                  }}
+                >
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
@@ -133,11 +149,15 @@ export default function Container({ children, selectProps, ...otherProps }) {
               hideTrigger="clickoutside"
               position="bottom"
               moveBy={{ main: DIALOG_OFFSET_Y }}
+              wrapperClassName={dialogClassName}
+              onDialogDidShow={handleDialogShow}
+              onDialogDidHide={handleDialogHide}
             >
               <Counter
                 kind="line"
                 prefix="+"
                 count={hiddenOptionsCount}
+                counterClassName={cx(classes.dropdownCounter, { [classes.active]: isDialogOpen })}
                 onMouseDown={e => {
                   e.stopPropagation();
                 }}

@@ -1,37 +1,94 @@
-import { difference as _difference, intersection as _intersection } from "lodash-es";
+import { difference as _difference, intersection as _intersection } from "es-toolkit";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
-import { ColorStyle as ColorStyleEnum, CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
+import {
+  ColorStyle as ColorStyleEnum,
+  type CONTENT_COLORS_VALUES,
+  contentColors
+} from "../../../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "../../ColorPicker.types";
+import {
+  type ColorShapes,
+  type ColorPickerSizes,
+  type ColorPickerValue,
+  type ColorPickerArrayValueOnly
+} from "../../ColorPicker.types";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
-} from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import { ColorPickerClearButton } from "./ColorPickerClearButton";
-import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
-import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../../../types";
+} from "../../../GridKeyboardNavigationContext";
+import ColorPickerClearButton from "./ColorPickerClearButton";
+import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
+import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../../../types";
 import useMergeRef from "../../../../hooks/useMergeRef";
-import { ColorStyle } from "../../../../types/Colors";
+import { type ColorStyle } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
+  /**
+   * The selected color(s).
+   */
   value: ColorPickerValue;
+  /**
+   * Callback fired when the selected color(s) change.
+   */
   onValueChange: (value: ColorPickerArrayValueOnly) => void;
+  /**
+   * The list of colors available for selection.
+   */
   colorsList: ColorPickerArrayValueOnly;
+  /**
+   * Icon displayed as an indicator inside the color.
+   */
   ColorIndicatorIcon?: SubIcon;
+  /**
+   * Icon displayed when a color is selected.
+   */
   SelectedIndicatorIcon?: SubIcon;
+  /**
+   * Icon used for clearing the color selection.
+   */
   NoColorIcon?: SubIcon;
+  /**
+   * The style applied to the colors.
+   */
   colorStyle?: ColorStyle;
+  /**
+   * The size of the color items.
+   */
   colorSize?: ColorPickerSizes;
+  /**
+   * The shape of the color items.
+   */
   colorShape?: ColorShapes;
+  /**
+   * Custom tooltip content for specific colors.
+   */
   tooltipContentByColor?: Partial<Record<CONTENT_COLORS_VALUES, string>>;
+  /**
+   * Text displayed for the "no color" option.
+   */
   noColorText?: string;
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground?: boolean;
+  /**
+   * If true, treats the color list as a blacklist rather than a whitelist.
+   */
   isBlackListMode?: boolean;
+  /**
+   * The number of colors displayed per row.
+   */
   numberOfColorsInLine?: number;
+  /**
+   * If true, the first color is focused when the component mounts.
+   */
   focusOnMount?: boolean;
+  /**
+   * If true, allows selecting multiple colors.
+   */
   isMultiselect?: boolean;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
@@ -45,12 +102,7 @@ export interface ColorPickerContentProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement> & {
-  sizes?: typeof BaseSizes;
-  colorStyles?: typeof ColorStyleEnum;
-  colorSizes?: typeof BaseSizes;
-  colorShapes?: typeof ColorShapesEnum;
-} = forwardRef(
+const ColorPickerContent = forwardRef(
   (
     {
       className,
@@ -75,7 +127,7 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
       id,
       "data-testid": dataTestId
     }: ColorPickerContentProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const gridRef = useRef(null);
     const mergedRef = useMergeRef(ref, gridRef);
@@ -147,7 +199,14 @@ const ColorPickerContent: VibeComponent<ColorPickerContentProps, HTMLDivElement>
   }
 );
 
-export default withStaticProps(ColorPickerContent, {
+interface ColorPickerContentStaticProps {
+  sizes: typeof BaseSizes;
+  colorStyles: typeof ColorStyleEnum;
+  colorSizes: typeof BaseSizes;
+  colorShapes: typeof ColorShapesEnum;
+}
+
+export default withStaticProps<ColorPickerContentProps, ColorPickerContentStaticProps>(ColorPickerContent, {
   sizes: BaseSizes,
   colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,

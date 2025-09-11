@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from "react";
-import Steps, { StepsProps } from "../Steps";
+import Steps, { type StepsProps } from "../Steps";
 import Tipseen from "../../Tipseen/Tipseen";
 import Flex from "../../Flex/Flex";
 import TipseenWizard from "../../Tipseen/TipseenWizard";
 import { modifiers } from "./Steps.stories.helpers";
 import createStoryMetaSettingsDecorator from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./Steps.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Steps,
@@ -42,6 +41,7 @@ const NavigableStepsTemplate = (args: StepsProps) => {
 
   return (
     <Steps
+      id="overview-steps"
       activeStepIndex={activeStepIndex}
       backButtonProps={{
         onClick: stepPrev
@@ -59,7 +59,6 @@ const NavigableStepsTemplate = (args: StepsProps) => {
 export const Overview = {
   render: NavigableStepsTemplate.bind({}),
   name: "Overview",
-
   args: {
     steps: steps5
   },
@@ -75,25 +74,33 @@ export const Overview = {
 export const Types = {
   render: () => (
     <Flex direction="column" gap="medium">
-      <Steps type="numbers" steps={steps5} activeStepIndex={2} />
-      <Steps steps={steps5} activeStepIndex={2} />
-      <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-storybook-steps_padding" />
+      <Steps id="types-numbers" type="numbers" steps={steps5} activeStepIndex={2} />
+      <Steps id="types-default" steps={steps5} activeStepIndex={2} />
+      <div style={{ padding: "15px 103px 20px" }}>
+        <Steps id="types-no-nav" steps={steps5} activeStepIndex={2} areNavigationButtonsHidden />
+      </div>
     </Flex>
   )
 };
 
 export const OnPrimary = {
   render: () => (
-    <Flex direction="column" gap="medium" className="monday-storybook-steps_color">
-      <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
-      <Steps steps={steps5} activeStepIndex={2} color="on-primary-color" />
-      <Steps
-        steps={steps5}
-        activeStepIndex={2}
-        color="on-primary-color"
-        areNavigationButtonsHidden
-        className="monday-storybook-steps_padding"
-      />
+    <Flex
+      direction="column"
+      gap="medium"
+      style={{ padding: "var(--sb-spacing-small)", backgroundColor: "var(--sb-primary-color)" }}
+    >
+      <Steps id="primary-numbers" steps={steps5} activeStepIndex={2} color="on-primary-color" type="numbers" />
+      <Steps id="primary-default" steps={steps5} activeStepIndex={2} color="on-primary-color" />
+      <div style={{ padding: "15px 103px 20px" }}>
+        <Steps
+          id="primary-no-nav"
+          steps={steps5}
+          activeStepIndex={2}
+          color="on-primary-color"
+          areNavigationButtonsHidden
+        />
+      </div>
     </Flex>
   )
 };
@@ -117,6 +124,7 @@ export const NavigableSteps = {
     return (
       <div>
         <Steps
+          id="navigable-steps"
           steps={steps5}
           isContentOnTop
           activeStepIndex={activeStepIndex}
@@ -159,33 +167,33 @@ export const StepsInsideATipseen = {
     }, []);
 
     return (
-      <div className="monday-storybook-steps_block">
-        <Tipseen
-          position="left"
-          modifiers={modifiers}
-          animationType="opacity-and-slide"
-          content={
-            <TipseenWizard
-              title="This is a title"
-              steps={steps}
-              onChangeActiveStep={onChangeActiveStep}
-              activeStepIndex={activeStepIndex}
-              backButtonProps={{
-                size: "small",
-                onClick: stepPrev
-              }}
-              nextButtonProps={{
-                kind: "primary",
-                size: "small",
-                onClick: stepNext
-              }}
-              onFinish={() => {}}
-            />
-          }
-        >
-          <div className="monday-storybook-steps_container" />
-        </Tipseen>
-      </div>
+      <Tipseen
+        id="tipseen-with-steps"
+        position="right"
+        modifiers={modifiers}
+        animationType="opacity-and-slide"
+        content={
+          <TipseenWizard
+            id="tipseen-wizard"
+            title="This is a title"
+            steps={steps}
+            onChangeActiveStep={onChangeActiveStep}
+            activeStepIndex={activeStepIndex}
+            backButtonProps={{
+              size: "small",
+              onClick: stepPrev
+            }}
+            nextButtonProps={{
+              kind: "primary",
+              size: "small",
+              onClick: stepNext
+            }}
+            onFinish={() => {}}
+          />
+        }
+      >
+        <div style={{ width: "10px", height: "150px" }} />
+      </Tipseen>
     );
   },
   parameters: {

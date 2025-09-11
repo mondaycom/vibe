@@ -1,9 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Checkbox renders correctly when autoFocus 1`] = `
+exports[`Checkbox renders correctly > when autoFocus 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -26,6 +27,7 @@ exports[`Checkbox renders correctly when autoFocus 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -46,10 +48,11 @@ exports[`Checkbox renders correctly when autoFocus 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly when checked 1`] = `
+exports[`Checkbox renders correctly > when checked 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -71,6 +74,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -91,10 +95,11 @@ exports[`Checkbox renders correctly when checked 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly when default checked 1`] = `
+exports[`Checkbox renders correctly > when default checked 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -116,6 +121,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -136,10 +142,11 @@ exports[`Checkbox renders correctly when default checked 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly when disabled 1`] = `
+exports[`Checkbox renders correctly > when disabled 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -161,6 +168,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -181,10 +189,11 @@ exports[`Checkbox renders correctly when disabled 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly when interminate 1`] = `
+exports[`Checkbox renders correctly > when interminate 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -206,6 +215,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -226,10 +236,11 @@ exports[`Checkbox renders correctly when interminate 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
+exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -252,6 +263,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -272,10 +284,11 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly with empty props 1`] = `
+exports[`Checkbox renders correctly > with empty props 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -297,6 +310,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -317,10 +331,11 @@ exports[`Checkbox renders correctly with empty props 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly with name 1`] = `
+exports[`Checkbox renders correctly > with name 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -342,6 +357,7 @@ exports[`Checkbox renders correctly with name 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -362,10 +378,11 @@ exports[`Checkbox renders correctly with name 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly with props 1`] = `
+exports[`Checkbox renders correctly > with props 1`] = `
 <label
   className="wrapper dummy-class-name"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -387,6 +404,7 @@ exports[`Checkbox renders correctly with props 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -409,10 +427,11 @@ exports[`Checkbox renders correctly with props 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly with value 1`] = `
+exports[`Checkbox renders correctly > with value 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -434,6 +453,7 @@ exports[`Checkbox renders correctly with value 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"
@@ -454,10 +474,11 @@ exports[`Checkbox renders correctly with value 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly without label 1`] = `
+exports[`Checkbox renders correctly > without label 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"
+  data-vibe="Checkbox"
   onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
@@ -479,6 +500,7 @@ exports[`Checkbox renders correctly without label 1`] = `
       aria-hidden={true}
       className="icon icon noFocusStyle"
       data-testid="icon"
+      data-vibe="Icon"
       fill="currentColor"
       height="16"
       viewBox="0 0 20 20"

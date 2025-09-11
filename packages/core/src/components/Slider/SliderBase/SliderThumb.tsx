@@ -1,33 +1,35 @@
-import React, { FC, useEffect, useRef } from "react";
+import React, { type FC, useEffect, useRef } from "react";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { SliderColor, SliderSize } from "../Slider.types";
-import { camelCase } from "lodash-es";
+import { type SliderColor, type SliderSize } from "../Slider.types";
+import { camelCase } from "es-toolkit";
 
 export interface SliderThumbProps extends VibeComponentProps {
   /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
-   */
-  className?: string;
-  /**
-   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   * The index of the thumb (used in range sliders).
    */
   index?: number;
   /**
-   * On SliderThumb move callback
+   * Callback fired when the thumb is moved.
    */
   onMove?: (event: PointerEvent) => void;
   /**
-   * Position (i.e. offset) from start of track/rail, according to value
+   * The position of the thumb, represented as an offset percentage from the start of the track.
    */
   position?: number;
+  /**
+   * The size of the slider thumb.
+   */
   size: SliderSize;
+  /**
+   * The color theme of the slider thumb.
+   */
   color: SliderColor;
 }
 

@@ -1,8 +1,9 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BaseInput from "../BaseInput";
-import { BaseInputProps } from "../BaseInput.types";
+import { type BaseInputProps } from "../BaseInput.types";
 
 function renderBaseInput(props?: Partial<BaseInputProps>) {
   return render(<BaseInput aria-label="base-input" {...props} />);
@@ -76,7 +77,7 @@ describe("BaseInput", () => {
 
     it("should call onChange on every input", () => {
       const expectedValue = "Hello, World!";
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const { getByLabelText } = renderBaseInput({ onChange });
       const input = getByLabelText("base-input");
       userEvent.type(input, expectedValue);
@@ -84,8 +85,8 @@ describe("BaseInput", () => {
     });
 
     it("should handle focus and blur events", () => {
-      const onFocus = jest.fn();
-      const onBlur = jest.fn();
+      const onFocus = vi.fn();
+      const onBlur = vi.fn();
       const { getByLabelText } = renderBaseInput({ onFocus, onBlur });
       const input = getByLabelText("base-input");
       userEvent.click(input);
@@ -95,9 +96,9 @@ describe("BaseInput", () => {
     });
 
     it("should handle key down and up", () => {
-      const onEnterDown = jest.fn();
+      const onEnterDown = vi.fn();
       const onKeyDown = (e: React.KeyboardEvent) => e.key === "Enter" && onEnterDown();
-      const onEnterUp = jest.fn();
+      const onEnterUp = vi.fn();
       const onKeyUp = (e: React.KeyboardEvent) => e.key === "Enter" && onEnterUp();
       const { getByLabelText } = renderBaseInput({ onKeyDown, onKeyUp });
 

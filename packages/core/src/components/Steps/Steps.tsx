@@ -1,37 +1,68 @@
-import React, { forwardRef, ReactElement, useRef } from "react";
+import React, { forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
 import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
-import { StepsColor, StepsType } from "./Steps.types";
-import { ButtonProps } from "../Button/Button";
+import { type StepsColor, type StepsType } from "./Steps.types";
+import { type ButtonProps } from "../Button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { withStaticProps, VibeComponent, VibeComponentProps } from "../../types";
+import { withStaticProps, type VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface StepsProps extends VibeComponentProps {
   /**
-   * The index of the current displayed step
+   * The index of the currently active step.
    */
   activeStepIndex?: number;
   /**
-   * A callback which called when the active step is changed
+   * Callback fired when the active step changes.
    */
   onChangeActiveStep?: (e: React.MouseEvent, stepIndex: number) => void;
+  /**
+   * If true, hides the navigation buttons.
+   */
   areNavigationButtonsHidden?: boolean;
+  /**
+   * The list of steps in the steps component.
+   */
   steps?: ReactElement[];
+  /**
+   * The visual style of the steps component.
+   */
   type?: StepsType;
+  /**
+   * The color theme of the steps component.
+   */
   color?: StepsColor;
+  /**
+   * If true, the content is displayed above the step navigation.
+   */
   isContentOnTop?: boolean;
+  /**
+   * If true, hides the icons in the navigation buttons.
+   */
   areButtonsIconsHidden?: boolean;
+  /**
+   * Props applied to the back button.
+   */
   backButtonProps?: Partial<ButtonProps>;
+  /**
+   * Props applied to the next button.
+   */
   nextButtonProps?: Partial<ButtonProps>;
+  /**
+   * Props applied to the finish button.
+   */
   finishButtonProps?: Partial<ButtonProps>;
+  /**
+   * Callback fired when the finish button is clicked.
+   */
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
-const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?: typeof StepsColorEnum } = forwardRef(
+const Steps = forwardRef(
   (
     {
       className,
@@ -50,7 +81,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?
       finishButtonProps = {},
       areButtonsIconsHidden = false
     }: StepsProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -61,6 +92,7 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?
         className={cx(styles.steps, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS, id)}
+        data-vibe={ComponentVibeId.STEPS}
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader
@@ -86,7 +118,12 @@ const Steps: VibeComponent<StepsProps> & { types?: typeof StepsTypeEnum; colors?
   }
 );
 
-export default withStaticProps(Steps, {
+interface StepsStaticProps {
+  types: typeof StepsTypeEnum;
+  colors: typeof StepsColorEnum;
+}
+
+export default withStaticProps<StepsProps, StepsStaticProps>(Steps, {
   types: StepsTypeEnum,
   colors: StepsColorEnum
 });

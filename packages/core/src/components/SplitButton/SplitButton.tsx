@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 // Libraries import
-import React, { FC, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { type ReactElement, useCallback, useMemo, useRef, useState } from "react";
 // Constants import
 import {
   DEFAULT_DIALOG_HIDE_TRIGGER,
@@ -14,10 +14,10 @@ import {
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   SplitButtonSecondaryContentPosition,
-  SplitButtonSecondaryContentPositionType
+  type SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
-import { withStaticProps } from "../../types";
-import { AnimationType, DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
+import { withStaticPropsWithoutForwardRef } from "../../types";
+import { AnimationType, type DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -25,53 +25,60 @@ import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 // Components import
-import Button, { ButtonProps } from "../Button/Button";
-import Dialog, { DialogEvent } from "../Dialog/Dialog";
+import Button, { type ButtonProps } from "../Button/Button";
+import Dialog, { type DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import styles from "./SplitButton.module.scss";
-import { DialogSize, DialogTriggerEvent } from "../Dialog";
+import { type DialogSize, type DialogTriggerEvent } from "../Dialog";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
-  /*
-   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
+  /**
+   * The element or renderer that is displayed inside the dialog opened by clicking the secondary button.
    */
   secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  /**
+   * Callback fired when the secondary dialog is shown.
+   */
   onSecondaryDialogDidShow?: () => void;
+  /**
+   * Callback fired when the secondary dialog is hidden.
+   */
   onSecondaryDialogDidHide?: () => void;
+  /**
+   * The z-index applied to the secondary dialog.
+   */
   zIndex?: number;
-  /*
-   * Class name to provide the element which wraps the popover/modal/dialog
+  /**
+   * Class name applied to the wrapper of the secondary dialog.
    */
   secondaryDialogClassName?: string;
+  /**
+   * The position of the secondary dialog.
+   */
   secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
-  /*
-    Popover Container padding size
+  /**
+   * The padding size inside the secondary dialog.
    */
   dialogPaddingSize?: DialogSize;
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The CSS selector of the container where the dialog should be rendered.
    */
   dialogContainerSelector?: string;
+  /**
+   * If true, clicking inside the dialog will close it.
+   */
   shouldCloseOnClickInsideDialog?: boolean;
 }
 
-const SplitButton: FC<SplitButtonProps> & {
-  secondaryPositions?: typeof SplitButtonSecondaryContentPosition;
-  secondaryDialogPositions?: typeof SplitButtonSecondaryContentPosition;
-  sizes?: typeof Button.sizes;
-  colors?: typeof Button.colors;
-  kinds?: typeof Button.kinds;
-  inputTags?: typeof Button.inputTags;
-  dialogPaddingSizes?: typeof DialogContentContainer.sizes;
-} = ({
+const SplitButton = ({
   secondaryDialogContent,
   onSecondaryDialogDidShow = NOOP,
   onSecondaryDialogDidHide = NOOP,
   shouldCloseOnClickInsideDialog,
   zIndex = null,
-  secondaryDialogClassName,
+  secondaryDialogClassName = "",
   secondaryDialogPosition = "bottom-start",
   dialogContainerSelector,
   dialogPaddingSize = "medium",
@@ -80,8 +87,8 @@ const SplitButton: FC<SplitButtonProps> & {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   success,
   loading,
-  kind,
-  color,
+  kind = "primary",
+  color = "primary",
   className,
   leftIcon,
   rightIcon,
@@ -213,6 +220,7 @@ const SplitButton: FC<SplitButtonProps> & {
       ref={ref}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
+      data-vibe={ComponentVibeId.SPLIT_BUTTON}
     >
       <Button
         {
@@ -280,17 +288,17 @@ const SplitButton: FC<SplitButtonProps> & {
   );
 };
 
-SplitButton.defaultProps = {
-  ...Button.defaultProps,
-  onSecondaryDialogDidShow: NOOP,
-  onSecondaryDialogDidHide: NOOP,
-  zIndex: null,
-  secondaryDialogClassName: "",
-  secondaryDialogPosition: "bottom-start",
-  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
-};
+interface SplitButtonStaticProps {
+  secondaryPositions: typeof SplitButtonSecondaryContentPosition;
+  secondaryDialogPositions: typeof SplitButtonSecondaryContentPosition;
+  sizes: typeof Button.sizes;
+  colors: typeof Button.colors;
+  kinds: typeof Button.kinds;
+  inputTags: typeof Button.inputTags;
+  dialogPaddingSizes: typeof DialogContentContainer.sizes;
+}
 
-export default withStaticProps(SplitButton, {
+export default withStaticPropsWithoutForwardRef<SplitButtonProps, SplitButtonStaticProps>(SplitButton, {
   secondaryPositions: SplitButtonSecondaryContentPosition,
   secondaryDialogPositions: SplitButtonSecondaryContentPosition,
   sizes: Button.sizes,

@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import Tooltip from "../Tooltip";
@@ -5,7 +6,7 @@ import Button from "../../Button/Button";
 
 describe("Tooltip tests", () => {
   it("Should trigger onTooltipShow", async () => {
-    const onTooltipShow = jest.fn();
+    const onTooltipShow = vi.fn();
     const { getByText } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow}>
         <div>hello</div>
@@ -17,7 +18,7 @@ describe("Tooltip tests", () => {
   });
 
   it("Shouldn't trigger onTooltipShow on keyboard focus", async () => {
-    const onTooltipShow = jest.fn();
+    const onTooltipShow = vi.fn();
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow}>
@@ -29,7 +30,7 @@ describe("Tooltip tests", () => {
   });
 
   it("Should trigger onTooltipShow on keyboard focus when addKeyboardHideShowTriggersByDefault is true", async () => {
-    const onTooltipShow = jest.fn();
+    const onTooltipShow = vi.fn();
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow} addKeyboardHideShowTriggersByDefault>
@@ -42,7 +43,7 @@ describe("Tooltip tests", () => {
   });
 
   it("Should trigger onTooltipHide", async () => {
-    const onTooltipHide = jest.fn();
+    const onTooltipHide = vi.fn();
     const { getByText } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
         <div>hello</div>
@@ -56,7 +57,7 @@ describe("Tooltip tests", () => {
   });
 
   it("Shouldn't trigger onTooltipHide on keyboard blur", async () => {
-    const onTooltipHide = jest.fn();
+    const onTooltipHide = vi.fn();
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
@@ -70,7 +71,7 @@ describe("Tooltip tests", () => {
   });
 
   it("Should trigger onTooltipHide on keyboard blur by default", async () => {
-    const onTooltipHide = jest.fn();
+    const onTooltipHide = vi.fn();
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>

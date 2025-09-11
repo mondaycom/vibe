@@ -49,21 +49,36 @@ const commonRules = {
   "jsx-a11y/no-noninteractive-tabindex": "error",
   "react/jsx-boolean-value": "off",
   "arrow-parens": "off",
-  "lodash/import-scope": [2, "member"],
   "implicit-arrow-linebreak": "off",
-  "import/no-extraneous-dependencies": ["error", { devDependencies: true }]
+  "import/no-extraneous-dependencies": [
+    "error",
+    {
+      devDependencies: [
+        "src/scripts/**/*.ts",
+        "src/storybook/**/*",
+        "**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "**/__stories__/**/*.{js,jsx,ts,tsx}",
+        "**/*.test.{js,jsx,ts,tsx}",
+        "**/*.spec.{js,jsx,ts,tsx}",
+        "**/*.snapshot.test.{js,jsx,ts,tsx}",
+        "src/tests/**/*.{js,jsx,ts,tsx}",
+        "vitest.config.ts"
+      ]
+    }
+  ]
 };
-const commonPlugins = ["import", "lodash", "react", "jsx-a11y", "json", "markdown", "jest"];
-const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"];
+const commonPlugins = ["import", "react", "jsx-a11y", "json", "markdown", "vitest"];
+const commonExtends = [
+  "plugin:react/recommended",
+  "plugin:react-hooks/recommended",
+  "plugin:prettier/recommended",
+  "plugin:vitest/recommended"
+];
 
 module.exports = {
   overrides: [
     {
-      files: ["*.test.js", "jest.init.js"],
-      env: {
-        jest: true,
-        "jest/globals": true
-      }
+      files: ["*.test.js"]
     },
     {
       files: [
@@ -93,7 +108,8 @@ module.exports = {
         "no-unused-vars": "off",
         "react/require-default-props": "off",
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
-        "@typescript-eslint/no-empty-function": "off"
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/consistent-type-imports": ["error", { fixStyle: "inline-type-imports" }]
       }
     },
     {
@@ -119,9 +135,6 @@ module.exports = {
     es2021: true
   },
   settings: {
-    jest: {
-      version: 29
-    },
     react: {
       version: "detect"
     }

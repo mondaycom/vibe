@@ -1,12 +1,9 @@
 import React from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import MultiStepIndicator from "../MultiStepIndicator";
-import { StepStatus } from "../MultiStepConstants";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
 import { Upgrade } from "@vibe/icons";
-import Flex from "../../Flex/Flex";
-import "./MultiStepIndicator.stories.scss";
-import { Step } from "../MultiStep.types";
+import { type Step } from "../MultiStep.types";
 
 export default {
   title: "Components/MultiStepIndicator",
@@ -20,6 +17,7 @@ export const Overview = {
   name: "Overview",
 
   args: {
+    id: "overview-multi-step",
     steps: [
       {
         key: "FULFILLED",
@@ -77,19 +75,11 @@ export const Placements = {
     );
 
     return (
-      <div className="monday-storybook-multiStepIndicator_column-wrapper">
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Vertical</span>
-          <MultiStepIndicator
-            className="monday-storybook-multiStepIndicator_size"
-            textPlacement="vertical"
-            steps={steps}
-          />
-        </div>
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Horizontal</span>
-          <MultiStepIndicator steps={steps} />
-        </div>
+      <div>
+        Vertical
+        <MultiStepIndicator id="placements-vertical" textPlacement="vertical" steps={steps} />
+        Horizontal
+        <MultiStepIndicator id="placements-horizontal" steps={steps} />
       </div>
     );
   }
@@ -122,23 +112,15 @@ export const Types = {
     );
 
     return (
-      <div className="monday-storybook-multiStepIndicator_column-wrapper">
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Primary</span>
-          <MultiStepIndicator steps={steps} type="primary" />
-        </div>
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Success</span>
-          <MultiStepIndicator steps={steps} type="success" />
-        </div>
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Danger</span>
-          <MultiStepIndicator steps={steps} type="danger" />
-        </div>
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Dark</span>
-          <MultiStepIndicator steps={steps} type="dark" />
-        </div>
+      <div>
+        Primary
+        <MultiStepIndicator id="types-primary" steps={steps} type="primary" />
+        Success
+        <MultiStepIndicator id="types-success" steps={steps} type="success" />
+        Danger
+        <MultiStepIndicator id="types-danger" steps={steps} type="danger" />
+        Dark
+        <MultiStepIndicator id="types-dark" aria-label="Dark type multi-step indicator" steps={steps} type="dark" />
       </div>
     );
   }
@@ -171,23 +153,13 @@ export const Sizes = {
     );
 
     return (
-      <Flex direction="column" align="start" gap="small">
-        <StoryDescription description="Regular">
-          <MultiStepIndicator steps={steps} size="regular" />
-        </StoryDescription>
-        <StoryDescription description="Compact">
-          <MultiStepIndicator className="multi_step_indicator_compact" steps={steps} size="compact" />
-        </StoryDescription>
-      </Flex>
+      <div>
+        Regular
+        <MultiStepIndicator id="sizes-regular" steps={steps} size="regular" />
+        Compact
+        <MultiStepIndicator id="sizes-compact" steps={steps} size="compact" />
+      </div>
     );
-  },
-
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
   }
 };
 
@@ -218,19 +190,13 @@ export const FulfilledIcons = {
     );
 
     return (
-      <div className="monday-storybook-multiStepIndicator_column-wrapper">
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Default (check)</span>
-          <MultiStepIndicator steps={steps} />
-        </div>
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Number instead of icon</span>
-          <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
-        </div>
-        <div className="monday-storybook-multiStepIndicator_row-wrapper">
-          <span className="monday-storybook-multiStepIndicator_title">Custom </span>
-          <MultiStepIndicator steps={steps} fulfilledStepIcon={Upgrade} />
-        </div>
+      <div>
+        Default (check)
+        <MultiStepIndicator id="icons-default" steps={steps} />
+        Number instead of icon
+        <MultiStepIndicator id="icons-numbers" steps={steps} isFulfilledStepDisplayNumber={true} />
+        Custom
+        <MultiStepIndicator id="icons-custom" steps={steps} fulfilledStepIcon={Upgrade} />
       </div>
     );
   },
@@ -245,131 +211,62 @@ export const FulfilledIcons = {
 
 export const TransitionAnimation = {
   render: () => {
-    const exampleSteps = useMemo<Record<string, Step>>(
-      () => ({
-        firstStep: {
+    const initialSteps = useMemo<Step[]>(
+      () => [
+        {
           key: "PENDING",
           status: "pending",
           titleText: "First step title",
           subtitleText: "First subtitle"
         },
-
-        secondStep: {
+        {
           key: "PENDING-2",
           status: "pending",
           titleText: "Second step title",
           subtitleText: "Second subtitle"
         },
-
-        thirdStep: {
+        {
           key: "PENDING-3",
           status: "pending",
           titleText: "Third step title",
           subtitleText: "Third subtitle"
         }
-      }),
+      ],
       []
     );
 
-    const [steps, setSteps] = useState<Step[]>([
-      {
-        ...exampleSteps.firstStep
-      },
-      {
-        ...exampleSteps.secondStep
-      },
-      {
-        ...exampleSteps.thirdStep
-      }
-    ]);
-
-    const clearSteps = useCallback(() => {
-      setSteps([
-        {
-          ...exampleSteps.firstStep
-        },
-        {
-          ...exampleSteps.secondStep
-        },
-        {
-          ...exampleSteps.thirdStep
-        }
-      ]);
-    }, [exampleSteps.firstStep, exampleSteps.secondStep, exampleSteps.thirdStep]);
-
-    const [numActions, setNumActions] = useState(0);
-
-    const getStepKeyForTransition = useCallback(() => {
-      if (numActions < 2) return "firstStep";
-      else if (numActions < 4) return "secondStep";
-      else return "thirdStep";
-    }, [numActions]);
-
-    const STEP_TRANSITIONS = useMemo(
-      () => ({
-        [StepStatus.PENDING]: StepStatus.ACTIVE,
-        [StepStatus.ACTIVE]: StepStatus.FULFILLED,
-        [StepStatus.FULFILLED]: StepStatus.PENDING
-      }),
-      []
-    );
-
-    const performIndicatorStateTransition = useCallback(() => {
-      if (numActions === steps.length * 2) {
-        clearSteps();
-        setNumActions(0);
-        return;
-      }
-
-      const stepKey = getStepKeyForTransition();
-
-      const copySteps = {
-        firstStep: {
-          ...steps[0]
-        },
-
-        secondStep: {
-          ...steps[1]
-        },
-
-        thirdStep: {
-          ...steps[2]
-        }
-      };
-
-      copySteps[stepKey].status = STEP_TRANSITIONS[copySteps[stepKey].status];
-
-      setSteps([
-        {
-          ...copySteps.firstStep
-        },
-        {
-          ...copySteps.secondStep
-        },
-        {
-          ...copySteps.thirdStep
-        }
-      ]);
-
-      setNumActions(numActions + 1);
-    }, [numActions, steps, getStepKeyForTransition, STEP_TRANSITIONS, clearSteps]);
+    const [steps, setSteps] = useState<Step[]>(initialSteps);
 
     useEffect(() => {
-      const interval = setInterval(performIndicatorStateTransition, 2000);
+      const getNextStepsState = (currentSteps: Step[]): Step[] => {
+        const currentStepIndex = currentSteps.findIndex(step => step.status !== "fulfilled");
+
+        if (currentStepIndex === -1) {
+          return initialSteps;
+        }
+
+        const newSteps = [...currentSteps];
+        const stepToUpdate = newSteps[currentStepIndex];
+
+        if (stepToUpdate.status === "pending") {
+          newSteps[currentStepIndex] = { ...stepToUpdate, status: "active" };
+        } else {
+          newSteps[currentStepIndex] = { ...stepToUpdate, status: "fulfilled" };
+        }
+
+        return newSteps;
+      };
+
+      const interval = setInterval(() => {
+        setSteps(prevSteps => getNextStepsState(prevSteps));
+      }, 2000);
 
       return () => {
         clearInterval(interval);
       };
-    }, [performIndicatorStateTransition]);
+    }, [initialSteps]);
 
-    return <MultiStepIndicator steps={steps} />;
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StepStatus }
-      }
-    }
+    return <MultiStepIndicator id="transition-animation" steps={steps} />;
   }
 };
 
@@ -399,12 +296,6 @@ export const MultiStepWizard = {
       []
     );
 
-    return (
-      <MultiStepIndicator
-        className="monday-storybook-multiStepIndicator_big-size"
-        steps={steps}
-        textPlacement="vertical"
-      />
-    );
+    return <MultiStepIndicator id="multi-step-wizard" steps={steps} textPlacement="vertical" />;
   }
 };

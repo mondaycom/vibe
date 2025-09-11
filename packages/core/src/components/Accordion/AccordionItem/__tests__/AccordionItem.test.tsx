@@ -1,13 +1,14 @@
+import { vi, beforeEach, describe, it, expect, type Mock } from "vitest";
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Accordion from "../../Accordion/Accordion";
 import AccordionItem from "../AccordionItem";
 
 describe("AccordionItem tests", () => {
-  let onClickMock: jest.Mock;
+  let onClickMock: Mock;
 
   beforeEach(() => {
-    onClickMock = jest.fn();
+    onClickMock = vi.fn();
     render(
       <Accordion>
         <AccordionItem onClick={onClickMock} />

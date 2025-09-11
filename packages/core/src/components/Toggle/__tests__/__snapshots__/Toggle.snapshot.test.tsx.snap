@@ -1,8 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Toggle renders correctly renders correctly when disabled 1`] = `
+exports[`Toggle renders correctly > renders correctly when disabled 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -34,9 +35,10 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly when labels are hidden 1`] = `
+exports[`Toggle renders correctly > renders correctly when labels are hidden 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -55,9 +57,10 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly when selection defined by default selected (off)  1`] = `
+exports[`Toggle renders correctly > renders correctly when selection defined by default selected (off) 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={false}
@@ -88,9 +91,10 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly when selection defined by default selected (on)  1`] = `
+exports[`Toggle renders correctly > renders correctly when selection defined by default selected (on) 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -121,9 +125,10 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly when selection defined by isSelected (off) 1`] = `
+exports[`Toggle renders correctly > renders correctly when selection defined by isSelected (off) 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={false}
@@ -154,9 +159,10 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly when selection defined by isSelected (on) 1`] = `
+exports[`Toggle renders correctly > renders correctly when selection defined by isSelected (on) 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -187,9 +193,10 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
+exports[`Toggle renders correctly > renders correctly with aria controls 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -221,9 +228,10 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly with empty props 1`] = `
+exports[`Toggle renders correctly > renders correctly with empty props 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -254,9 +262,10 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly with not default offOverrideText 1`] = `
+exports[`Toggle renders correctly > renders correctly with not default offOverrideText 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}
@@ -287,9 +296,10 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
 </label>
 `;
 
-exports[`Toggle renders correctly renders correctly with not default onOverrideText 1`] = `
+exports[`Toggle renders correctly > renders correctly with not default onOverrideText 1`] = `
 <label
   className="wrapper"
+  data-vibe="Toggle"
 >
   <input
     aria-checked={true}

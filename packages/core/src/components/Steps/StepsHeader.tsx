@@ -1,25 +1,58 @@
-import React, { FC, useMemo } from "react";
+import React, { type FC, useMemo } from "react";
 import cx from "classnames";
 import { StepsCommand } from "./StepsCommand";
-import { StepsGalleryHeader, StepsGalleryHeaderProps } from "./StepsGalleryHeader";
-import { StepsNumbersHeader, StepsNumbersHeaderProps } from "./StepsNumbersHeader";
+import { StepsGalleryHeader, type StepsGalleryHeaderProps } from "./StepsGalleryHeader";
+import { StepsNumbersHeader, type StepsNumbersHeaderProps } from "./StepsNumbersHeader";
 import { FINISH_TEXT } from "./StepsConstants";
-import { StepsType, StepsColor } from "./Steps.types";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import Button, { ButtonProps } from "../Button/Button";
+import { type StepsType, type StepsColor } from "./Steps.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import Button, { type ButtonProps } from "../Button/Button";
 import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
+  /**
+   * The type of steps header.
+   */
   type: StepsType;
+  /**
+   * The index of the currently active step.
+   */
   activeStepIndex: number;
+  /**
+   * Callback fired when the active step changes.
+   */
   onChangeActiveStep: (e: React.MouseEvent, stepIndex: number) => void;
+  /**
+   * The total number of steps.
+   */
   stepsCount: number;
+  /**
+   * If true, hides the navigation buttons.
+   */
   areNavigationButtonsHidden: boolean;
+  /**
+   * Props applied to the back button.
+   */
   backButtonProps: Partial<ButtonProps>;
+  /**
+   * Props applied to the next button.
+   */
   nextButtonProps: Partial<ButtonProps>;
+  /**
+   * Props applied to the finish button.
+   */
   finishButtonProps: Partial<ButtonProps>;
+  /**
+   * If true, hides the icons in the navigation buttons.
+   */
   areButtonsIconsHidden: boolean;
+  /**
+   * The color theme of the steps header.
+   */
   color?: StepsColor;
+  /**
+   * Callback fired when the finish button is clicked.
+   */
   onFinish?: (e: React.MouseEvent) => void;
 }
 

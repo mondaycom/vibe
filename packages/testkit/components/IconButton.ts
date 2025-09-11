@@ -1,42 +1,36 @@
 import { Locator, Page, test } from "@playwright/test";
-import { Button } from "./Button";
+import { BaseElement } from "./BaseElement";
 import { Menu } from "./Menu";
 
 /**
- * Class representing an icon button that extends the Button class.
+ * Class representing an IconButton element.
+ * Extends the BaseElement class.
  */
-export class IconButton extends Button {
-  icon: Button;
-  menu: Menu | undefined;
+export class IconButton extends BaseElement {
+  private menu?: Menu;
 
   /**
-   * Create an IconButton.
+   * Create an IconButton element.
    * @param {Page} page - The Playwright page object.
    * @param {Locator} locator - The locator for the IconButton element.
    * @param {string} elementReportName - The name for reporting purposes.
-   * @param menuType - The type of menu associated with the button.
    */
-  constructor(page: Page, locator: Locator, elementReportName: string, menuType?: Menu) {
+  constructor(page: Page, locator: Locator, elementReportName: string, menu?: Menu) {
     super(page, locator, elementReportName);
-    this.icon = new Button(this.page, this.locator, `${this.elementReportName} - Icon`);
-    this.menu = menuType;
+    this.menu = menu;
   }
 
   /**
-   * Select an item from the icon button's menu.
-   * @param {string} item - The item to select.
+   * Select an item from the menu.
+   * @param {string} itemName - The name of the item to select.
    * @returns {Promise<void>}
    */
-  async selectItem(item: string): Promise<void> {
-    await test.step(
-      `Select ${item} from ${this.elementReportName}`,
-      async () => {
-        await this.icon.click();
-        if (this.menu) {
-          await this.menu.selectItem(item);
-        }
-      },
-      { box: false }
-    );
+  async selectItem(itemName: string): Promise<void> {
+    await test.step(`Click menu item by name ${itemName} for ${this.getElementReportName()}`, async () => {
+      await this.click();
+      if (this.menu) {
+        await this.menu.selectItem(itemName);
+      }
+    });
   }
 }

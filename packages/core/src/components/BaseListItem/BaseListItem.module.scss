@@ -5,9 +5,8 @@
   border-radius: var(--border-radius-small);
   color: var(--primary-text-color);
   cursor: pointer;
-  margin-bottom: 2px;
 
-  &:hover:not(.disabled):not(.readOnly), &.highlighted  {
+  &.highlighted {
     background-color: var(--primary-background-hover-color);
   }
 
@@ -15,7 +14,7 @@
     color: var(--disabled-text-color);
     cursor: not-allowed;
   }
-  
+
   &.readOnly {
     cursor: default;
   }
@@ -23,25 +22,25 @@
   &.selected {
     background-color: var(--primary-selected-color);
 
-    &:hover, &.highlighted {
+    &.highlighted {
       background-color: var(--primary-selected-hover-color);
     }
   }
 
   &.small {
-    padding: 6px 8px;
+    padding: 6px var(--spacing-small);
   }
 
   &.medium {
-    padding: 10px 12px;
+    padding: 9px 12px;
   }
 
   &.large {
-    padding: 14px 12px;
+    padding: 13px 12px;
   }
 
   .avatar,
-  .icon{
+  .icon {
     flex-shrink: 0;
   }
 

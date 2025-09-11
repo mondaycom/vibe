@@ -1,7 +1,5 @@
-import HiddenText from "../HiddenText";
-import { createComponentTemplate } from "vibe-storybook-components";
-
-const hiddenTextTemplate = createComponentTemplate(HiddenText);
+import React from "react";
+import HiddenText, { type HiddenTextProps } from "../HiddenText";
 
 export default {
   title: "Accessibility/HiddenText",
@@ -9,10 +7,7 @@ export default {
 };
 
 export const Overview = {
-  render: hiddenTextTemplate.bind({}),
-  name: "Overview",
-
-  args: {
-    text: "Hello hidden text"
+  render: (args: HiddenTextProps) => {
+    return <HiddenText text="Hello hidden text" {...args} />;
   }
 };

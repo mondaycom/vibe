@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`exports should export all components 1`] = `
+exports[`exports > should export all components 1`] = `
 [
   "Accordion",
   "AccordionItem",
@@ -15,6 +15,8 @@ exports[`exports should export all components 1`] = `
   "Badge",
   "Box",
   "BreadcrumbItem",
+  "BreadcrumbMenu",
+  "BreadcrumbMenuItem",
   "BreadcrumbsBar",
   "Button",
   "ButtonGroup",
@@ -37,6 +39,7 @@ exports[`exports should export all components 1`] = `
   "DropdownSingleValue",
   "EditableHeading",
   "EditableText",
+  "EmptyState",
   "ExpandCollapse",
   "Flex",
   "FormattedNumber",
@@ -68,6 +71,7 @@ exports[`exports should export all components 1`] = `
   "ModalFooterButtons",
   "ModalHeader",
   "MultiStepIndicator",
+  "NumberField",
   "RadioButton",
   "Search",
   "Skeleton",
@@ -111,8 +115,37 @@ exports[`exports should export all components 1`] = `
 ]
 `;
 
-exports[`exports should export next all components 1`] = `
+exports[`exports > should export all hooks 1`] = `
 [
+  "useActiveDescendantListFocus",
+  "useAfterFirstRender",
+  "useClickOutside",
+  "useClickableProps",
+  "useDebounceEvent",
+  "useElementsOverflowingIndex",
+  "useEventListener",
+  "useGridKeyboardNavigation",
+  "useHover",
+  "useIsMouseOver",
+  "useIsOverflowing",
+  "useKeyEvent",
+  "useListenFocusTriggers",
+  "useMediaQuery",
+  "useMergeRefs",
+  "usePrevious",
+  "useResizeObserver",
+  "useSetFocus",
+  "useSwitch",
+  "useTimeout",
+  "useVibeMediaQuery",
+  "useWizard",
+]
+`;
+
+exports[`exports > should export next all components 1`] = `
+[
+  "AttentionBox",
+  "Dropdown",
   "Modal",
   "ModalBasicLayout",
   "ModalContent",

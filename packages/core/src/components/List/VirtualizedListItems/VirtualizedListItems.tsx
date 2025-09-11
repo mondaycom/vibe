@@ -1,10 +1,10 @@
-import React, { CSSProperties, ReactElement, useCallback, useMemo } from "react";
+import React, { type CSSProperties, type ReactElement, useCallback, useMemo } from "react";
 import cx from "classnames";
-import ListItem, { ListItemProps } from "../../../components/ListItem/ListItem";
-import ListTitle, { ListTitleProps } from "../../ListTitle/ListTitle";
+import ListItem, { type ListItemProps } from "../../../components/ListItem/ListItem";
+import ListTitle, { type ListTitleProps } from "../../ListTitle/ListTitle";
 import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import { ListItemIconProps } from "../../ListItemIcon/ListItemIcon";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type ListItemIconProps } from "../../ListItemIcon/ListItemIcon";
 import styles from "./VirtualizedListItems.module.scss";
 
 const ITEM_CHILDREN_TYPES = {
@@ -16,6 +16,9 @@ const LIST_TITLE_HEIGHT = 48;
 const LIST_ITEM_HEIGHT = 32;
 
 export interface VirtualizedListItemsProps extends VibeComponentProps {
+  /**
+   * The list of children.
+   */
   children?: React.ReactElement<ListItemProps | ListTitleProps> | React.ReactElement<ListItemProps | ListTitleProps>[];
 }
 

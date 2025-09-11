@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { FC } from "react";
-import Link, { LinkProps } from "../../Link/Link";
+import React, { type FC } from "react";
+import Link, { type LinkProps } from "../../Link/Link";
 import styles from "./ToastLink.module.scss";
 
 export type ToastLinkProps = LinkProps;

@@ -6,14 +6,6 @@ import * as MenuItemStories from "./MenuItem.stories";
 
 # Menu Item
 
-- [Overview](#overview)
-- [Props](#props)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 Use menu item for drawing one options that displayed inside a menu.
 
 <Canvas of={MenuItemStories.Overview} />
@@ -27,6 +19,25 @@ import { MenuItem } from "@vibe/core";
 ## Props
 
 <PropsTable />
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>aria-label</code> prop when you need to provide a custom accessible name that differs from the
+      visible title text, especially for icon-only menu items.
+    </>,
+    <>
+      For menu items with submenus, ensure the submenu content is properly structured with descriptive menu item titles
+      for clear navigation hierarchy.
+    </>,
+    <>
+      Use the <code>disabled</code> prop appropriately with a <code>disableReason</code> to provide context for why a
+      menu item cannot be selected.
+    </>
+  ]}
+/>
 
 ## Variants
 

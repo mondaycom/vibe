@@ -1,11 +1,14 @@
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./HiddenText.module.scss";
 
 export interface HiddenTextProps extends VibeComponentProps {
+  /**
+   * The text content that is hidden but available for assistive technologies.
+   */
   text: string;
 }
 

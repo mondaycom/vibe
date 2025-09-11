@@ -1,23 +1,28 @@
 import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
-import { VibeComponentProps, ElementContent } from "../../../types";
+import { type VibeComponentProps, type ElementContent } from "../../../types";
+import { type ExpandCollapseIconPosition } from "../../ExpandCollapse/ExpandCollapse.types";
 
 export interface AccordionItemProps extends VibeComponentProps {
   /**
-   * Header title for the accordion item.
+   * The header content displayed in the accordion item.
    */
   title?: ElementContent;
   /**
-   * The value of the expandable section
+   * The content rendered inside the accordion item.
    */
   children?: ElementContent;
   /**
-   * The font size of the expand/collapse icon.
+   * The size of the expand/collapse icon.
    */
   iconSize?: number | string;
   /**
-   * Custom callback triggered when the item is clicked.
+   * The position of the expand/collapse icon.
+   */
+  iconPosition?: ExpandCollapseIconPosition;
+  /**
+   * Callback fired upon item click.
    */
   onClick?: () => void;
   /** @ignore */
@@ -25,33 +30,25 @@ export interface AccordionItemProps extends VibeComponentProps {
   /** @ignore */
   onClickAccordionCallback?: () => void;
   /**
-   * Determines whether the item's border is hidden.
+   * If true, the accordion item's border is hidden.
    */
   hideBorder?: boolean;
   /**
-   * Custom class name to add to the header of the expandable
+   * Class name applied to the accordion item's header.
    */
   headerClassName?: string;
   /**
-   * Custom class name to add to the content of the expandable
+   * Class name applied to the accordion item's content.
    */
   contentClassName?: string;
   /**
-   * Custom class name to add to the ExpandCollapse component
+   * Class name applied to the expand/collapse component.
    */
   expandCollapseComponentClassName?: string;
   /**
-   * If true, the click event is handled during the capture phase instead of bubbling.
+   * If true, the click event is handled during the capture phase.
    */
   captureOnClick?: boolean;
-  /**
-   * A class name to be added to the accordion item container
-   */
-  className?: string;
-  /**
-   * An id to be added the accordion item container.
-   */
-  id?: string;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
@@ -61,6 +58,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       title = "",
       className = "",
       iconSize = 24,
+      iconPosition = "right",
       id,
       open,
       onClick,
@@ -86,6 +84,7 @@ const AccordionItem: React.FC<AccordionItemProps> = forwardRef(
       <div ref={mergedRef} className={className} id={id}>
         <ExpandCollapse
           iconSize={iconSize}
+          iconPosition={iconPosition}
           id={`expand-collapse--${id}`}
           onClick={onClickCallback}
           open={open}

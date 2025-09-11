@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@1.0.3...vibe-storybook-components@1.0.4) (2025-09-04)
+
+
+### Performance Improvements
+
+* replace lodash-es with es-toolkit compat ([#3072](https://github.com/mondaycom/vibe/issues/3072)) ([14dd2bb](https://github.com/mondaycom/vibe/commit/14dd2bb14112a07ce3e649937e281a20516ecb71))
+
+
+
+
+
+## [1.0.3](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@1.0.2...vibe-storybook-components@1.0.3) (2025-08-13)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
+## [1.0.2](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@1.0.1...vibe-storybook-components@1.0.2) (2025-07-24)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
+## [1.0.1](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.22.0...vibe-storybook-components@1.0.1) (2025-07-22)
+
+**Note:** Version bump only for package vibe-storybook-components
+
+
+
+
+
 # [0.22.0](https://github.com/mondaycom/vibe/compare/vibe-storybook-components@0.21.1...vibe-storybook-components@0.22.0) (2025-03-11)
 
 

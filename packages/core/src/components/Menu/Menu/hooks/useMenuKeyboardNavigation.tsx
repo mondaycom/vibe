@@ -1,5 +1,13 @@
-import React, { useCallback, useMemo } from "react";
-import { ARROW_DOWN_KEYS, ARROW_UP_KEYS, ENTER_KEYS, NavDirections } from "../../../../hooks/useFullKeyboardListeners";
+import type React from "react";
+import { useCallback, useMemo } from "react";
+import {
+  ARROW_DOWN_KEYS,
+  ARROW_UP_KEYS,
+  ENTER_KEYS,
+  HOME_KEYS,
+  END_KEYS,
+  NavDirections
+} from "../../../../hooks/useFullKeyboardListeners";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
 export default function useMenuKeyboardNavigation({
@@ -56,6 +64,22 @@ export default function useMenuKeyboardNavigation({
     [setActiveItemIndex, activeItemIndex, isVisible]
   );
 
+  const onHomeKey = useCallback(() => {
+    if (hasOpenSubMenu) return;
+    const firstIndex = getNextSelectableIndex(-1);
+    if (firstIndex !== -1) {
+      setActiveItemIndex(firstIndex);
+    }
+  }, [hasOpenSubMenu, getNextSelectableIndex, setActiveItemIndex]);
+
+  const onEndKey = useCallback(() => {
+    if (hasOpenSubMenu) return;
+    const lastIndex = getPreviousSelectableIndex(0);
+    if (lastIndex !== -1) {
+      setActiveItemIndex(lastIndex);
+    }
+  }, [hasOpenSubMenu, getPreviousSelectableIndex, setActiveItemIndex]);
+
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
 
@@ -81,6 +105,18 @@ export default function useMenuKeyboardNavigation({
   useKeyEvent({
     keys: ENTER_KEYS,
     callback: onEnterClickCallback,
+    ...listenerOptions
+  });
+
+  useKeyEvent({
+    keys: HOME_KEYS,
+    callback: onHomeKey,
+    ...listenerOptions
+  });
+
+  useKeyEvent({
+    keys: END_KEYS,
+    callback: onEndKey,
     ...listenerOptions
   });
 }

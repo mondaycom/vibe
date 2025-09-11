@@ -1,47 +1,52 @@
-import React, { forwardRef, useRef, HTMLAttributes, useContext } from "react";
+import React, { forwardRef, useRef, type HTMLAttributes, useContext } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { ElementContent } from "../../types";
-import { TypographyAlign, TypographyColor } from "./Typography.types";
+import { type ElementContent } from "../../types";
+import { type TypographyAlign, type TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import { TypographyContext } from "./utils/TypographyContext";
 import styles from "./Typography.module.scss";
 
 export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTMLElement> {
   /**
-   * The element tag of the text component
+   * The HTML element tag used for the text component.
    */
   element?: string;
   /**
-   * The textual content
+   * The content inside the typography component.
    */
   children: ElementContent;
+  /**
+   * The text color.
+   */
   color?: TypographyColor;
+  /**
+   * The text alignment.
+   */
   align?: TypographyAlign;
   /**
-   * When the text is too long, cut the end of the text and display instead of it three dots (...)
+   * If true, truncates overflowing text with an ellipsis.
    */
   ellipsis?: boolean;
   /**
-   * Use this prop combined with the boolean ellipsis prop for truncate the text and add an ellipsis after a certain number of lines
+   * The maximum number of lines before truncating with an ellipsis.
    */
   maxLines?: number;
   /**
-   * All props are passed to the tooltip displayed when hovering over the text. By default, the tooltip will display when text contains an ellipsis and will show the full text
+   * Props passed to the tooltip displayed when hovering over the text.
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Hide tooltip when hovering the text, by default the tooltip swill display when text contains an ellipsis
+   * If true, disables the tooltip that appears when text is truncated.
    */
   withoutTooltip?: boolean;
 }
 
-const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
+const Typography = forwardRef(
   (
     {
       className,
@@ -58,7 +63,7 @@ const Typography: VibeComponent<TypographyProps, HTMLElement> = forwardRef(
       role,
       ...htmlAttributes
     }: TypographyProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const { overflowTolerance } = useContext(TypographyContext);
     const componentRef = useRef(null);

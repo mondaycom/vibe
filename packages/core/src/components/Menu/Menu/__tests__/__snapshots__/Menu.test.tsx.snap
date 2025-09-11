@@ -1,10 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snapshots renders correctly with children 1`] = `
+exports[`Snapshots > renders correctly with children 1`] = `
 <ul
   aria-label="Menu"
   className="menu medium dummy-class-name"
   data-testid="menu"
+  data-vibe="Menu"
   id="menu-2"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -25,7 +26,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     </label>
   </div>
   <li
-    aria-current={true}
+    aria-selected={true}
     className="typography primary start singleLineEllipsis text text2Normal item focused initialSelected"
     data-testid="menu-item_1"
     id="menu-2-item-1"
@@ -40,7 +41,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     </div>
   </li>
   <li
-    aria-current={false}
+    aria-selected={false}
     className="typography primary start singleLineEllipsis text text2Normal item initialSelected"
     data-testid="menu-item_2"
     id="menu-2-item-2"
@@ -57,11 +58,12 @@ exports[`Snapshots renders correctly with children 1`] = `
 </ul>
 `;
 
-exports[`Snapshots renders correctly with custom class name 1`] = `
+exports[`Snapshots > renders correctly with custom class name 1`] = `
 <ul
   aria-label="Menu"
   className="menu medium dummy-class-name"
   data-testid="menu"
+  data-vibe="Menu"
   id="menu-1"
   onBlur={[Function]}
   onFocus={[Function]}
@@ -71,11 +73,12 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 />
 `;
 
-exports[`Snapshots renders correctly with empty props 1`] = `
+exports[`Snapshots > renders correctly with empty props 1`] = `
 <ul
   aria-label="Menu"
   className="menu medium"
   data-testid="menu"
+  data-vibe="Menu"
   id="menu-0"
   onBlur={[Function]}
   onFocus={[Function]}

@@ -1,6 +1,6 @@
-import { BASE_SIZES } from "../../constants";
-import { DialogPosition } from "../Dialog";
-import { TypographyColor } from "../Typography";
+import { type BASE_SIZES } from "../../constants";
+import { type DialogPosition } from "../Dialog";
+import { type TypographyColor } from "../Typography";
 
 export type SliderColor = "primary" | "negative" | "positive";
 

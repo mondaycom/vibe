@@ -1,9 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders correctly with custom class name 1`] = `
 <div
   className="divider dummy-class-name horizontal"
   data-testid="divider"
+  data-vibe="Divider"
 />
 `;
 
@@ -11,5 +12,6 @@ exports[`renders correctly with empty props 1`] = `
 <div
   className="divider horizontal"
   data-testid="divider"
+  data-vibe="Divider"
 />
 `;

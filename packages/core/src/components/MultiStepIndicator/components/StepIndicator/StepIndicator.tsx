@@ -1,4 +1,4 @@
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
@@ -13,18 +13,33 @@ import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
-import { MultiStepSize, MultiStepType, StepStatus } from "../../MultiStep.types";
+import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
-import { SubIcon, VibeComponentProps } from "../../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../../types";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 export interface StepCircleDisplayProps {
+  /**
+   * The status of the step.
+   */
   status: StepStatus;
+  /**
+   * If true, displays the step number instead of the fulfilled step icon.
+   */
   isFulfilledStepDisplayNumber: boolean;
+  /**
+   * The icon displayed when the step is fulfilled.
+   */
   fulfilledStepIcon: SubIcon;
+  /**
+   * The type of icon used.
+   */
   fulfilledStepIconType: "svg" | "font";
+  /**
+   * The step number in the sequence.
+   */
   stepNumber: number;
 }
 
@@ -49,19 +64,61 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
 };
 
 export interface StepIndicatorProps extends VibeComponentProps {
+  /**
+   * The status of the step.
+   */
   status: StepStatus;
+  /**
+   * The main title text for the step.
+   */
   titleText: string;
+  /**
+   * The subtitle text for the step.
+   */
   subtitleText?: string;
+  /**
+   * The number of the step in the sequence.
+   */
   stepNumber?: number;
+  /**
+   * Class name applied to the step component.
+   */
   stepComponentClassName?: string;
+  /**
+   * The visual style of the step indicator.
+   */
   type?: MultiStepType;
+  /**
+   * The icon used for a fulfilled step.
+   */
   fulfilledStepIcon?: SubIcon;
+  /**
+   * The type of icon used.
+   */
   fulfilledStepIconType?: "svg" | "font";
+  /**
+   * If true, displays the step number instead of the fulfilled step icon.
+   */
   isFulfilledStepDisplayNumber?: boolean;
+  /**
+   * Callback fired when the step is clicked.
+   */
   onClick?: (stepNumber: number) => void;
+  /**
+   * If true, adds a divider after the step.
+   */
   isFollowedByDivider?: boolean;
+  /**
+   * Class name applied to the step divider.
+   */
   stepDividerClassName?: string;
+  /**
+   * If true, the step indicator is displayed vertically.
+   */
   isVertical?: boolean;
+  /**
+   * The size of the step indicator.
+   */
   size?: MultiStepSize;
 }
 

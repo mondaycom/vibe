@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.2](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.25.1...monday-ui-style@0.25.2) (2025-07-24)
+
+
+### Bug Fixes
+
+* add missing deps ([#3010](https://github.com/mondaycom/vibe/issues/3010)) ([4d99f1d](https://github.com/mondaycom/vibe/commit/4d99f1d055baf8d6c5736149fe77eca311842622))
+
+
+
+
+
+## [0.25.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.25.0...monday-ui-style@0.25.1) (2025-07-24)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
+# [0.25.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.24.2...monday-ui-style@0.25.0) (2025-07-23)
+
+
+### Features
+
+* **stylelint:** add new stylelint rule for new spacing tokens system and update configuration ([#2991](https://github.com/mondaycom/vibe/issues/2991)) ([b4a07cb](https://github.com/mondaycom/vibe/commit/b4a07cbc30c9adcf081e8311d1be503adeeca1b4))
+
+
+
+
+
+## [0.24.2](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.24.1...monday-ui-style@0.24.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* **style:** revise dependencies ([#3005](https://github.com/mondaycom/vibe/issues/3005)) ([f45f579](https://github.com/mondaycom/vibe/commit/f45f579f625e4865ac83f00e3d4bee801f34d99f))
+
+
+
+
+
+## [0.24.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.24.0...monday-ui-style@0.24.1) (2025-07-20)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
+# [0.24.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.23.0...monday-ui-style@0.24.0) (2025-05-04)
+
+
+### Features
+
+* **colors:** update ui-background-color ([#2860](https://github.com/mondaycom/vibe/issues/2860)) ([e4b97b2](https://github.com/mondaycom/vibe/commit/e4b97b28cdb8a0db5dfc37f6090df2372c755fd9))
+
+
+
+
+
+# [0.23.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.22.0...monday-ui-style@0.23.0) (2025-04-03)
+
+
+### Features
+
+* **colors:** define color-surface in dark and black themes, add backdrop-color token for all themes ([#2825](https://github.com/mondaycom/vibe/issues/2825)) ([7e20396](https://github.com/mondaycom/vibe/commit/7e20396e8eff4a5f4d1c2f9b7355c554f9edf9fa))
+
+
+
+
+
 # [0.22.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.21.1...monday-ui-style@0.22.0) (2025-03-11)
 
 

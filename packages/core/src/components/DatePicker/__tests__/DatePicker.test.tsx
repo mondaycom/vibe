@@ -1,8 +1,9 @@
+import { vi, beforeEach, afterEach, describe, it, expect, type MockInstance } from "vitest";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import DatePicker from "../DatePicker";
-import moment, { Moment } from "moment";
-import { RangeDate } from "../types";
+import moment, { type Moment } from "moment";
+import { type RangeDate } from "../types";
 
 const DATE_FORMAT = "DD/MM/YYYY";
 
@@ -18,10 +19,10 @@ export function getNextWeekFirstDayElement(pivotElement: HTMLElement) {
 }
 
 describe("DatePicker", () => {
-  let dateNowSpy: jest.SpyInstance;
+  let dateNowSpy: MockInstance;
 
   beforeEach(() => {
-    dateNowSpy = jest.spyOn(Date, "now").mockImplementation(() => new Date("2023-05-01").getTime());
+    dateNowSpy = vi.spyOn(Date, "now").mockImplementation(() => new Date("2023-05-01").getTime());
   });
 
   afterEach(() => {
@@ -29,7 +30,7 @@ describe("DatePicker", () => {
   });
 
   it("should call onPickDate date clicked value", () => {
-    const onSaveMock = jest.fn();
+    const onSaveMock = vi.fn();
     const { container } = render(
       <DatePicker
         onPickDate={() => {
@@ -114,5 +115,23 @@ describe("DatePicker", () => {
     const newDay = await waitFor(() => container.querySelector(".CalendarDay_1"));
     expect(newDay).toBeInTheDocument();
     expect(newDay.getAttribute("aria-label")).toContain(newYear.innerHTML);
+  });
+
+  it("should not crash when onPickDate is not provided and a date is clicked", () => {
+    const { container } = render(<DatePicker />);
+
+    const element = container.querySelector(".CalendarDay");
+    expect(() => {
+      fireEvent.click(element);
+    }).not.toThrow();
+  });
+
+  it("should not crash when onPickDate is not provided in range mode and a date is clicked", () => {
+    const { container } = render(<DatePicker range />);
+
+    const element = container.querySelector(".CalendarDay");
+    expect(() => {
+      fireEvent.click(element);
+    }).not.toThrow();
   });
 });

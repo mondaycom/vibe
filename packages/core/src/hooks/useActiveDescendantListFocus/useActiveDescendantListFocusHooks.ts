@@ -1,5 +1,7 @@
-import React, { MutableRefObject, useCallback, useEffect, useMemo, useRef } from "react";
-import useKeyEvent, { UseKeyEventArgs } from "../useKeyEvent";
+import { type MutableRefObject } from "react";
+import type React from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+import useKeyEvent, { type UseKeyEventArgs } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";

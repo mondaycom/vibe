@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useRef, useState } from "react";
 import useEventListener from "..";
-import "../../__stories__/general-hooks-stories.scss";
+import Box from "../../../components/Box/Box";
 
 export default {
   title: "Hooks/useEventListener"
@@ -23,9 +23,9 @@ export const Overview = {
     });
 
     return (
-      <div ref={ref} className="hooks-reference-element">
+      <Box ref={ref} border rounded="small" padding="medium">
         {hovered ? "Boom!" : "Hover me"}
-      </div>
+      </Box>
     );
   },
 

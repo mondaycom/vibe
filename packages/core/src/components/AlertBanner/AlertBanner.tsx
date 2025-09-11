@@ -1,18 +1,17 @@
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
-import React, { ForwardedRef, forwardRef, ReactElement, useMemo } from "react";
+import React, { type ForwardedRef, forwardRef, type ReactElement, useMemo } from "react";
 import IconButton from "../../components/IconButton/IconButton";
 import { CloseSmall } from "@vibe/icons";
 import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
-import { AlertBannerBackgroundColor } from "./AlertBanner.types";
+import { type AlertBannerBackgroundColor } from "./AlertBanner.types";
 import { NOOP } from "../../utils/function-utils";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
-import { AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
-import { AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { type AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
+import { type AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
+import { type AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import { VibeComponent, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 import Text from "../Text/Text";
 import { AlertBannerContext } from "./AlertBannerContext";
@@ -21,21 +20,32 @@ type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps |
 
 export interface AlertBannerProps extends VibeComponentProps {
   /**
-   * Set external styling to the progress bar.
+   * The background color of the alert banner.
    */
-  className?: string;
   backgroundColor?: AlertBannerBackgroundColor;
+  /**
+   * If true, the close button is hidden.
+   */
   isCloseHidden?: boolean;
-  /** ARIA description for the progress bar */
+  /**
+   * The ARIA label of the alert banner for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * The ARIA label of the close button for accessibility.
+   */
   closeButtonAriaLabel?: string;
+  /**
+   * Callback fired when the close button is clicked.
+   */
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /**
+   * The content of the alert banner.
+   */
   children?: ChildrenType | ChildrenType[];
 }
 
-const AlertBanner: VibeComponent<AlertBannerProps> & {
-  backgroundColors?: typeof AlertBannerBackgroundColorEnum;
-} = forwardRef(
+const AlertBanner = forwardRef(
   (
     {
       children: originalChildren,
@@ -98,6 +108,7 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
         aria-label={ariaLabel || "banner"}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
+        data-vibe={ComponentVibeId.ALERT_BANNER}
       >
         <AlertBannerContext.Provider value={{ textColor }}>
           <div className={cx(styles.content)}>
@@ -143,4 +154,10 @@ const AlertBanner: VibeComponent<AlertBannerProps> & {
   }
 );
 
-export default withStaticProps(AlertBanner, { backgroundColors: AlertBannerBackgroundColorEnum });
+interface AlertBannerStaticProps {
+  backgroundColors: typeof AlertBannerBackgroundColorEnum;
+}
+
+export default withStaticProps<AlertBannerProps, AlertBannerStaticProps>(AlertBanner, {
+  backgroundColors: AlertBannerBackgroundColorEnum
+});

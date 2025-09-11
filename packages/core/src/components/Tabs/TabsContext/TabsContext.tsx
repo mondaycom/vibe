@@ -1,11 +1,26 @@
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  type FC,
+  forwardRef,
+  type ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useMemo
+} from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 export interface TabsContextProps extends VibeComponentProps {
+  /**
+   * The index of the currently active tab.
+   */
   activeTabId?: number;
+  /**
+   * The child elements representing the tab list and tab panels.
+   */
   children?: ReactElement | ReactElement[];
 }
 
@@ -38,6 +53,19 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
       [activeTabIdState]
     );
 
+    // Collect TabPanel ids for aria-controls relationship
+    const tabPanelIds = useMemo(() => {
+      const ids: string[] = [];
+      React.Children.forEach(children, (child: TabsChild) => {
+        if (child.type.isTabPanels) {
+          React.Children.forEach(child.props.children, (panelChild: ReactElement, index: number) => {
+            ids[index] = panelChild.props.id;
+          });
+        }
+      });
+      return ids;
+    }, [children]);
+
     return (
       <div
         ref={mergedRef}
@@ -52,7 +80,7 @@ const TabsContext: FC<TabsContextProps> = forwardRef(
               onTabClick(tabId);
               originalOnTabChange?.(tabId);
             };
-            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange });
+            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange, tabPanelIds });
           }
           if (child.type.isTabPanels) {
             const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders correctly with empty props 1`] = `
 <div
@@ -6,6 +6,7 @@ exports[`renders correctly with empty props 1`] = `
   aria-labelledby="Color Picker Dialog"
   className="dialogContentContainer colorPicker colorPickerDialogContent typePopover sizeSmall"
   data-testid="dialog-content-container"
+  data-vibe="ColorPicker"
   role="dialog"
   style={
     {
@@ -24,7 +25,8 @@ exports[`renders correctly with empty props 1`] = `
     <ul
       className="colorsGrid"
       data-testid="color-picker"
-      tabIndex={-1}
+      role="grid"
+      tabIndex={0}
     >
       <li
         className="itemWrapper"

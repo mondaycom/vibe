@@ -1,18 +1,27 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import Button from "../../../Button/Button";
-import { VibeComponentProps, VibeComponent, SubIcon } from "../../../../types";
+import { type VibeComponentProps, type SubIcon } from "../../../../types";
 import { NOOP } from "../../../../utils/function-utils";
 import styles from "./ColorPickerClearButton.module.scss";
 
 export interface ColorPickerClearButtonProps extends VibeComponentProps {
+  /**
+   * Callback fired when the clear button is clicked.
+   */
   onClick: () => void;
+  /**
+   * The text displayed inside the button.
+   */
   text?: string;
+  /**
+   * The icon displayed inside the button.
+   */
   Icon: SubIcon;
 }
 
-export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> = React.forwardRef(
-  ({ onClick, text, Icon }: ColorPickerClearButtonProps, ref) => {
+const ColorPickerClearButton = forwardRef(
+  ({ onClick, text, Icon }: ColorPickerClearButtonProps, ref: React.ForwardedRef<HTMLElement>) => {
     const { onSelectionAction } = useGridKeyboardNavigation({
       ref: ref as React.MutableRefObject<HTMLElement>,
       itemsCount: 1,
@@ -36,3 +45,5 @@ export const ColorPickerClearButton: VibeComponent<ColorPickerClearButtonProps> 
     );
   }
 );
+
+export default ColorPickerClearButton;

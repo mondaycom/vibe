@@ -5,21 +5,11 @@ import { BREADCRUBMS, BUTTON, TABS } from "../../../storybook/components/related
 import Desktop from "./assets/Desktop";
 import { TipCheckYourself } from "./ButtonGroup.stories.helpers";
 import * as ButtonGroupStories from "./ButtonGroup.stories";
+import Flex from "../../Flex/Flex";
 
 <Meta of={ButtonGroupStories} />
 
 # ButtonGroup
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
 
 ButtonGroup can be used to group related options. To emphasize groups of related toggle buttons, a group should share a common container.
 
@@ -49,12 +39,32 @@ import { ButtonGroup } from "@vibe/core";
     </>,
     <>
       Button group is used to display the same content in different view, if you need to present different content, use{" "}
-      <StorybookLink page="Components/Tabs/Tabs">Tabs.</StorybookLink>
+      <StorybookLink page="Components/Tabs">Tabs.</StorybookLink>
     </>
   ]}
 />
 
 <TipCheckYourself />
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Always provide a <code>groupAriaLabel</code> prop to describe the purpose of the button group. This provides
+      context for screen readers about what the group represents (e.g., "View options", "Sort options", "Display
+      settings").
+    </>,
+    <>
+      For individual buttons, ensure each option has clear, descriptive <code>text</code> content, or provide
+      <code>ariaLabel</code> in the options array for icon-only buttons.
+    </>,
+    <>
+      Use <code>ariaLabel</code> in the options array when you need a different accessible name than the visible button
+      text, or for icon-only buttons (e.g., <code>ariaLabel: "Grid view"</code>).
+    </>
+  ]}
+/>
 
 ## Variants
 
@@ -112,7 +122,7 @@ import { ButtonGroup } from "@vibe/core";
         description: (
           <>
             Don’t use a button group when switching between content or object pages. Use{" "}
-            <StorybookLink page="Components/Navigation/Tabs/Tabs">Tabs</StorybookLink> instead.
+            <StorybookLink page="Components/Tabs">Tabs</StorybookLink> instead.
           </>
         )
       }
@@ -120,7 +130,7 @@ import { ButtonGroup } from "@vibe/core";
     {
       positive: {
         component: (
-          <div className="monday-storybook-button-group_column">
+          <Flex direction="column" gap={16}>
             <ButtonGroup
               groupAriaLabel="button group aria label"
               size={ButtonGroup.sizes.MEDIUM}
@@ -148,7 +158,7 @@ import { ButtonGroup } from "@vibe/core";
                 { value: 2, text: "Mobile", leftIcon: Mobile }
               ]}
             />
-          </div>
+          </Flex>
         ),
         description: "Always use buttons with a consistent style: Icons, text or icon with text."
       },

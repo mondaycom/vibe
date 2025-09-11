@@ -1,11 +1,11 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { BaseSizes, SIZES_VALUES } from "../../constants";
-import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect } from "react";
-import Select, { InputProps, components, createFilter, ActionMeta } from "react-select";
+import { BaseSizes, type SIZES_VALUES } from "../../constants";
+import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, useContext } from "react";
+import Select, { type InputProps, components, createFilter, type ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
@@ -30,22 +30,18 @@ import Text from "../Text/Text";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import {
-  DropdownOption,
-  DropdownState,
-  CustomMenuProps,
-  CustomOptionProps,
-  CustomSingleValueProps,
-  DropdownComponentProps
+  type DropdownOption,
+  type DropdownState,
+  type CustomMenuProps,
+  type CustomOptionProps,
+  type CustomSingleValueProps,
+  type DropdownComponentProps
 } from "./Dropdown.types";
-import { VibeComponent, withStaticProps } from "../../types";
+import { withStaticProps } from "../../types";
+import { ComponentVibeId } from "../../tests/constants";
+import LayerContext from "../LayerProvider/LayerContext";
 
-const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
-  sizes?: typeof BaseSizes;
-  chipColors?: typeof DROPDOWN_CHIP_COLORS;
-  menuPlacements?: typeof DROPDOWN_MENU_PLACEMENT;
-  menuPositions?: typeof DROPDOWN_MENU_POSITION;
-  createFilter?: typeof createFilter;
-} = forwardRef(
+const Dropdown = forwardRef(
   (
     {
       className,
@@ -106,6 +102,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       isOptionSelected,
       insideOverflowContainer = false,
       insideOverflowWithTransformContainer = false,
+      insideLayerContext = false,
       tooltipContent = "",
       onKeyDown = NOOP,
       isLoading = false,
@@ -118,13 +115,17 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
       "data-testid": dataTestId,
       withGroupDivider = false,
       inputValue,
-      blurInputOnSelect
+      blurInputOnSelect,
+      multiValueDialogClassName
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     const controlRef = useRef();
+    const { layerRef } = useContext(LayerContext);
     const overrideMenuPortalTarget =
-      menuPortalTarget || (popupsContainerSelector && document.querySelector(popupsContainerSelector));
+      (insideLayerContext && layerRef?.current) ||
+      menuPortalTarget ||
+      (popupsContainerSelector && document.querySelector(popupsContainerSelector));
     const overrideDefaultValue = useMemo(() => {
       if (defaultValue) {
         return Array.isArray(defaultValue)
@@ -143,17 +144,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
     const [WindowedMenuList, setWindowedMenuList] = useState(null);
     useEffect(() => {
       if (isClient()) {
-        let isRequireAvailable = false;
-        try {
-          isRequireAvailable = typeof require === "function" && typeof module !== "undefined";
-        } catch (e) {
-          isRequireAvailable = false;
-        }
-
-        if (isRequireAvailable) {
+        if (isTestEnv()) {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const module = require("react-windowed-select");
-          setWindowedMenuList(() => module.WindowedMenuList);
+          setWindowedMenuList(() => require("react-windowed-select").WindowedMenuList);
         } else {
           // Dynamically import the specific named export from react-windowed-select for SSR support
           import("react-windowed-select").then(module => {
@@ -344,8 +337,9 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowWithTransformContainer,
         controlRef,
         tooltipContent,
-        popupsContainerSelector,
-        size
+        popupsContainerSelector: insideLayerContext ? layerRef?.current : popupsContainerSelector,
+        size,
+        dialogClassName: multiValueDialogClassName
       }),
       [
         selectedOptions,
@@ -354,8 +348,11 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         insideOverflowContainer,
         insideOverflowWithTransformContainer,
         tooltipContent,
+        layerRef,
         popupsContainerSelector,
-        size
+        insideLayerContext,
+        size,
+        multiValueDialogClassName
       ]
     );
     const onChange = (option: DropdownOption | DropdownOption[], meta: ActionMeta<DropdownOption>) => {
@@ -489,6 +486,7 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
         tabIndex={tabIndex}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
+        data-vibe={ComponentVibeId.DROPDOWN}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
         ref={ref as React.Ref<any>}
@@ -507,10 +505,31 @@ const Dropdown: VibeComponent<DropdownComponentProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Dropdown, {
+interface DropdownStaticProps {
+  sizes: typeof BaseSizes;
+  chipColors: typeof DROPDOWN_CHIP_COLORS;
+  menuPlacements: typeof DROPDOWN_MENU_PLACEMENT;
+  menuPositions: typeof DROPDOWN_MENU_POSITION;
+  createFilter: typeof createFilter;
+}
+
+export default withStaticProps<DropdownComponentProps, DropdownStaticProps>(Dropdown, {
   sizes: BaseSizes,
   chipColors: DROPDOWN_CHIP_COLORS,
   menuPlacements: DROPDOWN_MENU_PLACEMENT,
   menuPositions: DROPDOWN_MENU_POSITION,
-  createFilter: createFilter
+  createFilter
 });
+
+function isTestEnv() {
+  try {
+    return (
+      typeof require === "function" &&
+      typeof module !== "undefined" &&
+      typeof process !== "undefined" &&
+      process.env.NODE_ENV === "test"
+    );
+  } catch (e) {
+    return false;
+  }
+}

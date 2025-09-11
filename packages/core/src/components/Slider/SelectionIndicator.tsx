@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import { debounce } from "lodash-es";
+import { debounce } from "es-toolkit";
 import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
-import { InfixKind } from "./Slider.types";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import { type InfixKind } from "./Slider.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./SelectionIndicator.module.scss";
 
 const VALUE_UPDATE_DELAY = 300;
@@ -23,7 +23,13 @@ function parseValue(valueText: string) {
 }
 
 export interface SelectionIndicatorProps extends VibeComponentProps {
+  /**
+   * Determines whether the selection indicator is a prefix or postfix.
+   */
   kind?: InfixKind;
+  /**
+   * The key for the selection indicator (used for React key uniqueness).
+   */
   key?: InfixKind;
 }
 

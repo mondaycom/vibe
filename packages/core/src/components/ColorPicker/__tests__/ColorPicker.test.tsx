@@ -1,23 +1,24 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act, screen } from "@testing-library/react";
-import { difference as _difference } from "lodash-es";
+import { difference as _difference } from "es-toolkit";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
-import { ColorPickerColorsGrid } from "../components/ColorPickerContent/ColorPickerColorsGrid";
+import ColorPickerColorsGrid from "../components/ColorPickerContent/ColorPickerColorsGrid";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe("ColorPicker", () => {
   it("Should call onSave with color clicked value", () => {
     const colorToClick = contentColors[0];
     let clickedColorValue;
-    const onSaveMock = jest.fn();
+    const onSaveMock = vi.fn();
 
     const { getByLabelText } = render(
       <ColorPicker
@@ -41,7 +42,7 @@ describe("ColorPicker", () => {
   it("Should call onSave with multiselect colors clicked values", () => {
     const colorToClick = contentColors[0];
     let clickedColorValue;
-    const onSaveMock = jest.fn();
+    const onSaveMock = vi.fn();
 
     const { getByLabelText } = render(
       <ColorPicker
@@ -117,7 +118,7 @@ describe("ColorPicker", () => {
     act(() => {
       fireEvent.mouseOver(component);
     });
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     const content = screen.getByText(colorNameTooltip);
     expect(content).toBeTruthy();
   });
@@ -132,7 +133,7 @@ describe("ColorPicker", () => {
     act(() => {
       fireEvent.mouseOver(component);
     });
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     const content = screen.queryByText(colorNameTooltip);
     expect(content).toBeTruthy();
   });
@@ -156,7 +157,7 @@ describe("ColorPicker", () => {
     act(() => {
       fireEvent.mouseOver(component);
     });
-    jest.advanceTimersByTime(1000);
+    vi.advanceTimersByTime(1000);
     const contentByName = screen.queryByText(colorNameTooltip);
     const expected = screen.getByText(contentByColorTooltip);
 

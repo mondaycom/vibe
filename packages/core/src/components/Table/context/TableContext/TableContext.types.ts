@@ -1,5 +1,6 @@
-import { TableProps } from "../../Table/Table";
-import React, { UIEventHandler } from "react";
+import { type TableProps } from "../../Table/Table";
+import { type UIEventHandler } from "react";
+import type React from "react";
 
 export interface TableContext extends TableProviderValue {
   headRef: React.MutableRefObject<HTMLDivElement>;

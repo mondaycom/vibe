@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, {
-  AriaAttributes,
-  AriaRole,
-  CSSProperties,
+  type AriaAttributes,
+  type AriaRole,
+  type CSSProperties,
   forwardRef,
-  ReactElement,
+  type ReactElement,
   useCallback,
   useEffect,
   useMemo,
@@ -15,11 +15,11 @@ import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import { VibeComponent, withStaticProps, VibeComponentProps } from "../../types";
-import { ListItemProps } from "../ListItem/ListItem";
-import { ListTitleProps } from "../ListTitle/ListTitle";
+import { withStaticProps, type VibeComponentProps } from "../../types";
+import { type ListItemProps } from "../ListItem/ListItem";
+import { type ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
-import { ListElement } from "./List.types";
+import { type ListElement } from "./List.types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
 import {
@@ -32,41 +32,49 @@ import {
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ListProps extends VibeComponentProps {
   /**
-   * the wrapping component to wrap the List Items [div, nav, ul, ol]
+   * The wrapping component for the list.
    */
   component?: ListElement;
   /**
-   * ARIA label string to describe to list
+   * The ARIA label describing the list.
    */
   ariaLabel?: string;
   /**
-   * ARIA described by string to reference an id to describe by
+   * The ID of an element that describes the list.
    */
   ariaDescribedBy?: string;
+  /**
+   * The ID of an element controlled by the list.
+   */
   "aria-controls"?: AriaAttributes["aria-controls"];
+  /**
+   * The child elements inside the list.
+   */
   children?: ReactElement<ListItemProps | ListTitleProps> | ReactElement<ListItemProps | ListTitleProps>[];
   /**
-   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   * If true, uses a virtualized list to render only visible items for performance optimization.
    */
   renderOnlyVisibleItems?: boolean;
+  /**
+   * Custom inline styles applied to the list.
+   */
   style?: CSSProperties;
   /**
-   * ARIA role for the list.
+   * The ARIA role of the list.
    */
   role?: AriaRole;
 }
 
-const List: VibeComponent<ListProps> & {
-  components?: typeof ListWrapperComponentTypeEnum;
-} = forwardRef(
+const List = forwardRef(
   (
     {
       className,
       id,
-      component = List.components.UL,
+      component = ListWrapperComponentTypeEnum.UL,
       children,
       ariaLabel,
       ariaDescribedBy,
@@ -76,7 +84,7 @@ const List: VibeComponent<ListProps> & {
       role = "listbox",
       "data-testid": dataTestId
     }: ListProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -166,6 +174,7 @@ const List: VibeComponent<ListProps> & {
       <ListContext.Provider value={{ updateFocusedItem }}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+          data-vibe={ComponentVibeId.LIST}
           ref={mergedRef}
           style={style}
           className={cx(styles.list, className)}
@@ -183,6 +192,10 @@ const List: VibeComponent<ListProps> & {
   }
 );
 
-export default withStaticProps(List, {
+interface ListStaticProps {
+  components: typeof ListWrapperComponentTypeEnum;
+}
+
+export default withStaticProps<ListProps, ListStaticProps>(List, {
   components: ListWrapperComponentTypeEnum
 });

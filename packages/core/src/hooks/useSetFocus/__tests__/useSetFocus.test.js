@@ -1,10 +1,11 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import { act, cleanup, renderHook } from "@testing-library/react-hooks";
 import useSetFocus from "../index";
 
 describe("useSetFocus", () => {
   let element;
-  const focusCallback = jest.fn();
-  const blurCallback = jest.fn();
+  const focusCallback = vi.fn();
+  const blurCallback = vi.fn();
 
   afterEach(() => {
     element.remove();

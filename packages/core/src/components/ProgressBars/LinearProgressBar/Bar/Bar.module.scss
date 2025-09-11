@@ -46,5 +46,5 @@
 }
 
 .animate {
-  transition: width var(--motion-productive-medium) var(--motion-timing-transition);
+  transition: width 300ms var(--motion-timing-transition);
 }

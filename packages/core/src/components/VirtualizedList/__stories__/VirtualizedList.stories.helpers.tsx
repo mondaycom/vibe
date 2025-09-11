@@ -1,13 +1,14 @@
 import React from "react";
 import { Tip } from "vibe-storybook-components";
+import { type VirtualizedListItem } from "../VirtualizedList.types";
 
 export const generateItems = (defaultItemSize = 30, itemsCount: number, layout: string) => {
-  const items: { value: string; size: number; id: number; height: number }[] = [];
+  const items: VirtualizedListItem[] = [];
   const isVertical = layout !== "horizontal";
 
   for (let i = 0; i < itemsCount; i++) {
-    const size = (i > 0 && i % 15) === 0 ? defaultItemSize * 2 : defaultItemSize;
-    items.push({ value: `Item ${i}`, size, id: i, height: isVertical ? size : 30 });
+    const width = (i > 0 && i % 15) === 0 ? defaultItemSize * 2 : defaultItemSize;
+    items.push({ value: `Item ${i}`, width, id: i.toString(), height: isVertical ? width : 30 });
   }
 
   return items;

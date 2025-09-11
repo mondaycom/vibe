@@ -1,22 +1,27 @@
-import React, { HTMLProps, MutableRefObject, ReactElement } from "react";
+import React, { type HTMLProps, type MutableRefObject, type ReactElement } from "react";
 import { chainFunctions, chainRefFunctions } from "../../utils/function-utils";
-import { VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 
 export const Refable = React.forwardRef<
   ReactElement,
   React.PropsWithChildren<unknown & HTMLProps<any> & VibeComponentProps> & {
     children: ReactElement | ReactElement[] | string;
+    /**
+     * The wrapper element type to use for React components. Defaults to "span".
+     */
+    wrapperElement?: "span" | "div";
   }
   //   @ts-expect-error React forwardRef type def doesn't seem to support multiple refs
->(({ children, ...rest }, ref) => {
+>(({ children, wrapperElement = "span", ...rest }, ref) => {
   return React.Children.map(children, child => {
     if (!React.isValidElement(child)) return null;
 
     if (typeof child.type !== "string") {
+      const WrapperElement = wrapperElement;
       return (
-        <span ref={ref as MutableRefObject<any>} {...rest}>
+        <WrapperElement ref={ref as MutableRefObject<any>} {...rest}>
           {React.cloneElement(child, { ...child.props })}
-        </span>
+        </WrapperElement>
       );
     }
 

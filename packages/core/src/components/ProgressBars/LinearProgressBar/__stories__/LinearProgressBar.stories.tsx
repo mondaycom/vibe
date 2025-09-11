@@ -1,12 +1,14 @@
 import React from "react";
-import LinearProgressBar, { LinearProgressBarProps } from "../LinearProgressBar";
+import LinearProgressBar, { type LinearProgressBarProps } from "../LinearProgressBar";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Info } from "@vibe/icons";
 import Icon from "../../../Icon/Icon";
-import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
-import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar";
-import "./LinearProgressBar.stories.scss";
+import Logo from "./assets/Logo.png";
+import { Flex } from "../../../Flex";
+import { Text } from "../../../Text";
+import { type Meta, type StoryObj } from "@storybook/react";
+import { Box } from "../../../Box";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: LinearProgressBar
@@ -17,20 +19,23 @@ export default {
   component: LinearProgressBar,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof LinearProgressBar>;
 
-const lineProgressBarTemplate = (args: LinearProgressBarProps) => {
-  return <LinearProgressBar className="linear-progress-bar_small-wrapper" {...args} />;
-};
+type Story = StoryObj<typeof LinearProgressBar>;
 
-export const Overview = {
-  render: lineProgressBarTemplate.bind({}),
-  name: "Overview",
+export const Overview: Story = {
+  render: (args: LinearProgressBarProps) => (
+    <div style={{ width: "400px" }}>
+      <LinearProgressBar
+        value={20}
+        size="large"
+        id="overview-linear-progress-bar"
+        ariaLabel="Overview linear progress bar"
+        {...args}
+      />
+    </div>
+  ),
 
-  args: {
-    value: 20,
-    size: "large"
-  },
   parameters: {
     docs: {
       liveEdit: {
@@ -40,38 +45,43 @@ export const Overview = {
   }
 };
 
-export const Regular = {
+export const Regular: Story = {
   render: () => (
-    <div className="linear-progress-bar_column">
-      <div className="linear-progress-bar_block">
-        <LinearProgressBar className="linear-progress-bar_small-wrapper" indicateProgress value={30} size="large" />
+    <Flex direction="column" gap="large">
+      <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
+        <LinearProgressBar
+          id="regular-linear-progress-bar"
+          ariaLabel="Regular linear progress bar"
+          indicateProgress
+          value={30}
+          size="large"
+        />
         With label
-      </div>
-      <div className="linear-progress-bar_block">
-        <LinearProgressBar className="linear-progress-bar_small-wrapper" value={30} size="large" />
+      </Flex>
+      <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
+        <LinearProgressBar id="regular-linear-progress-bar-without-label" value={30} size="large" />
         Without label
-      </div>
-    </div>
-  ),
-
-  name: "Regular"
+      </Flex>
+    </Flex>
+  )
 };
 
-export const WithSecondaryValue = {
+export const WithSecondaryValue: Story = {
   render: () => (
-    <LinearProgressBar
-      className="linear-progress-bar_small-wrapper"
-      value={50}
-      indicateProgress
-      valueSecondary={65}
-      size="large"
-    />
-  ),
-
-  name: "With secondary value"
+    <div style={{ width: "400px" }}>
+      <LinearProgressBar
+        id="with-secondary-value-linear-progress-bar"
+        ariaLabel="With secondary value linear progress bar"
+        value={50}
+        indicateProgress
+        valueSecondary={65}
+        size="large"
+      />
+    </div>
+  )
 };
 
-export const MultiProgressBar = {
+export const MultiProgressBar: Story = {
   render: () => {
     const multiValues = useMemo(
       () => [
@@ -92,57 +102,72 @@ export const MultiProgressBar = {
     );
 
     return (
-      <LinearProgressBar
-        className="linear-progress-bar_big-wrapper"
-        value={25}
-        size="large"
-        indicateProgress
-        multi
-        multiValues={multiValues}
-      />
+      <div style={{ width: "600px" }}>
+        <LinearProgressBar
+          id="multi-progress-bar"
+          ariaLabel="Multi progress bar"
+          value={25}
+          size="large"
+          indicateProgress
+          multi
+          multiValues={multiValues}
+        />
+      </div>
     );
   },
 
   name: "Multi progress bar"
 };
 
-export const ProgressBarAsACounter = {
+export const ProgressBarAsACounter: Story = {
   render: () => (
-    <div className="linear-progress-bar_box">
-      <h4>Loading files</h4>
-      <div className="linear-progress-bar_inline-wrapper">
-        <div className="linear-progress-bar_icon-wrapper">
-          Items
-          <Icon icon={Info} />
-        </div>
-        <span>142/200</span>
-      </div>
-      <LinearProgressBar value={71} size="large" barStyle="positive" />
+    <div style={{ width: 200 }}>
+      <Text type="text1" weight="bold" style={{ marginBottom: "var(--space-48)" }}>
+        Loading files
+      </Text>
+      <Flex justify="space-between" style={{ marginBottom: "var(--space-4)" }}>
+        <Flex gap="xs">
+          <Text>Items</Text>
+          <Icon icon={Info} style={{ color: "var(--icon-color)" }} />
+        </Flex>
+        <Text>142/200</Text>
+      </Flex>
+      <LinearProgressBar
+        id="progress-bar-as-a-counter"
+        ariaLabel="Progress bar as a counter"
+        value={71}
+        size="large"
+        barStyle="positive"
+      />
     </div>
   ),
 
   name: "Progress bar as a counter"
 };
 
-export const ProgressBarAsLoadingIndicator = {
+export const ProgressBarAsLoadingIndicator: Story = {
   render: () => (
-    <div className="linear-progress-bar_box-wrapper">
-      <div className="linear-progress-bar_row">
-        <div className="linear-progress-bar_img" />
-        <div className="linear-progress-bar_aside">
-          <b>Frame 697.pg</b>
-          <BreadcrumbsBar type="indication" className="linear-progress-bar_breadcrumbs">
-            <BreadcrumbItem text="Hadas Test" />
-            <BreadcrumbItem text="Activity 6" />
-          </BreadcrumbsBar>
-          <div className="linear-progress-bar_inline-wrapper">
-            <span>2KB</span>
-            <span>Saving...</span>
-          </div>
-        </div>
-      </div>
-      <LinearProgressBar value={71} />
-    </div>
+    <Box border padding="medium" style={{ width: 400 }}>
+      <Flex gap="small" style={{ marginBottom: "var(--space-8)", height: 80 }}>
+        <Box style={{ flexShrink: 0, height: "100%" }}>
+          <img src={Logo} alt="Frame 697.jpg" style={{ height: "100%" }} />
+        </Box>
+        <Flex direction="column" align="stretch" justify="space-between" style={{ flex: 1, height: "100%" }}>
+          <Text type="text1" weight="bold">
+            Frame 697.jpg
+          </Text>
+          <Flex justify="space-between">
+            <Text>2KB</Text>
+            <Text>Saving...</Text>
+          </Flex>
+        </Flex>
+      </Flex>
+      <LinearProgressBar
+        id="progress-bar-as-loading-indicator"
+        ariaLabel="Progress bar as loading indicator"
+        value={71}
+      />
+    </Box>
   ),
 
   name: "Progress bar as loading indicator"

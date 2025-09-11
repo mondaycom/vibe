@@ -1,4 +1,4 @@
-import { ForwardedRef, MutableRefObject, RefObject, useRef } from "react";
+import { type ForwardedRef, type MutableRefObject, type RefObject, useRef } from "react";
 import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
 /*
  * Example usage:

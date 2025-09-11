@@ -1,4 +1,4 @@
-import { ReactNode, UIEventHandler } from "react";
+import { type ReactNode, type UIEventHandler } from "react";
 
 export interface ModalLayoutScrollableContentProps {
   /**
@@ -6,11 +6,11 @@ export interface ModalLayoutScrollableContentProps {
    */
   onScroll?: UIEventHandler<HTMLDivElement>;
   /**
-   * Additional class name.
+   * Class name applied to the scrollable content container.
    */
   className?: string;
   /**
-   * Scrollable content.
+   * The scrollable content.
    */
   children: ReactNode;
 }

@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
-import Combobox, { ComboboxProps } from "../Combobox";
-import person1 from "./assets/person1.png";
-import person2 from "./assets/person2.png";
-import person3 from "./assets/person3.png";
+import Combobox, { type ComboboxProps } from "../Combobox";
+import person1 from "../../Avatar/__stories__/assets/person1.png";
+import person2 from "../../Avatar/__stories__/assets/person2.png";
+import person3 from "../../Avatar/__stories__/assets/person3.png";
 import { defaultPlaySuite } from "../__tests__/Combobox.interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import Button from "../../Button/Button";
@@ -11,10 +11,9 @@ import Dialog from "../../Dialog/Dialog";
 import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@vibe/icons";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
-import { optionRenderer } from "./OptionRenderer";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Icon } from "../../index";
-import "./Combobox.stories.scss";
+import Icon from "../../Icon/Icon";
+import Text from "../../Text/Text";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Combobox,
@@ -159,7 +158,7 @@ export const Sizes = {
     );
 
     return (
-      <div className="combobox-stories-styles_row">
+      <Flex gap="large">
         <DialogContentContainer>
           <Combobox options={options} size="small" placeholder="Placeholder text here" />
         </DialogContentContainer>
@@ -169,7 +168,7 @@ export const Sizes = {
         <DialogContentContainer>
           <Combobox options={options} size="large" placeholder="Placeholder text here" />
         </DialogContentContainer>
-      </div>
+      </Flex>
     );
   }
 };
@@ -228,20 +227,9 @@ export const WithCategories = {
     );
 
     return (
-      <Flex
-        gap={50}
-        style={{
-          width: "100%"
-        }}
-        justify="start"
-        align="start"
-      >
-        <StoryDescription
-          description="Regular"
-          vertical
-          // @ts-ignore
-          align={Flex.align.START}
-        >
+      <Flex gap="large" justify="start" align="start">
+        <Flex direction="column" gap="medium" align="start">
+          Regular
           <DialogContentContainer
             style={{
               height: "200px"
@@ -249,13 +237,9 @@ export const WithCategories = {
           >
             <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
           </DialogContentContainer>
-        </StoryDescription>
-        <StoryDescription
-          description="Sticky mode"
-          vertical
-          // @ts-ignore
-          align={Flex.align.START}
-        >
+        </Flex>
+        <Flex direction="column" gap="medium" align="start">
+          Sticky mode
           <DialogContentContainer
             style={{
               height: "200px"
@@ -263,12 +247,9 @@ export const WithCategories = {
           >
             <Combobox stickyCategories options={options} categories={categories} placeholder="Placeholder text here" />
           </DialogContentContainer>
-        </StoryDescription>
-        <StoryDescription
-          description="With divider"
-          vertical // @ts-ignore
-          align={Flex.align.START}
-        >
+        </Flex>
+        <Flex direction="column" gap="medium" align="start">
+          With divider
           <DialogContentContainer
             style={{
               height: "200px"
@@ -282,16 +263,9 @@ export const WithCategories = {
               placeholder="Placeholder text here"
             />
           </DialogContentContainer>
-        </StoryDescription>
+        </Flex>
       </Flex>
     );
-  },
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
   },
   name: "With categories"
 };
@@ -422,10 +396,12 @@ export const WithButton = {
 
     return (
       <DialogContentContainer>
-        <Combobox options={options} placeholder="Placeholder text here" />
-        <Button kind="tertiary" className="combobox-stories-styles_btn" leftIcon={Edit}>
-          Edit
-        </Button>
+        <Flex direction="column" align="stretch">
+          <Combobox options={options} placeholder="Placeholder text here" />
+          <Button kind="tertiary" leftIcon={Edit}>
+            Edit
+          </Button>
+        </Flex>
       </DialogContentContainer>
     );
   },
@@ -587,95 +563,43 @@ export const WithVirtualizationOptimization = {
     );
 
     return (
-      <Flex
-        gap="small"
-        style={{
-          width: "100%"
-        }}
-        justify="center"
-        align="start"
-      >
-        <StoryDescription
-          className="combobox-stories-styles_virtualized-description"
-          // @ts-ignore
-          align="start"
-          description="Virtualization optimization without categories"
-          vertical
-          headerStyle={{
-            width: "70%",
-            textAlign: "start"
-          }}
-        >
-          <div
-            style={{
-              width: "280px"
-            }}
-          >
-            <DialogContentContainer>
-              <Combobox
-                options={options}
-                renderOnlyVisibleOptions
-                placeholder="Placeholder text here"
-                maxOptionsWithoutScroll={3}
-              />
-            </DialogContentContainer>
-          </div>
-        </StoryDescription>
-        <StoryDescription
-          className="combobox-stories-styles_virtualized-description"
-          // @ts-ignore
-          align="start"
-          description="Virtualization optimization with categories"
-          vertical
-          headerStyle={{
-            width: "70%",
-            textAlign: "start"
-          }}
-        >
-          <div
-            style={{
-              width: "280px"
-            }}
-          >
-            <DialogContentContainer>
-              <Combobox
-                options={options}
-                renderOnlyVisibleOptions
-                categories={categories}
-                placeholder="Placeholder text here"
-                maxOptionsWithoutScroll={3}
-              />
-            </DialogContentContainer>
-          </div>
-        </StoryDescription>
-        <StoryDescription
-          className="combobox-stories-styles_virtualized-description"
-          // @ts-ignore
-          align="start"
-          description="Virtualization optimization with sticky categories"
-          vertical
-          headerStyle={{
-            width: "70%",
-            textAlign: "start"
-          }}
-        >
-          <div
-            style={{
-              width: "280px"
-            }}
-          >
-            <DialogContentContainer>
-              <Combobox
-                stickyCategories
-                options={options}
-                renderOnlyVisibleOptions
-                categories={categories}
-                placeholder="Placeholder text here"
-                maxOptionsWithoutScroll={3}
-              />
-            </DialogContentContainer>
-          </div>
-        </StoryDescription>
+      <Flex gap="large" justify="center" align="start">
+        <Flex direction="column" gap="small" align="start">
+          Virtualization without categories
+          <DialogContentContainer>
+            <Combobox
+              options={options}
+              renderOnlyVisibleOptions
+              placeholder="Placeholder text here"
+              maxOptionsWithoutScroll={3}
+            />
+          </DialogContentContainer>
+        </Flex>
+        <Flex direction="column" gap="small" align="start">
+          Virtualization with categories
+          <DialogContentContainer>
+            <Combobox
+              options={options}
+              renderOnlyVisibleOptions
+              categories={categories}
+              placeholder="Placeholder text here"
+              maxOptionsWithoutScroll={3}
+            />
+          </DialogContentContainer>
+        </Flex>
+        <Flex direction="column" gap="small" align="start">
+          Virtualization with sticky categories
+          <DialogContentContainer>
+            <Combobox
+              stickyCategories
+              options={options}
+              renderOnlyVisibleOptions
+              categories={categories}
+              placeholder="Placeholder text here"
+              maxOptionsWithoutScroll={3}
+            />
+          </DialogContentContainer>
+        </Flex>
       </Flex>
     );
   },
@@ -707,24 +631,24 @@ export const ComboboxAsPersonPicker = {
     const options = useMemo(
       () => [
         {
-          id: "Hadas Farhi",
-          label: "Hadas Farhi",
+          id: "1",
+          label: "Julia Martinez",
           src: person1,
           type: "img",
           position: "(Frontend Developer)",
           categoryId: "suggestedPeople"
         },
         {
-          id: "Rotem Dekel",
-          label: "Rotem Dekel",
+          id: "2",
+          label: "Marco DiAngelo",
           src: person2,
           type: "img",
           position: "(Product Designer)",
           categoryId: "suggestedPeople"
         },
         {
-          id: "Netta Muller",
-          label: "Netta Muller",
+          id: "3",
+          label: "Liam Caldwell",
           src: person3,
           type: "img",
           position: "(Brand Designer)",
@@ -744,18 +668,26 @@ export const ComboboxAsPersonPicker = {
       []
     );
 
+    const optionRenderer = (option: any) => (
+      <Flex gap="xs">
+        <Avatar customSize={22} src={option.src} type="img" key={option.id} />
+        <Text>{option.label}</Text>
+        <Text color="secondary">{option.position}</Text>
+      </Flex>
+    );
+
     return (
       <Flex
         style={{
-          width: "100%",
           height: "270px"
         }}
+        flex="1"
         justify="center"
         align="start"
       >
         <Dialog
           content={() => (
-            <DialogContentContainer className="combobox-stories-styles_wrapper">
+            <DialogContentContainer>
               <Combobox
                 options={options}
                 categories={categories}
@@ -767,11 +699,11 @@ export const ComboboxAsPersonPicker = {
           )}
           tooltip
           position="bottom"
-          open={true}
+          open
         >
-          <div className="person-picker-mock">
-            <Avatar size="small" src={person1} type="img" />
-          </div>
+          <Button kind="secondary" size="small">
+            Select people
+          </Button>
         </Dialog>
       </Flex>
     );
@@ -779,7 +711,7 @@ export const ComboboxAsPersonPicker = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person1, person2, person3, optionRenderer }
+        scope: { person1, person2, person3 }
       }
     }
   },

@@ -1,13 +1,14 @@
 import React, { useCallback, useState } from "react";
-import Tipseen, { TipseenProps } from "../Tipseen";
-import TipseenContent, { TipseenContentProps } from "../TipseenContent";
+import { type Meta, type StoryObj } from "@storybook/react";
+import Tipseen, { type TipseenProps } from "../Tipseen";
+import TipseenContent, { type TipseenContentProps } from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 import TipseenMedia from "../TipseenMedia/TipseenMedia";
-import { picture, video } from "./assets";
-import { modifiers } from "./Tipseen.stories.helpers";
+import picture from "./assets/picture.svg";
+import video from "./assets/video.mp4";
+import Flex from "../../Flex/Flex";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./Tipseen.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen
@@ -23,50 +24,39 @@ export default {
     TipseenWizard
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { modifiers }
-      }
-    }
-  }
-};
+  decorators: metaSettings.decorators
+} as Meta<typeof Tipseen>;
 
-const tipseenTemplate = ({
-  hideDismiss,
-  title,
-  children,
-  position,
-  ...otherArgs
-}: TipseenProps & TipseenContentProps) => {
+const tipseenTemplate = ({ title, children, position, ...otherArgs }: TipseenProps & TipseenContentProps) => {
   return (
     <Tipseen
       // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
       // Therefore, there is no need to move this prop in your implementations.
-      modifiers={modifiers}
+      modifiers={[
+        {
+          name: "preventOverflow",
+          options: {
+            mainAxis: false
+          }
+        }
+      ]}
       position={position}
-      content={
-        <TipseenContent hideDismiss={hideDismiss} title={title}>
-          {children}
-        </TipseenContent>
-      }
+      content={<TipseenContent title={title}>{children}</TipseenContent>}
       {...otherArgs}
     >
-      <div className="monday-storybook-tipseen_container" />
+      <div style={{ height: "160px" }} />
     </Tipseen>
   );
 };
 
-export const Overview = {
+export const Overview: StoryObj<typeof Tipseen> = {
   render: tipseenTemplate.bind({}),
   name: "Overview",
-
   args: {
+    id: "overview-tipseen",
     title: "Title",
-    children: "Message for the user will appear here, to give more information about the feature.",
-    position: "right",
-    hideDismiss: false
+    children: <div>Message for the user will appear here, to give more information about the feature.</div>,
+    position: "right"
   },
   parameters: {
     docs: {
@@ -77,117 +67,141 @@ export const Overview = {
   }
 };
 
-export const Colors = {
-  // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-  render:
-    // Therefore, there is no need to move this prop in your implementations.
-    () => {
-      return (
-        <>
-          <div className="monday-storybook-tipseen_small-box">
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              content={
-                <TipseenContent title="This is a title" hideDismiss>
-                  Message for the user will appear here, to give more information about the feature.
-                </TipseenContent>
+export const Colors: StoryObj<typeof Tipseen> = {
+  render: () => {
+    return (
+      <Flex direction="column">
+        <Tipseen
+          id="colors-tipseen-1"
+          // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+          // Therefore, there is no need to move this prop in your implementations.
+          modifiers={[
+            {
+              name: "preventOverflow",
+              options: {
+                mainAxis: false
               }
-            >
-              <div className="monday-storybook-tipseen_container" />
-            </Tipseen>
-          </div>
-          <div className="monday-storybook-tipseen_small-box">
-            <Tipseen
-              modifiers={modifiers}
-              position="right"
-              color="primary"
-              content={
-                <TipseenContent title="This is a title" hideDismiss>
-                  Message for the user will appear here, to give more information about the feature.
-                </TipseenContent>
+            }
+          ]}
+          position="right"
+          content={
+            <TipseenContent id="colors-content-1" title="This is a title">
+              Message for the user will appear here, to give more information about the feature.
+            </TipseenContent>
+          }
+        >
+          <div style={{ height: "180px" }} />
+        </Tipseen>
+        <Tipseen
+          id="colors-tipseen-2"
+          // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+          // Therefore, there is no need to move this prop in your implementations.
+          modifiers={[
+            {
+              name: "preventOverflow",
+              options: {
+                mainAxis: false
               }
-            >
-              <div className="monday-storybook-tipseen_container" />
-            </Tipseen>
-          </div>
-        </>
-      );
-    },
-
+            }
+          ]}
+          position="right"
+          color="primary"
+          content={
+            <TipseenContent id="colors-content-2" title="This is a title">
+              Message for the user will appear here, to give more information about the feature.
+            </TipseenContent>
+          }
+        >
+          <div style={{ height: "180px" }} />
+        </Tipseen>
+      </Flex>
+    );
+  },
   name: "Colors"
 };
 
-export const TipseenWithAWizard = {
-  // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-  render:
-    // Therefore, there is no need to move this prop in your implementations.
-    () => {
-      const content = [
-        <div>Popover message №1 will appear here</div>,
-        <div>Popover message №2 will appear here</div>,
-        <div>Popover message №3 will appear here</div>,
-        <div>Popover message №4 will appear here</div>,
-        <div>Popover message №5 will appear here</div>
-      ];
+export const TipseenWithAWizard: StoryObj<typeof Tipseen> = {
+  render: () => {
+    const content = [
+      <div>Popover message №1 will appear here</div>,
+      <div>Popover message №2 will appear here</div>,
+      <div>Popover message №3 will appear here</div>,
+      <div>Popover message №4 will appear here</div>,
+      <div>Popover message №5 will appear here</div>
+    ];
 
-      const [activeStepIndex, setActiveStepIndex] = useState(2);
+    const [activeStepIndex, setActiveStepIndex] = useState(2);
 
-      const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
-        setActiveStepIndex(stepIndex);
-      }, []);
+    const onChangeActiveStep = useCallback((_e: any, stepIndex: React.SetStateAction<number>) => {
+      setActiveStepIndex(stepIndex);
+    }, []);
 
-      return (
-        <Tipseen
-          modifiers={modifiers}
-          position="right"
-          content={
-            <TipseenWizard
-              title="This is a title"
-              steps={content}
-              activeStepIndex={activeStepIndex}
-              onChangeActiveStep={onChangeActiveStep}
-              onFinish={() => {}}
-            />
+    return (
+      <Tipseen
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={[
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
           }
-        >
-          <div className="monday-storybook-tipseen_container" />
-        </Tipseen>
-      );
-    },
+        ]}
+        position="right"
+        content={
+          <TipseenWizard
+            title="This is a title"
+            steps={content}
+            activeStepIndex={activeStepIndex}
+            onChangeActiveStep={onChangeActiveStep}
+            onFinish={() => {}}
+          />
+        }
+      >
+        <div style={{ height: "150px" }} />
+      </Tipseen>
+    );
+  },
 
   name: "Tipseen with a wizard"
 };
 
-export const TipseenWithImage = {
-  // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-  render:
-    // Therefore, there is no need to move this prop in your implementations.
-    () => {
-      const content = [
-        <div>Message for the user will appear here, to give more information about the feature.</div>,
-        <div>Message for the user will appear here, to give more information about the feature.</div>,
-        <div>Message for the user will appear here, to give more information about the feature.</div>,
-        <div>Message for the user will appear here, to give more information about the feature.</div>,
-        <div>Message for the user will appear here, to give more information about the feature.</div>
-      ];
+export const TipseenWithImage: StoryObj<typeof Tipseen> = {
+  render: () => {
+    const content = [
+      <div>Message for the user will appear here, to give more information about the feature.</div>,
+      <div>Message for the user will appear here, to give more information about the feature.</div>,
+      <div>Message for the user will appear here, to give more information about the feature.</div>,
+      <div>Message for the user will appear here, to give more information about the feature.</div>,
+      <div>Message for the user will appear here, to give more information about the feature.</div>
+    ];
 
-      return (
-        <Tipseen
-          position="right"
-          modifiers={modifiers}
-          closeButtonTheme="dark"
-          content={
-            <>
-              <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
-              <TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />
-            </>
+    return (
+      <Tipseen
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        position="right"
+        modifiers={[
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
           }
-        >
-          <div className="monday-storybook-tipseen_big-container" />
-        </Tipseen>
-      );
-    },
+        ]}
+        closeButtonTheme="light"
+        content={
+          <>
+            <TipseenImage src={picture} />
+            <TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />
+          </>
+        }
+      >
+        <div style={{ height: "300px" }} />
+      </Tipseen>
+    );
+  },
   parameters: {
     docs: {
       liveEdit: {
@@ -199,39 +213,45 @@ export const TipseenWithImage = {
   name: "Tipseen with image"
 };
 
-export const TipseenWithCustomMedia = {
-  // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-  render:
-    // Therefore, there is no need to move this prop in your implementations.
-    () => {
-      return (
-        <Tipseen
-          position="right"
-          modifiers={modifiers}
-          closeButtonTheme="dark"
-          content={
-            <>
-              <TipseenMedia>
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  src={video}
-                  style={{
-                    width: "100%"
-                  }}
-                />
-              </TipseenMedia>
-              <TipseenContent title="This is a title">
-                Message for the user will appear here, to give more information about the feature.
-              </TipseenContent>
-            </>
+export const TipseenWithCustomMedia: StoryObj<typeof Tipseen> = {
+  render: () => {
+    return (
+      <Tipseen
+        position="right"
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={[
+          {
+            name: "preventOverflow",
+            options: {
+              mainAxis: false
+            }
           }
-        >
-          <div className="monday-storybook-tipseen_big-container" />
-        </Tipseen>
-      );
-    },
+        ]}
+        closeButtonTheme="dark"
+        content={
+          <>
+            <TipseenMedia>
+              <video
+                autoPlay
+                muted
+                loop
+                src={video}
+                style={{
+                  width: "100%"
+                }}
+              />
+            </TipseenMedia>
+            <TipseenContent title="This is a title">
+              Message for the user will appear here, to give more information about the feature.
+            </TipseenContent>
+          </>
+        }
+      >
+        <div style={{ height: "280px" }} />
+      </Tipseen>
+    );
+  },
   parameters: {
     docs: {
       liveEdit: {
@@ -243,8 +263,7 @@ export const TipseenWithCustomMedia = {
   name: "Tipseen with custom media"
 };
 
-export const FloatingTipseen = {
-  // You do not have to use containerSelector, in current use this is for story only
+export const FloatingTipseen: StoryObj<typeof Tipseen> = {
   render: () => {
     return (
       <Tipseen
@@ -252,16 +271,24 @@ export const FloatingTipseen = {
         floating
         content={
           <>
-            <TipseenImage className="monday-storybook-tipseen_image" src={picture} />
+            <TipseenImage src={picture} />
             <TipseenContent title="This is a Floating Tipseen">
               Message for the user will appear here, to give more information about the feature.
             </TipseenContent>
           </>
         }
-        containerSelector="#story--components-tipseen--floating-tipseen"
+        // You do not have to use containerSelector, in current use this is for story only
+        containerSelector="#tipseen-floating-container"
       />
     );
   },
+  decorators: [
+    Story => (
+      <div style={{ height: "400px" }} id="tipseen-floating-container">
+        <Story />
+      </div>
+    )
+  ],
   parameters: {
     docs: {
       liveEdit: {

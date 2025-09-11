@@ -1,10 +1,8 @@
-import React from "react";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
-import Loader from "../Loader";
+import React, { useCallback, useState } from "react";
+import Loader, { type LoaderProps } from "../Loader";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { Button, DialogContentContainer, Flex, Search } from "../..";
-import { useCallback, useState } from "react";
-import "./Loader.stories.scss";
+import { Button, DialogContentContainer, Flex, Search, Text } from "../..";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Loader
@@ -14,24 +12,13 @@ export default {
   title: "Components/Loader",
   component: Loader,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
-  }
-};
+  decorators: metaSettings.decorators
+} satisfies Meta<typeof Loader>;
 
-const loaderTemplate = createComponentTemplate(Loader);
+type Story = StoryObj<typeof Loader>;
 
-export const Overview = {
-  render: loaderTemplate.bind({}),
-  name: "Overview",
-  args: {
-    size: "medium"
-  },
+export const Overview: Story = {
+  render: (args: LoaderProps) => <Loader id="overview-loader" size="medium" {...args} />,
   parameters: {
     docs: {
       liveEdit: {
@@ -41,110 +28,124 @@ export const Overview = {
   }
 };
 
-export const SizeVariants = {
+export const SizeVariants: Story = {
   render: () => (
-    <Flex direction="row" gap="small">
-      <StoryDescription description="Xs" vertical align={StoryDescription.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size="xs" />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Small" vertical align={StoryDescription.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size="small" />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Medium" vertical align={StoryDescription.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size="medium" />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Large" vertical align={StoryDescription.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <Loader size="large" />
-        </div>
-      </StoryDescription>
+    <Flex align="start" gap={60}>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Xs
+        </Text>
+        <Loader id="loader-xs" size="xs" />
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Small
+        </Text>
+        <Loader id="loader-small" size="small" />
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Medium
+        </Text>
+        <Loader id="loader-medium" size="medium" />
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Large
+        </Text>
+        <Loader id="loader-large" size="large" />
+      </Flex>
     </Flex>
   ),
-
   name: "Size variants"
 };
 
-export const ColorVariants = {
+export const ColorVariants: Story = {
   render: () => (
-    <Flex direction="row" gap="small">
-      <StoryDescription description="Primary" vertical align={StoryDescription.align.START}>
-        <Loader size="medium" color="primary" />
-      </StoryDescription>
-      <StoryDescription description="Secondary" vertical align={StoryDescription.align.START}>
-        <Loader size="medium" color="secondary" />
-      </StoryDescription>
-      <StoryDescription description="Dark" vertical align={StoryDescription.align.START}>
-        <Loader size="medium" color="dark" />
-      </StoryDescription>
-      <StoryDescription description="OnPrimary" vertical align={StoryDescription.align.START}>
+    <Flex direction="row" gap={60}>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Primary
+        </Text>
+        <Loader id="loader-primary" size="medium" color="primary" />
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Secondary
+        </Text>
+        <Loader id="loader-secondary" size="medium" color="secondary" />
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Dark
+        </Text>
+        <Loader id="loader-dark" size="medium" color="dark" />
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          OnPrimary
+        </Text>
         <Flex direction="row">
-          <div className="monday-storybook-loader_color-variants_on-primary--color-black">
-            <Loader size="medium" color="onPrimary" />
+          <div style={{ background: "var(--sb-primary-text-color)", padding: "var(--space-4)" }}>
+            <Loader id="loader-on-primary" size="medium" color="onPrimary" />
           </div>
-          <div className="monday-storybook-loader_color-variants_on-primary--color-negative">
-            <Loader size="medium" color="onPrimary" />
+          <div style={{ background: "var(--sb-negative-color)", padding: "var(--space-4)" }}>
+            <Loader id="loader-on-negative" size="medium" color="onPrimary" />
           </div>
-          <div className="monday-storybook-loader_color-variants_on-primary--color-positive">
-            <Loader size="medium" color="onPrimary" />
+          <div style={{ background: "var(--sb-positive-color)", padding: "var(--space-4)" }}>
+            <Loader id="loader-on-positive" size="medium" color="onPrimary" />
           </div>
-          <div className="monday-storybook-loader_color-variants_on-primary--color-primary">
-            <Loader size="medium" color="onPrimary" />
+          <div style={{ background: "var(--sb-primary-color)", padding: "var(--space-4)" }}>
+            <Loader id="loader-on-primary-color" size="medium" color="onPrimary" />
           </div>
         </Flex>
-      </StoryDescription>
+      </Flex>
     </Flex>
   ),
 
   name: "Color variants"
 };
 
-export const CustomColors = {
+export const CustomColors: Story = {
   render: () => (
     <div
       style={{
         color: "var(--color-dark-red)"
       }}
     >
-      <Loader size="medium" />
+      <Loader id="loader-custom-color" size="medium" />
     </div>
   ),
 
   name: "Custom colors"
 };
 
-export const VisualVariants = {
+export const VisualVariants: Story = {
   render: () => (
-    <Flex direction="row" gap="small">
-      <StoryDescription description="Casual" vertical align={StoryDescription.align.START}>
+    <Flex direction="row" gap="large">
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          Casual
+        </Text>
         <div>
-          <Loader size="medium" />
+          <Loader id="loader-casual" size="medium" />
         </div>
-      </StoryDescription>
-      <StoryDescription
-        description="With background"
-        vertical
-        align={StoryDescription.align.START}
-        headerStyle={{
-          width: "fitContent"
-        }}
-      >
+      </Flex>
+      <Flex direction="column" gap="small">
+        <Text type="text1" weight="medium">
+          With background
+        </Text>
         <div>
-          <Loader size="medium" hasBackground />
+          <Loader id="loader-with-background" size="medium" hasBackground />
         </div>
-      </StoryDescription>
+      </Flex>
     </Flex>
   ),
 
   name: "Visual variants"
 };
 
-export const LoaderInTextField = {
+export const LoaderInTextField: Story = {
   render: () => (
     <DialogContentContainer>
       <Search loading placeholder="Board name" />
@@ -159,7 +160,7 @@ export const LoaderInTextField = {
   name: "Loader in text field"
 };
 
-export const LoaderInButton = {
+export const LoaderInButton: Story = {
   render: () => {
     const [loading, setLoading] = useState(false);
 

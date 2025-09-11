@@ -1,6 +1,7 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
-import { range } from "lodash-es";
+import { range } from "es-toolkit";
 import useGridKeyboardNavigation from "../useGridKeyboardNavigation";
 import userEvent from "@testing-library/user-event";
 
@@ -42,7 +43,7 @@ describe("useGridKeyboardNavigation", () => {
     expect(result.current.activeIndex).toBe(5);
   });
 
-  it("should return a callback wrapper that sets the activeIndex to the keyboard selected element, ", () => {
+  it("should return a callback wrapper that sets the activeIndex to the keyboard selected element,", () => {
     const { result } = renderHookForTest({});
 
     act(() => result.current.onSelectionAction(3, true));
@@ -51,7 +52,7 @@ describe("useGridKeyboardNavigation", () => {
   });
 
   it("should select the currently active item when navigating and selecting using the keyboard", () => {
-    const onItemClicked = jest.fn();
+    const onItemClicked = vi.fn();
     const items = ["a", "b", "c", "d"];
     renderHookForTest({ items, focusOnMount: true, focusItemIndexOnMount: 0, onItemClicked });
 
@@ -67,7 +68,7 @@ describe("useGridKeyboardNavigation", () => {
   });
 
   it("should ignore keyboard selections which are performed after selecting with the mouse", () => {
-    const onItemClicked = jest.fn();
+    const onItemClicked = vi.fn();
     const items = ["a", "b", "c", "d"];
     const { result } = renderHookForTest({ items, focusOnMount: true, focusItemIndexOnMount: 0, onItemClicked });
     act(() => result.current.onSelectionAction(1)); // select without the keyboard
@@ -81,7 +82,7 @@ describe("useGridKeyboardNavigation", () => {
   });
 
   it("should return a callback wrapper that calls onItemClicked with the item and the index", () => {
-    const onItemClicked = jest.fn();
+    const onItemClicked = vi.fn();
     const items = ["a", "b", "c", "d"];
     const { result } = renderHookForTest({ onItemClicked, items });
 
@@ -202,7 +203,7 @@ describe("useGridKeyboardNavigation", () => {
   function renderHookForTest({
     items = itemsArray(4),
     numberOfItemsInLine = 3,
-    onItemClicked = jest.fn(),
+    onItemClicked = vi.fn(),
     focusOnMount = false,
     focusItemIndexOnMount = undefined,
     disabledIndexes = []

@@ -5,15 +5,10 @@ import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
 import useForceUpdate from "./useForceUpdate";
 import type { Options, State } from "@popperjs/core";
 import { createObserveContentResizeModifier } from "../components/Dialog/modifiers/observeContentResizeModifier";
-
+import { createObserveReferenceResizeModifier } from "../components/Dialog/modifiers/observeReferenceResizeModifier";
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
-const FLIP_MODIFIER = {
-  name: "flip",
-  options: {
-    fallbackPlacements: [RIGHT_END, LEFT_START, LEFT_END]
-  }
-};
+const DEFAULT_FALLBACK_PLACEMENTS = [RIGHT_END, LEFT_START, LEFT_END];
 
 export default function usePopover(
   referenceElement: HTMLElement,
@@ -21,11 +16,17 @@ export default function usePopover(
   {
     isOpen,
     placement = RIGHT_START,
-    observeContentResize
+    observeContentResize,
+    observeReferenceResize,
+    offset,
+    fallbackPlacements = DEFAULT_FALLBACK_PLACEMENTS
   }: {
     isOpen?: boolean;
     placement?: Placement;
     observeContentResize?: boolean;
+    observeReferenceResize?: boolean;
+    offset?: [number, number];
+    fallbackPlacements?: Placement[];
   }
 ) {
   const forceUpdate = useForceUpdate();
@@ -40,7 +41,12 @@ export default function usePopover(
     return {
       placement,
       modifiers: [
-        FLIP_MODIFIER,
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements
+          }
+        },
         {
           name: "displayNone",
           enabled: true,
@@ -50,10 +56,15 @@ export default function usePopover(
             return state;
           }
         },
-        createObserveContentResizeModifier(observeContentResize)
+        createObserveContentResizeModifier(observeContentResize),
+        createObserveReferenceResizeModifier(observeReferenceResize),
+        offset !== undefined && {
+          name: "offset",
+          options: { offset }
+        }
       ]
     };
-  }, [isOpen, placement, observeContentResize]);
+  }, [placement, observeContentResize, offset, isOpen]);
 
   const { styles, attributes } = usePopper(referenceElement, popperElement, popperOptions);
 

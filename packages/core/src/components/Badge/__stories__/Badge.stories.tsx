@@ -7,7 +7,7 @@ import Button from "../../Button/Button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
+import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,
@@ -27,9 +27,13 @@ export default {
 export const Overview = {
   render: badgeTemplate.bind({}),
   name: "Overview",
-
   args: {
-    children: <Button leftIcon={WhatsNew}>{"What's new"}</Button>
+    id: "overview-badge",
+    children: (
+      <Button id="overview-badge-button" ariaLabel="What's new button with badge" leftIcon={WhatsNew}>
+        {"What's new"}
+      </Button>
+    )
   },
   parameters: {
     docs: {
@@ -42,41 +46,41 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <Flex
-      gap="large"
-      style={{
-        flex: 1
-      }}
-      justify="start"
-      align="start"
-    >
-      <StoryDescription description="Indicator" vertical align={StoryDescription.align.START}>
-        <Badge>
-          <Button leftIcon={WhatsNew}>{"What's new"}</Button>
+    <Flex gap="large" justify="start" align="start">
+      <Flex direction="column" gap="medium" align="start">
+        Indicator
+        <Badge id="indicator-badge">
+          <Button id="indicator-button" ariaLabel="What's new button with indicator" leftIcon={WhatsNew}>
+            {"What's new"}
+          </Button>
         </Badge>
-      </StoryDescription>
-      <StoryDescription description="Counter" vertical align={StoryDescription.align.START}>
-        <Badge type="counter" count={100} maxDigits={2}>
-          <Button leftIcon={WhatsNew}>{"What's new"}</Button>
+      </Flex>
+      <Flex direction="column" gap="medium" align="start">
+        Counter
+        <Badge id="counter-badge" type="counter" count={100} maxDigits={2} ariaLabel="100 notifications">
+          <Button id="counter-button" ariaLabel="What's new button with counter" leftIcon={WhatsNew}>
+            {"What's new"}
+          </Button>
         </Badge>
-      </StoryDescription>
+      </Flex>
     </Flex>
   ),
   parameters: {
     docs: {
       liveEdit: {
-        scope: { StoryDescription, WhatsNew }
+        scope: { WhatsNew }
       }
     }
   },
-
   name: "States"
 };
 
 export const ButtonStory = {
   render: () => (
-    <Badge alignment="rectangular">
-      <Button leftIcon={ExternalPage}>Button</Button>
+    <Badge id="button-badge" alignment="rectangular">
+      <Button id="button-story-button" ariaLabel="Button with external page icon and badge" leftIcon={ExternalPage}>
+        Button
+      </Button>
     </Badge>
   ),
   parameters: {
@@ -86,14 +90,13 @@ export const ButtonStory = {
       }
     }
   },
-
   name: "Button"
 };
 
 export const AvatarStory = {
   render: () => (
-    <Badge alignment="circular">
-      <Avatar size="large" src={person} type="img" />
+    <Badge id="avatar-badge" alignment="circular">
+      <Avatar id="badge-avatar" size="large" src={person} type="img" />
     </Badge>
   ),
   parameters: {
@@ -103,21 +106,20 @@ export const AvatarStory = {
       }
     }
   },
-
   name: "Avatar"
 };
 
 export const InlineElements = {
   render: () => (
     <Flex direction="column" gap="medium" align="start">
-      <Badge alignment="outside">
-        <Link text="Read more" />
+      <Badge id="inline-badge-1" alignment="outside">
+        <Link id="inline-link-1" text="Read more" />
       </Badge>
-      <Badge alignment="outside">
-        <Link text="What's new" iconPosition="start" icon={WhatsNew} />
+      <Badge id="inline-badge-2" alignment="outside">
+        <Link id="inline-link-2" text="What's new" iconPosition="start" icon={WhatsNew} />
       </Badge>
-      <Badge alignment="outside">
-        <Link text="Learn more" iconPosition="end" icon={ExternalPage} />
+      <Badge id="inline-badge-3" alignment="outside">
+        <Link id="inline-link-3" text="Learn more" iconPosition="end" icon={ExternalPage} />
       </Badge>
     </Flex>
   ),
@@ -128,6 +130,5 @@ export const InlineElements = {
       }
     }
   },
-
   name: "Inline elements"
 };

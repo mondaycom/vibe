@@ -1,5 +1,5 @@
 import React from "react";
-import { chunk as _chunk } from "lodash-es";
+import { chunk as _chunk } from "es-toolkit";
 import Flex from "../../Flex/Flex";
 import Chips from "../Chips";
 import Text from "../../Text/Text";
@@ -33,6 +33,8 @@ export const Overview = {
   name: "Overview",
 
   args: {
+    id: "overview-chip",
+    ariaLabel: "Overview chip",
     label: "This is a chip",
     onMouseDown: () => {},
     onClick: () => {}
@@ -47,15 +49,20 @@ export const Overview = {
 };
 
 export const ChipsWithReadOnlyState = {
-  render: () => <Chips label="Read only chip" readOnly />,
+  render: () => <Chips id="readonly-chip" ariaLabel="Read only chip" label="Read only chip" readOnly />,
   name: "Chips with read only state"
 };
 
 export const ChipsWithIcons = {
   render: () => (
     <Flex gap="medium">
-      <Chips label="Chip with left icon" leftIcon={Email} />
-      <Chips label="Chip with right icon" rightIcon={Email} />
+      <Chips id="chip-left-icon" ariaLabel="Chip with left email icon" label="Chip with left icon" leftIcon={Email} />
+      <Chips
+        id="chip-right-icon"
+        ariaLabel="Chip with right email icon"
+        label="Chip with right icon"
+        rightIcon={Email}
+      />
     </Flex>
   ),
   parameters: {
@@ -71,8 +78,18 @@ export const ChipsWithIcons = {
 export const ChipsWithAvatars = {
   render: () => (
     <Flex gap="medium">
-      <Chips label="Chip with left avatar" leftAvatar={person1} />
-      <Chips label="Chip with right avatar" rightAvatar={person1} />
+      <Chips
+        id="chip-left-avatar"
+        ariaLabel="Chip with left avatar"
+        label="Chip with left avatar"
+        leftAvatar={person1}
+      />
+      <Chips
+        id="chip-right-avatar"
+        ariaLabel="Chip with right avatar"
+        label="Chip with right avatar"
+        rightAvatar={person1}
+      />
     </Flex>
   ),
   parameters: {
@@ -88,11 +105,11 @@ export const ChipsWithAvatars = {
 export const Themes = {
   render: () => (
     <>
-      <Chips label="This is a long chip" />
-      <Chips label="Chip positive" color="positive" />
-      <Chips label="Chip negative" color="negative" />
-      <Chips label="Chip warning" color="warning" />
-      <Chips label="Disabled" disabled />
+      <Chips id="theme-long" ariaLabel="Long chip" label="This is a long chip" />
+      <Chips id="theme-positive" ariaLabel="Positive chip" label="Chip positive" color="positive" />
+      <Chips id="theme-negative" ariaLabel="Negative chip" label="Chip negative" color="negative" />
+      <Chips id="theme-warning" ariaLabel="Warning chip" label="Chip warning" color="warning" />
+      <Chips id="theme-disabled" ariaLabel="Disabled chip" label="Disabled" disabled />
     </>
   ),
   name: "Themes"
@@ -102,8 +119,19 @@ export const Clickable = {
   render: () => {
     return (
       <Flex direction="row" gap="medium" align="start">
-        <Chips label="Clickable default chip" readOnly onClick={NOOP} />
-        <Chips label="Clickable removable chip" onClick={NOOP} />
+        <Chips
+          id="clickable-default"
+          ariaLabel="Clickable default chip"
+          label="Clickable default chip"
+          readOnly
+          onClick={NOOP}
+        />
+        <Chips
+          id="clickable-removable"
+          ariaLabel="Clickable removable chip"
+          label="Clickable removable chip"
+          onClick={NOOP}
+        />
       </Flex>
     );
   },

@@ -1,11 +1,11 @@
 import React from "react";
-import AlertBanner, { AlertBannerProps } from "../AlertBanner";
+import AlertBanner, { type AlertBannerProps } from "../AlertBanner";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import "./AlertBanner.stories.scss";
-import { Meta, StoryObj } from "@storybook/react";
+import Flex from "../../Flex/Flex";
+import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AlertBanner,
@@ -30,100 +30,113 @@ export default {
     AlertBannerButton
   },
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
-} satisfies Meta<typeof AlertBanner>;
+  decorators: [
+    ...metaSettings.decorators,
+    (Story: React.ComponentType) => (
+      <div style={{ width: "610px" }}>
+        <Story />
+      </div>
+    )
+  ]
+} as Meta<typeof AlertBanner>;
 
 export const Overview = {
   render: alertBannerTemplate.bind({}),
-  name: "Overview",
-
   args: {
-    className: "monday-storybook-alert-banner_big-container"
-  }
+    id: "overview-alert-banner",
+    ariaLabel: "Overview alert banner"
+  },
+  name: "Overview"
 };
 
 type Story = StoryObj<typeof AlertBanner>;
 
 export const Types: Story = {
   render: () => (
-    <div className="monday-storybook-alert-banner_column-wrapper monday-storybook-alert-banner_big-container">
-      <AlertBanner>
+    <Flex direction="column" gap={16}>
+      <AlertBanner id="type-primary" ariaLabel="Primary alert banner">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="positive">
+      <AlertBanner id="type-positive" ariaLabel="Success alert banner" backgroundColor="positive">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="negative">
+      <AlertBanner id="type-negative" ariaLabel="Error alert banner" backgroundColor="negative">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="warning">
+      <AlertBanner id="type-warning" ariaLabel="Warning alert banner" backgroundColor="warning">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner backgroundColor="dark">
+      <AlertBanner id="type-dark" ariaLabel="Dark alert banner" backgroundColor="dark">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-    </div>
+    </Flex>
   ),
-
   name: "Types"
 };
 
 export const AlertBannerWithButton: Story = {
   render: () => (
-    <AlertBanner className="monday-storybook-alert-banner_big-container">
+    <AlertBanner id="with-button" ariaLabel="Alert banner with action button">
       <AlertBannerText text="Lorem ipsum dolor sit amet" />
       <AlertBannerButton>Lorem Ipsum</AlertBannerButton>
     </AlertBanner>
   ),
-
   name: "Alert Banner with button"
 };
 
 export const AlertBannerWithLink: Story = {
   render: () => (
-    <AlertBanner className="monday-storybook-alert-banner_big-container">
+    <AlertBanner id="with-link" ariaLabel="Alert banner with link">
       <AlertBannerText text="Alert banner message" />
       <AlertBannerLink text="this is a CTA" href="https://monday.com" />
     </AlertBanner>
   ),
-
   name: "Alert Banner with link"
 };
 
 export const AlertBannerAsAnAnnouncement: Story = {
   render: () => (
-    <AlertBanner backgroundColor="dark" className="monday-storybook-alert-banner_big-container">
+    <AlertBanner id="announcement" ariaLabel="Event announcement" backgroundColor="dark">
       <AlertBannerText text="Join us at Elevate 2022" />
       <AlertBannerLink text="RSVP now" href="https://monday.com" />
     </AlertBanner>
   ),
-
   name: "Alert banner as an announcement"
 };
 
 export const AlertBannerAsAnOpportunityToUpgrade: Story = {
   render: () => (
-    <AlertBanner className="monday-storybook-alert-banner_big-container">
+    <AlertBanner
+      id="upgrade-opportunity"
+      ariaLabel="Trial upgrade opportunity"
+      onClose={() => {}}
+      closeButtonAriaLabel="Close upgrade banner"
+    >
       <AlertBannerText text="7 days left on your monday CRM trial" />
       <AlertBannerLink text="Upgrade now" href="https://monday.com" />
     </AlertBanner>
   ),
-
   name: "Alert banner as an opportunity to upgrade"
 };
 
 export const OverflowText: Story = {
   render: () => (
-    <AlertBanner className="monday-storybook-alert-banner_small-container">
+    <AlertBanner id="overflow-text" ariaLabel="Long text alert banner">
       <AlertBannerText text="This is a really long alert..." />
       <AlertBannerLink text="Call to action" href="https://monday.com" />
     </AlertBanner>
   ),
-
-  name: "Overflow text"
+  name: "Overflow text",
+  decorators: [
+    (Story: React.ComponentType) => (
+      <div style={{ width: "320px" }}>
+        <Story />
+      </div>
+    )
+  ]
 };

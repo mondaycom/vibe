@@ -10,15 +10,6 @@ import * as MenuButtonStories from "./MenuButton.stories";
 
 # MenuButton
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 MenuButton is a component that opens a Dialog next to a button, the content of the dialog could be anything you want.
 
 <Canvas of={MenuButtonStories.Overview} />
@@ -39,6 +30,23 @@ import { MenuButton } from "@vibe/core";
   guidelines={[
     "When you want to place content next to an element",
     "When the content needs to be on top of adjacent content "
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the MenuButton to enable proper accessibility associations.
+    </>,
+    <>
+      Use descriptive <code>ariaLabel</code> values for MenuButtons that clearly indicate the menu's purpose.
+    </>,
+    <>
+      Use <code>ariaControls</code> prop to link the MenuButton to its menu content. Pass the <code>id</code> of the
+      menu element to establish the relationship between the button and its controlled menu.
+    </>
   ]}
 />
 

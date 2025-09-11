@@ -1,9 +1,9 @@
-import React, { CSSProperties, ReactElement, Ref, useMemo } from "react";
-import { VirtualizedList, VirtualizedListItem } from "../VirtualizedList";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarType } from "../Avatar/Avatar.types";
-import { AvatarProps } from "../Avatar/Avatar";
-import { ElementContent } from "../../types";
+import React, { type CSSProperties, type ReactElement, type Ref, useMemo } from "react";
+import { VirtualizedList, type VirtualizedListItem } from "../VirtualizedList";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type AvatarType } from "../Avatar/Avatar.types";
+import { type AvatarProps } from "../Avatar/Avatar";
+import { type ElementContent } from "../../types";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
 const LIST_OPTIONS = Object.freeze({
@@ -18,9 +18,12 @@ export type AvatarItem = {
 
 export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends VibeComponentProps {
   /**
-   * Array of Avatar components
+   * The list of avatars displayed in the virtualized tooltip.
    */
   avatarItems?: AvatarItem[];
+  /**
+   * Function to render each avatar item.
+   */
   avatarRenderer?: (
     item: AvatarItem,
     index: number,
@@ -28,8 +31,17 @@ export interface AvatarGroupCounterTooltipContentVirtualizedListProps extends Vi
     type: AvatarType,
     displayAsGrid: boolean
   ) => ReactElement;
+  /**
+   * The ARIA label of the tooltip container.
+   */
   tooltipContainerAriaLabel?: string;
+  /**
+   * Ref for the tooltip content container.
+   */
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
+  /**
+   * The type of avatars in the tooltip.
+   */
   type?: AvatarType;
 }
 

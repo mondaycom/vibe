@@ -19,10 +19,8 @@ export const SpacingUsageExamples = () => (
           ensuring each one remains distinct and easily recognizable.
         </Text>
         <span>
-          Use tokens from <TokenName>--space-2</TokenName>
-          to
-          <span className={styles.tokenName}>--space-16</span>
-          for small, compact components.
+          Use tokens from <TokenName>--space-2</TokenName> to <TokenName>--space-16</TokenName> for small, compact
+          components.
         </span>
       </Flex>
     </Flex>
@@ -37,8 +35,8 @@ export const SpacingUsageExamples = () => (
           with clear relationships between components, allowing the user to navigate the product with ease.
         </Text>
         <span>
-          Use tokens from <span className={styles.tokenName}>--space-4</span> to <TokenName>--space-24</TokenName> for
-          small, compact patterns.
+          Use tokens from <TokenName>--space-4</TokenName> to <TokenName>--space-24</TokenName> for small, compact
+          patterns.
         </span>
       </Flex>
     </Flex>
@@ -53,8 +51,7 @@ export const SpacingUsageExamples = () => (
           highly important areas.
         </Text>
         <span>
-          Use tokens from <span className={styles.tokenName}>--space-16</span> to
-          <TokenName>--space-80</TokenName> for page layout.
+          Use tokens from <TokenName>--space-16</TokenName> to <TokenName>--space-80</TokenName> for page layout.
         </span>
       </Flex>
     </Flex>

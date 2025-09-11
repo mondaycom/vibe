@@ -1,9 +1,9 @@
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { FC, ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { IconSubComponentProps } from "../Icon/Icon";
+import { type IconSubComponentProps } from "../Icon/Icon";
 import Text from "../Text/Text";
 import Loader from "../Loader/Loader";
 import Flex from "../Flex/Flex";
@@ -11,39 +11,68 @@ import { CloseSmall } from "@vibe/icons";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
 import { ToastActionType as ToastActionTypeEnum, ToastType as ToastTypeEnum } from "./ToastConstants";
-import { ToastType, ToastAction } from "./Toast.types";
+import { type ToastType, type ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Toast.module.scss";
 import IconButton from "../IconButton/IconButton";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
+  /**
+   * The actions available in the toast.
+   */
   actions?: ToastAction[];
-  /** If true, Toast is open (visible) */
+  /**
+   * If true, the toast is open (visible).
+   */
   open?: boolean;
+  /**
+   * If true, displays a loading indicator inside the toast.
+   */
   loading?: boolean;
+  /**
+   * The type of toast.
+   */
   type?: ToastType;
-  /** Possible to override the default icon */
+  /**
+   * The icon displayed in the toast.
+   */
   icon?: string | React.FC<IconSubComponentProps> | null;
-  /** If true, won't show the icon */
+  /**
+   * If true, hides the toast icon.
+   */
   hideIcon?: boolean;
-  /** The action to display */
+  /**
+   * The action element displayed in the toast.
+   */
   action?: JSX.Element;
-  /** If false, won't show the close button */
+  /**
+   * If false, hides the close button.
+   */
   closeable?: boolean;
+  /**
+   * Callback fired when the toast is closed.
+   */
   onClose?: () => void;
-  /** The number of milliseconds to wait before
-   * automatically closing the Toast
-   * (0 or null cancels this behaviour) */
+  /**
+   * The number of milliseconds before the toast automatically closes.
+   * (0 or null disables auto-close behavior).
+   */
   autoHideDuration?: number;
+  /**
+   * The content displayed inside the toast.
+   */
   children?: ReactElement | ReactElement[] | string;
+  /**
+   * The aria-label for the close button.
+   */
   closeButtonAriaLabel?: string;
 }
 
-const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: typeof ToastActionTypeEnum } = ({
+const Toast = ({
   open = false,
   loading = false,
   autoHideDuration = null,
@@ -61,6 +90,7 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
   "data-testid": dataTestId
 }: ToastProps) => {
   const ref = useRef(null);
+  const nodeRef = useRef<HTMLDivElement>(null);
   const prevActions = usePrevious(actions?.length);
   const toastLinks = useMemo(() => {
     return actions
@@ -150,11 +180,13 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
   return (
     <CSSTransition
       in={open}
+      nodeRef={nodeRef}
       classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
       timeout={400}
       unmountOnExit
     >
       <Text
+        ref={nodeRef}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
         type="text2"
@@ -163,7 +195,6 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
         className={classNames}
         role="alert"
         aria-live="polite"
-        ref={ref}
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <Flex align="center" gap="large" className={styles.content}>
@@ -196,7 +227,12 @@ const Toast: FC<ToastProps> & { types?: typeof ToastTypeEnum; actionTypes?: type
   );
 };
 
-export default withStaticProps(Toast, {
+interface ToastStaticProps {
+  types: typeof ToastTypeEnum;
+  actionTypes: typeof ToastActionTypeEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<ToastProps, ToastStaticProps>(Toast, {
   types: ToastTypeEnum,
   actionTypes: ToastActionTypeEnum
 });

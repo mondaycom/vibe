@@ -2,51 +2,87 @@ import React, { forwardRef, useCallback, useState } from "react";
 import cx from "classnames";
 import moment from "moment";
 import "react-dates/initialize.js";
-import { DayOfWeekShape, DayPickerRangeController, DayPickerSingleDateController } from "react-dates";
+import {
+  type DayOfWeekShape,
+  DayPickerRangeController,
+  DayPickerSingleDateController,
+  type DayPickerPhrases
+} from "react-dates";
+/** @ts-expect-error this is exported, but not typed */
+import { DayPickerPhrases as defaultPhrases } from "react-dates/lib/defaultPhrases.js";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
-import { Direction, FocusInput, Moment, RangeDate } from "./types";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { Direction, FocusInput, type Moment, type RangeDate } from "./types";
+import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import styles from "./DatePicker.module.scss";
 // Make sure to update when upgrading react-dates
 import "./external_datepicker.scss";
 
 export interface DatePickerProps extends VibeComponentProps {
-  /** set the first day of the week to display */
+  /**
+   * The first day of the week to display.
+   */
   firstDayOfWeek?: DayOfWeekShape;
-  /** current start date */
+  /**
+   * The currently selected date.
+   */
   date?: Moment;
-  /** current end date */
+  /**
+   * The end date for range selection mode.
+   */
   endDate?: Moment;
-  /** on date selected callback */
+  /**
+   * Callback fired when a date is selected.
+   */
   onPickDate?: (date: Moment | RangeDate) => void;
-  /** hide the month navigations keys */
+  /**
+   * If true, hides the navigation buttons.
+   */
   hideNavigationKeys?: boolean;
-  /** show days outside the cuurent month view */
+  /**
+   * If true, allows selecting days outside the current month.
+   */
   enableOutsideDays?: boolean;
-  /** show week number column */
+  /**
+   * If true, displays a column with week numbers.
+   */
   showWeekNumber?: boolean;
-  /** set the size of single day element */
+  /**
+   * The size of a single day cell.
+   */
   daySize?: number;
-  /** determine if day should be disabled */
+  /**
+   * Function to determine if a specific day should be disabled.
+   */
   shouldBlockDay?: (date: Moment) => boolean;
-  /** date range mode*/
+  /**
+   * If true, enables date range selection mode.
+   */
   range?: boolean;
-  /** number of month to display*/
+  /**
+   * Custom phrases for accessibility and aria-labels.
+   */
+  phrases?: DayPickerPhrases;
+  /**
+   * The number of months displayed in the calendar.
+   */
   numberOfMonths?: number;
-  /** determine if year should be disabled */
+  /**
+   * Function to determine if a specific year should be disabled.
+   */
   shouldBlockYear?: (year: number) => boolean;
-  /** determine if date range should be disabled */
+  /**
+   * Function to determine if a specific date range should be disabled.
+   */
   shouldBlockRange?: (date: Moment) => boolean;
 }
 
-const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLDivElement, DatePickerProps>(
+const DatePicker = forwardRef(
   (
     {
       id,
@@ -60,13 +96,14 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       hideNavigationKeys = false,
       date,
       endDate,
-      onPickDate,
+      onPickDate = NOOP,
       enableOutsideDays = false,
       showWeekNumber = false,
       shouldBlockRange,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      phrases
     }: DatePickerProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
@@ -146,6 +183,8 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
       setFocusedInput(focusedInput || FocusInput.startDate);
     }, []);
 
+    const mergedPhrases = { ...defaultPhrases, ...phrases };
+
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
       <div
@@ -157,9 +196,11 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           [styles.rangePickerMode]: range,
           [styles.monthYearSelection]: isMonthYearSelection
         })}
+        data-vibe={ComponentVibeId.DATE_PICKER}
       >
         {range ? (
           <DayPickerRangeController
+            phrases={mergedPhrases}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
@@ -181,6 +222,7 @@ const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLD
           />
         ) : (
           <DayPickerSingleDateController
+            phrases={mergedPhrases}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel

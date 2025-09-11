@@ -1,1 +1,1 @@
-export { default as FormattedNumber, FormattedNumberProps } from "./FormattedNumber";
+export { default as FormattedNumber, type FormattedNumberProps } from "./FormattedNumber";

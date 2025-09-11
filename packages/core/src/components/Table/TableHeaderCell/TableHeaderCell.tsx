@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import cx from "classnames";
-import { SubIcon, VibeComponent, VibeComponentProps } from "../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import Icon from "../../Icon/Icon";
 import IconButton from "../../IconButton/IconButton";
@@ -14,16 +14,37 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
 export interface TableHeaderCellProps extends VibeComponentProps {
+  /**
+   * The title of the column, displayed inside the header cell.
+   */
   title: string | React.ReactNode;
+  /**
+   * Icon displayed next to the column title.
+   */
   icon?: SubIcon;
+  /**
+   * Tooltip content for additional information about the column.
+   */
   infoContent?: string;
+  /**
+   * Current sorting state of the column.
+   */
   sortState?: "asc" | "desc" | "none";
+  /**
+   * Callback fired when the column header is clicked to change sorting.
+   */
   onSortClicked?: (direction: "asc" | "desc" | "none") => void;
+  /**
+   * ARIA label for the sort button.
+   */
   sortButtonAriaLabel?: string;
+  /**
+   * If true, the header cell remains visible while scrolling horizontally.
+   */
   sticky?: boolean;
 }
 
-const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = forwardRef(
+const TableHeaderCell = forwardRef(
   (
     {
       id,
@@ -37,7 +58,7 @@ const TableHeaderCell: VibeComponent<TableHeaderCellProps, HTMLDivElement> = for
       sortButtonAriaLabel = "Sort",
       sticky
     }: TableHeaderCellProps,
-    ref
+    ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const ariaSort = getAriaSort(sortState);

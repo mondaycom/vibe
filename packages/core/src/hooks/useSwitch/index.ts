@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { type ChangeEvent, useCallback, useEffect, useState } from "react";
 
 enum SwitchRole {
   CHECKBOX = "checkbox",
@@ -6,9 +6,21 @@ enum SwitchRole {
 }
 
 export interface UseSwitchProps {
+  /**
+   * If true, controls the checked state of the switch.
+   */
   isChecked?: boolean;
+  /**
+   * The initial checked state when uncontrolled.
+   */
   defaultChecked?: boolean;
+  /**
+   * Callback fired when the switch state changes.
+   */
   onChange?: (value: boolean, event?: ChangeEvent<HTMLInputElement> | unknown) => void;
+  /**
+   * If true, disables interaction with the switch.
+   */
   isDisabled?: boolean;
 }
 

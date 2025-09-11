@@ -1,34 +1,64 @@
 import cx from "classnames";
-import React, { RefObject, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { type RefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
-import { keyCodes } from "../../../../constants/keyCodes";
+import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
-import { SubIcon, withStaticProps } from "../../../../types";
+import { type SubIcon, withStaticPropsWithoutForwardRef } from "../../../../types";
 import {
   ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
-  IComboboxOption,
-  IComboboxOptionEvents
+  type IComboboxOption,
+  type IComboboxOptionEvents
 } from "../ComboboxConstants";
-import { ComboboxOptionIconType } from "../../Combobox.types";
+import { type ComboboxOptionIconType } from "../../Combobox.types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
 
 export interface ComboboxOptionProps extends IComboboxOptionEvents {
+  /**
+   * The index of the option in the list.
+   */
   index?: number;
+  /**
+   * The option data containing label, icons, and other properties.
+   */
   option?: IComboboxOption;
+  /**
+   * Class name applied to the option element.
+   */
   className?: string;
+  /**
+   * If true, the option is currently active.
+   */
   isActive?: boolean;
+  /**
+   * If true, the option has visual focus.
+   */
   visualFocus?: boolean;
+  /**
+   * A reference to the scroll container.
+   */
   scrollRef?: RefObject<HTMLElement>;
+  /**
+   * The amount of offset when scrolling to the active item.
+   */
   scrollOffset?: number;
+  /**
+   * The height of each option.
+   */
   optionLineHeight?: number;
+  /**
+   * If true, scrolls to the active option when it is selected.
+   */
   shouldScrollWhenActive?: boolean;
+  /**
+   * Custom renderer for the option content.
+   */
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
 }
 
-const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof ComboboxOptionIconTypeEnum } = ({
+const ComboboxOption = ({
   index,
   option,
   className,
@@ -42,7 +72,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   optionLineHeight,
   shouldScrollWhenActive = true,
   optionRenderer = null
-}) => {
+}: ComboboxOptionProps) => {
   const {
     id,
     leftIcon,
@@ -144,7 +174,7 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 
   return (
-    <Tooltip content={tooltipContent}>
+    <Tooltip {...option.tooltipProps} content={tooltipContent} hideWhenReferenceHidden>
       <div
         ref={ref}
         key={id || label}
@@ -171,4 +201,10 @@ const ComboboxOption: React.FC<ComboboxOptionProps> & { iconTypes?: typeof Combo
   );
 };
 
-export default withStaticProps(ComboboxOption, { iconTypes: ComboboxOptionIconTypeEnum });
+interface ComboboxOptionStaticProps {
+  iconTypes: typeof ComboboxOptionIconTypeEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<ComboboxOptionProps, ComboboxOptionStaticProps>(ComboboxOption, {
+  iconTypes: ComboboxOptionIconTypeEnum
+});

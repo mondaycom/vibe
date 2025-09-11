@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { CloseMenuOption } from "../MenuConstants";
+import { type CloseMenuOption } from "../MenuConstants";
 
 export default function useOnCloseMenu({
   setActiveItemIndex,

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TabPanel renders correctly with className 1`] = `
+exports[`TabPanel renders correctly > with className 1`] = `
 <div
   className="tabPanelsWrapper"
   data-testid="tab-panels"
@@ -15,7 +15,7 @@ exports[`TabPanel renders correctly with className 1`] = `
 </div>
 `;
 
-exports[`TabPanel renders correctly with empty props 1`] = `
+exports[`TabPanel renders correctly > with empty props 1`] = `
 <div
   className="tabPanelsWrapper"
   data-testid="tab-panels"
@@ -30,7 +30,7 @@ exports[`TabPanel renders correctly with empty props 1`] = `
 </div>
 `;
 
-exports[`TabPanel renders correctly with id 1`] = `
+exports[`TabPanel renders correctly > with id 1`] = `
 <div
   className="tabPanelsWrapper"
   data-testid="tab-panels"

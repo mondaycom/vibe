@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`] = `
+exports[`Snapshot tests > Tipseen content tests > renders correctly with dismiss 1`] = `
 <div
   className="tipseenBasicContent"
   data-testid="tipseen-content"
@@ -13,6 +13,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-disabled={false}
       className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
       data-testid="tipseen-content-dismiss"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -27,6 +28,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
       aria-disabled={false}
       className="button sizeSmall kindPrimary colorOnPrimaryColor"
       data-testid="tipseen-content-submit"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -40,7 +42,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly with dismiss 1`]
 </div>
 `;
 
-exports[`Snapshot tests Tipseen content tests renders correctly without props 1`] = `
+exports[`Snapshot tests > Tipseen content tests > renders correctly without props 1`] = `
 <DocumentFragment>
   <div
     class="tipseenBasicContent"
@@ -54,6 +56,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
         aria-disabled="false"
         class="button sizeSmall kindPrimary colorOnPrimaryColor"
         data-testid="tipseen-content-submit"
+        data-vibe="Button"
         style="color: rgba(0, 0, 0, 0);"
         type="button"
       >
@@ -64,7 +67,7 @@ exports[`Snapshot tests Tipseen content tests renders correctly without props 1`
 </DocumentFragment>
 `;
 
-exports[`Snapshot tests Tipseen content tests renders correctly without submit 1`] = `
+exports[`Snapshot tests > Tipseen content tests > renders correctly without submit 1`] = `
 <div
   className="tipseenBasicContent"
   data-testid="tipseen-content"
@@ -75,174 +78,25 @@ exports[`Snapshot tests Tipseen content tests renders correctly without submit 1
 </div>
 `;
 
-exports[`Snapshot tests Tipseen tests renders correctly with dark close button theme 1`] = `
+exports[`Snapshot tests > Tipseen tests > renders correctly with dark close button theme 1`] = `
 <DocumentFragment>
   <div
     class="monday-storybook-tipseen_container"
   />
-  <span
-    class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
-    data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 4px);"
-  >
-    <div
-      class="contentComponent bottom hasTooltip"
-    >
-      <div
-        class="tooltip dark tipseenWrapper tipseenWrapperWithoutCustomWidth"
-      >
-        <div
-          class="content"
-        >
-          <div>
-            <div
-              class="tipseenHeader"
-            >
-              <button
-                aria-busy="false"
-                aria-disabled="false"
-                aria-label="Close"
-                class="tipseenCloseButton dark button sizeMedium kindTertiary colorDark noSidePadding"
-                data-testid="icon-button"
-                style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="icon noFocusStyle"
-                  data-testid="icon"
-                  fill="currentColor"
-                  height="16"
-                  viewBox="0 0 20 20"
-                  width="16"
-                >
-                  <path
-                    d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
-                  />
-                </svg>
-              </button>
-            </div>
-            <p
-              class="typography onInverted start text text2Normal tipseenContent"
-              data-testid="text"
-            >
-              content
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="arrow arrow dark"
-        data-placement="bottom"
-        style="position: absolute; left: 0px; transform: translate(0px, 0px) rotate(45deg);"
-      />
-    </div>
-  </span>
 </DocumentFragment>
 `;
 
-exports[`Snapshot tests Tipseen tests renders correctly with floating variation 1`] = `
-<span
-  class="monday-style-dialog-content-wrapper contentWrapper"
-  data-popper-reference-hidden="false"
-  data-testid="tooltip"
-  style="position: absolute; left: 0px; top: 0px;"
->
-  <div
-    class="contentComponent bottom"
-  >
-    <div
-      class="tooltip dark tipseenWrapper tipseenWrapperWithoutCustomWidth floating"
-    >
-      <div
-        class="content"
-      >
-        <div>
-          <div
-            class="tipseenHeader"
-          >
-            <button
-              aria-busy="false"
-              aria-disabled="false"
-              aria-label="Close"
-              class="tipseenCloseButton button sizeMedium kindTertiary colorOnInvertedBackground noSidePadding"
-              data-testid="icon-button"
-              style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                class="icon noFocusStyle"
-                data-testid="icon"
-                fill="currentColor"
-                height="16"
-                viewBox="0 0 20 20"
-                width="16"
-              >
-                <path
-                  d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
-                />
-              </svg>
-            </button>
-          </div>
-          <p
-            class="typography onInverted start text text2Normal tipseenContent"
-            data-testid="text"
-          >
-            content
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</span>
-`;
+exports[`Snapshot tests > Tipseen tests > renders correctly with floating variation 1`] = `null`;
 
-exports[`Snapshot tests Tipseen tests renders correctly without close 1`] = `
+exports[`Snapshot tests > Tipseen tests > renders correctly without close 1`] = `
 <DocumentFragment>
   <div
     class="monday-storybook-tipseen_container"
   />
-  <span
-    class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
-    data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px;"
-  >
-    <div
-      class="contentComponent bottom hasTooltip"
-    >
-      <div
-        class="tooltip dark tipseenWrapper tipseenWrapperWithoutCustomWidth"
-      >
-        <div
-          class="content"
-        >
-          <div>
-            <div
-              class="tipseenHeader"
-            />
-            <p
-              class="typography onInverted start text text2Normal tipseenContent"
-              data-testid="text"
-            >
-              content
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="arrow arrow dark"
-        data-placement="bottom"
-        style="position: absolute;"
-      />
-    </div>
-  </span>
 </DocumentFragment>
 `;
 
-exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
+exports[`Snapshot tests > Tipseen tests > renders correctly without props 1`] = `
 <div
   className="monday-storybook-tipseen_container"
   onBlur={[Function]}
@@ -256,7 +110,7 @@ exports[`Snapshot tests Tipseen tests renders correctly without props 1`] = `
 />
 `;
 
-exports[`Snapshot tests TipseenTitle should render correctly with given text 1`] = `
+exports[`Snapshot tests > TipseenTitle > should render correctly with given text 1`] = `
 <div
   aria-level={3}
   className="typography inherit start multiLineEllipsis text text1Bold title"
@@ -272,4 +126,4 @@ exports[`Snapshot tests TipseenTitle should render correctly with given text 1`]
 </div>
 `;
 
-exports[`Snapshot tests TipseenTitle should render null without text 1`] = `null`;
+exports[`Snapshot tests > TipseenTitle > should render null without text 1`] = `null`;

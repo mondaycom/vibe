@@ -1,9 +1,14 @@
-import React, { createContext, ReactElement, useContext, useMemo, useState } from "react";
+import React, { createContext, type ReactElement, useContext, useMemo, useState } from "react";
 import { createTestIdHelper } from "../../helpers/testid-helper";
 import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
-import { SliderProps } from "./Slider";
-import { SliderContextActions, SliderContextInfix, SliderContextSelection, SliderContextUI } from "./SliderConstants";
-import { IconType } from "../Icon";
+import { type SliderProps } from "./Slider";
+import {
+  type SliderContextActions,
+  type SliderContextInfix,
+  type SliderContextSelection,
+  type SliderContextUI
+} from "./SliderConstants";
+import { type IconType } from "../Icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});
@@ -11,26 +16,31 @@ const ActionsContext = createContext({});
 const InfixContext = createContext({});
 
 export interface SliderProviderProps extends SliderProps {
+  /**
+   * The child elements inside the slider provider.
+   */
   children?: ReactElement | ReactElement[];
+  /**
+   * Configuration options for prefix, postfix, and selection indicator.
+   */
   infixOptions?: {
     /**
-     * Show selected from Slider range value
+     * If true, displays the selected value from the slider range.
      */
     indicateSelection?: boolean;
     /**
-     * Options for initial/start/prefix element, it can be one of:
-     *  - Any Component (react component, node, text, number etc.)
-     *  - Or it can be an object of options for Icons component (see Icon components props)
-     *  - Or it can be an object for Label (Icon, Heading - and other components)
-     *  - Or it can be Render Props Function witch are getting value and valueText
+     * Configuration for the prefix (start) element, which can be:
+     * - A React component, text, number, or node.
+     * - An object with an icon.
+     * - A function that receives the value and valueText.
      */
     prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
     /**
-     * Options for postfix/end/finishing element. Same as prefix element.
+     * Configuration for the postfix (end) element, similar to prefix.
      */
     postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
     /**
-     * Width of SelectionIndicator (i.e. TextField)
+     * The width of the selection indicator.
      */
     selectionIndicatorWidth?: string;
   };

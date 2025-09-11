@@ -1,6 +1,6 @@
-import { RefObject, useCallback, useRef } from "react";
+import { type RefObject, useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
-import { GenericEventCallback } from "../../types/events";
+import { type GenericEventCallback } from "../../types/events";
 import { isClient } from "../../utils/ssr-utils";
 
 const CTRL_OR_META = "ctrlOrMetaKey";
@@ -29,16 +29,46 @@ const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
 };
 
 export interface UseKeyEventArgs {
+  /**
+   * The list of keys that should trigger the event.
+   */
   keys: KeyboardEvent["key"][];
   // TODO: [breaking] change to keyboard event
+  /**
+   * Callback fired when a specified key is pressed.
+   */
   callback: GenericEventCallback;
+  /**
+   * Modifier key that must be pressed along with the specified key.
+   */
   modifier?: Modifier;
+  /**
+   * The keyboard event type to listen for (e.g., "keydown", "keyup").
+   */
   keyEventName?: string;
+  /**
+   * If true, ensures no modifier keys are pressed when handling the event.
+   */
   withoutAnyModifier?: boolean;
+  /**
+   * The element reference to listen for key events on.
+   */
   ref?: RefObject<HTMLElement | Document>;
+  /**
+   * If true, prevents fallback to listening on the document when no ref is provided.
+   */
   ignoreDocumentFallback?: boolean;
+  /**
+   * If true, uses capture phase instead of bubbling phase for event listening.
+   */
   capture?: boolean;
+  /**
+   * If true, calls `preventDefault` on the key event.
+   */
   preventDefault?: boolean;
+  /**
+   * If true, calls `stopPropagation` on the key event.
+   */
   stopPropagation?: boolean;
 }
 

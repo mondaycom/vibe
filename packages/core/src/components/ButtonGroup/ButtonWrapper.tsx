@@ -1,20 +1,40 @@
 import React from "react";
-import { isNil } from "lodash-es";
-import Button, { ButtonProps } from "../Button/Button";
+import { isNil } from "es-toolkit";
+import Button, { type ButtonProps } from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip";
-import { MoveBy } from "../../types/MoveBy";
-import { TooltipPositions } from "../Tooltip/Tooltip.types";
+import { type MoveBy } from "../../types/MoveBy";
+import { type TooltipPositions } from "../Tooltip/Tooltip.types";
+import styles from "./ButtonGroup.module.scss";
 
 export interface ButtonWrapperProps extends ButtonProps {
+  /**
+   * The content of the tooltip.
+   */
   tooltipContent?: string;
   /**
-   * Where the tooltip should be in reference to the children: Top, Left, Right, Bottom ...
+   * The position of the tooltip relative to the button.
    */
   tooltipPosition?: TooltipPositions;
+  /**
+   * The delay in milliseconds before the tooltip hides.
+   */
   tooltipHideDelay?: number;
+  /**
+   * The delay in milliseconds before the tooltip shows.
+   */
   tooltipShowDelay?: number;
+  /**
+   * CSS selector for the tooltip container.
+   */
   tooltipContainerSelector?: string;
+  /**
+   * Adjusts the tooltip position.
+   */
   tooltipMoveBy?: MoveBy;
+  /**
+   * If true, makes the button take the full width of its container.
+   */
+  fullWidth?: boolean;
 }
 
 export const ButtonWrapper = ({
@@ -24,11 +44,14 @@ export const ButtonWrapper = ({
   tooltipShowDelay,
   tooltipContainerSelector,
   tooltipMoveBy,
+  fullWidth,
+  className,
   ...otherProps
 }: ButtonWrapperProps) => {
-  let button = <Button {...otherProps} />;
+  const button = <Button {...otherProps} className={className} />;
+
   if (!isNil(tooltipContent)) {
-    button = (
+    return (
       <Tooltip
         moveBy={tooltipMoveBy}
         position={tooltipPosition}
@@ -38,10 +61,16 @@ export const ButtonWrapper = ({
         showTrigger={["mouseenter"]}
         hideTrigger={["mouseleave"]}
         containerSelector={tooltipContainerSelector}
+        referenceWrapperClassName={fullWidth ? styles.fullWidth : undefined}
       >
         {button}
       </Tooltip>
     );
+  }
+
+  // Always wrap in a div when fullWidth to ensure consistent structure
+  if (fullWidth) {
+    return <div className={styles.fullWidth}>{button}</div>;
   }
 
   return button;

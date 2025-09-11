@@ -1,5 +1,5 @@
-import { RefObject, useEffect } from "react";
-import { GenericEventCallback } from "../../types/events";
+import { type RefObject, useEffect } from "react";
+import { type GenericEventCallback } from "../../types/events";
 
 export default function useEventListener({
   eventName,

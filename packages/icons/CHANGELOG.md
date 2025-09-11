@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.10.0...@vibe/icons@1.11.0) (2025-09-04)
+
+
+### Features
+
+* **icons:** add EnterArrow icon ([#3087](https://github.com/mondaycom/vibe/issues/3087)) ([add070a](https://github.com/mondaycom/vibe/commit/add070a533ad272f00ceda76c449920d74fa9839))
+
+
+
+
+
+# [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.9.0...@vibe/icons@1.10.0) (2025-08-20)
+
+
+### Features
+
+* **icons:** add RemoveRound icon ([#3061](https://github.com/mondaycom/vibe/issues/3061)) ([d886fc0](https://github.com/mondaycom/vibe/commit/d886fc0e772056879bcdc927ad5f035b7a8bbae1))
+
+
+
+
+
+# [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.8.0...@vibe/icons@1.9.0) (2025-07-03)
+
+
+### Bug Fixes
+
+* **icons:** update DropdownChevronDown and DropdownChevronUp ([#2965](https://github.com/mondaycom/vibe/issues/2965)) ([57d9704](https://github.com/mondaycom/vibe/commit/57d9704f04a643884a43bb3274228b3daa52412e))
+
+
+### Features
+
+* **icons:** add ScheduledSend icon ([#2964](https://github.com/mondaycom/vibe/issues/2964)) ([1488c40](https://github.com/mondaycom/vibe/commit/1488c406b74269490e355525aae41532af63433e))
+
+
+
+
+
+# [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.2...@vibe/icons@1.8.0) (2025-06-01)
+
+
+### Features
+
+* **icons:** add NotificationChecked ([#2915](https://github.com/mondaycom/vibe/issues/2915)) ([c4f27a8](https://github.com/mondaycom/vibe/commit/c4f27a803212ca2cdd5a592394b967b6895fa72d))
+
+
+
+
+
+## [1.7.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.1...@vibe/icons@1.7.2) (2025-05-13)
+
+
+### Bug Fixes
+
+* **icons:** change Subitems icon ([#2881](https://github.com/mondaycom/vibe/issues/2881)) ([0b06b9f](https://github.com/mondaycom/vibe/commit/0b06b9fb61986aa43b15963f6454062f579bb165))
+
+
+
+
+
+## [1.7.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.0...@vibe/icons@1.7.1) (2025-05-04)
+
+
+### Bug Fixes
+
+* **icons:** fix Dependency icon ([#2861](https://github.com/mondaycom/vibe/issues/2861)) ([7f5fca3](https://github.com/mondaycom/vibe/commit/7f5fca3b8d5c56a8864b301c3ec38312f43755fe))
+
+
+
+
+
+# [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.1...@vibe/icons@1.7.0) (2025-04-10)
+
+
+### Features
+
+* **icons:** add TextFormatting and Signature icons ([#2838](https://github.com/mondaycom/vibe/issues/2838)) ([2844680](https://github.com/mondaycom/vibe/commit/28446808053f596396729d8bea1104f7fe7c9932))
+
+
+
+
+
+## [1.6.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.0...@vibe/icons@1.6.1) (2025-04-06)
+
+
+### Bug Fixes
+
+* **icons:** correct path for lazy types definition in package.json ([#2834](https://github.com/mondaycom/vibe/issues/2834)) ([1777b7d](https://github.com/mondaycom/vibe/commit/1777b7d03c8e74b298ea4edd6813154d9019226b))
+
+
+
+
+
+# [1.6.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.1...@vibe/icons@1.6.0) (2025-03-24)
+
+
+### Features
+
+* **icons:** add WrapText, PDF icons ([#2814](https://github.com/mondaycom/vibe/issues/2814)) ([2b46289](https://github.com/mondaycom/vibe/commit/2b46289634ced60ec10dd551f310b12a80ae409e))
+
+
+
+
+
+## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.0...@vibe/icons@1.5.1) (2025-03-20)
+
+
+### Bug Fixes
+
+* **icons:** fix MondayLogoOutline svg ([#2808](https://github.com/mondaycom/vibe/issues/2808)) ([e97b71d](https://github.com/mondaycom/vibe/commit/e97b71db9945d83adf0084c3786fee697e6ea94d))
+
+
+
+
+
 # [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.4.0...@vibe/icons@1.5.0) (2025-02-13)
 
 

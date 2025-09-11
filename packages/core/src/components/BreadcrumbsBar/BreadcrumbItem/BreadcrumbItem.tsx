@@ -4,24 +4,41 @@ import React, { useRef } from "react";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import { SubIcon, VibeComponentProps } from "../../../types";
+import { type SubIcon, type VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbItem.module.scss";
 
 export interface BreadcrumbItemProps extends VibeComponentProps {
-  /** The display text. */
+  /**
+   * The display text of the breadcrumb item.
+   */
   text?: string;
-  /** Should item be disabled. */
+  /**
+   * If true, the item is disabled.
+   */
   disabled?: boolean;
-  /** Should item be clickable - this should be recieved from the breadcrumbsBar ( Navigation/Indication bar ). */
+  /**
+   * If true, the item is clickable.
+   */
   isClickable?: boolean;
-  /** If the item is clickable and the type of navigation is a link, this is the link */
+  /**
+   * The URL the item links to if navigation is handled via a link.
+   */
   link?: string;
-  /** If the item is clickable and the type of navigation is a function, this is the function */
+  /**
+   * Callback fired when the item is clicked.
+   */
   onClick?: () => void;
-  /** Should be the current Item - mainly effects the item`s style. */
+  /**
+   * If true, applies styling for the current page.
+   */
   isCurrent?: boolean;
-  /** An Icon - If no icon needed then should be left empty. */
+  /**
+   * The icon displayed next to the text.
+   */
   icon?: SubIcon;
+  /**
+   * If true, the breadcrumb text is shown.
+   */
   showText?: boolean;
 }
 

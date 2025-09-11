@@ -7,8 +7,12 @@ import {
   getOppositeDirection,
   getOutmostElementInDirection
 } from "./helper";
-import { NavDirections } from "../../hooks/useFullKeyboardListeners";
-import { GridElementRef, GridKeyboardNavigationContextType, Position } from "./GridKeyboardNavigationContextConstants";
+import { type NavDirections } from "../../hooks/useFullKeyboardListeners";
+import {
+  type GridElementRef,
+  type GridKeyboardNavigationContextType,
+  type Position
+} from "./GridKeyboardNavigationContextConstants";
 
 export const GridKeyboardNavigationContext = React.createContext<GridKeyboardNavigationContextType>(null);
 

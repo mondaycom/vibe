@@ -2,8 +2,9 @@ import React from "react";
 import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
 import Toggle from "../Toggle";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
-import "./Toggle.stories.scss";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
+import Flex from "../../Flex/Flex";
+import Text from "../../Text/Text";
 
 type Story = StoryObj<typeof Toggle>;
 
@@ -23,6 +24,10 @@ const toggleTemplate = createComponentTemplate(Toggle);
 
 export const Overview: Story = {
   render: toggleTemplate.bind({}),
+  args: {
+    id: "overview-toggle",
+    ariaLabel: "Toggle option"
+  },
   parameters: {
     docs: {
       liveEdit: {
@@ -34,10 +39,10 @@ export const Overview: Story = {
 
 export const States: Story = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
-      <Toggle isDefaultSelected={false} />
-      <Toggle />
-    </MultipleStoryElementsWrapper>
+    <Flex direction="column" gap="medium">
+      <Toggle id="states-off" ariaLabel="Toggle off state" isDefaultSelected={false} />
+      <Toggle id="states-on" ariaLabel="Toggle on state" />
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -50,10 +55,10 @@ export const States: Story = {
 
 export const Size: Story = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-toggle_row">
-      <Toggle size="medium" />
-      <Toggle size="small" />
-    </MultipleStoryElementsWrapper>
+    <Flex gap="large">
+      <Toggle id="size-medium" ariaLabel="Medium toggle" size="medium" />
+      <Toggle id="size-small" ariaLabel="Small toggle" size="small" />
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -66,10 +71,10 @@ export const Size: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <MultipleStoryElementsWrapper className="monday-storybook-toggle_column">
-      <Toggle isDefaultSelected={false} disabled />
-      <Toggle disabled />
-    </MultipleStoryElementsWrapper>
+    <Flex direction="column" gap="large">
+      <Toggle id="disabled-off" ariaLabel="Disabled toggle off" isDefaultSelected={false} disabled />
+      <Toggle id="disabled-on" ariaLabel="Disabled toggle on" disabled />
+    </Flex>
   ),
   parameters: {
     docs: {
@@ -82,10 +87,10 @@ export const Disabled: Story = {
 
 export const TurnOnOffAnAutomation: Story = {
   render: () => (
-    <>
-      <h5>Board automations</h5>
-      <Toggle />
-    </>
+    <Flex gap="medium">
+      <Text id="automation-label">Board automations</Text>
+      <Toggle id="automation-toggle" ariaLabel="Toggle board automations" />
+    </Flex>
   ),
   name: "Turn on/ off an automation"
 };

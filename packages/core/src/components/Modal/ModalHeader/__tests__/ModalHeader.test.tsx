@@ -1,14 +1,15 @@
+import { vi, beforeEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import ModalHeader from "../ModalHeader";
 import { Text as TextIcon } from "@vibe/icons";
 import { useModal } from "../../context/ModalContext";
-import { ModalContextProps } from "../../context/ModalContext.types";
+import { type ModalContextProps } from "../../context/ModalContext.types";
 
-jest.mock("../../context/ModalContext", () => ({
-  useModal: jest.fn()
+vi.mock("../../context/ModalContext", () => ({
+  useModal: vi.fn()
 }));
-const useModalMocked = jest.mocked(useModal);
+const useModalMocked = vi.mocked(useModal);
 
 describe("ModalHeader", () => {
   const title = "Test Modal Header";
@@ -16,11 +17,16 @@ describe("ModalHeader", () => {
 
   const useModalMockedReturnedValue: ModalContextProps = {
     modalId: "modal-id",
-    setTitleId: jest.fn(),
-    setDescriptionId: jest.fn()
+    setTitleId: vi.fn(),
+    setDescriptionId: vi.fn()
   };
 
   beforeEach(() => {
+    // Reset all mocks before each test
+    vi.clearAllMocks();
+    (useModalMockedReturnedValue.setTitleId as any).mockClear();
+    (useModalMockedReturnedValue.setDescriptionId as any).mockClear();
+
     useModalMocked.mockReturnValue(useModalMockedReturnedValue);
   });
 

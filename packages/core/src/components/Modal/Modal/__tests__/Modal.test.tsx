@@ -1,3 +1,4 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -5,8 +6,9 @@ import Modal from "../Modal";
 import ModalContent from "../../ModalContent/ModalContent";
 import ModalHeader from "../../ModalHeader/ModalHeader";
 
-jest.mock("framer-motion", () => {
-  const actual = jest.requireActual<typeof import("framer-motion")>("framer-motion");
+vi.mock("framer-motion", async () => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
+  const actual = await vi.importActual<typeof import("framer-motion")>("framer-motion");
   return {
     ...actual,
     AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>
@@ -96,7 +98,7 @@ describe("Modal", () => {
   });
 
   it("should call onClose when the close button is clicked with mouse", () => {
-    const mockOnClose = jest.fn();
+    const mockOnClose = vi.fn();
     const { getByLabelText } = render(
       <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
         {childrenContent}
@@ -108,7 +110,7 @@ describe("Modal", () => {
   });
 
   it("should call onClose when the close button is clicked with keyboard", () => {
-    const mockOnClose = jest.fn();
+    const mockOnClose = vi.fn();
     const { getByLabelText } = render(
       <Modal id={id} show onClose={mockOnClose} closeButtonAriaLabel={closeButtonAriaLabel}>
         {childrenContent}
@@ -121,7 +123,7 @@ describe("Modal", () => {
   });
 
   it("should call onClose when the backdrop is clicked", () => {
-    const mockOnClose = jest.fn();
+    const mockOnClose = vi.fn();
     const { getByTestId } = render(
       <Modal id={id} show onClose={mockOnClose}>
         {childrenContent}
@@ -133,7 +135,7 @@ describe("Modal", () => {
   });
 
   it("should call onClose when the Escape key is pressed while modal loads with auto-focusable content", () => {
-    const mockOnClose = jest.fn();
+    const mockOnClose = vi.fn();
     render(
       <Modal id={id} show onClose={mockOnClose}>
         {childrenContent}
@@ -145,7 +147,7 @@ describe("Modal", () => {
   });
 
   it("should call onClose when the Escape key is pressed while modal loads without an auto-focusable content", () => {
-    const mockOnClose = jest.fn();
+    const mockOnClose = vi.fn();
     render(
       <Modal id={id} show onClose={mockOnClose}>
         <div aria-hidden>I am not focusable</div>
@@ -157,8 +159,8 @@ describe("Modal", () => {
   });
 
   it("should close only the top most modal when Escape is pressed with multiple modals open", () => {
-    const mockOnCloseModal1 = jest.fn();
-    const mockOnCloseModal2 = jest.fn();
+    const mockOnCloseModal1 = vi.fn();
+    const mockOnCloseModal2 = vi.fn();
 
     render(
       <>
@@ -263,7 +265,7 @@ describe("Modal", () => {
 
   it("should block focus if onFocusAttempt returns HTMLElement", () => {
     const modalRef = React.createRef<HTMLDivElement>();
-    const onFocusAttemptMock = jest.fn(nextFocusedElement => {
+    const onFocusAttemptMock = vi.fn(nextFocusedElement => {
       return nextFocusedElement.textContent === "Focusable 2" ? modalRef.current : true;
     });
 

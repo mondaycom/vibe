@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { VibeComponentProps } from "../../types";
+import React, { type FC } from "react";
+import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import Text from "../Text/Text";
@@ -7,6 +7,9 @@ import cx from "classnames";
 import styles from "./TipseenTitle.module.scss";
 
 export interface TipseenTitleProps extends VibeComponentProps {
+  /**
+   * The title text displayed in the Tipseen.
+   */
   text?: string;
 }
 

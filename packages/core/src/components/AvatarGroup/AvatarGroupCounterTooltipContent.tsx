@@ -1,21 +1,29 @@
-import React, { ReactElement, Ref, useCallback, useMemo } from "react";
+import React, { type ReactElement, type Ref, useCallback, useMemo } from "react";
 import cx from "classnames";
 import Flex from "../Flex/Flex";
-import { AvatarProps } from "../Avatar/Avatar";
+import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarType } from "../Avatar/Avatar.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type AvatarType } from "../Avatar/Avatar.types";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
-  className?: string;
+  /**
+   * The type of avatars displayed inside the tooltip.
+   */
   type?: AvatarType;
   /**
-   * Array of Avatar components
+   * The avatars shown in the tooltip.
    */
   avatars?: ReactElement<AvatarProps>[];
+  /**
+   * If true, the tooltip uses a virtualized list for performance optimization.
+   */
   isVirtualizedList?: boolean;
+  /**
+   * Ref for the tooltip content container.
+   */
   tooltipContentContainerRef?: Ref<HTMLDivElement>;
 }
 

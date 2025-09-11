@@ -2,25 +2,24 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
 import { DirectionType as DirectionTypeEnum } from "./DividerConstants";
-import { DividerDirection } from "./Divider.types";
+import { type DividerDirection } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Divider.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface DividerProps extends VibeComponentProps {
   /**
-   * The direction of the divider 'horizontal' or 'vertical'.
+   * The direction of the divider.
    */
   direction?: DividerDirection;
   /**
-   * Removes margin from the divider.
+   * If true, removes margin from the divider.
    */
   withoutMargin?: boolean;
 }
 
-const Divider: React.FC<DividerProps> & {
-  directions?: typeof DirectionTypeEnum;
-} = ({
+const Divider = ({
   className = undefined,
   withoutMargin = false,
   direction = "horizontal",
@@ -31,6 +30,7 @@ const Divider: React.FC<DividerProps> & {
     <div
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
+      data-vibe={ComponentVibeId.DIVIDER}
       className={cx(styles.divider, className, getStyle(styles, direction), {
         [styles.withoutMargin]: withoutMargin
       })}
@@ -38,6 +38,10 @@ const Divider: React.FC<DividerProps> & {
   );
 };
 
-export default withStaticProps(Divider, {
+interface DividerStaticProps {
+  directions: typeof DirectionTypeEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<DividerProps, DividerStaticProps>(Divider, {
   directions: DirectionTypeEnum
 });

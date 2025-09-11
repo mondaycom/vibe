@@ -1,5 +1,5 @@
 import React from "react";
-import List, { ListProps } from "../List";
+import List, { type ListProps } from "../List";
 import { Board, Team, ThumbsUp } from "@vibe/icons";
 import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";

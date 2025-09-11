@@ -1,0 +1,375 @@
+---
+description: "Guides the creation and modification of Storybook files specifically within the 'packages/core' package. It covers conventions, best practices, and helps answer questions about existing story implementations within 'packages/core'."
+globs:
+  - "packages/core/**/__stories__/**/*.stories.tsx"
+  - "packages/core/**/__stories__/**/*.mdx"
+  - "packages/core/src/storybook/**"
+alwaysApply: false
+---
+
+# Storybook Stories for @vibe/core library
+
+This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/core` library.
+
+**Storybook Scope:** Storybook is exclusively used for the `@vibe/core` library within this monorepo. Do not create stories for components or utilities in other packages. Stories should _only_ be written for UI components found in `packages/core/src/components/`. Stories for custom hooks (e.g., `useWizard`) are not to be created.
+
+## 1. File Structure and Naming Conventions
+
+- **Location:** Component stories **must** be co-located with their respective component. Each component that requires stories must have a `__stories__` subdirectory.
+  - Example: `packages/core/src/components/ComponentName/__stories__/`
+- **Story File:** Inside the `__stories__` directory, the main story file **must** be named after the component, using PascalCase, followed by the `.stories.tsx` extension.
+  - Example: `packages/core/src/components/ComponentName/__stories__/ComponentName.stories.tsx`
+- **MDX File:** An accompanying MDX documentation file **must** also be created in the `__stories__` directory, named after the component.
+  - Example: `packages/core/src/components/ComponentName/__stories__/ComponentName.mdx`
+
+## 2. `.stories.tsx` File Structure and Content
+
+All `.stories.tsx` files **must** adhere to Component Story Format (CSF) 3.0 and utilize TypeScript strictly.
+
+### 2.1. Imports
+
+- Import `React`.
+- Import the Component itself.
+- Import `Meta` and `StoryObj` from `@storybook/react`.
+- Import any other necessary Vibe components or primitive types.
+- **DO NOT** import story-specific helper utilities from other files. If a simple helper is absolutely needed for a complex story setup, define it within the `.stories.tsx` file itself.
+
+### 2.2. Meta Configuration (Default Export)
+
+The default export defines the component's metadata for Storybook.
+
+```typescript
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
+import ComponentName from "../ComponentName"; // Adjust path as necessary
+// Import other Vibe components or types if needed for stories
+
+export default {
+  title: "Components/ComponentName", // Or "Components/ComponentGroup/ComponentName" for grouped components
+  component: ComponentName
+  // args: { prop1: "initialValueForControls" }, // Optional: Define default args for controls panel here
+  // Decorators are defined in section 2.5
+  // subcomponents: { ComponentSubComponent, ComponentHeader } // etc. subcomponents can be listed here if applicable - only if needed
+} satisfies Meta<typeof ComponentName>;
+```
+
+- **`title`**: A string that determines the component's path in the Storybook navigation sidebar (e.g., "Components/Button", "Components/Input/TextField").
+- **`component`**: The component itself. This is used by Storybook for automatic documentation generation (props table) and linking stories.
+- **`satisfies Meta<typeof ComponentName>`**: This TypeScript construct ensures the meta object conforms to the expected shape for the component.
+
+### 2.3. Story Definition
+
+Each named export in the file represents a single story.
+
+```typescript
+// Define the `Story` type for convenience and strict typing at the top of the file, right before the default exported metadata
+type Story = StoryObj<typeof ComponentName>;
+
+export const Overview: Story = {
+  // All stories, including Overview, MUST have a render function.
+  // The Overview story's render function should pass the args from controls directly to the component
+  // to make it fully interactive with the Storybook Controls panel.
+  render: args => <ComponentName {...args} />
+  // DO NOT define story-specific args here. Props are set in the render function.
+};
+
+export const ComplexExample: Story = {
+  // Props for this story are set directly within the render function.
+  render: () => (
+    <div>
+      {/* args from controls can be used if needed, or overridden/ignored */}
+      <ComponentName specificProp="fixedValueForThisStory" anotherProp={anotherPropFromControls || "default"} />
+      {/* Other components or elements to showcase a specific scenario */}
+    </div>
+  )
+  // DO NOT define story-specific args.
+};
+```
+
+- **`type Story = StoryObj<typeof ComponentName>;`**: This type alias **must** be used for all story objects to ensure they are correctly typed against the component's props.
+- **Story Naming:** Story exports should be in PascalCase (e.g., `PrimaryButton`, `WithIcon`).
+- **NO `args` in individual stories:** Stories **must not** use the `args` property at the story level. All props for a story are defined and passed within its `render` function. The `Overview` story uses the `args` passed into its render function to be interactive.
+- **Always provide an `Overview` story.** This story should be the primary, most common use case of the component and **must** be interactive with the Storybook Controls panel (via its `render: (args) => <ComponentName {...args} />` implementation).
+
+### 2.4. Render Function
+
+- **All stories MUST define an explicit `render` function.** This ensures consistency and clarity in how components are presented.
+- **DO NOT USE `createComponentTemplate` or any other template/utility function for generating render functions.**
+- The `render` function receives an `args` object as its first parameter. This object is populated by Storybook based on the component's props and any default `args` defined in the meta configuration. The `args` object is to be used only by the `Overview` story.
+- **`Overview` Story Render:** The `Overview` story's `render` function **must** be `(args) => <ComponentName {...args} />` (or similar if simple wrapping is needed, or initial props required to start with) to ensure it directly reflects changes from the Storybook Controls panel.
+- **Other Stories Render:** For other stories that showcase specific states or compositions:
+  - They define their specific props directly when rendering the component within the `render` function.
+  - They can choose to use some of the `args` from the controls (e.g., for base styling or less critical props) or completely ignore/override them with hardcoded values to ensure the story accurately depicts the intended specific state.
+- Keep render functions as simple as possible, focusing on the component being storied.
+
+#### Prop Value Best Practices
+
+When writing stories, always use string literal prop values instead of static properties:
+
+```typescript
+// ✅ Preferred approach
+export const PrimaryButton: Story = {
+  render: () => <Button kind="primary" size="small">Click me</Button>
+};
+
+// ❌ Avoid (legacy pattern) 
+export const PrimaryButton: Story = {
+  render: () => <Button kind={Button.kinds.PRIMARY} size={Button.sizes.SMALL}>Click me</Button>
+};
+```
+
+This approach provides better IntelliSense, type safety, and follows modern Vibe conventions.
+
+Example of an `Overview` story's render function:
+
+```typescript
+export const Overview: Story = {
+  render: args => <ComponentName {...args} />
+};
+```
+
+Example of a specific state story's render function:
+
+```typescript
+export const DisabledState: Story = {
+  render: () => <ComponentName disabled label="Cannot proceed" />
+};
+```
+
+### 2.5. Decorators
+
+Decorators are functions that wrap a story to provide additional context, styling, or behavior.
+
+- Define decorators as an array in the `decorators` property of the `default` meta export (for global decorators) or on individual story objects.
+- Each decorator is a function that takes the `Story` component (as a function) and the `context` object as arguments and **must render the `Story()` component**.
+- Use decorators to provide wrapping UI (e.g., a fixed width container) but ensure they do not obscure the story's core purpose or make it hard to understand the component's usage through its `render`.
+
+Example of a simple decorator:
+
+```typescript
+// In default export:
+decorators: [
+  (Story) => (
+    <div style={{ margin: "1em", padding: "1em", border: "1px dashed #ccc" }}>
+      <Story />
+    </div>
+  ),
+  // Other decorators
+],
+```
+
+#### Applying Decorators to Specific Stories
+
+You can also apply decorators to individual stories if they are only relevant to that specific case. This is done by adding a `decorators` array directly to the story object.
+
+**Example:**
+
+First, define your decorator function (this could be in the same file or imported if it's a shared, non-story-specific utility decorator that conforms to Storybook's decorator signature):
+
+```typescript
+import { Decorator } from "@storybook/react";
+
+const withGridDisplay: Decorator = Story => (
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", // Example grid styling
+      gap: "20px",
+      padding: "20px",
+      border: "1px dashed lightgray"
+    }}
+  >
+    <Story />
+  </div>
+);
+```
+
+Then, apply it to a specific story:
+
+```typescript
+export const Sizes: Story = {
+  render: () => (
+    <>
+      <Label text="Regular Size Label" />
+      <Label text="Small Size Label" size="small" />
+      {/* Add more Label instances to demonstrate different sizes */}
+    </>
+  ),
+  decorators: [withGridDisplay] // Decorator applied only to this 'Sizes' story
+};
+```
+
+This approach allows for targeted enhancements or layouts for specific stories without affecting others. You would usually prefer a decorator for all the stories within a specific stories file.
+
+## 3. Styling in Stories
+
+- **Prefer inline styles:** For story-specific styling, use the `style` prop on elements within the story's `render` function or in decorators. This makes the styles immediately visible to users who copy the story code.
+
+  ```typescript
+  export const Highlighted: Story = {
+    render: () => (
+      <div style={{ backgroundColor: "yellow", padding: "8px" }}>
+        <ComponentName style={{ marginBottom: 4 }} disabled withAnimation />
+      </div>
+    ),
+    args: {
+      /* ... */
+    }
+  };
+  ```
+
+- **NO external CSS files (`.scss`, `.css`, `.module.scss`) for individual stories.** The goal is for story code to be self-contained and easily copyable.
+- **Exceptions for CSS files:**
+  1. If styling is for a **decorator** and helps provide a consistent story environment without being part of the component's direct example shown to user.
+  2. If a component **does not support the `style` prop** for the required modifications - and it is a must to add styling to it.
+  3. If very **complex or deep CSS modifications** are absolutely necessary that cannot be achieved with inline styles (e.g., targeting pseudo-elements of a child Vibe component for demonstration purposes).
+  - If an exception is made, the SCSS/CSS Module file should be placed in the `__stories__` directory alongside the `ComponentName.stories.tsx` file. It should ideally be named similarly to the story file or component it primarily affects, for example, `ComponentName.stories.module.scss` (if generally applicable to stories in that file and primarily for decorators).
+
+## 4. Story Content and Best Practices
+
+- **Self-Contained Examples:** Stories **must** be as self-contained as possible. Users should be able to copy the code from a story's `render` function (or the story definition if no render function) and have it work in their application with minimal changes (assuming Vibe components are installed and imported).
+- **NO external utility functions specific to stories:** Avoid referencing helper functions or helper components defined outside the story file (e.g., `TableAvatar` component or a `defineButtonGroup` util from an external helper). Even if a very simple helper is needed to reduce repetition for a complex story setup, define it a few times for each story within the `.stories.tsx` file. But always remember that you prefer not to use helpers at all, unless you must.
+- **Focus on one feature/state per story:** Each story should clearly demonstrate a specific aspect, prop, feature, or state of the component.
+- **Clarity over brevity (if complex):** While stories should be concise, ensure they are clear and easy to understand.
+- **Interactive states:** For components with interactive states (e.g., loading, success, disabled), provide stories that demonstrate these states, potentially using `useState` within the story's `render` function if necessary, or other React hooks.
+
+## 5. MDX Documentation (`ComponentName.mdx`)
+
+An MDX file **must** accompany each `ComponentName.stories.tsx` file to provide rich, narrative documentation. It should be located at `packages/core/src/components/ComponentName/__stories__/ComponentName.mdx`.
+
+### 5.1. MDX File Structure Template
+
+The following is a template for `ComponentName.mdx`:
+
+````mdx
+import { Meta } from "@storybook/blocks";
+import * as ComponentStories from "./ComponentName.stories"; // Import the stories
+import ComponentName from "../ComponentName";
+
+<Meta of={ComponentStories} />
+
+# ComponentName
+
+Brief overview of the component, its purpose, and when to use it. This can be multi-line.
+
+## Import path
+
+```tsx
+import { ComponentName } from "@vibe/core"; // Or the correct export path for the component
+```
+
+
+## Overview
+
+<Canvas of={ComponentStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Guideline 1: Describe a primary use case or when to use this component.",
+    "Guideline 2: Mention another important scenario or condition for its use.",
+    "Guideline 3: Add a specific 'do' or 'don't' related to its application.",
+    "..."
+  ]}
+/>
+
+## Variants
+
+{/_
+Showcase various important stories using <Canvas>.
+Provide a brief description for each use case.
+Focus on distinct functionalities or appearances.
+_/}
+
+### Specific Use Case 1 Title
+
+{/_ Description of this use case. _/}
+<Canvas of={ComponentStories.SpecificUseCaseStoryName} />
+
+### Specific Use Case 2 Title
+
+{/_ Description of this use case. _/}
+<Canvas of={ComponentStories.AnotherUseCaseStoryName} />
+
+## Do's and Don'ts
+
+{/*
+  ALWAYS use the <ComponentRules /> component for this section.
+  DO NOT import `ComponentRules`, as it is globally available, but do import any necessary assets (like images for visuals) at the top of the MDX file.
+  Each rule object within the `rules` array should have a `positive` and a `negative` aspect.
+  - For each aspect (`positive`/`negative`):
+    - The `component` prop is for the visual example (e.g., <img src={...} /> or a React component).
+    - If you do not have a visual for a specific 'do' or 'don't', use an example JSX element for the `component` (e.g., `<div>Do</div>`).
+    - The `description` prop (string) is mandatory and should clearly explain the point.
+*/}
+
+<ComponentRules
+  rules={[
+    {
+      componentContainerClassName: styles.largeComponentRule,
+      positive: {
+        component: (
+          // Example with a visual component. Replace with your actual component or img tag.
+          // <img src={exampleDoImage} alt="Visual example of what to do" />
+        ),
+        description: "Example Do: Clearly explain why this is a good practice. Be specific."
+      },
+      negative: {
+        component: (
+          // Example with an empty component when no visual is available.
+          <></>
+        ),
+        description: "Example Don't: Clearly explain this pitfall or misuse. Be specific."
+      }
+    },
+    {
+      positive: {
+        component: (
+          // Another example
+          <></>
+        ),
+        description: "Another Do: Focus on accessibility or a key integration point."
+      },
+      negative: {
+        component: (
+          // <img src={exampleDontImage} alt="Visual example of what not to do" />
+        ),
+        description: "Another Don't: Warn about potential issues or anti-patterns."
+      }
+    }
+  ]}
+/>
+````
+
+### 5.2. MDX Content Requirements
+
+- **Imports**:
+  - The following components are globally available in MDX and **must not** be imported explicitly: `Canvas`, `Controls`, `PropsTable`, `ComponentRules`, `UsageGuidelines`, `RelatedComponent`, `RelatedComponents`, `StorybookLink`. They are automatically provided by the Storybook setup.
+  - `import * as ComponentStories from "./ComponentName.stories";`: Import all stories from the corresponding `.stories.tsx` file.
+  - `import ComponentName from "../ComponentName";`: Import the component itself (adjust path as necessary). This is often implicitly used by `<Controls />` or `<PropsTable />` via `<Meta of={ComponentStories} />` if `ComponentStories.default.component` is set, but explicit import can be useful for clarity or direct use.
+- **`<Meta of={ComponentStories} />`**: Links the MDX file to the stories file. This is crucial for `<Controls />`, `<PropsTable />` and other features to correctly associate with the component and its stories.
+- **Main Title (`# ComponentName`)**: The component's name.
+- **Description**: A brief overview of the component. Use a simple string in the markdown.
+- **Import Path**: Show users how to import the component from `@vibe/core`.
+- **Overview Story**: **Must** display the `Overview` story from `ComponentName.stories.tsx` using `<Canvas of={ComponentStories.Overview}/>`. Add a brief contextual description.
+- **Props Table**: **Must include an interactive props table using `<PropsTable />`** (globally available). Storybook will generate this based on the component's props when linked via `<Meta of={ComponentStories} />`.
+- **Usage Section**: **Must** include a section titled "Usage" that utilizes the globally available `<UsageGuidelines />` component. This component takes a `guidelines` prop, which is an array of strings, as shown in the template.
+- **Variants**: Showcase other important stories using the globally available `<Canvas of={ComponentStories.StoryName} />` component. Each example should have a descriptive sub-heading (`###`) and a brief explanation of the use case.
+- **Do's and Don'ts**: This section **must** use the globally available `<ComponentRules />` component. Refer to the template in section 5.1 for the required structure. This involves providing a `rules` array, where each rule object has `positive` and `negative` aspects. Each aspect requires a `description` (string) and a `component` (JSX element). If a visual example for the `component` is not available, use an empty JSX element (e.g., `<></>`) or a simple textual placeholder (e.g., `<div>Do this</div>`).
+  - This section is crucial for communicating best practices to **designers and product managers**, not just developers. When writing the descriptions, follow these principles:
+    - **Focus on the Why, Not the How:** Explain the user experience principle or design best practice. Avoid implementation details.
+    - **Speak in Plain Language:** Use clear, non-technical language. Avoid jargon and prop names.
+    - **Be Specific and Actionable:** Provide clear, actionable advice that a designer can use when creating mockups or specifications.
+
+    **Bad Example (Developer-Focused):**
+    > "Use the `infoText` prop to add helpful context."
+
+    **Good Example (Designer-Focused):**
+    > "Provide supplementary helper text to guide the user on the expected input and its format."
+
+By following these rules, we can ensure that the Storybook for `@vibe/core` is consistent, maintainable, and provides maximum value to its consumers.

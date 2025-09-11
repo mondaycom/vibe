@@ -1,9 +1,9 @@
-import React, { ForwardedRef, forwardRef, useMemo } from "react";
+import React, { type ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
-import { LoaderColors, LoaderSize, LoaderSizes } from "./Loader.types";
+import { type LoaderColors, type LoaderSize, type LoaderSizes } from "./Loader.types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./Loader.module.scss";
 
@@ -22,18 +22,25 @@ const mapLoaderColorsToColors: Record<LoaderColors, string> = {
 };
 
 export interface LoaderProps extends VibeComponentProps {
-  className?: string;
-  /** The loader's size: `number` or `LoaderSizes` */
+  /**
+   * The size of the loader, either a predefined size or a custom number.
+   */
   size?: LoaderSize;
+  /**
+   * The color of the loader.
+   */
   color?: LoaderColors;
+  /**
+   * If true, a background circle is displayed behind the loader.
+   */
   hasBackground?: boolean;
+  /**
+   * Class name applied to the wrapper element.
+   */
   wrapperClassName?: string;
 }
 
-const Loader: VibeComponent<LoaderProps, HTMLElement> & {
-  sizes?: typeof LoaderSizesEnum;
-  colors?: typeof LoaderColorsEnum;
-} = forwardRef(
+const Loader = forwardRef(
   (
     { className, wrapperClassName, size, color, hasBackground = false, id, "data-testid": dataTestId }: LoaderProps,
     ref: ForwardedRef<HTMLDivElement>
@@ -79,7 +86,12 @@ const Loader: VibeComponent<LoaderProps, HTMLElement> & {
   }
 );
 
-export default withStaticProps(Loader, {
+interface LoaderStaticProps {
+  sizes: typeof LoaderSizesEnum;
+  colors: typeof LoaderColorsEnum;
+}
+
+export default withStaticProps<LoaderProps, LoaderStaticProps>(Loader, {
   sizes: LoaderSizesEnum,
   colors: LoaderColorsEnum
 });

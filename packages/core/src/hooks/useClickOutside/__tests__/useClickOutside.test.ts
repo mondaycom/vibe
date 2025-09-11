@@ -1,13 +1,14 @@
+import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import useClickOutside from "../index";
 
 describe("useClickOutside", () => {
   let element: HTMLElement;
-  let callbackStub: jest.Mock;
+  let callbackStub: Mock;
 
   beforeEach(() => {
-    callbackStub = jest.fn();
+    callbackStub = vi.fn();
     element = document.createElement("div");
     document.body.appendChild(element);
     renderHook(() => useClickOutside({ ref: { current: element }, callback: callbackStub }));
@@ -63,7 +64,7 @@ describe("useClickOutside", () => {
     });
 
     it("should call the callback for override when passing eventName parameter", () => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>

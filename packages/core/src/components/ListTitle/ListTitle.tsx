@@ -1,12 +1,18 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import Text from "../Text/Text";
 import styles from "./ListTitle.module.scss";
 
 export interface ListTitleProps extends VibeComponentProps {
+  /**
+   * The tab index for keyboard navigation.
+   */
   tabIndex?: number;
+  /**
+   * The title text.
+   */
   children?: string;
 }
 

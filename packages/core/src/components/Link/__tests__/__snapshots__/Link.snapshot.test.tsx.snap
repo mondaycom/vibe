@@ -1,12 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link renders correctly with ariaDescribedby 1`] = `
+exports[`Link renders correctly > with ariaDescribedby 1`] = `
 <a
   aria-describedby="aria described by"
   aria-label=""
   aria-labelledby=""
-  className="link"
+  className="link colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}
@@ -21,13 +22,14 @@ exports[`Link renders correctly with ariaDescribedby 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with ariaLabelDescription 1`] = `
+exports[`Link renders correctly > with ariaLabelDescription 1`] = `
 <a
   aria-describedby=""
   aria-label="arialabel link"
   aria-labelledby=""
-  className="link"
+  className="link colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}
@@ -42,13 +44,14 @@ exports[`Link renders correctly with ariaLabelDescription 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with ariaLabeledBy 1`] = `
+exports[`Link renders correctly > with ariaLabeledBy 1`] = `
 <a
   aria-describedby=""
   aria-label=""
   aria-labelledby="aria label link"
-  className="link"
+  className="link colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}
@@ -63,13 +66,14 @@ exports[`Link renders correctly with ariaLabeledBy 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with className 1`] = `
+exports[`Link renders correctly > with className 1`] = `
 <a
   aria-describedby=""
   aria-label=""
   aria-labelledby=""
-  className="link testClassName"
+  className="link testClassName colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}
@@ -84,13 +88,14 @@ exports[`Link renders correctly with className 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with icon 1`] = `
+exports[`Link renders correctly > with icon 1`] = `
 <a
   aria-describedby=""
   aria-label=""
   aria-labelledby=""
-  className="link"
+  className="link colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}
@@ -101,6 +106,7 @@ exports[`Link renders correctly with icon 1`] = `
     aria-hidden={true}
     className="icon iconStart fa fa fa-star"
     data-testid="icon"
+    data-vibe="Icon"
     onClick={[Function]}
     role="img"
   />
@@ -112,13 +118,14 @@ exports[`Link renders correctly with icon 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with id 1`] = `
+exports[`Link renders correctly > with id 1`] = `
 <a
   aria-describedby=""
   aria-label=""
   aria-labelledby=""
-  className="link"
+  className="link colorPrimary"
   data-testid="link_TestId"
+  data-vibe="Link"
   href=""
   id="TestId"
   onClick={[Function]}
@@ -133,13 +140,14 @@ exports[`Link renders correctly with id 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with right icon 1`] = `
+exports[`Link renders correctly > with right icon 1`] = `
 <a
   aria-describedby=""
   aria-label=""
   aria-labelledby=""
-  className="link"
+  className="link colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}
@@ -155,19 +163,21 @@ exports[`Link renders correctly with right icon 1`] = `
     aria-hidden={true}
     className="icon iconEnd fa fa fa-star"
     data-testid="icon"
+    data-vibe="Icon"
     onClick={[Function]}
     role="img"
   />
 </a>
 `;
 
-exports[`Link renders correctly with text 1`] = `
+exports[`Link renders correctly > with text 1`] = `
 <a
   aria-describedby=""
   aria-label=""
   aria-labelledby=""
-  className="link"
+  className="link colorPrimary"
   data-testid="link"
+  data-vibe="Link"
   href=""
   id=""
   onClick={[Function]}

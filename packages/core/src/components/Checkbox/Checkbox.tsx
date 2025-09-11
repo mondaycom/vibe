@@ -1,52 +1,81 @@
-import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
-import { isNil, noop as NOOP } from "lodash-es";
+import cx from "classnames";
+import { isNil, noop as NOOP } from "es-toolkit";
 import Icon from "../Icon/Icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import Text from "../Text/Text";
 import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {
-  /** A classname to be added to the wrapping element */
-  className?: string;
-  /** A classname to be added to the checkbox element label */
+  /**
+   * Class name applied to the checkbox element.
+   */
   checkboxClassName?: string;
-  /** A classname to be added to the label element */
+  /**
+   * Class name applied to the label element.
+   */
   labelClassName?: string;
-  /** A11y prop to describe the content for screen readers */
+  /**
+   * The label of the checkbox for accessibility.
+   */
   ariaLabel?: string;
-  /** The content to be rendered within the option */
+  /**
+   * The content displayed next to the checkbox.
+   */
   label?: React.ReactNode | Array<React.ReactNode>;
-  /** A11y prop - An Id of an element which describes this option  */
+  /**
+   * The ID of an element describing the checkbox.
+   */
   ariaLabelledBy?: string;
-  /** callback function when the value changes */
+  /**
+   * Callback fired when the checkbox value changes.
+   */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Use this when you want to control the component, this will set the state of the component  */
+  /**
+   * If true, controls the checked state of the checkbox.
+   */
   checked?: boolean;
-  /** An in between state to display a non selected */
+  /**
+   * If true, displays an indeterminate state.
+   */
   indeterminate?: boolean;
-  /** is autoFocus */
+  /**
+   * If true, the checkbox automatically receives focus.
+   */
   autoFocus?: boolean;
-  /** Set the option to be disabled */
+  /**
+   * If true, the checkbox is disabled.
+   */
   disabled?: boolean;
-  /** the default value which the checkbox will start from  */
+  /**
+   * The initial checked state of the checkbox.
+   */
   defaultChecked?: boolean;
-  /** The input control's value. When specified in the HTML, this is the initial value, and from then on it can be altered or retrieved at any time using JavaScript to access the respective HTMLInputElement object's value property. The value attribute is always optional, though should be considered mandatory for checkbox, radio, and hidden.l */
+  /**
+   * The value submitted with the form when checked.
+   */
   value?: string;
-  /** A string specifying a name for the input control. This name is submitted along with the control's value when the form data is submitted. */
+  /**
+   * The name of the checkbox, used for form submission.
+   */
   name?: string;
-  /** An id to be added the input element */
-  id?: string;
-  /** Specifies the tab order of the input element */
+  /**
+   * The tab order of the checkbox.
+   */
   tabIndex?: number;
+  /**
+   * If true, uses separate labels with htmlFor/id association instead of wrapping the input.
+   * If using this the id prop is required for it to function correctly.
+   */
+  separateLabel?: boolean;
 }
 
-const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
+const Checkbox = forwardRef(
   (
     {
       className,
@@ -65,9 +94,10 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
       value = "",
       name = "",
       id,
+      separateLabel = false,
       "data-testid": dataTestId
     }: CheckBoxProps,
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
@@ -105,6 +135,64 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
       return "";
     }, [ariaLabel, label]);
 
+    if (separateLabel) {
+      return (
+        <div
+          className={cx(styles.wrapper, className)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
+          data-vibe={ComponentVibeId.CHECKBOX}
+        >
+          <input
+            ref={mergedInputRef}
+            id={id}
+            className={styles.input}
+            value={value}
+            name={name}
+            type="checkbox"
+            autoFocus={autoFocus}
+            onChange={onChange}
+            defaultChecked={overrideDefaultChecked}
+            disabled={disabled}
+            aria-label={finalAriaLabel}
+            aria-labelledby={ariaLabelledBy}
+            checked={checked}
+            tabIndex={tabIndex}
+          />
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+          <label
+            htmlFor={id}
+            className={cx(styles.checkbox, checkboxClassName)}
+            data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
+            onMouseUp={onMouseUpCallback}
+            onClickCapture={onClickCaptureLabel}
+          >
+            <Icon
+              className={styles.icon}
+              iconType="svg"
+              icon={indeterminate ? Remove : Check}
+              ignoreFocusStyle
+              ariaHidden={true}
+              iconSize="16"
+            />
+          </label>
+          {label === false ? null : (
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+            <label
+              htmlFor={id}
+              className={cx(styles.label, labelClassName)}
+              data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
+              onMouseUp={onMouseUpCallback}
+              onClickCapture={onClickCaptureLabel}
+            >
+              <Text element="span" type="text2">
+                {label}
+              </Text>
+            </label>
+          )}
+        </div>
+      );
+    }
+
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
@@ -113,6 +201,7 @@ const Checkbox: VibeComponent<CheckBoxProps, HTMLInputElement> = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
+        data-vibe={ComponentVibeId.CHECKBOX}
       >
         <input
           ref={mergedInputRef}

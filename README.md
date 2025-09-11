@@ -46,6 +46,12 @@ Components are imported from the library's root entry:
 import { Button } from "@vibe/core";
 ```
 
+### MCP
+
+Vibe includes an MCP (Model Context Protocol) server that provides intelligent assistance for working with Vibe components. The MCP server can help you discover component APIs, get usage examples, find appropriate icons, and follow best practices.
+
+To get started, follow the installation instructions in the [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md) docs to integrate it in your preferred AI development tools.
+
 ## Ecosystem
 
 - [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
@@ -55,6 +61,7 @@ import { Button } from "@vibe/core";
 - [monday-ui-style](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @vibe/core)
 - [vibe-storybook-components](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
 - [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
+- [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
 
 ## Older Versions
 

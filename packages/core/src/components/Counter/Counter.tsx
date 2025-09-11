@@ -1,10 +1,9 @@
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import VibeComponentProps from "../../types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
@@ -13,43 +12,59 @@ import {
   CounterSize as CounterSizeEnum,
   CounterType as CounterTypeEnum
 } from "./CounterConstants";
-import { CounterColor, CounterSize, CounterType } from "./Counter.types";
-import { withStaticProps } from "../../types";
+import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Counter.module.scss";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface CounterProps extends VibeComponentProps {
-  /** id to pass to the element */
-  id?: string;
-  /** element id to describe the counter accordingly */
+  /**
+   * The ID of the element describing the counter.
+   */
   ariaLabeledBy?: string;
-  /** Custom class names to pass to the component wrapper */
-  className?: string;
-  /** Custom class names to pass to the component */
+  /**
+   * Class name applied to the counter element.
+   */
   counterClassName?: string;
-  /** The numeric value of the counter */
+  /**
+   * The numeric value displayed in the counter.
+   */
   count?: number;
-  /** Counter description */
+  /**
+   * The label of the counter for accessibility.
+   */
   ariaLabel?: string;
-  /** The size of the counter */
+  /**
+   * The size of the counter.
+   */
   size?: CounterSize;
+  /**
+   * The visual style of the counter.
+   */
   kind?: CounterType;
-  /** The color of the counter */
+  /**
+   * The color of the counter.
+   */
   color?: CounterColor;
-  /** maximum number of digits to display (see relevant story) */
+  /**
+   * The maximum number of digits displayed before truncation.
+   */
   maxDigits?: number;
-  /** Text prepended to counter value */
+  /**
+   * Text prepended to the counter value.
+   */
   prefix?: string;
-  /** Callback to be called when the counter is clicked. */
+  /**
+   * Callback fired when the counter is clicked.
+   */
   onMouseDown?: (event: React.MouseEvent<HTMLSpanElement>) => void;
-  /** Disables the component's animation */
+  /**
+   * If true, disables counter animations.
+   */
   noAnimation?: boolean;
 }
 
-const Counter: React.FC<CounterProps> & {
-  sizes?: typeof CounterSizeEnum;
-  colors?: typeof CounterColorEnum;
-  kinds?: typeof CounterTypeEnum;
-} = ({
+const Counter = ({
   className,
   counterClassName,
   count = 0,
@@ -68,6 +83,7 @@ const Counter: React.FC<CounterProps> & {
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
+  const nodeRef = useRef<HTMLSpanElement>(null);
 
   const setCountChangedAnimationActive = useCallback(() => {
     setCountChangeAnimationState(true);
@@ -124,6 +140,7 @@ const Counter: React.FC<CounterProps> & {
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
+      data-vibe={ComponentVibeId.COUNTER}
     >
       <div className={classNames} aria-label={countText} ref={ref}>
         {noAnimation ? (
@@ -132,19 +149,22 @@ const Counter: React.FC<CounterProps> & {
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={countText}
+              nodeRef={nodeRef}
               classNames={{
                 enter: styles.fadeEnter,
                 enterActive: styles.fadeEnterActive,
                 exit: styles.fadeExit,
                 exitActive: styles.fadeExitActive
               }}
-              // @ts-expect-error @definitelyTyped typings expecting a single parameter for some reason when the function passed here is called with two parameters
-              // See https://github.com/reactjs/react-transition-group/blob/c89f807067b32eea6f68fd6c622190d88ced82e2/src/Transition.js#L522-L534
-              addEndListener={(node: HTMLElement, done: () => void) => {
-                node.addEventListener("transitionend", done, false);
+              addEndListener={done => {
+                nodeRef.current?.addEventListener("transitionend", done, false);
               }}
             >
-              <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+              <span
+                ref={nodeRef}
+                id={counterId}
+                data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}
+              >
                 {prefix + countText}
               </span>
             </CSSTransition>
@@ -155,7 +175,13 @@ const Counter: React.FC<CounterProps> & {
   );
 };
 
-export default withStaticProps(Counter, {
+interface CounterStaticProps {
+  sizes: typeof CounterSizeEnum;
+  colors: typeof CounterColorEnum;
+  kinds: typeof CounterTypeEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<CounterProps, CounterStaticProps>(Counter, {
   sizes: CounterSizeEnum,
   colors: CounterColorEnum,
   kinds: CounterTypeEnum

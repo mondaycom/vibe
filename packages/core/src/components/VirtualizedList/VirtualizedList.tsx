@@ -1,23 +1,23 @@
 import cx from "classnames";
 import React, {
-  CSSProperties,
-  ForwardedRef,
+  type CSSProperties,
+  type ForwardedRef,
   forwardRef,
-  LegacyRef,
-  ReactElement,
+  type LegacyRef,
+  type ReactElement,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState
 } from "react";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit";
 import {
-  ScrollDirection,
+  type ScrollDirection,
   VariableSizeList as List,
-  ListOnItemsRenderedProps,
-  ListChildComponentProps,
-  VariableSizeList
+  type ListOnItemsRenderedProps,
+  type ListChildComponentProps,
+  type VariableSizeList
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
@@ -32,65 +32,57 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import VibeComponent from "../../types/VibeComponent";
+import { type VibeComponent, type VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
-import { VirtualizedListItem, VirtualizedListLayout, VirtualizedListScrollDirection } from "./VirtualizedList.types";
+import {
+  type VirtualizedListItem,
+  type VirtualizedListLayout,
+  type VirtualizedListScrollDirection
+} from "./VirtualizedList.types";
 
 export interface VirtualizedListProps extends VibeComponentProps {
   /**
-   * class name to add to the component scrollable container
+   * Class name applied to the scrollable container.
    */
   scrollableClassName?: string;
   /**
-   * Layout/orientation of the list.
-   * Acceptable values are:
-   * - "vertical" (default) - Up/down scrolling.
-   * - "horizontal" - Left/right scrolling.
+   * The orientation of the list.
    */
   layout?: VirtualizedListLayout;
   /**
-   * A list of items to be rendered
+   * The list of items to be rendered.
    */
   items: VirtualizedListItem[];
   /**
-   * Will return the element which represent an item in the virtualized list.
-   * Returns `JSX.Element`
-   * @param item - item data
-   * @param _index - item index
-   * @param style - item style, must be injected to the item element wrapper for correct presentation of the item
+   * Function to render each item in the list.
    */
   itemRenderer: (item: VirtualizedListItem, index: number, style: CSSProperties) => ReactElement | JSX.Element;
   /**
-   * Deprecated - use getItemSize
-   * in order to calculate the number of items to render, the component needs the height of the items
-   * return `number`
+   * @deprecated - use `getItemSize`.
    */
   getItemHeight?: (item: VirtualizedListItem, index: number) => number;
   /**
-   * in order to calculate the number of items to render, the component needs the width/height of the items (according to layout)
-   * return `number`
+   * Function to get the size (height/width) of each item, based on layout.
    */
   getItemSize?: (item: VirtualizedListItem, index: number) => number;
   /**
-   * returns Id of an items
-   * returns `string`
+   * Function to get the unique ID of an item.
    */
   getItemId?: (item: VirtualizedListItem, index: number) => string;
   /**
-   * callback to be called when the scroll is finished
+   * Callback fired when the scroll animation is finished.
    */
   onScrollToFinished?: () => void;
   /**
-   * number of items to render (below/above the fold)
+   * Number of items to render above and below the visible portion.
    */
   overscanCount?: number;
   /**
-   * the speed of the scroll (in ms)
+   * The duration of the scroll animation in milliseconds.
    */
   scrollDuration?: number;
   /**
-   * a callback that is being called when the items are rendered
+   * Callback fired when items are rendered.
    */
   onItemsRendered?: ({
     firstItemId,
@@ -107,28 +99,45 @@ export interface VirtualizedListProps extends VibeComponentProps {
     firstItemOffsetEnd: number;
     currentOffsetTop: number;
   }) => void;
+  /**
+   * The delay (in ms) for throttling the `onItemsRendered` callback.
+   */
   onItemsRenderedThrottleMs?: number;
   /**
-   * when the list size changes - `=> (width, height)`
+   * Callback fired when the list size changes.
    */
   onSizeUpdate?: (width: number, height: number) => void;
   /**
-   * Deprecated - use onLayoutDirectionScrollbarVisibilityChange
+   * @deprecated - use `onLayoutDirectionScrollbarVisibilityChange`.
    */
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
   /**
-   * Callback - called when the vertical/horizontal (depends on layout) scrollbar visibility changed
+   * Callback fired when the vertical or horizontal scrollbar visibility changes.
    */
   onLayoutDirectionScrollbarVisibilityChange?: (value: boolean) => void;
+  /**
+   * The ARIA role attribute applied to the list.
+   */
   role?: string;
+  /**
+   * The ARIA label for the list.
+   */
   ariaLabel?: string;
-  /** Custom style to pass to the component */
+  /**
+   * Custom inline styles applied to the list.
+   */
   style?: CSSProperties;
   /**
-   * index of the item to scroll to
+   * The ID of the item to scroll to.
    */
   scrollToId?: string;
+  /**
+   * Reference to the virtualized list component.
+   */
   virtualListRef?: ForwardedRef<HTMLElement>;
+  /**
+   * Callback fired when the list is scrolled.
+   */
   onScroll?: (
     horizontalScrollDirection: VirtualizedListScrollDirection,
     scrollTop: number,
@@ -136,7 +145,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
   ) => void;
 }
 
-const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
+const VirtualizedList = forwardRef(
   (
     {
       className,
@@ -164,7 +173,7 @@ const VirtualizedList: VibeComponent<VirtualizedListProps> = forwardRef(
       style,
       "data-testid": dataTestId
     }: VirtualizedListProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     // states
     const [listHeight, setListHeight] = useState(0);

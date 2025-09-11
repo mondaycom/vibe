@@ -1,27 +1,44 @@
-import React, { ReactElement, RefObject, useCallback, useMemo, useRef, useState } from "react";
-import Tooltip, { TooltipProps } from "../Tooltip/Tooltip";
-import { AvatarProps } from "../Avatar/Avatar";
+import React, { type ReactElement, type RefObject, useCallback, useMemo, useRef, useState } from "react";
+import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
+import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
-import VibeComponentProps from "../../types/VibeComponentProps";
-import { AvatarType } from "../Avatar/Avatar.types";
+import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type AvatarType } from "../Avatar/Avatar.types";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
-  className?: string;
+  /**
+   * The type of avatars displayed in the tooltip.
+   */
   type?: AvatarType;
   /**
-   * Counter element & focus placeholders
+   * The counter element and focus placeholders.
    */
   children?: ReactElement[];
   /**
-   * Array of Avatar elements
+   * The list of avatars displayed inside the tooltip.
    */
   avatars?: ReactElement<AvatarProps>[];
+  /**
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
+   */
   counterTooltipCustomProps?: Partial<TooltipProps>;
+  /**
+   * If true, the tooltip uses a virtualized list for performance optimization.
+   */
   counterTooltipIsVirtualizedList?: boolean;
+  /**
+   * Ref for the element before the tooltip content, used for keyboard navigation.
+   */
   focusPrevPlaceholderRef?: RefObject<HTMLDivElement>;
+  /**
+   * Ref for the element after the tooltip content, used for keyboard navigation.
+   */
   focusNextPlaceholderRef?: RefObject<HTMLDivElement>;
+  /**
+   * Ref for the counter container element.
+   */
   counterContainerRef?: RefObject<HTMLDivElement>;
 }
 

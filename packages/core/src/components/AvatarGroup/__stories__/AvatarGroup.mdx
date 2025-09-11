@@ -7,15 +7,6 @@ import * as AvatarGroupStories from "./AvatarGroup.stories";
 
 # AvatarGroup
 
-- [Overview](#overview)
-- [Props](#props)
-- [Variants](#variants)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 Use this component if you need to stack avatars as a group.
 
 <Canvas of={AvatarGroupStories.Overview} />
@@ -41,6 +32,21 @@ import { AvatarGroup } from "@vibe/core";
     <>
       If clickable and navigable list is required on counter, use{" "}
       <StorybookLink page="Components/Menu/Menu">Menu</StorybookLink> component
+    </>
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>counterAriaLabel</code> prop to provide a descriptive accessible name for the counter (e.g., "3
+      additional team members", "5 more participants", "2 hidden collaborators").
+    </>,
+    <>
+      Ensure each <code>Avatar</code> in the group has a meaningful <code>ariaLabel</code> prop that describes the
+      person or entity (e.g., "John Smith", "Sarah Johnson", "Design Team").
     </>
   ]}
 />

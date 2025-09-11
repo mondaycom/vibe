@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef } from "react";
 import { TableContainerProvider } from "../context/TableContainerContext/TableContainerContext";
-import { TableContainerProps } from "./TableContainer.types";
+import { type TableContainerProps } from "./TableContainer.types";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import cx from "classnames";

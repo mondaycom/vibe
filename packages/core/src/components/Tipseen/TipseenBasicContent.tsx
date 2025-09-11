@@ -1,15 +1,24 @@
 import React from "react";
 import cx from "classnames";
 import TipseenTitle from "./TipseenTitle";
-import { VibeComponentProps } from "../../types";
-import { ElementContent } from "../../types/ElementContent";
+import { type VibeComponentProps } from "../../types";
+import { type ElementContent } from "../../types/ElementContent";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./TipseenBasicContent.module.scss";
 
 export interface TipseenBasicContentProps extends VibeComponentProps {
+  /**
+   * The title text displayed in the Tipseen content.
+   */
   title?: string;
+  /**
+   * Class name applied to the title.
+   */
   titleClassName?: string;
+  /**
+   * The content inside the Tipseen.
+   */
   children?: ElementContent | ElementContent[];
 }
 

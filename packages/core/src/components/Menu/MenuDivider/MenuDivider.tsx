@@ -2,17 +2,12 @@ import React from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import Divider from "../../Divider/Divider";
-import { VibeComponentProps } from "../../../types";
-import { FC } from "react";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./MenuDivider.module.scss";
 
 export type MenuDividerProps = VibeComponentProps;
 
-const MenuDivider: FC<MenuDividerProps> & { isMenuChild?: boolean } = ({
-  className,
-  id,
-  "data-testid": dataTestId
-}) => {
+const MenuDivider = ({ className, id, "data-testid": dataTestId }: MenuDividerProps) => {
   return (
     <Divider
       className={cx(styles.menuChildDivider, className)}

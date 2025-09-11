@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
+import React, { type FunctionComponent, useCallback, type AriaRole, type Ref } from "react";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { useIsMounted } from "../../../hooks/ssr/useIsMounted";
 
@@ -11,15 +11,45 @@ function modifySvgCode(svg: string, color = "currentColor") {
 }
 
 export interface CustomSvgIconProps extends VibeComponentProps {
+  /**
+   * Callback fired when the icon is clicked.
+   */
   onClick?: (event: React.MouseEvent) => void;
+  /**
+   * The source URL or object of the SVG icon.
+   */
   src: string | object;
+  /**
+   * The accessible label for the icon.
+   */
   ariaLabel?: string;
+  /**
+   * The tab index of the icon for keyboard navigation.
+   */
   tabIndex?: number;
+  /**
+   * The ARIA role of the icon.
+   */
   role?: AriaRole;
+  /**
+   * If true, hides the icon from screen readers.
+   */
   ariaHidden?: boolean;
+  /**
+   * If true, makes the icon clickable.
+   */
   clickable?: boolean;
+  /**
+   * If true, replaces the `fill` attribute in the SVG with `currentColor`.
+   */
   replaceToCurrentColor?: boolean;
+  /**
+   * Overrides the default color of the icon.
+   */
   customColor?: string;
+  /**
+   * Reference to the SVG element.
+   */
   ref?: Ref<SVGElement>;
 }
 
@@ -75,6 +105,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
+      data-vibe={ComponentVibeId.ICON}
     >
       {PlaceHolder}
     </SVGComponent>

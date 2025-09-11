@@ -1,0 +1,208 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BreadcrumbsBar renders correctly > with bar type 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+  data-vibe="BreadcrumbsBar"
+>
+  <ol />
+</nav>
+`;
+
+exports[`BreadcrumbsBar renders correctly > with bar type 2`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+  data-vibe="BreadcrumbsBar"
+>
+  <ol />
+</nav>
+`;
+
+exports[`BreadcrumbsBar renders correctly > with breadcrumb menu 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+  data-vibe="BreadcrumbsBar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          Board
+        </span>
+      </span>
+    </li>
+    <svg
+      aria-hidden="true"
+      className="separatorIcon"
+      fill="currentColor"
+      height="14"
+      viewBox="0 0 20 20"
+      width="14"
+    >
+      <path
+        clipRule="evenodd"
+        d="M13.5303 9.46967L13 10L13.5303 10.5303C13.8232 10.2374 13.8232 9.76256 13.5303 9.46967ZM11.9393 10L5.46967 16.4697C5.17678 16.7626 5.17678 17.2374 5.46967 17.5303C5.76256 17.8232 6.23744 17.8232 6.53033 17.5303L13.5303 10.5303L13 10L13.5303 9.46967L6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L11.9393 10Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <li
+      className="breadcrumbMenuWrapper"
+      isClickable={false}
+    >
+      <button
+        aria-controls="breadcrumb-menu-button-menu"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-haspopup="true"
+        aria-label="Hidden breadcrumbs menu"
+        className="wrapper sizeXxs"
+        data-testid="breadcrumb-menu"
+        data-vibe="MenuButton"
+        id="breadcrumb-menu-button"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          fill="currentColor"
+          height="16"
+          role="img"
+          viewBox="0 0 20 20"
+          width="16"
+        >
+          <path
+            d="M6 10.5C6 11.3284 5.32843 12 4.5 12 3.67157 12 3 11.3284 3 10.5 3 9.67157 3.67157 9 4.5 9 5.32843 9 6 9.67157 6 10.5zM11.8333 10.5C11.8333 11.3284 11.1618 12 10.3333 12 9.50492 12 8.83334 11.3284 8.83334 10.5 8.83334 9.67157 9.50492 9 10.3333 9 11.1618 9 11.8333 9.67157 11.8333 10.5zM17.6667 10.5C17.6667 11.3284 16.9951 12 16.1667 12 15.3383 12 14.6667 11.3284 14.6667 10.5 14.6667 9.67157 15.3383 9 16.1667 9 16.9951 9 17.6667 9.67157 17.6667 10.5z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+    <svg
+      aria-hidden="true"
+      className="separatorIcon"
+      fill="currentColor"
+      height="14"
+      viewBox="0 0 20 20"
+      width="14"
+    >
+      <path
+        clipRule="evenodd"
+        d="M13.5303 9.46967L13 10L13.5303 10.5303C13.8232 10.2374 13.8232 9.76256 13.5303 9.46967ZM11.9393 10L5.46967 16.4697C5.17678 16.7626 5.17678 17.2374 5.46967 17.5303C5.76256 17.8232 6.23744 17.8232 6.53033 17.5303L13.5303 10.5303L13 10L13.5303 9.46967L6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L11.9393 10Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-current="page"
+        aria-disabled="true"
+        className="breadcrumbContent current notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          My Item
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsBar renders correctly > with children 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+  data-vibe="BreadcrumbsBar"
+>
+  <ol>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          Workspace
+        </span>
+      </span>
+    </li>
+    <svg
+      aria-hidden="true"
+      className="separatorIcon"
+      fill="currentColor"
+      height="14"
+      viewBox="0 0 20 20"
+      width="14"
+    >
+      <path
+        clipRule="evenodd"
+        d="M13.5303 9.46967L13 10L13.5303 10.5303C13.8232 10.2374 13.8232 9.76256 13.5303 9.46967ZM11.9393 10L5.46967 16.4697C5.17678 16.7626 5.17678 17.2374 5.46967 17.5303C5.76256 17.8232 6.23744 17.8232 6.53033 17.5303L13.5303 10.5303L13 10L13.5303 9.46967L6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L11.9393 10Z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
+    </svg>
+    <li
+      className="breadcrumbItemWrapper"
+      data-testid="breadcrumb-item"
+    >
+      <span
+        aria-disabled="true"
+        className="breadcrumbContent notClickable"
+        tabIndex={0}
+      >
+        <span
+          className="breadcrumbText"
+        >
+          Board
+        </span>
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsBar renders correctly > with empty props 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+  data-vibe="BreadcrumbsBar"
+>
+  <ol />
+</nav>
+`;

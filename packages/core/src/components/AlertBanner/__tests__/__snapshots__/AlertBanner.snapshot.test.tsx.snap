@@ -1,10 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AlertBanner should render correctly with background color 1`] = `
+exports[`AlertBanner > should render correctly with background color 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner positive"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -19,6 +20,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
       aria-label="Close"
       className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="alert-banner-close-button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -39,6 +41,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="Icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"
@@ -53,11 +56,12 @@ exports[`AlertBanner should render correctly with background color 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render correctly with hidden close button 1`] = `
+exports[`AlertBanner > should render correctly with hidden close button 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -69,11 +73,12 @@ exports[`AlertBanner should render correctly with hidden close button 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render correctly with props 1`] = `
+exports[`AlertBanner > should render correctly with props 1`] = `
 <div
   aria-label="lorem-banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal my-lorem-ipsum-banner alertBanner negative"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -105,6 +110,7 @@ exports[`AlertBanner should render correctly with props 1`] = `
       aria-label="Close"
       className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="alert-banner-close-button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -125,6 +131,7 @@ exports[`AlertBanner should render correctly with props 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="Icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"
@@ -139,11 +146,12 @@ exports[`AlertBanner should render correctly with props 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render correctly without props 1`] = `
+exports[`AlertBanner > should render correctly without props 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -158,6 +166,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
       aria-label="Close"
       className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="alert-banner-close-button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -178,6 +187,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="Icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"
@@ -192,11 +202,12 @@ exports[`AlertBanner should render correctly without props 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render with correctly with multiple elements 1`] = `
+exports[`AlertBanner > should render with correctly with multiple elements 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -229,8 +240,9 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           aria-describedby=""
           aria-label=""
           aria-labelledby=""
-          className="link"
+          className="link colorPrimary"
           data-testid="link"
+          data-vibe="Link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -273,6 +285,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           aria-disabled={false}
           className="bannerButton button sizeSmall kindPrimary colorOnPrimaryColor"
           data-testid="button"
+          data-vibe="Button"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -294,6 +307,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       aria-label="Close"
       className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="alert-banner-close-button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -314,6 +328,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="Icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"
@@ -328,11 +343,12 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render with correctly with text and button 1`] = `
+exports[`AlertBanner > should render with correctly with text and button 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -366,6 +382,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
           aria-disabled={false}
           className="bannerButton button sizeSmall kindPrimary colorOnPrimaryColor"
           data-testid="button"
+          data-vibe="Button"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -387,6 +404,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
       aria-label="Close"
       className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="alert-banner-close-button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -407,6 +425,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="Icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"
@@ -421,11 +440,12 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
 </div>
 `;
 
-exports[`AlertBanner should render with correctly with text and link 1`] = `
+exports[`AlertBanner > should render with correctly with text and link 1`] = `
 <div
   aria-label="banner"
   className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
   data-testid="alert-banner"
+  data-vibe="AlertBanner"
   role="banner"
 >
   <div
@@ -458,8 +478,9 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           aria-describedby=""
           aria-label=""
           aria-labelledby=""
-          className="link"
+          className="link colorPrimary"
           data-testid="link"
+          data-vibe="Link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -484,6 +505,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       aria-label="Close"
       className="closeBtn button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
       data-testid="alert-banner-close-button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -504,6 +526,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
         aria-hidden={true}
         className="icon noFocusStyle"
         data-testid="icon"
+        data-vibe="Icon"
         fill="currentColor"
         height="20"
         viewBox="0 0 20 20"

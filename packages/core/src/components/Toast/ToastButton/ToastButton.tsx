@@ -1,8 +1,7 @@
-import Button, { ButtonProps } from "../../Button/Button";
-import React, { FC } from "react";
+import Button, { type ButtonProps } from "../../Button/Button";
+import React, { type FC } from "react";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { ButtonType } from "../../Button";
 
 export type ToastButtonProps = ButtonProps;
 
@@ -12,17 +11,12 @@ const ToastButton: FC<ToastButtonProps> = ({
   "data-testid": dataTestId,
   ...buttonProps
 }: ToastButtonProps) => {
-  const overrideButtonProps = {
-    ...Button.defaultProps,
-    kind: "secondary" as ButtonType,
-    marginLeft: false,
-    ...buttonProps
-  };
-
   return (
     <Button
-      {...overrideButtonProps}
+      {...buttonProps}
       id={id}
+      kind="secondary"
+      marginLeft={false}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST_BUTTON, id)}
       className={className}
       size="small"

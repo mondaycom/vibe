@@ -1,5 +1,5 @@
-import { isArray, isFunction } from "lodash-es";
-import { MutableRefObject } from "react";
+import { isFunction } from "es-toolkit";
+import { type MutableRefObject } from "react";
 
 export function chainRefFunctions(
   funcsOrRefs: Array<MutableRefObject<HTMLElement> | ((element: HTMLElement) => void | boolean)>,
@@ -44,7 +44,7 @@ export function chainFunctions(funcs: Array<(args: any) => void | boolean>, allo
 }
 
 export function convertToArray<T>(input: T | Array<T>): Array<T> {
-  return isArray(input) ? input : [input];
+  return Array.isArray(input) ? input : [input];
 }
 
 export function NOOP() {}

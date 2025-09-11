@@ -13,16 +13,6 @@ import dontImage from "./assets/dont.svg";
 
 # TextArea
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do's and don'ts](#dos-and-donts)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 A field that allows users to write multiple lines of text. Text area includes a label and a field that users can type into. It can also come with helper text.
 
 <Canvas of={TextAreaStories.Overview} />
@@ -43,6 +33,46 @@ import { TextArea } from "@vibe/core";
   guidelines={[
     "Use text area to allow users to write multiple lines of text, usually for comments or descriptions.",
     "Placeholders should only be used when necessary."
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure the best accessibility.
+    </>,
+    <>
+      Always provide a visible <code>label</code> to ensure the textarea's purpose is clear to all users.
+    </>,
+    <>
+      When using <code>label</code> or <code>helpText</code>, you must also provide an <code>id</code>. This is crucial,
+      as it allows screen readers to correctly associate the textarea with its label and description.
+    </>,
+    <>
+      For required fields, use the <code>required</code> prop to ensure proper screen reader announcements and native
+      browser validation.
+    </>,
+    <>
+      Provide descriptive error messages using the <code>error</code> prop with <code>helpText</code> to help users
+      understand and correct validation issues.
+    </>,
+    <>
+      The component automatically sets <code>aria-invalid</code> when validation fails, including when character count
+      exceeds <code>maxLength</code>.
+    </>,
+    <>
+      Character counting with <code>showCharCount</code> automatically provides accessibility labels for screen readers.
+    </>,
+    <>
+      Use the <code>aria-label</code> prop when a visible label is not desired but accessibility support is still
+      needed.
+    </>,
+    <>
+      The component automatically handles <code>aria-describedby</code> attributes for help text and character limit
+      information when applicable.
+    </>
   ]}
 />
 

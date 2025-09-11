@@ -5,6 +5,6 @@ Please describe the changes you're making. Include the motivation for these chan
 
 - [ ] I have read the [Contribution Guide](../CONTRIBUTING.md) for this project.
 
-<!-- Please add the issue nubmer that this PR closes: -->
+<!-- Please add the issue number that this PR closes: -->
 
 Resolves #

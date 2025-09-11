@@ -1,20 +1,29 @@
+import React, { type ReactElement } from "react";
 import cx from "classnames";
-import React, { FC, ReactElement } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { NavigationChevronRight } from "@vibe/icons";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
-import { BreadcrumbsBarType } from "./Breadcrumbs.types";
-import { BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
-import { withStaticProps, VibeComponentProps } from "../../types";
+import { type BreadcrumbsBarType } from "./Breadcrumbs.types";
+import { type BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
+import { type BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
-  /** The type of the bar is responsible for whether it will be navigational or for indication only  */
+  /**
+   * The type of the breadcrumb bar, determining if it is navigational or for indication only.
+   */
   type: BreadcrumbsBarType;
-  children: ReactElement<BreadcrumbItemProps> | ReactElement<BreadcrumbItemProps>[];
+  /**
+   * The breadcrumb items displayed in the bar.
+   */
+  children:
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>
+    | ReactElement<BreadcrumbItemProps | BreadcrumbMenuProps>[];
 }
 
-const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTypeEnum } = ({
+const BreadcrumbsBar = ({
   className,
   children,
   type = "indication",
@@ -26,6 +35,7 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
     className={cx(styles.breadcrumbsBar, className)}
     id={id}
     data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMBS_BAR, id)}
+    data-vibe={ComponentVibeId.BREADCRUMBS_BAR}
   >
     <ol>
       {children &&
@@ -44,6 +54,10 @@ const BreadcrumbsBar: FC<BreadcrumbBarProps> & { types?: typeof BreadcrumbsBarTy
   </nav>
 );
 
-export default withStaticProps(BreadcrumbsBar, {
+interface BreadcrumbsBarStaticProps {
+  types: typeof BreadcrumbsBarTypeEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<BreadcrumbBarProps, BreadcrumbsBarStaticProps>(BreadcrumbsBar, {
   types: BreadcrumbsBarTypeEnum
 });

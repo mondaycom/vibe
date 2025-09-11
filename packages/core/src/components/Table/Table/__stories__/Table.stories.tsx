@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Table, { TableColumn, TableProps } from "../Table";
+import Table, { type TableColumn } from "../Table";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableHeaderCell from "../../TableHeaderCell/TableHeaderCell";
 import TableBody from "../../TableBody/TableBody";
@@ -20,11 +20,10 @@ import {
   stickyColumns,
   stickyTableData,
   TableAvatar,
-  TableEmptyState,
-  TableErrorState,
   virtualizedScrollTableColumns,
   virtualizedScrollTableData
 } from "./Table.stories.helpers";
+import { type TableProps } from "../Table";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Table,
@@ -47,20 +46,15 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { TableAvatar, TableErrorState, TableEmptyState }
+        scope: { TableAvatar }
       }
     }
   }
 };
 
-const tableTemplate = (args: TableProps) => <Table {...args}></Table>;
-
 export const Overview = {
-  render: tableTemplate.bind({}),
-  args: {
-    errorState: <TableErrorState />,
-    emptyState: <TableEmptyState />,
-    columns: [
+  render: (args: TableProps) => {
+    const columns: TableColumn[] = [
       {
         id: "sentOn",
         title: "Sent on",
@@ -97,92 +91,66 @@ export const Overview = {
         width: 150,
         loadingStateType: "medium-text"
       }
-    ],
-    children: [
-      <TableHeader>
-        {[
-          {
-            id: "sentOn",
-            title: "Sent on",
-            width: 150,
-            loadingStateType: "medium-text"
-          },
-          {
-            id: "subject",
-            title: "Subject",
-            loadingStateType: "long-text"
-          },
-          {
-            id: "sentBy",
-            title: "Sent by",
+    ];
 
-            width: {
-              min: 120,
-              max: 200
-            },
+    const data = [
+      {
+        id: "1",
+        sentOn: "2020-01-01",
+        sentBy: "John Doe",
+        subject: "Lorem ipsum dolor",
+        status: "Sent",
+        emailsSent: 100
+      },
+      {
+        id: "3",
+        sentOn: "2023-03-03",
+        sentBy: "Some Person",
+        subject:
+          "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
+        status: "Sent",
+        emailsSent: 999
+      },
+      {
+        id: "2",
+        sentOn: "2022-02-02",
+        sentBy: "Other Name",
+        subject: "This is the subject",
+        status: "Sent",
+        emailsSent: 99
+      }
+    ];
 
-            infoContent: "This is the sender",
-            loadingStateType: "circle"
-          },
-          {
-            id: "status",
-            title: "Status",
-            width: 150,
-            infoContent: "Info content for the status column",
-            loadingStateType: "medium-text"
-          },
-          {
-            id: "emailsSent",
-            title: "Emails sent",
-            width: 150,
-            loadingStateType: "medium-text"
-          }
-        ].map((headerCell, index) => (
-          <TableHeaderCell key={index} title={headerCell.title} />
-        ))}
-      </TableHeader>,
-      <TableBody>
-        {[
-          {
-            id: "1",
-            sentOn: "2020-01-01",
-            sentBy: "John Doe",
-            subject: "Lorem ipsum dolor",
-            status: "Sent",
-            emailsSent: 100
-          },
-          {
-            id: "3",
-            sentOn: "2023-03-03",
-            sentBy: "Some Person",
-            subject:
-              "This is the subject This is the subject This is the subject This is the subject This is the subject This is the subject",
-            status: "Sent",
-            emailsSent: 999
-          },
-          {
-            id: "2",
-            sentOn: "2022-02-02",
-            sentBy: "Other Name",
-            subject: "This is the subject",
-            status: "Sent",
-            emailsSent: 99
-          }
-        ].map(rowItem => (
-          <TableRow key={rowItem.id}>
-            <TableCell>{rowItem.sentOn}</TableCell>
-            <TableCell>{rowItem.subject}</TableCell>
-            <TableCell>
-              <TableAvatar text={rowItem.sentBy} />
-            </TableCell>
-            <TableCell>
-              <Label text={rowItem.status} color="positive" />
-            </TableCell>
-            <TableCell>{rowItem.emailsSent}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    ]
+    return (
+      <Table
+        id="overview-table"
+        {...args}
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+        columns={columns}
+      >
+        <TableHeader>
+          {columns.map((headerCell, index) => (
+            <TableHeaderCell key={index} title={headerCell.title} />
+          ))}
+        </TableHeader>
+        <TableBody>
+          {data.map(rowItem => (
+            <TableRow key={rowItem.id}>
+              <TableCell>{rowItem.sentOn}</TableCell>
+              <TableCell>{rowItem.subject}</TableCell>
+              <TableCell>
+                <TableAvatar text={rowItem.sentBy} />
+              </TableCell>
+              <TableCell>
+                <Label text={rowItem.status} color="positive" />
+              </TableCell>
+              <TableCell>{rowItem.emailsSent}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
   },
   parameters: {
     docs: {
@@ -224,10 +192,11 @@ export const Sizes = {
     return (
       <>
         <Table
+          id="sizes-small-table"
           style={{ width: "auto" }}
           size="small"
-          errorState={<TableErrorState />}
-          emptyState={<TableEmptyState />}
+          errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+          emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
           columns={columns}
         >
           <TableHeader>
@@ -252,8 +221,8 @@ export const Sizes = {
         <Table
           style={{ width: "auto" }}
           size="medium"
-          errorState={<TableErrorState />}
-          emptyState={<TableEmptyState />}
+          errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+          emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
           columns={columns}
         >
           <TableHeader>
@@ -278,8 +247,8 @@ export const Sizes = {
         <Table
           style={{ width: "auto" }}
           size="large"
-          errorState={<TableErrorState />}
-          emptyState={<TableEmptyState />}
+          errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+          emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
           columns={columns}
         >
           <TableHeader>
@@ -383,7 +352,11 @@ export const Borders = {
     ];
     return (
       <>
-        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns}>
+        <Table
+          errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+          emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+          columns={columns}
+        >
           <TableHeader>
             {columns.map((headerCell, index) => (
               <TableHeaderCell key={index} title={headerCell.title} />
@@ -405,7 +378,12 @@ export const Borders = {
             ))}
           </TableBody>
         </Table>
-        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={columns} withoutBorder>
+        <Table
+          errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+          emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+          columns={columns}
+          withoutBorder
+        >
           <TableHeader>
             {columns.map((headerCell, index) => (
               <TableHeaderCell key={index} title={headerCell.title} />
@@ -454,7 +432,11 @@ export const TableHeaderFunctionality = {
     };
 
     return (
-      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+      <Table
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+        columns={emailColumns}
+      >
         <TableHeader>
           {emailColumns.map((headerCell, index) => (
             <TableHeaderCell
@@ -501,8 +483,8 @@ export const Loading = {
       dataState={{
         isLoading: true
       }}
-      errorState={<TableErrorState />}
-      emptyState={<TableEmptyState />}
+      errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+      emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
       columns={emailColumns}
     >
       <TableHeader>
@@ -545,7 +527,11 @@ export const Scroll = {
         width: "100%"
       }}
     >
-      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={scrollTableColumns}>
+      <Table
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+        columns={scrollTableColumns}
+      >
         <TableHeader>
           {scrollTableColumns.map((headerCell, index) => (
             <TableHeaderCell key={index} title={headerCell.title} />
@@ -610,8 +596,8 @@ export const VirtualizedScroll = {
 
     return (
       <Table
-        errorState={<TableErrorState />}
-        emptyState={<TableEmptyState />}
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
         columns={virtualizedScrollTableColumns}
         style={{
           height: 250
@@ -639,7 +625,11 @@ export const VirtualizedScroll = {
 export const StickyColumn = {
   render: () => {
     return (
-      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={stickyColumns}>
+      <Table
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+        columns={stickyColumns}
+      >
         <TableHeader>
           {stickyColumns.map((headerCell, index) => (
             <TableHeaderCell sticky={index === 0} key={index} title={headerCell.title} />
@@ -683,7 +673,11 @@ export const HighlightedRow = {
     };
 
     return (
-      <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={emailColumns}>
+      <Table
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+        columns={emailColumns}
+      >
         <TableHeader>
           {emailColumns.map((headerCell, index) => (
             <TableHeaderCell key={index} title={headerCell.title} />

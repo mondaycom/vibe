@@ -1,13 +1,14 @@
+import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import useEventListener from "../useEventListener";
 
 describe("useEventListener", () => {
   let element: HTMLElement;
-  let callbackStub: jest.Mock;
+  let callbackStub: Mock;
   describe("click", () => {
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -43,7 +44,7 @@ describe("useEventListener", () => {
     const customEventName = "testEvent";
     const differentEventName = "testEvent-different";
     beforeEach(() => {
-      callbackStub = jest.fn();
+      callbackStub = vi.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>

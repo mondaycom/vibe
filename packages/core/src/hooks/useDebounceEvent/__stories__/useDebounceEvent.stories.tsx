@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import useDebounceEvent, { UseDebounceResult } from "..";
-import "../../__stories__/general-hooks-stories.scss";
+import useDebounceEvent, { type UseDebounceResult } from "..";
 
 export default {
   title: "Hooks/useDebounceEvent"

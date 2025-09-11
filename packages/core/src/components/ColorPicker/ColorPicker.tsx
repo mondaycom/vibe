@@ -7,32 +7,80 @@ import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
-import { ColorShapes, ColorPickerSizes, ColorPickerValue, ColorPickerArrayValueOnly } from "./ColorPicker.types";
+import {
+  type ColorShapes,
+  type ColorPickerSizes,
+  type ColorPickerValue,
+  type ColorPickerArrayValueOnly
+} from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { VibeComponentProps, VibeComponent, SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
-import { ColorStyle } from "../../types/Colors";
+import { type ColorStyle } from "../../types/Colors";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ColorPickerProps extends VibeComponentProps {
+  /**
+   * The selected color(s).
+   */
   value?: ColorPickerValue;
+  /**
+   * Callback fired when the selected color(s) change.
+   */
   onSave?: (value: ColorPickerArrayValueOnly) => void;
+  /**
+   * Icon displayed as an indicator inside the color.
+   */
   ColorIndicatorIcon?: SubIcon;
+  /**
+   * Icon displayed when a color is selected.
+   */
   SelectedIndicatorIcon?: SubIcon;
   /**
-   * Hide color icon
+   * Icon used for clearing the color selection.
    */
   NoColorIcon?: SubIcon;
+  /**
+   * The style applied to the colors.
+   */
   colorStyle?: ColorStyle;
+  /**
+   * Text displayed for the "no color" option.
+   */
   noColorText?: string;
+  /**
+   * If true, renders the color indicator without a background.
+   */
   shouldRenderIndicatorWithoutBackground?: boolean;
+  /**
+   * If true, treats the color list as a blacklist rather than a whitelist.
+   */
   isBlackListMode?: boolean;
+  /**
+   * The list of colors available for selection.
+   */
   colorsList?: ColorPickerArrayValueOnly;
+  /**
+   * If true, allows selecting multiple colors.
+   */
   isMultiselect?: boolean;
+  /**
+   * The size of the color items.
+   */
   colorSize?: ColorPickerSizes;
+  /**
+   * The number of colors displayed per row.
+   */
   numberOfColorsInLine?: number;
+  /**
+   * If true, the first color is focused when the component mounts.
+   */
   focusOnMount?: boolean;
+  /**
+   * The shape of the color items.
+   */
   colorShape?: ColorShapes;
   /**
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
@@ -47,12 +95,7 @@ export interface ColorPickerProps extends VibeComponentProps {
   showColorNameTooltip?: boolean;
 }
 
-const ColorPicker: VibeComponent<ColorPickerProps> & {
-  sizes?: typeof BaseSizes;
-  colorStyles?: typeof ColorStyleEnum;
-  colorSizes?: typeof BaseSizes;
-  colorShapes?: typeof ColorShapesEnum;
-} = forwardRef(
+const ColorPicker = forwardRef(
   (
     {
       className,
@@ -76,7 +119,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
       id,
       "data-testid": dataTestId
     }: ColorPickerProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -92,6 +135,7 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}
+        data-vibe={ComponentVibeId.COLOR_PICKER}
       >
         <ColorPickerContent
           onValueChange={onChange}
@@ -119,7 +163,14 @@ const ColorPicker: VibeComponent<ColorPickerProps> & {
   }
 );
 
-export default withStaticProps(ColorPicker, {
+interface ColorPickerStaticProps {
+  sizes: typeof BaseSizes;
+  colorStyles: typeof ColorStyleEnum;
+  colorSizes: typeof BaseSizes;
+  colorShapes: typeof ColorShapesEnum;
+}
+
+export default withStaticProps<ColorPickerProps, ColorPickerStaticProps>(ColorPicker, {
   sizes: BaseSizes,
   colorStyles: ColorStyleEnum,
   colorSizes: BaseSizes,

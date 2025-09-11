@@ -6,6 +6,7 @@ import ListItemAvatar from "../../ListItemAvatar/ListItemAvatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { person1 } from "../../Avatar/__stories__/assets";
 import { Send } from "@vibe/icons";
+import Flex from "../../Flex/Flex";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ListItem
@@ -32,11 +33,11 @@ export const Overview = {
 
 export const States = {
   render: () => (
-    <>
+    <Flex>
       <ListItem>Default state</ListItem>
       <ListItem disabled>Disabled state</ListItem>
       <ListItem selected>Selected state</ListItem>
-    </>
+    </Flex>
   ),
 
   name: "States"
@@ -44,11 +45,11 @@ export const States = {
 
 export const Sizes = {
   render: () => (
-    <>
+    <Flex>
       <ListItem size="small">Small item</ListItem>
       <ListItem size="medium">Medium item</ListItem>
       <ListItem size="large">Large item</ListItem>
-    </>
+    </Flex>
   ),
 
   name: "Sizes"
@@ -56,12 +57,12 @@ export const Sizes = {
 
 export const WithIcon = {
   render: () => (
-    <>
+    <Flex>
       <ListItem>
         <ListItemIcon icon={Send} />
         Productivity
       </ListItem>
-    </>
+    </Flex>
   ),
 
   name: "List item with an icon"

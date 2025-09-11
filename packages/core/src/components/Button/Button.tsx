@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
-import React, { AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
-import { camelCase } from "lodash-es";
+import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { SIZES } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -14,12 +14,12 @@ import {
   ButtonType as ButtonTypeEnum,
   SMALL_BUTTON_ICON_SIZE
 } from "./ButtonConstants";
-import { ButtonColor, ButtonInputType, ButtonType, ButtonSize } from "./Button.types";
+import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { getTestId } from "../../tests/test-ids-utils";
-import { SubIcon, VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
@@ -104,56 +104,50 @@ export interface ButtonProps extends VibeComponentProps {
   tabIndex?: number;
 }
 
-const Button: VibeComponent<ButtonProps, unknown> & {
-  sizes?: typeof SIZES;
-  colors?: typeof ButtonColorEnum;
-  kinds?: typeof ButtonTypeEnum;
-  types?: typeof ButtonInputTypeEnum;
-  inputTags?: typeof ButtonInputTypeEnum;
-} = forwardRef<unknown, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
       children,
-      kind,
-      onClick,
+      kind = "primary",
+      onClick = NOOP,
       name,
-      size,
-      color,
-      disabled,
-      rightIcon,
-      leftIcon,
-      success,
-      successText,
-      successIcon,
+      size = "medium",
+      color = "primary",
+      disabled = false,
+      rightIcon = null,
+      leftIcon = null,
+      success = false,
+      successText = "",
+      successIcon = null,
       style,
-      loading: isLoading,
+      loading: isLoading = false,
       loaderClassName,
-      active,
+      active = false,
       activeButtonClassName,
       id,
-      marginRight,
-      marginLeft,
-      type,
-      onMouseDown,
+      marginRight = false,
+      marginLeft = false,
+      type = "button",
+      onMouseDown = NOOP,
       ariaLabel,
-      rightFlat,
-      leftFlat,
-      preventClickAnimation,
-      noSidePadding,
-      onFocus,
-      onBlur,
+      rightFlat = false,
+      leftFlat = false,
+      preventClickAnimation = false,
+      noSidePadding = false,
+      onFocus = NOOP,
+      onBlur = NOOP,
       ariaLabeledBy,
-      defaultTextColorOnPrimaryColor,
+      defaultTextColorOnPrimaryColor = TRANSPARENT_COLOR,
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       "aria-pressed": ariaPressed,
-      blurOnMouseUp,
+      blurOnMouseUp = true,
       "data-testid": dataTestId,
-      insetFocus,
+      insetFocus = false,
       tabIndex
     }: ButtonProps,
     ref
@@ -264,6 +258,7 @@ const Button: VibeComponent<ButtonProps, unknown> & {
         onBlur,
         tabIndex: disabled || ariaHidden ? -1 : tabIndex,
         "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
+        "data-vibe": ComponentVibeId.BUTTON,
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
@@ -395,45 +390,15 @@ const Button: VibeComponent<ButtonProps, unknown> & {
   }
 );
 
-Button.defaultProps = {
-  className: undefined,
-  name: undefined,
-  style: undefined,
-  id: undefined,
-  kind: "primary",
-  onClick: NOOP,
-  size: "medium",
-  color: "primary",
-  disabled: false,
-  rightIcon: null,
-  leftIcon: null,
-  success: false,
-  successText: "",
-  successIcon: null,
-  loading: false,
-  loaderClassName: undefined,
-  active: false,
-  marginRight: false,
-  marginLeft: false,
-  type: "button",
-  onMouseDown: NOOP,
-  rightFlat: false,
-  leftFlat: false,
-  preventClickAnimation: false,
-  noSidePadding: false,
-  onFocus: NOOP,
-  onBlur: NOOP,
-  defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
-  ariaHasPopup: undefined,
-  blurOnMouseUp: true,
-  ariaExpanded: undefined,
-  ariaControls: undefined,
-  ariaLabel: undefined,
-  ariaLabeledBy: undefined,
-  insetFocus: false
-};
+interface ButtonStaticProps {
+  sizes: typeof SIZES;
+  colors: typeof ButtonColorEnum;
+  kinds: typeof ButtonTypeEnum;
+  types: typeof ButtonInputTypeEnum;
+  inputTags: typeof ButtonInputTypeEnum;
+}
 
-export default withStaticProps(Button, {
+export default withStaticProps<ButtonProps, ButtonStaticProps>(Button, {
   sizes: SIZES,
   colors: ButtonColorEnum,
   kinds: ButtonTypeEnum,

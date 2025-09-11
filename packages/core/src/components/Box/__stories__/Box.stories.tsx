@@ -1,8 +1,8 @@
 import React from "react";
-import Box, { BoxProps } from "../Box";
+import Box, { type BoxProps } from "../Box";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { Divider } from "../../Divider";
-import { StoryFn } from "@storybook/react";
+import { type StoryFn } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Box

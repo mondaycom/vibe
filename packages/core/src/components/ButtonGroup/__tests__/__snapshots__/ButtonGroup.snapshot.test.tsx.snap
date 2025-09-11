@@ -1,9 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ButtonGroup renders correctly when disabled 1`] = `
+exports[`ButtonGroup renders correctly > when disabled 1`] = `
 <div
   className="buttonGroup kindSecondary disabled"
   data-testid="button-group"
+  data-vibe="ButtonGroup"
 >
   <div
     aria-disabled={true}
@@ -14,8 +15,9 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText disabled startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -28,8 +30,9 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText disabled endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -42,8 +45,9 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText disabled endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -56,8 +60,9 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText disabled button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText disabled endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -71,10 +76,163 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
 </div>
 `;
 
-exports[`ButtonGroup renders correctly when disabled 2`] = `
+exports[`ButtonGroup renders correctly > with TERTIARY kind 1`] = `
+<div
+  className="buttonGroup kindTertiary"
+  data-testid="button-group"
+  data-vibe="ButtonGroup"
+>
+  <div
+    aria-disabled={false}
+    aria-label=""
+    className="buttonsContainer"
+    role="group"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Alpha
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Beta
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Gamma
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Delta
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonGroup renders correctly > with className 1`] = `
+<div
+  className="buttonGroup testClassName kindSecondary"
+  data-testid="button-group"
+  data-vibe="ButtonGroup"
+>
+  <div
+    aria-disabled={false}
+    aria-label=""
+    className="buttonsContainer"
+    role="group"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Alpha
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Beta
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Gamma
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      data-testid="button"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Delta
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonGroup renders correctly > with groupAriaLabel 1`] = `
 <div
   className="buttonGroup kindSecondary"
   data-testid="button-group"
+  data-vibe="ButtonGroup"
 >
   <div
     aria-disabled={false}
@@ -85,8 +243,9 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -99,8 +258,9 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -113,8 +273,9 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -127,8 +288,9 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -142,152 +304,11 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
 </div>
 `;
 
-exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
-<div
-  className="buttonGroup kindTertiary"
-  data-testid="button-group"
->
-  <div
-    aria-disabled={false}
-    aria-label=""
-    className="buttonsContainer"
-    role="group"
-  >
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Alpha
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Beta
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Gamma
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Delta
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ButtonGroup renders correctly with className 1`] = `
-<div
-  className="buttonGroup testClassName kindSecondary"
-  data-testid="button-group"
->
-  <div
-    aria-disabled={false}
-    aria-label=""
-    className="buttonsContainer"
-    role="group"
-  >
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Alpha
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Beta
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Gamma
-    </button>
-    <button
-      aria-busy={false}
-      aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
-      data-testid="button"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      type="button"
-    >
-      Delta
-    </button>
-  </div>
-</div>
-`;
-
-exports[`ButtonGroup renders correctly with large size 1`] = `
+exports[`ButtonGroup renders correctly > with large size 1`] = `
 <div
   className="buttonGroup kindSecondary"
   data-testid="button-group"
+  data-vibe="ButtonGroup"
 >
   <div
     aria-disabled={false}
@@ -298,8 +319,9 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeLarge kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -312,8 +334,9 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -326,8 +349,9 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeLarge kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -340,8 +364,9 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeLarge kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeLarge kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -355,10 +380,11 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
 </div>
 `;
 
-exports[`ButtonGroup renders correctly with name 1`] = `
+exports[`ButtonGroup renders correctly > with name 1`] = `
 <div
   className="buttonGroup kindSecondary"
   data-testid="button-group"
+  data-vibe="ButtonGroup"
 >
   <div
     aria-disabled={false}
@@ -369,8 +395,9 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
+      className="button optionText startBorder endBorder button sizeSmall kindTertiary colorPrimary rightFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -383,8 +410,9 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -397,8 +425,9 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -411,8 +440,9 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -426,10 +456,11 @@ exports[`ButtonGroup renders correctly with name 1`] = `
 </div>
 `;
 
-exports[`ButtonGroup renders correctly with value 1`] = `
+exports[`ButtonGroup renders correctly > with value 1`] = `
 <div
   className="buttonGroup kindSecondary"
   data-testid="button-group"
+  data-vibe="ButtonGroup"
 >
   <div
     aria-disabled={false}
@@ -440,8 +471,9 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText selected button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat preventClickAnimation"
+      className="button optionText selected startBorder endBorder button sizeSmall kindTertiary colorPrimary colorPrimaryActive activeButton rightFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -454,8 +486,9 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -468,8 +501,9 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary rightFlat leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -482,8 +516,9 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-busy={false}
       aria-disabled={false}
-      className="button optionText button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
+      className="button optionText endBorder button sizeSmall kindTertiary colorPrimary leftFlat preventClickAnimation"
       data-testid="button"
+      data-vibe="Button"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

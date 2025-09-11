@@ -8,15 +8,10 @@ import { Calendar, Chart, Table } from "@vibe/icons";
 import TextField from "../../TextField/TextField";
 import Box from "../../Box/Box";
 import Flex from "../../Flex/Flex";
-
-const ExampleTabContent = ({ children }: { children: string }) => (
-  <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
-    {children}
-  </Box>
-);
+import { type TabProps } from "../Tab/Tab";
 
 export default {
-  title: "Components/Tabs/Tabs",
+  title: "Components/Tabs",
   component: Tab,
   subcomponents: {
     TabPanel,
@@ -26,36 +21,34 @@ export default {
   }
 };
 
-const tabsTemplate = ({ ...args }) => {
-  return (
-    <TabsContext {...args}>
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
+export const Overview = {
+  render: (args: TabProps) => (
+    <TabsContext id="overview-tabs" {...args}>
+      <TabList id="overview-tab-list">
+        <Tab id="overview-tab-first">First</Tab>
+        <Tab id="overview-tab-second">Second</Tab>
+        <Tab id="overview-tab-third">Third</Tab>
       </TabList>
-      <TabPanels>
-        <TabPanel>
-          <ExampleTabContent>First slide</ExampleTabContent>
+      <TabPanels id="overview-tab-panels">
+        <TabPanel id="overview-panel-first">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            First slide
+          </Box>
         </TabPanel>
-        <TabPanel>
-          <ExampleTabContent>Second slide</ExampleTabContent>
+        <TabPanel id="overview-panel-second">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            Second slide
+          </Box>
         </TabPanel>
-        <TabPanel>
-          <ExampleTabContent>Third slide</ExampleTabContent>
+        <TabPanel id="overview-panel-third">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            Third slide
+          </Box>
         </TabPanel>
       </TabPanels>
     </TabsContext>
-  );
-};
-
-export const Overview = {
-  render: tabsTemplate.bind({}),
+  ),
   name: "Overview",
-
-  args: {
-    tabPanelClassName: "monday-storybook-tabs_bg-color"
-  },
   parameters: {
     docs: {
       liveEdit: {
@@ -67,36 +60,39 @@ export const Overview = {
 
 export const Default = {
   render: () => (
-    <TabsContext>
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
-        <Tab disabled>Disabled</Tab>
+    <TabsContext id="default-tabs">
+      <TabList id="default-tab-list">
+        <Tab id="default-tab-first">First</Tab>
+        <Tab id="default-tab-second">Second</Tab>
+        <Tab id="default-tab-third">Third</Tab>
+        <Tab id="default-tab-disabled" disabled>
+          Disabled
+        </Tab>
       </TabList>
-      <TabPanels>
-        <TabPanel>
-          <ExampleTabContent>First slide</ExampleTabContent>
+      <TabPanels id="default-tab-panels">
+        <TabPanel id="default-panel-first">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            First slide
+          </Box>
         </TabPanel>
-        <TabPanel>
-          <ExampleTabContent>Second slide</ExampleTabContent>
+        <TabPanel id="default-panel-second">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            Second slide
+          </Box>
         </TabPanel>
-        <TabPanel>
-          <ExampleTabContent>Third slide</ExampleTabContent>
+        <TabPanel id="default-panel-third">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            Third slide
+          </Box>
         </TabPanel>
-        <TabPanel>
-          <ExampleTabContent>Fourth slide</ExampleTabContent>
+        <TabPanel id="default-panel-fourth">
+          <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+            Fourth slide
+          </Box>
         </TabPanel>
       </TabPanels>
     </TabsContext>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { ExampleTabContent }
-      }
-    }
-  }
+  )
 };
 
 export const Stretched = {
@@ -107,6 +103,19 @@ export const Stretched = {
       }}
     >
       <TabList tabType="stretched">
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+    </div>
+  )
+};
+
+export const StretchedUnderline = {
+  render: () => (
+    <div style={{ width: "100%" }}>
+      <TabList stretchedUnderline>
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
@@ -128,16 +137,24 @@ export const Motion = {
         </TabList>
         <TabPanels animationDirection="ltr">
           <TabPanel>
-            <ExampleTabContent>First slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              First slide
+            </Box>
           </TabPanel>
           <TabPanel>
-            <ExampleTabContent>Second slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              Second slide
+            </Box>
           </TabPanel>
           <TabPanel>
-            <ExampleTabContent>Third slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              Third slide
+            </Box>
           </TabPanel>
           <TabPanel>
-            <ExampleTabContent>Fourth slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              Fourth slide
+            </Box>
           </TabPanel>
         </TabPanels>
       </TabsContext>
@@ -150,28 +167,29 @@ export const Motion = {
         </TabList>
         <TabPanels animationDirection="rtl">
           <TabPanel>
-            <ExampleTabContent>First slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              First slide
+            </Box>
           </TabPanel>
           <TabPanel>
-            <ExampleTabContent>Second slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              Second slide
+            </Box>
           </TabPanel>
           <TabPanel>
-            <ExampleTabContent>Third slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              Third slide
+            </Box>
           </TabPanel>
           <TabPanel>
-            <ExampleTabContent>Fourth slide</ExampleTabContent>
+            <Box backgroundColor="greyBackgroundColor" padding="medium" style={{ width: "480px", height: "111px" }}>
+              Fourth slide
+            </Box>
           </TabPanel>
         </TabPanels>
       </TabsContext>
     </Flex>
-  ),
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { ExampleTabContent }
-      }
-    }
-  }
+  )
 };
 
 export const BoardViewsTabs = {

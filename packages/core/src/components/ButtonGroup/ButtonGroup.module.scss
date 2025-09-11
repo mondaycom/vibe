@@ -13,21 +13,67 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.buttonsContainer .button {
-  border: 1px solid;
-  background-color: var(--primary-background-color);
-  border-color: var(--ui-border-color);
-}
+  &.fullWidth {
+    justify-content: flex-start;
+    width: 100%;
+  }
 
-.buttonsContainer .button.activeButton {
-  background-color: var(--primary-selected-color);
-  border-color: var(--primary-color);
-}
+  .button {
+    border-style: solid;
+    border-width: 1px 0;
+    background-color: var(--primary-background-color);
+    border-color: var(--ui-border-color);
 
-.buttonsContainer .button.activeButton:hover {
-  background-color: var(--primary-selected-color);
+    // &:first-of-type {
+    //   border-inline-start-width: 1px;
+    // }
+
+    // &:last-of-type {
+    //   border-inline-end-width: 1px;
+    // }
+
+    &.activeButton {
+      background-color: var(--primary-selected-color);
+      border-color: var(--primary-color);
+      border-inline-start-width: 1px;
+      border-inline-end-width: 1px;
+
+      &:hover {
+        background-color: var(--primary-selected-color);
+      }
+    }
+
+    &.disabled,
+    &.buttonDisabled {
+      background-color: var(--disabled-background-color);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &.startBorder {
+      border-inline-start-width: 1px;
+    }
+
+    &.endBorder {
+      border-inline-end-width: 1px;
+    }
+
+    &.fullWidth {
+      width: 100%;
+      display: flex;
+    }
+  }
+
+  .kindTertiary & {
+    .button {
+      border-color: transparent;
+
+      &:first-child {
+        border-color: transparent;
+      }
+    }
+  }
 }
 
 .optionText:not(.disabled) {
@@ -38,27 +84,7 @@
   color: var(--primary-text-color);
 }
 
-.kindTertiary .button {
-  border-color: transparent;
-}
-
-.kindTertiary .button:first-child {
-  border-color: transparent;
-}
-
 .wrapper.disabled {
-  cursor: not-allowed;
-}
-
-.button.disabled {
-  cursor: not-allowed;
-  background-color: var(--disabled-background-color);
-  opacity: 0.5;
-}
-
-.button.buttonDisabled {
-  background-color: var(--disabled-background-color);
-  opacity: 0.5;
   cursor: not-allowed;
 }
 

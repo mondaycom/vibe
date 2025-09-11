@@ -1,6 +1,6 @@
-import { AriaRole, InputHTMLAttributes, ReactNode } from "react";
-import { VibeComponentProps } from "../../types";
-import { BASE_SIZES } from "../../constants";
+import { type AriaRole, type InputHTMLAttributes, type ReactNode } from "react";
+import { type VibeComponentProps } from "../../types";
+import { type BASE_SIZES } from "../../constants";
 
 export type InputSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
 type BaseInputNativeInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "role">;
@@ -8,42 +8,35 @@ type Renderer = ReactNode | ReactNode[];
 
 export interface BaseInputProps extends BaseInputNativeInputProps, VibeComponentProps {
   /**
-   * Size of the input element. Will influence also padding and font size.
+   * The size of the input.
    */
   size?: InputSize;
   /**
-   * A render prop function for adding a component or element to the left side of the input.
-   * This could be an icon, text, or any custom element that fits within the input's design.
+   * Element or component rendered on the left side of the input.
    */
   renderLeft?: Renderer;
   /**
-   * Similar to renderLeft, but for adding an element to the right side of the input.
-   * Useful for clear buttons, password visibility toggles, or custom validation icons.
+   * Element or component rendered on the right side of the input.
    */
   renderRight?: Renderer;
   /**
-   * When true, indicates that the input has successfully passed validation or meets some criteria.
-   * This control the visual styling of the input to convey success to the user.
+   * If true, applies success styling to the input.
    */
   success?: boolean;
   /**
-   * When true, indicates that there is an error with the input's current value.
-   * This control the visual styling of the input to convey error to the user.
+   * If true, applies error styling to the input.
    */
   error?: boolean;
   /**
-   * ARIA role for the input wrapper. This can be used to improve accessibility by
-   * giving screen readers more context about the input's purpose.
+   * The ARIA role of the input wrapper.
    */
   wrapperRole?: AriaRole;
   /**
-   * ARIA role for the input. Setting this helps in making the input more
-   * accessible by providing additional semantic information to assistive technologies.
+   * The ARIA role of the input element.
    */
   inputRole?: AriaRole;
   /**
-   * Additional CSS class names to be applied to the input element. This allows for custom
-   * styling on top of the default styles provided by the component.
+   * Class name applied to the input element.
    */
   inputClassName?: string;
 }

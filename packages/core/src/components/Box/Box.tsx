@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import {
@@ -24,60 +24,139 @@ import {
   Shadow as ShadowEnum,
   SizePrefixMapping
 } from "./BoxConstants";
-import { BackgroundColor, BorderColor, BaseBoxSize, BoxSize, BoxTextColor, RoundedSize, Shadow } from "./Box.types";
-import { VibeComponent, VibeComponentProps, withStaticProps, ElementContent } from "../../types";
+import {
+  type BackgroundColor,
+  type BorderColor,
+  type BaseBoxSize,
+  type BoxSize,
+  type BoxTextColor,
+  type RoundedSize,
+  type Shadow
+} from "./Box.types";
+import { type VibeComponentProps, withStaticProps, type ElementContent } from "../../types";
 import styles from "./Box.module.scss";
+import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface BoxProps extends VibeComponentProps {
+  /**
+   * The HTML element or custom component used as the root.
+   */
   elementType?: keyof JSX.IntrinsicElements | string;
+  /**
+   * The content inside the box.
+   */
   children?: ElementContent;
+  /**
+   * If true, the box is disabled.
+   */
   disabled?: boolean;
+  /**
+   * If true, applies a border to the box.
+   */
   border?: boolean;
+  /**
+   * The color of the border.
+   */
   borderColor?: BorderColor;
+  /**
+   * The border radius of the box.
+   */
   rounded?: RoundedSize;
+  /**
+   * The shadow style applied to the box.
+   */
   shadow?: Shadow;
+  /**
+   * The margin applied to all sides.
+   */
   margin?: BoxSize;
+  /**
+   * The horizontal margin.
+   */
   marginX?: BoxSize;
+  /**
+   * The vertical margin.
+   */
   marginY?: BoxSize;
+  /**
+   * The top margin.
+   */
   marginTop?: BoxSize;
+  /**
+   * The end (right in LTR, left in RTL) margin.
+   */
   marginEnd?: BoxSize;
+  /**
+   * The bottom margin.
+   */
   marginBottom?: BaseBoxSize;
+  /**
+   * The start (left in LTR, right in RTL) margin.
+   */
   marginStart?: BaseBoxSize;
+  /**
+   * The padding applied to all sides.
+   */
   padding?: BaseBoxSize;
+  /**
+   * The horizontal padding.
+   */
   paddingX?: BaseBoxSize;
+  /**
+   * The vertical padding.
+   */
   paddingY?: BaseBoxSize;
+  /**
+   * The top padding.
+   */
   paddingTop?: BaseBoxSize;
+  /**
+   * The end (right in LTR, left in RTL) padding.
+   */
   paddingEnd?: BaseBoxSize;
+  /**
+   * The bottom padding.
+   */
   paddingBottom?: BaseBoxSize;
+  /**
+   * The start (left in LTR, right in RTL) padding.
+   */
   paddingStart?: BaseBoxSize;
+  /**
+   * The background color of the box.
+   */
   backgroundColor?: BackgroundColor;
+  /**
+   * The text color inside the box.
+   */
   textColor?: BoxTextColor;
+  /**
+   * If true, the box content is scrollable.
+   */
   scrollable?: boolean;
+  /**
+   * Inline styles applied to the box.
+   */
   style?: React.CSSProperties;
 }
 
-const Box: VibeComponent<BoxProps> & {
-  borderColors?: typeof BorderColorEnum;
-  roundeds?: typeof RoundedEnum;
-  shadows?: typeof ShadowEnum;
-  margins?: typeof MarginEnum;
-  marginXs?: typeof MarginXEnum;
-  marginYs?: typeof MarginYEnum;
-  marginTops?: typeof MarginTopEnum;
-  marginEnds?: typeof MarginEndEnum;
-  marginBottoms?: typeof MarginBottomEnum;
-  marginStarts?: typeof MarginStartEnum;
-  paddings?: typeof PaddingEnum;
-  paddingXs?: typeof PaddingXEnum;
-  paddingYs?: typeof PaddingYEnum;
-  paddingTops?: typeof PaddingTopEnum;
-  paddingEnds?: typeof PaddingEndEnum;
-  paddingBottoms?: typeof PaddingBottomEnum;
-  paddingStarts?: typeof PaddingStartEnum;
-  backgroundColors?: typeof BackgroundColorEnum;
-  textColors?: typeof BoxTextColorEnum;
-} = forwardRef(
-  ({ className, id, elementType = "div", children, disabled, border, scrollable, style, ...props }: BoxProps, ref) => {
+const Box = forwardRef(
+  (
+    {
+      className,
+      id,
+      elementType = "div",
+      children,
+      disabled,
+      border,
+      scrollable,
+      style,
+      "data-testid": dataTestId,
+      ...props
+    }: BoxProps,
+    ref: React.ForwardedRef<HTMLElement>
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
@@ -95,6 +174,7 @@ const Box: VibeComponent<BoxProps> & {
     return React.createElement(
       elementType,
       {
+        "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BOX, id),
         ref: mergedRef,
         className: cx(
           styles.box,
@@ -110,7 +190,29 @@ const Box: VibeComponent<BoxProps> & {
   }
 );
 
-export default withStaticProps(Box, {
+interface BoxStaticProps {
+  borderColors: typeof BorderColorEnum;
+  roundeds: typeof RoundedEnum;
+  shadows: typeof ShadowEnum;
+  margins: typeof MarginEnum;
+  marginXs: typeof MarginXEnum;
+  marginYs: typeof MarginYEnum;
+  marginTops: typeof MarginTopEnum;
+  marginEnds: typeof MarginEndEnum;
+  marginBottoms: typeof MarginBottomEnum;
+  marginStarts: typeof MarginStartEnum;
+  paddings: typeof PaddingEnum;
+  paddingXs: typeof PaddingXEnum;
+  paddingYs: typeof PaddingYEnum;
+  paddingTops: typeof PaddingTopEnum;
+  paddingEnds: typeof PaddingEndEnum;
+  paddingBottoms: typeof PaddingBottomEnum;
+  paddingStarts: typeof PaddingStartEnum;
+  backgroundColors: typeof BackgroundColorEnum;
+  textColors: typeof BoxTextColorEnum;
+}
+
+export default withStaticProps<BoxProps, BoxStaticProps>(Box, {
   borderColors: BorderColorEnum,
   roundeds: RoundedEnum,
   shadows: ShadowEnum,

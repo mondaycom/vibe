@@ -1,5 +1,5 @@
 import { createEventHandler } from "./createEventHandler";
-import { KeyboardEventCallback } from "../types/events";
+import { type KeyboardEventCallback } from "../types/events";
 
 export function useKeyboard({
   isDisabled,

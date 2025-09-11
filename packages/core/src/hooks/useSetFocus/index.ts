@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useState } from "react";
+import { type RefObject, useCallback, useEffect, useState } from "react";
 import useEventListener from "../useEventListener";
 import usePrevious from "../../hooks/usePrevious";
 

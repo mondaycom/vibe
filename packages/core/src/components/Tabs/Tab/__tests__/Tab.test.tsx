@@ -1,11 +1,12 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, screen, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Tab, { TabProps } from "../Tab";
+import Tab, { type TabProps } from "../Tab";
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
-const onClickMock = jest.fn();
+const onClickMock = vi.fn();
 const text = "tab";
 
 const renderComponent = (props: TabProps = {}) => {
@@ -39,13 +40,38 @@ describe("Tab tests", () => {
       act(() => {
         fireEvent.mouseEnter(component);
       });
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
       const content = screen.getByText(tooltipContent);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);
       });
-      jest.advanceTimersByTime(1000);
+      vi.advanceTimersByTime(1000);
+    });
+  });
+
+  describe("aria-controls", () => {
+    it("should add aria-controls attribute when id and ariaControls are provided", () => {
+      const tabId = "test-tab";
+      const panelId = "test-panel";
+
+      renderComponent({ id: tabId, ariaControls: panelId });
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).toHaveAttribute("aria-controls", panelId);
+    });
+
+    it("should not add aria-controls attribute when ariaControls is missing", () => {
+      const tabId = "test-tab";
+
+      renderComponent({ id: tabId });
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).not.toHaveAttribute("aria-controls");
+    });
+
+    it("should not add aria-controls attribute when both id and ariaControls are missing", () => {
+      renderComponent();
+      const tabElement = screen.getByRole("tab");
+      expect(tabElement).not.toHaveAttribute("aria-controls");
     });
   });
 });

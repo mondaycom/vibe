@@ -1,12 +1,18 @@
-import React, { FC, forwardRef, ReactElement, useRef } from "react";
+import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../../hooks/useMergeRef";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./TabPanel.module.scss";
 
 export interface TabPanelProps extends VibeComponentProps {
+  /**
+   * The content inside the tab panel.
+   */
   children?: ReactElement | ReactElement[] | string;
+  /**
+   * The index of the tab panel.
+   */
   index?: number;
 }
 

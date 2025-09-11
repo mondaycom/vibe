@@ -1,7 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import useListenFocusTriggers from "../index";
 import { Button, Flex } from "../../../components";
-import "../../__stories__/general-hooks-stories.scss";
 
 export default {
   title: "Hooks/useListenFocusTriggers"

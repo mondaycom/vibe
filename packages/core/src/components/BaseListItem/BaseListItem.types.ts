@@ -1,19 +1,17 @@
-import React, { ReactNode, AriaRole } from "react";
-import { SubIcon, VibeComponentProps } from "../../types";
-import { TooltipProps } from "../Tooltip";
-import { BaseListDirection, BaseListSizes } from "../BaseList/BaseList.types";
+import { type ReactNode, type AriaRole } from "react";
+import type React from "react";
+import { type SubIcon, type VibeComponentProps } from "../../types";
+import { type TooltipProps } from "../Tooltip";
+import { type BaseListDirection, type BaseListSizes } from "../BaseList/BaseList.types";
+import { type ChipsProps } from "../Chips";
 
-export interface BaseListItemProps<T = Record<string, unknown>>
-  extends React.LiHTMLAttributes<HTMLLIElement>,
+export interface BaseListItemProps<Item extends Record<string, unknown>>
+  extends Omit<React.HTMLAttributes<HTMLElement>, "role">,
     VibeComponentProps {
   /**
-   * The value associated with the list item.
+   * The HTML element to render. Defaults to "li".
    */
-  value?: string;
-  /**
-   * The primary text content of the list item.
-   */
-  label: string;
+  component?: keyof JSX.IntrinsicElements;
   /**
    * The Size of the list item.
    */
@@ -23,35 +21,19 @@ export interface BaseListItemProps<T = Record<string, unknown>>
    */
   selected?: boolean;
   /**
-   * If true, the list item is disabled.
-   */
-  disabled?: boolean;
-  /**
    * If true, the dropdown is read-only and cannot be edited.
    */
   readOnly?: boolean;
-  /**
-   * Element to render at the start of the list item.
-   */
-  startElement?: StartElement;
-  /**
-   * Element to render at the end of the list item.
-   */
-  endElement?: EndElement;
   /**
    * Whether item should have highlight styling
    */
   highlighted?: boolean;
   /**
-   * Props for displaying a tooltip on the list item.
-   */
-  tooltipProps?: Partial<TooltipProps>;
-  /**
    * Determines the position of the tooltip according to the direction.
    */
   dir?: BaseListDirection;
   /**
-   * ARIA role for the list item.
+   * The ARIA role of the list item.
    */
   role?: AriaRole;
   /**
@@ -61,12 +43,47 @@ export interface BaseListItemProps<T = Record<string, unknown>>
   /**
    * Custom renderer for options.
    */
-  optionRenderer?: (item: T) => JSX.Element;
+  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
   /**
-   * Allow any additional user-defined properties dynamically
-   **/
-  [key: string]: unknown;
+   * The original item data that this list item represents.
+   */
+  item?: BaseListItemData<Item>;
+  /**
+   * Additional props to pass to the list item element.
+   */
+  itemProps?: Record<string, unknown>;
 }
+
+export type BaseListItemData<Item = Record<string, unknown>> = Item & {
+  /**
+   * The value of the list item.
+   */
+  value: string | number;
+  /**
+   * The primary text content of the list item.
+   */
+  label: string;
+  /**
+   * The start element of the list item.
+   */
+  startElement?: StartElement;
+  /**
+   * The end element of the list item.
+   */
+  endElement?: EndElement;
+  /**
+   * If true, the list item is disabled.
+   */
+  disabled?: boolean;
+  /**
+   * Props for displaying a tooltip on the list item.
+   */
+  tooltipProps?: Partial<TooltipProps>;
+  /**
+   * The color of the chip when displayed in multi-select mode.
+   */
+  chipColor?: ChipsProps["color"];
+};
 
 export type SideElement =
   | { type: "avatar"; value: string; square?: boolean }

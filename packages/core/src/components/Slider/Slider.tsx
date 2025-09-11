@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactElement, useMemo, useRef } from "react";
+import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
 import { BASE_SIZES } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
@@ -6,14 +6,14 @@ import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
-import { IconType } from "../Icon";
+import { type IconType } from "../Icon";
 import { SliderColor as SliderColorEnum } from "./SliderConstants";
 import cx from "classnames";
 import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
-import { SliderColor, SliderLabelColor, SliderLabelPosition, SliderSize } from "./Slider.types";
+import { type SliderColor, type SliderLabelColor, type SliderLabelPosition, type SliderSize } from "./Slider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export type SliderProps = {
   /**
@@ -127,10 +127,7 @@ export type SliderProps = {
   selectionIndicatorWidth?: string;
 };
 
-const Slider: React.FC<SliderProps> & {
-  sizes?: typeof BASE_SIZES;
-  colors?: typeof SliderColorEnum;
-} = forwardRef(
+const Slider = forwardRef(
   (
     {
       ariaLabel,
@@ -158,7 +155,7 @@ const Slider: React.FC<SliderProps> & {
       postfix,
       selectionIndicatorWidth = "60px"
     }: SliderProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -208,7 +205,12 @@ const Slider: React.FC<SliderProps> & {
   }
 );
 
-export default withStaticProps(Slider, {
+interface SliderStaticProps {
+  sizes: typeof BASE_SIZES;
+  colors: typeof SliderColorEnum;
+}
+
+export default withStaticProps<SliderProps, SliderStaticProps>(Slider, {
   sizes: BASE_SIZES,
   colors: SliderColorEnum
 });

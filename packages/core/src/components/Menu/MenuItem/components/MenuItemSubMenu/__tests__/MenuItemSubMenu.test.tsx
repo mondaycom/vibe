@@ -1,13 +1,14 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuItemSubMenu from "../MenuItemSubMenu";
 // import { MenuChild } from "../../../../Menu/MenuConstants";
-import { MenuProps } from "../../../../Menu/Menu";
+import { type MenuProps } from "../../../../Menu/Menu";
 
 const mockConsoleError = () => {
   const originalConsoleError = console.error;
-  jest.spyOn(console, "error").mockImplementation((message, ...args) => {
+  vi.spyOn(console, "error").mockImplementation((message, ...args) => {
     if (!message.includes("MenuItem can accept only")) {
       originalConsoleError(message, ...args);
     }
@@ -45,7 +46,7 @@ describe("MenuItemSubMenu", () => {
 
   it("should call onClose when requested to close", () => {
     const mockAnchor = document.createElement("div");
-    const onCloseMock = jest.fn();
+    const onCloseMock = vi.fn();
     const { getByTestId } = render(
       <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open onClose={onCloseMock}>
         <MockMenuChild />

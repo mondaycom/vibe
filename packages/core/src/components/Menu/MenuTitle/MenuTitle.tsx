@@ -1,24 +1,32 @@
+import React from "react";
 import cx from "classnames";
-import React, { FC } from "react";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import Text from "../../Text/Text";
 import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./MenuTitleConstants";
-import { MenuTitleCaptionPosition } from "./MenuTitle.type";
-import { VibeComponentProps, withStaticProps } from "../../../types";
+import { type MenuTitleCaptionPosition } from "./MenuTitle.type";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 export interface MenuTitleProps extends VibeComponentProps {
-  caption?: string;
+  /**
+   * The caption text displayed alongside the title.
+   */
+  caption?: string | React.ReactNode;
+  /**
+   * The position of the caption relative to the title.
+   */
   captionPosition?: MenuTitleCaptionPosition;
 }
 
-const MenuTitle: FC<MenuTitleProps> & {
-  positions?: typeof MenuTitleCaptionPositionEnum;
-  captionPositions?: typeof MenuTitleCaptionPositionEnum;
-  isMenuChild?: boolean;
-} = ({ className, caption = "", captionPosition = "bottom", id, "data-testid": dataTestId }: MenuTitleProps) => {
+const MenuTitle = ({
+  className,
+  caption = "",
+  captionPosition = "bottom",
+  id,
+  "data-testid": dataTestId
+}: MenuTitleProps) => {
   const renderCaptionIfNeeded = () => {
     if (caption) {
       return (
@@ -48,7 +56,12 @@ Object.assign(MenuTitle, {
   isMenuChild: true
 });
 
-export default withStaticProps(MenuTitle, {
+interface MenuTitleStaticProps {
+  positions: typeof MenuTitleCaptionPositionEnum;
+  captionPositions: typeof MenuTitleCaptionPositionEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<MenuTitleProps, MenuTitleStaticProps>(MenuTitle, {
   positions: MenuTitleCaptionPositionEnum,
   captionPositions: MenuTitleCaptionPositionEnum
 });

@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, useCallback, useMemo } from "react";
+import React, { cloneElement, type ReactElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import cx from "classnames";
 import { useA11yDialog } from "./a11yDialog";
@@ -14,11 +14,11 @@ import {
   validateTitleProp
 } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticProps } from "../../types";
+import { withStaticPropsWithoutForwardRef } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./LegacyModal.module.scss";
-import { ModalWidth } from "./LegacyModal.types";
+import { type ModalWidth } from "./LegacyModal.types";
 import LayerProvider from "../LayerProvider/LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 
@@ -87,7 +87,7 @@ export interface LegacyModalProps {
   unmountOnClose?: boolean;
 }
 
-const Modal: FC<LegacyModalProps> & { width?: typeof ModalWidthEnum } = ({
+const Modal = ({
   classNames = { container: "", overlay: "", modal: "" },
   id,
   show,
@@ -201,6 +201,10 @@ const Modal: FC<LegacyModalProps> & { width?: typeof ModalWidthEnum } = ({
   return isClient() ? ReactDOM.createPortal(dialog, document.body) : null;
 };
 
-export default withStaticProps(Modal, {
+interface LegacyModalStaticProps {
+  width: typeof ModalWidthEnum;
+}
+
+export default withStaticPropsWithoutForwardRef<LegacyModalProps, LegacyModalStaticProps>(Modal, {
   width: ModalWidthEnum
 });

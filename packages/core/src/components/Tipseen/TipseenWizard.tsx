@@ -1,20 +1,26 @@
-import React, { FC, useContext, useMemo } from "react";
+import React, { type FC, useContext, useMemo } from "react";
 import cx from "classnames";
-import Steps, { StepsProps } from "../Steps/Steps";
+import Steps, { type StepsProps } from "../Steps/Steps";
 import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
 import { TipseenContext } from "./Tipseen";
 import { TipseenColor } from "./TipseenConstants";
-import { ButtonSize, ButtonType } from "../Button";
+import { type ButtonSize, type ButtonType } from "../Button";
 
 const FINISH_TEXT = "Got it";
 
 export interface TipseenWizardProps extends StepsProps {
+  /**
+   * The title text displayed in the Tipseen Wizard.
+   */
   title?: string;
   /**
-   * Classname for overriding TipseenTitle styles
+   * Class name applied to the Tipseen title.
    */
   titleClassName?: string;
+  /**
+   * Callback fired when the wizard is completed.
+   */
   onFinish?: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }
 

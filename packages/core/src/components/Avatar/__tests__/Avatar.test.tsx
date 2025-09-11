@@ -1,7 +1,8 @@
+import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
-import Avatar, { AvatarProps } from "../Avatar";
+import Avatar, { type AvatarProps } from "../Avatar";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const renderComponent = (props: AvatarProps) => {
@@ -14,7 +15,7 @@ describe("avatar", () => {
   });
 
   it("onClick callback should be called after clicking the element", () => {
-    const onClickCallback = jest.fn();
+    const onClickCallback = vi.fn();
     const { getByTestId } = renderComponent({ onClick: onClickCallback });
     const component = getByTestId(ComponentDefaultTestId.CLICKABLE);
     fireEvent.click(component);

@@ -1,6 +1,6 @@
 import React from "react";
 import A11yDialogLib from "a11y-dialog";
-import { A11yDialogType } from "./ModalHelper";
+import { type A11yDialogType } from "./ModalHelper";
 
 const useA11yDialogInstance = (): [A11yDialogType, (node: Element) => void] => {
   const [instance, setInstance] = React.useState(null);

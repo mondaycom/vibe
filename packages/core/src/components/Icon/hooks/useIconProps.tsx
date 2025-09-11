@@ -1,6 +1,6 @@
-import { KeyboardEvent, MouseEvent, UIEvent, useCallback, useMemo, useRef } from "react";
+import { type KeyboardEvent, type MouseEvent, type UIEvent, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
-import { noop as NOOP } from "lodash-es";
+import { noop as NOOP } from "es-toolkit";
 import useEventListener from "../../../hooks/useEventListener";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants/keyCodes";

@@ -1,9 +1,11 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import TransitionView from "../TransitionView";
 
-jest.mock("framer-motion", () => {
-  const actual = jest.requireActual<typeof import("framer-motion")>("framer-motion");
+vi.mock("framer-motion", async () => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
+  const actual = await vi.importActual<typeof import("framer-motion")>("framer-motion");
   return {
     ...actual,
     AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>

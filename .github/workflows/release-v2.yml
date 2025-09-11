@@ -3,6 +3,27 @@ name: Release v2 version
 on: workflow_dispatch
 
 jobs:
+  notify-release-start:
+    name: Notify Slack - Release Started
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Send Slack notification
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.SLACK_DEV_TEAM_WEBHOOK_URL }}
+          method: "POST"
+          contentType: "application/json"
+          data: |
+            {
+              "event": "v2_release_started",
+              "actor": "${{ github.actor }}",
+              "commit_id": "${{ github.sha }}",
+              "workflow": "${{ github.workflow }}",
+              "run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+              "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+            }
+
   release:
     if: github.ref_name == 'version2'
     runs-on: ubuntu-latest

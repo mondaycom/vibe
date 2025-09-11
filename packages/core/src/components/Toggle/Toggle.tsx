@@ -1,33 +1,74 @@
-import React, { ChangeEvent, forwardRef } from "react";
+import React, { type ChangeEvent, forwardRef } from "react";
 import cx from "classnames";
-import { noop as NOOP } from "lodash-es";
-import { Switch } from "../Switch/Switch";
+import { noop as NOOP } from "es-toolkit";
+import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { VibeComponent, VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { ToggleSize } from "./Toggle.types";
+import { type ToggleSize } from "./Toggle.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ToggleProps extends VibeComponentProps {
   /**
-   * ClassName to override styles of selected toggle
+   * Class name applied when the toggle is selected.
    */
   toggleSelectedClassName?: string;
+  /**
+   * If true, the toggle is selected by default.
+   */
   isDefaultSelected?: boolean;
+  /**
+   * Controls the selected state of the toggle.
+   */
   isSelected?: boolean;
+  /**
+   * Callback fired when the toggle state changes.
+   */
   onChange?: (value: boolean, event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * The value associated with the toggle.
+   */
   value?: string;
+  /**
+   * The name attribute of the toggle input.
+   */
   name?: string;
+  /**
+   * If true, disables the toggle.
+   */
   disabled?: boolean;
+  /**
+   * If true, hides the on/off labels.
+   */
   areLabelsHidden?: boolean;
+  /**
+   * If true, removes the horizontal spacing around the toggle.
+   */
+  noSpacing?: boolean;
+  /**
+   * The text displayed when the toggle is in the "on" position.
+   */
   onOverrideText?: string;
+  /**
+   * The text displayed when the toggle is in the "off" position.
+   */
   offOverrideText?: string;
+  /**
+   * The ARIA label for accessibility.
+   */
   ariaLabel?: string;
+  /**
+   * The ID of the element controlled by the toggle.
+   */
   ariaControls?: string;
+  /**
+   * The size of the toggle.
+   */
   size?: ToggleSize;
 }
 
-const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
+const Toggle = forwardRef(
   (
     {
       id,
@@ -42,12 +83,13 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
       ariaLabel,
       ariaControls,
       areLabelsHidden = false,
+      noSpacing,
       onOverrideText = "On",
       offOverrideText = "Off",
       size = "medium",
       "data-testid": dataTestId
     }: ToggleProps,
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const wrapperClassName = cx(styles.wrapper);
     const inputClassName = cx(styles.toggleInput);
@@ -67,9 +109,11 @@ const Toggle: VibeComponent<ToggleProps, HTMLInputElement> = forwardRef(
         inputClassName={inputClassName}
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE)}
+        data-vibe={ComponentVibeId.TOGGLE}
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}
+          noSpacing={noSpacing}
           offOverrideText={offOverrideText}
           onOverrideText={onOverrideText}
           disabled={disabled}

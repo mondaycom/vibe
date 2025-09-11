@@ -1,11 +1,11 @@
-import React, { CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { type CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import {
-  GridChildComponentProps,
-  GridOnScrollProps,
-  ScrollDirection,
+  type GridChildComponentProps,
+  type GridOnScrollProps,
+  type ScrollDirection,
   VariableSizeGrid as Grid,
-  GridOnItemsRenderedProps
+  type GridOnItemsRenderedProps
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
@@ -16,54 +16,47 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRef from "../../hooks/useMergeRef";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import { VibeComponent } from "../../types";
+import { type VibeComponent, type VibeComponentProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
-import { VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
+import { type VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
 
 export interface VirtualizedGridProps extends VibeComponentProps {
   /**
-   * A list of items to be rendered
-   * {
-   *      item: ItemType,
-   *     index: number,
-   *     style: CSSProperties
-   * }[]
+   * The list of items to be rendered in the grid.
    */
   items: ItemType[];
   /**
-   * item render function
-   * returns `JSX.Element`
+   * Function that renders each item in the grid.
    */
   itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ItemType | GridChildComponentProps<ItemType>;
   /**
-   * in order to calculate the number of rows to render in the grid, the component needs the height of the row
-   * return `number`
+   * Function that returns the row height.
    */
   getRowHeight: () => number;
   /**
-   * in order to calculate the number of columns to render in the grid, the component needs the width of the column
-   * return `number`
+   * Function that returns the column width.
    */
   getColumnWidth: () => number;
   /**
-   * returns Id of an items
-   * returns `string`
+   * Function that returns the unique ID of an item.
    */
   getItemId?: (item: ItemType, index: number) => string;
   /**
-   * index of the item to scroll to
+   * The index of the item to scroll to.
    */
   scrollToId?: number;
+  /**
+   * Callback fired when the grid is scrolled.
+   */
   onScroll?: (horizontalScrollDirection: ScrollDirection, scrollTop: number, scrollUpdateWasRequested: boolean) => void;
   /**
-   * callback to be called when the scroll is finished
+   * Callback fired when scrolling has finished.
    */
   onScrollToFinished?: () => void;
   /**
-   * a callback that is being called when the items are rendered
+   * Callback fired when items are rendered in the grid.
    */
   onItemsRendered?: ({
     firstItemId,
@@ -80,19 +73,25 @@ export interface VirtualizedGridProps extends VibeComponentProps {
     firstItemOffsetEnd: number;
     currentOffsetTop: number;
   }) => void;
+  /**
+   * The delay (in ms) for throttling the `onItemsRendered` callback.
+   */
   onItemsRenderedThrottleMs?: number;
   /**
-   * when the grid size changes
+   * Callback fired when the grid size is updated.
    */
   onSizeUpdate?: (width: number, height: number) => void;
+  /**
+   * Callback fired when the vertical scrollbar visibility changes.
+   */
   onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
   /**
-   * class name to add to the component scrollable container
+   * Class name applied to the scrollable container.
    */
   scrollableClassName?: string;
 }
 
-const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
+const VirtualizedGrid = forwardRef(
   (
     {
       className,
@@ -112,7 +111,7 @@ const VirtualizedGrid: VibeComponent<VirtualizedGridProps> = forwardRef(
       scrollableClassName,
       "data-testid": dataTestId
     }: VirtualizedGridProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     // states
     const [gridHeight, setGridHeight] = useState(0);

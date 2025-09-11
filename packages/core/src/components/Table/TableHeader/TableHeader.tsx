@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./TableHeader.module.scss";
-import { TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
+import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -9,11 +9,17 @@ import { useTable } from "../context/TableContext/TableContext";
 import useMergeRef from "../../../hooks/useMergeRef";
 
 export interface TableHeaderProps extends VibeComponentProps {
+  /**
+   * The child elements inside the table header, typically `<TableHeaderCell />` components.
+   */
   children?: React.ReactElement<TableHeaderCellProps> | React.ReactElement<TableHeaderCellProps>[];
 }
 
-const TableHeader: VibeComponent<TableHeaderProps, HTMLDivElement> = forwardRef(
-  ({ id, className, "data-testid": dataTestId, children }: TableHeaderProps, ref) => {
+const TableHeader = forwardRef(
+  (
+    { id, className, "data-testid": dataTestId, children }: TableHeaderProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
     const { headRef, onHeadScroll, isVirtualized } = useTable();
     const mergedRef = useMergeRef(headRef, ref);
 

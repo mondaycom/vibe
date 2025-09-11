@@ -1,7 +1,5 @@
 import React from "react";
-/* eslint-disable react/no-children-prop */
-import { createComponentTemplate } from "vibe-storybook-components";
-import SplitButton from "../SplitButton";
+import SplitButton, { type SplitButtonProps } from "../SplitButton";
 import Button from "../../Button/Button";
 import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
@@ -9,7 +7,6 @@ import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
 import MenuTitle from "../../Menu/MenuTitle/MenuTitle";
-import "./SplitButton.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: SplitButton,
@@ -27,22 +24,27 @@ export default {
   },
 
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators
+  decorators: metaSettings.decorators,
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload }
+      }
+    }
+  }
 };
 
-const splitButtonTemplate = createComponentTemplate(SplitButton);
-
 export const Overview = {
-  render: splitButtonTemplate.bind({}),
-  name: "Overview",
-
+  render: (args: SplitButtonProps) => (
+    <SplitButton id="overview-split-button" ariaLabel="Overview split button" {...args}>
+      Button
+    </SplitButton>
+  ),
   args: {
-    children: "Button",
-
     secondaryDialogContent: () => (
-      <SplitButtonMenu id="split-menu">
-        <MenuItem icon={Check} title="Hey" />
-        <MenuItem icon={Announcement} title="There" />
+      <SplitButtonMenu id="overview-split-menu">
+        <MenuItem id="overview-menu-check" icon={Check} title="Hey" />
+        <MenuItem id="overview-menu-announcement" icon={Announcement} title="There" />
       </SplitButtonMenu>
     )
   },
@@ -57,110 +59,117 @@ export const Types = {
   render: () => (
     <>
       <SplitButton
-        children="Primary"
+        id="types-primary"
+        ariaLabel="Primary split button"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="types-primary-menu">
+            <MenuItem id="types-primary-check" icon={Check} title="Hey" />
+            <MenuItem id="types-primary-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
-      />
+      >
+        Primary
+      </SplitButton>
       <SplitButton
-        children="Secondary"
+        id="types-secondary"
+        ariaLabel="Secondary split button"
         kind="secondary"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="types-secondary-menu">
+            <MenuItem id="types-secondary-check" icon={Check} title="Hey" />
+            <MenuItem id="types-secondary-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
-      />
+      >
+        Secondary
+      </SplitButton>
       <SplitButton
-        children="Tertiary"
+        id="types-tertiary"
+        ariaLabel="Tertiary split button"
         kind="tertiary"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="types-tertiary-menu">
+            <MenuItem id="types-tertiary-check" icon={Check} title="Hey" />
+            <MenuItem id="types-tertiary-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
-      />
+      >
+        Tertiary
+      </SplitButton>
     </>
-  ),
-
-  name: "Types",
-
-  parameters: {
-    docs: {
-      liveEdit: { scope: { Check, Announcement } }
-    }
-  }
+  )
 };
 
 export const Sizes = {
   render: () => (
     <>
       <SplitButton
-        children="Small"
+        id="sizes-small"
+        ariaLabel="Small split button"
         size="small"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="sizes-small-menu">
+            <MenuItem id="sizes-small-check" icon={Check} title="Hey" />
+            <MenuItem id="sizes-small-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
-      />
+      >
+        Small
+      </SplitButton>
       <SplitButton
-        children="Medium"
+        id="sizes-medium"
+        ariaLabel="Medium split button"
         size="medium"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="sizes-medium-menu">
+            <MenuItem id="sizes-medium-check" icon={Check} title="Hey" />
+            <MenuItem id="sizes-medium-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
-      />
+      >
+        Medium
+      </SplitButton>
       <SplitButton
-        children="Large"
+        id="sizes-large"
+        ariaLabel="Large split button"
         size="large"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="sizes-large-menu">
+            <MenuItem id="sizes-large-check" icon={Check} title="Hey" />
+            <MenuItem id="sizes-large-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
-      />
+      >
+        Large
+      </SplitButton>
     </>
-  ),
-
-  name: "Sizes",
-  parameters: {
-    docs: {
-      liveEdit: { scope: { Check, Announcement } }
-    }
-  }
+  )
 };
 
 export const SplitButtonWithIcons = {
   render: () => (
     <>
       <SplitButton
+        id="icons-left"
+        ariaLabel="Split button with left icon"
         leftIcon={Add}
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="icons-left-menu">
+            <MenuItem id="icons-left-check" icon={Check} title="Hey" />
+            <MenuItem id="icons-left-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
       >
         Left icon
       </SplitButton>
       <SplitButton
+        id="icons-right"
+        ariaLabel="Split button with right icon"
         rightIcon={Add}
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem icon={Check} title="Hey" />
-            <MenuItem icon={Announcement} title="There" />
+          <SplitButtonMenu id="icons-right-menu">
+            <MenuItem id="icons-right-check" icon={Check} title="Hey" />
+            <MenuItem id="icons-right-announcement" icon={Announcement} title="There" />
           </SplitButtonMenu>
         }
       >
@@ -168,79 +177,70 @@ export const SplitButtonWithIcons = {
       </SplitButton>
     </>
   ),
-
-  name: "Split button with icons",
-  parameters: {
-    docs: {
-      liveEdit: { scope: { Add, Check, Announcement } }
-    }
-  }
+  name: "Split button with icons"
 };
 
 export const SplitButtonAsThePrimaryAction = {
   render: () => (
     <SplitButton
-      children="Use template"
+      id="primary-action"
+      ariaLabel="Use template split button"
       secondaryDialogPosition="bottom-start"
       secondaryDialogContent={
-        <SplitButtonMenu id="split-menu">
-          <MenuItem icon={Download} title="Import template" />
-          <MenuItem icon={Upload} title="Export template" />
+        <SplitButtonMenu id="primary-action-menu">
+          <MenuItem id="primary-action-import" icon={Download} title="Import template" />
+          <MenuItem id="primary-action-export" icon={Upload} title="Export template" />
         </SplitButtonMenu>
       }
-    />
+    >
+      Use template
+    </SplitButton>
   ),
-
-  name: "Split button as the primary action",
-  parameters: {
-    docs: {
-      liveEdit: { scope: { Download, Upload } }
-    }
-  }
+  name: "Split button as the primary action"
 };
 
 export const SecondarySplitButton = {
   render: () => (
     <>
       <SplitButton
-        children="Export to CSV"
+        id="secondary-export"
+        ariaLabel="Export options split button"
         kind="secondary"
         secondaryDialogPosition="bottom-start"
         secondaryDialogContent={
-          <SplitButtonMenu id="split-menu">
-            <MenuItem title="Export to PDF" />
-            <MenuItem title="Export to DOCX" />
-            <MenuItem title="Export to Excel" />
+          <SplitButtonMenu id="secondary-export-menu">
+            <MenuItem id="secondary-export-pdf" title="Export to PDF" />
+            <MenuItem id="secondary-export-docx" title="Export to DOCX" />
+            <MenuItem id="secondary-export-excel" title="Export to Excel" />
           </SplitButtonMenu>
         }
-      />
-      <Button>New item</Button>
+      >
+        Export to CSV
+      </SplitButton>
+      <Button id="new-item-button" ariaLabel="Create new item">
+        New item
+      </Button>
     </>
   ),
-
   name: "Secondary split button"
 };
 
 export const CustomMenu = {
   render: () => (
     <SplitButton
+      id="custom-menu"
+      ariaLabel="Custom menu split button"
       secondaryDialogContent={
-        <Menu focusItemIndexOnMount={2} id="menu" size="medium">
-          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-          <MenuItem icon={Sun} iconType="svg" title="The sun" />
-          <MenuItem icon={Moon} iconType="svg" title="The moon" />
-          <MenuItem icon={Favorite} iconType="svg" title="And the stars" />
+        <Menu focusItemIndexOnMount={2} id="custom-menu-content" size="medium">
+          <MenuTitle caption="Look up, you might see" captionPosition="top" />
+          <MenuItem id="custom-menu-sun" icon={Sun} iconType="svg" title="The sun" />
+          <MenuItem id="custom-menu-moon" icon={Moon} iconType="svg" title="The moon" />
+          <MenuItem id="custom-menu-stars" icon={Favorite} iconType="svg" title="And the stars" />
         </Menu>
       }
     >
       Custom menu
     </SplitButton>
   ),
-
-  name: "Custom menu",
-  parameters: {
-    docs: {
-      liveEdit: { scope: { Sun, Moon, Favorite } }
-    }
-  }
+  name: "Custom menu"
 };

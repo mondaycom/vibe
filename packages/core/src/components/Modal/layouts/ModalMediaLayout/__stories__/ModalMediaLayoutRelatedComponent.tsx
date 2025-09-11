@@ -17,7 +17,7 @@ export const ModalMediaLayoutRelatedComponent = () => {
     <RelatedComponent
       component={component}
       title="Media modal"
-      href="/?path=/docs/feedback-modal-new-media-modal"
+      href="/?path=/docs/components-modal-new-media-modal"
       description="Modal with highlighted media section, for catching the user’s attention."
     />
   );

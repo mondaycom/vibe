@@ -1,28 +1,57 @@
-import React, { FC, useContext, useMemo } from "react";
+import React, { type FC, useContext, useMemo } from "react";
 import cx from "classnames";
 import Button from "../../components/Button/Button";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TipseenColor } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
-import { VibeComponentProps } from "../../types";
-import { ElementContent } from "../../types/ElementContent";
+import { type VibeComponentProps } from "../../types";
+import { type ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
 import { ButtonColor } from "../Button/ButtonConstants";
+import { type SubIcon } from "../../types";
 
 export interface TipseenContentProps extends VibeComponentProps {
+  /**
+   * The title text displayed in the Tipseen content.
+   */
   title?: string;
   /**
-   * Classname for overriding TipseenTitle styles
+   * Class name applied to the Tipseen title.
    */
   titleClassName?: string;
+  /**
+   * If true, hides the dismiss button.
+   */
   hideDismiss?: boolean;
+  /**
+   * The content inside the Tipseen.
+   */
   children?: ElementContent;
+  /**
+   * If true, hides the submit button.
+   */
   hideSubmit?: boolean;
+  /**
+   * The text displayed on the submit button.
+   */
   submitButtonText?: string;
+  /**
+   * Icon to display in the submit button
+   */
+  submitButtonIcon?: SubIcon;
+  /**
+   * Callback fired when the submit button is clicked.
+   */
   onSubmit?: (event: React.MouseEvent) => void;
+  /**
+   * The text displayed on the dismiss button.
+   */
   dismissButtonText?: string;
+  /**
+   * Callback fired when the dismiss button is clicked.
+   */
   onDismiss?: (event: React.MouseEvent) => void;
 }
 
@@ -34,6 +63,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
   hideDismiss = true,
   hideSubmit,
   submitButtonText = SUBMIT_BUTTON_TEXT,
+  submitButtonIcon,
   onSubmit,
   dismissButtonText = DISMISS_BUTTON_TEXT,
   onDismiss
@@ -66,6 +96,7 @@ const TipseenContent: FC<TipseenContentProps> = ({
             size="small"
             onClick={onSubmit}
             data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
+            leftIcon={submitButtonIcon}
           >
             {submitButtonText}
           </Button>

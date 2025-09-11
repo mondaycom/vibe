@@ -8,17 +8,6 @@ import * as TextFieldStories from "./TextField.stories";
 
 # TextField
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 An input field includes a label and a text field users can type text into. They typically appear in forms and dialogs.
 
 <Canvas of={TextFieldStories.Overview} />
@@ -40,6 +29,43 @@ import { TextField } from "@vibe/core";
     "Always use placeholder in input field",
     "Icons can be used to message alerts as well. Pair them with error messages to provide redundant alerts.",
     "Character or word counters should be used if there is a character or word limit."
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure the best accessibility.
+    </>,
+    <>
+      Always provide a visible <code>title</code> or an <code>inputAriaLabel</code> to ensure the input's purpose is
+      clear to all users.
+    </>,
+    <>
+      When using <code>title</code> or validation text, you must also provide an <code>id</code>. This is crucial, as it
+      allows screen readers to correctly associate the input with its label and description.
+    </>,
+    <>
+      For required fields, use the <code>required</code> prop to ensure proper screen reader announcements and native
+      browser validation.
+    </>,
+    <>
+      Provide descriptive error messages using <code>validation</code> prop with status 'error' to help users understand
+      and correct validation issues.
+    </>,
+    <>
+      When using icons, provide meaningful labels through <code>iconsNames.primary</code> and{" "}
+      <code>iconsNames.secondary</code> props for screen reader users.
+    </>,
+    <>
+      For search inputs, use <code>type='search'</code> and provide <code>searchResultsContainerId</code> to properly
+      associate with search results.
+    </>,
+    <>
+      Character counting with <code>showCharCount</code> automatically provides accessibility labels for screen readers.
+    </>
   ]}
 />
 
@@ -70,7 +96,7 @@ Use validation to give feedback to the user for a case where he has provided an 
     {
       positive: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
@@ -79,7 +105,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       },
       negative: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="What is your email address?" placeholder="email@monday.com" size="medium" />
           </div>
         ),
@@ -90,7 +116,7 @@ Use validation to give feedback to the user for a case where he has provided an 
     {
       positive: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="Email" placeholder="email@monday.com" size="medium" />
           </div>
         ),
@@ -99,7 +125,7 @@ Use validation to give feedback to the user for a case where he has provided an 
       },
       negative: {
         component: (
-          <div className="monday-storybook-text-field_size">
+          <div style={{ width: 300 }}>
             <TextField title="Email" placeholder="email@monday.com" size="medium" />
             For example: email@monday.com
           </div>

@@ -1,29 +1,38 @@
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Box from "../Box";
 
-jest.mock("../Box.module.scss", () => ({
-  box: "box",
-  border: "border",
-  borderColorUiBorderColor: "uiBorderColor",
-  roundedSmall: "roundedSmall",
-  shadowSmall: "shadowSmall",
-  mSmall: "mSmall",
-  mxSmall: "mxSmall",
-  mySmall: "mySmall",
-  mtSmall: "mtSmall",
-  meSmall: "meSmall",
-  msSmall: "msSmall",
-  pSmall: "pSmall",
-  pxSmall: "pxSmall",
-  pySmall: "pySmall",
-  ptSmall: "ptSmall",
-  peSmall: "peSmall",
-  pbSmall: "pbSmall",
-  psSmall: "psSmall",
-  bgPrimaryBackgroundColor: "bgPrimaryBackgroundColor",
-  textPrimaryTextColor: "textPrimaryTextColor"
-}));
+vi.mock("../Box.module.scss", () => {
+  const styles = {
+    box: "box",
+    border: "border",
+    borderColorUiBorderColor: "uiBorderColor",
+    roundedSmall: "roundedSmall",
+    shadowSmall: "shadowSmall",
+    mSmall: "mSmall",
+    mxSmall: "mxSmall",
+    mySmall: "mySmall",
+    mtSmall: "mtSmall",
+    meSmall: "meSmall",
+    msSmall: "msSmall",
+    pSmall: "pSmall",
+    pxSmall: "pxSmall",
+    pySmall: "pySmall",
+    ptSmall: "ptSmall",
+    peSmall: "peSmall",
+    pbSmall: "pbSmall",
+    psSmall: "psSmall",
+    bgPrimaryBackgroundColor: "bgPrimaryBackgroundColor",
+    textPrimaryTextColor: "textPrimaryTextColor",
+    opacityDisabled: "opacityDisabled",
+    scrollable: "scrollable"
+  };
+  return {
+    default: styles,
+    ...styles
+  };
+});
 
 describe("Box renders correctly", () => {
   it("with empty props", () => {
@@ -128,6 +137,11 @@ describe("Box renders correctly", () => {
 
   it("with text prop", () => {
     const tree = renderer.create(<Box textColor="primaryTextColor" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with data-testid prop", () => {
+    const tree = renderer.create(<Box data-testid="test-id" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

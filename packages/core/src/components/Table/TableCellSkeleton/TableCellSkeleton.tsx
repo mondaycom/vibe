@@ -3,14 +3,20 @@ import cx from "classnames";
 import TableCell from "../TableCell/TableCell";
 import Skeleton from "../../Skeleton/Skeleton";
 import styles from "./TableCellSkeleton.module.scss";
-import { VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { TableLoadingStateType } from "../Table/Table";
+import { type TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 
 export interface TableCellSkeletonProps extends VibeComponentProps {
+  /**
+   * The type of loading state for the skeleton.
+   */
   type?: TableLoadingStateType;
+  /**
+   * If true, renders a shorter skeleton for text-based loading states.
+   */
   short?: boolean;
 }
 

@@ -1,15 +1,16 @@
-import { renderHook, cleanup, act, RenderHookResult } from "@testing-library/react-hooks";
-import useDebounceEvent, { UseDebounceResult } from "../useDebounceEvent";
-import { ChangeEvent } from "react";
+import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
+import { renderHook, cleanup, act, type RenderHookResult } from "@testing-library/react-hooks";
+import useDebounceEvent, { type UseDebounceResult } from "../useDebounceEvent";
+import { type ChangeEvent } from "react";
 
 describe("useDebounceEvent", () => {
   const delay = 0;
   const initialStateValue = "";
-  let onChangeCallbackStub: jest.Mock;
+  let onChangeCallbackStub: Mock;
   let hookResult: RenderHookResult<unknown, UseDebounceResult>;
 
   beforeEach(() => {
-    onChangeCallbackStub = jest.fn();
+    onChangeCallbackStub = vi.fn();
     hookResult = renderHook(() =>
       useDebounceEvent({
         delay,
@@ -36,7 +37,7 @@ describe("useDebounceEvent", () => {
       expect(typeof hookResult.result.current.updateValue).toEqual("function");
     });
 
-    it("should give the value ", () => {
+    it("should give the value", () => {
       expect(typeof hookResult.result.current.inputValue).toEqual("string");
     });
   });
@@ -95,7 +96,7 @@ describe("useDebounceEvent", () => {
     const additionalDelay = 200;
 
     beforeEach(() => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       hookResult = renderHook(() =>
         useDebounceEvent({
@@ -107,10 +108,10 @@ describe("useDebounceEvent", () => {
     });
 
     afterEach(() => {
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
-    it("should not call the onChange immediately ", () => {
+    it("should not call the onChange immediately", () => {
       const { onEventChanged } = hookResult.result.current;
       const newInputValue = "input value";
       act(() => {
@@ -119,25 +120,25 @@ describe("useDebounceEvent", () => {
       expect(onChangeCallbackStub.mock.calls.length).toEqual(0);
     });
 
-    it("should not call the onChange before the timer passes ", () => {
+    it("should not call the onChange before the timer passes", () => {
       const { onEventChanged } = hookResult.result.current;
       const newInputValue = "input value";
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      jest.advanceTimersByTime(additionalDelay - 1);
+      vi.advanceTimersByTime(additionalDelay - 1);
 
       expect(onChangeCallbackStub.mock.calls.length).toEqual(0);
     });
 
-    it("should be called after the timeout ", () => {
+    it("should be called after the timeout", () => {
       const { onEventChanged } = hookResult.result.current;
       const newInputValue = "input value";
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
 
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
 
       expect(onChangeCallbackStub.mock.calls.length).toEqual(1);
     });

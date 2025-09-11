@@ -1,37 +1,75 @@
 import cx from "classnames";
-import React, { FC, forwardRef, ReactElement, useRef } from "react";
-import { noop as NOOP } from "lodash-es";
+import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
+import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import Icon from "../../Icon/Icon";
-import VibeComponentProps from "../../../types/VibeComponentProps";
-import { IconType } from "../../Icon";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { type IconType } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import { SubIcon } from "../../../types/SubIcon";
-import Tooltip, { TooltipProps } from "../../Tooltip/Tooltip";
+import { type SubIcon } from "../../../types/SubIcon";
+import Tooltip, { type TooltipProps } from "../../Tooltip/Tooltip";
+import { ComponentVibeId } from "../../../tests/constants";
+import { keyCodes } from "../../../constants";
 
 export interface TabProps extends VibeComponentProps {
   /**
-   * Class name for tab link-name
+   * Class name applied to the inner tab content.
    */
   tabInnerClassName?: string;
   /**
-   * Tab index
+   * The index value of the tab.
    */
   value?: number;
+  /**
+   * If true, disables the tab.
+   */
   disabled?: boolean;
+  /**
+   * If true, marks the tab as active.
+   */
   active?: boolean;
+  /**
+   * If true, applies focus styles to the tab.
+   */
   focus?: boolean;
+  /**
+   * If true, hides the individual tab border when using stretched underline.
+   */
+  stretchedUnderline?: boolean;
+  /**
+   * The icon displayed in the tab.
+   */
   icon?: SubIcon;
+  /**
+   * The type of icon.
+   */
   iconType?: IconType;
+  /**
+   * The position of the icon relative to the text.
+   */
   iconSide?: string;
+  /**
+   * Callback fired when the tab is clicked.
+   */
   onClick?: (value: number) => void;
+  /**
+   * Props passed to the tab's tooltip.
+   */
   tooltipProps?: Partial<TooltipProps>;
   /**
-   * Tab link-name
+   * The content displayed inside the tab.
    */
   children?: string | ReactElement | ReactElement[];
+  /**
+   * Tab index for focus management.
+   */
+  tabIndex?: number;
+  /**
+   * The id of the associated TabPanel for aria-controls attribute.
+   */
+  ariaControls?: string;
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -44,13 +82,16 @@ const Tab: FC<TabProps> = forwardRef(
       disabled = false,
       active = false,
       focus = false,
+      stretchedUnderline = false,
       onClick = NOOP,
       tooltipProps = {} as TooltipProps,
       icon,
       iconType,
       iconSide = "left",
       children,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      tabIndex,
+      ariaControls
     }: TabProps,
     ref
   ) => {
@@ -79,6 +120,14 @@ const Tab: FC<TabProps> = forwardRef(
 
       return [...childrenArray, iconElement];
     }
+
+    function handleKeyDown(event: React.KeyboardEvent) {
+      if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
+        event.preventDefault();
+        !disabled && onClick(value);
+      }
+    }
+
     return (
       <Tooltip {...tooltipProps} content={tooltipProps.content}>
         <li
@@ -87,18 +136,21 @@ const Tab: FC<TabProps> = forwardRef(
           className={cx(styles.tabWrapper, className, {
             [styles.active]: active,
             [styles.disabled]: disabled,
-            [styles.tabFocusVisibleInset]: focus
+            [styles.tabFocusVisibleInset]: focus,
+            [styles.stretchedUnderline]: stretchedUnderline
           })}
           id={id}
           role="tab"
           aria-selected={active}
           aria-disabled={disabled}
+          aria-controls={ariaControls || undefined}
+          tabIndex={tabIndex}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+          data-vibe={ComponentVibeId.TAB}
+          onClick={() => !disabled && onClick(value)}
+          onKeyDown={handleKeyDown}
         >
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */}
-          <a className={cx(styles.tabInner, tabInnerClassName)} onClick={() => !disabled && onClick(value)}>
-            {renderIconAndChildren()}
-          </a>
+          <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>
         </li>
       </Tooltip>
     );

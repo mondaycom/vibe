@@ -1,13 +1,22 @@
 import cx from "classnames";
-import React, { FC, useMemo } from "react";
-import VibeComponentProps from "../../types/VibeComponentProps";
+import React, { type FC, useMemo } from "react";
+import type VibeComponentProps from "../../types/VibeComponentProps";
 import Text from "../Text/Text";
 import styles from "./StepsNumbersHeader.module.scss";
-import { StepsColor } from "./Steps.types";
+import { type StepsColor } from "./Steps.types";
 
 export interface StepsNumbersHeaderProps extends VibeComponentProps {
+  /**
+   * The index of the currently active step.
+   */
   activeStepIndex: number;
+  /**
+   * The total number of steps.
+   */
   stepsCount: number;
+  /**
+   * The color theme of the steps numbers header.
+   */
   color?: StepsColor;
 }
 

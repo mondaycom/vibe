@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { A11yDialogType } from "./ModalHelper";
+import { type A11yDialogType } from "./ModalHelper";
 
 export default function useAnimationProps(triggerElement: Element, instance: A11yDialogType) {
   return useCallback(

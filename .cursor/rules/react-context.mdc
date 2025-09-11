@@ -1,0 +1,104 @@
+---
+description: "This rule outlines the standard practices for creating, structuring, and utilizing React Context, primarily within the `packages/core/` components. It covers the recommended file structure (placing context files in a `context/` subdirectory), established naming conventions for context objects, provider components, and custom consumer hooks, as well as implementation best practices and common patterns to ensure consistency and maintainability. Use this rule when creating new React Contexts or when looking to understand how existing contexts are structured and used."
+globs:
+  - packages/core/src/components/**/context/*Context.ts
+  - packages/core/src/components/**/context/*Context.tsx
+alwaysApply: false
+---
+
+# Context File Structure and Usage
+
+A typical context setup involves creating a dedicated file (e.g., `ComponentNameContext.ts` or `ComponentNameContext.tsx`) within the component's `context/` sub-directory. This file should:
+
+1. **Define Types**: Define interfaces for the context props/state and the provider component's props.
+2. **Create the Context**: Use `React.createContext` to initialize the context. Provide a sensible default value (often `undefined` initially, with proper typing) that matches the context props interface.
+3. **Create a Provider Component**: This component will wrap the parts of your application that need access to the context. It takes `children` and the `value` (or props to construct the value) to be provided. It's good practice to memoize the context value using `useMemo` if it's an object, to prevent unnecessary re-renders of consumers.
+4. **Create a Custom Consumer Hook**: A custom hook (e.g., `useComponentName`) should be exported to provide easy and type-safe access to the context value. This hook typically calls `useContext` and includes a check to ensure it's used within the corresponding Provider, throwing an error if not.
+
+**Example: `MyComponentContext.ts`**
+
+```typescript
+import React, { createContext, useContext, useState, useMemo, ReactNode } from "react";
+
+// 1. Define the shape of your context data and Provider props
+interface MyComponentContextProps {
+  someValue: string;
+  updateValue: (value: string) => void;
+  // Add other states or functions you want to share
+}
+
+interface MyComponentProviderProps {
+  children: ReactNode;
+  initialValue?: string; // Example: if you want to pass initial state to provider
+}
+
+// 2. Create the context with a default value (often undefined, handle null case in hook)
+const MyComponentContext = createContext<MyComponentContextProps | undefined>(undefined);
+
+// 3. Create the Provider component
+export const MyComponentProvider = ({ children, initialValue = "default" }: MyComponentProviderProps) => {
+  const [someValue, setSomeValue] = useState<string>(initialValue);
+  const updateValue = useCallback(setSomeValue, []);
+
+  // Memoize the context value to prevent unnecessary re-renders
+  // This is crucial if the context value is an object or array
+  const contextValue = useMemo(
+    () => ({
+      someValue,
+      updateValue
+    }),
+    [someValue]
+  );
+
+  return <MyComponentContext.Provider value={contextValue}>{children}</MyComponentContext.Provider>;
+};
+
+// 4. Create the custom hook for consuming the context
+export const useMyComponent = (): MyComponentContextProps => {
+  const context = useContext(MyComponentContext);
+  if (context === undefined) {
+    // This error message helps developers realize they've used the hook outside the provider
+    throw new Error("useMyComponent must be used within a MyComponentProvider");
+  }
+  return context;
+};
+```
+
+**Using the Context in `MyComponent.tsx`:**
+
+The Provider should wrap all components that need to access its context.
+
+```typescript
+// ... imports
+// Assuming your context file is in a 'context' subdirectory
+import { MyComponentProvider, useMyComponent } from "./context/MyComponentContext";
+
+// Example of a child component that consumes the context
+const DisplayValueComponent = () => {
+  const { someValue } = useMyComponent(); // Use the custom hook
+  return <p>The current context value is: {someValue}</p>;
+};
+
+// Example of a child component that updates the context
+const UpdateValueComponent = () => {
+  const { updateValue } = useMyComponent();
+  return <button onClick={() => updateValue("new value " + Math.random().toFixed(2))}>Update Value</button>;
+};
+
+const MyComponent = forwardRef(({}: /* ...props... */ MyComponentProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+  return (
+    // Wrap the part of the component tree that needs access to this context
+    // The Provider can be here or at a higher level in the tree if needed by other components.
+    <MyComponentProvider initialValue="hello from MyComponent">
+      <div ref={ref} className={styles.myComponentBaseClass}>
+        {/* ... other component content ... */}
+        <DisplayValueComponent />
+        <UpdateValueComponent />
+        {/* <SubComponentNeedsContext /> */}
+      </div>
+    </MyComponentProvider>
+  );
+});
+
+export default MyComponent;
+```

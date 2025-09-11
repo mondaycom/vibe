@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import styles from "./ModalFooterBase.module.scss";
 import Button from "../../../Button/Button";
 import Flex from "../../../Flex/Flex";
-import { ModalFooterBaseProps } from "./ModalFooterBase.types";
+import { type ModalFooterBaseProps } from "./ModalFooterBase.types";
 import cx from "classnames";
 import { Tooltip } from "../../../Tooltip";
 

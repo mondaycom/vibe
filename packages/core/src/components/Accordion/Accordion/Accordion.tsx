@@ -1,8 +1,9 @@
 import cx from "classnames";
-import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, type ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { VibeComponent, VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
+import { ComponentVibeId } from "../../../tests/constants";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -18,32 +19,20 @@ function defineChildId(index: number, props: { id: string }, accordionId: string
 
 export interface AccordionProps extends VibeComponentProps {
   /**
-   * List of AccordionItems
+   * The content of the accordion (`AccordionItem` components).
    */
   children?: Array<ReactElement> | ReactElement;
   /**
-   * is allowed multiple opened accordion items
+   * If true, multiple accordion items can be expanded at the same time.
    */
   allowMultiple?: boolean;
   /**
-   * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc.)
-   */
-  "data-testid"?: string;
-  /**
-   * Array of initial expanded indexes
+   * An array of initially expanded item indexes.
    */
   defaultIndex?: Array<number>;
-  /**
-   * A class name to be added to the accordion container
-   */
-  className?: string;
-  /**
-   * An id to be added the accordion container.
-   */
-  id?: string;
 }
 
-const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
+const Accordion = forwardRef(
   (
     {
       children: originalChildren = null,
@@ -53,7 +42,7 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
       className = "",
       id
     }: AccordionProps,
-    ref
+    ref: React.ForwardedRef<unknown>
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -113,7 +102,13 @@ const Accordion: VibeComponent<AccordionProps, unknown> & object = forwardRef(
     }, [children, id, isChildExpanded, onChildClick]);
 
     return (
-      <div ref={mergedRef} className={cx(styles.accordion, className)} data-testid={dataTestId} id={id}>
+      <div
+        ref={mergedRef}
+        className={cx(styles.accordion, className)}
+        data-testid={dataTestId}
+        data-vibe={ComponentVibeId.ACCORDION}
+        id={id}
+      >
         {children && renderChildElements}
       </div>
     );

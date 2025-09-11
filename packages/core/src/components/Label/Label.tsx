@@ -1,4 +1,4 @@
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -6,33 +6,52 @@ import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } 
 import Text from "../Text/Text";
 import Leg from "./Leg";
 import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
-import { LabelColor, LabelKind, ContentColor } from "./Label.types";
+import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
-import { VibeComponent, VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
-import { LabelSizes } from "./Label.types";
+import { type LabelSizes } from "./Label.types";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface LabelProps extends VibeComponentProps {
   /**
-   * Class name for an inner text wrapper
+   * Class name applied to the inner text wrapper.
    */
   labelClassName?: string;
+  /**
+   * The visual style of the label.
+   */
   kind?: LabelKind;
+  /**
+   * The background color of the label.
+   */
   color?: LabelColor;
+  /**
+   * The text content of the label.
+   */
   text?: string;
+  /**
+   * If true, includes a leg (decorative extension).
+   */
   isLegIncluded?: boolean;
+  /**
+   * Callback fired when the label is clicked.
+   */
   onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  /**
+   * If true, triggers a celebration animation.
+   */
   celebrationAnimation?: boolean;
+  /**
+   * The size of the label.
+   */
   size?: LabelSizes;
 }
 
-const Label: VibeComponent<LabelProps> & {
-  colors?: typeof LabelColorEnum;
-  kinds?: typeof LabelKindEnum;
-} = forwardRef<HTMLElement, LabelProps>(
+const Label = forwardRef<HTMLElement, LabelProps>(
   (
     {
       className,
@@ -73,9 +92,12 @@ const Label: VibeComponent<LabelProps> & {
 
     const backgroundColorStyle = useMemo(() => {
       if (contentColors.includes(color as ContentColor)) {
+        if (kind === "line") {
+          return { color: `var(--color-${color})` };
+        }
         return { backgroundColor: `var(--color-${color})` };
       }
-    }, [color]);
+    }, [color, kind]);
 
     const onClickCallback = useCallback(
       (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -108,6 +130,7 @@ const Label: VibeComponent<LabelProps> & {
           {...(isClickable && clickableProps)}
           className={cx({ [styles.clickableWrapper]: isClickable }, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
+          data-vibe={ComponentVibeId.LABEL}
           ref={mergedRef}
         >
           <Text
@@ -158,7 +181,12 @@ const Label: VibeComponent<LabelProps> & {
   }
 );
 
-export default withStaticProps(Label, {
+interface LabelStaticProps {
+  colors: typeof LabelColorEnum;
+  kinds: typeof LabelKindEnum;
+}
+
+export default withStaticProps<LabelProps, LabelStaticProps>(Label, {
   colors: LabelColorEnum,
   kinds: LabelKindEnum
 });

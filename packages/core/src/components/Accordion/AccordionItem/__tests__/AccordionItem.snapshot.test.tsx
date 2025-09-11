@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Accordion from "../../Accordion/Accordion";
@@ -53,6 +54,17 @@ describe("AccordionItem renders correctly", () => {
       .create(
         <Accordion defaultIndex={[0]}>
           <AccordionItem iconSize={36} />
+        </Accordion>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with iconPosition", () => {
+    const tree = renderer
+      .create(
+        <Accordion defaultIndex={[0]}>
+          <AccordionItem iconPosition="left" />
         </Accordion>
       )
       .toJSON();

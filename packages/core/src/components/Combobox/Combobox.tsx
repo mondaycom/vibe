@@ -1,7 +1,7 @@
-import { camelCase } from "lodash-es";
 import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
-import { isFunction, noop as NOOP } from "lodash-es";
+import { isFunction } from "es-toolkit";
+import { noop as NOOP, camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -15,115 +15,167 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { ElementContent, SubIcon, VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
 import {
-  IComboboxCategoryMap,
-  IComboboxItem,
-  IComboboxOption,
+  type IComboboxCategoryMap,
+  type IComboboxItem,
+  type IComboboxOption,
   COMBOBOX_LISTBOX_ID,
-  IComboboxCategory
+  type IComboboxCategory
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
-import { ComboboxSizes } from "./Combobox.types";
-import IconButton from "../IconButton/IconButton";
-import MenuButton from "../MenuButton/MenuButton";
+import { type ComboboxSizes } from "./Combobox.types";
+import type IconButton from "../IconButton/IconButton";
+import type MenuButton from "../MenuButton/MenuButton";
+import { ComponentVibeId } from "../../tests/constants";
 
 export interface ComboboxProps extends VibeComponentProps {
-  className?: string;
+  /**
+   * Class name applied to each option item.
+   */
   optionClassName?: string;
+  /**
+   * Class name applied to the search wrapper.
+   */
   searchWrapperClassName?: string;
   /**
-   * Class name for sticky category header
+   * Class name applied to the sticky category header.
    */
   stickyCategoryClassName?: string;
   /**
-   * Placeholder to show when no value was selected
+   * Placeholder text displayed in the search input.
    */
   placeholder?: string;
   /**
-   * Unique element id
-   */
-  id?: string;
-  /**
-   * A message that will be displayed inside the combo box when no results are found
+   * Message displayed when no results are found.
    */
   noResultsMessage?: string;
+  /**
+   * If true, the combobox is disabled.
+   */
   disabled?: boolean;
+  /**
+   * The list of available options.
+   */
   options?: IComboboxOption[];
+  /**
+   * The list of available categories.
+   */
   categories?: IComboboxCategoryMap;
   /**
-   * Divider between categories sections
+   * If true, displays a divider between category sections.
    */
   withCategoriesDivider?: boolean;
+  /**
+   * The size of the combobox.
+   */
   size?: ComboboxSizes;
+  /**
+   * The height of each option item.
+   */
   optionLineHeight?: number;
+  /**
+   * The height of the options list.
+   */
   optionsListHeight?: number;
+  /**
+   * If true, the search input is focused when the component mounts.
+   */
   autoFocus?: boolean;
   /**
-   * Callback that called after clicking on the add new combo box button.
-   * @param {string} _filterValue
+   * Callback fired when the "Add new" button is clicked.
    */
   onAddNew?: (value: string) => void;
   /**
-   * The label of the button that appears at the end of the combo box when the search does not return appropriate options
+   * Label displayed for the "Add new" button.
    */
   addNewLabel?: ((label: string) => ElementContent) | string;
+  /**
+   * Custom filter function for searching options.
+   */
   filter?: (filterValue: string, options: IComboboxOption[]) => IComboboxOption[];
   /**
-   * Default search input
+   * The default search input
    */
   defaultFilter?: string;
+  /**
+   * If true, disables filtering.
+   */
   disableFilter?: boolean;
   /**
-   * For controlled search input. If provided, `defaultFilter` will be ignored
+   * Controlled search input value.
    */
   filterValue?: string;
+  /**
+   * Callback fired when the search input value changes.
+   */
   onFilterChanged?: (value: string) => void;
   /**
-   * Display the combo box with loading state
+   * If true, displays a loading state.
    */
   loading?: boolean;
   /**
-   * on mouse hover callback for option
+   * Callback fired when an option is hovered.
    */
-  // onOptionHover?: PropTypes.func,
   onOptionHover?: (event: React.MouseEvent, index: number, option: IComboboxOption) => void;
   /**
-   * on mouse leave callback for option
+   * Callback fired when the mouse leaves an option.
    */
-  // onOptionLeave?: PropTypes.func,
   onOptionLeave?: () => void;
   /**
-   * Allowed to the following behavior: scrolling automatically to the combo box's selected option
+   * If true, automatically scrolls to the selected option.
    */
   shouldScrollToSelectedItem?: boolean;
+  /**
+   * Custom renderer for when no results are found.
+   */
   noResultsRenderer?: () => JSX.Element;
+  /**
+   * If true, keeps categories visible when scrolling.
+   */
   stickyCategories?: boolean;
-  /** By default, the first option will be selected, when focusing selecting the first option, or when changing items */
+  /**
+   * If true, visually focuses the first item by default.
+   */
   defaultVisualFocusFirstIndex?: boolean;
-  /** Clear the filter/search on selection (click or enter) */
+  /**
+   * If true, clears the search input when an option is selected.
+   */
   clearFilterOnSelection?: boolean;
-  /** Replace the regular appearance of combo box option with custom renderer. */
+  /**
+   * Custom renderer for options.
+   */
   optionRenderer?: (option: IComboboxOption) => JSX.Element;
-  /** Maximum options count without scroll */
+  /**
+   * Maximum number of options displayed before scrolling.
+   */
   maxOptionsWithoutScroll?: number;
   /**
-   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   * If true, renders only visible options for performance optimization.
    */
   renderOnlyVisibleOptions?: boolean;
   /**
-   * On option click callback
+   * Callback fired when an option is clicked.
    */
   onClick?: (optionData: IComboboxOption) => void;
   /**
-   * Custom search icon
+   * Custom search icon.
    */
   searchIcon?: SubIcon;
+  /**
+   * ARIA label for the search input.
+   */
   searchInputAriaLabel?: string;
+  /**
+   * The debounce rate for filtering.
+   */
   debounceRate?: number;
+  /**
+   * Ref for the search input element.
+   */
   searchInputRef?: React.RefObject<HTMLInputElement>;
   /**
-   * Render additional action within the right section of search component.
+   * Additional action button inside the search input.
    */
   renderAction?: React.ReactElement<typeof IconButton | typeof MenuButton>;
   /**
@@ -132,10 +184,7 @@ export interface ComboboxProps extends VibeComponentProps {
   hideRenderActionOnInput?: boolean;
 }
 
-const Combobox: React.FC<ComboboxProps> & {
-  sizes?: typeof BASE_SIZES;
-  iconTypes?: typeof ComboboxOption.iconTypes;
-} = forwardRef(
+const Combobox = forwardRef(
   (
     {
       className = "",
@@ -180,7 +229,7 @@ const Combobox: React.FC<ComboboxProps> & {
       renderAction: RenderAction,
       hideRenderActionOnInput
     }: ComboboxProps,
-    ref
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
@@ -319,6 +368,7 @@ const Combobox: React.FC<ComboboxProps> & {
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
         ellipsis={false}
+        data-vibe={ComponentVibeId.COMBOBOX}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search
@@ -381,7 +431,12 @@ const Combobox: React.FC<ComboboxProps> & {
 // color it with --secondary-text-color
 // size it like the icon - we think it's 16px - make sure it's not fat
 
-export default withStaticProps(Combobox, {
+interface ComboboxStaticProps {
+  sizes: typeof BASE_SIZES;
+  iconTypes: typeof ComboboxOption.iconTypes;
+}
+
+export default withStaticProps<ComboboxProps, ComboboxStaticProps>(Combobox, {
   sizes: BASE_SIZES,
   iconTypes: ComboboxOption.iconTypes
 });

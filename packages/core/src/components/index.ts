@@ -21,6 +21,7 @@ export * from "./Divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
+export * from "./EmptyState";
 export * from "./ExpandCollapse";
 export * from "./Flex";
 export * from "./FormattedNumber";
@@ -40,6 +41,7 @@ export * from "./ListTitle";
 export * from "./Loader";
 export * from "./Menu";
 export * from "./MenuButton";
+export * from "./NumberField";
 export * from "./LegacyModal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";
@@ -63,5 +65,7 @@ export * from "./Tooltip";
 export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
+
+export type { TypographyColor, TypographyAlign } from "./Typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";

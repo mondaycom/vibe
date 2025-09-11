@@ -1,53 +1,53 @@
 import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { TableRowMenuContext as ITableRowMenuContext, TableRowMenuProviderProps } from "./TableRowMenuContext.types";
+import {
+  type TableRowMenuContext as ITableRowMenuContext,
+  type TableRowMenuProviderProps
+} from "./TableRowMenuContext.types";
 
 const TableRowMenuContext = createContext<ITableRowMenuContext | undefined>(undefined);
 
 export const TableRowMenuProvider = ({ value, children }: TableRowMenuProviderProps) => {
   const { tableRootRef, hoveredRowRef, isMenuOpen, resetHoveredRow, setHoveredRowRef, setIsMenuOpen } = value;
-  const rowMouseLeaveTimeoutId = useRef<ReturnType<typeof setTimeout>>(null);
   const [menuButtonPosition, setMenuButtonPosition] = useState(0);
-  const hasMenuRef = useRef<boolean | null>(null);
-
-  const resetTimeout = useCallback(() => {
-    clearTimeout(rowMouseLeaveTimeoutId.current);
-    rowMouseLeaveTimeoutId.current = null;
-  }, []);
+  const isMenuHovered = useRef(false);
 
   const onMouseOverRow = useCallback(
     (rowRef: React.RefObject<HTMLDivElement>) => {
-      if (hasMenuRef.current === false || isMenuOpen || hoveredRowRef?.current === rowRef.current) return;
+      if (isMenuOpen) return;
 
-      resetTimeout();
       setHoveredRowRef(rowRef);
       const tableRootTop = tableRootRef.current.getBoundingClientRect().top;
       const rowTop = rowRef.current.getBoundingClientRect().top;
       setMenuButtonPosition(rowTop - tableRootTop);
-      if (hasMenuRef.current === null) {
-        setTimeout(() => {
-          hasMenuRef.current = !!document?.querySelector(`[data-row-menu-id]`);
-        });
-      }
     },
-    [isMenuOpen, hoveredRowRef, resetTimeout, setHoveredRowRef, tableRootRef]
+    [isMenuOpen, setHoveredRowRef, tableRootRef]
   );
 
   const onMouseLeaveRow = useCallback(() => {
-    if (isMenuOpen) return;
-    rowMouseLeaveTimeoutId.current = setTimeout(() => {
-      setHoveredRowRef(null);
-    }, 400);
+    if (isMenuOpen || isMenuHovered.current) return;
+    setHoveredRowRef(null);
   }, [isMenuOpen, setHoveredRowRef]);
 
   const onMouseOverRowMenu = useCallback(() => {
-    if (isMenuOpen) return;
-    resetTimeout();
-  }, [isMenuOpen, resetTimeout]);
+    isMenuHovered.current = true;
+  }, []);
 
   const onMouseLeaveRowMenu = useCallback(() => {
+    isMenuHovered.current = false;
     if (isMenuOpen) return;
-    setHoveredRowRef(null);
-  }, [isMenuOpen, setHoveredRowRef]);
+
+    if (!hoveredRowRef?.current) {
+      setHoveredRowRef(null);
+    }
+  }, [isMenuOpen, hoveredRowRef, setHoveredRowRef]);
+
+  const setTableMenuShown = useCallback(() => {
+    setIsMenuOpen(true);
+  }, [setIsMenuOpen]);
+
+  const setTableMenuHidden = useCallback(() => {
+    setIsMenuOpen(false);
+  }, [setIsMenuOpen]);
 
   const contextValue = useMemo<ITableRowMenuContext>(
     () => ({
@@ -58,8 +58,8 @@ export const TableRowMenuProvider = ({ value, children }: TableRowMenuProviderPr
       onMouseLeaveRow,
       onMouseOverRowMenu,
       onMouseLeaveRowMenu,
-      setTableMenuShown: () => setIsMenuOpen(true),
-      setTableMenuHidden: () => setIsMenuOpen(false)
+      setTableMenuShown,
+      setTableMenuHidden
     }),
     [
       hoveredRowRef,
@@ -69,7 +69,8 @@ export const TableRowMenuProvider = ({ value, children }: TableRowMenuProviderPr
       onMouseLeaveRowMenu,
       onMouseOverRow,
       onMouseOverRowMenu,
-      setIsMenuOpen
+      setTableMenuShown,
+      setTableMenuHidden
     ]
   );
 

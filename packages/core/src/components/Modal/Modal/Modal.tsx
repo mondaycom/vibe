@@ -4,14 +4,14 @@ import { RemoveScroll } from "react-remove-scroll";
 import FocusLock from "react-focus-lock";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
-import { ModalProps } from "./Modal.types";
+import { type ModalProps } from "./Modal.types";
 import ModalTopActions from "../ModalTopActions/ModalTopActions";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { camelCase } from "lodash-es";
+import { camelCase } from "es-toolkit";
 import { ModalProvider } from "../context/ModalContext";
-import { ModalProviderValue } from "../context/ModalContext.types";
+import { type ModalProviderValue } from "../context/ModalContext.types";
 import { keyCodes } from "../../../constants";
 import {
   modalAnimationAnchorPopVariants,
@@ -162,6 +162,7 @@ const Modal = forwardRef(
                         )}
                         id={id}
                         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+                        data-vibe={ComponentVibeId.MODAL}
                         role="dialog"
                         aria-modal
                         aria-labelledby={ariaLabelledby || titleId}

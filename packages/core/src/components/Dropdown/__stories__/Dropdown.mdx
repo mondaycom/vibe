@@ -12,17 +12,6 @@ import { TipDevTipPopover } from "./Dropdown.stories.helpers";
 
 # Dropdown
 
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
-
 Dropdown present a list of options from which a user can select one or several.
 
 <Canvas of={DropdownStories.Overview} />
@@ -46,6 +35,31 @@ import { Dropdown } from "@vibe/core";
     "Avoid having multiple lines of text in a dropdown. If the text is too long for one line, add an ellipsis (…).",
     "When the menu is open, each option in the menu should be the same height as the field.",
     "When organizing dropdown menu items, sort the list in a logical order by putting the most selected option at the top."
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure proper label association.
+    </>,
+    <>
+      Use <code>ariaLabel</code> prop when you need to provide a custom accessible name for the dropdown.
+    </>,
+    <>
+      Use <code>inputAriaLabel</code> prop when you need to provide a specific accessible name for the input field.
+    </>,
+    <>
+      Use <code>menuAriaLabel</code> prop when you need to provide a custom accessible name for the dropdown menu.
+    </>,
+    <>
+      Use <code>menuId</code> prop to provide a specific ID for the menu container for screen reader navigation.
+    </>,
+    <>
+      Use <code>tabIndex</code> prop for custom keyboard navigation order when needed.
+    </>
   ]}
 />
 

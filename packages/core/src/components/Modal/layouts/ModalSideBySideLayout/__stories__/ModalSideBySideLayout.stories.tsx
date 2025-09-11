@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { type Meta, type StoryObj } from "@storybook/react";
 import Modal from "../../../Modal/Modal";
 import { createStoryMetaSettingsDecorator } from "../../../../../storybook";
 import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
@@ -179,6 +179,7 @@ export const Wizard: Story = {
               <FieldLabel labelText="Language preferences" />
               <Dropdown
                 insideOverflowWithTransformContainer
+                insideLayerContext
                 size="small"
                 placeholder={dropdownOptions[0].label}
                 options={dropdownOptions}

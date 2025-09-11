@@ -1,11 +1,17 @@
 import cx from "classnames";
-import React, { FC } from "react";
-import { IComboboxCategory } from "../ComboboxConstants";
+import React, { type FC } from "react";
+import { type IComboboxCategory } from "../ComboboxConstants";
 import styles from "./ComboboxCategory.module.scss";
 import comboboxStyles from "../../Combobox.module.scss";
 
 export interface ComboboxCategoryProps {
+  /**
+   * The category data.
+   */
   category: IComboboxCategory;
+  /**
+   * Class name applied to the category element.
+   */
   className: string;
 }
 

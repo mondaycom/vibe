@@ -8,22 +8,11 @@ import {
 import { ComponentRules, Link, UsageGuidelines } from "vibe-storybook-components";
 import { TipOtherComponents } from "./Toggle.stories.helpers";
 import * as ToggleStories from "./Toggle.stories";
-import "./Toggle.stories.scss";
+import Flex from "../../Flex/Flex";
 
 <Meta of={ToggleStories} />
 
 # Toggle
-
-- [Overview](#overview)
-- [Props](#props)
-- [Usage](#usage)
-- [Variants](#variants)
-- [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
-- [Related components](#related-components)
-- [Feedback](#feedback)
-
-## Overview
 
 Allow users to turn an single option on or off. They are usually used to activate or deactivate a specific setting.
 
@@ -55,6 +44,28 @@ import { Toggle } from "@vibe/core";
 
 <TipOtherComponents />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Using an <code>id</code> is highly recommended for all instances to ensure proper label association.
+    </>,
+    <>
+      Use <code>ariaLabel</code> prop when you need to provide additional context for screen readers.
+    </>,
+    <>
+      Use <code>ariaLabelledBy</code> prop when an external element provides the accessible name for the toggle.
+    </>,
+    <>
+      Use <code>ariaControls</code> prop when the toggle controls other elements on the page.
+    </>,
+    <>
+      Use <code>disabled</code> prop appropriately to indicate when toggles are not available for interaction.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### States
@@ -78,17 +89,17 @@ Toggle appear in 2 sizes: small and medium.
     {
       positive: {
         component: (
-          <div className="monday-storybook-toggle_row">
+          <Flex gap="large">
             Dark mode <Toggle />
-          </div>
+          </Flex>
         ),
         description: "Use toggle only for on and off actions. We recommend not to change these lables values."
       },
       negative: {
         component: (
-          <div className="monday-storybook-toggle_row">
+          <Flex gap="large">
             Theme <Toggle offOverrideText="Light mode" onOverrideText="Dark mode" />
-          </div>
+          </Flex>
         ),
         description: (
           <>
@@ -106,10 +117,10 @@ Toggle appear in 2 sizes: small and medium.
       },
       negative: {
         component: (
-          <div className="monday-storybook-toggle_column">
+          <Flex direction="column" gap="medium" align="start">
             <Toggle offOverrideText="" />
             <Toggle areLabelsHidden />
-          </div>
+          </Flex>
         ),
         description: "Don’t remove toggle labels, since users would not know what state it represents. "
       }

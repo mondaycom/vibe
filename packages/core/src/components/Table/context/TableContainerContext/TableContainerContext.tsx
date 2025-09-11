@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react";
 import {
-  TableContainerContext as ITableContainerContext,
-  TableContainerProviderProps
+  type TableContainerContext as ITableContainerContext,
+  type TableContainerProviderProps
 } from "./TableContainerContext.types";
 
 const TableContainerContext = createContext<ITableContainerContext | undefined>(undefined);

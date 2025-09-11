@@ -1,5 +1,5 @@
-import { Variants } from "framer-motion";
-import { RefObject } from "react";
+import { type Variants } from "framer-motion";
+import { type RefObject } from "react";
 
 const enterEase = [0.0, 0.0, 0.4, 1.0];
 const exitEase = [0.6, 0.0, 1.0, 1.0];
@@ -9,7 +9,7 @@ export const modalAnimationOverlayVariants: Variants = {
     opacity: 0
   },
   enter: {
-    opacity: 0.7,
+    opacity: 1,
     transition: {
       duration: 0.1,
       ease: enterEase

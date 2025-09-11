@@ -1,10 +1,10 @@
 import cx from "classnames";
-import React, { PureComponent, ReactElement } from "react";
+import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
-import { Manager, Modifier, Popper, Reference } from "react-popper";
-import { isFunction } from "lodash-es";
+import { Manager, type Modifier, Popper, Reference } from "react-popper";
+import { isFunction } from "es-toolkit";
 import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
-import { DialogContent } from "./DialogContent/DialogContent";
+import DialogContent from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../Refable/Refable";
 import {
@@ -12,147 +12,165 @@ import {
   HideShowEvent as DialogTriggerEventEnum,
   DialogPosition as DialogPositionEnum
 } from "./DialogConstants";
-import { VibeComponentProps } from "../../types";
-import * as PopperJS from "@popperjs/core";
+import { type VibeComponentProps } from "../../types";
+import type * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { DialogAnimationType, DialogPosition, DialogTriggerEvent } from "./Dialog.types";
+import { type DialogAnimationType, type DialogPosition, type DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
 export interface DialogProps extends VibeComponentProps {
   /**
-   * A Classname to be added to <span> element which wraps the children
+   * Class name applied to the reference wrapper element.
    */
   referenceWrapperClassName?: string;
   /**
-   * Where the dialog should be in reference to the children,
-   * Top, Left, Right, Bottom ...
+   * The wrapper element type to use for React components. Defaults to "span".
+   */
+  referenceWrapperElement?: "span" | "div";
+  /**
+   * The placement of the dialog relative to the reference element.
    */
   position?: DialogPosition;
   /**
-   * PopperJS Modifiers type
+   * Custom Popper.js modifiers.
    * https://popper.js.org/docs/v2/modifiers/
    */
   modifiers?: Modifier<any>[];
+  /**
+   * The starting edge of the dialog.
+   */
   startingEdge?: string;
   /**
-   * How much to move the dialog in relative to children
-   * main is the axis in which the position is aligned to
-   * secondary is the vertical axes to the position
+   * Offset values for positioning adjustments.
+   * `main` - horizontal offset
+   * `secondary` - vertical offset
    */
   moveBy?: { main?: number; secondary?: number };
   /**
-   * how much delay should the Dialog wait until it should trigger the show in MS
+   * Delay in milliseconds before showing the dialog.
    */
   showDelay?: number;
   /**
-   * how much delay should the Dialog wait until it should trigger the hide in MS
+   * Delay in milliseconds before hiding the dialog.
    */
   hideDelay?: number;
   /**
-   * an array of hide/show trigger -
+   * Events that trigger showing the dialog.
    */
   showTrigger?: DialogTriggerEvent | DialogTriggerEvent[];
   /**
-   * an array of hide/show trigger -
+   * Events that trigger hiding the dialog.
    */
   hideTrigger?: DialogTriggerEvent | DialogTriggerEvent[];
   /**
-   * If true, prevents opened Dialog from closing on mouseEnter, and closes Dialog when mouse leaves it
+   * If true, prevents closing the dialog when the mouse enters it.
    */
   showOnDialogEnter?: boolean;
   /**
-   * Show the Dialog when the children are mounting
+   * If true, shows the dialog when the component mounts.
    */
   shouldShowOnMount?: boolean;
   /**
-   * disable the opening of the dialog
+   * If true, disables opening the dialog.
    */
   disable?: boolean;
   /**
-   * open is a controlled prop to open the dialog
+   * Controls the open state of the dialog.
    */
   open?: boolean;
   /**
-   * used when state is derived from props
+   * Derived state control for managing dialog visibility.
    */
   isOpen?: boolean;
   /**
-   * if this class exists on the children the show trigger will be ignored
+   * Classes that prevent showing the dialog when present.
    */
   showTriggerIgnoreClass?: string | Array<string>;
   /**
-   * if this class exists on the children the hide trigger will be ignored
+   * Classes that prevent hiding the dialog when present.
    */
   hideTriggerIgnoreClass?: string | Array<string>;
   /**
-   * Dialog animation type
+   * The animation type used for the dialog.
    */
   animationType?: DialogAnimationType;
   /**
-   * Classname to be added to the content container
+   * Class name applied to the dialog content container.
    */
   wrapperClassName?: string;
   /**
-   * Prevent Animation
+   * If true, prevents animation when mounting.
    */
   preventAnimationOnMount?: boolean;
   /**
-   * the container selector in which to append the dialog
-   * for examples: "body" , ".my-class", "#my-id"
+   * The CSS selector of the container where the dialog is rendered.
    */
   containerSelector?: string;
   /**
-   * should position the tooltip element
-   * https://popper.js.org/docs/v2/modifiers/arrow/
+   * If true, positions the tooltip element.
    */
   tooltip?: boolean;
   /**
-   * class name to add to the tooltip element
+   * Class name applied to the tooltip element.
    */
   tooltipClassName?: string;
   /**
-   * callback to be called when the dialog is shown
+   * Callback fired when the dialog is shown.
    */
   onDialogDidShow?: (event?: DialogEvent, eventName?: DialogTriggerEvent | string) => void;
   /**
-   * callback to be called when the dialog is hidden
+   * Callback fired when the dialog is hidden.
    */
   onDialogDidHide?: (event: DialogEvent, eventName: DialogTriggerEvent | string) => void;
   /**
-   * callback to be called when click outside is being triggered
+   * Callback fired when clicking outside the dialog.
    */
   onClickOutside?: (event: React.MouseEvent) => void;
   /**
-   * callback to be called when click on the content is being triggered
+   * Callback fired when clicking inside the dialog content.
    */
   onContentClick?: (event: React.MouseEvent) => void;
   /**
-   * z-index to add to the dialog
+   * The z-index applied to the dialog.
    */
   zIndex?: number;
+  /**
+   * If true, uses derived state from props.
+   */
   useDerivedStateFromProps?: boolean;
   /**
-   * Make the dialog disappear when the element it is attached to becomes hidden
+   * If true, makes the dialog disappear when the reference element is hidden.
    */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * If true, triggers the callback when the dialog mounts.
+   */
   shouldCallbackOnMount?: boolean;
+  /**
+   * If true, instantly shows and hides the dialog without delay.
+   */
   instantShowAndHide?: boolean;
+  /**
+   * Callback to dynamically adjust show delay and animation behavior.
+   */
   getDynamicShowDelay?: () => { showDelay: number; preventAnimation: boolean };
+  /**
+   * The content displayed inside the dialog.
+   */
   content?: (() => JSX.Element) | JSX.Element;
   /**
-   * The element where we will position the dialog beside.
+   * The element to position the dialog beside.
    */
   children?: ReactElement | ReactElement[] | string;
   /**
-   * Treats keyboard focus/blur events as mouse-enter/mouse-leave events
+   * If true, keyboard focus/blur events behave like mouse enter/leave.
    */
   addKeyboardHideShowTriggersByDefault?: boolean;
   /**
-   * If true disable the scroll for the containerSelector element.
-   * If string use it as selector to prevent scroll.
+   * If true, disables scrolling for the container element.
    */
   disableContainerScroll?: boolean | string;
   /**
@@ -167,8 +185,17 @@ export interface DialogProps extends VibeComponentProps {
 }
 
 export interface DialogState {
+  /**
+   * If true, the dialog is open.
+   */
   isOpen?: boolean;
+  /**
+   * If true, the dialog state is derived from props.
+   */
   shouldUseDerivedStateFromProps?: boolean;
+  /**
+   * If true, prevents animation when opening or closing the dialog.
+   */
   preventAnimation?: boolean;
 }
 
@@ -272,6 +299,14 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   componentWillUnmount() {
     if (isClient()) {
       document.removeEventListener("keyup", this.closeDialogOnEscape);
+    }
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = null;
+    }
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
     }
   }
 
@@ -505,6 +540,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       tooltip,
       tooltipClassName,
       referenceWrapperClassName,
+      referenceWrapperElement,
       zIndex,
       hideWhenReferenceHidden,
       disableContainerScroll,
@@ -529,6 +565,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
             return (
               <Refable
                 className={cx(referenceWrapperClassName)}
+                wrapperElement={referenceWrapperElement}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
                 onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}

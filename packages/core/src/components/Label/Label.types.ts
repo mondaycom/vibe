@@ -1,4 +1,4 @@
-import { contentColors } from "../../utils/colors-vars-map";
+import { type contentColors } from "../../utils/colors-vars-map";
 
 export type LabelSizes = "small" | "medium";
 

@@ -1,0 +1,19 @@
+.infoText {
+  color: var(--secondary-text-color);
+
+  &.error {
+    color: var(--negative-color);
+  }
+
+  &.success {
+    color: var(--positive-color);
+  }
+
+  &.disabled {
+    color: var(--disabled-text-color);
+  }
+
+  &.readOnly {
+    color: var(--secondary-text-color);
+  }
+}

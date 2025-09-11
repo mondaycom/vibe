@@ -1,6 +1,11 @@
-import { IconType } from "../Icon";
-import { ReactElement } from "react";
-import { SliderSize, SliderColor as SliderColorType, SliderLabelPosition, SliderLabelColor } from "./Slider.types";
+import { type IconType } from "../Icon";
+import { type ReactElement } from "react";
+import {
+  type SliderSize,
+  type SliderColor as SliderColorType,
+  type SliderLabelPosition,
+  type SliderLabelColor
+} from "./Slider.types";
 
 export const BEM_PREFIX = "monday";
 

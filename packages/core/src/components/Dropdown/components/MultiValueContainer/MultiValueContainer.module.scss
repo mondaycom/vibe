@@ -1,7 +1,10 @@
+/* stylelint-disable selector-class-pattern */
+
 @import "~monday-ui-style/dist/mixins";
 
 .chip-with-input-wrapper {
   display: flex;
+  max-width: 100%;
 }
 .placeholder-container {
   margin-left: 6px;
@@ -57,5 +60,16 @@
 
   .chips {
     flex-shrink: 0;
+  }
+}
+
+.dropdownCounter {
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+    box-shadow: 0 0 0 1px var(--primary-hover-color) inset;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 1px var(--primary-hover-color) inset;
   }
 }

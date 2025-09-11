@@ -1,24 +1,55 @@
 import cx from "classnames";
-import { camelCase } from "lodash-es";
-import React, { FC, forwardRef, ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { camelCase } from "es-toolkit";
+import React, {
+  type FC,
+  forwardRef,
+  type ReactElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
-import VibeComponentProps from "../../../types/VibeComponentProps";
+import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { NOOP } from "../../../utils/function-utils";
-import { TabProps } from "../Tab/Tab";
+import { type TabProps } from "../Tab/Tab";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./TabList.module.scss";
 
 export interface TabListProps extends VibeComponentProps {
+  /**
+   * Callback fired when the active tab changes.
+   */
   onTabChange?: (tabId: number) => void;
+  /**
+   * The index of the currently active tab.
+   */
   activeTabId?: number;
+  /**
+   * The type of tab style.
+   */
   tabType?: string;
+  /**
+   * The size of the tab list.
+   */
   size?: string;
+  /**
+   * If true, Sets an E2E underline under the whole tabs component.
+   */
+  stretchedUnderline?: boolean;
+  /**
+   * Array of corresponding TabPanel ids for aria-controls relationship.
+   */
+  tabPanelIds?: string[];
+  /**
+   * The child elements representing tabs.
+   */
   children?: ReactElement<TabProps>[];
 }
-
 const TabList: FC<TabListProps> = forwardRef(
   (
     {
@@ -28,6 +59,8 @@ const TabList: FC<TabListProps> = forwardRef(
       activeTabId = 0,
       tabType = "Compact",
       size,
+      stretchedUnderline = false,
+      tabPanelIds = [],
       children,
       "data-testid": dataTestId
     },
@@ -35,17 +68,31 @@ const TabList: FC<TabListProps> = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
+    const tabRefs = useRef<Record<number, HTMLElement | null>>({});
 
     const [activeTabState, setActiveTabState] = useState<number>(activeTabId);
 
     const prevActiveTabIdProp = usePrevious(activeTabId);
+    const prevActiveTabState = usePrevious(activeTabState);
 
     useEffect(() => {
       // Update active tab if changed from props
+
       if (activeTabId !== prevActiveTabIdProp && activeTabId !== activeTabState) {
         setActiveTabState(activeTabId);
       }
     }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
+
+    // Focus management: when activeTabState changes, focus the active tab
+    useEffect(() => {
+      if (
+        prevActiveTabState !== undefined &&
+        prevActiveTabState !== activeTabState &&
+        tabRefs.current[activeTabState]
+      ) {
+        tabRefs.current[activeTabState]?.focus();
+      }
+    }, [activeTabState, prevActiveTabState]);
 
     const disabledTabIds = useMemo(() => {
       const disabledIds = new Set<number>();
@@ -56,7 +103,6 @@ const TabList: FC<TabListProps> = forwardRef(
       });
       return disabledIds;
     }, [children]);
-
     const onTabSelect = useCallback(
       (tabId: number) => {
         if (disabledTabIds.has(tabId)) return;
@@ -65,7 +111,6 @@ const TabList: FC<TabListProps> = forwardRef(
       },
       [onTabChange, disabledTabIds]
     );
-
     const onTabClick = useCallback(
       (value: HTMLElement | void, tabId: number) => {
         const tabCallbackFunc = children[tabId].props?.onClick;
@@ -75,7 +120,6 @@ const TabList: FC<TabListProps> = forwardRef(
       },
       [children, disabledTabIds, onTabSelect]
     );
-
     const getItemByIndex = useCallback((index: number): ReactElement<TabProps> => children[index], [children]);
     const disabledIndexes = useMemo(() => Array.from(disabledTabIds), [disabledTabIds]);
     const ulRef = useRef();
@@ -85,38 +129,58 @@ const TabList: FC<TabListProps> = forwardRef(
       itemsCount: children?.length,
       getItemByIndex,
       onItemClicked: onTabClick,
-      disabledIndexes
+      disabledIndexes,
+      circularNavigation: true
     });
+
+    // Focus management: when focusIndex changes during keyboard navigation, focus the focused tab
+    const prevFocusIndex = usePrevious(focusIndex);
+    useEffect(() => {
+      if (focusIndex !== undefined && focusIndex >= 0 && prevFocusIndex !== focusIndex && tabRefs.current[focusIndex]) {
+        tabRefs.current[focusIndex]?.focus();
+      }
+    }, [focusIndex, prevFocusIndex]);
 
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
+        const isActive = activeTabState === index;
+
+        const shouldBeFocusable = focusIndex !== undefined && focusIndex >= 0 ? focusIndex === index : isActive;
+
         return React.cloneElement(child, {
           value: index,
-          active: activeTabState === index,
+          active: isActive,
           focus: focusIndex === index,
           onClick: onSelectionAction,
+          stretchedUnderline,
           className: cx(styles.tabListTabWrapper, child.props.className),
-          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName)
-        });
+          tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
+          tabIndex: shouldBeFocusable ? 0 : -1,
+          ariaControls: tabPanelIds[index],
+          ref: (element: HTMLElement | null) => {
+            tabRefs.current[index] = element;
+          }
+        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string; ariaControls?: string });
       });
       return childrenToRender;
-    }, [children, activeTabState, focusIndex, onSelectionAction]);
+    }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, tabPanelIds, id]);
 
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))])}
+        className={cx(styles.tabsWrapper, className, [getStyle(styles, camelCase(tabType))], {
+          [styles.stretchedUnderline]: stretchedUnderline
+        })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB_LIST, id)}
       >
-        <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
+        <ul ref={ulRef} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}
         </ul>
       </div>
     );
   }
 );
-
 Object.assign(TabList, {
   isTabList: true
 });

@@ -1,9 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Avatar renders correctly renders correctly accessibility props 1`] = `
+exports[`Avatar renders correctly > renders correctly accessibility props 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -24,10 +25,11 @@ exports[`Avatar renders correctly renders correctly accessibility props 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly an icon 1`] = `
+exports[`Avatar renders correctly > renders correctly an icon 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -48,10 +50,11 @@ exports[`Avatar renders correctly renders correctly an icon 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly square avatar 1`] = `
+exports[`Avatar renders correctly > renders correctly square avatar 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -72,10 +75,11 @@ exports[`Avatar renders correctly renders correctly square avatar 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with badges 1`] = `
+exports[`Avatar renders correctly > renders correctly with badges 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -128,10 +132,11 @@ exports[`Avatar renders correctly renders correctly with badges 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with damaged src badges 1`] = `
+exports[`Avatar renders correctly > renders correctly with damaged src badges 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -184,10 +189,11 @@ exports[`Avatar renders correctly renders correctly with damaged src badges 1`] 
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with empty props 1`] = `
+exports[`Avatar renders correctly > renders correctly with empty props 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -208,10 +214,11 @@ exports[`Avatar renders correctly renders correctly with empty props 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with image 1`] = `
+exports[`Avatar renders correctly > renders correctly with image 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -228,10 +235,11 @@ exports[`Avatar renders correctly renders correctly with image 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with image and text 1`] = `
+exports[`Avatar renders correctly > renders correctly with image and text 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -250,10 +258,11 @@ exports[`Avatar renders correctly renders correctly with image and text 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with not valid image 1`] = `
+exports[`Avatar renders correctly > renders correctly with not valid image 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div
@@ -270,10 +279,11 @@ exports[`Avatar renders correctly renders correctly with not valid image 1`] = `
 </div>
 `;
 
-exports[`Avatar renders correctly renders correctly with text 1`] = `
+exports[`Avatar renders correctly > renders correctly with text 1`] = `
 <div
   className="avatar large"
   data-testid="avatar"
+  data-vibe="Avatar"
   style={{}}
 >
   <div

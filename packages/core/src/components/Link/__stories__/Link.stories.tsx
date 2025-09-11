@@ -1,9 +1,8 @@
 import React from "react";
-import Link from "../Link";
+import { type Meta, type StoryObj } from "@storybook/react";
+import Link, { type LinkProps } from "../Link";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
-import { createComponentTemplate } from "vibe-storybook-components";
-import "./Link.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Link,
@@ -15,18 +14,12 @@ export default {
   component: Link,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof Link>;
 
-const linkTemplate = createComponentTemplate(Link);
+type Story = StoryObj<typeof Link>;
 
-export const Overview = {
-  render: linkTemplate.bind({}),
-  name: "Overview",
-
-  args: {
-    text: "Read more",
-    href: "https://www.monday.com"
-  },
+export const Overview: Story = {
+  render: (args: LinkProps) => <Link id="overview-link" text="Read more" href="https://www.monday.com" {...args} />,
   parameters: {
     docs: {
       liveEdit: {
@@ -36,16 +29,15 @@ export const Overview = {
   }
 };
 
-export const States = {
-  render: () => <Link text="Default" href="https://www.monday.com" />,
-  name: "States"
+export const States: Story = {
+  render: () => <Link id="states-default" text="Default" href="https://www.monday.com" />
 };
 
-export const RightToLeft = {
+export const RightToLeft: Story = {
   render: () => (
     <>
-      <Link text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
-      <Link text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
+      <Link id="rtl-arabic" text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
+      <Link id="rtl-hebrew" text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
     </>
   ),
   parameters: {
@@ -57,11 +49,11 @@ export const RightToLeft = {
   }
 };
 
-export const WithIcons = {
+export const WithIcons: Story = {
   render: () => (
     <>
-      <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />
-      <Link text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
+      <Link id="icon-start" text="Read more" href="https://www.monday.com" icon={ExternalPage} />
+      <Link id="icon-end" text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
     </>
   ),
   parameters: {
@@ -73,22 +65,22 @@ export const WithIcons = {
   }
 };
 
-export const ReferenceLink = {
+export const ReferenceLink: Story = {
   render: () => (
     <div>
       {`Lorem Ipsum has been the industry's `}
-      <Link inlineText inheritFontSize text="standard" href="https://www.monday.com" />
+      <Link id="reference-link" inlineText inheritFontSize text="standard" href="https://www.monday.com" />
       {` dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
     </div>
   )
 };
 
-export const ShorteningTexts = {
+export const ShorteningTexts: Story = {
   render: () => (
     <div>
       {`Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
       galley of type and scrambled it to make a type specimen book. `}
-      <Link text="Read more" href="https://www.monday.com" inheritFontSize inlineText />
+      <Link id="shortening-link" text="Read more" href="https://www.monday.com" inheritFontSize inlineText />
     </div>
   )
 };
