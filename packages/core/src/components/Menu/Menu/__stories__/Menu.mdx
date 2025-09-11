@@ -46,6 +46,31 @@ import { Menu } from "@vibe/core";
 
 <TipCombobox />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Menu to enable proper accessibility associations and unique identification.
+    </>,
+    <>
+      Use the <code>ariaLabel</code> prop to provide a meaningful accessible name for the menu that describes its
+      purpose (e.g., "Navigation menu", "Actions menu", "Options menu").
+    </>,
+    <>
+      Use the <code>ariaDescribedBy</code> prop to link the menu to additional descriptive text by providing the{" "}
+      <code>id</code> of the descriptive element.
+    </>,
+    <>
+      It is recommended to use <code>focusItemIndexOnMount={0}</code> to focus the first menu item when the menu opens.
+    </>,
+    <>
+      Ensure menu items have clear, descriptive text or use appropriate <code>ariaLabel</code> props on individual menu
+      items for icon-only items.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Sizes

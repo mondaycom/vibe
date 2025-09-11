@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { camelCase, isFunction } from "es-toolkit/compat";
+import { isFunction } from "es-toolkit";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
 import { type Modifier } from "react-popper";

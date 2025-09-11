@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
-import { isFunction, noop as NOOP, camelCase } from "es-toolkit/compat";
+import { isFunction } from "es-toolkit";
+import { noop as NOOP, camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";

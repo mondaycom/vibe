@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.65.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.64.0...@vibe/core@3.65.0) (2025-09-08)
+
+
+### Features
+
+* **Combobox:** add tooltipProps and ComboboxOption for enhanced tooltip customization ([#3096](https://github.com/mondaycom/vibe/issues/3096)) ([3fa0d10](https://github.com/mondaycom/vibe/commit/3fa0d10e47010b7872b6a9af6f5bdebbd73269f7))
+
+
+
+
+
+# [3.64.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.1...@vibe/core@3.64.0) (2025-09-07)
+
+
+### Features
+
+* **AttentionBox:** implement new AttentionBox component for better DX and improved UI ([#2969](https://github.com/mondaycom/vibe/issues/2969)) ([ad3e2e1](https://github.com/mondaycom/vibe/commit/ad3e2e15f16d89e3a3a53ed677f789115e76c057))
+* **Dropdown:** add loading state ([#3090](https://github.com/mondaycom/vibe/issues/3090)) ([6101b24](https://github.com/mondaycom/vibe/commit/6101b24014d8364e56769d1bcc81d015be6f569e))
+
+
+
+
+
+## [3.63.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.0...@vibe/core@3.63.1) (2025-09-04)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.63.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.62.0...@vibe/core@3.63.0) (2025-09-04)
+
+
+### Bug Fixes
+
+* **Chips:** warning color missing hover state ([#3080](https://github.com/mondaycom/vibe/issues/3080)) ([f21b62b](https://github.com/mondaycom/vibe/commit/f21b62b0da4e85530288cf955e74402f9343b78e))
+
+
+### Features
+
+* add getVibeComponentAccessibility tool to retrieve a11y requirements ([#3084](https://github.com/mondaycom/vibe/issues/3084)) ([45314fb](https://github.com/mondaycom/vibe/commit/45314fba533f7ef920b6e325c29de6afe6a7bf22))
+
+
+### Performance Improvements
+
+* replace lodash-es with es-toolkit compat ([#3072](https://github.com/mondaycom/vibe/issues/3072)) ([14dd2bb](https://github.com/mondaycom/vibe/commit/14dd2bb14112a07ce3e649937e281a20516ecb71))
+
+
+
+
+
 # [3.62.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.1...@vibe/core@3.62.0) (2025-08-27)
 
 

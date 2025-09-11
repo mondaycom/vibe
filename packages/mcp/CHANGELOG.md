@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.6.0...@vibe/mcp@0.7.0) (2025-09-08)
+
+
+### Features
+
+* update mcp version ([#3097](https://github.com/mondaycom/vibe/issues/3097)) ([eb652c2](https://github.com/mondaycom/vibe/commit/eb652c2ab4407eded3ca6bf7aec25f75b16cd338))
+
+
+
+
+
+# [0.6.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.2...@vibe/mcp@0.6.0) (2025-09-04)
+
+
+### Features
+
+* add getVibeComponentAccessibility tool to retrieve a11y requirements ([#3084](https://github.com/mondaycom/vibe/issues/3084)) ([45314fb](https://github.com/mondaycom/vibe/commit/45314fba533f7ef920b6e325c29de6afe6a7bf22))
+
+
+
+
+
 ## [0.5.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.1...@vibe/mcp@0.5.2) (2025-08-14)
 
 **Note:** Version bump only for package @vibe/mcp

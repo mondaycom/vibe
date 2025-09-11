@@ -1,4 +1,4 @@
-import { isNil } from "es-toolkit/compat";
+import { isNil } from "es-toolkit";
 
 export function getIconScreenReaderAccessProps({
   isClickable,

@@ -1,4 +1,4 @@
-import { memoize as _memoize } from "es-toolkit/compat";
+import { memoize as _memoize } from "es-toolkit";
 
 export function isInsideClass(domElement: HTMLElement, classOrClassesName: Array<string> | string) {
   if (!classOrClassesName) return false;
@@ -26,7 +26,9 @@ const _getScrollableParent = _memoize(
     }
     return document.body;
   },
-  (node: HTMLElement) => node.outerHTML
+  {
+    getCacheKey: (node: HTMLElement) => node.outerHTML
+  }
 );
 
 export const getScrollableParent: (node: HTMLElement) => HTMLElement = _getScrollableParent;

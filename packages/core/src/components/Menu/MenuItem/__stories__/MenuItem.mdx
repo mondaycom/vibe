@@ -20,6 +20,25 @@ import { MenuItem } from "@vibe/core";
 
 <PropsTable />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>aria-label</code> prop when you need to provide a custom accessible name that differs from the
+      visible title text, especially for icon-only menu items.
+    </>,
+    <>
+      For menu items with submenus, ensure the submenu content is properly structured with descriptive menu item titles
+      for clear navigation hierarchy.
+    </>,
+    <>
+      Use the <code>disabled</code> prop appropriately with a <code>disableReason</code> to provide context for why a
+      menu item cannot be selected.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### States

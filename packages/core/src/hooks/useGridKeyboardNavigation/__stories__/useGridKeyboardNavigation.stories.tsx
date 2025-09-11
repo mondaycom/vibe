@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useState, useMemo } from "react";
 import { action } from "@storybook/addon-actions";
 import cx from "classnames";
-import { range } from "es-toolkit/compat";
+import { range } from "es-toolkit";
 import useGridKeyboardNavigation from "../useGridKeyboardNavigation";
 import { Button } from "@vibe/button";
 import "./useGridKeyboardNavigation.stories.scss";

@@ -13,87 +13,94 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "RemoveRound",
-      file: "RemoveRound.svg",
-      description: "Collapses text to hide details",
-      tags: "Remove, Collapse, Text, Reveal, Icon, Action"
+    name: "EnterArrow",
+    file: "EnterArrow.svg",
+    description: "Indicates &quot;enter&quot; action without a surrounding box",
+    tags: "Enter, Arrow, Indicate, Icon, Direction, Action"
   },
 
   {
-      name: "ScheduledSend",
-      file: "ScheduledSend.svg",
-      description: "Used for sending scheduled messages",
-      tags: "Scheduled, Send, Time, Notification, Message"
+    name: "RemoveRound",
+    file: "RemoveRound.svg",
+    description: "Collapses text to hide details",
+    tags: "Remove, Collapse, Text, Reveal, Icon, Action"
   },
 
   {
-      name: "NotificationChecked",
-      file: "NotificationChecked.svg",
-      description: "Represents active notification",
-      tags: "Notification, Bell, Checkmark, Alert, Timeline"
+    name: "ScheduledSend",
+    file: "ScheduledSend.svg",
+    description: "Used for sending scheduled messages",
+    tags: "Scheduled, Send, Time, Notification, Message"
   },
 
   {
-      name: "TextFormatting",
-      file: "TextFormatting.svg",
-      description: "Opens a popover for text actions",
-      tags: "Formatting, Text, Actions, Popover, Composer, Editor"
+    name: "NotificationChecked",
+    file: "NotificationChecked.svg",
+    description: "Represents active notification",
+    tags: "Notification, Bell, Checkmark, Alert, Timeline"
   },
 
   {
-      name: "Signature",
-      file: "Signature.svg",
-      description: "When signature is needed",
-      tags: "Sign, Pencil, Document, Value"
+    name: "TextFormatting",
+    file: "TextFormatting.svg",
+    description: "Opens a popover for text actions",
+    tags: "Formatting, Text, Actions, Popover, Composer, Editor"
   },
 
   {
-      name: "PDF",
-      file: "PDF.svg",
-      description: "Represents PDF documents",
-      tags: "Document, File, Format, Portable, Reader, Download, View, Share"
+    name: "Signature",
+    file: "Signature.svg",
+    description: "When signature is needed",
+    tags: "Sign, Pencil, Document, Value"
   },
 
   {
-      name: "WrapText",
-      file: "WrapText.svg",
-      description: "Icon for enabling the Wrap Text feature",
-      tags: "Wrap, Text, Wrapping, Text Edit, Line"
+    name: "PDF",
+    file: "PDF.svg",
+    description: "Represents PDF documents",
+    tags: "Document, File, Format, Portable, Reader, Download, View, Share"
   },
 
   {
-      name: "MinusSmall",
-      file: "MinusSmall.svg",
-      description: "Minus icon for time counter",
-      tags: "Minus, Small, Counter, Remove, Divider, Subtract"
+    name: "WrapText",
+    file: "WrapText.svg",
+    description: "Icon for enabling the Wrap Text feature",
+    tags: "Wrap, Text, Wrapping, Text Edit, Line"
   },
 
   {
-      name: "ClassicFolder",
-      file: "ClassicFolder.svg",
-      description: "Typically used when grouping a few items together under one subject",
-      tags: "Folder, File, Classic, Binder"
+    name: "MinusSmall",
+    file: "MinusSmall.svg",
+    description: "Minus icon for time counter",
+    tags: "Minus, Small, Counter, Remove, Divider, Subtract"
   },
 
   {
-      name: "AlignRight",
-      file: "AlignRight.svg",
-      description: "Typically used to adjust the alignment of text to the right within a document or text field.",
-      tags: "Align, Right, Body, Paragraph, Text"
+    name: "ClassicFolder",
+    file: "ClassicFolder.svg",
+    description: "Typically used when grouping a few items together under one subject",
+    tags: "Folder, File, Classic, Binder"
   },
 
   {
-      name: "AlignLeft",
-      file: "AlignLeft.svg",
-      description: "Typically used to adjust the alignment of text to the left within a document or text field.",
-      tags: "Align, Left, Body, Paragraph, Text"
+    name: "AlignRight",
+    file: "AlignRight.svg",
+    description: "Typically used to adjust the alignment of text to the right within a document or text field.",
+    tags: "Align, Right, Body, Paragraph, Text"
   },
 
   {
-      name: "AlignCenter",
-      file: "AlignCenter.svg",
-      description: "Typically used to adjust the alignment of text to the center within a document or text field.",
-      tags: "Align, Center, Body, Paragraph, Text"
+    name: "AlignLeft",
+    file: "AlignLeft.svg",
+    description: "Typically used to adjust the alignment of text to the left within a document or text field.",
+    tags: "Align, Left, Body, Paragraph, Text"
+  },
+
+  {
+    name: "AlignCenter",
+    file: "AlignCenter.svg",
+    description: "Typically used to adjust the alignment of text to the center within a document or text field.",
+    tags: "Align, Center, Body, Paragraph, Text"
   },
 
   {

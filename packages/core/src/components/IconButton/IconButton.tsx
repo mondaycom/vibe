@@ -1,6 +1,6 @@
 import React, { type AriaAttributes, forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
-import { noop as NOOP } from "es-toolkit/compat";
+import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import { Icon, type SubIcon } from "@vibe/icon";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from "react";
-import { noop } from "es-toolkit/compat";
+import { noop } from "es-toolkit";
 
 export default function useTimeout({
   time = 0,

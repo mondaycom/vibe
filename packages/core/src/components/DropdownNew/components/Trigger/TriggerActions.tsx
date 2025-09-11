@@ -2,6 +2,7 @@ import React from "react";
 import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
 import { IconButton } from "../../../IconButton";
 import { Flex } from "../../../Flex";
+import { Loader } from "../../../Loader";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseListItemData } from "../../../BaseListItem";
@@ -25,7 +26,8 @@ const TriggerActions = () => {
     selectedItem,
     selectedItems = [],
     toggleMenu,
-    getMenuProps
+    getMenuProps,
+    loading
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
@@ -51,6 +53,9 @@ const TriggerActions = () => {
       }}
     >
       <Flex className={styles.actionsWrapper}>
+        {loading && (
+          <Loader size={iconButtonSize === "xs" ? 16 : iconButtonSize === "small" ? 20 : 24} color="secondary" />
+        )}
         {hasSelection && clearable && !disabled && (
           <IconButton
             data-testid="dropdown-clear-button"

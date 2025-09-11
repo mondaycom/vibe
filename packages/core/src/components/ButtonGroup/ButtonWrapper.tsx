@@ -1,5 +1,5 @@
 import React from "react";
-import { isNil } from "es-toolkit/compat";
+import { isNil } from "es-toolkit";
 import { Button, type ButtonProps } from "@vibe/button";
 import Tooltip from "../Tooltip/Tooltip";
 import { type MoveBy } from "../../types/MoveBy";

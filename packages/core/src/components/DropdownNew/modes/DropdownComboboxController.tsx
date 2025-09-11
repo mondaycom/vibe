@@ -31,6 +31,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onBlur,
     onKeyDown,
     onClear,
+    loading = false,
 
     size = "medium",
     readOnly,
@@ -122,7 +123,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     multi,
     closeMenuOnSelect,
     size,
-    toggleMenu
+    toggleMenu,
+    loading
   };
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
 };
