@@ -43,43 +43,63 @@ const BaseList = forwardRef(
             noOptionsMessage
           )}
         </div>
-      ) : (
-        options.map((group, groupIndex) => {
-          return (
-            <li key={group.label ?? groupIndex} role="group">
-              {group.label && (
-                <div className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })} role="presentation">
-                  <Text type={textVariant} color="inherit">
-                    {group.label}
-                  </Text>
-                </div>
-              )}
-              <ul className={styles.groupOptions}>
-                {group.options.map((option, itemIndex) => {
-                  const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
-                  const isHighlighted =
-                    highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
-                  const isSelected =
-                    selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+      ) : options.length === 1 && !options[0].label ? (
+        // Simple structure for non-grouped options (single group without label)
+        options[0].options.map((option, itemIndex) => {
+          const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+          const isHighlighted = highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+          const isSelected =
+            selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
-                  return (
-                    <BaseListItem<Item>
-                      itemProps={itemProps}
-                      key={typeof option.value === "string" ? option.value : itemIndex}
-                      size={size}
-                      highlighted={isHighlighted}
-                      selected={isSelected}
-                      itemRenderer={itemRenderer}
-                      item={option}
-                      role="option"
-                    />
-                  );
-                })}
-              </ul>
-              {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-            </li>
+          return (
+            <BaseListItem<Item>
+              itemProps={itemProps}
+              key={typeof option.value === "string" ? option.value : itemIndex}
+              size={size}
+              highlighted={isHighlighted}
+              selected={isSelected}
+              itemRenderer={itemRenderer}
+              item={option}
+              role="option"
+            />
           );
         })
+      ) : (
+        // Complex grouped structure for multiple groups or labeled groups
+        options.map((group, groupIndex) => (
+          <li key={group.label ?? groupIndex} role="group">
+            {group.label && (
+              <div className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })} role="presentation">
+                <Text type={textVariant} color="inherit">
+                  {group.label}
+                </Text>
+              </div>
+            )}
+            <ul className={styles.groupOptions}>
+              {group.options.map((option, itemIndex) => {
+                const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+                const isHighlighted =
+                  highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+                const isSelected =
+                  selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+
+                return (
+                  <BaseListItem<Item>
+                    itemProps={itemProps}
+                    key={typeof option.value === "string" ? option.value : itemIndex}
+                    size={size}
+                    highlighted={isHighlighted}
+                    selected={isSelected}
+                    itemRenderer={itemRenderer}
+                    item={option}
+                    role="option"
+                  />
+                );
+              })}
+            </ul>
+            {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
+          </li>
+        ))
       )
     ) : null;
 
