@@ -1,5 +1,6 @@
 import type React from "react";
 import { type SubIcon } from "@vibe/icon";
+import type { TooltipProps } from "../../Tooltip/Tooltip";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
