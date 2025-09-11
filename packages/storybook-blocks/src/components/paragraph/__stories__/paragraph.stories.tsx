@@ -3,7 +3,7 @@ import Paragraph from '../paragraph';
 
 const meta: Meta<typeof Paragraph> = {
   component: Paragraph,
-  title: 'Components/Paragraph',
+  title: 'Storybook Blocks/Paragraph',
 };
 export default meta;
 

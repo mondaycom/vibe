@@ -1,5 +1,5 @@
-import type React from "react";
+import { type ForwardRefExoticComponent, type RefAttributes } from "react";
 
-type VibeComponent<T, P = HTMLElement> = React.ForwardRefExoticComponent<T & React.RefAttributes<P>>;
+type VibeComponent<T, P = HTMLElement> = ForwardRefExoticComponent<T & RefAttributes<P>>;
 
 export default VibeComponent;

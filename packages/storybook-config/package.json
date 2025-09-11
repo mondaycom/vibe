@@ -1,6 +1,7 @@
 {
   "name": "@vibe/storybook-config",
   "version": "3.0.0",
+  "private": true,
   "description": "Storybook config for Vibe packages",
   "repository": {
     "type": "git",
@@ -55,13 +56,5 @@
     "@vibe/icons": "^1.10.0",
     "vibe-storybook-components": "1.0.2"
   },
-  "sideEffects": false,
-  "eslintConfig": {
-    "extends": [
-      "../../node_modules/@vibe/config/.eslintrc.cjs"
-    ],
-    "rules": {
-      "@typescript-eslint/consistent-type-imports": "off"
-    }
-  }
+  "sideEffects": false
 }

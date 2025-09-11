@@ -4,7 +4,7 @@ import FunctionArgument from '../function-argument';
 
 const meta: Meta<typeof FunctionArguments> = {
   component: FunctionArguments,
-  title: 'Components/FunctionArguments',
+  title: 'Storybook Blocks/FunctionArguments',
 };
 export default meta;
 

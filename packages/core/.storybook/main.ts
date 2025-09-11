@@ -51,7 +51,9 @@ export default {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
     "../../../components/**/*.mdx",
-    "../../../components/**/*.stories.@(js|jsx|ts|tsx)"
+    "../../../components/**/*.stories.@(js|jsx|ts|tsx)",
+    "../../storybook-blocks/**/*.mdx",
+    "../../storybook-blocks/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: getAddons(),
   framework: {
@@ -65,7 +67,7 @@ export default {
     check: true,
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
-      tsconfigPath: path.resolve(__dirname, "../tsconfig.storybook.json")
+      include: [path.resolve(__dirname, "../src/**/*"), path.resolve(__dirname, "../../*/src/**/*")]
     }
   },
   staticDirs: ["./static"],

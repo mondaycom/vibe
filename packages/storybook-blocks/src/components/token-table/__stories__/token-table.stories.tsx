@@ -3,7 +3,7 @@ import TokenTable from '../token-table';
 
 const meta: Meta<typeof TokenTable> = {
   component: TokenTable,
-  title: 'Components/TokenTable',
+  title: 'Storybook Blocks/TokenTable',
 };
 export default meta;
 

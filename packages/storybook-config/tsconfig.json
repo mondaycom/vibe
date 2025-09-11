@@ -1,5 +1,5 @@
 {
-  "extends": "../config/tsconfig.json",
+  "extends": "@vibe/config/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",

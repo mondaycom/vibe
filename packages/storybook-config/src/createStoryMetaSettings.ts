@@ -2,7 +2,12 @@ import { useCallback, useMemo, useState } from "react";
 import { action } from "@storybook/addon-actions";
 import { type ArgTypes } from "@storybook/types";
 import { type Decorator } from "@storybook/react";
-import { AllowedIcons, IconMetaData, StoryMetaSettingsArgs, StoryMetaSettingsResult } from "./types";
+import {
+  type AllowedIcons,
+  type IconMetaData,
+  type StoryMetaSettingsArgs,
+  type StoryMetaSettingsResult
+} from "./types";
 
 function parseStringForEnums(componentName: string, enumName: string, enumObj: { [key: string]: unknown }) {
   let returnValue;

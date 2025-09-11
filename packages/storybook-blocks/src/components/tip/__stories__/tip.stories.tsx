@@ -5,7 +5,7 @@ import Link from '../../../helpers/components/Link/Link';
 
 const meta: Meta<typeof Tip> = {
   component: Tip,
-  title: 'Components/Tip',
+  title: 'Storybook Blocks/Tip',
 };
 export default meta;
 
