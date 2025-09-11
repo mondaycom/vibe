@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import MenuButton from "../MenuButton";
 import { Bolt } from "@vibe/icons";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
 import userEvent from "@testing-library/user-event";

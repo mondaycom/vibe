@@ -22,3 +22,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin smoothing-text {
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+}

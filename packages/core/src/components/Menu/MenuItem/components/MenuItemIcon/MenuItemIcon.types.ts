@@ -1,5 +1,4 @@
-import { type SubIcon } from "../../../../../types";
-import { type IconType } from "../../../../Icon";
+import { type IconType, type SubIcon } from "@vibe/icon";
 
 export interface MenuItemIconProps {
   /**

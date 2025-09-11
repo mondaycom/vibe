@@ -2,7 +2,7 @@ import { vi, beforeEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import EmptyState from "../EmptyState";
-import { Button } from "../../../components/Button";
+import { Button } from "@vibe/button";
 import Link from "../../../components/Link/Link";
 
 describe("EmptyState component", () => {

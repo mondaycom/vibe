@@ -14,7 +14,8 @@ import {
   type ColorPickerArrayValueOnly
 } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type SubIcon } from "@vibe/icon";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";

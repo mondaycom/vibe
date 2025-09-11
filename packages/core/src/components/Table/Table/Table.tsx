@@ -8,7 +8,7 @@ import React, {
   useState
 } from "react";
 import cx from "classnames";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../../types";
+import { type VibeComponentProps, withStaticProps } from "../../../types";
 import { type TableHeaderProps } from "../TableHeader/TableHeader";
 import { type TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
@@ -22,6 +22,7 @@ import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMen
 import useMergeRef from "../../../hooks/useMergeRef";
 import { type TableProviderValue } from "../context/TableContext/TableContext.types";
 import { type TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
+import { type SubIcon } from "@vibe/icon";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 
