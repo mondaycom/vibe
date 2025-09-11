@@ -27,7 +27,8 @@ const TriggerActions = () => {
     selectedItems = [],
     toggleMenu,
     getMenuProps,
-    loading
+    loading,
+    clearAriaLabel
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
@@ -62,7 +63,8 @@ const TriggerActions = () => {
             icon={CloseSmall}
             onClick={handleClear}
             size={iconButtonSize}
-            ariaLabeledBy={getMenuProps().id}
+            ariaLabel={clearAriaLabel}
+            hideTooltip
           />
         )}
         <IconButton

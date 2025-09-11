@@ -15,7 +15,8 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
   showSelectedOptions?: boolean,
-  filterOption?: (option: T, inputValue: string) => boolean
+  filterOption?: (option: T, inputValue: string) => boolean,
+  id?: string
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
 
@@ -52,6 +53,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     selectedItem: selectedItem,
+    id,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (value === undefined) {
         setCurrentSelectedItem(newSelectedItem || null);

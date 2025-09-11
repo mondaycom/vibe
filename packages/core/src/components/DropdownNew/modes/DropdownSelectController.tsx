@@ -28,7 +28,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onFocus,
     onBlur,
     loading = false,
-    size = "medium"
+    size = "medium",
+    id
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -55,7 +56,8 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onMenuClose,
     onOptionSelect,
     showSelectedOptions,
-    filterOption
+    filterOption,
+    id
   );
 
   const contextValue: DropdownContextProps<Item> = {

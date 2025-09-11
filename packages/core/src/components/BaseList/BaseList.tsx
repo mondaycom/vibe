@@ -43,38 +43,62 @@ const BaseList = forwardRef(
             noOptionsMessage
           )}
         </div>
+      ) : options.length === 1 && !options[0].label ? (
+        // Simple structure for non-grouped options (single group without label)
+        options[0].options.map((option, itemIndex) => {
+          const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+          const isHighlighted = highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+          const isSelected =
+            selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+
+          return (
+            <BaseListItem<Item>
+              itemProps={itemProps}
+              key={typeof option.value === "string" ? option.value : itemIndex}
+              size={size}
+              highlighted={isHighlighted}
+              selected={isSelected}
+              itemRenderer={itemRenderer}
+              item={option}
+              role="option"
+            />
+          );
+        })
       ) : (
+        // Complex grouped structure for multiple groups or labeled groups
         options.map((group, groupIndex) => (
-          <React.Fragment key={group.label ?? groupIndex}>
+          <li key={group.label ?? groupIndex} role="group">
             {group.label && (
-              <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
+              <div className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })} role="presentation">
                 <Text type={textVariant} color="inherit">
                   {group.label}
                 </Text>
-              </li>
+              </div>
             )}
-            {group.options.map((option, itemIndex) => {
-              const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
-              const isHighlighted =
-                highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
-              const isSelected =
-                selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+            <ul className={styles.groupOptions}>
+              {group.options.map((option, itemIndex) => {
+                const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+                const isHighlighted =
+                  highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+                const isSelected =
+                  selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
-              return (
-                <BaseListItem<Item>
-                  itemProps={itemProps}
-                  key={typeof option.value === "string" ? option.value : itemIndex}
-                  size={size}
-                  highlighted={isHighlighted}
-                  selected={isSelected}
-                  itemRenderer={itemRenderer}
-                  item={option}
-                  role="option"
-                />
-              );
-            })}
+                return (
+                  <BaseListItem<Item>
+                    itemProps={itemProps}
+                    key={typeof option.value === "string" ? option.value : itemIndex}
+                    size={size}
+                    highlighted={isHighlighted}
+                    selected={isSelected}
+                    itemRenderer={itemRenderer}
+                    item={option}
+                    role="option"
+                  />
+                );
+              })}
+            </ul>
             {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-          </React.Fragment>
+          </li>
         ))
       )
     ) : null;
