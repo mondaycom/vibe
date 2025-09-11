@@ -30,6 +30,7 @@ export * from "./Heading";
 export * from "./HiddenText";
 export * from "./Icon";
 export * from "./IconButton";
+export * from "./Info";
 export * from "./Label";
 export * from "./LayerProvider";
 export * from "./Link";
