@@ -44,38 +44,42 @@ const BaseList = forwardRef(
           )}
         </div>
       ) : (
-        options.map((group, groupIndex) => (
-          <React.Fragment key={group.label ?? groupIndex}>
-            {group.label && (
-              <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
-                <Text type={textVariant} color="inherit">
-                  {group.label}
-                </Text>
-              </li>
-            )}
-            {group.options.map((option, itemIndex) => {
-              const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
-              const isHighlighted =
-                highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
-              const isSelected =
-                selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+        options.map((group, groupIndex) => {
+          return (
+            <li key={group.label ?? groupIndex} role="group">
+              {group.label && (
+                <div className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })} role="presentation">
+                  <Text type={textVariant} color="inherit">
+                    {group.label}
+                  </Text>
+                </div>
+              )}
+              <ul className={styles.groupOptions}>
+                {group.options.map((option, itemIndex) => {
+                  const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+                  const isHighlighted =
+                    highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
+                  const isSelected =
+                    selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
-              return (
-                <BaseListItem<Item>
-                  itemProps={itemProps}
-                  key={typeof option.value === "string" ? option.value : itemIndex}
-                  size={size}
-                  highlighted={isHighlighted}
-                  selected={isSelected}
-                  itemRenderer={itemRenderer}
-                  item={option}
-                  role="option"
-                />
-              );
-            })}
-            {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-          </React.Fragment>
-        ))
+                  return (
+                    <BaseListItem<Item>
+                      itemProps={itemProps}
+                      key={typeof option.value === "string" ? option.value : itemIndex}
+                      size={size}
+                      highlighted={isHighlighted}
+                      selected={isSelected}
+                      itemRenderer={itemRenderer}
+                      item={option}
+                      role="option"
+                    />
+                  );
+                })}
+              </ul>
+              {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
+            </li>
+          );
+        })
       )
     ) : null;
 
