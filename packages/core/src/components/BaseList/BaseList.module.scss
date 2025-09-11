@@ -19,7 +19,13 @@
     }
   }
 
-  > li:not(:last-child) {
+  // Spacing for non-grouped options (direct children)
+  > li[role="option"]:not(:last-child) {
+    margin-bottom: 2px;
+  }
+
+  // Spacing for grouped options (inside .groupOptions)
+  .groupOptions > li:not(:last-child) {
     margin-bottom: 2px;
   }
 }
