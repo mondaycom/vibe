@@ -76,7 +76,7 @@ export default {
         }
       },
       define: {
-        "process.env.NODE_ENV": JSON.stringify("development")
+        "process.env.NODE_ENV": JSON.stringify(configType === "DEVELOPMENT" ? "development" : "production")
       },
       optimizeDeps: {
         include: ["storybook-addon-playground"]

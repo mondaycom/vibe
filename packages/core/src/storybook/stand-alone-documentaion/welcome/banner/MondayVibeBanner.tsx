@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./MondayVibeBanner.module.scss";
 import MondayVibeIcon from "./MondayVibeIcon";
-import { trackBannerViewed, trackBannerButtonClicked } from "./tracking";
+import { trackBannerButtonClicked } from "./tracking";
 
 const MondayVibeBanner: React.FC = () => {
-  useEffect(() => {
-    trackBannerViewed();
-  }, []);
-
   const handleStartBuildingClick = () => {
     trackBannerButtonClicked();
   };

@@ -38,6 +38,28 @@ import { Accordion, AccordionItem } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Accordion to enable proper accessibility associations and unique
+      identification.
+    </>,
+    <>
+      Provide unique <code>id</code> props for each AccordionItem to ensure proper ARIA relationships between buttons
+      and their controlled content regions.
+    </>,
+    <>
+      Use descriptive <code>title</code> props for AccordionItem headers that clearly indicate what content will be
+      revealed when expanded.
+    </>,
+    <>
+      Use the <code>defaultIndex</code> prop to set initial expanded states appropriately. Avoid auto-expanding too many
+      items to prevent overwhelming screen reader users.
+    </>
+  ]}
+/>
 ## Variants
 
 ### Multi active

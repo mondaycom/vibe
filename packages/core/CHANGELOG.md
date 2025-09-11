@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.65.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.64.0...@vibe/core@3.65.0) (2025-09-08)
+
+
+### Features
+
+* **Combobox:** add tooltipProps and ComboboxOption for enhanced tooltip customization ([#3096](https://github.com/mondaycom/vibe/issues/3096)) ([3fa0d10](https://github.com/mondaycom/vibe/commit/3fa0d10e47010b7872b6a9af6f5bdebbd73269f7))
+
+
+
+
+
 # [3.64.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.1...@vibe/core@3.64.0) (2025-09-07)
 
 
