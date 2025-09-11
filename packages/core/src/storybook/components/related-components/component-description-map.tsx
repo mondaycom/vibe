@@ -64,144 +64,84 @@ import { ModalMediaLayoutRelatedComponent } from "../../../components/Modal/layo
 import { ModalSideBySideLayoutRelatedComponent } from "../../../components/Modal/layouts/ModalSideBySideLayout/__stories__/ModalSideBySideLayoutRelatedComponent";
 import { ModalBasicLayoutRelatedComponent } from "../../../components/Modal/layouts/ModalBasicLayout/__stories__/ModalBasicLayoutRelatedComponent";
 
-export const SPLIT_BUTTON = "split-button";
-export const BUTTON_GROUP = "button-group";
-export const LABEL = "label";
-export const LINK = "link";
-export const CHECKBOX = "checkbox";
-export const RADIO_BUTTON = "radio-button";
-export const COUNTER = "counter";
-export const TOOLTIP = "tooltip";
-export const TOGGLE = "toggle";
-export const DROPDOWN = "dropdown";
-export const CHIP = "chips";
-export const BUTTON = "button";
-export const TABS = "tabs";
-export const BREADCRUBMS = "breadcrumbs";
-export const MENU = "menu";
-export const ATTENTION_BOX = "attention-box";
-export const ALERT_BANNER = "alert-banner";
-export const TOAST = "toast";
-export const BADGE = "badge";
-export const MULTI_STEP_INDICATOR = "wizard";
-export const TIPSEEN = "tipseen";
-export const MODAL_BASIC_LAYOUT = "modal-basic-layout";
-export const MODAL_SIDE_BY_SIDE_LAYOUT = "modal-side-by-side-layout";
-export const MODAL_MEDIA_LAYOUT = "modal-media-layout";
-export const TEXT_FIELD = "text-field";
-export const NUMBER_FIELD = "number-field";
-export const SEARCH = "search";
-export const COMBOBOX = "combobox";
-export const AVATAR = "avatar";
-export const AVATAR_GROUP = "avatar-group";
-export const ICONS = "icons";
-export const STEPS = "steps";
-export const SPINNER = "spinner";
-export const SKELETON = "skeleton";
-export const LINEAR_PROGRESS_BAR = "linear-progress-bar";
-export const HEADING = "heading";
-export const EDITABLE_HEADING = "editable-heading";
-export const EDITABLE_TEXT = "editable-text";
-export const ICON = "icon";
-export const ICON_BUTTON = "icon-button";
-export const MENU_BUTTON = "menu-button";
-export const CLICKABLE = "clickable";
-export const HIDDEN_TEXT = "hidden-text-description";
-export const LIST = "list";
-export const FLEX = "flex";
-export const DIVIDER = "divider";
-export const DIALOG_CONTENT_CONTAINER = "dialog-content-container-description";
-export const DIALOG = "dialog";
-export const TEXT = "text";
-export const ACCORDION = "accordion";
-export const EXPAND_COLLAPSE = "expand-collapse";
-export const VIRTUALIZED_LIST = "virtualized-list";
-export const VIRTUALIZED_GRID = "virtualized-grid";
-export const COLOR_PICKER = "color-picker";
-export const SLIDER = "slider";
-export const BOX = "box";
-export const TABLE = "table";
-export const MENU_GRID_ITEM = "menu-grid-item";
-
-export const COLORS = "colors";
-export const TYPOGRAPHY = "typography";
-export const SHADOW = "shadow";
-export const SPACING = "spacing";
-
 // Component description names (related to specific components)
-const COMPONENTS_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
-  [SPLIT_BUTTON, <SplitButtonDescription />],
-  [BUTTON_GROUP, <ButtonGroupDescription />],
-  [LABEL, <LabelDescription />],
-  [LINK, <LinkDescription />],
-  [CHECKBOX, <CheckboxDescription />],
-  [RADIO_BUTTON, <RadioButtonDescription />],
-  [COUNTER, <CounterDescription />],
-  [TOOLTIP, <TooltipDescription />],
-  [TOGGLE, <ToggleDescription />],
-  [DROPDOWN, <DropdownDescription />],
-  [CHIP, <ChipsDescription />],
-  [ATTENTION_BOX, <AttentionBoxDescription />],
-  [ALERT_BANNER, <AlertBannerDescription />],
-  [TOAST, <ToastDescription />],
-  [BADGE, <BadgeDescription />],
-  [BUTTON, <ButtonDescription />],
-  [TABS, <TabsDescription />],
-  [BREADCRUBMS, <BreadcrumbsDescription />],
-  [MENU, <MenuDescription />],
-  [MULTI_STEP_INDICATOR, <MultiStepIndicatorDescription />],
-  [TIPSEEN, <TipseenDescription />],
-  [TEXT_FIELD, <TextFieldDescription />],
-  [NUMBER_FIELD, <NumberFieldDescription />],
-  [SEARCH, <SearchDescription />],
-  [COMBOBOX, <ComboboxDescription />],
-  [AVATAR, <AvatarDescription />],
-  [AVATAR_GROUP, <AvatarGroupDescription />],
-  [ICON, <IconDescription />],
-  [ICONS, <IconsDescription />],
-  [STEPS, <StepsDescription />],
-  [SPINNER, <SpinnerDescription />],
-  [SKELETON, <SkeletonDescription />],
-  [MODAL_BASIC_LAYOUT, <ModalBasicLayoutRelatedComponent />],
-  [MODAL_SIDE_BY_SIDE_LAYOUT, <ModalSideBySideLayoutRelatedComponent />],
-  [MODAL_MEDIA_LAYOUT, <ModalMediaLayoutRelatedComponent />],
-  [SLIDER, <SliderDescription />],
-  [ICON_BUTTON, <IconButtonDescription />],
-  [MENU_BUTTON, <MenuButtonDescription />],
-  [LINEAR_PROGRESS_BAR, <LinearProgressBarDescription />],
-  [EDITABLE_HEADING, <EditableHeadingDescription />],
-  [EDITABLE_TEXT, <EditableTextDescription />],
-  [HEADING, <HeadingDescription />],
-  [CLICKABLE, <ClickableDescription />],
-  [HIDDEN_TEXT, <HiddenTextDescription />],
-  [LIST, <ListDescription />],
-  [FLEX, <FlexDescription />],
-  [DIVIDER, <DividerDescription />],
-  [DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />],
-  [DIALOG, <DialogDescription />],
-  [TEXT, <TextDescription />],
-  [ACCORDION, <AccordionDescription />],
-  [EXPAND_COLLAPSE, <ExpandCollapseDescription />],
-  [VIRTUALIZED_LIST, <VirtualizedListDescription />],
-  [VIRTUALIZED_GRID, <VirtualizedGridDescription />],
-  [COLOR_PICKER, <ColorPickerDescription />],
-  [BOX, <BoxDescription />],
-  [TABLE, <TableDescription />],
-  [MENU_GRID_ITEM, <MenuGridItemDescription />]
-];
+const COMPONENTS_DESCRIPTIONS_ENTRIES = [
+  ["SplitButton", <SplitButtonDescription />],
+  ["ButtonGroup", <ButtonGroupDescription />],
+  ["Label", <LabelDescription />],
+  ["Link", <LinkDescription />],
+  ["Checkbox", <CheckboxDescription />],
+  ["RadioButton", <RadioButtonDescription />],
+  ["Counter", <CounterDescription />],
+  ["Tooltip", <TooltipDescription />],
+  ["Toggle", <ToggleDescription />],
+  ["Dropdown", <DropdownDescription />],
+  ["Chips", <ChipsDescription />],
+  ["AttentionBox", <AttentionBoxDescription />],
+  ["AlertBanner", <AlertBannerDescription />],
+  ["Toast", <ToastDescription />],
+  ["Badge", <BadgeDescription />],
+  ["Button", <ButtonDescription />],
+  ["Tabs", <TabsDescription />],
+  ["Breadcrumbs", <BreadcrumbsDescription />],
+  ["Menu", <MenuDescription />],
+  ["MultiStepIndicator", <MultiStepIndicatorDescription />],
+  ["Tipseen", <TipseenDescription />],
+  ["TextField", <TextFieldDescription />],
+  ["NumberField", <NumberFieldDescription />],
+  ["Search", <SearchDescription />],
+  ["Combobox", <ComboboxDescription />],
+  ["Avatar", <AvatarDescription />],
+  ["AvatarGroup", <AvatarGroupDescription />],
+  ["Icon", <IconDescription />],
+  ["icons", <IconsDescription />],
+  ["Steps", <StepsDescription />],
+  ["Spinner", <SpinnerDescription />],
+  ["Skeleton", <SkeletonDescription />],
+  ["ModalBasicLayout", <ModalBasicLayoutRelatedComponent />],
+  ["ModalSideBySideLayout", <ModalSideBySideLayoutRelatedComponent />],
+  ["ModalMediaLayout", <ModalMediaLayoutRelatedComponent />],
+  ["Slider", <SliderDescription />],
+  ["IconButton", <IconButtonDescription />],
+  ["MenuButton", <MenuButtonDescription />],
+  ["LinearProgressBar", <LinearProgressBarDescription />],
+  ["EditableHeading", <EditableHeadingDescription />],
+  ["EditableText", <EditableTextDescription />],
+  ["Heading", <HeadingDescription />],
+  ["Clickable", <ClickableDescription />],
+  ["HiddenText", <HiddenTextDescription />],
+  ["List", <ListDescription />],
+  ["Flex", <FlexDescription />],
+  ["Divider", <DividerDescription />],
+  ["DialogContentContainer", <DialogContentContainerDescription />],
+  ["Dialog", <DialogDescription />],
+  ["Text", <TextDescription />],
+  ["Accordion", <AccordionDescription />],
+  ["ExpandCollapse", <ExpandCollapseDescription />],
+  ["VirtualizedList", <VirtualizedListDescription />],
+  ["VirtualizedGrid", <VirtualizedGridDescription />],
+  ["ColorPicker", <ColorPickerDescription />],
+  ["Box", <BoxDescription />],
+  ["Table", <TableDescription />],
+  ["MenuGridItem", <MenuGridItemDescription />]
+] as const;
 
 // General description names (not related to specific components)
-const GENERAL_DESCRIPTIONS_ENTRIES: [string, JSX.Element][] = [
-  [COLORS, <ColorsDescription />],
-  [TYPOGRAPHY, <TypographyDescription />],
-  [SHADOW, <ShadowDescription />],
-  [SPACING, <SpacingDescription />]
-];
+const GENERAL_DESCRIPTIONS_ENTRIES = [
+  ["colors", <ColorsDescription />],
+  ["typography", <TypographyDescription />],
+  ["shadow", <ShadowDescription />],
+  ["spacing", <SpacingDescription />]
+] as const;
 
-export const DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP = new Map<string, JSX.Element>(
+export type ComponentDescriptionName =
+  | (typeof COMPONENTS_DESCRIPTIONS_ENTRIES)[number][0]
+  | (typeof GENERAL_DESCRIPTIONS_ENTRIES)[number][0];
+
+export const DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP = new Map<ComponentDescriptionName, JSX.Element>(
   COMPONENTS_DESCRIPTIONS_ENTRIES
 );
-export const DESCRIPTION_COMPONENTS_MAP = new Map<string, JSX.Element>([
+export const DESCRIPTION_COMPONENTS_MAP = new Map<ComponentDescriptionName, JSX.Element>([
   ...COMPONENTS_DESCRIPTIONS_ENTRIES,
   ...GENERAL_DESCRIPTIONS_ENTRIES
 ]);
