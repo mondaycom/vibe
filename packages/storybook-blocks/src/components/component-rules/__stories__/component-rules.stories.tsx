@@ -4,7 +4,7 @@ import ComponentName from '../../component-name/component-name';
 
 const meta: Meta<typeof ComponentRules> = {
   component: ComponentRules,
-  title: 'Components/ComponentRules',
+  title: 'Storybook Blocks/ComponentRules',
 };
 export default meta;
 

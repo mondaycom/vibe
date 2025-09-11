@@ -5,7 +5,7 @@ import React from 'react';
 
 const meta: Meta<typeof UsageGuidelines> = {
   component: UsageGuidelines,
-  title: 'Components/UsageGuidelines',
+  title: 'Storybook Blocks/UsageGuidelines',
 };
 export default meta;
 

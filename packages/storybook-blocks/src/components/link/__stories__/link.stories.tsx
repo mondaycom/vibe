@@ -3,7 +3,7 @@ import Link from '../link';
 
 const meta: Meta<typeof Link> = {
   component: Link,
-  title: 'Components/Link',
+  title: 'Storybook Blocks/Link',
 };
 export default meta;
 

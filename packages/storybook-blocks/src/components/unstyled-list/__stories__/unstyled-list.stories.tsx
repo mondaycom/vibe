@@ -5,7 +5,7 @@ import UnstyledListItem from '../../unstyled-list-item/unstyled-list-item';
 
 const meta: Meta<typeof UnstyledList> = {
   component: UnstyledList,
-  title: 'Components/UnstyledList',
+  title: 'Storybook Blocks/UnstyledList',
 };
 export default meta;
 

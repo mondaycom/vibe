@@ -5,7 +5,7 @@ import { FlexJustify } from '../../../helpers/components/Flex/FlexConstants';
 
 const meta: Meta<typeof StoryDescription> = {
   component: StoryDescription,
-  title: 'Components/StoryDescription',
+  title: 'Storybook Blocks/StoryDescription',
 };
 export default meta;
 

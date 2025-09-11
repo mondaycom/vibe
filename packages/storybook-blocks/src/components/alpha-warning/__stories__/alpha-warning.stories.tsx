@@ -3,7 +3,7 @@ import AlphaWarning from '../alpha-warning';
 
 const meta: Meta<typeof AlphaWarning> = {
   component: AlphaWarning,
-  title: 'Components/AlphaWarning',
+  title: 'Storybook Blocks/AlphaWarning',
 };
 export default meta;
 

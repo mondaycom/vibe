@@ -3,7 +3,7 @@ import StorybookLink from '../storybook-link';
 
 const meta: Meta<typeof StorybookLink> = {
   component: StorybookLink,
-  title: 'Components/StorybookLink',
+  title: 'Storybook Blocks/StorybookLink',
 };
 export default meta;
 

@@ -37,7 +37,12 @@ const getAddons = () => {
 };
 
 export default {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../../storybook-blocks/**/*.mdx",
+    "../../storybook-blocks/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
   addons: getAddons(),
   framework: {
     name: "@storybook/react-vite",
@@ -48,7 +53,10 @@ export default {
   },
   typescript: {
     check: true,
-    reactDocgen: "react-docgen-typescript"
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      include: [path.resolve(__dirname, "../src/**/*"), path.resolve(__dirname, "../../*/src/**/*")]
+    }
   },
   staticDirs: ["./static"],
   async viteFinal(config, { configType }) {
