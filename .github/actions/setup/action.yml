@@ -21,9 +21,8 @@ runs:
         NODE_AUTH_TOKEN: ${{ inputs.npm_token }}
 
     - name: Check for uncommitted changes in yarn.lock
-        run: |
-          if [[ -n "$(git status --porcelain yarn.lock)" ]]; then
-            echo "Error: yarn.lock has uncommitted changes. Please commit it."
-            exit 1
-          fi
-
+      run: |
+        if [[ -n "$(git status --porcelain yarn.lock)" ]]; then
+          echo "Error: yarn.lock has uncommitted changes. Please commit it."
+          exit 1
+        fi
