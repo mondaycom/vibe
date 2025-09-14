@@ -1,0 +1,5 @@
+import{j as i}from"./jsx-runtime-lwGtIXvq.js";import{r as m}from"./index-CTZeEbLr.js";import{c as l}from"./index-BpvXyOxN.js";const p="_sectionName_hoq0p_1",d={sectionName:p},_=({className:s,children:o,...n})=>{const c=m.useMemo(()=>o.toLowerCase().replaceAll("’","").replaceAll("'","").split(" ").join("-"),[o]);return i.jsx("h2",{id:c,className:l(d.sectionName,s),...n,children:o})};try{sectionname.displayName="sectionname",sectionname.__docgenInfo={description:"",displayName:"sectionname",props:{className:{defaultValue:null,description:"",name:"className",required:!1,type:{name:"string"}}}}}catch{}const u={component:_,title:"Storybook Blocks/SectionName"},e={args:{children:"This is a section name"}};var t,a,r;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    children: 'This is a section name'
+  }
+}`,...(r=(a=e.parameters)==null?void 0:a.docs)==null?void 0:r.source}}};const N=["Overview"],g=Object.freeze(Object.defineProperty({__proto__:null,Overview:e,__namedExportsOrder:N,default:u},Symbol.toStringTag,{value:"Module"}));export{e as O,g as S};
