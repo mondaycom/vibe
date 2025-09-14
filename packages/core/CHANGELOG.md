@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.65.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.0...@vibe/core@3.65.1) (2025-09-14)
+
+
+### Bug Fixes
+
+* **DropdownNew:** Searchable controlled multi dropdown item selection ([#3104](https://github.com/mondaycom/vibe/issues/3104)) ([d335161](https://github.com/mondaycom/vibe/commit/d3351616bc27cf742066933a505c1d30f27b743f))
+
+
+
+
+
 # [3.65.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.64.0...@vibe/core@3.65.0) (2025-09-08)
 
 
