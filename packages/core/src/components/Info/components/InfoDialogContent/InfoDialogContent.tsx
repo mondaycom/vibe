@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import cx from "classnames";
 import { DialogContentContainer } from "../../../DialogContentContainer";
 import { Text } from "../../../Text";
 import { Flex } from "../../../Flex";
@@ -14,7 +13,7 @@ const InfoDialogContent = forwardRef(
     }
 
     return (
-      <DialogContentContainer id={id} type="popover" size="medium" className={cx(styles.dialogContent, className)}>
+      <DialogContentContainer id={id} type="popover" size="medium" className={className}>
         <Flex ref={ref} tabIndex={-1} align="start" direction="column" gap="xs" className={styles.contentWrapper}>
           {title && (
             <Text type="text2" weight="bold">
