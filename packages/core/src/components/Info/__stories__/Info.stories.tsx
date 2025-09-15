@@ -58,27 +58,47 @@ export const Directions: Story = {
           </Text>
           <Info
             aria-labelledby="bottom-direction"
+            title="Placement: Bottom"
             body="This dialog's direction is from the bottom"
-            position="bottom"
+            link={{ text: "Learn more about dialog direction", href: "#" }}
+            position="bottom-start"
           />
         </Flex>
         <Flex direction="column" gap="medium" align="center">
           <Text id="left-direction" align="center" type="text1" weight="medium" ellipsis={false}>
             Left
           </Text>
-          <Info aria-labelledby="left-direction" body="This dialog's direction is from the left" position="left" />
+          <Info
+            aria-labelledby="left-direction"
+            title="Placement: Left"
+            body="This dialog's direction is from the left"
+            link={{ text: "Learn more about dialog direction", href: "#" }}
+            position="left-start"
+          />
         </Flex>
         <Flex direction="column" gap="medium" align="center">
           <Text id="right-direction" align="center" type="text1" weight="medium" ellipsis={false}>
             Right
           </Text>
-          <Info aria-labelledby="right-direction" body="This dialog's direction is from the right" position="right" />
+          <Info
+            aria-labelledby="right-direction"
+            title="Placement: Right"
+            body="This dialog's direction is from the right"
+            link={{ text: "Learn more about dialog direction", href: "#" }}
+            position="right-start"
+          />
         </Flex>
         <Flex direction="column" gap="medium" align="center">
           <Text id="top-direction" align="center" type="text1" weight="medium" ellipsis={false}>
             Top
           </Text>
-          <Info aria-labelledby="top-direction" body="This dialog's direction is from the top" position="top" />
+          <Info
+            aria-labelledby="top-direction"
+            title="Placement: Top"
+            body="This dialog's direction is from the top"
+            link={{ text: "Learn more about dialog direction", href: "#" }}
+            position="top-start"
+          />
         </Flex>
       </Box>
     </Flex>
