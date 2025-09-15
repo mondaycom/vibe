@@ -7,7 +7,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
-import Button from "../Button/Button";
+import { Button } from "@vibe/button";
 import Text from "../Text/Text";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
@@ -15,7 +15,7 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import {
   type IComboboxCategoryMap,
   type IComboboxItem,
@@ -28,6 +28,7 @@ import { type ComboboxSizes } from "./Combobox.types";
 import type IconButton from "../IconButton/IconButton";
 import type MenuButton from "../MenuButton/MenuButton";
 import { ComponentVibeId } from "../../tests/constants";
+import { type SubIcon } from "@vibe/icon";
 
 export interface ComboboxProps extends VibeComponentProps {
   /**

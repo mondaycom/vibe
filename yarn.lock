@@ -5133,15 +5133,6 @@
     "@testing-library/dom" "^8.0.0"
     "@types/react-dom" "<18.0.0"
 
-"@testing-library/react@^14.0.0":
-  version "14.2.2"
-  resolved "https://registry.npmjs.org/@testing-library/react/-/react-14.2.2.tgz"
-  integrity sha512-SOUuM2ysCvjUWBXTNfQ/ztmnKDmqaiPV3SvoIuyxMUca45rbSWWAT/qB8CUs/JQ/ux/8JFs9DNdFQ3f6jH3crA==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    "@testing-library/dom" "^9.0.0"
-    "@types/react-dom" "^18.0.0"
-
 "@testing-library/user-event@14.5.2":
   version "14.5.2"
   resolved "https://registry.npmjs.org/@testing-library/user-event/-/user-event-14.5.2.tgz"
@@ -5630,7 +5621,7 @@
     "@types/react-outside-click-handler" "*"
     moment "^2.26.0"
 
-"@types/react-dom@*", "@types/react-dom@>=16.9.0", "@types/react-dom@^18.0.0":
+"@types/react-dom@*", "@types/react-dom@>=16.9.0":
   version "18.2.22"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.22.tgz"
   integrity sha512-fHkBXPeNtfvri6gdsMYyW+dW7RXFo6Ad09nLFK0VQWR7yGLai/Cyvyj696gbwYvBnhGtevUG9cET0pmUbMtoPQ==

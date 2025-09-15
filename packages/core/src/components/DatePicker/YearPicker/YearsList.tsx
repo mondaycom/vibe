@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import styles from "./YearPicker.module.scss";
 
 const NOOP = () => {};

@@ -18,7 +18,7 @@ import FieldLabel from "../../../../FieldLabel/FieldLabel";
 import IconButton from "../../../../IconButton/IconButton";
 import { Menu } from "@vibe/icons";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
-import Button from "../../../../Button/Button";
+import { Button } from "@vibe/button";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
 

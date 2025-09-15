@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import Button from "../../../Button/Button";
+import { Button } from "@vibe/button";
 import IconButton from "../../../IconButton/IconButton";
 import { Fullscreen } from "@vibe/icons";
 import { StorybookLink, Tip } from "vibe-storybook-components";

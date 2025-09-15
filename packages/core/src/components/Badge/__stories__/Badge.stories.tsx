@@ -3,7 +3,7 @@ import Badge from "../Badge";
 import person from "./assets/person.png";
 import { ExternalPage, WhatsNew } from "@vibe/icons";
 import Link from "../../Link/Link";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Flex from "../../Flex/Flex";
 import Avatar from "../../Avatar/Avatar";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";

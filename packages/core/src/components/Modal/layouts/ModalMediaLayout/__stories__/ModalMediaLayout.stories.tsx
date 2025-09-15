@@ -16,7 +16,7 @@ import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWiz
 import IconButton from "../../../../IconButton/IconButton";
 import { Menu } from "@vibe/icons";
 import Flex from "../../../../Flex/Flex";
-import Button from "../../../../Button/Button";
+import { Button } from "@vibe/button";
 import { withOpenedModalPreview } from "../../../Modal/__stories__/Modal.stories.helpers";
 
 type Story = StoryObj<typeof Modal>;

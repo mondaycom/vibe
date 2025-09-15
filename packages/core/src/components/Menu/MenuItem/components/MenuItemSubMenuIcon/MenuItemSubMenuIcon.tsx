@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import Divider from "../../../../Divider/Divider";
-import Icon from "../../../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Flex from "../../../../Flex/Flex";
 import IconButton from "../../../../IconButton/IconButton";
 import { DropdownChevronRight } from "@vibe/icons";

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import Skeleton, { type SkeletonProps } from "../Skeleton";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import { Reply, ThumbsUp } from "@vibe/icons";
 import { Flex } from "../../Flex";
 import { Box } from "../../Box";
