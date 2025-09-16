@@ -4,7 +4,7 @@ import { type VibeComponentProps } from "../../types";
 import { type BaseListItemData } from "../BaseListItem";
 import { type TooltipProps } from "../Tooltip/Tooltip";
 
-export type DropdownOption<<Item = Record<string, unknown>> = BaseListItemData<Item>[];
+export type DropdownOption<Item = Record<string, unknown>> = BaseListItemData<Item>;
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 
 interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
