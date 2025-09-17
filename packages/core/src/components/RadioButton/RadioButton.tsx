@@ -77,7 +77,7 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * ID of element that describe this radio button.
    */
-  "aria-describedby"?: string;
+  ariaDescribedby?: string;
 }
 
 const RadioButton = forwardRef(
@@ -106,7 +106,7 @@ const RadioButton = forwardRef(
       childrenTabIndex = "0",
       noLabelAnimation = false,
       ariaLabel,
-      "aria-describedby": ariaDescribedBy,
+      ariaDescribedby,
       id,
       "data-testid": dataTestId
     }: RadioButtonProps,
@@ -154,7 +154,7 @@ const RadioButton = forwardRef(
               disabled={disabled}
               {...checkedProps}
               aria-label={ariaLabel}
-              aria-describedby={ariaDescribedBy}
+              aria-describedby={ariaDescribedby}
               onChange={onSelect}
               ref={mergedRef}
             />
