@@ -259,6 +259,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     this.onKeyDown = this.onKeyDown.bind(this);
     this.closeDialogOnEscape = this.closeDialogOnEscape.bind(this);
     this.onContextMenu = this.onContextMenu.bind(this);
+    this.getDefaultContainer = this.getDefaultContainer.bind(this);
 
     // Timeouts
     this.hideTimeout = null;
@@ -317,15 +318,23 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     return null;
   }
 
+  getDefaultContainer() {
+    const { layerRef } = this.context;
+    if (layerRef?.current) {
+      return layerRef.current;
+    }
+    return document.body;
+  }
+
   getContainer() {
     const { containerSelector } = this.props;
+    if(!containerSelector) {
+      return this.getDefaultContainer();
+    }
+
     const containerElement = document.querySelector(containerSelector);
     if (!containerElement || !(containerElement instanceof Element)) {
-      const { layerRef } = this.context;
-      if (layerRef?.current) {
-        return layerRef.current;
-      }
-      return document.body;
+      return this.getDefaultContainer();
     }
     return containerElement;
   }
