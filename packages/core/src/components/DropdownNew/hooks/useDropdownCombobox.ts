@@ -18,7 +18,8 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
   filterOption?: (option: T, inputValue: string) => boolean,
-  showSelectedOptions?: boolean
+  showSelectedOptions?: boolean,
+  id?: string
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
 
@@ -58,6 +59,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     selectedItem: selectedItem,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
+    id,
     onIsOpenChange: ({ isOpen }) => {
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },

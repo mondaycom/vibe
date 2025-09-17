@@ -32,10 +32,10 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onKeyDown,
     onClear,
     loading = false,
-
     size = "medium",
     readOnly,
-    disabled
+    disabled,
+    id
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -74,7 +74,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onMenuOpen,
     handleOptionSelect,
     filterOption,
-    showSelectedOptions
+    showSelectedOptions,
+    id
   );
 
   const contextValue: DropdownContextProps<Item> = {
