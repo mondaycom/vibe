@@ -13,7 +13,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   value?: T,
   inputValueProp?: string,
   onChange?: (option: T | T[] | null) => void,
-  onInputChange?: (value: string) => void,
+  onInputChange?: (value: string | null) => void,
   onMenuOpen?: () => void,
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
@@ -65,7 +65,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
     onInputValueChange: useCallback(
       ({ inputValue }) => {
         filterOptions(inputValue || "");
-        onInputChange?.(inputValue || "");
+        onInputChange?.(inputValue);
       },
       [onInputChange, filterOptions]
     ),
@@ -89,9 +89,9 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: "", isOpen: !closeMenuOnSelect };
+          return { ...actionAndChanges.changes, inputValue: null, isOpen: !closeMenuOnSelect };
         case useCombobox.stateChangeTypes.InputBlur:
-          return { ...actionAndChanges.changes, inputValue: "" };
+          return { ...actionAndChanges.changes, inputValue: null };
 
         default:
           return actionAndChanges.changes;
