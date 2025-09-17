@@ -107,6 +107,10 @@ export interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
+   * If true, indicates that the chip has a popup.
+   */
+  ariaHasPopup?: boolean;
+  /**
    * If true, disables all click behaviors.
    */
   disableClickableBehavior?: boolean;
@@ -146,6 +150,7 @@ const Chips = forwardRef(
       onClick,
       noAnimation = true,
       ariaLabel,
+      ariaHasPopup = false,
       "data-testid": dataTestId,
       disableClickableBehavior = false,
       leftAvatarType = "img",
@@ -226,7 +231,7 @@ const Chips = forwardRef(
         "data-testid": componentDataTestId,
         ariaLabel: overrideAriaLabel,
         ariaHidden: false,
-        ariaHasPopup: false,
+        ariaHasPopup,
         ariaExpanded: false
       },
       mergedRef
