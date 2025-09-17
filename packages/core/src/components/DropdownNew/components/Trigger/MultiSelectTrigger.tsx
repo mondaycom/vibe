@@ -17,6 +17,7 @@ const MultiSelectTrigger = () => {
     multiline,
     disabled,
     readOnly,
+    error,
     size,
     searchable,
     getToggleButtonProps,
@@ -33,7 +34,10 @@ const MultiSelectTrigger = () => {
           ? getToggleButtonProps({
               "aria-haspopup": "dialog",
               "aria-labelledby": label ? getLabelProps().id : undefined,
-              "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id)
+              "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id),
+              "aria-disabled": disabled ? "true" : undefined,
+              "aria-invalid": error ? "true" : undefined,
+              "aria-readonly": readOnly ? "true" : undefined
             })
           : {})}
       >
