@@ -65,6 +65,7 @@ const DialogContentContainer = forwardRef(
 
     return (
       <div
+        id={id}
         role={roleValue}
         data-testid={dataTestId}
         aria-labelledby={ariaLabelledby}
