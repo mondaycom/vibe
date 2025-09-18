@@ -27,7 +27,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     onFocus,
     onBlur,
     loading = false,
-    size = "medium"
+    size = "medium",
+    id
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -61,7 +62,8 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     onMenuClose,
     onOptionSelect,
     showSelectedOptions,
-    filterOption
+    filterOption,
+    id
   );
 
   const contextValue: DropdownContextProps<Item> = {

@@ -25,10 +25,16 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
     menuAriaLabel,
     selectedItem,
     selectedItems,
-    menuWrapperClassName
+    menuWrapperClassName,
+    multi
   } = useDropdownContext<Item>();
 
   const currentSelection = selectedItems?.length > 0 ? selectedItems : selectedItem ? [selectedItem] : [];
+
+  const enhancedGetMenuProps = (props?: Record<string, unknown>) => {
+    const baseProps = getMenuProps?.(props) || {};
+    return multi ? { ...baseProps, "aria-multiselectable": "true" } : baseProps;
+  };
 
   return (
     <DialogContentContainer
@@ -41,7 +47,7 @@ const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
         selectedItems={currentSelection}
         highlightedIndex={highlightedIndex}
         menuAriaLabel={menuAriaLabel}
-        getMenuProps={getMenuProps}
+        getMenuProps={enhancedGetMenuProps}
         getItemProps={getItemProps}
         withGroupDivider={withGroupDivider}
         stickyGroupTitle={stickyGroupTitle}
