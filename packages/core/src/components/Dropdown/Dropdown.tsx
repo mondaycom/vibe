@@ -2,7 +2,8 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { BaseSizes, type SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, useContext } from "react";
-import Select, { type InputProps, components, createFilter, type ActionMeta } from "react-select";
+// @ts-expect-error - Select is named export in react-select 3.3.0 (forked)
+import { Select, type InputProps, components, createFilter, type ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
 import { noop as NOOP } from "es-toolkit";
