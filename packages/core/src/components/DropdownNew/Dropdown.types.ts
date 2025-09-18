@@ -155,6 +155,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    */
   menuAriaLabel?: string;
   /**
+   * The ARIA label for the clear button.
+   */
+  clearAriaLabel?: string;
+  /**
    * The current value of the input field.
    */
   inputValue?: string;
