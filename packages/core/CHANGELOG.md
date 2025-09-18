@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.67.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.66.0...@vibe/core@3.67.0) (2025-09-17)
+
+
+### Features
+
+* **Chips:** add ariaHasPopup prop ([#3111](https://github.com/mondaycom/vibe/issues/3111)) ([666bc76](https://github.com/mondaycom/vibe/commit/666bc76703813d0868a04c189c5ff8a5da35fa05))
+
+
+
+
+
+# [3.66.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.1...@vibe/core@3.66.0) (2025-09-17)
+
+
+### Features
+
+* **DropdownNew:** enhance accessibility attributes for dropdown states ([#3110](https://github.com/mondaycom/vibe/issues/3110)) ([b52e075](https://github.com/mondaycom/vibe/commit/b52e0759806447759c615659a5e49278fe10e582))
+
+
+
+
+
 ## [3.65.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.0...@vibe/core@3.65.1) (2025-09-14)
 
 

@@ -33,7 +33,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onClear,
     onOptionRemove,
     loading = false,
-    size = "medium"
+    size = "medium",
+    id
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -71,7 +72,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onMenuOpen,
     onOptionSelect,
     filterOption,
-    showSelectedOptions
+    showSelectedOptions,
+    id
   );
 
   const contextValue: DropdownContextProps<Item> = {

@@ -62,7 +62,8 @@ export const Overview: Story = {
   args: {
     id: "overview-dropdown",
     ariaLabel: "Overview dropdown",
-    placeholder: "Placeholder text here"
+    placeholder: "Placeholder text here",
+    clearAriaLabel: "Clear"
   },
   parameters: {
     docs: {
@@ -92,6 +93,7 @@ export const Sizes: Story = {
             options={options}
             placeholder="Placeholder text here"
             size="large"
+            clearAriaLabel="Clear"
           />
         </div>
         <div style={{ width: "300px" }}>
@@ -101,6 +103,7 @@ export const Sizes: Story = {
             options={options}
             placeholder="Placeholder text here"
             size="medium"
+            clearAriaLabel="Clear"
           />
         </div>
         <div style={{ width: "300px" }}>
@@ -110,6 +113,7 @@ export const Sizes: Story = {
             options={options}
             placeholder="Placeholder text here"
             size="small"
+            clearAriaLabel="Clear"
           />
         </div>
       </>
@@ -122,18 +126,45 @@ export const States: Story = {
     <Flex direction="row" gap="medium">
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <Dropdown id="states-default" ariaLabel="Default dropdown" options={[]} placeholder="Default" />
+          <Dropdown
+            id="states-default"
+            ariaLabel="Default dropdown"
+            options={[]}
+            placeholder="Default"
+            clearAriaLabel="Clear"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown id="states-disabled" ariaLabel="Disabled dropdown" options={[]} placeholder="Disabled" disabled />
+          <Dropdown
+            id="states-disabled"
+            ariaLabel="Disabled dropdown"
+            options={[]}
+            placeholder="Disabled"
+            disabled
+            clearAriaLabel="Clear"
+          />
         </div>
       </Flex>
       <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
-          <Dropdown id="states-error" ariaLabel="Error dropdown" options={[]} placeholder="Error" error />
+          <Dropdown
+            id="states-error"
+            ariaLabel="Error dropdown"
+            options={[]}
+            placeholder="Error"
+            error
+            clearAriaLabel="Clear"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown id="states-readonly" ariaLabel="Readonly dropdown" options={[]} placeholder="Readonly" readOnly />
+          <Dropdown
+            id="states-readonly"
+            ariaLabel="Readonly dropdown"
+            options={[]}
+            placeholder="Readonly"
+            readOnly
+            clearAriaLabel="Clear"
+          />
         </div>
       </Flex>
     </Flex>
@@ -174,6 +205,7 @@ export const MultiSelect: Story = {
               defaultValue={[options[0], options[1], options[2]]}
               options={options}
               multi
+              clearAriaLabel="Clear"
             />
           </div>
         </Flex>
@@ -186,6 +218,7 @@ export const MultiSelect: Story = {
               options={options}
               multi
               multiline
+              clearAriaLabel="Clear"
             />
           </div>
         </Flex>
@@ -252,19 +285,19 @@ export const DropdownWithIconOrAvatar: Story = {
         <Flex direction="column" gap="medium">
           <Text>Single value</Text>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={optionsIcons[0]} options={optionsIcons} />
+            <Dropdown defaultValue={optionsIcons[0]} options={optionsIcons} clearAriaLabel="Clear" />
           </div>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={optionsAvatar[0]} options={optionsAvatar} />
+            <Dropdown defaultValue={optionsAvatar[0]} options={optionsAvatar} clearAriaLabel="Clear" />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Multiple values</Text>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={[optionsIcons[0]]} options={optionsIcons} multi />
+            <Dropdown defaultValue={[optionsIcons[0]]} options={optionsIcons} multi clearAriaLabel="Clear" />
           </div>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi />
+            <Dropdown defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi clearAriaLabel="Clear" />
           </div>
         </Flex>
       </Flex>
@@ -292,7 +325,13 @@ export const Searchable: Story = {
 
     return (
       <div style={{ width: "300px" }}>
-        <Dropdown placeholder={"Searchable for an item"} options={options} searchable maxMenuHeight={170} />
+        <Dropdown
+          placeholder={"Searchable for an item"}
+          options={options}
+          searchable
+          maxMenuHeight={170}
+          clearAriaLabel="Clear"
+        />
       </div>
     );
   }
@@ -333,13 +372,19 @@ export const DropdownWithGroups: Story = {
               options={optionsWithoutGroupLabel}
               withGroupDivider
               maxMenuHeight={170}
+              clearAriaLabel="Clear"
             />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Group by category title</Text>
           <div style={{ width: "300px" }}>
-            <Dropdown placeholder="Group by category title" options={options} maxMenuHeight={170} />
+            <Dropdown
+              placeholder="Group by category title"
+              options={options}
+              maxMenuHeight={170}
+              clearAriaLabel="Clear"
+            />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
@@ -350,6 +395,7 @@ export const DropdownWithGroups: Story = {
               options={options}
               stickyGroupTitle
               maxMenuHeight={170}
+              clearAriaLabel="Clear"
             />
           </div>
         </Flex>
@@ -414,10 +460,22 @@ export const DropdownItemWithElements: Story = {
     return (
       <Flex gap="large">
         <div style={{ width: "300px" }}>
-          <Dropdown placeholder={"Placeholder text here"} options={startOptions} label="Start Elements" required />
+          <Dropdown
+            placeholder={"Placeholder text here"}
+            options={startOptions}
+            label="Start Elements"
+            required
+            clearAriaLabel="Clear"
+          />
         </div>
         <div style={{ width: "300px" }}>
-          <Dropdown placeholder={"Placeholder text here"} options={endOptions} label="End Elements" required />
+          <Dropdown
+            placeholder={"Placeholder text here"}
+            options={endOptions}
+            label="End Elements"
+            required
+            clearAriaLabel="Clear"
+          />
         </div>
       </Flex>
     );
@@ -445,6 +503,7 @@ export const DropdownHideSelectedItems: Story = {
           required
           multi
           showSelectedOptions={false}
+          clearAriaLabel="Clear"
         />
       </div>
     );
@@ -467,7 +526,7 @@ export const DropdownWithTooltips: Story = {
 
     return (
       <div style={{ width: "300px" }}>
-        <Dropdown placeholder={"Placeholder text here"} options={optionsWithTooltips} />
+        <Dropdown placeholder={"Placeholder text here"} options={optionsWithTooltips} clearAriaLabel="Clear" />
       </div>
     );
   }
@@ -554,6 +613,7 @@ export const DropdownWithVirtualization: Story = {
             menuRenderer={virtualizedMenuRenderer}
             searchable
             maxMenuHeight={250}
+            clearAriaLabel="Clear"
           />
         </div>
         <div style={{ width: "350px" }}>
@@ -564,6 +624,7 @@ export const DropdownWithVirtualization: Story = {
             menuRenderer={virtualizedMenuRenderer}
             searchable
             maxMenuHeight={250}
+            clearAriaLabel="Clear"
           />
         </div>
       </Flex>
