@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.68.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.67.0...@vibe/core@3.68.0) (2025-09-18)
+
+
+### Bug Fixes
+
+* **DropdownNew:** onInputChange return null instead of empty string ([#3109](https://github.com/mondaycom/vibe/issues/3109)) ([bcd6ac0](https://github.com/mondaycom/vibe/commit/bcd6ac0c805b615631763ac879d1ea49aebde829))
+
+
+### Features
+
+* **DropdownNew:** a11y improvements ([#3114](https://github.com/mondaycom/vibe/issues/3114)) ([6b21abb](https://github.com/mondaycom/vibe/commit/6b21abb2dca59f155510ae94fc1141125600fb0b))
+
+
+### Performance Improvements
+
+* **Dialog:** Return default when `containerSelector` is undefined ([#3113](https://github.com/mondaycom/vibe/issues/3113)) ([9c7ba22](https://github.com/mondaycom/vibe/commit/9c7ba22f92c730b92a4909cb477d8ef0891eec6e))
+
+
+
+
+
 # [3.67.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.66.0...@vibe/core@3.67.0) (2025-09-17)
 
 
