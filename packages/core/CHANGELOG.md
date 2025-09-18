@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.68.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.0...@vibe/core@3.68.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* **Dropdown:** use Select component as named export ([#3116](https://github.com/mondaycom/vibe/issues/3116)) ([7059d31](https://github.com/mondaycom/vibe/commit/7059d3155191b67a9a0c0a8a63d41406763c0da7))
+
+
+
+
+
 # [3.68.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.67.0...@vibe/core@3.68.0) (2025-09-18)
 
 
