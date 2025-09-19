@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.68.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.2...@vibe/core@3.68.3) (2025-09-19)
+
+
+### Bug Fixes
+
+* use react-select v3.4.0 ([#3119](https://github.com/mondaycom/vibe/issues/3119)) ([089e15d](https://github.com/mondaycom/vibe/commit/089e15da1c8ad0c3b3b45f3c4bd13c3a0d76a047))
+
+
+
+
+
 ## [3.68.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.1...@vibe/core@3.68.2) (2025-09-19)
 
 
