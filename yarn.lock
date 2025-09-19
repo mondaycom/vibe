@@ -16845,9 +16845,9 @@ react-select@3.1.0:
     react-input-autosize "^2.2.2"
     react-transition-group "^4.3.0"
 
-"react-select@npm:react-select-module@^3.2.6":
+"react-select@npm:react-select-module@3.2.6":
   version "3.2.6"
-  resolved "https://registry.npmjs.org/react-select-module/-/react-select-module-3.2.6.tgz"
+  resolved "https://registry.npmjs.org/react-select-module/-/react-select-module-3.2.6.tgz#f21939951d706b64720233b22e872ede88caa01b"
   integrity sha512-Q8cp+tjtuDWaX48agmJZ5urczp5YDVh8KDkGe+FmkMxjOvdz0PNnjcEvZP6fon7T5x5BFNvoDQnDUFtVRvtiKg==
   dependencies:
     "@babel/runtime" "^7.4.4"
