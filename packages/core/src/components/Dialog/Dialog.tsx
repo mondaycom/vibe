@@ -18,6 +18,7 @@ import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type DialogAnimationType, type DialogPosition, type DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
+import { LayerProvider } from "../LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
@@ -233,6 +234,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
+  private containerRef: React.RefObject<HTMLDivElement>;
   context!: React.ContextType<typeof LayerContext>;
 
   constructor(props: DialogProps) {
@@ -241,6 +243,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       shouldUseDerivedStateFromProps: props.useDerivedStateFromProps,
       isOpen: props.shouldShowOnMount
     };
+
+    this.containerRef = React.createRef<HTMLDivElement>();
 
     // Binding section.
     this.onMouseEnter = this.onMouseEnter.bind(this);
@@ -645,38 +649,51 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   this.hideDialog(event, "onReferenceHidden");
                 }
 
+                const chainedRef = (element: HTMLDivElement) => {
+                  if (this.containerRef.current !== element) {
+                    (this.containerRef as React.MutableRefObject<HTMLDivElement>).current = element;
+                  }
+                  if (typeof ref === "function") {
+                    ref(element);
+                  } else if (ref) {
+                    (ref as React.MutableRefObject<HTMLDivElement>).current = element;
+                  }
+                };
+
                 return (
-                  <DialogContent
-                    data-testid={overrideDataTestId}
-                    isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
-                    onMouseEnter={this.onDialogEnter}
-                    onMouseLeave={this.onDialogLeave}
-                    onClickOutside={this.onClickOutside}
-                    onContextMenu={this.onContextMenu}
-                    onEsc={this.onEsc}
-                    animationType={animationTypeCalculated}
-                    position={placement}
-                    wrapperClassName={wrapperClassName}
-                    startingEdge={startingEdge}
-                    isOpen={this.isShown()}
-                    showDelay={showDelay}
-                    styleObject={style}
-                    ref={ref}
-                    onClick={this.onContentClick}
-                    hasTooltip={!!tooltip}
-                    containerSelector={containerSelector}
-                    disableContainerScroll={disableContainerScroll}
-                  >
-                    {contentRendered}
-                    {tooltip && (
-                      <div
-                        style={arrowProps.style}
-                        ref={arrowProps.ref}
-                        className={cx(styles.arrow, tooltipClassName)}
-                        data-placement={placement}
-                      />
-                    )}
-                  </DialogContent>
+                  <LayerProvider layerRef={this.containerRef}>
+                    <DialogContent
+                      data-testid={overrideDataTestId}
+                      isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
+                      onMouseEnter={this.onDialogEnter}
+                      onMouseLeave={this.onDialogLeave}
+                      onClickOutside={this.onClickOutside}
+                      onContextMenu={this.onContextMenu}
+                      onEsc={this.onEsc}
+                      animationType={animationTypeCalculated}
+                      position={placement}
+                      wrapperClassName={wrapperClassName}
+                      startingEdge={startingEdge}
+                      isOpen={this.isShown()}
+                      showDelay={showDelay}
+                      styleObject={style}
+                      ref={chainedRef}
+                      onClick={this.onContentClick}
+                      hasTooltip={!!tooltip}
+                      containerSelector={containerSelector}
+                      disableContainerScroll={disableContainerScroll}
+                    >
+                      {contentRendered}
+                      {tooltip && (
+                        <div
+                          style={arrowProps.style}
+                          ref={arrowProps.ref}
+                          className={cx(styles.arrow, tooltipClassName)}
+                          data-placement={placement}
+                        />
+                      )}
+                    </DialogContent>
+                  </LayerProvider>
                 );
               }}
             </Popper>,
