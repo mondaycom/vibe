@@ -2,7 +2,7 @@
 @import "~monday-ui-style/dist/mixins";
 @import "../../components/Avatar/AvatarConstants";
 
-.counterContainer {
+.counterContainer.counterContainer {
   background: var(--ui-background-color);
   display: flex;
   justify-content: center;
@@ -12,7 +12,8 @@
   border: 1px solid var(--primary-background-color);
 
   &:focus-visible,
-  &.focus-visible { /* stylelint-disable-line selector-class-pattern */
+  /* stylelint-disable-line selector-class-pattern */
+  &.focus-visible {
     outline: none;
     @include focus-style(50%);
   }
