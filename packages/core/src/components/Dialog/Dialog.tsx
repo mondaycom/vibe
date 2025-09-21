@@ -3,7 +3,7 @@ import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { Manager, type Modifier, Popper, Reference } from "react-popper";
 import { isFunction } from "es-toolkit";
-import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
+import { chainFunctions, chainRefFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import DialogContent from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../Refable/Refable";
@@ -21,21 +21,6 @@ import LayerContext from "../LayerProvider/LayerContext";
 import { LayerProvider } from "../LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
-
-// Helper function to merge refs - extracted from useMergeRef logic
-function mergeRefs<T>(...refs: (React.RefObject<T> | React.ForwardedRef<T> | null)[]): (element: T | null) => void {
-  return (element: T | null) => {
-    refs.forEach(ref => {
-      if (!ref) return;
-
-      if (typeof ref === "function") {
-        ref(element);
-      } else {
-        (ref as React.MutableRefObject<T>).current = element;
-      }
-    });
-  };
-}
 
 export interface DialogProps extends VibeComponentProps {
   /**
@@ -664,7 +649,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   this.hideDialog(event, "onReferenceHidden");
                 }
 
-                const mergedRef = mergeRefs(ref, this.containerRef);
+                const mergedRef = chainRefFunctions([ref, this.containerRef]);
 
                 return (
                   <LayerProvider layerRef={this.containerRef}>
