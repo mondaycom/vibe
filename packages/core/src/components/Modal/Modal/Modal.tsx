@@ -113,18 +113,31 @@ const Modal = forwardRef(
 
     const handleFocusLockWhiteList = useCallback(
       (nextFocusedElement?: HTMLElement) => {
-        if (!onFocusAttempt) return true;
+        // If onFocusAttempt is provided, delegate to it first
+        if (onFocusAttempt) {
+          const outcome = onFocusAttempt(nextFocusedElement);
 
-        const outcome = onFocusAttempt(nextFocusedElement);
+          if (outcome === true) return true;
 
-        if (outcome === true) return true;
+          if (outcome instanceof HTMLElement) {
+            outcome.focus();
+            return false;
+          }
 
-        if (outcome instanceof HTMLElement) {
-          outcome.focus();
-          return false;
+          if (outcome === false) return false;
         }
 
-        return false;
+        // Allow focus on elements within the layer container (floating elements like dropdowns, tooltips, popovers)
+        if (nextFocusedElement && containerRef.current) {
+          const layerContainer = containerRef.current;
+          if (layerContainer.contains(nextFocusedElement)) {
+            return true;
+          }
+        }
+
+        // If no onFocusAttempt was provided and element isn't in layer, allow focus
+        // This maintains backward compatibility
+        return !onFocusAttempt;
       },
       [onFocusAttempt]
     );
