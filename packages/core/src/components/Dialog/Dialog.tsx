@@ -22,6 +22,21 @@ import { LayerProvider } from "../LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
+// Helper function to merge refs - extracted from useMergeRef logic
+function mergeRefs<T>(...refs: (React.RefObject<T> | React.ForwardedRef<T> | null)[]): (element: T | null) => void {
+  return (element: T | null) => {
+    refs.forEach(ref => {
+      if (!ref) return;
+
+      if (typeof ref === "function") {
+        ref(element);
+      } else {
+        (ref as React.MutableRefObject<T>).current = element;
+      }
+    });
+  };
+}
+
 export interface DialogProps extends VibeComponentProps {
   /**
    * Class name applied to the reference wrapper element.
@@ -649,16 +664,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   this.hideDialog(event, "onReferenceHidden");
                 }
 
-                const chainedRef = (element: HTMLDivElement) => {
-                  if (this.containerRef.current !== element) {
-                    (this.containerRef as React.MutableRefObject<HTMLDivElement>).current = element;
-                  }
-                  if (typeof ref === "function") {
-                    ref(element);
-                  } else if (ref) {
-                    (ref as React.MutableRefObject<HTMLDivElement>).current = element;
-                  }
-                };
+                const mergedRef = mergeRefs(ref, this.containerRef);
 
                 return (
                   <LayerProvider layerRef={this.containerRef}>
@@ -677,7 +683,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                       isOpen={this.isShown()}
                       showDelay={showDelay}
                       styleObject={style}
-                      ref={chainedRef}
+                      ref={mergedRef}
                       onClick={this.onContentClick}
                       hasTooltip={!!tooltip}
                       containerSelector={containerSelector}
