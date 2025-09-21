@@ -127,15 +127,7 @@ const Modal = forwardRef(
           if (outcome === false) return false;
         }
 
-        // Allow focus on elements within the layer container (floating elements like dropdowns, tooltips, popovers)
-        if (nextFocusedElement && containerRef.current) {
-          const layerContainer = containerRef.current;
-          if (layerContainer.contains(nextFocusedElement)) {
-            return true;
-          }
-        }
-
-        // If no onFocusAttempt was provided and element isn't in layer, allow focus
+        // If no onFocusAttempt was provided, allow focus by default
         // This maintains backward compatibility
         return !onFocusAttempt;
       },
@@ -148,7 +140,12 @@ const Modal = forwardRef(
           <LayerProvider layerRef={containerRef}>
             <ModalProvider value={contextValue}>
               {createPortal(
-                <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
+                <FocusLockComponent
+                  returnFocus
+                  autoFocus={autoFocus}
+                  whiteList={handleFocusLockWhiteList}
+                  shards={[{ current: document.body }]}
+                >
                   <div ref={containerRef} className={styles.container} style={zIndexStyle}>
                     <motion.div
                       variants={modalAnimationOverlayVariants}
