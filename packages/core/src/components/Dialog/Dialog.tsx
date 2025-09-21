@@ -3,7 +3,7 @@ import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { Manager, type Modifier, Popper, Reference } from "react-popper";
 import { isFunction } from "es-toolkit";
-import { chainFunctions, convertToArray, NOOP } from "../../utils/function-utils";
+import { chainFunctions, chainRefFunctions, convertToArray, NOOP } from "../../utils/function-utils";
 import DialogContent from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../Refable/Refable";
@@ -18,6 +18,7 @@ import styles from "./Dialog.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type DialogAnimationType, type DialogPosition, type DialogTriggerEvent } from "./Dialog.types";
 import LayerContext from "../LayerProvider/LayerContext";
+import { LayerProvider } from "../LayerProvider";
 import { isClient } from "../../utils/ssr-utils";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
@@ -233,6 +234,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
+  private containerRef: React.RefObject<HTMLDivElement>;
   context!: React.ContextType<typeof LayerContext>;
 
   constructor(props: DialogProps) {
@@ -241,6 +243,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       shouldUseDerivedStateFromProps: props.useDerivedStateFromProps,
       isOpen: props.shouldShowOnMount
     };
+
+    this.containerRef = React.createRef<HTMLDivElement>();
 
     // Binding section.
     this.onMouseEnter = this.onMouseEnter.bind(this);
@@ -645,38 +649,42 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   this.hideDialog(event, "onReferenceHidden");
                 }
 
+                const mergedRef = chainRefFunctions([ref, this.containerRef]);
+
                 return (
-                  <DialogContent
-                    data-testid={overrideDataTestId}
-                    isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
-                    onMouseEnter={this.onDialogEnter}
-                    onMouseLeave={this.onDialogLeave}
-                    onClickOutside={this.onClickOutside}
-                    onContextMenu={this.onContextMenu}
-                    onEsc={this.onEsc}
-                    animationType={animationTypeCalculated}
-                    position={placement}
-                    wrapperClassName={wrapperClassName}
-                    startingEdge={startingEdge}
-                    isOpen={this.isShown()}
-                    showDelay={showDelay}
-                    styleObject={style}
-                    ref={ref}
-                    onClick={this.onContentClick}
-                    hasTooltip={!!tooltip}
-                    containerSelector={containerSelector}
-                    disableContainerScroll={disableContainerScroll}
-                  >
-                    {contentRendered}
-                    {tooltip && (
-                      <div
-                        style={arrowProps.style}
-                        ref={arrowProps.ref}
-                        className={cx(styles.arrow, tooltipClassName)}
-                        data-placement={placement}
-                      />
-                    )}
-                  </DialogContent>
+                  <LayerProvider layerRef={this.containerRef}>
+                    <DialogContent
+                      data-testid={overrideDataTestId}
+                      isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
+                      onMouseEnter={this.onDialogEnter}
+                      onMouseLeave={this.onDialogLeave}
+                      onClickOutside={this.onClickOutside}
+                      onContextMenu={this.onContextMenu}
+                      onEsc={this.onEsc}
+                      animationType={animationTypeCalculated}
+                      position={placement}
+                      wrapperClassName={wrapperClassName}
+                      startingEdge={startingEdge}
+                      isOpen={this.isShown()}
+                      showDelay={showDelay}
+                      styleObject={style}
+                      ref={mergedRef}
+                      onClick={this.onContentClick}
+                      hasTooltip={!!tooltip}
+                      containerSelector={containerSelector}
+                      disableContainerScroll={disableContainerScroll}
+                    >
+                      {contentRendered}
+                      {tooltip && (
+                        <div
+                          style={arrowProps.style}
+                          ref={arrowProps.ref}
+                          className={cx(styles.arrow, tooltipClassName)}
+                          data-placement={placement}
+                        />
+                      )}
+                    </DialogContent>
+                  </LayerProvider>
                 );
               }}
             </Popper>,
