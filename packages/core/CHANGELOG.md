@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.68.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.3...@vibe/core@3.68.4) (2025-09-21)
+
+
+### Bug Fixes
+
+* **Dialog:** add LayerProvider ([#3122](https://github.com/mondaycom/vibe/issues/3122)) ([b56e7aa](https://github.com/mondaycom/vibe/commit/b56e7aacdfa291379c71974f9ae62ff3944809ca))
+
+
+
+
+
 ## [3.68.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.2...@vibe/core@3.68.3) (2025-09-19)
 
 
