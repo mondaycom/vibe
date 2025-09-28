@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.69.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.5...@vibe/core@3.69.0) (2025-09-28)
+
+
+### Features
+
+* **Info:** new component ([#3095](https://github.com/mondaycom/vibe/issues/3095)) ([5bfa27f](https://github.com/mondaycom/vibe/commit/5bfa27f646ef1e2b4a8b8a26692b7e9c73019c1c))
+
+
+
+
+
 ## [3.68.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.4...@vibe/core@3.68.5) (2025-09-28)
 
 
