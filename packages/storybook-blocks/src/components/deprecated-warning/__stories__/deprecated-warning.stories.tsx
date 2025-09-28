@@ -3,7 +3,7 @@ import DeprecatedWarning from '../deprecated-warning';
 
 const meta: Meta<typeof DeprecatedWarning> = {
   component: DeprecatedWarning,
-  title: 'Components/DeprecatedWarning',
+  title: 'Storybook Blocks/DeprecatedWarning',
 };
 export default meta;
 

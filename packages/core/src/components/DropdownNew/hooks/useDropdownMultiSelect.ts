@@ -17,7 +17,8 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
   onMenuClose?: () => void,
   onOptionSelect?: (option: T) => void,
   showSelectedOptions?: boolean,
-  filterOption?: (option: T, inputValue: string) => boolean
+  filterOption?: (option: T, inputValue: string) => boolean,
+  id?: string
 ) {
   const currentSelectedItems = value !== undefined ? value : selectedItems;
 
@@ -54,6 +55,7 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     selectedItem: null,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
+    id,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
       const existingItem = currentSelectedItems.find(item => item.value === newSelectedItem.value);
@@ -67,11 +69,9 @@ function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknow
     stateReducer: (state, actionAndChanges) => {
       const { type, changes } = actionAndChanges;
       switch (type) {
+        case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
         case useSelect.stateChangeTypes.ItemClick:
-          return {
-            ...changes,
-            isOpen: true
-          };
+          return { ...changes, isOpen: true, highlightedIndex: (changes.selectedItem?.index as number) ?? 0 };
         default:
           return changes;
       }

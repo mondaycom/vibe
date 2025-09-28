@@ -41,6 +41,9 @@ addons.setConfig({
  */
 function shouldShowStory(item) {
   const isDev = isChromatic() || process.env.NODE_ENV === "development";
-  const isPublic = !item.tags?.includes?.("internal") && !item.title?.startsWith?.("Internal");
+  const isPublic =
+    !item.tags?.includes?.("internal") &&
+    !item.title?.startsWith?.("Internal") &&
+    !item.title?.startsWith?.("Storybook Blocks");
   return isDev || isPublic;
 }

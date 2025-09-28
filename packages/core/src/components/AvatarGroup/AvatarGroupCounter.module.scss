@@ -2,7 +2,7 @@
 @import "~monday-ui-style/dist/mixins";
 @import "../../components/Avatar/AvatarConstants";
 
-.counterContainer {
+.counterContainer.counterContainer {
   background: var(--ui-background-color);
   display: flex;
   justify-content: center;

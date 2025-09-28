@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.7.0...@vibe/mcp@0.8.0) (2025-09-21)
+
+
+### Features
+
+* **DropdownMigration:** add migration tool for transitioning to new Dropdown component ([#3115](https://github.com/mondaycom/vibe/issues/3115)) ([7621260](https://github.com/mondaycom/vibe/commit/7621260cd0d8558eb6fdf5a651fc86c86ea786c2))
+
+
+
+
+
+# [0.7.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.6.0...@vibe/mcp@0.7.0) (2025-09-08)
+
+
+### Features
+
+* update mcp version ([#3097](https://github.com/mondaycom/vibe/issues/3097)) ([eb652c2](https://github.com/mondaycom/vibe/commit/eb652c2ab4407eded3ca6bf7aec25f75b16cd338))
+
+
+
+
+
 # [0.6.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.2...@vibe/mcp@0.6.0) (2025-09-04)
 
 

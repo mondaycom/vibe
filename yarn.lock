@@ -9221,6 +9221,13 @@ ee-first@1.1.1:
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
+ejs@^3.1.10:
+  version "3.1.10"
+  resolved "https://registry.npmjs.org/ejs/-/ejs-3.1.10.tgz#69ab8358b14e896f80cc39e62087b88500c3ac3b"
+  integrity sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==
+  dependencies:
+    jake "^10.8.5"
+
 ejs@^3.1.7, ejs@^3.1.9:
   version "3.1.9"
   resolved "https://registry.npmjs.org/ejs/-/ejs-3.1.9.tgz"
@@ -9844,6 +9851,13 @@ eslint-plugin-jsx-a11y@^6.5.1:
     minimatch "^3.1.2"
     object.entries "^1.1.7"
     object.fromentries "^2.0.7"
+
+eslint-plugin-lodash@^7.4.0:
+  version "7.4.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-lodash/-/eslint-plugin-lodash-7.4.0.tgz#14a761547f126c92ff56789662a20a44f8bb6290"
+  integrity sha512-Tl83UwVXqe1OVeBRKUeWcfg6/pCW1GTRObbdnbEJgYwjxp5Q92MEWQaH9+dmzbRt6kvYU1Mp893E79nJiCSM8A==
+  dependencies:
+    lodash "^4.17.21"
 
 eslint-plugin-markdown@^2.2.1:
   version "2.2.1"
@@ -16831,10 +16845,10 @@ react-select@3.1.0:
     react-input-autosize "^2.2.2"
     react-transition-group "^4.3.0"
 
-"react-select@npm:react-select-module@^3.2.6":
-  version "3.2.6"
-  resolved "https://registry.npmjs.org/react-select-module/-/react-select-module-3.2.6.tgz"
-  integrity sha512-Q8cp+tjtuDWaX48agmJZ5urczp5YDVh8KDkGe+FmkMxjOvdz0PNnjcEvZP6fon7T5x5BFNvoDQnDUFtVRvtiKg==
+"react-select@npm:react-select-module@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.npmjs.org/react-select-module/-/react-select-module-3.4.0.tgz#0a132a29428e841928ce16e7c758683f747ee189"
+  integrity sha512-d9swlWWqqQyrZPfako6aKFK/kdLY9m4TQMIdhuD387VVAqB3+0zEKGb0ANQWsNNobo5ga46SltQzXuklxUvteA==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@emotion/cache" "^10.0.9"
@@ -19733,6 +19747,15 @@ vfile@^6.0.0:
   dependencies:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
+
+vibe-storybook-components@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-1.0.2.tgz#e42aa299d9e3c5c078fe068528a58ab4876d3d0c"
+  integrity sha512-t3B1wTRxzwi59Yj+1RPsjZ9EcNFVmHBncvQPzUkJ2+hy04iL+Qzvkt3W/rSO1i/OQsuYK1CD1nz9UndKz8NQaA==
+  dependencies:
+    "@storybook/types" "^7.5.0"
+    browserslist-config-monday "^1.0.6"
+    classnames "^2.3.2"
 
 vite-node@1.6.0:
   version "1.6.0"

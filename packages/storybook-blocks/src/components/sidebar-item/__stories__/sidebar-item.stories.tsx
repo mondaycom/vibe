@@ -3,7 +3,7 @@ import SidebarItem from '../sidebar-item';
 
 const meta: Meta<typeof SidebarItem> = {
   component: SidebarItem,
-  title: 'Components/SidebarItem',
+  title: 'Storybook Blocks/SidebarItem',
 };
 export default meta;
 

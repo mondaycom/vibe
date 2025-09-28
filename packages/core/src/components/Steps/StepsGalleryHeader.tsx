@@ -1,5 +1,5 @@
 import React, { type FC, useCallback, useMemo } from "react";
-import { range } from "es-toolkit/compat";
+import { range } from "es-toolkit";
 import cx from "classnames";
 import { StepsDot } from "./StepsDot";
 import type VibeComponentProps from "../../types/VibeComponentProps";

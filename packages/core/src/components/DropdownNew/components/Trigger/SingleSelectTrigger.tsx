@@ -18,6 +18,8 @@ const SingleSelectTrigger = () => {
     isFocused,
     getToggleButtonProps,
     disabled,
+    readOnly,
+    error,
     label,
     getLabelProps,
     ariaLabel
@@ -31,7 +33,10 @@ const SingleSelectTrigger = () => {
           ? getToggleButtonProps({
               "aria-haspopup": "dialog",
               "aria-labelledby": label ? getLabelProps().id : undefined,
-              "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id)
+              "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id),
+              "aria-disabled": disabled ? "true" : undefined,
+              "aria-invalid": error ? "true" : undefined,
+              "aria-readonly": readOnly ? "true" : undefined
             })
           : {})}
       >

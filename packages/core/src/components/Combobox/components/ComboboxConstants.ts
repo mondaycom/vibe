@@ -1,5 +1,6 @@
 import { type SubIcon } from "../../../types";
 import type React from "react";
+import type { TooltipProps } from "../../Tooltip/Tooltip";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
@@ -97,6 +98,11 @@ export interface IComboboxOption {
    * The tooltip content displayed on hover.
    */
   tooltipContent?: string;
+  /**
+   * Props for the Tooltip component.
+   * The "Omit" is here on purpose to avoid the content prop, in case tooltipProps would be expanded in the future.
+   */
+  tooltipProps?: Pick<Omit<TooltipProps, "content">, "position">;
 }
 
 export interface IComboboxItem {

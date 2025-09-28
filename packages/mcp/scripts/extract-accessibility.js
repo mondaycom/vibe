@@ -22,7 +22,6 @@ function getMdxFiles() {
 
       if (entry.isDirectory()) {
         if (entry.name === "__stories__") {
-          // Found stories directory, get all .mdx files
           const storyDirEntries = fs.readdirSync(fullPath, { withFileTypes: true });
           for (const storyEntry of storyDirEntries) {
             if (storyEntry.isFile() && storyEntry.name.endsWith(".mdx")) {
@@ -30,7 +29,6 @@ function getMdxFiles() {
             }
           }
         } else {
-          // Recursively traverse other directories
           traverseDirectory(fullPath);
         }
       }

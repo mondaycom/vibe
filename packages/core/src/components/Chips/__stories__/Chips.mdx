@@ -1,6 +1,5 @@
 import { Meta } from "@storybook/blocks";
 import Chips from "../Chips";
-import { COUNTER, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { TipLabel } from "./Chips.stories.helpers";
 import * as ChipsStories from "./Chips.stories";
 
@@ -32,6 +31,30 @@ import { Chips } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Chips to enable proper accessibility associations and unique identification.
+    </>,
+    <>
+      For removable chips, use the <code>closeButtonAriaLabel</code> prop to provide a descriptive accessible name for
+      the remove button (defaults to "Remove", but should be more specific like "Remove John Smith" or "Delete tag").
+    </>,
+    <>
+      Use the <code>ariaLabel</code> prop when the visible <code>label</code> text alone doesn't provide enough context
+      for screen readers to understand the chip's purpose or when chips contain complex content.
+    </>,
+    <>
+      For clickable chips, ensure the <code>ariaLabel</code> describes the action that will occur when clicked.
+    </>,
+    <>
+      When using icons or avatars in chips, ensure they are purely decorative and don't replace the descriptive text.
+      Screen readers will announce the text content, and icons should be hidden from assistive technologies.
+    </>
+  ]}
+/>
 <TipLabel />
 
 ## Variants
@@ -106,4 +129,4 @@ Chips can be removable, and can be used in a multiple options selection use case
 
 ## Related components
 
-<RelatedComponents componentsNames={[LABEL, TOOLTIP, COUNTER]} />
+<RelatedComponents componentsNames={["Label", "Tooltip", "Counter"]} />

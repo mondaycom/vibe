@@ -8,11 +8,6 @@ import { Board, Folder, Group, Workspace } from "@vibe/icons";
 import person3 from "./assets/person3.png";
 import do1 from "./assets/do1.png";
 import dont1 from "./assets/dont1.png";
-import {
-  BUTTON_GROUP,
-  MULTI_STEP_INDICATOR,
-  TABS
-} from "../../../storybook/components/related-components/component-description-map";
 import { TipCheckYourself } from "./BreadcrumbsBar.stories.helpers";
 import * as BreadcrumbsBarStories from "./BreadcrumbsBar.stories";
 import styles from "./BreadcrumbsBar.stories.module.scss";
@@ -47,6 +42,28 @@ import { BreadcrumbsBar } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>type="navigation"</code> prop when breadcrumbs are clickable for navigation. This automatically
+      enables keyboard navigation and proper button/link semantics.
+    </>,
+    <>
+      For clickable breadcrumbs, ensure all items have descriptive <code>text</code> props that clearly indicate what
+      section or page they represent.
+    </>,
+    <>
+      When using icons in breadcrumbs, ensure they are purely decorative and don't replace the descriptive text, as
+      screen readers will announce the text content.
+    </>,
+    <>
+      Use the <code>isCurrent</code> prop on BreadcrumbItem to mark the current page. This ensures screen readers
+      understand the user's current location in the navigation hierarchy.
+    </>
+  ]}
+/>
 <TipCheckYourself />
 
 ## Variants
@@ -163,4 +180,4 @@ Use when breadcrumbs are clickable and are used for information and navigation
 
 ## Related components
 
-<RelatedComponents componentsNames={[BUTTON_GROUP, MULTI_STEP_INDICATOR, TABS]} />
+<RelatedComponents componentsNames={["ButtonGroup", "MultiStepIndicator", "Tabs"]} />
