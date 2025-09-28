@@ -15,7 +15,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Info",
+  title: "Components/Info [New]",
   component: Info,
   argTypes: {
     ...metaSettings.argTypes
