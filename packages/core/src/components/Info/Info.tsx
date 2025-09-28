@@ -25,9 +25,10 @@ const Info = forwardRef(
       onDialogHide,
       hideButtonTooltip,
       dialogClassName,
+      containerSelector,
       "data-testid": dataTestId
     }: InfoProps,
-    ref: React.ForwardedRef<HTMLElement>
+    ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
     const iconButtonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, iconButtonRef);
@@ -68,6 +69,7 @@ const Info = forwardRef(
         hideTrigger={["click", "clickoutside", "esckey"]}
         onDialogDidShow={handleDialogShow}
         onDialogDidHide={handleDialogHide}
+        containerSelector={containerSelector}
         content={
           <InfoDialogContent
             ref={dialogContentRef}
