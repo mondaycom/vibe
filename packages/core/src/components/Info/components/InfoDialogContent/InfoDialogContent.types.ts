@@ -1,7 +1,7 @@
 import { type VibeComponentProps } from "../../../../types";
 import { type InfoLinkProps } from "../InfoLink/InfoLink";
 
-export interface InfoDialogContentProp extends VibeComponentProps {
+export interface InfoDialogContentProps extends VibeComponentProps {
   /**
    * The title text displayed at the top of the info dialog.
    */
