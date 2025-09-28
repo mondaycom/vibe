@@ -12,8 +12,7 @@
   border: 1px solid var(--primary-background-color);
 
   &:focus-visible,
-  /* stylelint-disable-line selector-class-pattern */
-  &.focus-visible {
+  &.focus-visible {  /* stylelint-disable-line selector-class-pattern */
     outline: none;
     @include focus-style(50%);
   }
