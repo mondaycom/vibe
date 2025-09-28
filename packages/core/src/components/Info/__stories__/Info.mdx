@@ -45,6 +45,33 @@ import { Info } from "@vibe/core";
   ]}
 />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Info component to enable proper accessibility associations and unique
+      identification.
+    </>,
+    <>
+      You should provide an accessible name using the <code>aria-label</code> prop to describe the purpose of the info
+      button (e.g., "More information about this feature").
+    </>,
+    <>
+      Use <code>aria-labelledby</code> prop when an external element provides the accessible name for the info button.
+      Pass the <code>id</code> of that external element (instead of using <code>aria-label</code>).
+    </>,
+    <>
+      The component automatically manages <code>aria-controls</code>, <code>aria-haspopup="dialog"</code>, and{" "}
+      <code>aria-expanded</code> attributes to indicate the relationship with the dialog and its current state.
+    </>,
+    <>
+      Focus management is handled automatically - when the dialog opens, focus moves to the content, and when closed
+      with Escape, focus returns to the info button.
+    </>
+  ]}
+/>
+
 ## Variants
 
 ### Directions
