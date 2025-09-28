@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.68.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.4...@vibe/core@3.68.5) (2025-09-28)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** fix counter styles ([#3124](https://github.com/mondaycom/vibe/issues/3124)) ([5c80e0f](https://github.com/mondaycom/vibe/commit/5c80e0f8a679ac4e84360f6f1c1d30441106fdf9))
+
+
+
+
+
 ## [3.68.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.3...@vibe/core@3.68.4) (2025-09-21)
 
 
