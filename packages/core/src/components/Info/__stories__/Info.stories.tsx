@@ -57,6 +57,7 @@ export const Directions: Story = {
             Bottom
           </Text>
           <Info
+            id="bottom-direction-info-button"
             aria-labelledby="bottom-direction"
             title="Placement: Bottom"
             body="This dialog's direction is from the bottom"
@@ -69,6 +70,7 @@ export const Directions: Story = {
             Left
           </Text>
           <Info
+            id="left-direction-info-button"
             aria-labelledby="left-direction"
             title="Placement: Left"
             body="This dialog's direction is from the left"
@@ -81,6 +83,7 @@ export const Directions: Story = {
             Right
           </Text>
           <Info
+            id="right-direction-info-button"
             aria-labelledby="right-direction"
             title="Placement: Right"
             body="This dialog's direction is from the right"
@@ -93,6 +96,7 @@ export const Directions: Story = {
             Top
           </Text>
           <Info
+            id="top-direction-info-button"
             aria-labelledby="top-direction"
             title="Placement: Top"
             body="This dialog's direction is from the top"
