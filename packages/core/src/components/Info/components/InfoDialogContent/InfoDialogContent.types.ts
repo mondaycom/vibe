@@ -1,10 +1,7 @@
+import { type VibeComponentProps } from "../../../../types";
 import { type InfoLinkProps } from "../InfoLink/InfoLink";
 
-export interface InfoDialogContentProps {
-  /**
-   * An HTML id attribute for the dialog content container.
-   */
-  id: string;
+export interface InfoDialogContentProp extends VibeComponentProps {
   /**
    * The title text displayed at the top of the info dialog.
    */
@@ -17,8 +14,4 @@ export interface InfoDialogContentProps {
    * Link configuration for the info dialog.
    */
   link?: InfoLinkProps;
-  /**
-   * Class name applied to the dialog content.
-   */
-  className?: string;
 }
