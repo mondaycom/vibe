@@ -1,0 +1,228 @@
+---
+description: "Comprehensive guide for adding, modifying, and managing color tokens in the monday-ui-style package (@style). Covers SCSS theme files, build process, naming conventions, and special handling for hacker theme."
+globs: "packages/style/**/*"
+---
+
+# Color Token Management for monday-ui-style (@style)
+
+This rule provides a complete guide for managing color tokens in the `@style` package, which publishes as `monday-ui-style`.
+
+## Package Structure Overview
+
+The `@style` package uses a **two-layer system** for color tokens:
+
+1. **SCSS Theme Files** (source of truth) - Define CSS custom properties (`--token-name`)
+2. **JSON Files** (auto-generated) - Generated from compiled CSS for programmatic access
+
+### Key Files and Directories
+
+- **Theme SCSS Files**: [src/themes/](mdc:packages/style/src/themes/)
+
+  - [light-theme.scss](mdc:packages/style/src/themes/light-theme.scss) - Default/light theme
+  - [dark-theme.scss](mdc:packages/style/src/themes/dark-theme.scss) - Dark theme
+  - [black-theme.scss](mdc:packages/style/src/themes/black-theme.scss) - Black theme
+  - [hacker-theme.scss](mdc:packages/style/src/themes/hacker-theme.scss) - Hacker theme
+
+- **Build Script**: [scripts/generate-colors.ts](mdc:packages/style/scripts/generate-colors.ts)
+- **Generated Files**:
+  - [src/files/tokens.json](mdc:packages/style/src/files/tokens.json) - Resolved token values
+  - [src/files/colors.json](mdc:packages/style/src/files/colors.json) - Raw color values
+  - [dist/index.css](mdc:packages/style/dist/index.css) - Compiled CSS
+
+## Step-by-Step Process for Adding/Modifying Tokens
+
+### 1. Add Token to ALL Theme SCSS Files
+
+You **must** add the new token to all four theme files to ensure consistency:
+
+```css
+// Example: Adding --info-color token
+
+// In light-theme.scss
+:root,
+.light-app-theme,
+.default-app-theme {
+  // ... existing tokens
+  --info-color: #0084ff;
+  --info-color-hover: #006bd6;
+  --info-color-selected: #b3d9ff;
+}
+
+// In dark-theme.scss
+.dark-app-theme {
+  // ... existing tokens
+  --info-color: #0084ff;
+  --info-color-hover: #4da3ff;
+  --info-color-selected: #1a3d5c;
+}
+
+// In black-theme.scss
+.black-app-theme {
+  // ... existing tokens
+  --info-color: #0084ff;
+  --info-color-hover: #4da3ff;
+  --info-color-selected: #1a3d5c;
+}
+
+// In hacker-theme.scss
+.hacker_theme-app-theme {
+  // ... existing tokens
+  --info-color: #8be9fd; // Hacker theme specific OR same as black theme
+  --info-color-hover: #6be7fb;
+  --info-color-selected: #2d4a5c;
+}
+```
+
+### 2. Special Rule for Hacker Theme
+
+**IMPORTANT**: If no specific value is provided for the hacker theme, **always use the same value as the black theme**. Do not create arbitrary values.
+
+```css
+// ✅ CORRECT: When no hacker-specific value is given
+.black-app-theme {
+  --ui-background-hover-color: #3b3b3b;
+}
+
+.hacker_theme-app-theme {
+  --ui-background-hover-color: #3b3b3b; // Same as black theme
+}
+
+// ❌ INCORRECT: Don't create arbitrary values
+.hacker_theme-app-theme {
+  --ui-background-hover-color: #3a3f56; // Don't make up colors
+}
+```
+
+### 3. Build and Generate JSON Files
+
+After adding tokens to SCSS files, run the build process:
+
+```bash
+cd packages/style
+yarn build
+```
+
+This will:
+
+1. Compile SCSS to CSS (`dist/index.css`)
+2. Run [generate-colors.ts](mdc:packages/style/scripts/generate-colors.ts)
+3. Generate updated JSON files in `src/files/` and `dist/`
+
+### 4. Verify Implementation
+
+Check that your tokens appear correctly:
+
+```bash
+# Verify token exists in all themes
+grep "your-token-name" packages/style/src/files/tokens.json
+
+# Check CSS compilation
+grep "your-token-name" packages/style/dist/index.css
+```
+
+## Naming Conventions (if names weren't included in human's request)
+
+### Token Naming Patterns
+
+- Use **kebab-case**: `--info-color`, `--primary-background-color`
+- Include **state variants**: `-hover`, `-selected`, `-selected-hover`
+- For branded colors: `--color-ocean-blue`, `--color-forest-green`
+- Add stylelint disable comments for underscores: `/* stylelint-disable-line custom-property-pattern */`
+
+### Token Categories
+
+**Semantic Tokens** (preferred for new additions):
+
+```css
+--primary-color, --secondary-color
+--positive-color, --negative-color, --warning-color
+--text-color-on-primary, --background-color
+--ui-background-color, --ui-background-hover-color
+```
+
+**Branded Colors** (specific color values):
+
+```css
+--color-grass-green, --color-sofia-pink
+--color-working-orange, --color-done-green
+```
+
+### Token Positioning
+
+Place new tokens **logically** near related existing tokens:
+
+```css
+// ✅ Good: Group related tokens together
+--ui-border-color: #c3c6d4;
+--ui-background-color: #e7e9ef;
+--ui-background-hover-color: #d8d9e0; // ← New token placed logically
+--layout-border-color: #d0d4e4;
+```
+
+## Usage After Implementation
+
+```css
+.my-component {
+  background-color: var(--ui-background-color);
+
+  &:hover {
+    background-color: var(--ui-background-hover-color);
+  }
+}
+```
+
+## Best Practices
+
+1. **Always add tokens to ALL theme files** - Never skip a theme
+2. **Position tokens logically** near related tokens in SCSS files
+3. **Use black theme values for hacker theme** when no specific value is provided by human
+4. **Test in all themes** to verify proper contrast and accessibility
+5. **Use semantic names** over specific color names when possible
+6. **Follow existing patterns** for state variants
+7. **Run build process** after making changes
+
+## Common Mistakes to Avoid
+
+- ❌ Adding tokens to only some theme files
+- ❌ Creating arbitrary colors for hacker theme
+- ❌ Forgetting to run the build process
+- ❌ Using inconsistent naming conventions
+- ❌ Not testing across all themes
+
+## Build Process Details
+
+The [generate-colors.ts](mdc:packages/style/scripts/generate-colors.ts) script:
+
+1. Reads compiled CSS from `dist/index.css`
+2. Extracts color tokens using PostCSS
+3. Resolves CSS custom property references
+4. Generates `tokens.json` with final hex/rgba values
+5. Outputs count: "✓ light-app-theme: 283 colors" etc.
+
+## Example: Complete Token Addition
+
+Here's a complete example of adding `--info-color` across all themes:
+
+```css
+// light-theme.scss
+--info-color: #0084ff;
+--info-color-hover: #006bd6;
+--info-color-selected: #b3d9ff;
+
+// dark-theme.scss
+--info-color: #0084ff;
+--info-color-hover: #4da3ff;
+--info-color-selected: #1a3d5c;
+
+// black-theme.scss
+--info-color: #0084ff;
+--info-color-hover: #4da3ff;
+--info-color-selected: #1a3d5c;
+
+// hacker-theme.scss
+--info-color: #0084ff; // Same as black if no specific value
+--info-color-hover: #4da3ff; // Same as black if no specific value
+--info-color-selected: #1a3d5c; // Same as black if no specific value
+```
+
+After running `yarn build`, the token will be available throughout the design system!
