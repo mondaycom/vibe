@@ -19,7 +19,7 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
   /**
    * Callback fired when an option is removed in multi-select mode. Only available when multi is true.
    */
-  onOptionRemove?: (option: BaseListItemData<Item>) => void;
+  onOptionRemove?: (option: Item) => void;
   /**
    * The function to call to render the selected value on single select mode.
    */
@@ -54,7 +54,7 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
   /**
    * The function to call to render the selected value on single select mode.
    */
-  valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  valueRenderer?: (option: Item) => React.ReactNode;
   /**
    * The default selected value for single-select.
    */
@@ -101,7 +101,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
   /**
    * The function to call to render an option.
    */
-  optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  optionRenderer?: (option: Item) => React.ReactNode;
   /**
    * The function to call to render the menu.
    */
@@ -214,7 +214,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
   /**
    * Callback fired when an option is selected.
    */
-  onOptionSelect?: (option: BaseListItemData<Item>) => void;
+  onOptionSelect?: (option: Item) => void;
   /**
    * Callback fired when scrolling inside the dropdown.
    */
