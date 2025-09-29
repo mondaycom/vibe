@@ -1,30 +1,24 @@
 import { Meta } from "@storybook/blocks";
-import { Link, Tip } from "vibe-storybook-components";
-import { Dropdown } from "../index";
+import { Dropdown } from "../../index";
 import * as DropdownStories from "./Dropdown.stories";
-import do1 from "./assets/do1.png";
-import dont1 from "./assets/dont1.png";
+import { TipDevTipPopover } from "./Dropdown.stories.helpers";
 
 <Meta of={DropdownStories} />
 
-# Dropdown
-
-Dropdown present a list of options from which a user can select one or several.
+# Dropdown - Deprecated
 
 <br />
 
-<Tip title="Migration Guide Available" emoji="🚀">
-  Migrating from the old Dropdown? Check out our comprehensive{" "}
-  <Link href="/?path=/docs/components-dropdown-alpha-migration-guide--docs">Dropdown Migration Guide</Link> for
-  step-by-step instructions, breaking changes, and new features.
-</Tip>
+<DeprecatedWarning alternativeName="Dropdown" alternativeLink="/?path=/docs/components-dropdown-new--docs" />
+
+Dropdown present a list of options from which a user can select one or several.
 
 <Canvas of={DropdownStories.Overview} />
 
 ### Import
 
 ```js
-import { Dropdown } from "@vibe/core/next";
+import { Dropdown } from "@vibe/core";
 ```
 
 ## Props
@@ -51,23 +45,19 @@ import { Dropdown } from "@vibe/core/next";
       Using an <code>id</code> is highly recommended for all instances to ensure proper label association.
     </>,
     <>
-      Always provide a <code>label</code> prop to ensure the dropdown's purpose is clear to all users.
-    </>,
-    <>
       Use <code>ariaLabel</code> prop when you need to provide a custom accessible name for the dropdown.
     </>,
     <>
-      Use <code>clearAriaLabel</code> prop when dropdown is clearable.
-    </>,
-    <>
-      Use <code>inputAriaLabel</code> prop when you need to provide a specific accessible name for the input field in
-      searchable dropdowns.
+      Use <code>inputAriaLabel</code> prop when you need to provide a specific accessible name for the input field.
     </>,
     <>
       Use <code>menuAriaLabel</code> prop when you need to provide a custom accessible name for the dropdown menu.
     </>,
     <>
-      Use <code>autoFocus</code> prop when the dropdown should receive initial focus for keyboard navigation.
+      Use <code>menuId</code> prop to provide a specific ID for the menu container for screen reader navigation.
+    </>,
+    <>
+      Use <code>tabIndex</code> prop for custom keyboard navigation order when needed.
     </>
   ]}
 />
@@ -80,19 +70,45 @@ There are three sizes available: Small, Medium, and Large
 
 <Canvas of={DropdownStories.Sizes} />
 
-### States
+### Disabled
 
-<Canvas of={DropdownStories.States} />
+<Canvas of={DropdownStories.Disabled} />
 
-### Multi-select
+### Readonly
 
-The Dropdown component supports multi select option that display as chips. The selected items can be shown in either a single line (with additional option for hidden list), or multiple line. This mode also supports all standard dropdown states.
+<Canvas of={DropdownStories.Readonly} />
 
-<Canvas of={DropdownStories.MultiSelect} />
+### RTL
 
-### Dropdown with icon or avatar
+<Canvas of={DropdownStories.Rtl} />
 
-<Canvas of={DropdownStories.DropdownWithIconOrAvatar} />
+### Multi line states
+
+The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
+
+<Canvas of={DropdownStories.MultiChoiceWithDifferentStates} />
+
+### Async Options
+
+The Dropdown component supports async loading of options.
+
+<Canvas of={DropdownStories.AsyncDropdown} />
+
+### Dropdown with avatar
+
+<Canvas of={DropdownStories.DropdownWithAvatar} />
+
+### Dropdown with icon
+
+<Canvas of={DropdownStories.DropdownWithIcon} />
+
+### Dropdown with chip colors
+
+<Canvas of={DropdownStories.DropdownWithChipColors} />
+
+### Dropdown with tooltips on items
+
+<Canvas of={DropdownStories.DropdownWithTooltipsOnItems} />
 
 ## Do’s and Don’ts
 
@@ -100,12 +116,33 @@ The Dropdown component supports multi select option that display as chips. The s
   rules={[
     {
       positive: {
-        component: <img src={do1} alt="do1" style={{ width: "300px" }} />,
+        component: (
+          <Dropdown
+            placeholder="Placeholder text here"
+            options={[
+              { value: 1, label: "Option 1" },
+              { value: 2, label: "Option 2" },
+              { value: 3, label: "Option 3" }
+            ]}
+            className="dropdown-stories-styles_rules-spacing"
+          />
+        ),
         description:
           "Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
       },
       negative: {
-        component: <img src={dont1} alt="dont1" style={{ width: "200px" }} />,
+        component: (
+          <Dropdown
+            menuIsOpen
+            placeholder="Placeholder text here"
+            options={[
+              { value: 1, label: "Option 1" },
+              { value: 2, label: "Option 2" },
+              { value: 3, label: "Option 3" }
+            ]}
+            className="dropdown-stories-styles_rules-spacing"
+          />
+        ),
         description: (
           <>
             Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider
@@ -119,39 +156,68 @@ The Dropdown component supports multi select option that display as chips. The s
 
 ## Use cases and examples
 
-### Searchable dropdown
+### Multiple dropdown with renderers as options
 
-The dropdown can also function as a search for a specific item within the list.
+Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
 
-<Canvas of={DropdownStories.Searchable} />
+<Canvas of={DropdownStories.DropdownWithChips} />
+
+### Searchable Dropdown
+
+In case of multiple options, you can use the `onInputChange` prop to allow filtering options.
+
+<Canvas of={DropdownStories.SearchableDropdown} />
+
+### Dropdown with labels
+
+A dropdown menu can include labels.
+
+<Canvas of={DropdownStories.DropdownWithLabels} />
+
+### Dropdown with virtualized items
+
+A dropdown with many items, can be virtualized using `isVirtualized`.
+
+<Canvas of={DropdownStories.VirtualizedDropdown} />
+
+### Dropdown inside a form
+
+A classic dropdown presents options a user needs to choose from.
+
+<Canvas of={DropdownStories.DropdownInsideAForm} />
 
 ### Dropdown with groups
 
-Dropdown menu can be organized into groups, either with titled sections or dividers. Group titles can be configured to remain sticky or non-sticky.
+Dropdown menu can be organized into groups. It can be either by group title or divider.
 
 <Canvas of={DropdownStories.DropdownWithGroups} />
 
-### Dropdown item with elements
+### Dropdown inside popover
 
-The dropdown item can contain start element or end element. This are the options:
+Use <code>menuPosition="fixed"</code> prop attribute for displaying dropdown inside popover (like our Modal
+component) or container with overflow hidden content.
 
-<Canvas of={DropdownStories.DropdownItemWithElements} />
+<TipDevTipPopover />
 
-### Hide selected items
+<Canvas of={DropdownStories.DropdownInsidePopover} />
 
-You can choose to hide selected items within the dropdown list, so users can see only the available options.
+### Dropdown with loading
 
-<Canvas of={DropdownStories.DropdownHideSelectedItems} />
+If importing the dropdown options may take time, you can reflect this to the user using Dropdown isLoading flag with optional custom message.
 
-### Dropdown with tooltips
+<Canvas of={DropdownStories.DropdownWithLoading} />
 
-<Canvas of={DropdownStories.DropdownWithTooltips} />
+### Dropdown with ref
 
-### Dropdown with virtualization
+If you need to programmatically control Dropdown state, use `ref` prop. Pay attention that type of returned ref will be `StateManager` from <Link withoutSpacing href="https://react-select.com/home">`react-select`</Link> library.
 
-For performance optimization with large datasets, the Dropdown supports virtualization through the menuRenderer prop. You can integrate any virtualization library of your choice - this example demonstrates implementation using <a href="https://github.com/bvaughn/react-window" target="_blank">react-window</a>.
+<Canvas of={DropdownStories.DropdownWithRef} />
 
-<Canvas of={DropdownStories.DropdownWithVirtualization} />
+### Dropdown value selection
+
+Control the value selection mechanism with the <code>tabSelectsValue</code> (default: true) prop.
+
+<Canvas of={DropdownStories.DropdownValueSelection} />
 
 ## Related components
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ThemeProvider, { type ThemeProviderProps } from "../ThemeProvider";
 import Button from "../../Button/Button";
-import Dropdown from "../../LegacyDropdown/Dropdown";
+import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
 import ColorsDescription from "../../../storybook/stand-alone-documentaion/colors/colors-description/colors-description";
