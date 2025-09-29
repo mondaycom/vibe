@@ -8,8 +8,7 @@ import { Attach, Email } from "@vibe/icons";
 import { Flex } from "../../../index";
 import { Dropdown } from "..";
 import { Text } from "../../../Text";
-import { type BaseListItemData } from "../../../BaseListItem/BaseListItem.types";
-import { type BaseDropdownProps } from "../Dropdown.types";
+import { type BaseDropdownProps, type DropdownOption } from "../Dropdown.types";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
@@ -406,7 +405,7 @@ export const DropdownWithGroups: Story = {
 
 export const DropdownItemWithElements: Story = {
   render: () => {
-    const startOptions: BaseListItemData<Record<string, unknown>>[] = useMemo(
+    const startOptions: DropdownOption<Record<string, unknown>>[] = useMemo(
       () => [
         {
           value: "icon",
@@ -435,7 +434,7 @@ export const DropdownItemWithElements: Story = {
       []
     );
 
-    const endOptions: BaseListItemData<Record<string, unknown>>[] = useMemo(
+    const endOptions: DropdownOption<Record<string, unknown>>[] = useMemo(
       () => [
         {
           value: "endIcon",
