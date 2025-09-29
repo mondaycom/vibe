@@ -41,6 +41,7 @@ Model Context Protocol is an open standard that enables AI assistants to securel
 ### Migration Assistant
 
 - [`v3-migration`](#v3-migration) - Advanced project analysis for Vibe 2 → Vibe 3 migration
+- [`dropdown-migration`](#dropdown-migration) - Tool for migrating from old Dropdown to new Dropdown
 
 ## Tool Reference
 
@@ -102,6 +103,18 @@ This tool analyzes your entire project and provides:
   The migration tool follows the official Vibe 3 migration guide and generates precise codemod commands to automate most
   of the migration process.
 </Tip>
+
+#### `dropdown-migration`
+
+Specialized migration assistant for upgrading from the old Dropdown component to the new Dropdown available in `@vibe/core/next`.
+
+**Key capabilities:**
+
+- **Import path analysis** - Identifies old `@vibe/core` Dropdown imports that need updating
+- **Option structure detection** - Finds `{ id, text }` patterns that need conversion to `{ value, label }`
+- **Breaking changes identification** - Detects usage of removed props and changed behaviors
+- **Comprehensive project scanning** - Analyzes entire codebase for Dropdown-related code patterns
+- **Detailed migration recommendations** - Provides step-by-step guidance with specific file locations
 
 ## Installation
 
@@ -181,6 +194,16 @@ The MCP will:
 2. Identify deprecated component usage
 3. Generate specific migration commands
 4. Provide step-by-step recommendations
+
+### Dropdown Migration
+
+Ask your AI assistant: _"Help me migrate my Dropdown components to the new version"_
+
+The MCP will:
+
+1. Scan for all Dropdown imports and usage patterns
+2. Detect removed props and changed behaviors
+3. Provide detailed migration steps with file-specific recommendations
 
 ## Benefits
 
