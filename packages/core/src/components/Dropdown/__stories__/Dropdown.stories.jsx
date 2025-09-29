@@ -30,7 +30,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Dropdown",
+  title: "Components/Dropdown [Deprecated]",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
