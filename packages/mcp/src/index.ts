@@ -9,6 +9,7 @@ import { getVibeComponentAccessibility } from "./server/tools/get-vibe-component
 import { listVibeIconsTool } from "./server/tools/list-vibe-icons.js";
 import { listVibeTokensTool } from "./server/tools/list-vibe-tokens.js";
 import { v3MigrationTool } from "./server/tools/v3-migration.js";
+import { dropdownMigrationTool } from "./server/tools/dropdown-migration.js";
 
 async function main() {
   const transport = new StdioServerTransport();
@@ -19,6 +20,7 @@ async function main() {
   addServerTool(listVibeIconsTool);
   addServerTool(listVibeTokensTool);
   addServerTool(v3MigrationTool);
+  addServerTool(dropdownMigrationTool);
   await server.connect(transport);
 }
 

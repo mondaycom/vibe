@@ -2,8 +2,7 @@ import { Meta } from "@storybook/blocks";
 import IconButton from "../IconButton";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Add, Bolt, Broom, HighlightColorBucket, Pin, Show } from "@vibe/icons";
-import { BUTTON, ICON, MENU_BUTTON } from "../../../storybook/components/related-components/component-description-map";
-import { TipCheckYourself, TipMenuButton } from "./IconButton.stories.helpers";
+import { TipCheckYourself, TipInfo, TipMenuButton } from "./IconButton.stories.helpers";
 import * as IconButtonStories from "./IconButton.stories";
 
 <Meta of={IconButtonStories} />
@@ -97,6 +96,8 @@ import { IconButton } from "@vibe/core";
   ]}
 />
 
+<TipInfo />
+
 ## Variants
 
 ### Kinds
@@ -172,4 +173,4 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
 
 ## Related components
 
-<RelatedComponents componentsNames={[BUTTON, MENU_BUTTON, ICON]} />
+<RelatedComponents componentsNames={["Button", "MenuButton", "Icon"]} />

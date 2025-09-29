@@ -4,6 +4,7 @@ import { type VibeComponentProps } from "../../types";
 import { type BaseListItemData } from "../BaseListItem";
 import { type TooltipProps } from "../Tooltip/Tooltip";
 
+export type DropdownOption<Item = Record<string, unknown>> = BaseListItemData<Item>;
 export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
 
 interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -18,7 +19,7 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
   /**
    * Callback fired when an option is removed in multi-select mode. Only available when multi is true.
    */
-  onOptionRemove?: (option: BaseListItemData<Item>) => void;
+  onOptionRemove?: (option: Item) => void;
   /**
    * The function to call to render the selected value on single select mode.
    */
@@ -34,7 +35,7 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
   /**
    * Callback fired when the selected values change in multi-select mode.
    */
-  onChange?: (options: BaseListItemData<Item>[]) => void;
+  onChange?: (options: Item[]) => void;
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -53,7 +54,7 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
   /**
    * The function to call to render the selected value on single select mode.
    */
-  valueRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  valueRenderer?: (option: Item) => React.ReactNode;
   /**
    * The default selected value for single-select.
    */
@@ -65,7 +66,7 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
   /**
    * Callback fired when the selected value changes in single-select mode.
    */
-  onChange?: (option: BaseListItemData<Item>) => void;
+  onChange?: (option: Item) => void;
 }
 
 export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
@@ -100,7 +101,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
   /**
    * The function to call to render an option.
    */
-  optionRenderer?: (option: BaseListItemData<Item>) => React.ReactNode;
+  optionRenderer?: (option: Item) => React.ReactNode;
   /**
    * The function to call to render the menu.
    */
@@ -154,6 +155,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
    * The ARIA label for the menu container.
    */
   menuAriaLabel?: string;
+  /**
+   * The ARIA label for the clear button.
+   */
+  clearAriaLabel?: string;
   /**
    * The current value of the input field.
    */
@@ -209,7 +214,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
   /**
    * Callback fired when an option is selected.
    */
-  onOptionSelect?: (option: BaseListItemData<Item>) => void;
+  onOptionSelect?: (option: Item) => void;
   /**
    * Callback fired when scrolling inside the dropdown.
    */

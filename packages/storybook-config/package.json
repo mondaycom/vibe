@@ -1,6 +1,6 @@
 {
   "name": "@vibe/storybook-config",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "description": "Storybook config for Vibe packages",
   "repository": {
@@ -35,7 +35,7 @@
     "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
-    "@vibe/config": "3.0.0",
+    "@vibe/config": "3.0.1",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^1.6.0",
     "prettier": "^2.5.1",
@@ -49,9 +49,9 @@
     "vitest": ">=1.6.0"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^8.6.14",
     "@storybook/jest": "^0.2.3",
     "@storybook/test": "^8.6.14",
-    "@storybook/addon-actions": "^8.6.14",
     "@testing-library/react": "^12.1.2",
     "@vibe/icons": "^1.10.0",
     "vibe-storybook-components": "1.0.2"

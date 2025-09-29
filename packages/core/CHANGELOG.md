@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.69.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.5...@vibe/core@3.69.0) (2025-09-28)
+
+
+### Features
+
+* **Info:** new component ([#3095](https://github.com/mondaycom/vibe/issues/3095)) ([5bfa27f](https://github.com/mondaycom/vibe/commit/5bfa27f646ef1e2b4a8b8a26692b7e9c73019c1c))
+
+
+
+
+
+## [3.68.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.4...@vibe/core@3.68.5) (2025-09-28)
+
+
+### Bug Fixes
+
+* **AvatarGroup:** fix counter styles ([#3124](https://github.com/mondaycom/vibe/issues/3124)) ([5c80e0f](https://github.com/mondaycom/vibe/commit/5c80e0f8a679ac4e84360f6f1c1d30441106fdf9))
+
+
+
+
+
+## [3.68.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.3...@vibe/core@3.68.4) (2025-09-21)
+
+
+### Bug Fixes
+
+* **Dialog:** add LayerProvider ([#3122](https://github.com/mondaycom/vibe/issues/3122)) ([b56e7aa](https://github.com/mondaycom/vibe/commit/b56e7aacdfa291379c71974f9ae62ff3944809ca))
+
+
+
+
+
+## [3.68.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.2...@vibe/core@3.68.3) (2025-09-19)
+
+
+### Bug Fixes
+
+* use react-select v3.4.0 ([#3119](https://github.com/mondaycom/vibe/issues/3119)) ([089e15d](https://github.com/mondaycom/vibe/commit/089e15da1c8ad0c3b3b45f3c4bd13c3a0d76a047))
+
+
+
+
+
+## [3.68.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.1...@vibe/core@3.68.2) (2025-09-19)
+
+
+### Bug Fixes
+
+* Revert Dropdown use Select component as named export ([#3117](https://github.com/mondaycom/vibe/issues/3117)) ([cc1d72a](https://github.com/mondaycom/vibe/commit/cc1d72acc7e57187c5caa091a18d7b8bbbd7941b))
+
+
+
+
+
+## [3.68.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.0...@vibe/core@3.68.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* **Dropdown:** use Select component as named export ([#3116](https://github.com/mondaycom/vibe/issues/3116)) ([7059d31](https://github.com/mondaycom/vibe/commit/7059d3155191b67a9a0c0a8a63d41406763c0da7))
+
+
+
+
+
+# [3.68.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.67.0...@vibe/core@3.68.0) (2025-09-18)
+
+
+### Bug Fixes
+
+* **DropdownNew:** onInputChange return null instead of empty string ([#3109](https://github.com/mondaycom/vibe/issues/3109)) ([bcd6ac0](https://github.com/mondaycom/vibe/commit/bcd6ac0c805b615631763ac879d1ea49aebde829))
+
+
+### Features
+
+* **DropdownNew:** a11y improvements ([#3114](https://github.com/mondaycom/vibe/issues/3114)) ([6b21abb](https://github.com/mondaycom/vibe/commit/6b21abb2dca59f155510ae94fc1141125600fb0b))
+
+
+### Performance Improvements
+
+* **Dialog:** Return default when `containerSelector` is undefined ([#3113](https://github.com/mondaycom/vibe/issues/3113)) ([9c7ba22](https://github.com/mondaycom/vibe/commit/9c7ba22f92c730b92a4909cb477d8ef0891eec6e))
+
+
+
+
+
+# [3.67.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.66.0...@vibe/core@3.67.0) (2025-09-17)
+
+
+### Features
+
+* **Chips:** add ariaHasPopup prop ([#3111](https://github.com/mondaycom/vibe/issues/3111)) ([666bc76](https://github.com/mondaycom/vibe/commit/666bc76703813d0868a04c189c5ff8a5da35fa05))
+
+
+
+
+
+# [3.66.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.1...@vibe/core@3.66.0) (2025-09-17)
+
+
+### Features
+
+* **DropdownNew:** enhance accessibility attributes for dropdown states ([#3110](https://github.com/mondaycom/vibe/issues/3110)) ([b52e075](https://github.com/mondaycom/vibe/commit/b52e0759806447759c615659a5e49278fe10e582))
+
+
+
+
+
+## [3.65.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.0...@vibe/core@3.65.1) (2025-09-14)
+
+
+### Bug Fixes
+
+* **DropdownNew:** Searchable controlled multi dropdown item selection ([#3104](https://github.com/mondaycom/vibe/issues/3104)) ([d335161](https://github.com/mondaycom/vibe/commit/d3351616bc27cf742066933a505c1d30f27b743f))
+
+
+
+
+
 # [3.65.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.64.0...@vibe/core@3.65.0) (2025-09-08)
 
 

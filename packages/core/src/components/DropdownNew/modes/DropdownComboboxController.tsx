@@ -32,8 +32,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onKeyDown,
     onClear,
     loading = false,
-
     size = "medium",
+    id,
     readOnly,
     disabled
   } = props;
@@ -74,7 +74,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     onMenuOpen,
     handleOptionSelect,
     filterOption,
-    showSelectedOptions
+    showSelectedOptions,
+    id
   );
 
   const contextValue: DropdownContextProps<Item> = {
