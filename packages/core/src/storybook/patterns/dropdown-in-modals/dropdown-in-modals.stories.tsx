@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useMemo } from "react";
 import ModalContent from "../../../components/LegacyModal/LegacyModalContent/LegacyModalContent";
-import Dropdown from "../../../components/Dropdown/Dropdown";
-import { type DropdownOption } from "../../../components/Dropdown/Dropdown.types";
+import Dropdown from "../../../components/LegacyDropdown/Dropdown";
+import { type DropdownOption } from "../../../components/LegacyDropdown/Dropdown.types";
 import Modal from "../../../components/LegacyModal/LegacyModal";
 import ModalExampleContent from "./ModalExampleContent";
 import Box from "../../../components/Box/Box";

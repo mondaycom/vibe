@@ -18,7 +18,7 @@ export * from "./DatePicker";
 export * from "./Dialog";
 export * from "./DialogContentContainer";
 export * from "./Divider";
-export * from "./Dropdown";
+export * from "./LegacyDropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
 export * from "./EmptyState";

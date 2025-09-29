@@ -1,3 +1,3 @@
 export * from "./Modal";
-export * from "./DropdownNew";
+export * from "./Dropdown";
 export * from "./next/index";

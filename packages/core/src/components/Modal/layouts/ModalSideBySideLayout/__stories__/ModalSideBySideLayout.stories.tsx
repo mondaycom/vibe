@@ -13,7 +13,7 @@ import TransitionView from "../../../../TransitionView/TransitionView";
 import ModalFooterWizard from "../../../footers/ModalFooterWizard/ModalFooterWizard";
 import TextField from "../../../../TextField/TextField";
 import Flex from "../../../../Flex/Flex";
-import Dropdown from "../../../../Dropdown/Dropdown";
+import Dropdown from "../../../../LegacyDropdown/Dropdown";
 import FieldLabel from "../../../../FieldLabel/FieldLabel";
 import IconButton from "../../../../IconButton/IconButton";
 import { Menu } from "@vibe/icons";

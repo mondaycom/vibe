@@ -6,10 +6,10 @@ import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
 import { Flex } from "../../index";
-import { Dropdown } from "../../DropdownNew";
+import { Dropdown } from "..";
 import { Text } from "../../Text";
 import { type BaseListItemData } from "../../BaseListItem/BaseListItem.types";
-import { type BaseDropdownProps } from "../../DropdownNew/Dropdown.types";
+import { type BaseDropdownProps } from "../Dropdown.types";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
