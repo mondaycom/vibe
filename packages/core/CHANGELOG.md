@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.69.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.69.0...@vibe/core@3.69.1) (2025-09-29)
+
+
+### Bug Fixes
+
+* **Dropdown:** fix types ([#3131](https://github.com/mondaycom/vibe/issues/3131)) ([a207bb2](https://github.com/mondaycom/vibe/commit/a207bb2ed041568614d488bd090aec7dedb9c7cc))
+* **DropdownNew:** fix types ([#3108](https://github.com/mondaycom/vibe/issues/3108)) ([8695e81](https://github.com/mondaycom/vibe/commit/8695e81fb287fff59ae4b356735be91b52c639a2))
+
+
+
+
+
 # [3.69.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.5...@vibe/core@3.69.0) (2025-09-28)
 
 
