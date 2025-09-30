@@ -31,20 +31,20 @@ export const Overview: Story = {
 // TODO: replace with Flex component
 export const SizeVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-60)" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+    <div style={{ display: "flex", gap: "60px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Xs
         <Loader id="loader-xs" size="xs" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Small
         <Loader id="loader-small" size="small" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Medium
         <Loader id="loader-medium" size="medium" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Large
         <Loader id="loader-large" size="large" />
       </div>
@@ -56,22 +56,22 @@ export const SizeVariants: Story = {
 // TODO: replace with Flex component
 export const ColorVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-60)" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+    <div style={{ display: "flex", gap: "60px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Primary
         <Loader id="loader-primary" size="medium" color="primary" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Secondary
         <Loader id="loader-secondary" size="medium" color="secondary" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Dark
         <Loader id="loader-dark" size="medium" color="dark" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         OnPrimary
-        <div style={{ display: "flex", flexDirection: "row", gap: "var(--space-24)" }}>
+        <div style={{ display: "flex" }}>
           <div style={{ background: "var(--sb-primary-text-color)", padding: "var(--space-4)" }}>
             <Loader id="loader-on-primary" size="medium" color="onPrimary" />
           </div>
@@ -109,14 +109,14 @@ export const CustomColors: Story = {
 // TODO: replace with Flex component
 export const VisualVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-60)" }}>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+    <div style={{ display: "flex", gap: "60px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         Casual
         <div>
           <Loader id="loader-casual" size="medium" />
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-24)", alignItems: "center" }}>
         With background
         <div>
           <Loader id="loader-with-background" size="medium" hasBackground />

@@ -182,7 +182,7 @@ export const SuccessState: Story = {
 export const OnColorStates: Story = {
   render: () => (
     <>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         Regular
         <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
           <Button id="on-color-primary" ariaLabel="Primary on color" color="on-primary-color" marginRight>
