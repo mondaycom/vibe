@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Info, Invite } from "@vibe/icons";
-import { Button } from "../../../Button";
+import { Button } from "@vibe/button";
+import { Icon } from "@vibe/icon";
 import { AttentionBox } from "..";
 import type { AttentionBoxProps } from "../AttentionBox.types";
 import { Flex } from "../../../Flex";
@@ -10,7 +11,6 @@ import { Text } from "../../../Text";
 import { DialogContentContainer } from "../../../DialogContentContainer";
 import { Search } from "../../../Search";
 import { Avatar } from "../../../Avatar";
-import { Icon } from "../../../Icon";
 import { Box } from "../../../Box";
 import { Skeleton } from "../../../Skeleton";
 import person from "./assets/person.png";

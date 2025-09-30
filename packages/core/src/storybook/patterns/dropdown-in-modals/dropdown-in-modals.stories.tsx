@@ -7,7 +7,7 @@ import ModalExampleContent from "./ModalExampleContent";
 import Box from "../../../components/Box/Box";
 import Flex from "../../../components/Flex/Flex";
 import Dialog from "../../../components/Dialog/Dialog";
-import Button from "../../../components/Button/Button";
+import { Button } from "@vibe/button";
 import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
 
 export default {

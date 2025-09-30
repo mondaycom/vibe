@@ -1,4 +1,4 @@
-import type { SubIcon } from "../../../../types";
+import type { SubIcon } from "@vibe/icon";
 import type { AttentionBoxType } from "../AttentionBox.types";
 import { ATTENTION_BOX_DEFAULT_ICONS } from "../consts/icons";
 

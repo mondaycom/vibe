@@ -5,7 +5,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { StepsHeader } from "./StepsHeader";
 import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
 import { type StepsColor, type StepsType } from "./Steps.types";
-import { type ButtonProps } from "../Button";
+import { type ButtonProps } from "@vibe/button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { withStaticProps, type VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";

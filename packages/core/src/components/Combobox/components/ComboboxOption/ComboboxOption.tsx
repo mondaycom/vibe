@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React, { type RefObject, useCallback, useEffect, useMemo, useRef } from "react";
-import Icon from "../../../Icon/Icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
 import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
-import { type SubIcon, withStaticPropsWithoutForwardRef } from "../../../../types";
+import { withStaticPropsWithoutForwardRef } from "../../../../types";
 import {
   ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
   type IComboboxOption,

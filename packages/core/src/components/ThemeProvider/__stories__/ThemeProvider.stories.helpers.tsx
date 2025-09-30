@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ThemeProvider, { type ThemeProviderProps } from "../ThemeProvider";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Dropdown from "../../Dropdown/Dropdown";
 import Flex from "../../Flex/Flex";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
