@@ -67,7 +67,7 @@ export default {
     check: true,
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
-      include: [path.resolve(__dirname, "../src/**/*"), path.resolve(__dirname, "../../*/src/**/*")]
+      tsconfigPath: path.resolve(__dirname, "../tsconfig.storybook.json")
     }
   },
   staticDirs: ["./static"],
