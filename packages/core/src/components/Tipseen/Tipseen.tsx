@@ -186,7 +186,7 @@ const Tipseen = forwardRef(
     }, [color]);
     const closeButtonColor = useMemo(() => {
       if (closeButtonTheme === "light") {
-        return color === "inverted" ? "onInverted" : "onPrimary";
+        return color === "inverted" ? "on-inverted-background" : "on-primary-background";
       } else {
         return closeButtonTheme;
       }
