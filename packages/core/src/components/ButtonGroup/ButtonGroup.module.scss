@@ -3,6 +3,10 @@
 .buttonGroup {
   display: flex;
   flex-direction: column;
+
+  &.fullWidth {
+    width: 100%;
+  }
 }
 
 .subTextContainer {
