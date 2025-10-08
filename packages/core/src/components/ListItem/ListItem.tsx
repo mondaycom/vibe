@@ -19,6 +19,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "./ListItemConstants";
 import { type ListItemElement, type ListItemSize } from "./ListItem.types";
+import { type TooltipProps } from "../Tooltip/Tooltip";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {
@@ -62,6 +63,14 @@ export interface ListItemProps extends VibeComponentProps {
    * The ARIA role of the list item.
    */
   role?: AriaRole;
+    /**
+   * Props passed to the tooltip displayed when hovering over the text.
+   */
+  tooltipProps?: Partial<TooltipProps>;
+  /**
+   * If true, disables the tooltip that appears when text is truncated.
+   */
+  withoutTooltip?: boolean;
 }
 
 const ListItem = forwardRef(
@@ -79,7 +88,9 @@ const ListItem = forwardRef(
       children,
       "aria-current": ariaCurrent,
       "data-testid": dataTestId,
-      role = "option"
+      role = "option",
+      tooltipProps,
+      withoutTooltip
     }: ListItemProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -134,6 +145,8 @@ const ListItem = forwardRef(
         role={role}
         tabIndex={tabIndex}
         aria-current={ariaCurrent}
+        tooltipProps={tooltipProps}
+        withoutTooltip={withoutTooltip}
       >
         {children}
       </Text>
