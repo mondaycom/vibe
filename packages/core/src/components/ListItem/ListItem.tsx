@@ -63,7 +63,7 @@ export interface ListItemProps extends VibeComponentProps {
    * The ARIA role of the list item.
    */
   role?: AriaRole;
-    /**
+  /**
    * Props passed to the tooltip displayed when hovering over the text.
    */
   tooltipProps?: Partial<TooltipProps>;
