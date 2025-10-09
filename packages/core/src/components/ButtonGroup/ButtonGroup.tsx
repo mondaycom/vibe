@@ -211,8 +211,7 @@ const ButtonGroup = forwardRef(
     return (
       <div
         className={cx(styles.buttonGroup, className, getStyle(styles, camelCase("kind-" + kind)), {
-          [styles.disabled]: disabled,
-          [styles.fullWidth]: fullWidth
+          [styles.disabled]: disabled
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BUTTON_GROUP, id)}
