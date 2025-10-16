@@ -67,10 +67,6 @@ export interface ListItemProps extends VibeComponentProps {
    * Props passed to the tooltip displayed when hovering over the text.
    */
   tooltipProps?: Partial<TooltipProps>;
-  /**
-   * If true, disables the tooltip that appears when text is truncated.
-   */
-  withoutTooltip?: boolean;
 }
 
 const ListItem = forwardRef(
@@ -89,8 +85,7 @@ const ListItem = forwardRef(
       "aria-current": ariaCurrent,
       "data-testid": dataTestId,
       role = "option",
-      tooltipProps,
-      withoutTooltip
+      tooltipProps
     }: ListItemProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
@@ -146,7 +141,6 @@ const ListItem = forwardRef(
         tabIndex={tabIndex}
         aria-current={ariaCurrent}
         tooltipProps={tooltipProps}
-        withoutTooltip={withoutTooltip}
       >
         {children}
       </Text>
