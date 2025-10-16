@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.70.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.69.1...@vibe/core@3.70.0) (2025-10-16)
+
+
+### Bug Fixes
+
+* **Dropdown:** set index correctly ([#3138](https://github.com/mondaycom/vibe/issues/3138)) ([205ad5a](https://github.com/mondaycom/vibe/commit/205ad5ae8d584a3ae42e5120b4fa2ca9f2f41295))
+
+
+### Features
+
+* **ListItem:** add tooltipProps prop ([#3137](https://github.com/mondaycom/vibe/issues/3137)) ([41d4d26](https://github.com/mondaycom/vibe/commit/41d4d268464ee1d7cbc63d2b5064a53c8c3911b5))
+
+
+
+
+
 ## [3.69.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.69.0...@vibe/core@3.69.1) (2025-09-29)
 
 
