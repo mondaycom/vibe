@@ -83,6 +83,10 @@ export type BaseListItemData<Item = Record<string, unknown>> = Item & {
    * The color of the chip when displayed in multi-select mode.
    */
   chipColor?: ChipsProps["color"];
+  /**
+   * The index of the item in the list.
+   */
+  index?: number;
 };
 
 export type SideElement =
