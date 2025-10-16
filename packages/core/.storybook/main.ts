@@ -40,8 +40,8 @@ export default {
   stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
-    "../../storybook-blocks/**/*.mdx",
-    "../../storybook-blocks/**/*.stories.@(js|jsx|ts|tsx)"
+    "../../!(core)/**/*.mdx",
+    "../../!(core)/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: getAddons(),
   framework: {
@@ -71,7 +71,9 @@ export default {
           "~monday-ui-style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
           "~monday-ui-style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
           "~monday-ui-style": path.resolve(__dirname, "../../style"),
-          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks")
+          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src"),
+          "@vibe/shared": path.resolve(__dirname, "../../shared/src"),
+          "@vibe/storybook-config": path.resolve(__dirname, "../../storybook-config/src/index.ts")
         }
       },
       define: {
