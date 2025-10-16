@@ -48,6 +48,6 @@
     "prettier": "^2.5.1"
   },
   "peerDependencies": {
-    "@playwright/test": "1.49.1"
+    "@playwright/test": "*"
   }
 }
