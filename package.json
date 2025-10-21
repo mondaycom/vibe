@@ -18,7 +18,8 @@
     "typescript": "^4.7.3"
   },
   "workspaces": [
-    "packages/**"
+    "packages/*",
+    "packages/components/*"
   ],
   "dependencies": {}
 }
