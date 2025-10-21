@@ -5,7 +5,7 @@ on:
     paths:
       - "packages/core/src/components/**"
       - "packages/core/package.json"
-      - "packages/components/**"
+      - "components/**"
 
 permissions:
   pull-requests: write

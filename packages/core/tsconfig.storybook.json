@@ -4,8 +4,8 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "paths": {
-      "@vibe/*": ["../components/*/src", "../*/src"]
+      "@vibe/*": ["../../components/*/src", "../*/src"]
     }
   },
-  "include": ["src/**/*", "types/**/*", "scripts/**/*.ts", ".storybook/**/*", "../../components/*/src/**/*"]
+  "include": ["src/**/*", "types/**/*", "scripts/**/*.ts", ".storybook/**/*", "../../../components/*/src/**/*"]
 }

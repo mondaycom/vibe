@@ -30,6 +30,7 @@
   "scripts": {
     "build": "rollup -c",
     "test": "vitest run",
+    "storybook": "storybook dev -p 7008",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
@@ -60,7 +61,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
   }
 }

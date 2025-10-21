@@ -19,7 +19,7 @@
   },
   "workspaces": [
     "packages/*",
-    "packages/components/*"
+    "components/*"
   ],
   "dependencies": {}
 }

@@ -4,10 +4,11 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import fs from "fs";
 
-const componentsFolder = path.resolve(process.cwd(), "../components");
+const componentsFolder = path.resolve(process.cwd(), "../../components");
 
 const components = fs.readdirSync(componentsFolder).reduce((acc, component) => {
   const componentFolderPath = path.resolve(componentsFolder, component);
+  console.log(componentFolderPath);
   if (fs.statSync(componentFolderPath).isDirectory()) {
     acc[`@vibe/${component}`] = path.join(componentFolderPath, "src/index.ts");
   }
