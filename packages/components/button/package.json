@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/icon",
+  "name": "@vibe/button",
   "version": "3.0.0",
-  "description": "Vibe sub-package for icon components",
+  "description": "Vibe sub-package for button components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "components/icon"
+    "directory": "components/button"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -30,23 +30,25 @@
   "scripts": {
     "build": "rollup -c",
     "test": "vitest run",
-    "storybook": "storybook dev -p 7008",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/storybook-config": "3.0.1",
+    "@vibe/icon": "3.0.0",
+    "@vibe/loader": "3.0.0",
     "@vibe/shared": "3.0.1",
+    "@vibe/storybook-config": "3.0.1",
     "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10",
-    "react-inlinesvg": "^4.1.3"
+    "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
-    "@vibe/icons": "1.11.0",
+    "@testing-library/react": "^12.1.2",
     "@vibe/config": "3.0.1",
+    "@vibe/icons": "1.9.0",
     "typescript": "^4.7.3",
     "vibe-storybook-components": "1.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-test-renderer": "16",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
@@ -61,7 +63,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
   }
 }

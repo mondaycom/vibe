@@ -57,16 +57,16 @@ describe("ModalTopActions", () => {
 
   it("applies the correct color when 'dark' is passed", () => {
     const { getByLabelText } = render(<ModalTopActions theme="dark" closeButtonAriaLabel={closeButtonAriaLabel} />);
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + "fixed-dark"));
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass("colorFixedDark");
   });
 
   it("applies the correct color when 'light' is passed", () => {
     const { getByLabelText } = render(<ModalTopActions theme="light" closeButtonAriaLabel={closeButtonAriaLabel} />);
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + "fixed-light"));
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass("colorFixedLight");
   });
 
   it("applies the default color when no color is passed", () => {
     const { getByLabelText } = render(<ModalTopActions closeButtonAriaLabel={closeButtonAriaLabel} />);
-    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass(camelCase("color-" + "primary"));
+    expect(getByLabelText(closeButtonAriaLabel)).toHaveClass("colorPrimary");
   });
 });
