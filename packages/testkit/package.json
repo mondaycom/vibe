@@ -1,6 +1,6 @@
 {
   "name": "@vibe/testkit",
-  "version": "1.14.3",
+  "version": "1.15.0",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
     "TESTING",
@@ -48,6 +48,6 @@
     "prettier": "^2.5.1"
   },
   "peerDependencies": {
-    "@playwright/test": "1.49.1"
+    "@playwright/test": "*"
   }
 }
