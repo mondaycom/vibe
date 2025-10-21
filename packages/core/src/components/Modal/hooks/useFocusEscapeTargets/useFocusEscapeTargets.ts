@@ -3,10 +3,10 @@ import { type FocusEscapeTarget } from "./useFocusEscapeTargets.types";
 
 /**
  * Hook that creates a checker function to determine if an element should be allowed
- * to receive focus outside of a focus lock.
+ * to receive focus outside of a focus lock (escape the focus trap).
  *
  * @param targets - Array of targets (selectors, refs, or elements) that should be allowed to receive focus and won't be managed by the focus-lock
- * @returns A function that checks if a given element matches any of the targets
+ * @returns A function that returns `true` if the element matches any target (should be allowed to escape), `false` otherwise
  */
 const useFocusEscapeTargets = (targets?: FocusEscapeTarget[]) => {
   // Pre-process and separate targets by type for faster lookup
