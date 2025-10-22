@@ -115,6 +115,10 @@ const Modal = forwardRef(
 
     const shouldAllowFocusEscape = useFocusEscapeTargets(allowFocusEscapeTo);
 
+    /**
+     * Returning true means that the focus-lock is allowed to manage the element.
+     * Returning false means that the focus-lock would surrender control to the element.
+     */
     const handleFocusLockWhiteList = useCallback(
       (nextFocusedElement?: HTMLElement) => {
         if (onFocusAttempt) {
@@ -130,13 +134,7 @@ const Modal = forwardRef(
           return false;
         }
 
-        // Check if element should be allowed to escape focus lock
-        if (shouldAllowFocusEscape(nextFocusedElement)) {
-          return false; // Tell focus-lock to ignore it
-        }
-
-        // Element doesn't match any exception - let focus-lock manage it
-        return true;
+        return !shouldAllowFocusEscape(nextFocusedElement);
       },
       [onFocusAttempt, shouldAllowFocusEscape]
     );
