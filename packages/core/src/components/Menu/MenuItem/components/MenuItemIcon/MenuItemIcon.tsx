@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../../../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Flex from "../../../../Flex/Flex";
 import cx from "classnames";
 import styles from "./MenuItemIcon.module.scss";

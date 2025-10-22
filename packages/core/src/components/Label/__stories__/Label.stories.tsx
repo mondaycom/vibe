@@ -1,6 +1,6 @@
 import React from "react";
 import Label from "../Label";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { NOOP } from "../../../utils/function-utils";
 import { createComponentTemplate } from "vibe-storybook-components";

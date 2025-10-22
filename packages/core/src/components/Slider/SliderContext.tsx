@@ -8,7 +8,7 @@ import {
   type SliderContextSelection,
   type SliderContextUI
 } from "./SliderConstants";
-import { type IconType } from "../Icon";
+import { type IconType } from "@vibe/icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});

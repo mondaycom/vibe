@@ -7,7 +7,7 @@ import ModalHeader from "../../../ModalHeader/ModalHeader";
 import ModalContent from "../../../ModalContent/ModalContent";
 import ModalFooter from "../../../footers/ModalFooter/ModalFooter";
 import Flex from "../../../../Flex/Flex";
-import Button from "../../../../Button/Button";
+import { Button } from "@vibe/button";
 import Text from "../../../../Text/Text";
 import Link from "../../../../Link/Link";
 import TransitionView from "../../../../TransitionView/TransitionView";

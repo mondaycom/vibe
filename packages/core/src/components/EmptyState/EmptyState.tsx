@@ -7,7 +7,7 @@ import { type EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { Button, type ButtonProps } from "../Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import { Link, type LinkProps } from "../Link";
 import { ComponentVibeId } from "../../tests/constants";
 

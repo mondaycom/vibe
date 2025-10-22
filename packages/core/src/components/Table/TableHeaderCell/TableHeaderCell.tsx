@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from "react";
 import cx from "classnames";
-import { type SubIcon, type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
-import Icon from "../../Icon/Icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import IconButton from "../../IconButton/IconButton";
 import { Info } from "@vibe/icons";
 import Text from "../../Text/Text";

@@ -1,7 +1,7 @@
 import React from "react";
 import Flex, { type FlexProps } from "../Flex";
 import { Add, Filter, Person, Search, Sort } from "@vibe/icons";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Chips from "../../Chips/Chips";
 import Box from "../../Box/Box";
 import { StoryDescription } from "vibe-storybook-components";

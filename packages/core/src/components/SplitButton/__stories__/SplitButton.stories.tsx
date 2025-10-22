@@ -1,6 +1,6 @@
 import React from "react";
 import SplitButton, { type SplitButtonProps } from "../SplitButton";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";

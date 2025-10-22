@@ -6,7 +6,7 @@ import emptyStateImage from "./assets/image.png";
 import { Download, Update } from "@vibe/icons";
 import Flex from "../../../components/Flex/Flex";
 import { createStoryMetaSettingsDecorator } from "../../../storybook/functions/createStoryMetaSettingsDecorator";
-import { Button } from "../../Button";
+import { Button } from "@vibe/button";
 import Link from "../../Link/Link";
 
 const metaSettings = createStoryMetaSettingsDecorator({

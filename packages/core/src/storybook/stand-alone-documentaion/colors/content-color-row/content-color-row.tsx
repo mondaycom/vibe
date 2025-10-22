@@ -11,19 +11,19 @@ interface ContentColorRowProps {
 export const ContentColorRow: React.FC<ContentColorRowProps> = ({ colorName }) => {
   const regularStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.REGULAR)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, "regular")
     }),
     [colorName]
   );
   const hoverStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.HOVER)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, "hover")
     }),
     [colorName]
   );
   const selectedStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.SELECTED)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, "selected")
     }),
     [colorName]
   );

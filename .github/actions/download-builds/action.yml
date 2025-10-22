@@ -8,4 +8,3 @@ runs:
       uses: actions/download-artifact@v4
       with:
         name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
-        path: packages/

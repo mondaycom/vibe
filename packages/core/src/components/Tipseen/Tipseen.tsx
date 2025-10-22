@@ -20,7 +20,6 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
-import { ButtonColor } from "../Button/ButtonConstants";
 import React from "react";
 import { type TooltipPositions } from "../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipConstants";
@@ -187,7 +186,7 @@ const Tipseen = forwardRef(
     }, [color]);
     const closeButtonColor = useMemo(() => {
       if (closeButtonTheme === "light") {
-        return color === "inverted" ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
+        return color === "inverted" ? "on-inverted-background" : "on-primary-color";
       } else {
         return closeButtonTheme;
       }
