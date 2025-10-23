@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
 import VirtualizedGrid, { type VirtualizedGridProps } from "../VirtualizedGrid";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
 import Flex from "../../Flex/Flex";
 

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import Avatar from "../../../Avatar/Avatar";
-import Icon from "../../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Text from "../../../Text/Text";
 import styles from "./ChildrenContent.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";

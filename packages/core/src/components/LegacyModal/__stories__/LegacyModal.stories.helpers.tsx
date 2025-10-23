@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Modal from "../LegacyModal";
 import { Dialog, DialogContentContainer, Heading } from "../../../components";
 import Flex from "../../Flex/Flex";

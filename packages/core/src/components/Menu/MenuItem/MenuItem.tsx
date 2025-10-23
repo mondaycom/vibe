@@ -1,9 +1,8 @@
 import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
 import Tooltip, { type TooltipProps } from "../../../components/Tooltip/Tooltip";
-import Icon from "../../../components/Icon/Icon";
+import { type IconType, Icon, type SubIcon } from "@vibe/icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../../types";
-import { type IconType } from "../../Icon";
+import { type VibeComponentProps, withStaticProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";

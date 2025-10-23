@@ -13,11 +13,13 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.2.0",
     "bytes": "^3.1.2",
-    "size-limit": "^11.2.0",
     "lerna": "^8.1.2",
+    "size-limit": "^11.2.0",
     "typescript": "^4.7.3"
   },
   "workspaces": [
-    "packages/*"
-  ]
+    "packages/*",
+    "components/*"
+  ],
+  "dependencies": {}
 }

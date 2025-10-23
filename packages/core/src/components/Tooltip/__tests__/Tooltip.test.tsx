@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import Tooltip from "../Tooltip";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 
 describe("Tooltip tests", () => {
   it("Should trigger onTooltipShow", async () => {

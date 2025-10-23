@@ -3,7 +3,7 @@ import Counter from "../Counter";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import Divider from "../../Divider/Divider";
 import { AddUpdate, Update, Notifications } from "@vibe/icons";
-import Icon from "../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { type CounterProps } from "../Counter";

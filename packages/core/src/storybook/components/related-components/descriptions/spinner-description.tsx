@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import Loader from "../../../../components/Loader/Loader";
+import { Loader } from "@vibe/loader";
 
 export const SpinnerDescription = () => {
   const component = useMemo(() => {

@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type FC, type ForwardedRef, forwardRef } from "react";
-import Icon from "../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./FieldLabel.module.scss";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useAfterFirstRender from "..";
-import Button from "../../../components/Button/Button";
+import { Button } from "@vibe/button";
 import { type Meta, type StoryObj } from "@storybook/react";
 import Flex from "../../../components/Flex/Flex";
 import Heading from "../../../components/Heading/Heading";

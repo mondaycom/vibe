@@ -3,7 +3,7 @@ import LinearProgressBar, { type LinearProgressBarProps } from "../LinearProgres
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../../storybook/functions/createStoryMetaSettingsDecorator";
 import { Info } from "@vibe/icons";
-import Icon from "../../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Logo from "./assets/Logo.png";
 import { Flex } from "../../../Flex";
 import { Text } from "../../../Text";
