@@ -1,0 +1,16 @@
+.textContainer {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  width: 50px;
+  border: solid 1px var(--sb-layout-border-color);
+  padding: 1px 2px;
+  height: 24px;
+  cursor: not-allowed;
+}
+
+.input {
+  width: 110px;
+  padding: 1px 2px;
+}

@@ -19744,10 +19744,10 @@ vfile@^6.0.0:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
 
-vibe-storybook-components@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-1.0.2.tgz#e42aa299d9e3c5c078fe068528a58ab4876d3d0c"
-  integrity sha512-t3B1wTRxzwi59Yj+1RPsjZ9EcNFVmHBncvQPzUkJ2+hy04iL+Qzvkt3W/rSO1i/OQsuYK1CD1nz9UndKz8NQaA==
+vibe-storybook-components@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-1.0.4.tgz#e6c2b92c052cbc5a71689ada9a70494906b585df"
+  integrity sha512-t4zZ7wcqs9/fbWU2oqM1CzryxHUIPKILZg7v5WMpvjh0S+DdcNlMATg6G613+pTDLSbAOPg9rMHTAZu/G5smbg==
   dependencies:
     "@storybook/types" "^7.5.0"
     browserslist-config-monday "^1.0.6"

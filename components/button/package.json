@@ -30,14 +30,12 @@
   "scripts": {
     "build": "rollup -c",
     "test": "vitest run",
-    "storybook": "storybook dev -p 7008",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@vibe/icon": "3.0.0",
     "@vibe/loader": "3.0.0",
     "@vibe/shared": "3.0.1",
-    "@vibe/storybook-config": "3.0.1",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
@@ -46,7 +44,6 @@
     "@vibe/config": "3.0.1",
     "@vibe/icons": "1.9.0",
     "typescript": "^4.7.3",
-    "vibe-storybook-components": "1.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

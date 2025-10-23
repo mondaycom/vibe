@@ -1,0 +1,78 @@
+import { Meta } from "@storybook/blocks";
+import { Heading } from "@vibe/core";
+import * as HeadingStories from "./Heading.stories";
+import { TipEditableHeading } from "./Heading.stories.helpers";
+
+<Meta of={HeadingStories} />
+
+# Heading
+
+Heading components are used for titles at the top of pages and sub-sections.
+
+<Canvas of={HeadingStories.Overview} />
+
+### Import
+
+```js
+import { Heading } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines guidelines={["Don't include more than one H1 title per web page."]} />
+
+<TipEditableHeading />
+
+## Variants
+
+### Types and weights
+
+Heading component comes in three types: H1 (32px), H2 (24px), H3 (18px) and four weights: bold (700), medium (600), normal (500), light (300)
+
+<Canvas of={HeadingStories.TypesAndWeights} />
+
+### Colors
+
+Heading component comes in four colors: primary, secondary, on primary, on inverted
+
+<Canvas of={HeadingStories.Colors} />
+
+### Overflow
+
+Our Heading component supports overflow state.
+When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
+
+We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
+
+<Canvas of={HeadingStories.Overflow} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Heading>Hello world</Heading>,
+        description: "Always capitalize the first letter of the first word in the heading."
+      },
+      negative: {
+        component: <Heading>Hello World</Heading>,
+        description: "Please avoid capitalizing the first letter of each word in the heading."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Built-in page header (not editable)
+
+<Canvas of={HeadingStories.BuiltInPageHeaderNotEditable} />
+
+## Related components
+
+<RelatedComponents componentsNames={["EditableHeading", "Text", "HiddenText"]} />
