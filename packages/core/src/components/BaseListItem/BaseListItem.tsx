@@ -55,7 +55,7 @@ const BaseListItem = forwardRef(
           ) : (
             <>
               {startElement && renderSideElement(startElement, disabled, textVariant)}
-              <Text type={textVariant} color="inherit">
+              <Text type={textVariant} color="inherit" tooltipProps={{ containerSelector: "body" }}>
                 {label}
               </Text>
               {endElement && (
