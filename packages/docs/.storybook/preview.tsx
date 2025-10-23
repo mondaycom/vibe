@@ -31,12 +31,12 @@ import { RelatedComponentsDecorator } from "../src/layout/related-components/rel
 import "monday-ui-style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
-// import {
-//   playgroundVibeComponents,
-//   playgroundReactCommonHooks,
-//   introCode
-// } from "../src/storybook/stand-alone-documentaion/playground/playground-helpers";
-// import reactDocgenOutput from "../src/storybook/stand-alone-documentaion/playground/react-docgen-output.json";
+import {
+  playgroundVibeComponents,
+  playgroundReactCommonHooks,
+  introCode
+} from "../src/pages/playground/playground-helpers";
+import reactDocgenOutput from "../src/pages/playground/react-docgen-output.json";
 import withLiveEdit from "../src/decorators/withLiveEdit/withLiveEdit";
 import modes from "./modes";
 import Footer from "../src/layout/footer/Footer";
@@ -127,19 +127,19 @@ const preview: Preview = {
           "Hooks"
         ]
       }
+    },
+    playground: {
+      storyId: "playground",
+      components: {
+        ...playgroundVibeComponents,
+        ...playgroundReactCommonHooks
+      },
+      introCode,
+      autocompletions: generateAutocompletion(reactDocgenOutput)
     }
-    // playground: {
-    //   storyId: "playground",
-    //   components: {
-    //     ...playgroundVibeComponents,
-    //     ...playgroundReactCommonHooks
-    //   },
-    //   introCode,
-    //   autocompletions: generateAutocompletion(reactDocgenOutput)
-    // }
   },
   decorators: [
-    // withLiveEdit,
+    withLiveEdit,
     withGlobalStyle,
     withMemoryStats,
     // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
