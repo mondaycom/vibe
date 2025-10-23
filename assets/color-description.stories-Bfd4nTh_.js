@@ -1,7 +1,0 @@
-import{j as t}from"./jsx-runtime-lwGtIXvq.js";import{c as p}from"./index-BpvXyOxN.js";import{V as d}from"./visual-description-CI-AS4eY.js";const m="_colorDescription_x1vnx_1",u="_withBorder_x1vnx_4",i={colorDescription:m,withBorder:u},_=({colorName:r,description:e,withBorder:a})=>{const l=t.jsx("div",{className:p(i.colorDescription,{[i.withBorder]:a}),style:{backgroundColor:`var(--${r})`}});return t.jsx(d,{title:r,description:e,ariaLabel:e,children:l})};try{colordescription.displayName="colordescription",colordescription.__docgenInfo={description:"",displayName:"colordescription",props:{colorName:{defaultValue:null,description:"",name:"colorName",required:!0,type:{name:"string"}},description:{defaultValue:null,description:"",name:"description",required:!0,type:{name:"string"}},withBorder:{defaultValue:null,description:"",name:"withBorder",required:!0,type:{name:"boolean"}}}}}catch{}const f={component:_,title:"Storybook Blocks/ColorDescription"},o={args:{colorName:"sb-positive-color",description:"This is a description",withBorder:!1}};var s,c,n;o.parameters={...o.parameters,docs:{...(s=o.parameters)==null?void 0:s.docs,source:{originalSource:`{
-  args: {
-    colorName: 'sb-positive-color',
-    description: 'This is a description',
-    withBorder: false
-  }
-}`,...(n=(c=o.parameters)==null?void 0:c.docs)==null?void 0:n.source}}};const h=["Overview"],g=Object.freeze(Object.defineProperty({__proto__:null,Overview:o,__namedExportsOrder:h,default:f},Symbol.toStringTag,{value:"Module"}));export{g as C,o as O};

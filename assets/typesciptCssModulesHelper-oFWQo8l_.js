@@ -1,1 +1,0 @@
-function t(e,r){return!r||!e[r]?"":e[r]}try{t.displayName="getStyle",t.__docgenInfo={description:"Return style by key - used to fix noImplicitAny errors when referencing modular styles from ts files via index accessor",displayName:"getStyle",props:{}}}catch{}export{t as g};

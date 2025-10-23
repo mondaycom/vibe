@@ -1,0 +1,1 @@
+import{L as e}from"./link-D2E23SAS.js";const o={component:e,title:"Components/Link"},t={args:{href:"/?path=/docs/welcome--docs",size:e.sizes.MEDIUM,children:"This is a link to welcome page"}},n=["Overview"],r=Object.freeze(Object.defineProperty({__proto__:null,Overview:t,__namedExportsOrder:n,default:o},Symbol.toStringTag,{value:"Module"}));export{r as L,t as O};

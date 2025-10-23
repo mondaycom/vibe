@@ -1,1 +1,0 @@
-import{r as s}from"./index-CTZeEbLr.js";import{u as t}from"./useIsomorphicLayoutEffect-CtfxbExD.js";function o(r){const e=s.useRef(void 0);return t(()=>{e.current=r}),e.current}try{o.displayName="usePrevious",o.__docgenInfo={description:"",displayName:"usePrevious",props:{}}}catch{}export{o as u};

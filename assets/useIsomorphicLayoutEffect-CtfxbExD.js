@@ -1,1 +1,0 @@
-import{r as e}from"./index-CTZeEbLr.js";import{i as t}from"./ssr-utils-Do6V6AqB.js";const f=t()?e.useLayoutEffect:e.useEffect;try{e.useEffect.displayName="useEffect",e.useEffect.__docgenInfo={description:"Accepts a function that contains imperative, possibly effectful code.",displayName:"useEffect",props:{}}}catch{}export{f as u};
