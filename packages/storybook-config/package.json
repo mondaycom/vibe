@@ -1,5 +1,6 @@
 {
   "name": "@vibe/storybook-config",
+  "private": true,
   "version": "3.0.1",
   "description": "Storybook config for Vibe packages",
   "repository": {

@@ -40,7 +40,6 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/button": "3.0.0",
     "@vibe/config": "3.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import Loader, { type LoaderProps } from "../Loader";
 import { createStoryMetaSettingsDecorator } from "@vibe/storybook-config";
-import { Button } from "@vibe/button";
+// import { Button } from "@vibe/button";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -149,20 +149,20 @@ export const VisualVariants: Story = {
 //   name: "Loader in text field"
 // };
 
-export const LoaderInButton: Story = {
-  render: () => {
-    const [loading, setLoading] = useState(false);
+// export const LoaderInButton: Story = {
+//   render: () => {
+//     const [loading, setLoading] = useState(false);
 
-    const onClick = useCallback(() => {
-      setLoading(true);
-    }, [setLoading]);
+//     const onClick = useCallback(() => {
+//       setLoading(true);
+//     }, [setLoading]);
 
-    return (
-      <Button loading={loading} onClick={onClick}>
-        Click here for loading
-      </Button>
-    );
-  },
+//     return (
+//       <Button loading={loading} onClick={onClick}>
+//         Click here for loading
+//       </Button>
+//     );
+//   },
 
-  name: "Loader in button"
-};
+//   name: "Loader in button"
+// };
