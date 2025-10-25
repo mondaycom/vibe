@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.70.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.1...@vibe/core@3.70.2) (2025-10-25)
+
+
+### Bug Fixes
+
+* **Dialog:** click outside handler should be on the wrapper - not content - of the Dialog ([#3145](https://github.com/mondaycom/vibe/issues/3145)) ([b154daf](https://github.com/mondaycom/vibe/commit/b154dafda4dc61384197f7d66625bd1c187cc544))
+
+
+
+
+
 ## [3.70.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.0...@vibe/core@3.70.1) (2025-10-19)
 
 **Note:** Version bump only for package @vibe/core

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.70.1",
+  "version": "3.70.2",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -94,10 +94,10 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@vibe/button": "3.0.0",
-    "@vibe/icon": "3.0.0",
+    "@vibe/button": "3.0.1",
+    "@vibe/icon": "3.0.1",
     "@vibe/icons": "1.11.0",
-    "@vibe/loader": "3.0.0",
+    "@vibe/loader": "3.0.1",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
     "browserslist-config-monday": "1.0.6",
@@ -105,7 +105,7 @@
     "downshift": "^9.0.8",
     "es-toolkit": "^1.39.10",
     "framer-motion": "^6.5.1",
-    "monday-ui-style": "0.26.0",
+    "monday-ui-style": "0.26.1",
     "react-dates": "21.8.0",
     "react-focus-lock": "^2.13.2",
     "react-inlinesvg": "^4.1.3",
@@ -186,7 +186,7 @@
     "@uiw/codemirror-extensions-langs": "^4.21.25",
     "@uiw/codemirror-theme-github": "^4.21.25",
     "@uiw/react-codemirror": "^4.21.25",
-    "@vibe/config": "3.0.1",
+    "@vibe/config": "3.0.2",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
@@ -259,7 +259,7 @@
     "tsx": "^4.20.3",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "vibe-storybook-components": "1.0.5",
+    "vibe-storybook-components": "1.0.6",
     "vite": "^5.3.1",
     "vitest": "^1.6.0"
   },

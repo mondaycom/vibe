@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icon",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Vibe sub-package for icon components",
   "repository": {
     "type": "git",
@@ -34,19 +34,19 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/storybook-config": "3.0.1",
-    "@vibe/shared": "3.0.1",
+    "@vibe/shared": "3.0.2",
+    "@vibe/storybook-config": "3.0.2",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-inlinesvg": "^4.1.3"
   },
   "devDependencies": {
+    "@vibe/config": "3.0.2",
     "@vibe/icons": "1.11.0",
-    "@vibe/config": "3.0.1",
-    "typescript": "^4.7.3",
-    "vibe-storybook-components": "1.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "typescript": "^4.7.3",
+    "vibe-storybook-components": "1.0.2",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
