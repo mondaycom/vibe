@@ -1,0 +1,43 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as MenuTitleStories from "./MenuTitle.stories";
+import menuDo from "./assets/Menu-do.svg";
+import menuDont from "./assets/Menu-dont.svg";
+
+<Meta of={MenuTitleStories} />
+
+# Menu Title
+
+<Canvas of={MenuTitleStories.Overview} />
+
+### Import
+
+```js
+import { MenuTitle } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### Caption positions
+
+<Canvas of={MenuTitleStories.CaptionPlacements} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <img src={menuDo} alt="Menu title with an icon on the right" />,
+        description: "Place the info icon inside an icon button and align it to the right."
+      },
+      negative: {
+        component: <img src={menuDont} alt="Menu title with an icon on the left" />,
+        description: "Don’t place the info icon to the left, top or bottom."
+      }
+    }
+  ]}
+/>

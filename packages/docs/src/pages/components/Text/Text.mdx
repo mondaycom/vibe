@@ -1,0 +1,197 @@
+import { Meta } from "@storybook/blocks";
+import { Tip } from "vibe-storybook-components";
+import { Text, Flex, Button, Box, Icon, Link } from "@vibe/core";
+import { TipHeading, TipLink } from "./Text.stories.helpers";
+import * as TextStories from "./Text.stories";
+import { DialogContentContainer } from "@vibe/core";
+
+<Meta of={TextStories} />
+
+# Text
+
+The text component serves as a wrapper for applying typography styles to the text it contains.
+
+<Canvas of={TextStories.Overview} />
+
+### Import
+
+```js
+import { Text } from "@vibe/core";
+```
+
+<TipHeading />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines guidelines={["Use it to display text formed from a single sentence, or multiple sentences."]} />
+<UsageGuidelines
+  guidelines={[
+    "Use Text3 for short caption text, label or as explanation text in menus. In any other case, use Text1 or Text 2."
+  ]}
+/>
+
+## Variants
+
+### Sizes and weights
+
+Text component comes in three sizes: text1 (16px), text2 (14px), text3 (12px) , and in three weights: bold (700), medium (600) and normal (400)
+
+<Canvas of={TextStories.SizesAndWeights} />
+
+### Colors
+
+Text component comes in four colors: primary, secondary, on-primary and on-inverted
+
+<Canvas of={TextStories.Colors} />
+
+### Overflow
+
+Our Text component supports overflow state.
+When the text is longer than its container and the ellipsis flag is on, the end of the text will be truncated and will display "..."
+
+We support two kinds of ellipsis: single-line ellipsis with a tooltip displayed in hover or ellipsis after multiple lines. You can see examples for both use cases below.
+
+<Canvas of={TextStories.Overflow} />
+
+<Tip>Ellipsis prop is true by default. If you wish to turn off ellipsis you can change the prop to false.</Tip>
+
+### Paragraph
+
+To use the Text component for a paragraph, utilize the element prop with value of `"p"`.
+This changes the text wrapper element to `p`, enabling the creation of paragraph-style text without ellipsis by default.
+The paragraph will receive default top and bottom margins based on browser settings for `p` elements.
+Customize ellipsis behavior using the "ellipsis" prop or override default margins with a custom class name.
+
+<Canvas of={TextStories.Paragraph} />
+
+### Links
+
+A Text component with a link skin can be used to create a link within running text that redirects to an external webpage, as demonstrated in the following example.
+
+<Canvas of={TextStories.LinksInsideRunningText} />
+
+<TipLink />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <Text type="text1" element="span">
+            The quick brown fox jumps over the{" "}
+            <Text type="text1" weight="bold" element="span">
+              lazy dog
+            </Text>
+          </Text>
+        ),
+        description: "You can combine two font weights in one sentence to create an emphasis."
+      },
+      negative: {
+        component: (
+          <Text type="text2" element="span">
+            The quick brown fox jumps over the{" "}
+            <Text type="text1" element="span">
+              lazy dog
+            </Text>
+          </Text>
+        ),
+        description: "Don't use more then one font size in a sentence."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <Flex style={{ width: "70%" }} direction="column" justify="center" align="center" gap="small">
+            <Text maxLines={3}>
+              monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work
+              and streamline sales activities from start to finish. Explore monday sales CRM templates
+            </Text>
+            <Button kind="tertiary">Read more</Button>
+          </Flex>
+        ),
+        description: "If ellipses are used in a paragraph, always use a CTA to reveal more information."
+      },
+      negative: {
+        component: (
+          <Text maxLines={3} style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use ellipsis without providing a way for the user to read the full text."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <DialogContentContainer size="medium" style={{ width: "60%" }}>
+            <Flex gap="small" align="start">
+              <Box style={{ flexShrink: 0 }}>
+                <Icon icon={Link} />
+              </Box>
+              <Flex direction="column" gap="small" align="start" justify="start">
+                <Text color="secondary" maxLines={3} type="text3">
+                  Section title in text3
+                </Text>
+                <Text maxLines={3} type="text1">
+                  Short info explanation about the feature will come here.
+                </Text>
+              </Flex>
+            </Flex>
+          </DialogContentContainer>
+        ),
+        description: "Use text3 for section titles, short captions, and labels."
+      },
+      negative: {
+        component: (
+          <Text maxLines={5} type="text3" style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use text3 as body text."
+      }
+    },
+    {
+      positive: {
+        component: (
+          <DialogContentContainer size="medium" style={{ width: "60%" }}>
+            <Flex gap="small" align="start">
+              <Box style={{ flexShrink: 0 }}>
+                <Icon icon={Link} />
+              </Box>
+              <Flex direction="column" gap="small" align="start" justify="start">
+                <Text color="secondary" maxLines={3} type="text3">
+                  Section title in text3
+                </Text>
+                <Text maxLines={3} type="text1">
+                  Short info explanation about the feature will come here.
+                </Text>
+              </Flex>
+            </Flex>
+          </DialogContentContainer>
+        ),
+        description: "Use only normal and medium weights for text3."
+      },
+      negative: {
+        component: (
+          <Text maxLines={5} weight="bold" type="text3" style={{ width: "70%" }}>
+            monday CRM lets you control your entire sales funnel and close more deals, faster. Automate manual work and
+            streamline sales activities from start to finish. Explore monday sales CRM templates
+          </Text>
+        ),
+        description: "Don't use bold weight for text3, to ensure optimal readability."
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={["Heading", "EditableHeading", "Link"]} />
