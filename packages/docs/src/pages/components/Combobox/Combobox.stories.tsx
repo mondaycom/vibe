@@ -3,7 +3,7 @@ import { StoryDescription } from "vibe-storybook-components";
 import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
-// import { defaultPlaySuite } from "../__tests__/Combobox.interactions";
+import { defaultPlaySuite } from "./Combobox.interactions";
 import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@vibe/icons";
 import {
   Avatar,
@@ -91,8 +91,8 @@ export const Default = {
     );
 
     return <Combobox placeholder="Placeholder text here" options={options} />;
-  }
-  // play: defaultPlaySuite
+  },
+  play: defaultPlaySuite
 };
 
 export const ComboboxInsideADialog = {

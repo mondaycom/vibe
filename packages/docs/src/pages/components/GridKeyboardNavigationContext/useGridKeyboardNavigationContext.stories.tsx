@@ -109,6 +109,6 @@ export const MultipleDepths = {
     );
   },
 
-  name: "Multiple Depths"
-  // play: useGridContextMultipleDepthsPlaySuite
+  name: "Multiple Depths",
+  play: useGridContextMultipleDepthsPlaySuite
 };

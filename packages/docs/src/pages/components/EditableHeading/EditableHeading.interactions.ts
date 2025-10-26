@@ -7,17 +7,16 @@ import {
   getByRole,
   interactionSuite,
   typeText,
-  delay
-} from "../../../tests/interactions-utils";
-
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { resetFocus } from "../../../__tests__/interactions-helper";
+  delay,
+  resetFocus
+} from "@vibe/core/interactionsTests";
+import { ComponentDefaultTestId } from "@vibe/shared";
 
 const CHANGES_DELAY = 200;
-const text = "This text is an editable text";
+const text = "This heading is an editable heading";
 
 function getComponent(canvas: Canvas) {
-  return getByTestId(canvas, ComponentDefaultTestId.EDITABLE_TEXT);
+  return getByTestId(canvas, ComponentDefaultTestId.EDITABLE_HEADING);
 }
 
 function getInput(canvas: Canvas) {
@@ -25,7 +24,7 @@ function getInput(canvas: Canvas) {
 }
 
 async function changeModes(canvas: Canvas) {
-  await delay(CHANGES_DELAY);
+  await delay(CHANGES_DELAY); // needed the tests would run correctly on page refresh
   const compponent = getComponent(canvas);
   clickElement(compponent);
   await delay(CHANGES_DELAY);
@@ -34,8 +33,8 @@ async function changeModes(canvas: Canvas) {
   expect(input).toHaveAttribute("value", text);
 
   await resetFocus();
-  const textElement = getComponent(canvas);
-  expect(textElement).toHaveTextContent(text);
+  const heading = getComponent(canvas);
+  expect(heading).toHaveTextContent(text);
 }
 
 async function editAndChangeToValidText(canvas: Canvas) {
@@ -49,8 +48,8 @@ async function editAndChangeToValidText(canvas: Canvas) {
   expect(input).toHaveAttribute("value", text);
 
   await resetFocus();
-  const textElement = getComponent(canvas);
-  expect(textElement).toHaveTextContent(text);
+  const heading = getComponent(canvas);
+  expect(heading).toHaveTextContent(text);
 }
 
 async function clearInput(canvas: Canvas) {
@@ -62,8 +61,8 @@ async function clearInput(canvas: Canvas) {
   await clearText(input);
 
   await resetFocus();
-  const textElement = getComponent(canvas);
-  expect(textElement).toHaveTextContent(text);
+  const heading = getComponent(canvas);
+  expect(heading).toHaveTextContent(text);
 }
 
 async function cancelEditing(canvas: Canvas) {
@@ -73,6 +72,7 @@ async function cancelEditing(canvas: Canvas) {
 
   const input = getInput(canvas);
   await clearText(input);
+  await delay(CHANGES_DELAY);
 
   const textToChange = "test";
   await typeText(input, textToChange);
@@ -80,8 +80,8 @@ async function cancelEditing(canvas: Canvas) {
 
   await typeText(input, "{Escape}");
 
-  const textElement = getComponent(canvas);
-  expect(textElement).toHaveTextContent(text);
+  const heading = getComponent(canvas);
+  expect(heading).toHaveTextContent(text);
 }
 
 export const overviewPlaySuite: ReturnType<typeof interactionSuite> = interactionSuite({

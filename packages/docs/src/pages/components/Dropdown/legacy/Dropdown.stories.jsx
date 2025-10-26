@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { StoryDescription } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../../utils/createStoryMetaSettingsDecorator";
-// import { multiInteractionTests, overviewPlaySuite } from "../Dropdown/__tests__/Dropdown.interactions";
+import { multiInteractionTests, overviewPlaySuite } from "./Dropdown.interactions";
 import person1 from "../../Avatar/assets/person1.png";
 import person3 from "../../Avatar/assets/person3.png";
 import person2 from "../../Avatar/assets/person2.png";
@@ -64,8 +64,9 @@ export const Overview = {
         isEnabled: false
       }
     }
-  }
-  // play: overviewPlaySuite
+  },
+  name: "Overview",
+  play: overviewPlaySuite
 };
 
 export const Sizes = {
@@ -260,7 +261,7 @@ export const MultiChoiceWithDifferentStates = {
       </Flex>
     );
   },
-  // play: multiInteractionTests,
+  play: multiInteractionTests,
   parameters: {
     docs: {
       liveEdit: {

@@ -1,10 +1,15 @@
 import { userEvent, within } from "@storybook/test";
-import { ContentColorByName } from "../../../utils/colors-vars-map";
-import { resetFocus } from "../../../__tests__/interactions-helper";
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { typeMultipleTimes, interactionSuite } from "../../../tests/interactions-utils";
+import { typeMultipleTimes, interactionSuite, resetFocus } from "@vibe/core/interactionsTests";
 import { expect } from "@storybook/jest";
-import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+
+// Color names used in tests
+const ContentColorByName = {
+  BRIGHT_GREEN: "bright-green",
+  STEEL: "steel",
+  DARK_PURPLE: "dark_purple",
+  INDIGO: "indigo"
+};
 
 async function selectAndResetWithKeyboard(canvas) {
   await clickOnColor(canvas, ContentColorByName.BRIGHT_GREEN);

@@ -1,6 +1,5 @@
 import { expect } from "@storybook/jest";
-import { queryByText } from "@storybook/test";
-import { resetFocus } from "../../../__tests__/interactions-helper";
+import { queryByText, userEvent } from "@storybook/test";
 import {
   getByLabelText,
   getByTestId,
@@ -8,10 +7,12 @@ import {
   clickElement,
   typeText,
   interactionSuite,
-  pressNavigationKey
-} from "../../../tests/interactions-utils";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
+  pressNavigationKey,
+  NavigationCommand,
+  resetFocus
+} from "@vibe/core/interactionsTests";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+
 async function getComponentElements(canvas) {
   const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);
   const searchElement = getByLabelText(comboboxElement, "Search for content");

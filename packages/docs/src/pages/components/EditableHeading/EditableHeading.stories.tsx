@@ -2,7 +2,7 @@ import React from "react";
 import { EditableHeading, Flex } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { createComponentTemplate } from "vibe-storybook-components";
-// import { overviewPlaySuite } from "../__tests__/EditableHeading-interactions";
+import { overviewPlaySuite } from "./EditableHeading.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableHeading,
@@ -23,7 +23,7 @@ export const Overview = {
   args: {
     value: "This heading is an editable heading"
   },
-  // play: overviewPlaySuite,
+  play: overviewPlaySuite,
   parameters: {
     docs: {
       liveEdit: {

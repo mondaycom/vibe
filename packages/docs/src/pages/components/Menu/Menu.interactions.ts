@@ -1,5 +1,4 @@
 import { userEvent, within } from "@storybook/test";
-import { resetFocus } from "../../../../__tests__/interactions-helper";
 import {
   getByRole,
   getByText,
@@ -7,9 +6,10 @@ import {
   waitForElementVisible,
   interactionSuite,
   expectActiveElementToHavePartialText,
-  pressNavigationKey
-} from "../../../../tests/interactions-utils";
-import { NavigationCommand } from "../../../../tests/constants";
+  pressNavigationKey,
+  NavigationCommand,
+  resetFocus
+} from "@vibe/core/interactionsTests";
 import { expect } from "@storybook/jest";
 
 const TWO_DEPTHS_MENU_TEXTS = {

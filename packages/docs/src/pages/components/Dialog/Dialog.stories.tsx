@@ -12,13 +12,13 @@ import {
   type DialogProps
 } from "@vibe/core";
 import { Info } from "@vibe/icons";
-// import { closeTriggersInteractionSuite } from "../__tests__/Dialog.interactions";
-// import {
-//   CLICK_OUTSIDE_DIALOG,
-//   CLICK_OUTSIDE_DIALOG_BUTTON,
-//   CONTEXT_MENU_DIALOG,
-//   HIDE_TRIGGERS_CONTAINER
-// } from "../__tests__/DialogDataTestIds";
+import {
+  closeTriggersInteractionSuite,
+  CLICK_OUTSIDE_DIALOG,
+  CLICK_OUTSIDE_DIALOG_BUTTON,
+  CONTEXT_MENU_DIALOG,
+  HIDE_TRIGGERS_CONTAINER
+} from "./Dialog.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Dialog
@@ -503,8 +503,8 @@ export const HideTriggers = {
 
     return (
       <Flex
-        // data-testid={HIDE_TRIGGERS_CONTAINER}
-        // id={HIDE_TRIGGERS_CONTAINER}
+        data-testid={HIDE_TRIGGERS_CONTAINER}
+        id={HIDE_TRIGGERS_CONTAINER}
         style={{ paddingInline: "var(--sb-spacing-small)" }}
         wrap
         direction="column"
@@ -514,15 +514,13 @@ export const HideTriggers = {
         <Dialog
           modifiers={modifiers}
           shouldShowOnMount
-          // containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
+          containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
           onClickOutside={switchClickOutsideActive}
           position="right"
           showTrigger={["click"]}
           hideTrigger={["clickoutside"]}
           content={
-            <DialogContentContainer
-            // data-testid={CLICK_OUTSIDE_DIALOG}
-            >
+            <DialogContentContainer data-testid={CLICK_OUTSIDE_DIALOG}>
               <Flex
                 direction="column"
                 align="start"
@@ -539,7 +537,7 @@ export const HideTriggers = {
           }
         >
           <Button
-            // data-testid={CLICK_OUTSIDE_DIALOG_BUTTON}
+            data-testid={CLICK_OUTSIDE_DIALOG_BUTTON}
             kind="secondary"
             active={clickOutsideButtonActive}
             onClick={switchClickOutsideActive}
@@ -695,13 +693,11 @@ export const HideTriggers = {
           showTrigger={["click"]}
           hideTrigger={["contextmenu"]}
           position="right"
-          // containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
+          containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
           onDialogDidHide={switchContextMenuActive}
           onDialogDidShow={switchContextMenuActive}
           content={
-            <DialogContentContainer
-            //  data-testid={CONTEXT_MENU_DIALOG}
-            >
+            <DialogContentContainer data-testid={CONTEXT_MENU_DIALOG}>
               <Flex
                 direction="column"
                 align="start"
@@ -733,7 +729,7 @@ export const HideTriggers = {
 
   name: "Hide triggers",
 
-  // play: closeTriggersInteractionSuite,
+  play: closeTriggersInteractionSuite,
 
   parameters: {
     chromatic: {
@@ -742,10 +738,10 @@ export const HideTriggers = {
     docs: {
       liveEdit: {
         scope: {
-          // HIDE_TRIGGERS_CONTAINER,
-          // CLICK_OUTSIDE_DIALOG,
-          // CLICK_OUTSIDE_DIALOG_BUTTON,
-          // CONTEXT_MENU_DIALOG
+          HIDE_TRIGGERS_CONTAINER,
+          CLICK_OUTSIDE_DIALOG,
+          CLICK_OUTSIDE_DIALOG_BUTTON,
+          CONTEXT_MENU_DIALOG
         }
       }
     }

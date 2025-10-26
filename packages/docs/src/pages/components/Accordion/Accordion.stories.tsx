@@ -1,9 +1,6 @@
 import React from "react";
 import { Accordion, type AccordionProps, AccordionItem, Checkbox, Flex } from "@vibe/core";
-// import {
-//   accordionMultiActivePlaySuite,
-//   accordionSingleActivePlaySuite
-// } from "./Accordion/__tests__/Accordion.interactions";
+import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "./Accordion.interactions";
 
 const accordionTemplate = (args: AccordionProps) => {
   return (
@@ -100,8 +97,8 @@ export const MultiActive = {
     </Accordion>
   ),
 
-  name: "Multi active"
-  // play: accordionMultiActivePlaySuite
+  name: "Multi active",
+  play: accordionMultiActivePlaySuite
 };
 
 export const SingleActive = {
@@ -125,8 +122,8 @@ export const SingleActive = {
     </Accordion>
   ),
 
-  name: "Single active"
-  // play: accordionSingleActivePlaySuite
+  name: "Single active",
+  play: accordionSingleActivePlaySuite
 };
 
 export const PreferencesAccordion = {

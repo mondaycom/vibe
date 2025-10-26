@@ -130,7 +130,6 @@
     "@babel/preset-typescript": "^7.23.3",
     "@babel/standalone": "^7.24.4",
     "@babel/types": "^7.24.0",
-    "@chromatic-com/storybook": "^3.2.4",
     "@hot-loader/react-dom": "^16.13.0",
     "@jest/transform": "^29.7.0",
     "@rollup/plugin-babel": "^6.0.2",
@@ -270,9 +269,6 @@
     "*.scss.js",
     "*.css.js"
   ],
-  "storybook-deployer": {
-    "commitMessage": "Deploy Storybook [ci-skip]"
-  },
   "browserslist": [
     "extends browserslist-config-monday"
   ]

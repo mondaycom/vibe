@@ -1,7 +1,7 @@
 import { ColorPicker } from "@vibe/core";
 import { TextColorIndicator, Check } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-// import { multiSelectionInteractionSuite, noColorInteractionSuite } from "../__tests__/ColorPicker.interactions";
+import { multiSelectionInteractionSuite, noColorInteractionSuite } from "./ColorPicker.interactions";
 import { createComponentTemplate } from "vibe-storybook-components";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -63,8 +63,8 @@ export const NoColor = {
     id: "no-color-picker",
     noColorText: "Clear color"
   },
-  name: "No color"
-  // play: noColorInteractionSuite
+  name: "No color",
+  play: noColorInteractionSuite
 };
 
 export const SelectedIcon = {
@@ -75,8 +75,8 @@ export const SelectedIcon = {
     SelectedIndicatorIcon: Check,
     value: "peach"
   },
-  name: "Selected icon"
-  // play: multiSelectionInteractionSuite
+  name: "Selected icon",
+  play: multiSelectionInteractionSuite
 };
 
 export const Shapes = {

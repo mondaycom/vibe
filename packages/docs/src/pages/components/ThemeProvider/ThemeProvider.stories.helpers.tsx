@@ -1,8 +1,22 @@
 import React, { useState } from "react";
-import { ThemeProvider, type ThemeProviderProps, Button, Dropdown, Flex, ThemeColor } from "@vibe/core";
+import { ThemeProvider, type ThemeProviderProps, Button, Dropdown, Flex } from "@vibe/core";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
 import { ColorsDescription } from "../../colors/colors-description/colors-description";
 import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
+
+enum ThemeColor {
+  primaryColor = "primary-color",
+  primaryHoverColor = "primary-hover-color",
+  primarySelectedColor = "primary-selected-color",
+  primarySelectedHoverColor = "primary-selected-hover-color",
+  primarySelectedOnSecondaryColor = "primary-selected-on-secondary-color",
+  textColorOnPrimary = "text-color-on-primary",
+  brandColor = "brand-color",
+  brandHoverColor = "brand-hover-color",
+  brandSelectedColor = "brand-selected-color",
+  brandSelectedHoverColor = "brand-selected-hover-color",
+  textColorOnBrand = "text-color-on-brand"
+}
 
 export const ColorsEligibleForThemingTemplate = () => <ColorsDescription colorNames={Object.values(ThemeColor)} />;
 

@@ -11,7 +11,7 @@ import {
   ThemeProviderTemplateOverview,
   ThemeProviderThemingScopeTemplate
 } from "./ThemeProvider.stories.helpers";
-// import { themeProviderSystemThemeSuite } from "../__tests__/ThemeProvider.interactions";
+import { themeProviderSystemThemeSuite } from "./ThemeProvider.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ThemeProvider
@@ -112,8 +112,8 @@ export const WithSystemTheme = {
       </Flex>
     );
   },
-  name: "With systemTheme"
-  // play: themeProviderSystemThemeSuite
+  name: "With systemTheme",
+  play: themeProviderSystemThemeSuite
 };
 
 export const MondaySdkIntegration = {

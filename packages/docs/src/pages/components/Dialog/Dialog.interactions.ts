@@ -1,13 +1,13 @@
 import { expect } from "@storybook/jest";
 import { type Screen } from "@testing-library/react";
-import {
-  CONTEXT_MENU_DIALOG,
-  CLICK_OUTSIDE_DIALOG,
-  HIDE_TRIGGERS_CONTAINER,
-  CLICK_OUTSIDE_DIALOG_BUTTON
-} from "./DialogDataTestIds";
-import { type Canvas, getByTestId, interactionSuite } from "../../../tests/interactions-utils";
+import { type Canvas, getByTestId, interactionSuite } from "@vibe/core/interactionsTests";
 import { userEvent, fireEvent, waitFor } from "@storybook/test";
+
+// Test data IDs
+export const CLICK_OUTSIDE_DIALOG = "click-outside-dialog";
+export const CONTEXT_MENU_DIALOG = "context-menu-dialog";
+export const HIDE_TRIGGERS_CONTAINER = "hide-triggers-container";
+export const CLICK_OUTSIDE_DIALOG_BUTTON = "click-outside-button";
 
 const isDialogHiddenAfterClickOutside = createTestIfDialogHiddenAfterTrigger(CLICK_OUTSIDE_DIALOG, () =>
   userEvent.click(getDialogContainer())

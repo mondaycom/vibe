@@ -6,7 +6,7 @@ import {
   typeText,
   getFirstByClassName,
   interactionSuite
-} from "../../../tests/interactions-utils";
+} from "@vibe/core/interactionsTests";
 import { expect } from "@storybook/jest";
 
 const selectAndClearTest = async canvas => {

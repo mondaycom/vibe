@@ -2,7 +2,7 @@ import React from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { EditableText, Flex } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-// import { overviewPlaySuite } from "../__tests__/EditableText.interactions";
+import { overviewPlaySuite } from "./EditableText.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: EditableText,
@@ -24,7 +24,7 @@ export const Overview = {
     ariaLabel: "Editable text",
     value: "This text is an editable text"
   },
-  // play: overviewPlaySuite,
+  play: overviewPlaySuite,
   parameters: {
     docs: {
       liveEdit: {

@@ -2,7 +2,7 @@ import React from "react";
 import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite, Settings } from "@vibe/icons";
 import { DialogContentContainer, Flex, Menu, MenuDivider, MenuGridItem, MenuItem, MenuTitle } from "@vibe/core";
 import { DummyNavigableGrid } from "../GridKeyboardNavigationContext/useGridKeyboardNavigationContext.stories.helpers";
-// import { menuWithTwoDepthsSuite } from "../__tests__/Menu.interactions";
+import { menuWithTwoDepthsSuite } from "./Menu.interactions";
 import { type MenuProps } from "@vibe/core";
 
 export default {
@@ -164,6 +164,6 @@ export const MenuWith2DepthSubMenu = {
       </DialogContentContainer>
     </Flex>
   ),
-  name: "Menu with 2-depth sub menu"
-  // play: menuWithTwoDepthsSuite
+  name: "Menu with 2-depth sub menu",
+  play: menuWithTwoDepthsSuite
 };

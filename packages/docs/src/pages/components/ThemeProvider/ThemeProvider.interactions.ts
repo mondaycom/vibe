@@ -1,10 +1,48 @@
 import { type Screen } from "@testing-library/react";
 import { userEvent } from "@storybook/test";
 import { expect } from "@storybook/jest";
-import { interactionSuite } from "../../../tests/interactions-utils";
-import { addAppThemeSuffix, getBodySystemThemeClassName } from "../ThemeProviderUtils";
-import { getComputedVarColor, hexToRgb } from "../../../services/themes";
-import { SystemTheme } from "../ThemeProviderConstants";
+import { interactionSuite } from "@vibe/core/interactionsTests";
+import { type SystemTheme } from "@vibe/core";
+
+// TODO: move to @vibe/shared
+const APP_THEME_SUFFIX = "-app-theme";
+
+const isAppThemeClassName = (className: string) => {
+  return className.endsWith(APP_THEME_SUFFIX);
+};
+
+export const addAppThemeSuffix = (systemTheme: SystemTheme) => {
+  return `${systemTheme}${APP_THEME_SUFFIX}`;
+};
+
+export const getBodySystemThemeClassName = () => {
+  const classList = document.body.classList;
+  for (const className of Array.from(classList)) {
+    if (isAppThemeClassName(className)) {
+      return className;
+    }
+  }
+  return null;
+};
+
+// These utilities are imported from the helper file which re-exports them
+const getComputedVarColor = (element: HTMLElement, varName: string) => {
+  return getComputedStyle(element).getPropertyValue(`--${varName}`).trim();
+};
+
+// TODO: move these utilities to the colorUtils
+const hexToRgb = (hex: string) => {
+  // Remove # if present
+  hex = hex.replace(/^#/, "");
+
+  // Parse hex to RGB
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+
+  return `rgb(${r}, ${g}, ${b})`;
+};
 
 const getVariableHexColor = (variableName: string) => {
   return hexToRgb(getComputedVarColor(document.body, variableName));
