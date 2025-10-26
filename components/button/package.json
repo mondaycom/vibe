@@ -1,6 +1,6 @@
 {
   "name": "@vibe/button",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Vibe sub-package for button components",
   "repository": {
     "type": "git",
@@ -34,9 +34,9 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/icon": "3.0.2",
-    "@vibe/loader": "3.0.2",
-    "@vibe/shared": "3.0.2",
+    "@vibe/icon": "3.0.3",
+    "@vibe/loader": "3.0.3",
+    "@vibe/shared": "3.0.3",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
