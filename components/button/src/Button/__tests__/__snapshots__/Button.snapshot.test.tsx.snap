@@ -405,7 +405,7 @@ exports[`Button renders correctly > renders correctly with leftIcon 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_35f8b8dc06 leftIcon noFocusStyle_b7c3cb34cb"
+    className="icon_aef505ec69 leftIcon noFocusStyle_d080cfd070"
     data-testid="icon"
     data-vibe="Icon"
     fill="currentColor"
@@ -458,7 +458,7 @@ exports[`Button renders correctly > renders correctly with rightIcon 1`] = `
   Button
   <svg
     aria-hidden={true}
-    className="icon_35f8b8dc06 rightIcon noFocusStyle_b7c3cb34cb"
+    className="icon_aef505ec69 rightIcon noFocusStyle_d080cfd070"
     data-testid="icon"
     data-vibe="Icon"
     fill="currentColor"
