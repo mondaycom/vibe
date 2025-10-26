@@ -2,8 +2,7 @@ import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { Flex, Heading, Divider, Search, Checkbox, Button, Box } from "@vibe/core";
 import { createComponentTemplate } from "vibe-storybook-components";
-// import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TITLE_CONTAINER_ID } from "../../Heading/__tests__/headingTestsConstants";
-// import { headingOverflowSuite } from "../../Heading/__tests__/Heading.interactions";
+import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TITLE_CONTAINER_ID, headingOverflowSuite } from "./Heading.interactions";
 import { Custom } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
@@ -109,23 +108,15 @@ export const Colors = {
 
 export const Overflow = {
   render: () => (
-    <Flex
-      // id={OVERFLOW_TITLE_CONTAINER_ID}
-      direction="column"
-      gap="medium"
-      align="stretch"
-      style={{ width: "480px" }}
-    >
+    <Flex id={OVERFLOW_TITLE_CONTAINER_ID} direction="column" gap="medium" align="stretch" style={{ width: "480px" }}>
       <Heading type="h2">Heading without overflow</Heading>
       <Heading
         type="h2"
         /**for testing purposes**/
-        // data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
-        tooltipProps={
-          {
-            // containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`
-          }
-        }
+        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        tooltipProps={{
+          containerSelector: `#${OVERFLOW_TITLE_CONTAINER_ID}`
+        }}
       >
         Heading with ellipsis and tooltip when hovering
       </Heading>
@@ -140,11 +131,11 @@ export const Overflow = {
   parameters: {
     docs: {
       liveEdit: {
-        // scope: { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID }
+        scope: { OVERFLOW_TITLE_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID }
       }
     }
-  }
-  // play: headingOverflowSuite
+  },
+  play: headingOverflowSuite
 };
 
 export const BuiltInPageHeaderNotEditable = {

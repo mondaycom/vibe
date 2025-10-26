@@ -1,7 +1,12 @@
 import { expect } from "@storybook/jest";
-import { resetFocus } from "../../../__tests__/interactions-helper";
-import { getByLabelText, pressNavigationKey, interactionSuite } from "../../../tests/interactions-utils";
-import { NavigationCommand } from "../../../tests/constants";
+import {
+  getByLabelText,
+  pressNavigationKey,
+  interactionSuite,
+  NavigationCommand,
+  resetFocus
+} from "@vibe/core/interactionsTests";
+
 async function states_onClickTabFocusElementTest(canvas) {
   const CLICKABLE_LABEL = "clickable button";
   const CLICKABLE_DISABLED_LABEL = "disabled clickable button";

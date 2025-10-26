@@ -6,7 +6,7 @@ import {
   LayoutWithInnerKeyboardNavigation
 } from "./useGridKeyboardNavigationContext.stories.helpers";
 import { Flex } from "@vibe/core";
-// import { useGridContextMultipleDepthsPlaySuite } from "../__tests__/useGridKeyboardNavigationContext.interactions";
+import { useGridContextMultipleDepthsPlaySuite } from "./useGridKeyboardNavigationContext.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: useGridKeyboardNavigationContext

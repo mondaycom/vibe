@@ -2,8 +2,7 @@ import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { Text, Link, Heading, Box, Flex } from "@vibe/core";
 import { createComponentTemplate, StorybookLink } from "vibe-storybook-components";
-// import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID } from "../__tests__/textTestsConstants";
-// import { textOverflowSuite } from "../__tests__/Text.interactions";
+import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID, textOverflowSuite } from "./Text.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Text
@@ -105,7 +104,7 @@ export const Overflow = {
   render: () => (
     <Flex
       direction="column"
-      // id={OVERFLOW_TEXT_CONTAINER_ID}
+      id={OVERFLOW_TEXT_CONTAINER_ID}
       justify="start"
       align="initial"
       gap="small"
@@ -113,13 +112,11 @@ export const Overflow = {
     >
       <Heading type="h3">Text with 1 line</Heading>
       <Text
-        // data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
+        data-testid={ONE_LINE_ELLIPSIS_TEST_ID}
         /**for testing purposes**/
-        tooltipProps={
-          {
-            // containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
-          }
-        }
+        tooltipProps={{
+          containerSelector: `#${OVERFLOW_TEXT_CONTAINER_ID}`
+        }}
       >
         This is an example of text with overflow and a Tooltip to help or provide information about specific components
         when a user hovers over them.
@@ -143,11 +140,11 @@ export const Overflow = {
   parameters: {
     docs: {
       liveEdit: {
-        // scope: { OVERFLOW_TEXT_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID, HeadingType }
+        scope: { OVERFLOW_TEXT_CONTAINER_ID, ONE_LINE_ELLIPSIS_TEST_ID }
       }
     }
-  }
-  // play: textOverflowSuite
+  },
+  play: textOverflowSuite
 };
 
 export const Paragraph = {

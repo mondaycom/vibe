@@ -3,7 +3,7 @@
 import React, { useCallback, useRef } from "react";
 import cx from "classnames";
 import { Flex, Search, useActiveDescendantListFocus } from "@vibe/core";
-// import { overviewInteractionSuite } from "../__tests__/useActiveDescendantListFocus.interactions";
+import { overviewInteractionSuite } from "./useActiveDescendantListFocus.interactions";
 import { type Meta, type StoryObj } from "@storybook/react";
 import styles from "./useActiveDescendantListFocus.module.scss";
 
@@ -77,7 +77,6 @@ export const Overview: Story = {
     );
   },
 
-  name: "Overview"
-  // @ts-ignore
-  // play: overviewInteractionSuite
+  name: "Overview",
+  play: overviewInteractionSuite
 };

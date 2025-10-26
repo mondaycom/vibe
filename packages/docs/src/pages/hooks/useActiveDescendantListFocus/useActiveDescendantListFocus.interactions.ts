@@ -1,10 +1,14 @@
-import { resetFocus } from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
-
-import { getByTestId, interactionSuite, pressNavigationKey } from "../../../tests/interactions-utils";
-import { ComponentDefaultTestId, NavigationCommand } from "../../../tests/constants";
-import { getTestId } from "../../../tests/test-ids-utils";
-import styles from "../useActiveDescendantListFocus.module.scss";
+import {
+  getByTestId,
+  interactionSuite,
+  pressNavigationKey,
+  ComponentDefaultTestId,
+  NavigationCommand,
+  getTestId,
+  resetFocus
+} from "@vibe/core/interactionsTests";
+import styles from "./useActiveDescendantListFocus.module.scss";
 
 export const overviewInteractionSuite = interactionSuite({
   tests: [keyboardNavAndFocusForVerticalList],

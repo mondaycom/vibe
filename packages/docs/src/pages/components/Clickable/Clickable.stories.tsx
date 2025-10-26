@@ -1,6 +1,6 @@
 import React from "react";
 import { Clickable, type ClickableProps, Flex, Box } from "@vibe/core";
-// import { statesPlaySuite } from "../__tests__/Clickable.interactions";
+import { statesPlaySuite } from "./Clickable.interactions";
 
 export default {
   title: "Accessibility/Clickable",
@@ -45,6 +45,6 @@ export const States = {
     </Flex>
   ),
 
-  name: "States"
-  // play: statesPlaySuite
+  name: "States",
+  play: statesPlaySuite
 };
