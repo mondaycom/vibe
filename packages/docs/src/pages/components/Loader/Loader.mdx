@@ -1,4 +1,4 @@
-import { Loader } from "@vibe/core";
+import { Loader, Flex, Heading, Tip } from "@vibe/core";
 import { Meta } from "@storybook/blocks";
 import { ComponentRules, UsageGuidelines } from "vibe-storybook-components";
 import { TipSkeleton } from "./Loader.stories.helpers";
@@ -61,19 +61,19 @@ If there is a need for color customization, css `color` attribute of a parent co
     {
       positive: {
         component: (
-          <div style={{ display: "flex", flexDirection: "row", gap: "var(--space-24)" }}>
-            <div style={{ fontSize: "var(--font-size-h1)" }}>H1 heading component</div>
+          <Flex direction="row" gap="medium">
+            <Heading>H1 heading component</Heading>
             <Loader size="small" hasBackground />
-          </div>
+          </Flex>
         ),
         description: "Place loader in context to the loading content and keep its size proportional to the content."
       },
       negative: {
         component: (
-          <div style={{ display: "flex", flexDirection: "row", gap: "var(--space-24)" }}>
-            <div style={{ fontSize: "var(--font-size-h1)" }}>H1 heading component</div>
+          <Flex direction="row" gap="medium">
+            <Heading>H1 heading component</Heading>
             <Loader size="large" hasBackground />
-          </div>
+          </Flex>
         ),
         description: "Don’t leave the size visually unmaintained."
       }
@@ -82,6 +82,12 @@ If there is a need for color customization, css `color` attribute of a parent co
 />
 
 ## Use cases and examples
+
+### Loader in text field
+
+Use loader in search field while filtering results.
+
+<Canvas of={LoaderStories.LoaderInTextField} />
 
 ### Loader in button
 

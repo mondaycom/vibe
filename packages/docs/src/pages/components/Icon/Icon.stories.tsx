@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Icon, SubIcon } from "@vibe/core";
+import { Icon, SubIcon, Search, Flex } from "@vibe/core";
 import { Bolt } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { createComponentTemplate } from "vibe-storybook-components";
@@ -89,11 +89,10 @@ export const IconsListStory = {
       tags: string;
       file: string;
     }
-    const [query] = useState("");
+    const [query, setQuery] = useState("");
     return (
       <section style={{ width: "100%" }}>
-        {/* TODO: use Search component again */}
-        {/* <Search value={query} onChange={setQuery} placeholder="Search for icons" /> */}
+        <Search value={query} onChange={setQuery} placeholder="Search for icons" />
         <div
           style={{
             display: "grid",
@@ -111,18 +110,10 @@ export const IconsListStory = {
               const Component = allIcons[fileName as keyof typeof allIcons] as SubIcon;
               return (
                 <>
-                  {/* TODO: replace with Flex component */}
-                  <div
-                    style={{
-                      color: "var(--sb-icon-color)",
-                      display: "flex",
-                      flexDirection: "row",
-                      gap: "var(--space-8)"
-                    }}
-                  >
+                  <Flex style={{ color: "var(--sb-icon-color)" }} gap="small">
                     <Icon icon={Component} iconSize={26} />
                     <span>{icon.name}</span>
-                  </div>
+                  </Flex>
                 </>
               );
             })}

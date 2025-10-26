@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Add, Calendar, Check, Remove } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Button } from "@vibe/core";
+import { Button, Text } from "@vibe/core";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Button>;
@@ -183,7 +183,7 @@ export const OnColorStates: Story = {
   render: () => (
     <>
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        Regular
+        <Text type="text1">Regular</Text>
         <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
           <Button id="on-color-primary" ariaLabel="Primary on color" color="on-primary-color" marginRight>
             Primary on color
@@ -202,7 +202,9 @@ export const OnColorStates: Story = {
           </Button>
         </div>
         <br />
-        Disabled
+        <Text type="text1" style={{ marginBottom: "var(--sb-spacing-small)" }}>
+          Disabled
+        </Text>
         <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
           <Button
             id="on-color-primary-disabled"
