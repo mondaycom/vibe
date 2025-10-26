@@ -58,7 +58,7 @@ const getElementBackgroundColor = async (element: HTMLElement) => {
 
 const PRIMARY_COLOR = getVariableHexColor("primary-color");
 const POSITIVE_COLOR = getVariableHexColor("positive-color");
-const DARK_APP_THEME_CLASS_NAME = addAppThemeSuffix(SystemTheme.DARK);
+const DARK_APP_THEME_CLASS_NAME = addAppThemeSuffix("dark");
 
 async function checkSystemTheme(canvas: Screen) {
   expect(getBodySystemThemeClassName()).toBeNull();
