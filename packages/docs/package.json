@@ -22,12 +22,12 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@vibe/core": "3.70.1",
+    "@vibe/core": "3.70.2",
     "@vibe/icons": "1.11.0",
-    "@vibe/shared": "3.0.1",
+    "@vibe/shared": "3.0.2",
     "classnames": "^2.3.2",
     "es-toolkit": "^1.39.10",
-    "monday-ui-style": "0.26.0",
+    "monday-ui-style": "0.26.1",
     "vibe-storybook-components": "1.0.4"
   },
   "devDependencies": {
@@ -97,7 +97,7 @@
     "@uiw/codemirror-extensions-langs": "^4.21.25",
     "@uiw/codemirror-theme-github": "^4.21.25",
     "@uiw/react-codemirror": "^4.21.25",
-    "@vibe/config": "3.0.1",
+    "@vibe/config": "3.0.2",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
