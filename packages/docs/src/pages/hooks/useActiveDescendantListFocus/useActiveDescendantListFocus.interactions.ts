@@ -3,12 +3,11 @@ import {
   getByTestId,
   interactionSuite,
   pressNavigationKey,
-  ComponentDefaultTestId,
   NavigationCommand,
-  getTestId,
   resetFocus
 } from "@vibe/core/interactionsTests";
 import styles from "./useActiveDescendantListFocus.module.scss";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
 
 export const overviewInteractionSuite = interactionSuite({
   tests: [keyboardNavAndFocusForVerticalList],
