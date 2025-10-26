@@ -49,6 +49,7 @@ function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
   } = useSelect<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
+    itemToKey: item => (item?.value !== undefined ? String(item.value) : ""),
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
