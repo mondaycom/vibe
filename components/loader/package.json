@@ -35,11 +35,11 @@
   },
   "dependencies": {
     "@vibe/shared": "3.0.2",
-    "@vibe/storybook-config": "3.0.2",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
+    "@vibe/storybook-config": "3.0.2",
     "@vibe/config": "3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

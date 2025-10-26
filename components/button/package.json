@@ -37,11 +37,11 @@
     "@vibe/icon": "3.0.1",
     "@vibe/loader": "3.0.1",
     "@vibe/shared": "3.0.2",
-    "@vibe/storybook-config": "3.0.2",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
+    "@vibe/storybook-config": "3.0.2",
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "3.0.2",
     "@vibe/icons": "1.9.0",

@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@vibe/shared": "3.0.2",
-    "@vibe/storybook-config": "3.0.2",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-inlinesvg": "^4.1.3"
@@ -43,6 +42,7 @@
   "devDependencies": {
     "@vibe/config": "3.0.2",
     "@vibe/icons": "1.11.0",
+    "@vibe/storybook-config": "3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "typescript": "^4.7.3",
