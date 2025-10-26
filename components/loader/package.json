@@ -1,6 +1,6 @@
 {
   "name": "@vibe/loader",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Vibe sub-package for loader components",
   "repository": {
     "type": "git",
@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/storybook-config": "3.0.2",
     "@vibe/config": "3.0.2",
+    "@vibe/storybook-config": "3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
