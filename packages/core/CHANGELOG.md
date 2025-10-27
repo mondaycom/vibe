@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.70.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.3...@vibe/core@3.70.4) (2025-10-26)
+
+
+### Bug Fixes
+
+* itemToKey by value ([#3158](https://github.com/mondaycom/vibe/issues/3158)) ([3811c78](https://github.com/mondaycom/vibe/commit/3811c786935b0ebdc697e6f1b59502cfd30a9833))
+
+
+
+
+
 ## [3.70.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.2...@vibe/core@3.70.3) (2025-10-26)
 
 **Note:** Version bump only for package @vibe/core
