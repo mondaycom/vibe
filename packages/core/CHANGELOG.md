@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.70.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.4...@vibe/core@3.70.5) (2025-10-27)
+
+
+### Bug Fixes
+
+* **Dropdown:** smooth text to align all dropdowns ([#3161](https://github.com/mondaycom/vibe/issues/3161)) ([a639943](https://github.com/mondaycom/vibe/commit/a639943ad2fd3fb8f49a07bd4eb2d3f9202c0cef))
+
+
+
+
+
 ## [3.70.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.3...@vibe/core@3.70.4) (2025-10-26)
 
 
