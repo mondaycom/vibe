@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.71.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.5...@vibe/core@3.71.0) (2025-10-28)
+
+
+### Features
+
+* **Modal:** allow to block focus lock from stealing focus for other type of dialogs ([#3143](https://github.com/mondaycom/vibe/issues/3143)) ([2f55f6f](https://github.com/mondaycom/vibe/commit/2f55f6f6524a77e52e006880cc7c6153028f2c01))
+
+
+
+
+
 ## [3.70.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.4...@vibe/core@3.70.5) (2025-10-27)
 
 
