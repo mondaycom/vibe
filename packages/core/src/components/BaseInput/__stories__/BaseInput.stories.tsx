@@ -4,7 +4,6 @@ import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof BaseInput>;
 
-
 export default {
   title: "Internal/BaseInput",
   component: BaseInput,
