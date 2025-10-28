@@ -17,7 +17,6 @@ import {
   Link,
   Flex,
   IconButton,
-  Menu,
   Dropdown,
   Label,
   TextField
@@ -25,6 +24,7 @@ import {
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";
 import mediaImage from "./assets/sbs-media-image.png";
+import { Menu } from "@vibe/icons";
 
 type Story = StoryObj<typeof Modal>;
 
