@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { TransitionView, useWizard, Checkbox, IconButton, Menu, Button, Text, Link, Flex } from "@vibe/core";
+import { TransitionView, useWizard, Checkbox, IconButton, Button, Text, Link, Flex } from "@vibe/core";
 import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard } from "@vibe/core/next";
+import { Menu } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";
 
