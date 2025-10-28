@@ -42,7 +42,13 @@ Array.from(allComponents)
     const baseEntry = baseMap.get(componentName);
     const prEntry = prMap.get(componentName);
 
-    const displayName = path.basename(componentName, path.extname(componentName));
+    let displayName;
+    if (componentName.startsWith("components/")) {
+      const packageName = componentName.split("/")[1];
+      displayName = `@vibe/${packageName}`;
+    } else {
+      displayName = path.basename(componentName, path.extname(componentName));
+    }
 
     if (!baseEntry && prEntry) {
       // New component
