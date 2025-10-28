@@ -31,9 +31,12 @@ const jsx = `() => {
         className="vibe-logo"
       />
       <Flex direction="column" align="center" justify="center" gap="xs">
-        <Heading type="h3" align="center">
-          Playground
-        </Heading>
+        <Flex align="center" gap="xs">
+          <Icon icon={VibeIcons.Labs} iconSize="16" />
+          <Heading type="h3" align="center">
+            Playground
+          </Heading>
+        </Flex>
         <Text type="text2" ellipsis={false}>
           Craft, Experiment, and Innovate with Vibe.
         </Text>

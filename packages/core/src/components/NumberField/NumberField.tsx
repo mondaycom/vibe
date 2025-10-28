@@ -6,7 +6,7 @@ import useSpinButtonHandlers from "./hooks/useSpinButtonHandlers";
 import BaseInput from "../BaseInput/BaseInput";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import InfoText from "../InfoText/InfoText";
-import Icon from "../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFieldSpinButton";
 import styles from "./NumberField.module.scss";
 import Flex from "../Flex/Flex";

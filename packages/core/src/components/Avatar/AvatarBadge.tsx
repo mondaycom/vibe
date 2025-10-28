@@ -3,12 +3,12 @@ import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
+import { Icon, CustomSvgIcon } from "@vibe/icon";
 import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
 import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
-import Icon from "../Icon/Icon";
-import { type VibeComponentProps, type SubIcon, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type SubIcon } from "@vibe/icon";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   /**

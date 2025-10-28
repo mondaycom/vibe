@@ -25,7 +25,10 @@ export function normalizeOptions<Item extends BaseListItemData>(
             }
             return matchesFilter;
           })
-          .map(item => ({ ...item, index: indexCounter++ }));
+          .map(item => {
+            item.index = indexCounter++;
+            return item;
+          });
 
         return filteredGroupOptions.length > 0 ? [{ ...group, options: filteredGroupOptions }] : [];
       })
@@ -40,7 +43,10 @@ export function normalizeOptions<Item extends BaseListItemData>(
               }
               return matchesFilter;
             })
-            .map(item => ({ ...item, index: indexCounter++ }))
+            .map(item => {
+              item.index = indexCounter++;
+              return item;
+            })
         }
       ];
 }

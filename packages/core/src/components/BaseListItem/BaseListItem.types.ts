@@ -1,9 +1,10 @@
 import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
-import { type SubIcon, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { type TooltipProps } from "../Tooltip";
 import { type BaseListDirection, type BaseListSizes } from "../BaseList/BaseList.types";
 import { type ChipsProps } from "../Chips";
+import { type SubIcon } from "@vibe/icon";
 
 export interface BaseListItemProps<Item extends Record<string, unknown>>
   extends Omit<React.HTMLAttributes<HTMLElement>, "role">,
@@ -83,6 +84,10 @@ export type BaseListItemData<Item = Record<string, unknown>> = Item & {
    * The color of the chip when displayed in multi-select mode.
    */
   chipColor?: ChipsProps["color"];
+  /**
+   * The index of the item in the list.
+   */
+  index?: number;
 };
 
 export type SideElement =

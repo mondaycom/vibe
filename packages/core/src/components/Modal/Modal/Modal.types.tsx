@@ -2,6 +2,7 @@ import { type VibeComponentProps } from "../../../types";
 import type React from "react";
 import { type ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
 import { type PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";
+import { type FocusEscapeTarget } from "../hooks/useFocusEscapeTargets/useFocusEscapeTargets.types";
 
 export type ModalSize = "small" | "medium" | "large" | "full-view";
 
@@ -45,17 +46,38 @@ export interface ModalProps extends VibeComponentProps {
    */
   autoFocus?: boolean;
   /**
+   * Specifies elements/containers that should be allowed to receive focus outside this modal.
+   * When focus moves to these elements, the focus lock will ignore them.
+   * This allows other UI components (tooltips, dropdowns, nested modals, etc.) to receive focus.
+   *
+   * Accepts:
+   * - CSS selectors (string)
+   * - Refs to elements (React.RefObject<HTMLElement>)
+   * - Direct element references (HTMLElement)
+   */
+  allowFocusEscapeTo?: FocusEscapeTarget[];
+  /**
    * This is intended for advanced use-cases.
-   * It allows you to control the focus behavior when moving between elements within the modal.
+   * It allows you to control which elements the focus lock should manage.
    * Make sure to use this prop only when you understand the implications.
    *
-   * Called whenever focus is about to move to a new element within the modal.
+   * **Note:** If you only need to allow focus to specific selectors, use `allowFocusEscapeTo` instead.
+   *
+   * Called whenever focus is attempting to move to any element (inside or outside the modal).
    * Return:
-   * - `true` to allow normal flow focus.
-   * - `false` to block it (let the browser decide, usually moves to body).
-   *   - Notice this might break keyboard accessibility and should be used with caution.
-   * - An HTMLElement to redirect focus to instead of normal flow.
+   * - `true` to let focus-lock **manage** this element (keep it within the modal's focus trap).
+   * - `false` to let focus-lock **ignore** this element (allow focus to move outside the modal).
+   * - An HTMLElement to redirect focus to that element instead.
    * - Any other value (e.g., null, undefined) would act as `false`.
+   *
+   * @example
+   * // Complex custom logic
+   * <Modal
+   *   onFocusAttempt={(el) => {
+   *     if (el?.dataset.customBehavior) return false;
+   *     return true;
+   *   }}
+   * />
    */
   onFocusAttempt?: (nextFocusedElement?: HTMLElement) => boolean | HTMLElement;
   /**

@@ -21,6 +21,7 @@ import {
 } from "../utils/animationVariants";
 import { createPortal } from "react-dom";
 import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
+import useFocusEscapeTargets from "../hooks/useFocusEscapeTargets/useFocusEscapeTargets";
 import { LayerProvider } from "../../LayerProvider";
 import useMergeRef from "../../../hooks/useMergeRef";
 
@@ -38,6 +39,7 @@ const Modal = forwardRef(
       closeButtonAriaLabel,
       onClose = () => {},
       autoFocus = true,
+      allowFocusEscapeTo,
       onFocusAttempt,
       anchorElementRef,
       alertModal,
@@ -111,22 +113,30 @@ const Modal = forwardRef(
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
 
+    const shouldAllowFocusEscape = useFocusEscapeTargets(allowFocusEscapeTo);
+
+    /**
+     * Returning true means that the focus-lock is allowed to manage the element.
+     * Returning false means that the focus-lock would surrender control to the element.
+     */
     const handleFocusLockWhiteList = useCallback(
       (nextFocusedElement?: HTMLElement) => {
-        if (!onFocusAttempt) return true;
+        if (onFocusAttempt) {
+          const outcome = onFocusAttempt(nextFocusedElement);
 
-        const outcome = onFocusAttempt(nextFocusedElement);
+          if (outcome === true) return true;
 
-        if (outcome === true) return true;
+          if (outcome instanceof HTMLElement) {
+            outcome.focus();
+            return false;
+          }
 
-        if (outcome instanceof HTMLElement) {
-          outcome.focus();
           return false;
         }
 
-        return false;
+        return !shouldAllowFocusEscape(nextFocusedElement);
       },
-      [onFocusAttempt]
+      [onFocusAttempt, shouldAllowFocusEscape]
     );
 
     return (

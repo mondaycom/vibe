@@ -21,6 +21,7 @@ import type * as PopperJS from "@popperjs/core";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
 import useDisableScroll from "../../../hooks/useDisableScroll";
+import useMergeRef from "../../../hooks/useMergeRef";
 
 const EMPTY_OBJECT = {};
 const ESCAPE_KEYS = [keyCodes.ESCAPE];
@@ -126,7 +127,11 @@ const DialogContent = forwardRef(
     }: DialogContentProps,
     forwardRef: React.ForwardedRef<HTMLElement>
   ) => {
-    const ref = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    const wrapperRef = useRef<HTMLSpanElement>(null);
+    const mergedWrapperRef = useMergeRef(forwardRef, wrapperRef);
+
     const onOutSideClick = useCallback(
       (event: React.MouseEvent) => {
         if (isOpen) {
@@ -144,8 +149,9 @@ const DialogContent = forwardRef(
       [isOpen, onContextMenu]
     );
     useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
-    useClickOutside({ callback: onOutSideClick, ref });
-    useClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref });
+    // Watch the wrapper ref to include padding area, tooltip arrows, and nested Dialogs
+    useClickOutside({ callback: onOutSideClick, ref: wrapperRef });
+    useClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref: wrapperRef });
     const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
     const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
 
@@ -180,7 +186,7 @@ const DialogContent = forwardRef(
       <span
         // don't remove old classname - override from Monolith
         className={cx("monday-style-dialog-content-wrapper", styles.contentWrapper, wrapperClassName)}
-        ref={forwardRef}
+        ref={mergedWrapperRef}
         data-testid={dataTestId}
         style={styleObject}
         onClickCapture={onClick}
@@ -188,7 +194,7 @@ const DialogContent = forwardRef(
       >
         <CSSTransition
           classNames={transitionOptions.classNames}
-          nodeRef={ref}
+          nodeRef={contentRef}
           in={isOpen}
           appear={!!animationType}
           timeout={showDelay}
@@ -198,7 +204,7 @@ const DialogContent = forwardRef(
               [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
               [styles.hasTooltip]: hasTooltip
             })}
-            ref={ref}
+            ref={contentRef}
           >
             {React.Children.toArray(children).map((child: ReactElement) => {
               return cloneElement(child, {

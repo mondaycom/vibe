@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.3...@vibe/testkit@1.15.0) (2025-10-19)
+
+
+### Features
+
+* **testkit:** change playwright peer dep version ([#3142](https://github.com/mondaycom/vibe/issues/3142)) ([14ff73e](https://github.com/mondaycom/vibe/commit/14ff73e2514b50243e681c9561c2b1e13ac657ae))
+
+
+
+
+
 ## [1.14.3](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.2...@vibe/testkit@1.14.3) (2025-08-10)
 
 

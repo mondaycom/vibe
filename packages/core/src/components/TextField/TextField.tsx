@@ -10,8 +10,8 @@ import React, {
   useState
 } from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import Icon from "../Icon/Icon";
-import Loader from "../Loader/Loader";
+import { Icon } from "@vibe/icon";
+import { Loader } from "@vibe/loader";
 import Text from "../Text/Text";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import {

@@ -1,3 +1,5 @@
+@import "~monday-ui-style/dist/mixins";
+
 .triggerWrapper {
   flex-grow: 1;
   position: relative;
@@ -48,6 +50,7 @@
     inset: 0;
     padding-inline-start: var(--spacing-xs);
     width: 100%;
+    @include smoothing-text;
 
     &.small {
       padding-inline-start: var(--spacing-small);
@@ -77,6 +80,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    @include smoothing-text;
 
     &.disabled {
       color: var(--disabled-text-color);

@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-import { useCallback } from "react";
+import React, { useState, useCallback } from "react";
+import { Icon } from "@vibe/icon";
 import AttentionBox from "../AttentionBox";
 import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp, Favorite } from "@vibe/icons";
-import Icon from "../../Icon/Icon";
 import Search from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import person from "./assets/person.png";
 import Flex from "../../Flex/Flex";
 import AttentionBoxLink from "../AttentionBoxLink/AttentionBoxLink";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import Text from "../../Text/Text";
 import { Heading } from "../../Heading";
 

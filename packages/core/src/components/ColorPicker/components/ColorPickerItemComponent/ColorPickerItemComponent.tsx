@@ -4,14 +4,15 @@ import cx from "classnames";
 import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
 import { contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
-import Icon from "../../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
 import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { type SubIcon, type VibeComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
+import { type VibeComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {

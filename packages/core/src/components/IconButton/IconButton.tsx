@@ -3,15 +3,13 @@ import cx from "classnames";
 import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
-import Icon from "../Icon/Icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, type Size } from "./services/IconButton-helpers";
-import { type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps, withStaticProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import Button from "../Button/Button";
-import { BUTTON_ICON_SIZE, SMALL_BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import { type ButtonColor, type ButtonType } from "../Button";
+import { Button, type ButtonColor, type ButtonType } from "@vibe/button";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
@@ -165,11 +163,11 @@ const IconButton = forwardRef(
       switch (size) {
         case "xxs":
         case "xs":
-          return SMALL_BUTTON_ICON_SIZE;
+          return 16;
         case "small":
         case "medium":
         case "large":
-          return BUTTON_ICON_SIZE;
+          return 20;
         default:
           return 24;
       }
