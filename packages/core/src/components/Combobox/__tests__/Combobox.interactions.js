@@ -37,6 +37,29 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
   expect(option1).toBeInTheDocument();
 }
 
+async function onImmediateClearBeforeDebounceCompletesTest(canvas) {
+  const { comboboxElement, searchElement } = await getComponentElements(canvas);
+  // Type text but DON'T wait for debounce (simulates race condition)
+  await typeText(searchElement, "test", 0);
+
+  // Immediately clear before debounce completes (400ms default)
+  const cleanSearchButton = getByTestId(
+    comboboxElement,
+    getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, "combobox-search")
+  );
+  await clickElement(cleanSearchButton);
+
+  // Wait for debounce period to complete
+  await new Promise(resolve => setTimeout(resolve, 500));
+
+  // Input should remain empty (not reappear with "test")
+  expect(searchElement).toHaveValue("");
+
+  // All options should be visible (no filter applied)
+  const option1 = getByText(comboboxElement, "Option 1");
+  expect(option1).toBeInTheDocument();
+}
+
 async function onNavigateBetweenOptionsByArrowsAriaUpdates(canvas) {
   const { comboboxElement, searchElement } = await getComponentElements(canvas);
 
@@ -71,7 +94,8 @@ export const defaultPlaySuite = interactionSuite({
   tests: [
     onNavigateBetweenOptionsByArrowsAriaUpdates,
     onTypeFilterComboboxOptionsTest,
-    onSelectExistFilterClearsFilterTest
+    onSelectExistFilterClearsFilterTest,
+    onImmediateClearBeforeDebounceCompletesTest
   ],
   afterEach: async () => {
     await resetFocus();

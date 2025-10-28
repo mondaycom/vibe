@@ -142,6 +142,28 @@ describe("useDebounceEvent", () => {
 
       expect(onChangeCallbackStub.mock.calls.length).toEqual(1);
     });
+
+    it("should cancel pending debounced onChange when clearValue is called", () => {
+      const { onEventChanged, clearValue } = hookResult.result.current;
+      const newInputValue = "test value";
+
+      // Type some text (schedules debounced onChange)
+      act(() => {
+        onEventChanged(getEventObject(newInputValue));
+      });
+
+      // Immediately clear before debounce completes
+      act(() => {
+        clearValue();
+      });
+
+      vi.runOnlyPendingTimers();
+
+      // Should only be called once with empty string from clearValue,
+      // NOT called again with stale "test value"
+      expect(onChangeCallbackStub.mock.calls.length).toEqual(1);
+      expect(onChangeCallbackStub.mock.calls[0][0]).toEqual("");
+    });
   });
 });
 

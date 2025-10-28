@@ -31,6 +31,7 @@ export default function useDebounceEvent({
 }) {
   const [inputValue, setValue] = useState<string>(initialStateValue);
   const previousValue = useRef<string>(null);
+  const debouncedFnRef = useRef<ReturnType<typeof debounce>>(null);
 
   useEffect(() => {
     previousValue.current = initialStateValue;
@@ -45,8 +46,16 @@ export default function useDebounceEvent({
       return noop;
     }
 
-    return debounce(onChange, delay);
+    const debouncedFn = debounce(onChange, delay);
+    debouncedFnRef.current = debouncedFn;
+    return debouncedFn;
   }, [onChange, delay]);
+
+  useEffect(() => {
+    return () => {
+      debouncedFnRef.current?.cancel();
+    };
+  }, []);
 
   const onEventChanged = useCallback(
     (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => {
@@ -59,6 +68,7 @@ export default function useDebounceEvent({
   );
 
   const clearValue = useCallback(() => {
+    debouncedFnRef.current?.cancel();
     setValue("");
     if (onChange) {
       onChange("");
