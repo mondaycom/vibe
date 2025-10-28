@@ -50,6 +50,9 @@ export default {
   stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../../core/**/*.mdx",
+    "../../core/**/*.stories.@(js|jsx|ts|tsx)",
+    "../../../components/**/*.stories.@(js|jsx|ts|tsx)",
     "../../storybook-blocks/**/*.mdx",
     "../../storybook-blocks/**/*.stories.@(js|jsx|ts|tsx)"
   ],

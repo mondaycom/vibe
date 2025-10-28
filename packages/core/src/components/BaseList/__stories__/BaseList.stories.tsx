@@ -1,0 +1,36 @@
+import { createComponentTemplate } from "vibe-storybook-components";
+import BaseList from "../BaseList";
+import { type Meta, type StoryObj } from "@storybook/react";
+import { Email } from "@vibe/icons";
+import person1 from "./person1.png";
+type Story = StoryObj<typeof BaseList>;
+
+export default {
+  title: "Internal/BaseList",
+  component: BaseList,
+  tags: ["internal"]
+} satisfies Meta<typeof BaseList>;
+
+const baseListItemTemplate = createComponentTemplate(BaseList);
+
+const createOptions = (groupCount: number, optionsPerGroup: number) => {
+  let index = 0;
+  return Array.from({ length: groupCount }, (_, groupIndex) => ({
+    label: `Group ${groupIndex + 1}`,
+    options: Array.from({ length: optionsPerGroup }, (_, optionIndex) => ({
+      index: index,
+      value: `option-${index++}`,
+      label: `Option ${optionIndex + 1}`,
+      startElement: { type: "avatar" as const, value: person1 },
+      endElement: { type: "icon" as const, value: Email }
+    }))
+  }));
+};
+
+export const Overview: Story = {
+  render: baseListItemTemplate.bind({}),
+  args: {
+    highlightedIndex: 0,
+    options: createOptions(4, 2)
+  }
+};
