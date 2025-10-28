@@ -9,7 +9,8 @@ import {
   ModalFooter,
   ModalFooterWizard
 } from "@vibe/core/next";
-import { useWizard, Button, Text, Link, Flex, IconButton, Menu, TransitionView } from "@vibe/core";
+import { useWizard, Button, Text, Link, Flex, IconButton, TransitionView } from "@vibe/core";
+import { Menu } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import mediaImage from "./assets/media-image.png";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";
