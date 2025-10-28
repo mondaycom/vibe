@@ -24,7 +24,7 @@ import {
 } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";
-import mediaImage from "./assets/media-image.png";
+import mediaImage from "./assets/sbs-media-image.png";
 
 type Story = StoryObj<typeof Modal>;
 
