@@ -79,7 +79,7 @@ export default {
     }),
     typescript({
       tsconfigOverride: {
-        exclude: ["**/__tests__", "**/__stories__"]
+        exclude: ["**/__tests__", "**/__stories__", path.join(SRC_PATH, "storybook")]
       }
     }),
     babel({
