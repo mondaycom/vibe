@@ -1,6 +1,6 @@
 import React from "react";
-import { Tab, TabList, TabPanel, TabPanels, TabsContext, Table, TextField, Box, Flex, type TabProps } from "@vibe/core";
-import { Calendar, Chart } from "@vibe/icons";
+import { Tab, TabList, TabPanel, TabPanels, TabsContext, TextField, Box, Flex, type TabProps } from "@vibe/core";
+import { Calendar, Chart, Table } from "@vibe/icons";
 
 export default {
   title: "Components/Tabs",

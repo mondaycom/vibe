@@ -1,5 +1,14 @@
 import React from "react";
-import { List, ListItem, ListItemIcon, ListItemAvatar, type ListProps, Flex } from "@vibe/core";
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemAvatar,
+  type ListProps,
+  Flex,
+  ListTitle,
+  DialogContentContainer
+} from "@vibe/core";
 import { Board, Team, ThumbsUp } from "@vibe/icons";
 import { useCallback } from "react";
 import { StoryDescription } from "vibe-storybook-components";

@@ -1,6 +1,6 @@
 import React from "react";
 import { createComponentTemplate, Link } from "vibe-storybook-components";
-import { IconButton, Text, Flex, Button, Box, Divider, Avatar } from "@vibe/core";
+import { IconButton, Text, Flex, Button, Box, Divider, Avatar, Icon } from "@vibe/core";
 import person1 from "../Avatar/assets/person1.png";
 import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
