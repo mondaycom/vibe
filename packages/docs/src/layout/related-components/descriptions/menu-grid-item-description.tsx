@@ -1,13 +1,14 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-// import { DummyNavigableGrid } from "../../../../components/GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories.helpers";
+import { DummyNavigableGrid } from "../../../pages/components/GridKeyboardNavigationContext/useGridKeyboardNavigationContext.stories.helpers";
 import { MenuGridItem } from "@vibe/core";
 
 export const MenuGridItemDescription = () => {
   const component = useMemo(() => {
     return (
-      <></>
-      // <MenuGridItem><DummyNavigableGrid itemsCount={8} numberOfItemsInLine={3} withoutBorder /></MenuGridItem>
+      <MenuGridItem>
+        <DummyNavigableGrid itemsCount={8} numberOfItemsInLine={3} withoutBorder />
+      </MenuGridItem>
     );
   }, []);
   return (

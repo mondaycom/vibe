@@ -2,11 +2,11 @@ import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { Calendar, Doc, Status } from "@vibe/icons";
 import { Label, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "@vibe/core";
-// import {
-//   statusColumnToLabelColor,
-//   TableEmptyState,
-//   TableErrorState
-// } from "../../../../components/Table/Table/__stories__/Table.stories.helpers";
+import {
+  statusColumnToLabelColor,
+  TableEmptyState,
+  TableErrorState
+} from "../../../pages/components/Table/Table.stories.helpers";
 
 const tableColumns = [
   {
@@ -56,13 +56,7 @@ export const TableDescription = () => {
   const component = useMemo(
     () => (
       <div style={{ width: "95%" }}>
-        <Table
-          // errorState={<TableErrorState />}
-          errorState={<div />}
-          // emptyState={<TableEmptyState />}
-          emptyState={<div />}
-          columns={tableColumns}
-        >
+        <Table errorState={<TableErrorState />} emptyState={<TableEmptyState />} columns={tableColumns}>
           <TableHeader>
             {tableColumns.map(cell => (
               <TableHeaderCell key={cell.id} {...cell} />
@@ -76,7 +70,7 @@ export const TableDescription = () => {
                 <TableCell>
                   <Label
                     text={rowItem.status}
-                    // color={statusColumnToLabelColor[rowItem.status as keyof typeof statusColumnToLabelColor]}
+                    color={statusColumnToLabelColor[rowItem.status as keyof typeof statusColumnToLabelColor]}
                   />
                 </TableCell>
               </TableRow>

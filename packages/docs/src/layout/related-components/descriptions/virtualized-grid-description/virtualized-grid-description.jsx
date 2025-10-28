@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { VirtualizedGrid } from "@vibe/core";
-// import {
-//   generateItems,
-//   itemRenderer
-// } from "../../../../../components/VirtualizedGrid/__stories__/VirtualizedGrid.stories.helpers";
+import {
+  generateItems,
+  itemRenderer
+} from "../../../../pages/components/VirtualizedGrid/VirtualizedGrid.stories.helpers";
 import styles from "./virtualizedGrid.module.scss";
 
 export const VirtualizedGridDescription = () => {
@@ -12,7 +12,7 @@ export const VirtualizedGridDescription = () => {
     return (
       <div className={styles.virtualizedGridItem}>
         <div className={styles.virtualizedGridItemChild}>
-          {/* <VirtualizedGrid id={"id"} items={generateItems(50, 100, 50)} itemRenderer={itemRenderer} /> */}
+          <VirtualizedGrid id={"id"} items={generateItems(50, 100, 50)} itemRenderer={itemRenderer} />
         </div>
       </div>
     );

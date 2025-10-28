@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { VirtualizedList, Text } from "@vibe/core";
-// import { generateItems } from "../../../../../components/VirtualizedList/__stories__/VirtualizedList.stories.helpers";
+import { generateItems } from "../../../../pages/components/VirtualizedList/VirtualizedList.stories.helpers";
 import styles from "./virtualized-list.module.scss";
 
 export const VirtualizedListDescription = () => {
@@ -26,8 +26,7 @@ export const VirtualizedListDescription = () => {
 
     return (
       <VirtualizedList
-        // items={generateItems(30, 1000, "vertical")}
-        items={[]}
+        items={generateItems(30, 1000, "vertical")}
         itemRenderer={itemRenderer}
         getItemSize={item => item.height}
       />
