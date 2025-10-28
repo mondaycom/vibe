@@ -22,7 +22,7 @@
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@vibe/core": "3.70.5",
+    "@vibe/core": "3.71.0",
     "@vibe/icons": "1.11.0",
     "@vibe/shared": "3.0.3",
     "classnames": "^2.3.2",
