@@ -1,7 +1,0 @@
-import{j as t}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as i}from"./index-BfNsOeqz.js";import{M as s,C as m,a}from"./index-tmRQhJdb.js";import{S as p,O as c}from"./sidebar-item.stories-BeHm5jmR.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-D1CPfH6W.js";import"./index-BRhR6ENm.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./status-tag-CM9L9khZ.js";import"./index-BpvXyOxN.js";import"./Flex-CWcqEp-V.js";import"./withStaticProps-KL-y8NwO.js";function r(e){const o={h1:"h1",h2:"h2",p:"p",...i(),...e.components},{Link:n}=o;return n||h("Link"),t.jsxs(t.Fragment,{children:[t.jsx(s,{of:p}),`
-`,t.jsx(o.h1,{id:"sidebaritem",children:"SidebarItem"}),`
-`,t.jsxs(o.p,{children:["A layout container for the sidebar items for showing a component link in the Storybook sidebar along with a ",t.jsx(n,{href:"/?path=/docs/components-statustag--docs",withoutSpacing:!0,children:"StatugTag"})," that shows the status of the component."]}),`
-`,t.jsx(o.h2,{id:"overview",children:"Overview"}),`
-`,t.jsx(m,{of:c}),`
-`,t.jsx(o.h2,{id:"props",children:"Props"}),`
-`,t.jsx(a,{})]})}function D(e={}){const{wrapper:o}={...i(),...e.components};return o?t.jsx(o,{...e,children:t.jsx(r,{...e})}):r(e)}function h(e,o){throw new Error("Expected component `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{D as default};
