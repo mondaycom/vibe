@@ -36,14 +36,17 @@
   "devDependencies": {
     "@vibe/config": "3.0.2",
     "@vitejs/plugin-react": "^4.3.1",
-    "es-toolkit": "^1.39.10",
     "prettier": "^2.5.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "typescript": "^4.7.3"
   },
   "peerDependencies": {
-    "react": ">=16.9.0"
+    "react": ">=16.9.0",
+    "vitest": ">=1.6.0"
+  },
+  "dependencies": {
+    "es-toolkit": "^1.39.10"
   },
   "sideEffects": false
 }
