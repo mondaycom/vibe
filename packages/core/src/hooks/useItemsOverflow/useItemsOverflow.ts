@@ -17,7 +17,8 @@ export default function useItemsOverflow({
   itemRefs: RefObject<HTMLElement>[];
   minVisibleCount?: number;
 }) {
-  const [visibleCount, setVisibleCount] = useState<number>(itemRefs.length);
+  const [visibleCount, setVisibleCount] = useState<number>(0);
+  const [hasMeasured, setHasMeasured] = useState<boolean>(false);
   const itemWidthsRef = useRef<number[]>([]);
   const deductedWidthRef = useRef<number>(0);
   const isCalculatingRef = useRef(false);
@@ -87,6 +88,7 @@ export default function useItemsOverflow({
 
         itemWidthsRef.current = itemElements.map(item => item.getBoundingClientRect().width);
         calculateFromCachedWidths();
+        setHasMeasured(true);
       } finally {
         isCalculatingRef.current = false;
       }
@@ -121,12 +123,14 @@ export default function useItemsOverflow({
 
   useIsomorphicLayoutEffect(() => {
     if (itemRefs.length > 0) {
+      setHasMeasured(false);
       measureAndCacheItems();
     } else {
       setVisibleCount(0);
       itemWidthsRef.current = [];
+      setHasMeasured(true);
     }
   }, [itemRefs, measureAndCacheItems]);
 
-  return visibleCount;
+  return { visibleCount, hasMeasured };
 }

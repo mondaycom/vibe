@@ -29,7 +29,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
 
   const itemRefs = useMemo(() => selectedItems.map(() => createRef<HTMLDivElement>()), [selectedItems]);
 
-  const visibleCount = useItemsOverflow({
+  const { visibleCount, hasMeasured } = useItemsOverflow({
     containerRef,
     itemRefs,
     gap: 4,
@@ -94,7 +94,10 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
       wrap={false}
       gap="xs"
       ref={containerRef}
-      className={cx(styles.containerWrapper, { [styles.singleChip]: isSingleChip })}
+      className={cx(styles.containerWrapper, {
+        [styles.singleChip]: isSingleChip,
+        [styles.measuring]: !hasMeasured
+      })}
     >
       {chipElements}
 
