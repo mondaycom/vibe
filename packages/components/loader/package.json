@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/icon",
+  "name": "@vibe/loader",
   "version": "3.0.3",
-  "description": "Vibe sub-package for icon components",
+  "description": "Vibe sub-package for loader components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "components/icon"
+    "directory": "components/loader"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -34,14 +34,14 @@
   },
   "dependencies": {
     "@vibe/shared": "3.0.3",
-    "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10",
-    "react-inlinesvg": "^4.1.3"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
     "@vibe/config": "3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-test-renderer": "16",
     "typescript": "^4.7.3",
     "vitest": "^1.6.0"
   },
@@ -57,7 +57,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
   }
 }
