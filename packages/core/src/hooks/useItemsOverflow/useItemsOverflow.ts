@@ -8,12 +8,14 @@ export default function useItemsOverflow({
   containerRef,
   gap,
   deductedSpaceRef,
-  itemRefs
+  itemRefs,
+  minVisibleCount = 0
 }: {
   containerRef: RefObject<HTMLElement>;
   gap: number;
   deductedSpaceRef?: RefObject<HTMLElement>;
   itemRefs: RefObject<HTMLElement>[];
+  minVisibleCount?: number;
 }) {
   const [visibleCount, setVisibleCount] = useState<number>(itemRefs.length);
   const itemWidthsRef = useRef<number[]>([]);
@@ -47,8 +49,11 @@ export default function useItemsOverflow({
         break;
       }
     }
-    setVisibleCount(count);
-  }, [containerRef, itemRefs, gap]);
+
+    // Ensure at least minVisibleCount items are visible
+    const finalCount = Math.max(count, Math.min(minVisibleCount, maxIter));
+    setVisibleCount(finalCount);
+  }, [containerRef, itemRefs, gap, minVisibleCount]);
 
   const measureDeductedWidth = useCallback(() => {
     if (deductedSpaceRef?.current) {

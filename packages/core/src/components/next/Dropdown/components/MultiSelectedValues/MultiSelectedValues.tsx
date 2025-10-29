@@ -33,7 +33,8 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
     containerRef,
     itemRefs,
     gap: 4,
-    deductedSpaceRef
+    deductedSpaceRef,
+    minVisibleCount: selectedItems.length === 1 ? 1 : 0
   });
 
   const { hiddenItems, hiddenCount } = useMemo(() => {
@@ -85,8 +86,16 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
 
   if (!selectedItems?.length) return null;
 
+  const isSingleChip = selectedItems.length === 1;
+
   return (
-    <Flex align="center" wrap={false} gap="xs" ref={containerRef} className={styles.containerWrapper}>
+    <Flex
+      align="center"
+      wrap={false}
+      gap="xs"
+      ref={containerRef}
+      className={cx(styles.containerWrapper, { [styles.singleChip]: isSingleChip })}
+    >
       {chipElements}
 
       <Flex ref={deductedSpaceRef} gap="xs">
