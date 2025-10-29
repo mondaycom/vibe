@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ThemeProvider, type ThemeProviderProps, Button, Dropdown, Flex } from "@vibe/core";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
-import { ColorsDescription } from "../../colors/colors-description/colors-description";
+import { ColorsDescription } from "../../foundations/colors/colors-description/colors-description";
 import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
 
 enum ThemeColor {
