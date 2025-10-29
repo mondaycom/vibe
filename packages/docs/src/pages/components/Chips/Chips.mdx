@@ -1,0 +1,132 @@
+import { Meta } from "@storybook/blocks";
+import { Chips } from "@vibe/core";
+import { TipLabel } from "./Chips.stories.helpers";
+import * as ChipsStories from "./Chips.stories";
+
+<Meta of={ChipsStories} />
+
+# Chip
+
+Chips are compact elements that represent an input, attribute, or action. They may display text, icons, or both.
+
+<Canvas of={ChipsStories.Overview} />
+
+### Import
+
+```js
+import { Chips } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Chips represent a complex piece of information in compact form, such as an entity (person, place, or thing) or text. They enable user input and verify that input by converting text into chips.",
+    "Use 8px spacing between chips.",
+    "Use chips when content is mapped to multiple categories, and the user needs a way to differentiate between them."
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Provide an <code>id</code> for the Chips to enable proper accessibility associations and unique identification.
+    </>,
+    <>
+      For removable chips, use the <code>closeButtonAriaLabel</code> prop to provide a descriptive accessible name for
+      the remove button (defaults to "Remove", but should be more specific like "Remove John Smith" or "Delete tag").
+    </>,
+    <>
+      Use the <code>ariaLabel</code> prop when the visible <code>label</code> text alone doesn't provide enough context
+      for screen readers to understand the chip's purpose or when chips contain complex content.
+    </>,
+    <>
+      For clickable chips, ensure the <code>ariaLabel</code> describes the action that will occur when clicked.
+    </>,
+    <>
+      When using icons or avatars in chips, ensure they are purely decorative and don't replace the descriptive text.
+      Screen readers will announce the text content, and icons should be hidden from assistive technologies.
+    </>
+  ]}
+/>
+<TipLabel />
+
+## Variants
+
+### With read only state
+
+<Canvas of={ChipsStories.ChipsWithReadOnlyState} />
+
+### With icons
+
+<Canvas of={ChipsStories.ChipsWithIcons} />
+
+### With avatars
+
+<Canvas of={ChipsStories.ChipsWithAvatars} />
+
+### Themes
+
+<Canvas of={ChipsStories.Themes} />
+
+### Clickable chips
+
+<Canvas of={ChipsStories.Clickable} />
+
+### Color coded chips
+
+Use chips with colors to indicate different categories.
+e.g.
+
+```jsx
+<Chips label="GRASS_GREEN" color="grass_green" />
+```
+
+<Canvas of={ChipsStories.ChipsPalette} />
+
+### Chips on colored backgrounds
+
+When a chip appears on a background color identical to its color, use `showBorder` prop in order to add a distinctive white border.
+
+<Canvas of={ChipsStories.OnColor} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Chips label="Jason Tal" readOnly />,
+        description: "When using a chip, the width will automatically size itself to fit the content."
+      },
+      negative: {
+        component: <Chips label="This is a chip" className="monday-storybook-chips_chip-padding" readOnly />,
+        description: "Don’t change the chip width."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Colorful chips for different content
+
+Sometimes when needed, chips can change fill color.
+
+<Canvas of={ChipsStories.ColorfulChipsForDifferentContent} />
+
+### Chips in a person picker combo box
+
+Chips can be removable, and can be used in a multiple options selection use cases.
+
+<Canvas of={ChipsStories.ChipsInAPersonPickerComboBox} />
+
+## Related components
+
+<RelatedComponents componentsNames={["Label", "Tooltip", "Counter"]} />

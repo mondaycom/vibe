@@ -30,7 +30,6 @@
   "scripts": {
     "build": "rollup -c",
     "test": "vitest run",
-    "storybook": "storybook dev -p 7008",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
@@ -41,12 +40,9 @@
   },
   "devDependencies": {
     "@vibe/config": "3.0.2",
-    "@vibe/icons": "1.11.0",
-    "@vibe/storybook-config": "3.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "typescript": "^4.7.3",
-    "vibe-storybook-components": "1.0.2",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

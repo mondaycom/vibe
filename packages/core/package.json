@@ -81,10 +81,6 @@
     "build:esm": "rollup -c",
     "build:esm:mock-classnames": "mock_classnames=on rollup -c",
     "build:metadata": "tsx src/scripts/generate-metadata.ts",
-    "storybook": "storybook dev -p 7008",
-    "build-storybook": "storybook build -o static_storybook && node .storybook/storybook-title-fix.js static_storybook",
-    "deploy-storybook": "storybook-to-ghpages",
-    "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
     "link-local": "npm link && npm start",
     "plop": "plop",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
@@ -134,7 +130,6 @@
     "@babel/preset-typescript": "^7.23.3",
     "@babel/standalone": "^7.24.4",
     "@babel/types": "^7.24.0",
-    "@chromatic-com/storybook": "^3.2.4",
     "@hot-loader/react-dom": "^16.13.0",
     "@jest/transform": "^29.7.0",
     "@rollup/plugin-babel": "^6.0.2",
@@ -274,9 +269,6 @@
     "*.scss.js",
     "*.css.js"
   ],
-  "storybook-deployer": {
-    "commitMessage": "Deploy Storybook [ci-skip]"
-  },
   "browserslist": [
     "extends browserslist-config-monday"
   ]

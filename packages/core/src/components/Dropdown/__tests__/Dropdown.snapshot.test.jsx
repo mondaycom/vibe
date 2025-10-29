@@ -3,7 +3,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
-import { person1 } from "../../Avatar/__stories__/assets";
 import { Email } from "@vibe/icons";
 
 const mockOptions = [
@@ -95,7 +94,7 @@ describe("Dropdown renders correctly", () => {
       {
         value: "ocean",
         label: "Ocean",
-        leftAvatar: person1
+        leftAvatar: "image-url.jpg"
       }
     ];
     const tree = renderer.create(<Dropdown options={options} defaultValue={[options[0]]} multi multiline />).toJSON();

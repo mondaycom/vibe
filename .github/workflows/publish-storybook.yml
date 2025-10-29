@@ -21,8 +21,8 @@ jobs:
       - name: Build & deploy Storybooks to GitHub Pages
         run: |
           yarn lerna run build --include-dependencies
-          yarn lerna run --scope @vibe/core build-storybook
-          cd packages/core/static_storybook
+          yarn lerna run --scope @vibe/docs build-storybook
+          cd packages/docs/static_storybook
           echo "vibe.monday.com" > ./CNAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
