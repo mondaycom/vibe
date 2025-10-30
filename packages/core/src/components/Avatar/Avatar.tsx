@@ -57,7 +57,7 @@ export interface AvatarProps extends VibeComponentProps {
   /**
    * The background color of the avatar.
    */
-  backgroundColor?: ElementAllowedColor;
+  backgroundColor?: Exclude<ElementAllowedColor, "neutral">;
   /**
    * A custom background color.
    */
@@ -270,12 +270,14 @@ interface AvatarStaticProps {
   types: typeof AvatarTypeEnum;
   sizes: typeof AvatarSizeEnum;
   colors: typeof ElementAllowedColorEnum;
-  backgroundColors: typeof ElementAllowedColorEnum;
+  backgroundColors: Omit<typeof ElementAllowedColorEnum, "NEUTRAL">;
 }
 
 export default withStaticPropsWithoutForwardRef<AvatarProps, AvatarStaticProps>(Avatar, {
   types: AvatarTypeEnum,
   sizes: AvatarSizeEnum,
   colors: ElementAllowedColorEnum,
-  backgroundColors: ElementAllowedColorEnum
+  backgroundColors: Object.fromEntries(
+    Object.entries(ElementAllowedColorEnum).filter(([key]) => key !== "NEUTRAL")
+  ) as Omit<typeof ElementAllowedColorEnum, "NEUTRAL">
 });
