@@ -13,7 +13,6 @@
     }
   }
 
-  // Hide chips during initial measurement to prevent flash
   &.measuring {
     > div:not(.hiddenChip) {
       opacity: 0;
