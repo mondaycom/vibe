@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.72.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.71.1...@vibe/core@3.72.0) (2025-10-30)
+
+
+### Bug Fixes
+
+* **AttentionBox:** increase specificity for the link component to be greater than the Link component native style ([#3169](https://github.com/mondaycom/vibe/issues/3169)) ([1d57865](https://github.com/mondaycom/vibe/commit/1d57865782450ef18228359359d8d47cb8833294))
+
+
+### Features
+
+* **Dropdown:** enhance MultiSelectedValues for single chip display ([#3164](https://github.com/mondaycom/vibe/issues/3164)) ([3b9d502](https://github.com/mondaycom/vibe/commit/3b9d5021c99eddb3efd06784c046f82294d32115))
+
+
+
+
+
 ## [3.71.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.71.0...@vibe/core@3.71.1) (2025-10-30)
 
 **Note:** Version bump only for package @vibe/core
