@@ -103,6 +103,7 @@ export const Themes = {
       <Chips id="theme-positive" ariaLabel="Positive chip" label="Chip positive" color="positive" />
       <Chips id="theme-negative" ariaLabel="Negative chip" label="Chip negative" color="negative" />
       <Chips id="theme-warning" ariaLabel="Warning chip" label="Chip warning" color="warning" />
+      <Chips id="theme-neutral" ariaLabel="Neutral chip" label="Chip neutral" color="neutral" />
       <Chips id="theme-disabled" ariaLabel="Disabled chip" label="Disabled" disabled />
     </>
   ),
@@ -218,6 +219,19 @@ export const OnColor = {
         }}
       >
         <Chips label="On negative" showBorder color="negative" readOnly />
+      </Flex>
+      <Flex
+        align="center"
+        justify="center"
+        style={{
+          background: "var(--ui-background-color)",
+          width: "124px",
+          height: "64px",
+          margin: "var(--sb-spacing-small)",
+          borderRadius: "var(--sb-border-radius-small)"
+        }}
+      >
+        <Chips label="On neutral" showBorder color="neutral" readOnly />
       </Flex>
     </Flex>
   ),
