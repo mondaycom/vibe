@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function generateVibeComponentAliases() {
-  const componentsFolder = path.resolve(__dirname, "../../components");
+  const componentsFolder = path.resolve(__dirname, "../../packages/components");
   const vibeComponents = {};
 
   if (fs.existsSync(componentsFolder)) {

@@ -61,7 +61,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
   }
 }

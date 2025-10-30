@@ -8,8 +8,8 @@
       "@vibe/core/interactionsTests": ["../core/src/tests/interactions-utils.ts"],
       "@vibe/core": ["../core/src/index.ts"],
       "@vibe/shared": ["../shared/src/index.ts"],
-      "@vibe/*": ["../../components/*/src", "../*/src"]
+      "@vibe/*": ["../components/*/src", "../*/src"]
     }
   },
-  "include": ["src/**/*", "types/**/*", "scripts/**/*.ts", ".storybook/**/*", "../../../components/*/src/**/*"]
+  "include": ["src/**/*", "types/**/*", "scripts/**/*.ts", ".storybook/**/*", "../../components/*/src/**/*"]
 }
