@@ -64,36 +64,42 @@ export default function useItemsOverflow({
     }
   }, [deductedSpaceRef]);
 
+  const measureAndCacheItemsSync = useCallback(() => {
+    const container = containerRef.current;
+    if (!container || !itemRefs.length) {
+      setVisibleCount(itemRefs.length);
+      setHasMeasured(true);
+      return;
+    }
+
+    measureDeductedWidth();
+
+    const itemElements = itemRefs.map(ref => ref.current).filter(el => el !== null) as HTMLElement[];
+
+    if (itemElements.length === 0) {
+      setVisibleCount(0);
+      itemWidthsRef.current = [];
+      setHasMeasured(true);
+      return;
+    }
+
+    itemWidthsRef.current = itemElements.map(item => item.getBoundingClientRect().width);
+    calculateFromCachedWidths();
+    setHasMeasured(true);
+  }, [containerRef, itemRefs, calculateFromCachedWidths, measureDeductedWidth]);
+
   const measureAndCacheItems = useCallback(() => {
     if (isCalculatingRef.current) return;
     isCalculatingRef.current = true;
 
     requestAnimationFrame(() => {
       try {
-        const container = containerRef.current;
-        if (!container || !itemRefs.length) {
-          setVisibleCount(itemRefs.length);
-          return;
-        }
-
-        measureDeductedWidth();
-
-        const itemElements = itemRefs.map(ref => ref.current).filter(el => el !== null) as HTMLElement[];
-
-        if (itemElements.length === 0) {
-          setVisibleCount(0);
-          itemWidthsRef.current = [];
-          return;
-        }
-
-        itemWidthsRef.current = itemElements.map(item => item.getBoundingClientRect().width);
-        calculateFromCachedWidths();
-        setHasMeasured(true);
+        measureAndCacheItemsSync();
       } finally {
         isCalculatingRef.current = false;
       }
     });
-  }, [containerRef, itemRefs, calculateFromCachedWidths, measureDeductedWidth]);
+  }, [measureAndCacheItemsSync]);
 
   useIsomorphicLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -124,13 +130,14 @@ export default function useItemsOverflow({
   useIsomorphicLayoutEffect(() => {
     if (itemRefs.length > 0) {
       setHasMeasured(false);
-      measureAndCacheItems();
+      // Use synchronous measurement for initial render to prevent delay
+      measureAndCacheItemsSync();
     } else {
       setVisibleCount(0);
       itemWidthsRef.current = [];
       setHasMeasured(true);
     }
-  }, [itemRefs, measureAndCacheItems]);
+  }, [itemRefs, measureAndCacheItemsSync]);
 
   return { visibleCount, hasMeasured };
 }
