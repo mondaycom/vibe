@@ -1,0 +1,140 @@
+import React from "react";
+import { createComponentTemplate } from "vibe-storybook-components";
+import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+import { DialogContentContainer, Combobox, Flex, IconButton, Search } from "@vibe/core";
+import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
+import { Filter as FilterIcon } from "@vibe/icons";
+
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: Search,
+  iconPropNamesArray: ["searchIconName", "clearIconName"]
+});
+
+const searchTemplate = createComponentTemplate(Search);
+
+export default {
+  title: "Components/Search",
+  component: Search,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+} satisfies Meta<typeof Search>;
+
+type Story = StoryObj<typeof Search>;
+
+const withFixedWidth: Decorator = Story => (
+  <div style={{ width: 320 }}>
+    <Story />
+  </div>
+);
+
+export const Overview: Story = {
+  render: searchTemplate.bind({}),
+  args: {
+    id: "overview-search",
+    inputAriaLabel: "Search input",
+    placeholder: "Placeholder text here"
+  },
+  decorators: [withFixedWidth],
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <>
+      <Search id="sizes-small" inputAriaLabel="Small search input" placeholder="Small" size="small" />
+      <Search id="sizes-medium" inputAriaLabel="Medium search input" placeholder="Medium" size="medium" />
+      <Search id="sizes-large" inputAriaLabel="Large search input" placeholder="Large" size="large" />
+    </>
+  ),
+  decorators: [
+    Story => (
+      <Flex direction="column" justify="start" gap="medium">
+        <Story />
+      </Flex>
+    ),
+    withFixedWidth
+  ],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Search }
+      }
+    }
+  }
+};
+
+export const WithAdditionalAction: Story = {
+  render: () => (
+    <Search
+      id="search-with-action"
+      inputAriaLabel="Search with filter action"
+      placeholder="Search with icon"
+      renderAction={<IconButton id="filter-action-button" icon={FilterIcon} ariaLabel="Filter results" size="small" />}
+    />
+  ),
+  decorators: [withFixedWidth],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Search, FilterIcon }
+      }
+    }
+  }
+};
+
+const options = [
+  {
+    id: "1",
+    label: "Cheese Cake"
+  },
+  {
+    id: "2",
+    label: "Muffin"
+  },
+  {
+    id: "3",
+    label: "Cookie"
+  },
+  {
+    id: "4",
+    label: "Cup cake"
+  },
+  {
+    id: "5",
+    label: "Banana lottie"
+  }
+];
+
+export const FilterInCombobox: Story = {
+  render: () => (
+    <Combobox
+      id="filter-combobox"
+      searchInputAriaLabel="Filter options"
+      placeholder="Placeholder text here"
+      options={options}
+      size="small"
+      optionLineHeight={28}
+    />
+  ),
+  decorators: [
+    Story => (
+      <DialogContentContainer>
+        <Story />
+      </DialogContentContainer>
+    ),
+    withFixedWidth
+  ],
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { options }
+      }
+    }
+  }
+};

@@ -6202,11 +6202,6 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@vibe/icons@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.npmjs.org/@vibe/icons/-/icons-1.9.0.tgz#f980327a053116d449d0472354f32804dee3f741"
-  integrity sha512-UqNpkS3G3aZgnQm9kHNICT7vPlGC12wCM2Ou/7fJ1eGfiQ+7vigkNAyos7zFVnqV/XwmFsgqqlCqdOxF1U22RQ==
-
 "@vitejs/plugin-react@^4.3.1":
   version "4.5.2"
   resolved "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.5.2.tgz"
@@ -19743,15 +19738,6 @@ vfile@^6.0.0:
   dependencies:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
-
-vibe-storybook-components@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/vibe-storybook-components/-/vibe-storybook-components-1.0.2.tgz#e42aa299d9e3c5c078fe068528a58ab4876d3d0c"
-  integrity sha512-t3B1wTRxzwi59Yj+1RPsjZ9EcNFVmHBncvQPzUkJ2+hy04iL+Qzvkt3W/rSO1i/OQsuYK1CD1nz9UndKz8NQaA==
-  dependencies:
-    "@storybook/types" "^7.5.0"
-    browserslist-config-monday "^1.0.6"
-    classnames "^2.3.2"
 
 vite-node@1.6.0:
   version "1.6.0"

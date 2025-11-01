@@ -50,7 +50,7 @@ exports[`renders correctly with picture 1`] = `
       <img
         className="contentImg contentImgSmall"
         data-testid="avatar-content"
-        src="/src/components/Avatar/__stories__/assets/person1.png"
+        src="image-url.jpg"
       />
     </div>
   </div>

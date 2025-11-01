@@ -54,6 +54,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
+    itemToKey: item => (item?.value !== undefined ? String(item.value) : ""),
     isItemDisabled: item => Boolean(item.disabled),
     initialInputValue: inputValueProp || "",
     selectedItem: selectedItem,

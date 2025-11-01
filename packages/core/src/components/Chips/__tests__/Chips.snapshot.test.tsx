@@ -3,7 +3,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Chips from "../Chips";
 import { Calendar } from "@vibe/icons";
-import { person1 } from "../../Avatar/__stories__/assets";
 
 describe("Chips renders correctly", () => {
   it("renders correctly with empty props", () => {
@@ -42,12 +41,12 @@ describe("Chips renders correctly", () => {
   });
 
   it("renders correctly with right avatar", () => {
-    const tree = renderer.create(<Chips rightAvatar={person1} readOnly />).toJSON();
+    const tree = renderer.create(<Chips rightAvatar={"image-url.jpg"} readOnly />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly with left avatar", () => {
-    const tree = renderer.create(<Chips leftAvatar={person1} readOnly />).toJSON();
+    const tree = renderer.create(<Chips leftAvatar={"image-url.jpg"} readOnly />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -1,6 +1,23 @@
 .containerWrapper {
   min-width: 1px;
   flex-grow: 1;
+
+  &.singleChip {
+    > div:first-child {
+      min-width: 50px;
+      flex-shrink: 1;
+
+      div {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &.measuring {
+    > div:not(.hiddenChip) {
+      opacity: 0;
+    }
+  }
 }
 .hiddenChip {
   position: absolute;
