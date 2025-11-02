@@ -69,35 +69,60 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
   onChange?: (option: Item) => void;
 }
 
-export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps & {
-  /**
-   * The list of options available in the list.
-   */
-  options: DropdownGroupOption<Item>;
-  /**
-   * Props to be passed to the Tooltip component that wraps the dropdown.
-   */
-  tooltipProps?: Partial<TooltipProps>;
-  /**
-   * If true, displays dividers between grouped options.
-   */
-  withGroupDivider?: boolean;
-  /**
-   * If true, makes the group title sticky.
-   */
-  stickyGroupTitle?: boolean;
-  /**
-   * The size of the dropdown.
-   */
-  size?: DropdownSizes;
-  /**
-   * The direction of the dropdown.
-   */
-  dir?: DropdownDirection;
-  /**
-   * If true, the dropdown is searchable.
-   */
-  searchable?: boolean;
+type BoxModeConstraint =
+  | {
+      /**
+       * If true, the dropdown is searchable.
+       */
+      searchable?: false;
+      /**
+       * If true, the dropdown menu is displayed inline without a popup/dialog.
+       * The menu will always be visible and cannot be closed.
+       * This mode is useful for embedding dropdowns directly in a layout.
+       * Note: Box mode requires searchable to be true.
+       */
+      boxMode?: false;
+    }
+  | {
+      /**
+       * If true, the dropdown is searchable.
+       */
+      searchable: true;
+      /**
+       * If true, the dropdown menu is displayed inline without a popup/dialog.
+       * The menu will always be visible and cannot be closed.
+       * This mode is useful for embedding dropdowns directly in a layout.
+       * Note: Box mode requires searchable to be true.
+       */
+      boxMode?: boolean;
+    };
+
+export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps &
+  BoxModeConstraint & {
+    /**
+     * The list of options available in the list.
+     */
+    options: DropdownGroupOption<Item>;
+    /**
+     * Props to be passed to the Tooltip component that wraps the dropdown.
+     */
+    tooltipProps?: Partial<TooltipProps>;
+    /**
+     * If true, displays dividers between grouped options.
+     */
+    withGroupDivider?: boolean;
+    /**
+     * If true, makes the group title sticky.
+     */
+    stickyGroupTitle?: boolean;
+    /**
+     * The size of the dropdown.
+     */
+    size?: DropdownSizes;
+    /**
+     * The direction of the dropdown.
+     */
+    dir?: DropdownDirection;
   /**
    * The function to call to render an option.
    */

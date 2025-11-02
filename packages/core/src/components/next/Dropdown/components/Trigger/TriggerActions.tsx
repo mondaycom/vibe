@@ -28,7 +28,8 @@ const TriggerActions = () => {
     toggleMenu,
     getMenuProps,
     loading,
-    clearAriaLabel
+    clearAriaLabel,
+    boxMode
   } = useDropdownContext<BaseListItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
@@ -67,18 +68,20 @@ const TriggerActions = () => {
             hideTooltip
           />
         )}
-        <IconButton
-          icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
-          size={iconButtonSize}
-          disabled={disabled}
-          ariaControls={getMenuProps().id}
-          ariaExpanded={isOpen}
-          ariaLabeledBy={getMenuProps().id}
-          tabIndex={-1}
-          onClick={() => {
-            toggleMenu();
-          }}
-        />
+        {!boxMode && (
+          <IconButton
+            icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
+            size={iconButtonSize}
+            disabled={disabled}
+            ariaControls={getMenuProps().id}
+            ariaExpanded={isOpen}
+            ariaLabeledBy={getMenuProps().id}
+            tabIndex={-1}
+            onClick={() => {
+              toggleMenu();
+            }}
+          />
+        )}
       </Flex>
     </div>
   );

@@ -6,7 +6,7 @@ import person3 from "../Avatar/assets/person3.png";
 import person2 from "../Avatar/assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
 import { Dropdown, type BaseDropdownProps, type DropdownOption } from "@vibe/core/next";
-import { Flex, Text } from "@vibe/core";
+import { Flex, Text, DialogContentContainer, Button } from "@vibe/core";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
@@ -628,4 +628,66 @@ export const DropdownWithVirtualization: Story = {
     );
   },
   name: "Virtualized Dropdown"
+};
+
+export const BoxMode: Story = {
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: 1, label: "Option 1" },
+        { value: 2, label: "Option 2" },
+        { value: 3, label: "Option 3" },
+        { value: 4, label: "Option 4" },
+        { value: 5, label: "Option 5" }
+      ],
+      []
+    );
+
+    return (
+      <Flex gap="large" align="start" wrap>
+        <Flex direction="column" gap="medium">
+          <Text type="text1" weight="bold">
+            Single Select
+          </Text>
+          <div style={{ width: "300px" }}>
+            <DialogContentContainer>
+              <Dropdown
+                id="box-mode-single-combobox"
+                ariaLabel="Box mode single select"
+                options={options}
+                label="Search and select"
+                placeholder="Search..."
+                searchable
+                boxMode
+                clearAriaLabel="Clear"
+              />
+              <Button style={{ width: "100%" }} kind="secondary" size="small">
+                Edit
+              </Button>
+            </DialogContentContainer>
+          </div>
+        </Flex>
+
+        <Flex direction="column" gap="medium">
+          <Text type="text1" weight="bold">
+            Multi Select
+          </Text>
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              id="box-mode-multi-combobox"
+              ariaLabel="Box mode multi select"
+              options={options}
+              label="Search and select multiple"
+              placeholder="Search..."
+              searchable
+              multi
+              boxMode
+              clearAriaLabel="Clear"
+            />
+          </div>
+        </Flex>
+      </Flex>
+    );
+  },
+  name: "Box Mode"
 };
