@@ -37,7 +37,7 @@ function generateSizeLimitConfig() {
     for (const packageName of componentPackages) {
       const packageDistPath = path.join(componentsPath, packageName, "dist/index.js");
       if (fs.existsSync(packageDistPath)) {
-        const relativePath = path.join("components", packageName, "dist/index.js").replace(/\\/g, "/");
+        const relativePath = path.join("packages/components", packageName, "dist/index.js").replace(/\\/g, "/");
         allComponents.push({
           path: relativePath
         });
