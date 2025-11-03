@@ -48,14 +48,19 @@ const BaseListItem = forwardRef(
     const Element = component as React.ElementType;
 
     return (
-      <Tooltip {...tooltipProps} content={tooltipProps?.content} position={dir === "rtl" ? "right" : "left"}>
+      <Tooltip
+        {...tooltipProps}
+        content={tooltipProps?.content}
+        position={dir === "rtl" ? "right" : "left"}
+        containerSelector="body"
+      >
         <Element id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps} aria-selected={selected}>
           {itemRenderer ? (
             itemRenderer(item)
           ) : (
             <>
               {startElement && renderSideElement(startElement, disabled, textVariant)}
-              <Text type={textVariant} color="inherit">
+              <Text type={textVariant} color="inherit" tooltipProps={{ containerSelector: "body" }}>
                 {label}
               </Text>
               {endElement && (
