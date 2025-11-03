@@ -3,7 +3,7 @@ const path = require("path");
 
 const rootPath = process.cwd();
 const distIndexPath = path.join(rootPath, "packages/core/dist/src/index.js");
-const componentsPath = path.join(rootPath, "components");
+const componentsPath = path.join(rootPath, "packages/components");
 const sizeLimitConfigPath = path.join(rootPath, ".size-limit.js");
 
 function generateSizeLimitConfig() {
