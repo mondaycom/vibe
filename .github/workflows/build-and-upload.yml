@@ -42,5 +42,7 @@ jobs:
         with:
           name: ci-builds-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            ./packages/**/dist/
+            ./packages/*/dist/
+            ./packages/components/*/dist/
+            ./package.json
           if-no-files-found: ignore
