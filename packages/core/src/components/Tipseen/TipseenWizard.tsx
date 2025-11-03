@@ -5,7 +5,7 @@ import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
 import { TipseenContext } from "./Tipseen";
 import { TipseenColor } from "./TipseenConstants";
-import { type ButtonSize, type ButtonType } from "../Button";
+import { type ButtonSize, type ButtonType } from "@vibe/button";
 
 const FINISH_TEXT = "Got it";
 

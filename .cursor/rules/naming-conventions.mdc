@@ -44,7 +44,7 @@ This document outlines the naming conventions to be followed when developing wit
   - **Utility Tests**: Place in `ComponentName/utils/__tests__/utilityName.test.ts`
   - **Context Tests**: Place in `ComponentName/context/__tests__/ComponentNameContext.test.ts`
   - **DO NOT** centralize all tests in the component root `__tests__` directory.
-- **Stories**: Storybook files SHOULD be placed in a `__stories__` subdirectory.
+- **Stories**: Storybook files SHOULD be placed in a `packages/docs` subdirectory.
   - Story files typically follow the pattern `ComponentName.stories.tsx`.
   - Refer to the storybook-stories.mdc file in the monorepo for Storybook specific conventions.
 - **Helper/Utility Files**: Utility functions or helper components specific to a single component can be placed in a `helper` or `utils` subdirectory, or directly within the component folder if small and highly specific.

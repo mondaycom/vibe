@@ -1,4 +1,3 @@
-import { createStoryMetaSettingsDecorator } from "../../../storybook";
 import { createComponentTemplate } from "vibe-storybook-components";
 import BaseList from "../BaseList";
 import { type Meta, type StoryObj } from "@storybook/react";
@@ -6,15 +5,9 @@ import { Email } from "@vibe/icons";
 import person1 from "./person1.png";
 type Story = StoryObj<typeof BaseList>;
 
-const metaSettings = createStoryMetaSettingsDecorator({
-  component: BaseList
-});
-
 export default {
   title: "Internal/BaseList",
   component: BaseList,
-  argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
   tags: ["internal"]
 } satisfies Meta<typeof BaseList>;
 

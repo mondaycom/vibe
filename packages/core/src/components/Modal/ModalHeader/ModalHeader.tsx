@@ -7,7 +7,7 @@ import { type ModalHeaderProps } from "./ModalHeader.types";
 import Flex from "../../Flex/Flex";
 import Heading from "../../Heading/Heading";
 import Text from "../../Text/Text";
-import Icon from "../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import { useModal } from "../context/ModalContext";
 
 const ModalHeader = forwardRef(

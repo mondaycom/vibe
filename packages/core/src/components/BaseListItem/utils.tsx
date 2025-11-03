@@ -3,7 +3,7 @@ import { type TextType } from "../Text";
 import React from "react";
 import Avatar from "../Avatar/Avatar";
 import styles from "./BaseListItem.module.scss";
-import Icon from "../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import Text from "../Text/Text";
 
 export function renderSideElement(

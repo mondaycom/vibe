@@ -1,0 +1,5 @@
+@import "~monday-ui-style/dist/mixins";
+
+.visualFocus {
+  @include focus-style-css;
+}

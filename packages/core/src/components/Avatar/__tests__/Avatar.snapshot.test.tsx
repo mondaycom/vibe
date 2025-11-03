@@ -4,11 +4,9 @@ import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
 import { WhatsNew } from "@vibe/icons";
 
-vi.mock("../../Icon/Icon", () => ({
-  default: ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>
-}));
-vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({
-  default: () => <div data-testid="custom-icon-mock" />
+vi.mock("@vibe/icon", () => ({
+  Icon: ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>,
+  CustomSvgIcon: ({ icon }: { icon: string | null }) => <div data-testid="custom-icon-mock">{icon}</div>
 }));
 
 const IMG_SRC =

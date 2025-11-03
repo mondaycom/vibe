@@ -8,14 +8,17 @@ export default function useItemsOverflow({
   containerRef,
   gap,
   deductedSpaceRef,
-  itemRefs
+  itemRefs,
+  minVisibleCount = 0
 }: {
   containerRef: RefObject<HTMLElement>;
   gap: number;
   deductedSpaceRef?: RefObject<HTMLElement>;
   itemRefs: RefObject<HTMLElement>[];
+  minVisibleCount?: number;
 }) {
-  const [visibleCount, setVisibleCount] = useState<number>(itemRefs.length);
+  const [visibleCount, setVisibleCount] = useState<number>(0);
+  const [hasMeasured, setHasMeasured] = useState<boolean>(false);
   const itemWidthsRef = useRef<number[]>([]);
   const deductedWidthRef = useRef<number>(0);
   const isCalculatingRef = useRef(false);
@@ -47,8 +50,11 @@ export default function useItemsOverflow({
         break;
       }
     }
-    setVisibleCount(count);
-  }, [containerRef, itemRefs, gap]);
+
+    // Ensure at least minVisibleCount items are visible
+    const finalCount = Math.max(count, Math.min(minVisibleCount, maxIter));
+    setVisibleCount(finalCount);
+  }, [containerRef, itemRefs, gap, minVisibleCount]);
 
   const measureDeductedWidth = useCallback(() => {
     if (deductedSpaceRef?.current) {
@@ -58,35 +64,42 @@ export default function useItemsOverflow({
     }
   }, [deductedSpaceRef]);
 
+  const measureAndCacheItemsSync = useCallback(() => {
+    const container = containerRef.current;
+    if (!container || !itemRefs.length) {
+      setVisibleCount(itemRefs.length);
+      setHasMeasured(true);
+      return;
+    }
+
+    measureDeductedWidth();
+
+    const itemElements = itemRefs.map(ref => ref.current).filter(el => el !== null) as HTMLElement[];
+
+    if (itemElements.length === 0) {
+      setVisibleCount(0);
+      itemWidthsRef.current = [];
+      setHasMeasured(true);
+      return;
+    }
+
+    itemWidthsRef.current = itemElements.map(item => item.getBoundingClientRect().width);
+    calculateFromCachedWidths();
+    setHasMeasured(true);
+  }, [containerRef, itemRefs, calculateFromCachedWidths, measureDeductedWidth]);
+
   const measureAndCacheItems = useCallback(() => {
     if (isCalculatingRef.current) return;
     isCalculatingRef.current = true;
 
     requestAnimationFrame(() => {
       try {
-        const container = containerRef.current;
-        if (!container || !itemRefs.length) {
-          setVisibleCount(itemRefs.length);
-          return;
-        }
-
-        measureDeductedWidth();
-
-        const itemElements = itemRefs.map(ref => ref.current).filter(el => el !== null) as HTMLElement[];
-
-        if (itemElements.length === 0) {
-          setVisibleCount(0);
-          itemWidthsRef.current = [];
-          return;
-        }
-
-        itemWidthsRef.current = itemElements.map(item => item.getBoundingClientRect().width);
-        calculateFromCachedWidths();
+        measureAndCacheItemsSync();
       } finally {
         isCalculatingRef.current = false;
       }
     });
-  }, [containerRef, itemRefs, calculateFromCachedWidths, measureDeductedWidth]);
+  }, [measureAndCacheItemsSync]);
 
   useIsomorphicLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -116,12 +129,15 @@ export default function useItemsOverflow({
 
   useIsomorphicLayoutEffect(() => {
     if (itemRefs.length > 0) {
-      measureAndCacheItems();
+      setHasMeasured(false);
+      // Use synchronous measurement for initial render to prevent delay
+      measureAndCacheItemsSync();
     } else {
       setVisibleCount(0);
       itemWidthsRef.current = [];
+      setHasMeasured(true);
     }
-  }, [itemRefs, measureAndCacheItems]);
+  }, [itemRefs, measureAndCacheItemsSync]);
 
-  return visibleCount;
+  return { visibleCount, hasMeasured };
 }

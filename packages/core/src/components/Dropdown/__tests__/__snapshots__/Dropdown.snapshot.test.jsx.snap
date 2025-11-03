@@ -2370,7 +2370,7 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                     <img
                       className="contentImg contentImgLarge"
                       data-testid="avatar-content"
-                      src="/src/components/Avatar/__stories__/assets/person1.png"
+                      src="image-url.jpg"
                     />
                   </div>
                 </div>

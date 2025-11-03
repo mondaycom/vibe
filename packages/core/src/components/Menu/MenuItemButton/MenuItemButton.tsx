@@ -1,18 +1,13 @@
 import cx from "classnames";
 import React, { useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import Button from "../../Button/Button";
+import { Button, type ButtonType } from "@vibe/button";
 import Tooltip from "../../Tooltip/Tooltip";
-import { type ButtonType } from "../../Button";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import {
-  type SubIcon,
-  type VibeComponentProps,
-  type ElementContent,
-  withStaticPropsWithoutForwardRef
-} from "../../../types";
+import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type SubIcon } from "@vibe/icon";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
 import { type TooltipPositions } from "../../Tooltip";

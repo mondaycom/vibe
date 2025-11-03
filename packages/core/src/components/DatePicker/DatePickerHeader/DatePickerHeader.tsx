@@ -3,7 +3,7 @@ import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import moment from "moment";
 import { type Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";
-import Icon from "../../Icon/Icon";
+import { Icon } from "@vibe/icon";
 
 export interface DatePickerHeaderProps {
   /**
