@@ -1,1 +1,0 @@
-import{C as e}from"./component-name-COfR5NgX.js";const o={component:e,title:"Components/ComponentName"},t={args:{children:"Component Name"}},n=["Overview"],m=Object.freeze(Object.defineProperty({__proto__:null,Overview:t,__namedExportsOrder:n,default:o},Symbol.toStringTag,{value:"Module"}));export{m as C,t as O};

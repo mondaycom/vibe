@@ -1,1 +1,0 @@
-import{j as s}from"./jsx-runtime-lwGtIXvq.js";import{c as e}from"./index-BpvXyOxN.js";const c="_statusTag_c152v_1",_="_alpha_c152v_7",o="_beta_c152v_7",r="_deprecated_c152v_15",t={statusTag:c,alpha:_,beta:o,new:"_new_c152v_11",deprecated:r},l=({type:a})=>s.jsx("label",{className:e(t.statusTag,t[a]),children:a});export{l as S};

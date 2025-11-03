@@ -1,4 +1,4 @@
-import{C as n}from"./component-name-C8IXbUsM.js";const a={component:n,title:"Storybook Blocks/ComponentName"},e={args:{children:"Component Name"}};var o,r,t;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
+import{C as n}from"./component-name-w_IwTPJh.js";const a={component:n,title:"Storybook Blocks/ComponentName"},e={args:{children:"Component Name"}};var o,r,t;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
   args: {
     children: 'Component Name'
   }

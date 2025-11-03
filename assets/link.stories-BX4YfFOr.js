@@ -1,4 +1,4 @@
-import{L as t}from"./link-DAIw2_14.js";const a={component:t,title:"Storybook Blocks/Link"},e={args:{href:"/?path=/docs/welcome--docs",size:t.sizes.MEDIUM,children:"This is a link to welcome page"}};var o,s,r;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
+import{L as t}from"./link-Ct1oq02L.js";const a={component:t,title:"Storybook Blocks/Link"},e={args:{href:"/?path=/docs/welcome--docs",size:t.sizes.MEDIUM,children:"This is a link to welcome page"}};var o,s,r;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`{
   args: {
     href: '/?path=/docs/welcome--docs',
     size: Link.sizes.MEDIUM,

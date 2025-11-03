@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{S as t}from"./status-tag-D5VNKzdF.js";import{F as s}from"./Flex-D4hDlUPC.js";const d={component:t,title:"Storybook Blocks/StatusTag"},a={args:{type:"beta"}},r={render:()=>e.jsxs(s,{direction:s.directions.COLUMN,gap:s.gaps.MEDIUM,align:s.align.START,children:[e.jsx(t,{type:"alpha"}),e.jsx(t,{type:"beta"}),e.jsx(t,{type:"new"}),e.jsx(t,{type:"deprecated"})]})};var o,n,p;a.parameters={...a.parameters,docs:{...(o=a.parameters)==null?void 0:o.docs,source:{originalSource:`{
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{S as t}from"./status-tag-D5VNKzdF.js";import{F as s}from"./Flex-wmhmkp5A.js";const d={component:t,title:"Storybook Blocks/StatusTag"},a={args:{type:"beta"}},r={render:()=>e.jsxs(s,{direction:s.directions.COLUMN,gap:s.gaps.MEDIUM,align:s.align.START,children:[e.jsx(t,{type:"alpha"}),e.jsx(t,{type:"beta"}),e.jsx(t,{type:"new"}),e.jsx(t,{type:"deprecated"})]})};var o,n,p;a.parameters={...a.parameters,docs:{...(o=a.parameters)==null?void 0:o.docs,source:{originalSource:`{
   args: {
     type: 'beta'
   }

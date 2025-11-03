@@ -1,0 +1,3 @@
+import{B as s}from"./BaseInput-CEZwDVEp.js";import{r as a}from"./createComponentTemplate-B08h-OOW.js";import"./jsx-runtime-lwGtIXvq.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-BpvXyOxN.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";const I={title:"Internal/BaseInput",component:s,tags:["internal"]},n=a(s),e={render:n.bind({})};var r,t,o;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  render: baseInputTemplate.bind({})
+}`,...(o=(t=e.parameters)==null?void 0:t.docs)==null?void 0:o.source}}};const b=["Overview"];export{e as Overview,b as __namedExportsOrder,I as default};
