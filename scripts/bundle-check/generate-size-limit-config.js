@@ -3,6 +3,7 @@ const path = require("path");
 
 const rootPath = process.cwd();
 const distIndexPath = path.join(rootPath, "packages/core/dist/src/index.js");
+const distNextPath = path.join(rootPath, "packages/core/dist/src/components/next.js");
 const componentsPath = path.join(rootPath, "packages/components");
 const sizeLimitConfigPath = path.join(rootPath, ".size-limit.js");
 
@@ -25,6 +26,26 @@ function generateSizeLimitConfig() {
     console.log(`Found ${allComponents.length} core components.`);
   } else {
     console.log(`Core dist index file not found at ${distIndexPath}.`);
+  }
+
+  // Process @next components
+  if (fs.existsSync(distNextPath)) {
+    const nextContent = fs.readFileSync(distNextPath, "utf8");
+    const exportRegex = /export\{.*?\}from"(\.\/[^"]+\.js)";/g;
+
+    let match;
+    let nextComponentsCount = 0;
+    while ((match = exportRegex.exec(nextContent)) !== null) {
+      const relativePath = match[1];
+      const fullPath = path.join("packages/core/dist/src/components/", relativePath).replace(/\\/g, "/");
+      allComponents.push({
+        path: fullPath
+      });
+      nextComponentsCount++;
+    }
+    console.log(`Found ${nextComponentsCount} @next components.`);
+  } else {
+    console.log(`@next dist file not found at ${distNextPath}.`);
   }
 
   // Process component packages

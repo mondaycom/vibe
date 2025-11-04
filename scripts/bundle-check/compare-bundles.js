@@ -3,7 +3,7 @@ const path = require("path");
 const bytes = require("bytes");
 
 function extractJson(content) {
-  const jsonMatch = content.match(/\[[\s\S]*?\]/);
+  const jsonMatch = content.match(/^\[[\s\S]*\]$/m);
 
   if (!jsonMatch) {
     throw new Error("No JSON array found in content");
@@ -46,6 +46,12 @@ Array.from(allComponents)
     if (componentName.startsWith("packages/components/")) {
       const packageName = componentName.split("/")[2];
       displayName = `@vibe/${packageName}`;
+    } else if (
+      componentName.includes("/next/") ||
+      (componentName.includes("/Modal/") && !componentName.includes("/LegacyModal/"))
+    ) {
+      const baseName = path.basename(componentName, path.extname(componentName));
+      displayName = `${baseName} (Next)`;
     } else {
       displayName = path.basename(componentName, path.extname(componentName));
     }
