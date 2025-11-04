@@ -5,27 +5,23 @@ import * as DatepickerStories from "./DatePicker.stories";
 
 # DatePicker
 
+<br />
+
+<DeprecatedWarning alternativeName="DatePicker" alternativeLink="/?path=/docs/components-datepicker-new--docs" />
+
 A simple and reusable Datepicker component
 
 <Canvas of={DatepickerStories.Overview} />
 
 ### Import
 
-DatePicker is not included in the `@vibe/core` package. To use it, install and import from the separate `@vibe/date-picker` package:
-
 ```js
-import { DatePicker } from "@vibe/date-picker";
+import { DatePicker } from "@vibe/core";
 ```
 
 ## Props
 
 <PropsTable />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={["When picking a single or range of dates is required", "Displaying past, present and future dates"]}
-/>
 
 ## Variants
 
@@ -41,6 +37,10 @@ Allows users to select a date range
 
 <Canvas of={DatepickerStories.DateRange} />
 
+### Number of months
+
+<Canvas of={DatepickerStories.NumberOfMonths} />
+
 ## Related components
 
-<RelatedComponents componentsNames={["AlertBanner", "Tipseen", "Tooltip"]} />
+<RelatedComponents componentsNames={["TextField", "Dropdown", "DialogContentContainer"]} />

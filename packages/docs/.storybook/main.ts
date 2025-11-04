@@ -86,7 +86,6 @@ export default {
           "~monday-ui-style": path.resolve(__dirname, "../../style"),
           "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src"),
           "@vibe/shared": path.resolve(__dirname, "../../shared/src"),
-          "@vibe/storybook-config": path.resolve(__dirname, "../../storybook-config/src/index.ts"),
           "@vibe/core/interactionsTests": path.resolve(__dirname, "../../core/src/tests/interactions-utils.ts"),
           "@vibe/core/next": path.resolve(__dirname, "../../core/src/components/next.ts"),
           "@vibe/core": path.resolve(__dirname, "../../core/src/index.ts"),
