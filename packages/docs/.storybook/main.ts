@@ -3,7 +3,7 @@ import type { StorybookConfig } from "@storybook/react-vite";
 import remarkGfm from "remark-gfm";
 import fs from "fs";
 
-const componentsFolder = path.resolve(__dirname, "../../../components");
+const componentsFolder = path.resolve(__dirname, "../../components");
 const components = fs.readdirSync(componentsFolder).reduce((acc: Record<string, string>, component) => {
   const componentFolderPath = path.resolve(componentsFolder, component);
   if (fs.statSync(componentFolderPath).isDirectory()) {
@@ -52,7 +52,6 @@ export default {
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
     "../../core/**/*.mdx",
     "../../core/**/*.stories.@(js|jsx|ts|tsx)",
-    "../../../components/**/*.stories.@(js|jsx|ts|tsx)",
     "../../storybook-blocks/**/*.mdx",
     "../../storybook-blocks/**/*.stories.@(js|jsx|ts|tsx)"
   ],

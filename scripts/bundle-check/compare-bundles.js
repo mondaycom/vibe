@@ -43,8 +43,8 @@ Array.from(allComponents)
     const prEntry = prMap.get(componentName);
 
     let displayName;
-    if (componentName.startsWith("components/")) {
-      const packageName = componentName.split("/")[1];
+    if (componentName.startsWith("packages/components/")) {
+      const packageName = componentName.split("/")[2];
       displayName = `@vibe/${packageName}`;
     } else {
       displayName = path.basename(componentName, path.extname(componentName));

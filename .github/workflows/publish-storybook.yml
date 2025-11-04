@@ -32,7 +32,7 @@ jobs:
           clean-exclude: |
             v2/*
             playground/*
-          folder: packages/core/static_storybook
+          folder: packages/docs/static_storybook
           branch: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
