@@ -93,7 +93,6 @@ const DatePicker: FC<DatePickerProps> = ({
 
       if (mode === "range") {
         const newRange = addToRange(selectedDay, selected as DateRange, intent);
-        console.log("newRange", newRange);
         (onDateChange as (range: DatePickerRange) => void)({ date: newRange?.from, endDate: newRange?.to });
       } else {
         const newDate = newValue as Date;

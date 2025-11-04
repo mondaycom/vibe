@@ -1,8 +1,10 @@
 import React, { type FC, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { useDayPicker, useNavigation } from "react-day-picker";
-import { Button, Flex, IconButton } from "@vibe/core";
-import { Dropdown } from "@vibe/core/next";
+import { Button } from "@vibe/button";
+import IconButton from "../../IconButton/IconButton";
+import Flex from "../../Flex/Flex";
+import Dropdown from "../../next/Dropdown/Dropdown";
 import { DropdownChevronRight, DropdownChevronLeft } from "@vibe/icons";
 import styles from "./DatePickerHeader.module.scss";
 import { useMonthsOptionItems, useYearsOptionItems, type DatePickerDropdownItem } from "./datePickerHooks";
