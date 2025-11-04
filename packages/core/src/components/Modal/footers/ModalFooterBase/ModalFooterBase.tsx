@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import styles from "./ModalFooterBase.module.scss";
-import Button from "../../../Button/Button";
+import { Button } from "@vibe/button";
 import Flex from "../../../Flex/Flex";
 import { type ModalFooterBaseProps } from "./ModalFooterBase.types";
 import cx from "classnames";

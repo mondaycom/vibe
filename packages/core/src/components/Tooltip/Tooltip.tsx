@@ -14,8 +14,7 @@ import { type MoveBy } from "../../types/MoveBy";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { type SubIcon } from "../../types";
-import Icon from "../Icon/Icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import Flex from "../Flex/Flex";
 import { type TooltipPositions, type TooltipTheme } from "./Tooltip.types";
 

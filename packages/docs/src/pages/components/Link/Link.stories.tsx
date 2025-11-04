@@ -1,0 +1,86 @@
+import React from "react";
+import { type Meta, type StoryObj } from "@storybook/react";
+import { Link, type LinkProps } from "@vibe/core";
+import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
+
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: Link,
+  iconPropNamesArray: ["icon"]
+});
+
+export default {
+  title: "Components/Link",
+  component: Link,
+  argTypes: metaSettings.argTypes,
+  decorators: metaSettings.decorators
+} satisfies Meta<typeof Link>;
+
+type Story = StoryObj<typeof Link>;
+
+export const Overview: Story = {
+  render: (args: LinkProps) => <Link id="overview-link" text="Read more" href="https://www.monday.com" {...args} />,
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
+};
+
+export const States: Story = {
+  render: () => <Link id="states-default" text="Default" href="https://www.monday.com" />
+};
+
+export const RightToLeft: Story = {
+  render: () => (
+    <>
+      <Link id="rtl-arabic" text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
+      <Link id="rtl-hebrew" text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
+    </>
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { IconLink, Info }
+      }
+    }
+  }
+};
+
+export const WithIcons: Story = {
+  render: () => (
+    <>
+      <Link id="icon-start" text="Read more" href="https://www.monday.com" icon={ExternalPage} />
+      <Link id="icon-end" text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
+    </>
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { ExternalPage }
+      }
+    }
+  }
+};
+
+export const ReferenceLink: Story = {
+  render: () => (
+    <div>
+      {`Lorem Ipsum has been the industry's `}
+      <Link id="reference-link" inlineText inheritFontSize text="standard" href="https://www.monday.com" />
+      {` dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
+    </div>
+  )
+};
+
+export const ShorteningTexts: Story = {
+  render: () => (
+    <div>
+      {`Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+      galley of type and scrambled it to make a type specimen book. `}
+      <Link id="shortening-link" text="Read more" href="https://www.monday.com" inheritFontSize inlineText />
+    </div>
+  )
+};

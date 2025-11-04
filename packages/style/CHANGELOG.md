@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.1](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.26.0...monday-ui-style@0.26.1) (2025-10-25)
+
+**Note:** Version bump only for package monday-ui-style
+
+
+
+
+
+# [0.26.0](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.25.2...monday-ui-style@0.26.0) (2025-09-28)
+
+
+### Features
+
+* **style:** add --ui-background-hover-color token ([#3125](https://github.com/mondaycom/vibe/issues/3125)) ([92a84af](https://github.com/mondaycom/vibe/commit/92a84af73c58b77eb4989fdc10615b323d136906))
+
+
+
+
+
 ## [0.25.2](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.25.1...monday-ui-style@0.25.2) (2025-07-24)
 
 

@@ -70,6 +70,14 @@ export interface RadioButtonProps extends VibeComponentProps {
    * If true, disables the label animation.
    */
   noLabelAnimation?: boolean;
+  /**
+   * ARIA label for accessibility when no text is provided.
+   */
+  ariaLabel?: string;
+  /**
+   * ID of element that describe this radio button.
+   */
+  ariaDescribedby?: string;
 }
 
 const RadioButton = forwardRef(
@@ -79,13 +87,7 @@ const RadioButton = forwardRef(
       text = "",
       value = "",
       name = "",
-      /**
-       * Radio button label class name
-       */
       labelClassName,
-      /**
-       * Radio button marker class name
-       */
       radioButtonClassName,
       disabled = false,
       autoFocus,
@@ -97,6 +99,8 @@ const RadioButton = forwardRef(
       retainChildClick = true,
       childrenTabIndex = "0",
       noLabelAnimation = false,
+      ariaLabel,
+      ariaDescribedby,
       id,
       "data-testid": dataTestId
     }: RadioButtonProps,
@@ -143,6 +147,8 @@ const RadioButton = forwardRef(
               autoFocus={autoFocus}
               disabled={disabled}
               {...checkedProps}
+              aria-label={ariaLabel}
+              aria-describedby={ariaDescribedby}
               onChange={onSelect}
               ref={mergedRef}
             />

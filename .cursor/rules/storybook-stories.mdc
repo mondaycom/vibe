@@ -1,26 +1,24 @@
 ---
-description: "Guides the creation and modification of Storybook files specifically within the 'packages/core' package. It covers conventions, best practices, and helps answer questions about existing story implementations within 'packages/core'."
+description: "Guides the creation and modification of Storybook files specifically within the 'packages/docs' package. It covers conventions, best practices, and helps answer questions about existing story implementations within 'packages/core'."
 globs:
-  - "packages/core/**/__stories__/**/*.stories.tsx"
-  - "packages/core/**/__stories__/**/*.mdx"
-  - "packages/core/src/storybook/**"
+  - "packages/docs/**/*.stories.tsx"
+  - "packages/docs/**/*.mdx"
 alwaysApply: false
 ---
 
-# Storybook Stories for @vibe/core library
+# Storybook Stories for @vibe/docs library
 
-This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/core` library.
-
-**Storybook Scope:** Storybook is exclusively used for the `@vibe/core` library within this monorepo. Do not create stories for components or utilities in other packages. Stories should _only_ be written for UI components found in `packages/core/src/components/`. Stories for custom hooks (e.g., `useWizard`) are not to be created.
+This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/docs` library.
 
 ## 1. File Structure and Naming Conventions
 
-- **Location:** Component stories **must** be co-located with their respective component. Each component that requires stories must have a `__stories__` subdirectory.
-  - Example: `packages/core/src/components/ComponentName/__stories__/`
-- **Story File:** Inside the `__stories__` directory, the main story file **must** be named after the component, using PascalCase, followed by the `.stories.tsx` extension.
-  - Example: `packages/core/src/components/ComponentName/__stories__/ComponentName.stories.tsx`
-- **MDX File:** An accompanying MDX documentation file **must** also be created in the `__stories__` directory, named after the component.
-  - Example: `packages/core/src/components/ComponentName/__stories__/ComponentName.mdx`
+- **Location:** Component stories are located in the `@vibe/docs` package, organized by component type in `packages/docs/src/pages/`.
+  - Example for components: `packages/docs/src/pages/components/ComponentName/`
+  - Example for hooks: `packages/docs/src/pages/hooks/hookName/`
+- **Story File:** The main story file **must** be named after the component, using PascalCase, followed by the `.stories.tsx` extension.
+  - Example: `packages/docs/src/pages/components/ComponentName/ComponentName.stories.tsx`
+- **MDX File:** An accompanying MDX documentation file **must** also be created in the same directory, named after the component.
+  - Example: `packages/docs/src/pages/components/ComponentName/ComponentName.mdx`
 
 ## 2. `.stories.tsx` File Structure and Content
 
@@ -41,7 +39,7 @@ The default export defines the component's metadata for Storybook.
 ```typescript
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import ComponentName from "../ComponentName"; // Adjust path as necessary
+import { ComponentName } from "@vibe/core";
 // Import other Vibe components or types if needed for stories
 
 export default {
@@ -109,12 +107,20 @@ When writing stories, always use string literal prop values instead of static pr
 ```typescript
 // ✅ Preferred approach
 export const PrimaryButton: Story = {
-  render: () => <Button kind="primary" size="small">Click me</Button>
+  render: () => (
+    <Button kind="primary" size="small">
+      Click me
+    </Button>
+  )
 };
 
-// ❌ Avoid (legacy pattern) 
+// ❌ Avoid (legacy pattern)
 export const PrimaryButton: Story = {
-  render: () => <Button kind={Button.kinds.PRIMARY} size={Button.sizes.SMALL}>Click me</Button>
+  render: () => (
+    <Button kind={Button.kinds.PRIMARY} size={Button.sizes.SMALL}>
+      Click me
+    </Button>
+  )
 };
 ```
 
@@ -244,7 +250,7 @@ The following is a template for `ComponentName.mdx`:
 ````mdx
 import { Meta } from "@storybook/blocks";
 import * as ComponentStories from "./ComponentName.stories"; // Import the stories
-import ComponentName from "../ComponentName";
+import { ComponentName } from "@vibe/core";
 
 <Meta of={ComponentStories} />
 
@@ -257,7 +263,6 @@ Brief overview of the component, its purpose, and when to use it. This can be mu
 ```tsx
 import { ComponentName } from "@vibe/core"; // Or the correct export path for the component
 ```
-
 
 ## Overview
 
@@ -278,6 +283,36 @@ import { ComponentName } from "@vibe/core"; // Or the correct export path for th
   ]}
 />
 
+## Accessibility
+
+{/_
+Include an Accessibility section when the component has significant accessibility features.
+Use the <UsageGuidelines /> component with accessibility-specific guidelines.
+Focus on ARIA attributes, keyboard navigation, focus management, and screen reader support.
+Write guidelines as JSX elements when code examples are needed.
+_/}
+
+<UsageGuidelines
+  guidelines={[
+    // example for optional accessibility usage guidelines
+    <>
+      Provide an <code>id</code> for the component to enable proper accessibility associations and unique
+      identification.
+    </>,
+    <>
+      Always provide an accessible name using either <code>ariaLabel</code> or <code>aria-labelledby</code> props.
+    </>,
+    <>
+      Use <code>ariaLabel</code> prop when you need to provide a custom accessible name for the component.
+    </>,
+    <>
+      Use <code>aria-labelledby</code> prop when an external element provides the accessible name. Pass the{" "}
+      <code>id</code> of that external element.
+    </>
+    // Add more accessibility guidelines specific to the component
+  ]}
+/>
+
 ## Variants
 
 {/_
@@ -289,11 +324,13 @@ _/}
 ### Specific Use Case 1 Title
 
 {/_ Description of this use case. _/}
+
 <Canvas of={ComponentStories.SpecificUseCaseStoryName} />
 
 ### Specific Use Case 2 Title
 
 {/_ Description of this use case. _/}
+
 <Canvas of={ComponentStories.AnotherUseCaseStoryName} />
 
 ## Do's and Don'ts
@@ -359,17 +396,22 @@ _/}
 - **Overview Story**: **Must** display the `Overview` story from `ComponentName.stories.tsx` using `<Canvas of={ComponentStories.Overview}/>`. Add a brief contextual description.
 - **Props Table**: **Must include an interactive props table using `<PropsTable />`** (globally available). Storybook will generate this based on the component's props when linked via `<Meta of={ComponentStories} />`.
 - **Usage Section**: **Must** include a section titled "Usage" that utilizes the globally available `<UsageGuidelines />` component. This component takes a `guidelines` prop, which is an array of strings, as shown in the template.
+- **Accessibility Section**: **Should** include an "Accessibility" section immediately after the "Usage" section when the component has significant accessibility features (ARIA attributes, focus management, keyboard interaction, etc.). This section uses the same `<UsageGuidelines />` component format and focuses on accessibility best practices for the component.
 - **Variants**: Showcase other important stories using the globally available `<Canvas of={ComponentStories.StoryName} />` component. Each example should have a descriptive sub-heading (`###`) and a brief explanation of the use case.
 - **Do's and Don'ts**: This section **must** use the globally available `<ComponentRules />` component. Refer to the template in section 5.1 for the required structure. This involves providing a `rules` array, where each rule object has `positive` and `negative` aspects. Each aspect requires a `description` (string) and a `component` (JSX element). If a visual example for the `component` is not available, use an empty JSX element (e.g., `<></>`) or a simple textual placeholder (e.g., `<div>Do this</div>`).
+
   - This section is crucial for communicating best practices to **designers and product managers**, not just developers. When writing the descriptions, follow these principles:
+
     - **Focus on the Why, Not the How:** Explain the user experience principle or design best practice. Avoid implementation details.
     - **Speak in Plain Language:** Use clear, non-technical language. Avoid jargon and prop names.
     - **Be Specific and Actionable:** Provide clear, actionable advice that a designer can use when creating mockups or specifications.
 
     **Bad Example (Developer-Focused):**
+
     > "Use the `infoText` prop to add helpful context."
 
     **Good Example (Designer-Focused):**
+
     > "Provide supplementary helper text to guide the user on the expected input and its format."
 
 By following these rules, we can ensure that the Storybook for `@vibe/core` is consistent, maintainable, and provides maximum value to its consumers.

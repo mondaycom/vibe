@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@vibe/core/next": ["../core/src/components/next.ts"],
+      "@vibe/core/interactionsTests": ["../core/src/tests/interactions-utils.ts"],
+      "@vibe/core": ["../core/src/index.ts"],
+      "@vibe/shared": ["../shared/src/index.ts"],
+      "@vibe/*": ["../components/*/src", "../*/src"]
+    }
+  },
+  "include": ["src/**/*", "types/**/*", "scripts/**/*.ts", ".storybook/**/*", "../../components/*/src/**/*"]
+}

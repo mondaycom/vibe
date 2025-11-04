@@ -1,0 +1,9 @@
+{
+  "extends": "@vibe/config/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}

@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import Icon from "../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
@@ -12,8 +12,8 @@ import Text from "../Text/Text";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
-import { type ElementContent, type SubIcon, type VibeComponentProps, withStaticProps } from "../../types";
-
+import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type SubIcon } from "@vibe/icon";
 import useSetFocus from "../../hooks/useSetFocus";
 import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
 import styles from "./Chips.module.scss";
@@ -107,6 +107,10 @@ export interface ChipsProps extends VibeComponentProps {
    */
   ariaLabel?: string;
   /**
+   * If true, indicates that the chip has a popup.
+   */
+  ariaHasPopup?: boolean;
+  /**
    * If true, disables all click behaviors.
    */
   disableClickableBehavior?: boolean;
@@ -146,6 +150,7 @@ const Chips = forwardRef(
       onClick,
       noAnimation = true,
       ariaLabel,
+      ariaHasPopup = false,
       "data-testid": dataTestId,
       disableClickableBehavior = false,
       leftAvatarType = "img",
@@ -226,7 +231,7 @@ const Chips = forwardRef(
         "data-testid": componentDataTestId,
         ariaLabel: overrideAriaLabel,
         ariaHidden: false,
-        ariaHasPopup: false,
+        ariaHasPopup,
         ariaExpanded: false
       },
       mergedRef

@@ -3,7 +3,7 @@ import InformationBox from '../information-box';
 
 const meta: Meta<typeof InformationBox> = {
   component: InformationBox,
-  title: 'Components/InformationBox',
+  title: 'Storybook Blocks/InformationBox',
 };
 export default meta;
 

@@ -4,21 +4,23 @@ const MapStateSelectedColor = {
   positive: "--positive-color-selected",
   negative: "--negative-color-selected",
   primary: "--primary-selected-color",
-  warning: "--warning-color-selected"
+  warning: "--warning-color-selected",
+  neutral: "--ui-background-color"
 };
 
 const MapStateSelectedHoverColor = {
   positive: "--positive-color-selected-hover",
   negative: "--negative-color-selected-hover",
   primary: "--primary-selected-hover-color",
-  warning: "--warning-color-selected-hover"
+  warning: "--warning-color-selected-hover",
+  neutral: "--ui-background-hover-color"
 };
 
 type ContentColor = (typeof contentColors)[number];
 type StateSelectedColorKeys = keyof typeof MapStateSelectedColor;
 type StateSelectedHoverColorKeys = keyof typeof MapStateSelectedHoverColor;
 
-export type ElementAllowedColor = ContentColor | "positive" | "negative" | "primary" | "warning";
+export type ElementAllowedColor = ContentColor | "positive" | "negative" | "primary" | "warning" | "neutral";
 
 export function getElementColor(
   colorValue: ContentColor | StateSelectedColorKeys | StateSelectedHoverColorKeys,

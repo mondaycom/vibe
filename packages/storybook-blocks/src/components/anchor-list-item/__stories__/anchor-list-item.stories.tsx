@@ -3,7 +3,7 @@ import AnchorListItem from '../anchor-list-item';
 
 const meta: Meta<typeof AnchorListItem> = {
   component: AnchorListItem,
-  title: 'Components/AnchorListItem',
+  title: 'Storybook Blocks/AnchorListItem',
 };
 export default meta;
 
