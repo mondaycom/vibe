@@ -11,7 +11,6 @@ const DropdownBoxMode = () => {
   const { multi, searchable, disabled, readOnly, error } = useDropdownContext();
 
   if (!searchable) {
-    console.error("DropdownBoxMode: boxMode requires searchable to be true");
     return null;
   }
 
