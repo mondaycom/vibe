@@ -46,10 +46,7 @@ Array.from(allComponents)
     if (componentName.startsWith("packages/components/")) {
       const packageName = componentName.split("/")[2];
       displayName = `@vibe/${packageName}`;
-    } else if (
-      componentName.includes("/next/") ||
-      (componentName.includes("/Modal/") && !componentName.includes("/LegacyModal/"))
-    ) {
+    } else if (componentName.includes("/next/")) {
       const baseName = path.basename(componentName, path.extname(componentName));
       displayName = `${baseName} (Next)`;
     } else {
