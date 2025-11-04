@@ -107,6 +107,7 @@
     "chalk": "^4.1.2",
     "chromatic": "^11.5.4",
     "csstype": "^3.1.0",
+    "date-fns": "^2.30.0",
     "ejs": "^3.1.9",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
