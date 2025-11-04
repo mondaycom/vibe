@@ -193,7 +193,10 @@ const Tipseen = forwardRef(
     }, [color, closeButtonTheme]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
-    const wrapperProps = TipseenWrapper === "div" ? { ref: mergedRef, id, "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id) } : {};
+    const wrapperProps =
+      TipseenWrapper === "div"
+        ? { ref: mergedRef, id, "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id) }
+        : {};
 
     const tooltipContent = (
       <div>
