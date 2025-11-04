@@ -39,15 +39,6 @@
     box-shadow: none;
     background: transparent;
     cursor: default;
-
-    &:hover {
-      --border-color: var(--ui-border-color);
-    }
-
-    &.active,
-    &:focus {
-      --border-color: var(--ui-border-color);
-    }
   }
 }
 .helperText {
