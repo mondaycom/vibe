@@ -397,12 +397,7 @@ export const DropdownWithGroups: Story = {
         <Flex direction="column" gap="medium">
           <Text>Group by category</Text>
           <div style={{ width: "300px" }}>
-            <Dropdown
-              placeholder="Group by category"
-              options={options}
-              maxMenuHeight={170}
-              clearAriaLabel="Clear"
-            />
+            <Dropdown placeholder="Group by category" options={options} maxMenuHeight={170} clearAriaLabel="Clear" />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
@@ -665,5 +660,3 @@ export const DropdownWithVirtualization: Story = {
   },
   name: "Virtualized Dropdown"
 };
-
-

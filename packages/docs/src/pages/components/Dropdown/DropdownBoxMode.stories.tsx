@@ -263,52 +263,30 @@ export const PeoplePicker: Story = {
     const peopleOptions: any = useMemo(
       () => [
         {
-          value: "Matt",
-          label: "Matt Gaman",
-          startElement: {
-            type: "avatar",
-            value: person1
-          }
-        },
-        {
-          value: "Jennifer",
-          label: "Jennifer Lawrence",
-          startElement: {
-            type: "avatar",
-            value: person2
-          }
-        },
-        {
-          value: "Emma",
-          label: "Emma Stone",
-          startElement: {
-            type: "avatar",
-            value: person3
-          }
-        },
-        {
-          value: "Johnny",
-          label: "Johnny Depp",
-          startElement: {
-            type: "avatar",
-            value: person4
-          }
-        }
-      ],
-      []
-    );
-
-    const suggestedPeople: any = useMemo(
-      () => [
-        {
           label: "Suggested people",
           options: [
+            {
+              value: "Matt",
+              label: "Matt Gaman",
+              startElement: {
+                type: "avatar",
+                value: person1
+              }
+            },
             {
               value: "Jennifer",
               label: "Jennifer Lawrence",
               startElement: {
                 type: "avatar",
                 value: person2
+              }
+            },
+            {
+              value: "Emma",
+              label: "Emma Stone",
+              startElement: {
+                type: "avatar",
+                value: person3
               }
             },
             {

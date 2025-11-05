@@ -58,14 +58,6 @@ The box mode supports multi select option that display as chips. The selected it
 
 <Canvas of={DropdownBoxModeStories.WithIcons} />
 
-## Use cases and examples
-
-### People picker
-
-Can be used when there is a need for selecting people to assign a column
-
-<Canvas of={DropdownBoxModeStories.PeoplePicker} />
-
 ## Do's and don'ts
 
 <ComponentRules
@@ -92,6 +84,8 @@ Can be used when there is a need for selecting people to assign a column
                 type="text"
                 placeholder="Search menu"
                 style={{ width: "100%", padding: "8px", border: "1px solid #ddd", borderRadius: "4px" }}
+                autoFocus={false}
+                tabIndex={-1}
               />
               <div style={{ marginTop: "8px" }}>Category 1</div>
               <div>Option 1</div>
@@ -105,7 +99,14 @@ Can be used when there is a need for selecting people to assign a column
   ]}
 />
 
+## Use cases and examples
+
+### People picker
+
+Can be used when there is a need for selecting people to assign a column
+
+<Canvas of={DropdownBoxModeStories.PeoplePicker} />
+
 ## Related components
 
 <RelatedComponents componentsNames={["DropdownBasicSelect", "Combobox", "Menu"]} />
-

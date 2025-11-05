@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import cx from "classnames";
 import { BaseInput } from "../../../../BaseInput";
 import styles from "./Trigger.module.scss";
@@ -26,8 +26,8 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     getInputProps
   } = useDropdownContext<BaseListItemData>();
 
+  const inputRef = useRef<HTMLInputElement>(null);
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
-
   const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction: isOpen }) : {};
 
   return (
@@ -40,6 +40,7 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
             placeholder: hasSelection ? "" : placeholder,
             ...multipleSelectionDropdownProps
           })}
+          ref={inputRef}
           inputRole="combobox"
           value={inputValue || ""}
           autoFocus={autoFocus}
