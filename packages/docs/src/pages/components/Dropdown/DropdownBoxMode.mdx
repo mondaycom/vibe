@@ -1,5 +1,7 @@
 import { Meta } from "@storybook/blocks";
 import * as DropdownBoxModeStories from "./DropdownBoxMode.stories";
+import boxModeDo from "./assets/boxModeDo.png";
+import boxModeDont from "./assets/boxModeDont.png";
 
 <Meta of={DropdownBoxModeStories} />
 
@@ -64,36 +66,17 @@ The box mode supports multi select option that display as chips. The selected it
   rules={[
     {
       positive: {
-        component: (
-          <div style={{ width: "200px", padding: "16px", background: "#f5f5f5" }}>
-            <div style={{ background: "white", padding: "12px", borderRadius: "8px" }}>
-              <div style={{ marginBottom: "8px", fontWeight: "bold" }}>Tooltip</div>
-              <div style={{ marginBottom: "4px" }}>Chip</div>
-              <div>Button</div>
-              <div style={{ marginTop: "8px", fontSize: "12px", color: "#666" }}>Helper text</div>
-            </div>
-          </div>
-        ),
-        description: "Use when there's need for a dropdown that displays the list in a persistent, always-open panel."
+        component: <img src={boxModeDo} alt="do1" style={{ width: "300px" }} />,
+        description: "Use when there’s a need for a select that displays the list in a persistent, always-open panel."
       },
       negative: {
-        component: (
-          <div style={{ width: "300px", padding: "16px", background: "#f5f5f5" }}>
-            <div style={{ background: "white", padding: "12px", borderRadius: "8px" }}>
-              <input
-                type="text"
-                placeholder="Search menu"
-                style={{ width: "100%", padding: "8px", border: "1px solid #ddd", borderRadius: "4px" }}
-                autoFocus={false}
-                tabIndex={-1}
-              />
-              <div style={{ marginTop: "8px" }}>Category 1</div>
-              <div>Option 1</div>
-              <div>Option 2</div>
-            </div>
-          </div>
-        ),
-        description: "Use when there's need for a searchable menu, for navigation. Use a menu instead"
+        component: <img src={boxModeDont} alt="dont1" style={{ width: "300px" }} />,
+        description: (
+          <>
+            Use when there's need for a searchable menu, for navigation. Use a{" "}
+            <StorybookLink page="Components/Menu">menu</StorybookLink> instead
+          </>
+        )
       }
     }
   ]}

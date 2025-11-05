@@ -1,5 +1,11 @@
 import { Meta } from "@storybook/blocks";
 import * as DropdownBasicDropdownStories from "./DropdownBasicDropdown.stories";
+import basicSelectDo1 from "./assets/basicSelectDo1.png";
+import basicSelectDont1 from "./assets/basicSelectDont1.png";
+import basicSelectDo2 from "./assets/basicSelectDo2.png";
+import basicSelectDont2 from "./assets/basicSelectDont2.png";
+import dont1 from "./assets/dont1.png";
+import { StorybookLink } from "vibe-storybook-components";
 
 <Meta of={DropdownBasicDropdownStories} />
 
@@ -85,6 +91,39 @@ The Dropdown component supports multi select option that display as chips. The s
 ### Dropdown with icon or avatar
 
 <Canvas of={DropdownBasicDropdownStories.DropdownWithIconOrAvatar} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <img src={basicSelectDo1} alt="do1" style={{ width: "300px" }} />,
+        description: "Use the searchable option when having a long list of options."
+      },
+      negative: {
+        component: <img src={basicSelectDont1} alt="dont1" style={{ width: "300px" }} />,
+        description: <>Use a searchable select when the list is short. Use the select as is.</>
+      }
+    },
+    {
+      positive: {
+        component: <img src={basicSelectDo2} alt="do2" style={{ width: "300px" }} />,
+        description:
+          "Use the select as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
+      },
+      negative: {
+        component: <img src={basicSelectDont2} alt="dont2" style={{ width: "300px" }} />,
+        description: (
+          <>
+            Keep the select component in open mode as permanent state. If this is a design requirement consider use the
+            box mode instead <StorybookLink page="Components/Dropdown">box mode</StorybookLink> instead.
+          </>
+        )
+      }
+    }
+  ]}
+/>
 
 ## Use cases and examples
 

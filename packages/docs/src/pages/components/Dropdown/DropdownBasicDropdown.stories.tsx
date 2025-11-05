@@ -82,7 +82,7 @@ export const Sizes: Story = {
       []
     );
     return (
-      <Flex direction="column" gap="medium">
+      <Flex gap="medium">
         <div style={{ width: "300px" }}>
           <Dropdown
             id="sizes-large"
