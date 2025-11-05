@@ -1,17 +1,15 @@
-import { Meta } from "@storybook/blocks";
-import { Link, Tip } from "vibe-storybook-components";
-import { Dropdown } from "@vibe/core/next";
-import * as DropdownStories from "./Dropdown.stories";
+import { Canvas, Meta } from "@storybook/blocks";
+import { Link, Tip, StorybookLink } from "vibe-storybook-components";
+import { Overview as BasicDropdownPreview } from "./DropdownBasicDropdown.stories";
+import { Overview as BoxModePreview } from "./DropdownBoxMode.stories";
 import do1 from "./assets/do1.png";
 import dont1 from "./assets/dont1.png";
 
-<Meta of={DropdownStories} />
+<Meta title="Components/Dropdown [New]" />
 
 # Dropdown
 
-Dropdown present a list of options from which a user can select one or several.
-
-<br />
+Select component present a list of options from which a user can select one or several.
 
 <Tip title="Migration Guide Available" emoji="🚀">
   Migrating from the old Dropdown? Check out our comprehensive{" "}
@@ -19,145 +17,57 @@ Dropdown present a list of options from which a user can select one or several.
   step-by-step instructions, breaking changes, and new features.
 </Tip>
 
-<Canvas of={DropdownStories.Overview} />
-
 ### Import
+
+All the Dropdown-related components can be imported from `@vibe/core/next`.
 
 ```js
 import { Dropdown } from "@vibe/core/next";
 ```
 
-## Props
+### Basic dropdown
 
-<PropsTable />
+The <StorybookLink page="Components/Dropdown [New]/Basic dropdown">Basic dropdown</StorybookLink> present a popup list of options from which a user can select one or several.
+
+<Canvas of={BasicDropdownPreview} sourceState="none" />
+
+### Dropdown box mode
+
+The <StorybookLink page="Components/Dropdown [New]/Dropdown box mode">Dropdown box mode</StorybookLink> is an always open Dropdown, with the same properties as the basic Dropdown.
+
+<Canvas of={BoxModePreview} sourceState="none" />
 
 ## Usage
 
 <UsageGuidelines
   guidelines={[
-    "Dropdown menus are typically used when you have 5-8 items to choose from. They're used for navigation or command menus, where an action is initiated based on the selection.",
-    "Use a consistent size of form components on the same page. For example, if you are using a medium size dropdown also use the same size text inputs, buttons, and so on.",
-    "Avoid having multiple lines of text in a dropdown. If the text is too long for one line, add an ellipsis (…).",
-    "When the menu is open, each option in the menu should be the same height as the field.",
-    "When organizing dropdown menu items, sort the list in a logical order by putting the most selected option at the top."
+    "When the user needs to choose one or multiple values from a fixed set of options.",
+    "When the selected value needs to be visible after selection.",
+    "When the selection is part of a form, filter, or preference setting."
   ]}
 />
 
-## Accessibility
-
-<UsageGuidelines
-  guidelines={[
-    <>
-      Using an <code>id</code> is highly recommended for all instances to ensure proper label association.
-    </>,
-    <>
-      Always provide a <code>label</code> prop to ensure the dropdown's purpose is clear to all users.
-    </>,
-    <>
-      Use <code>ariaLabel</code> prop when you need to provide a custom accessible name for the dropdown.
-    </>,
-    <>
-      Use <code>clearAriaLabel</code> prop when dropdown is clearable.
-    </>,
-    <>
-      Use <code>inputAriaLabel</code> prop when you need to provide a specific accessible name for the input field in
-      searchable dropdowns.
-    </>,
-    <>
-      Use <code>menuAriaLabel</code> prop when you need to provide a custom accessible name for the dropdown menu.
-    </>,
-    <>
-      Use <code>autoFocus</code> prop when the dropdown should receive initial focus for keyboard navigation.
-    </>
-  ]}
-/>
-
-## Variants
-
-### Sizes
-
-There are three sizes available: Small, Medium, and Large
-
-<Canvas of={DropdownStories.Sizes} />
-
-### States
-
-<Canvas of={DropdownStories.States} />
-
-### Multi-select
-
-The Dropdown component supports multi select option that display as chips. The selected items can be shown in either a single line (with additional option for hidden list), or multiple line. This mode also supports all standard dropdown states.
-
-<Canvas of={DropdownStories.MultiSelect} />
-
-### Dropdown with icon or avatar
-
-<Canvas of={DropdownStories.DropdownWithIconOrAvatar} />
-
-## Do’s and Don’ts
+## Do's and Don'ts
 
 <ComponentRules
   rules={[
     {
       positive: {
         component: <img src={do1} alt="do1" style={{ width: "300px" }} />,
-        description:
-          "Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
+        description: "Use the select when theres a need to choose one or multiple options from a predefined list."
       },
       negative: {
         component: <img src={dont1} alt="dont1" style={{ width: "200px" }} />,
         description: (
           <>
-            Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider
-            use <StorybookLink page="Components/Combobox">Combo box</StorybookLink> instead.
+            Use select when the purpose of the list is to provide actions or navigation options. Use a{" "}
+            <StorybookLink page="Components/Menu">menu</StorybookLink> instead.
           </>
         )
       }
     }
   ]}
 />
-
-## Use cases and examples
-
-### Searchable dropdown
-
-The dropdown can also function as a search for a specific item within the list.
-
-<Canvas of={DropdownStories.Searchable} />
-
-### Dropdown with groups
-
-Dropdown menu can be organized into groups, either with titled sections or dividers. Group titles can be configured to remain sticky or non-sticky.
-
-<Canvas of={DropdownStories.DropdownWithGroups} />
-
-### Dropdown item with elements
-
-The dropdown item can contain start element or end element. This are the options:
-
-<Canvas of={DropdownStories.DropdownItemWithElements} />
-
-### Hide selected items
-
-You can choose to hide selected items within the dropdown list, so users can see only the available options.
-
-<Canvas of={DropdownStories.DropdownHideSelectedItems} />
-
-### Dropdown with tooltips
-
-<Canvas of={DropdownStories.DropdownWithTooltips} />
-
-### Dropdown with virtualization
-
-For performance optimization with large datasets, the Dropdown supports virtualization through the menuRenderer prop. You can integrate any virtualization library of your choice - this example demonstrates implementation using <a href="https://github.com/bvaughn/react-window" target="_blank">react-window</a>.
-
-<Canvas of={DropdownStories.DropdownWithVirtualization} />
-
-### Dropdown in box mode
-
-The Dropdown component supports box mode, which displays the dropdown in a box-like container. This mode is useful when you want to display the dropdown in a fixed-width container, such as a modal or a card.
-
-<Canvas of={DropdownStories.BoxMode} />
 
 ## Related components
 

@@ -6,7 +6,7 @@ import person3 from "../Avatar/assets/person3.png";
 import person2 from "../Avatar/assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
 import { Dropdown, type BaseDropdownProps, type DropdownOption } from "@vibe/core/next";
-import { Flex, Text, DialogContentContainer, Button } from "@vibe/core";
+import { Flex, Text } from "@vibe/core";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
@@ -29,7 +29,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 const meta: Meta<typeof Dropdown> = {
-  title: "Components/Dropdown [New]",
+  title: "Components/Dropdown [New]/Basic dropdown",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -82,13 +82,14 @@ export const Sizes: Story = {
       []
     );
     return (
-      <>
+      <Flex direction="column" gap="medium">
         <div style={{ width: "300px" }}>
           <Dropdown
             id="sizes-large"
             ariaLabel="Large dropdown"
             options={options}
             placeholder="Placeholder text here"
+            label="Label"
             size="large"
             clearAriaLabel="Clear"
           />
@@ -99,6 +100,7 @@ export const Sizes: Story = {
             ariaLabel="Medium dropdown"
             options={options}
             placeholder="Placeholder text here"
+            label="Label"
             size="medium"
             clearAriaLabel="Clear"
           />
@@ -109,11 +111,12 @@ export const Sizes: Story = {
             ariaLabel="Small dropdown"
             options={options}
             placeholder="Placeholder text here"
+            label="Label"
             size="small"
             clearAriaLabel="Clear"
           />
         </div>
-      </>
+      </Flex>
     );
   }
 };
@@ -174,19 +177,19 @@ export const MultiSelect: Story = {
       () => [
         {
           value: "1",
-          label: "Option 1"
+          label: "Chip one"
         },
         {
           value: "2",
-          label: "Option 2"
+          label: "Chip two"
         },
         {
           value: "3",
-          label: "Option 3"
+          label: "Chip three"
         },
         {
           value: "4",
-          label: "Option 4"
+          label: "Chip four"
         }
       ],
       []
@@ -312,18 +315,18 @@ export const DropdownWithIconOrAvatar: Story = {
 export const Searchable: Story = {
   render: () => {
     const options = useMemo(
-      () =>
-        Array.from({ length: 10 }, (_, i) => ({
-          value: `Option ${i + 1}`,
-          label: `Option ${i + 1}`
-        })),
+      () => [
+        { value: "Item 1", label: "Item 1" },
+        { value: "Item 2", label: "Item 2" },
+        { value: "Item 3", label: "Item 3" }
+      ],
       []
     );
 
     return (
       <div style={{ width: "300px" }}>
         <Dropdown
-          placeholder={"Searchable for an item"}
+          placeholder={"Search an item"}
           options={options}
           searchable
           maxMenuHeight={170}
@@ -337,25 +340,43 @@ export const Searchable: Story = {
 export const DropdownWithGroups: Story = {
   render: () => {
     const options = useMemo(
-      () =>
-        Array.from({ length: 2 }, (_, groupIndex) => ({
-          label: `Group ${groupIndex + 1}`,
-          options: Array.from({ length: 3 }, (_, optionIndex) => ({
-            value: `${groupIndex * 2 + optionIndex + 1}`,
-            label: `Option ${groupIndex * 2 + optionIndex + 1}`
-          }))
-        })),
+      () => [
+        {
+          label: "Category 1",
+          options: [
+            { value: "1", label: "Item 1" },
+            { value: "2", label: "Item 2" },
+            { value: "3", label: "Item 3" }
+          ]
+        },
+        {
+          label: "Category 2",
+          options: [
+            { value: "4", label: "Item 1" },
+            { value: "5", label: "Item 2" },
+            { value: "6", label: "Item 3" }
+          ]
+        }
+      ],
       []
     );
 
     const optionsWithoutGroupLabel = useMemo(
-      () =>
-        Array.from({ length: 2 }, (_, groupIndex) => ({
-          options: Array.from({ length: 2 }, (_, optionIndex) => ({
-            value: `${groupIndex * 2 + optionIndex + 1}`,
-            label: `Option ${groupIndex * 2 + optionIndex + 1}`
-          }))
-        })),
+      () => [
+        {
+          options: [
+            { value: "1", label: "Item 1" },
+            { value: "2", label: "Item 2" },
+            { value: "3", label: "Item 3" }
+          ]
+        },
+        {
+          options: [
+            { value: "4", label: "Item 1" },
+            { value: "5", label: "Item 2" }
+          ]
+        }
+      ],
       []
     );
 
@@ -374,10 +395,10 @@ export const DropdownWithGroups: Story = {
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
-          <Text>Group by category title</Text>
+          <Text>Group by category</Text>
           <div style={{ width: "300px" }}>
             <Dropdown
-              placeholder="Group by category title"
+              placeholder="Group by category"
               options={options}
               maxMenuHeight={170}
               clearAriaLabel="Clear"
@@ -407,7 +428,7 @@ export const DropdownItemWithElements: Story = {
       () => [
         {
           value: "icon",
-          label: "Label with icon",
+          label: "Item with icon",
           startElement: {
             type: "icon",
             value: Email
@@ -415,7 +436,7 @@ export const DropdownItemWithElements: Story = {
         },
         {
           value: "avatar",
-          label: "Label with avatar",
+          label: "Item with avatar",
           startElement: {
             type: "avatar",
             value: person1
@@ -423,7 +444,7 @@ export const DropdownItemWithElements: Story = {
         },
         {
           value: "indent",
-          label: "Label with indent",
+          label: "Item with insert",
           startElement: {
             type: "indent"
           }
@@ -436,7 +457,7 @@ export const DropdownItemWithElements: Story = {
       () => [
         {
           value: "endIcon",
-          label: "Label with end icon",
+          label: "Item with icon",
           endElement: {
             type: "icon",
             value: Email
@@ -444,10 +465,10 @@ export const DropdownItemWithElements: Story = {
         },
         {
           value: "hintText",
-          label: "Label with hint text",
+          label: "Item with hint text",
           endElement: {
             type: "suffix",
-            value: "Hint text"
+            value: "⌘C"
           }
         }
       ],
@@ -458,18 +479,18 @@ export const DropdownItemWithElements: Story = {
       <Flex gap="large">
         <div style={{ width: "300px" }}>
           <Dropdown
-            placeholder={"Placeholder text here"}
+            placeholder={"Start element"}
             options={startOptions}
-            label="Start Elements"
+            label="Start element"
             required
             clearAriaLabel="Clear"
           />
         </div>
         <div style={{ width: "300px" }}>
           <Dropdown
-            placeholder={"Placeholder text here"}
+            placeholder={"End element"}
             options={endOptions}
-            label="End Elements"
+            label="End element"
             required
             clearAriaLabel="Clear"
           />
@@ -482,11 +503,14 @@ export const DropdownItemWithElements: Story = {
 export const DropdownHideSelectedItems: Story = {
   render: () => {
     const options = useMemo(
-      () =>
-        Array.from({ length: 10 }, (_, i) => ({
-          value: `Option ${i + 1}`,
-          label: `Option ${i + 1}`
-        })),
+      () => [
+        { value: "Option 1", label: "Label" },
+        { value: "Option 2", label: "Label" },
+        { value: "Option 3", label: "Label" },
+        { value: "Option 4", label: "Label" },
+        { value: "Option 5", label: "Label" },
+        { value: "Option 6", label: "Label" }
+      ],
       []
     );
 
@@ -510,14 +534,26 @@ export const DropdownHideSelectedItems: Story = {
 export const DropdownWithTooltips: Story = {
   render: () => {
     const optionsWithTooltips = useMemo(
-      () =>
-        Array.from({ length: 2 }, (_, i) => ({
-          value: `Option ${i + 1}`,
-          label: `Option ${i + 1}`,
+      () => [
+        {
+          value: "Option 1",
+          label: "Tooltip",
           tooltipProps: {
-            content: `Description for option ${i + 1}`
+            content: "This is a title message for further information will appear here."
           }
-        })),
+        },
+        {
+          value: "Option 2",
+          label: "Chip",
+          tooltipProps: {
+            content: "This is a title message for further information will appear here."
+          }
+        },
+        {
+          value: "Option 3",
+          label: "Button"
+        }
+      ],
       []
     );
 
@@ -630,64 +666,4 @@ export const DropdownWithVirtualization: Story = {
   name: "Virtualized Dropdown"
 };
 
-export const BoxMode: Story = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        { value: 1, label: "Option 1" },
-        { value: 2, label: "Option 2" },
-        { value: 3, label: "Option 3" },
-        { value: 4, label: "Option 4" },
-        { value: 5, label: "Option 5" }
-      ],
-      []
-    );
 
-    return (
-      <Flex gap="large" align="start" wrap>
-        <Flex direction="column" gap="medium">
-          <Text type="text1" weight="bold">
-            Single Select
-          </Text>
-          <div style={{ width: "300px" }}>
-            <DialogContentContainer>
-              <Dropdown
-                id="box-mode-single-combobox"
-                ariaLabel="Box mode single select"
-                options={options}
-                label="Search and select"
-                placeholder="Search..."
-                searchable
-                boxMode
-                clearAriaLabel="Clear"
-              />
-              <Button style={{ width: "100%" }} kind="secondary" size="small">
-                Edit
-              </Button>
-            </DialogContentContainer>
-          </div>
-        </Flex>
-
-        <Flex direction="column" gap="medium">
-          <Text type="text1" weight="bold">
-            Multi Select
-          </Text>
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              id="box-mode-multi-combobox"
-              ariaLabel="Box mode multi select"
-              options={options}
-              label="Search and select multiple"
-              placeholder="Search..."
-              searchable
-              multi
-              boxMode
-              clearAriaLabel="Clear"
-            />
-          </div>
-        </Flex>
-      </Flex>
-    );
-  },
-  name: "Box Mode"
-};
