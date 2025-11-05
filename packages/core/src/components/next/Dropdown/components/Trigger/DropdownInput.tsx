@@ -38,6 +38,7 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
             "aria-labelledby": label ? getLabelProps().id : undefined,
             "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
             placeholder: hasSelection ? "" : placeholder,
+            ref: inputRef,
             ...multipleSelectionDropdownProps
           })}
           ref={inputRef}
