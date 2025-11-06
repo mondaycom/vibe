@@ -37,34 +37,42 @@ const meta: Meta<typeof Dropdown> = {
 
 export default meta;
 
-export const Overview: Story = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        { value: 1, label: "Label" },
-        { value: 2, label: "Label" },
-        { value: 3, label: "Label" },
-        { value: 4, label: "Label" },
-        { value: 5, label: "Label" }
-      ],
-      []
-    );
+const dropdownTemplate = props => {
+  const options = useMemo(
+    () => [
+      { value: 1, label: "Label" },
+      { value: 2, label: "Label" },
+      { value: 3, label: "Label" },
+      { value: 4, label: "Label" },
+      { value: 5, label: "Label" }
+    ],
+    []
+  );
 
-    return (
-      <div style={{ width: "300px" }}>
-        <Dropdown
-          id="box-mode-overview"
-          ariaLabel="Box mode overview"
-          options={options}
-          label="Label"
-          placeholder="Placeholder text here"
-          helperText="Helper text"
-          searchable
-          boxMode
-          clearAriaLabel="Clear"
-        />
-      </div>
-    );
+  return (
+    <div style={{ width: "300px" }}>
+      <Dropdown
+        id="box-mode-overview"
+        ariaLabel="Box mode overview"
+        options={options}
+        label="Label"
+        placeholder="Placeholder text here"
+        helperText="Helper text"
+        searchable
+        boxMode
+        clearAriaLabel="Clear"
+      />
+    </div>
+  );
+};
+
+export const Overview: Story = {
+  render: dropdownTemplate.bind({}),
+  args: {
+    id: "overview-dropdown",
+    ariaLabel: "Overview dropdown",
+    placeholder: "Placeholder text here",
+    clearAriaLabel: "Clear"
   },
   parameters: {
     docs: {
