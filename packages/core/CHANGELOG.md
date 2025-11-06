@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.74.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.73.0...@vibe/core@3.74.0) (2025-11-06)
+
+
+### Bug Fixes
+
+* **Tipseen:** resolve invalid HTML structure and ref/id prop issues ([#2799](https://github.com/mondaycom/vibe/issues/2799)) ([5f942d1](https://github.com/mondaycom/vibe/commit/5f942d17224e004251ddb016ab1dbf47ce3716d2))
+
+
+### Features
+
+* **Dialog:** add enableNestedDialogLayer prop ([#3176](https://github.com/mondaycom/vibe/issues/3176)) ([a14a063](https://github.com/mondaycom/vibe/commit/a14a063de3dad13dc2a315fabd4b5b880a437658))
+
+
+
+
+
 # [3.73.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.72.0...@vibe/core@3.73.0) (2025-11-03)
 
 

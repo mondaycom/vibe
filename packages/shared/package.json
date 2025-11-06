@@ -1,6 +1,6 @@
 {
   "name": "@vibe/shared",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Shared utilities for Vibe packages",
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
-    "@vibe/config": "3.0.3",
+    "@vibe/config": "3.0.4",
     "@vitejs/plugin-react": "^4.3.1",
     "prettier": "^2.5.1",
     "react": "^16.14.0",
