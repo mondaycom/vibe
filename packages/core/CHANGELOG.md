@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.75.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.74.0...@vibe/core@3.75.0) (2025-11-10)
+
+
+### Features
+
+* Enhance metadata generation to support @vibe/* imports ([#3178](https://github.com/mondaycom/vibe/issues/3178)) ([70c5822](https://github.com/mondaycom/vibe/commit/70c5822573d385d151206fefbe49bc96d78a8698))
+
+
+
+
+
 # [3.74.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.73.0...@vibe/core@3.74.0) (2025-11-06)
 
 
