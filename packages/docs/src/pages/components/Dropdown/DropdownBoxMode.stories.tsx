@@ -136,9 +136,7 @@ export const InsideADialog: Story = {
             id="box-mode-dialog"
             ariaLabel="Box mode inside dialog"
             options={options}
-            label="Label"
             placeholder="Placeholder text"
-            helperText="Helper text"
             searchable
             boxMode
             clearAriaLabel="Clear"
@@ -176,9 +174,7 @@ export const MultiSelect: Story = {
               id="box-mode-multi-single-line"
               ariaLabel="Box mode multi select single line"
               options={options}
-              label="Label"
               placeholder="Placeholder text"
-              helperText="Helper text"
               searchable
               multi
               boxMode
@@ -196,9 +192,7 @@ export const MultiSelect: Story = {
               id="box-mode-multi-multiline"
               ariaLabel="Box mode multi select multiple lines"
               options={options}
-              label="Label"
               placeholder="Placeholder text"
-              helperText="Helper text"
               searchable
               multi
               multiline
