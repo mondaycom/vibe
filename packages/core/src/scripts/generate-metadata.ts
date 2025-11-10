@@ -167,8 +167,17 @@ function resolveExportsRecursively(
     const modSpec = decl.getModuleSpecifierValue();
     if (!modSpec) continue;
 
-    const baseDir = path.dirname(sourceFile.getFilePath());
-    const matchedPaths = findMatchingPaths(baseDir, modSpec);
+    // Handle @vibe/* imports (e.g., export * from "@vibe/button")
+    let matchedPaths: string[] = [];
+    if (modSpec.startsWith("@vibe/")) {
+      const pkgName = modSpec.replace("@vibe/", "");
+      const pkgPath = path.resolve(__dirname, `../../../components/${pkgName}/src/index.ts`);
+      if (fs.existsSync(pkgPath)) matchedPaths = [pkgPath];
+    } else {
+      const baseDir = path.dirname(sourceFile.getFilePath());
+      matchedPaths = findMatchingPaths(baseDir, modSpec);
+    }
+
     const exportedSyms = getExportedSymbolsFromDecl(decl);
 
     for (const matched of matchedPaths) {
@@ -204,6 +213,12 @@ function aggregatorMain(): AggregatorRecord[] {
 
   const packageDir = path.resolve(__dirname, "../components");
   project.addSourceFilesAtPaths([`${packageDir}/**/*.ts`, `${packageDir}/**/*.tsx`]);
+
+  // Also load source files from separate component packages (e.g., @vibe/button)
+  const componentsDir = path.resolve(__dirname, "../../../components");
+  if (fs.existsSync(componentsDir)) {
+    project.addSourceFilesAtPaths([`${componentsDir}/*/src/**/*.{ts,tsx}`]);
+  }
 
   const coreIndex = path.join(packageDir, "index.ts");
   const nextIndex = path.join(packageDir, "next.ts");
@@ -401,6 +416,10 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
         }
       }
 
+      // Determine correct import path: if file is from packages/components/{pkg}/, use @vibe/{pkg}
+      const pkgMatch = agg.filePath.match(/\/components\/([^/]+)\/src\//);
+      const importPath = pkgMatch ? `@vibe/${pkgMatch[1]}` : `@vibe/core${agg.aggregator === "next" ? "/next" : ""}`;
+
       return {
         filePath: toRelativePath(agg.filePath),
         aggregator: agg.aggregator,
@@ -408,7 +427,7 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
         displayName: component.displayName,
         description: component.description,
         props: filteredProps,
-        import: `import { ${component.displayName} } from "@vibe/core${agg.aggregator === "next" ? "/next" : ""}"`,
+        import: `import { ${component.displayName} } from "${importPath}"`,
         parentComponent: getParentComponent(toRelativePath(agg.filePath)),
         subComponents: findSubComponents(toRelativePath(agg.filePath), allFilePaths.map(toRelativePath))
       };
@@ -472,6 +491,7 @@ async function main() {
     console.log(`Final output contains ${finalJson.length} component entries`);
 
     const outPath = path.resolve(__dirname, "../../dist/metadata.json");
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");
     console.log(`Done! Wrote metadata to: ${outPath}`);
   } catch (error) {
