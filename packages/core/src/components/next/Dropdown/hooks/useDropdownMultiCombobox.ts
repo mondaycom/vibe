@@ -94,6 +94,7 @@ function useDropdownMultiCombobox<T extends BaseListItemData<Record<string, unkn
             highlightedIndex: (actionAndChanges.changes.selectedItem?.index as number) ?? 0
           };
         case useCombobox.stateChangeTypes.InputBlur:
+        case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
           return { ...actionAndChanges.changes, inputValue: null };
         default:
           return actionAndChanges.changes;
