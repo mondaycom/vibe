@@ -1,6 +1,6 @@
 {
   "name": "@vibe/loader",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Vibe sub-package for loader components",
   "repository": {
     "type": "git",
@@ -33,12 +33,12 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.4",
+    "@vibe/shared": "3.0.5",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.3",
+    "@vibe/config": "3.0.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

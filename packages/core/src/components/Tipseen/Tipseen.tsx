@@ -193,6 +193,11 @@ const Tipseen = forwardRef(
     }, [color, closeButtonTheme]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
+    const wrapperProps =
+      TipseenWrapper === "div"
+        ? { ref: mergedRef, id, "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id) }
+        : {};
+
     const tooltipContent = (
       <div>
         <div className={cx(styles.tipseenHeader)}>
@@ -213,14 +218,14 @@ const Tipseen = forwardRef(
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color={textColor} type="text2" element="p" className={cx(styles.tipseenContent)}>
+        <Text color={textColor} type="text2" element="div" ellipsis={false} className={cx(styles.tipseenContent)}>
           <TipseenContext.Provider value={color}>{content}</TipseenContext.Provider>
         </Text>
       </div>
     );
 
     return (
-      <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
+      <TipseenWrapper {...wrapperProps}>
         <Tooltip
           className={cx(styles.tipseenWrapper, className, {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,

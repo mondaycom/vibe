@@ -183,6 +183,12 @@ export interface DialogProps extends VibeComponentProps {
    * that may grow or shrink without a re-render being triggered.
    */
   observeContentResize?: boolean;
+  /**
+   * If true, provides a LayerProvider context for nested dialogs to render correctly.
+   * This is useful when you have components that use Dialog internally (like Dropdown)
+   * inside another Dialog, ensuring proper z-index stacking and click-outside behavior.
+   */
+  enableNestedDialogLayer?: boolean;
 }
 
 export interface DialogState {
@@ -230,7 +236,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false,
-    observeContentResize: false
+    observeContentResize: false,
+    enableNestedDialogLayer: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -559,6 +566,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       disableContainerScroll,
       containerSelector,
       observeContentResize,
+      enableNestedDialogLayer,
       id,
       "data-testid": dataTestId
     } = this.props;
@@ -651,40 +659,44 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
 
                 const mergedRef = chainRefFunctions([ref, this.containerRef]);
 
-                return (
-                  <LayerProvider layerRef={this.containerRef}>
-                    <DialogContent
-                      data-testid={overrideDataTestId}
-                      isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
-                      onMouseEnter={this.onDialogEnter}
-                      onMouseLeave={this.onDialogLeave}
-                      onClickOutside={this.onClickOutside}
-                      onContextMenu={this.onContextMenu}
-                      onEsc={this.onEsc}
-                      animationType={animationTypeCalculated}
-                      position={placement}
-                      wrapperClassName={wrapperClassName}
-                      startingEdge={startingEdge}
-                      isOpen={this.isShown()}
-                      showDelay={showDelay}
-                      styleObject={style}
-                      ref={mergedRef}
-                      onClick={this.onContentClick}
-                      hasTooltip={!!tooltip}
-                      containerSelector={containerSelector}
-                      disableContainerScroll={disableContainerScroll}
-                    >
-                      {contentRendered}
-                      {tooltip && (
-                        <div
-                          style={arrowProps.style}
-                          ref={arrowProps.ref}
-                          className={cx(styles.arrow, tooltipClassName)}
-                          data-placement={placement}
-                        />
-                      )}
-                    </DialogContent>
-                  </LayerProvider>
+                const dialogContent = (
+                  <DialogContent
+                    data-testid={overrideDataTestId}
+                    isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
+                    onMouseEnter={this.onDialogEnter}
+                    onMouseLeave={this.onDialogLeave}
+                    onClickOutside={this.onClickOutside}
+                    onContextMenu={this.onContextMenu}
+                    onEsc={this.onEsc}
+                    animationType={animationTypeCalculated}
+                    position={placement}
+                    wrapperClassName={wrapperClassName}
+                    startingEdge={startingEdge}
+                    isOpen={this.isShown()}
+                    showDelay={showDelay}
+                    styleObject={style}
+                    ref={mergedRef}
+                    onClick={this.onContentClick}
+                    hasTooltip={!!tooltip}
+                    containerSelector={containerSelector}
+                    disableContainerScroll={disableContainerScroll}
+                  >
+                    {contentRendered}
+                    {tooltip && (
+                      <div
+                        style={arrowProps.style}
+                        ref={arrowProps.ref}
+                        className={cx(styles.arrow, tooltipClassName)}
+                        data-placement={placement}
+                      />
+                    )}
+                  </DialogContent>
+                );
+
+                return enableNestedDialogLayer ? (
+                  <LayerProvider layerRef={this.containerRef}>{dialogContent}</LayerProvider>
+                ) : (
+                  dialogContent
                 );
               }}
             </Popper>,
