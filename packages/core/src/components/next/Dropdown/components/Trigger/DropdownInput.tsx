@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { BaseInput } from "../../../../BaseInput";
+import { BaseInput } from "@vibe/base";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseListItemData } from "../../../../BaseListItem";
