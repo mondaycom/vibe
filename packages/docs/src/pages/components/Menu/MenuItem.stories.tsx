@@ -8,7 +8,7 @@ type Story = StoryObj<MenuItemProps>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItem,
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon", "rightIcon"]
 });
 
 export default {
@@ -132,6 +132,33 @@ export const TooltipStory: Story = {
     </Menu>
   ),
   name: "Tooltip",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Activity }
+      }
+    }
+  }
+};
+
+export const RightIconStory: Story = {
+  render: () => (
+    <Menu>
+      <MenuItem title="Menu item with right icon" rightIcon={Activity} />
+      <MenuItem title="Right icon with background color" rightIcon={Activity} rightIconBackgroundColor="blue" />
+      <MenuItem title="Selected with right icon" rightIcon={Activity} selected />
+      <MenuItem title="Disabled with right icon" rightIcon={Activity} disabled />
+      <MenuItem title="Left and right icons" icon={Activity} rightIcon={Activity} />
+      <MenuItem title="Font right icon" rightIcon="fa fa-star" rightIconType="font" />
+      <MenuItem title="Long text with right icon - bla bla bla bla bla bla bla bla bla bla bla" rightIcon={Activity} />
+      <MenuItem
+        title="Right icon with tooltip"
+        rightIcon={Activity}
+        tooltipContent="Menu item with right icon and tooltip"
+      />
+    </Menu>
+  ),
+  name: "Right icon",
   parameters: {
     docs: {
       liveEdit: {

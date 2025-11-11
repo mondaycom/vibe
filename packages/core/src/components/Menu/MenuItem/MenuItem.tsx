@@ -11,6 +11,7 @@ import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 import { type SubmenuPosition } from "./MenuItem.types";
+import cx from "classnames";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**
@@ -33,6 +34,22 @@ export interface MenuItemProps extends VibeComponentProps {
    * The background color of the icon.
    */
   iconBackgroundColor?: string;
+  /**
+   * The right icon to be displayed.
+   */
+  rightIcon?: SubIcon;
+  /**
+   * The type of right icon.
+   */
+  rightIconType?: IconType;
+  /**
+   * The background color of the right icon.
+   */
+  rightIconBackgroundColor?: string;
+  /**
+   * The wrapper class name of the right icon.
+   */
+  rightIconWrapperClassName?: string;
   /**
    * If true, the menu item is disabled.
    */
@@ -165,6 +182,10 @@ const MenuItem = forwardRef(
       title = "",
       label = "",
       icon = "",
+      rightIcon = "",
+      rightIconType,
+      rightIconBackgroundColor,
+      rightIconWrapperClassName,
       iconType,
       iconBackgroundColor,
       disabled = false,
@@ -204,7 +225,7 @@ const MenuItem = forwardRef(
         return label;
       }
     }, [label]);
-
+    console.log("icon", icon);
     return (
       <Tooltip
         content={shouldShowTooltip ? finalTooltipContent : null}
@@ -236,6 +257,16 @@ const MenuItem = forwardRef(
             {title}
           </div>
           {renderLabel}
+          {Boolean(rightIcon) && !children && !label && (
+            <MenuItemIcon
+              icon={rightIcon}
+              type={rightIconType}
+              disabled={disabled}
+              selected={selected}
+              backgroundColor={rightIconBackgroundColor}
+              wrapperClassName={cx(styles.rightIconWrapper, rightIconWrapperClassName)}
+            />
+          )}
         </BaseMenuItem>
       </Tooltip>
     );
