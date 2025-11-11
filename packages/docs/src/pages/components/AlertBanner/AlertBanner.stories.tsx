@@ -32,7 +32,14 @@ export default {
     AlertBannerLink,
     AlertBannerButton
   },
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes,
+    ariaLive: {
+      control: { type: "inline-radio" },
+      options: ["polite", "assertive", "off"],
+      description: "Live region setting applied to AlertBannerText"
+    }
+  },
   decorators: [
     ...metaSettings.decorators,
     (Story: React.ComponentType) => (
@@ -142,4 +149,17 @@ export const OverflowText: Story = {
       </div>
     )
   ]
+};
+
+export const WithAriaLive: Story = {
+  render: (args: AlertBannerProps & { ariaLive?: "polite" | "assertive" | "off" }) => (
+    <AlertBanner id="with-aria-live" ariaLabel="Alert banner with live region">
+      <AlertBannerText text="System will be updated shortly" ariaLive={args.ariaLive} />
+      <AlertBannerLink text="Learn more" href="https://monday.com" />
+    </AlertBanner>
+  ),
+  name: "With ariaLive",
+  args: {
+    ariaLive: "polite"
+  }
 };

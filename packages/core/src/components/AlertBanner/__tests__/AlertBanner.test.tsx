@@ -43,6 +43,17 @@ describe("<AlertBanner />", () => {
         const alertBannerComponentLabel = getByLabelText(ariaLabel);
         expect(alertBannerComponentLabel).toBeTruthy();
       });
+
+      it("should set aria-live on alert banner text when provided", () => {
+        const { container } = render(
+          <AlertBanner>
+            <AlertBannerText text="Important update" ariaLive="polite" />
+          </AlertBanner>
+        );
+        const textSpan = container.querySelector("[data-testid='alert-banner-text'] span");
+        expect(textSpan).toBeTruthy();
+        expect(textSpan.getAttribute("aria-live")).toBe("polite");
+      });
     });
   });
 });
