@@ -25,10 +25,14 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./mockedClassNames": {
+      "import": "./dist/mocked_classnames/src/index.js",
+      "default": "./dist/mocked_classnames/src/index.js"
     }
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
