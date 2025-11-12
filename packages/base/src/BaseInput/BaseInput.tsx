@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import cx from "classnames";
 import styles from "./BaseInput.module.scss";
 import { type BaseInputProps } from "./BaseInput.types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 
 const BaseInput = forwardRef(
   (

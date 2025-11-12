@@ -90,6 +90,7 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
+    "@vibe/base": "3.0.0",
     "@vibe/button": "3.0.5",
     "@vibe/icon": "3.0.5",
     "@vibe/icons": "1.11.1",

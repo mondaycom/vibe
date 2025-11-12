@@ -1,5 +1,5 @@
 import { createComponentTemplate } from "vibe-storybook-components";
-import BaseInput from "../BaseInput";
+import { BaseInput } from "@vibe/base";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof BaseInput>;
