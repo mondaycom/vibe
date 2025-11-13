@@ -145,7 +145,6 @@ export const RightIconStory: Story = {
   render: () => (
     <Menu>
       <MenuItem title="Menu item with right icon" rightIcon={Activity} />
-      <MenuItem title="Right icon with background color" rightIcon={Activity} rightIconBackgroundColor="blue" />
       <MenuItem title="Selected with right icon" rightIcon={Activity} selected />
       <MenuItem title="Disabled with right icon" rightIcon={Activity} disabled />
       <MenuItem title="Left and right icons" icon={Activity} rightIcon={Activity} />

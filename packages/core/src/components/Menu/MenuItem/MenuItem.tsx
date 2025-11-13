@@ -11,7 +11,6 @@ import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 import { type SubmenuPosition } from "./MenuItem.types";
-import cx from "classnames";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**
@@ -225,7 +224,7 @@ const MenuItem = forwardRef(
         return label;
       }
     }, [label]);
-    console.log("icon", icon);
+
     return (
       <Tooltip
         content={shouldShowTooltip ? finalTooltipContent : null}
@@ -264,7 +263,7 @@ const MenuItem = forwardRef(
               disabled={disabled}
               selected={selected}
               backgroundColor={rightIconBackgroundColor}
-              wrapperClassName={cx(styles.rightIconWrapper, rightIconWrapperClassName)}
+              isRightIcon={true}
             />
           )}
         </BaseMenuItem>
