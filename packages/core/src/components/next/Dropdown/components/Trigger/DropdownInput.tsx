@@ -41,7 +41,6 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
             ref: inputRef,
             ...multipleSelectionDropdownProps
           })}
-          ref={inputRef}
           inputRole="combobox"
           value={inputValue || ""}
           autoFocus={autoFocus}
