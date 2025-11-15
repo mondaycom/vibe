@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, MenuItem, type MenuItemProps } from "@vibe/core";
+import { Menu, MenuItem, type MenuItemProps, Flex, Text } from "@vibe/core";
 import { Activity } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
@@ -143,19 +143,43 @@ export const TooltipStory: Story = {
 
 export const RightIconStory: Story = {
   render: () => (
-    <Menu>
-      <MenuItem title="Menu item with right icon" rightIcon={Activity} />
-      <MenuItem title="Selected with right icon" rightIcon={Activity} selected />
-      <MenuItem title="Disabled with right icon" rightIcon={Activity} disabled />
-      <MenuItem title="Left and right icons" icon={Activity} rightIcon={Activity} />
-      <MenuItem title="Font right icon" rightIcon="fa fa-star" rightIconType="font" />
-      <MenuItem title="Long text with right icon - bla bla bla bla bla bla bla bla bla bla bla" rightIcon={Activity} />
-      <MenuItem
-        title="Right icon with tooltip"
-        rightIcon={Activity}
-        tooltipContent="Menu item with right icon and tooltip"
-      />
-    </Menu>
+    <Flex gap="large" align="start" justify="start">
+      <Flex direction="column" gap="medium" style={{ marginRight: "150px" }}>
+        <Text>Left icon</Text>
+        <Menu>
+          <MenuItem title="Menu item with left icon" icon={Activity} />
+          <MenuItem title="Selected with left icon" icon={Activity} selected />
+          <MenuItem title="Disabled with left icon" icon={Activity} disabled />
+          <MenuItem title="Only left icon" icon={Activity} />
+          <MenuItem title="Font left icon" icon="fa fa-star" iconType="font" />
+          <MenuItem title="Long text with left icon bla bla bla bla bla bla bla bla bla bla bla" icon={Activity} />
+          <MenuItem
+            title="Left icon with tooltip"
+            icon={Activity}
+            tooltipContent="Menu item with left icon and tooltip"
+          />
+        </Menu>
+      </Flex>
+      <Flex direction="column" gap="medium">
+        <Text>Right icon</Text>
+        <Menu>
+          <MenuItem title="Menu item with right icon" rightIcon={Activity} />
+          <MenuItem title="Selected with right icon" rightIcon={Activity} selected />
+          <MenuItem title="Disabled with right icon" rightIcon={Activity} disabled />
+          <MenuItem title="Left and right icons" icon={Activity} rightIcon={Activity} />
+          <MenuItem title="Font right icon" rightIcon="fa fa-star" rightIconType="font" />
+          <MenuItem
+            title="Long text with right icon bla bla bla bla bla bla bla bla bla bla bla"
+            rightIcon={Activity}
+          />
+          <MenuItem
+            title="Right icon with tooltip"
+            rightIcon={Activity}
+            tooltipContent="Menu item with right icon and tooltip"
+          />
+        </Menu>
+      </Flex>
+    </Flex>
   ),
   name: "Right icon",
   parameters: {
