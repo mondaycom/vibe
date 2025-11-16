@@ -184,7 +184,6 @@ const MenuItem = forwardRef(
       rightIcon = "",
       rightIconType,
       rightIconBackgroundColor,
-      rightIconWrapperClassName,
       iconType,
       iconBackgroundColor,
       disabled = false,
