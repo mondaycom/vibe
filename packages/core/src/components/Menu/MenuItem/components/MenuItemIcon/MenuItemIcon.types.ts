@@ -36,4 +36,9 @@ export interface MenuItemIconProps {
    * @default false
    */
   isRightIcon?: boolean;
+  /**
+   * If true, There is an element to the right of the right icon.
+   * @default false
+   */
+  isRightSideElementToRightIcon?: boolean;
 }

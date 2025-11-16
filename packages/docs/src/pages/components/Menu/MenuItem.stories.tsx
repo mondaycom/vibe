@@ -79,10 +79,7 @@ export const Icons: Story = {
 export const Label: Story = {
   render: () => (
     <Menu>
-      <MenuItem title="Menu item" label="New" rightIcon={Activity} />
-      <MenuItem title="Menu item very long text blaaaaa" label="New" rightIcon={Activity} />
-      <MenuItem title="Menu item very long text blaaaaa blaaaaa" label="New" />
-      <MenuItem title="Menu item" label="New" rightIcon={Activity} icon={Activity} />
+      <MenuItem title="Menu item" label="New" />
     </Menu>
   ),
   parameters: {

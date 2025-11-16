@@ -225,6 +225,10 @@ const MenuItem = forwardRef(
       }
     }, [label]);
 
+    const isRightSideElementToRightIcon = useMemo(() => {
+      return !!label;
+    }, [label]);
+
     return (
       <Tooltip
         content={shouldShowTooltip ? finalTooltipContent : null}
@@ -255,8 +259,7 @@ const MenuItem = forwardRef(
           <div ref={titleRef} className={styles.title}>
             {title}
           </div>
-          {renderLabel}
-          {Boolean(rightIcon) && !children && !label && (
+          {Boolean(rightIcon) && !children && (
             <MenuItemIcon
               icon={rightIcon}
               type={rightIconType}
@@ -264,8 +267,10 @@ const MenuItem = forwardRef(
               selected={selected}
               backgroundColor={rightIconBackgroundColor}
               isRightIcon={true}
+              isRightSideElementToRightIcon={isRightSideElementToRightIcon}
             />
           )}
+          {renderLabel}
         </BaseMenuItem>
       </Tooltip>
     );

@@ -7,6 +7,10 @@
     margin-left: var(--spacing-small);
   }
 
+  &.rightSideElement {
+    margin-right: var(--spacing-xs);
+  }
+
   &.withBackgroundColor {
     border-radius: var(--spacing-xs);
 
