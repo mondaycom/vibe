@@ -115,7 +115,7 @@ exports[`Snapshots > renders correctly with title and SVG icon 1`] = `
   tabIndex={-1}
 >
   <div
-    className="container directionRow justifyCenter alignCenter iconWrapper"
+    className="container directionRow justifyCenter alignCenter iconWrapper leftIcon"
     style={{}}
   >
     <svg
@@ -154,7 +154,7 @@ exports[`Snapshots > renders correctly with title and font icon 1`] = `
   tabIndex={-1}
 >
   <div
-    className="container directionRow justifyCenter alignCenter iconWrapper"
+    className="container directionRow justifyCenter alignCenter iconWrapper leftIcon"
     style={{}}
   >
     <span
