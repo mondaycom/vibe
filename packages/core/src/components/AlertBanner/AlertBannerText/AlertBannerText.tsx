@@ -16,9 +16,19 @@ export interface AlertBannerTextProps extends VibeComponentProps {
    * If true, a left margin is applied to the alert banner text.
    */
   marginLeft?: boolean;
+  /**
+   * The aria-live attribute value for the alert banner text.
+   */
+  ariaLive?: "polite" | "assertive" | "off";
 }
 
-const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, id, "data-testid": dataTestId }) => {
+const AlertBannerText: FC<AlertBannerTextProps> = ({
+  text,
+  marginLeft = false,
+  id,
+  "data-testid": dataTestId,
+  ariaLive
+}) => {
   const componentRef = useRef(null);
   const classNames = cx(styles.bannerText, {
     [styles.marginLeft]: marginLeft
@@ -38,7 +48,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_TEXT, id)}
       >
-        <span>{text}</span>
+        <span aria-live={ariaLive}>{text}</span>
       </div>
     </Tooltip>
   );
