@@ -76,15 +76,24 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
         <div
           key={`dropdown-chip-visible-${item.value}`}
           ref={itemRefs[index]}
-          className={cx({ [styles.hiddenChip]: !isVisible })}
+          className={cx({
+            [styles.chipWrapperWithOverflow]: minVisibleCount !== undefined,
+            [styles.hiddenChip]: !isVisible
+          })}
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
         >
-          <DropdownChip item={item} onDelete={() => onRemove(item)} disabled={disabled} readOnly={readOnly} />
+          <DropdownChip
+            item={item}
+            onDelete={() => onRemove(item)}
+            disabled={disabled}
+            readOnly={readOnly}
+            className={styles.visibleChip}
+          />
         </div>
       );
     });
-  }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly]);
+  }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly, minVisibleCount]);
 
   if (!selectedItems?.length) return null;
 
