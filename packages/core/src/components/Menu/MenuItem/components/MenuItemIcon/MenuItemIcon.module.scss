@@ -1,9 +1,8 @@
 .iconWrapper {
-  &.leftIcon {
-    margin-right: var(--spacing-small);
-  }
+  margin-right: var(--spacing-small);
 
   &.rightIcon {
+    margin-right: 0;
     margin-left: var(--spacing-small);
   }
 

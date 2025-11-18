@@ -21,7 +21,6 @@ const MenuItemIcon = ({
     className={cx(
       styles.iconWrapper,
       {
-        [styles.leftIcon]: !isRightIcon,
         [styles.rightIcon]: isRightIcon,
         [styles.disabled]: disabled,
         [styles.withBackgroundColor]: !!backgroundColor
