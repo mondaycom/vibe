@@ -19,7 +19,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./LegacyModal.module.scss";
 import { type ModalWidth } from "./LegacyModal.types";
-import LayerProvider from "../LayerProvider/LayerProvider";
+import { LayerProvider } from "@vibe/layers";
 import { isClient } from "../../utils/ssr-utils";
 
 export interface LegacyModalProps {

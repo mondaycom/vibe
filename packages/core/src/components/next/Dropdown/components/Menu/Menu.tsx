@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { DialogContentContainer } from "../../../../DialogContentContainer";
+import { DialogContentContainer } from "@vibe/dialog";
 import { BaseList } from "../../../../BaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseListItemData } from "../../../../BaseListItem";

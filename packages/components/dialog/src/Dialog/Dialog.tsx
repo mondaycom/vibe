@@ -3,23 +3,33 @@ import React, { PureComponent, type ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { Manager, type Modifier, Popper, Reference } from "react-popper";
 import { isFunction } from "es-toolkit";
-import { chainFunctions, chainRefFunctions, convertToArray, NOOP } from "../../utils/function-utils";
+import {
+  chainFunctions,
+  chainRefFunctions,
+  convertToArray,
+  NOOP,
+  isInsideClass,
+  type VibeComponentProps,
+  ComponentDefaultTestId,
+  getTestId,
+  isClient
+} from "@vibe/shared";
 import DialogContent from "./DialogContent/DialogContent";
-import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../Refable/Refable";
 import {
   AnimationType as AnimationTypeEnum,
   HideShowEvent as DialogTriggerEventEnum,
   DialogPosition as DialogPositionEnum
 } from "./DialogConstants";
-import { type VibeComponentProps } from "../../types";
 import type * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { type DialogAnimationType, type DialogPosition, type DialogTriggerEvent } from "./Dialog.types";
-import LayerContext from "../LayerProvider/LayerContext";
-import { LayerProvider } from "../LayerProvider";
-import { isClient } from "../../utils/ssr-utils";
+import {
+  type DialogAnimationType,
+  type DialogPosition,
+  type DialogTriggerEvent,
+  type DialogEvent
+} from "./Dialog.types";
+import { LayerContext, LayerProvider } from "@vibe/layers";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
 export interface DialogProps extends VibeComponentProps {
@@ -205,8 +215,6 @@ export interface DialogState {
    */
   preventAnimation?: boolean;
 }
-
-export type DialogEvent = React.MouseEvent | React.KeyboardEvent | KeyboardEvent | React.FocusEvent | CustomEvent;
 
 export default class Dialog extends PureComponent<DialogProps, DialogState> {
   static hideShowTriggers = DialogTriggerEventEnum;

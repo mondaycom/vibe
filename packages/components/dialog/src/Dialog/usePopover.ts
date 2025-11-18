@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import { usePopper } from "react-popper";
-import { Placement } from "./popoverConstants";
-import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
+import { DialogPlacement as Placement } from "./DialogConstants";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 import useForceUpdate from "./useForceUpdate";
 import type { Options, State } from "@popperjs/core";
-import { createObserveContentResizeModifier } from "../components/Dialog/modifiers/observeContentResizeModifier";
-import { createObserveReferenceResizeModifier } from "../components/Dialog/modifiers/observeReferenceResizeModifier";
+import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
+import { createObserveReferenceResizeModifier } from "./modifiers/observeReferenceResizeModifier";
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
 const DEFAULT_FALLBACK_PLACEMENTS = [RIGHT_END, LEFT_START, LEFT_END];

@@ -1,12 +1,16 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import {
+  useMergeRef,
+  type VibeComponentProps,
+  withStaticProps,
+  ComponentDefaultTestId,
+  getTestId,
+  getStyle
+} from "@vibe/shared";
 import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
 import { type DialogSize, type DialogType } from "../Dialog";
-import { withStaticProps, type VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./DialogContentContainer.module.scss";
 
 export interface DialogContentContainerProps extends VibeComponentProps {

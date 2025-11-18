@@ -1,4 +1,4 @@
-import { DialogPosition } from "../Dialog/DialogConstants";
+import { DialogPositionEnum as DialogPosition } from "@vibe/dialog";
 
 /**
  * @deprecated

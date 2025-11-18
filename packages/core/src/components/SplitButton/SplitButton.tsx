@@ -17,7 +17,6 @@ import {
   type SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 import { withStaticPropsWithoutForwardRef } from "../../types";
-import { AnimationType, type DialogPosition, HideShowEvent } from "../Dialog/DialogConstants";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -26,11 +25,17 @@ import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 // Components import
 import { Button, type ButtonProps } from "@vibe/button";
-import Dialog, { type DialogEvent } from "../Dialog/Dialog";
 import { DropdownChevronDown } from "@vibe/icons";
-import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
+import {
+  DialogContentContainer,
+  type DialogSize,
+  type DialogTriggerEvent,
+  Dialog,
+  type DialogEvent,
+  type DialogPosition
+} from "@vibe/dialog";
+import { DialogAnimationTypeEnum as AnimationType, DialogTriggerEventEnum as HideShowEvent } from "@vibe/dialog";
 import styles from "./SplitButton.module.scss";
-import { type DialogSize, type DialogTriggerEvent } from "../Dialog";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
