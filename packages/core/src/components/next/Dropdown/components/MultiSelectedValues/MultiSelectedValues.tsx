@@ -15,6 +15,7 @@ type MultiSelectedValuesProps<Item> = {
   renderInput?: () => React.ReactNode;
   disabled?: boolean;
   readOnly?: boolean;
+  minVisibleCount?: number;
 };
 
 function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknown>>>({
@@ -22,7 +23,8 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
   onRemove,
   renderInput,
   disabled,
-  readOnly
+  readOnly,
+  minVisibleCount = 0
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknow
     itemRefs,
     gap: 4,
     deductedSpaceRef,
-    minVisibleCount: selectedItems.length === 1 ? 1 : 0
+    minVisibleCount: selectedItems.length === 1 ? 1 : minVisibleCount
   });
 
   const { hiddenItems, hiddenCount } = useMemo(() => {
