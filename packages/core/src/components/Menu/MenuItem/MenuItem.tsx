@@ -256,6 +256,7 @@ const MenuItem = forwardRef(
               <MenuItemIcon
                 icon={rightIcon}
                 type={rightIconType}
+                label={iconLabel}
                 disabled={disabled}
                 selected={selected}
                 backgroundColor={rightIconBackgroundColor}
