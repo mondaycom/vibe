@@ -11,6 +11,7 @@ import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 import { type SubmenuPosition } from "./MenuItem.types";
+import Flex from "../../Flex/Flex";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**
@@ -45,10 +46,6 @@ export interface MenuItemProps extends VibeComponentProps {
    * The background color of the right icon.
    */
   rightIconBackgroundColor?: string;
-  /**
-   * The wrapper class name of the right icon.
-   */
-  rightIconWrapperClassName?: string;
   /**
    * If true, the menu item is disabled.
    */
@@ -224,10 +221,6 @@ const MenuItem = forwardRef(
       }
     }, [label]);
 
-    const isRightSideElementToRightIcon = useMemo(() => {
-      return !!label;
-    }, [label]);
-
     return (
       <Tooltip
         content={shouldShowTooltip ? finalTooltipContent : null}
@@ -258,18 +251,19 @@ const MenuItem = forwardRef(
           <div ref={titleRef} className={styles.title}>
             {title}
           </div>
-          {Boolean(rightIcon) && !children && (
-            <MenuItemIcon
-              icon={rightIcon}
-              type={rightIconType}
-              disabled={disabled}
-              selected={selected}
-              backgroundColor={rightIconBackgroundColor}
-              isRightIcon={true}
-              isRightSideElementToRightIcon={isRightSideElementToRightIcon}
-            />
-          )}
-          {renderLabel}
+          <Flex gap="xs">
+            {Boolean(rightIcon) && !children && (
+              <MenuItemIcon
+                icon={rightIcon}
+                type={rightIconType}
+                disabled={disabled}
+                selected={selected}
+                backgroundColor={rightIconBackgroundColor}
+                isRightIcon={true}
+              />
+            )}
+            {renderLabel}
+          </Flex>
         </BaseMenuItem>
       </Tooltip>
     );

@@ -8,7 +8,6 @@ import { type MenuItemIconProps } from "./MenuItemIcon.types";
 const MenuItemIcon = ({
   icon,
   isRightIcon = false,
-  isRightSideElementToRightIcon = false,
   type,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   label,
@@ -24,7 +23,6 @@ const MenuItemIcon = ({
       {
         [styles.leftIcon]: !isRightIcon,
         [styles.rightIcon]: isRightIcon,
-        [styles.rightSideElement]: isRightSideElementToRightIcon,
         [styles.disabled]: disabled,
         [styles.withBackgroundColor]: !!backgroundColor
       },
