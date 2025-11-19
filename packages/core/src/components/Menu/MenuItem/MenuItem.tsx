@@ -51,6 +51,10 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   rightIconWrapperClassName?: string;
   /**
+   * The label of the menu item for accessibility.
+   */
+  rightIconAriaLabel?: AriaAttributes["aria-label"];
+  /**
    * If true, the menu item is disabled.
    */
   disabled?: boolean;
