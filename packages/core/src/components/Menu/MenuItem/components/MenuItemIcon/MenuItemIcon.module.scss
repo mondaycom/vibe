@@ -1,6 +1,11 @@
 .iconWrapper {
   margin-right: var(--spacing-small);
 
+  &.rightIcon {
+    margin-right: 0;
+    margin-left: var(--spacing-small);
+  }
+
   &.withBackgroundColor {
     border-radius: var(--spacing-xs);
 

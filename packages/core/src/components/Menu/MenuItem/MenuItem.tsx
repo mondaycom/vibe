@@ -11,6 +11,7 @@ import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 import { type SubmenuPosition } from "./MenuItem.types";
+import Flex from "../../Flex/Flex";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**
@@ -33,6 +34,26 @@ export interface MenuItemProps extends VibeComponentProps {
    * The background color of the icon.
    */
   iconBackgroundColor?: string;
+  /**
+   * The right icon to be displayed.
+   */
+  rightIcon?: SubIcon;
+  /**
+   * The type of right icon.
+   */
+  rightIconType?: IconType;
+  /**
+   * The background color of the right icon.
+   */
+  rightIconBackgroundColor?: string;
+  /**
+   * Class name applied to the icon wrapper.
+   */
+  rightIconWrapperClassName?: string;
+  /**
+   * The label of the menu item for accessibility.
+   */
+  rightIconAriaLabel?: AriaAttributes["aria-label"];
   /**
    * If true, the menu item is disabled.
    */
@@ -162,9 +183,14 @@ const MenuItem = forwardRef(
     {
       className,
       iconWrapperClassName,
+      rightIconWrapperClassName,
       title = "",
       label = "",
       icon = "",
+      rightIcon = "",
+      rightIconType,
+      rightIconBackgroundColor,
+      rightIconAriaLabel,
       iconType,
       iconBackgroundColor,
       disabled = false,
@@ -185,6 +211,7 @@ const MenuItem = forwardRef(
 
     // if "title" is a component ariaLabel is mandatory
     const iconLabel = ariaLabel ?? (title as string);
+    const rightIconLabel = rightIconAriaLabel ?? (title as string);
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
     const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
@@ -235,7 +262,21 @@ const MenuItem = forwardRef(
           <div ref={titleRef} className={styles.title}>
             {title}
           </div>
-          {renderLabel}
+          <Flex gap="xs">
+            {Boolean(rightIcon) && !children && (
+              <MenuItemIcon
+                icon={rightIcon}
+                type={rightIconType}
+                label={rightIconLabel}
+                disabled={disabled}
+                selected={selected}
+                backgroundColor={rightIconBackgroundColor}
+                isRightIcon={true}
+                wrapperClassName={rightIconWrapperClassName}
+              />
+            )}
+            {renderLabel}
+          </Flex>
         </BaseMenuItem>
       </Tooltip>
     );
