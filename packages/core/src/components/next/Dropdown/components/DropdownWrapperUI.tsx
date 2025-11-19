@@ -2,6 +2,7 @@ import React from "react";
 import { DropdownContext } from "../context/DropdownContext";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownPopup from "./DropdownPopup/DropdownPopup";
+import DropdownBoxMode from "./DropdownBoxMode/DropdownBoxMode";
 import { type BaseListItemData } from "../../../BaseListItem";
 import DropdownBase from "./DropdownBase/DropdownBase";
 
@@ -18,7 +19,7 @@ const DropdownWrapperUI = <Item extends BaseListItemData<Record<string, unknown>
   return (
     <DropdownContext.Provider value={contextValue}>
       <DropdownBase dropdownRef={dropdownRef}>
-        <DropdownPopup />
+        {contextValue.boxMode ? <DropdownBoxMode /> : <DropdownPopup />}
       </DropdownBase>
     </DropdownContext.Provider>
   );
