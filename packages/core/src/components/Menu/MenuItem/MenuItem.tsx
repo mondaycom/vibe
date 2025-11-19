@@ -262,7 +262,6 @@ const MenuItem = forwardRef(
           <div ref={titleRef} className={styles.title}>
             {title}
           </div>
-          
           <Flex gap="xs">
             {Boolean(rightIcon) && !children && (
               <MenuItemIcon
