@@ -3,7 +3,8 @@ const path = require("path");
 const bytes = require("bytes");
 
 function extractJson(content) {
-  const jsonMatch = content.match(/^\[[\s\S]*\]$/m);
+  // Try to find a JSON array in the content (handles multi-line arrays)
+  const jsonMatch = content.match(/\[[\s\S]*\]/);
 
   if (!jsonMatch) {
     return null;
