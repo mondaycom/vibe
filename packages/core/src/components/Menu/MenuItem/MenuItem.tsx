@@ -47,6 +47,10 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   rightIconBackgroundColor?: string;
   /**
+   * Class name applied to the icon wrapper.
+   */
+  rightIconWrapperClassName?: string;
+  /**
    * If true, the menu item is disabled.
    */
   disabled?: boolean;
@@ -175,6 +179,7 @@ const MenuItem = forwardRef(
     {
       className,
       iconWrapperClassName,
+      rightIconWrapperClassName,
       title = "",
       label = "",
       icon = "",
@@ -261,6 +266,7 @@ const MenuItem = forwardRef(
                 selected={selected}
                 backgroundColor={rightIconBackgroundColor}
                 isRightIcon={true}
+                wrapperClassName={rightIconWrapperClassName}
               />
             )}
             {renderLabel}
