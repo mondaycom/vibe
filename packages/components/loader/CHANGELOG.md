@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/mondaycom/vibe/compare/@vibe/loader@3.0.5...@vibe/loader@3.0.6) (2025-11-19)
+
+**Note:** Version bump only for package @vibe/loader
+
+
+
+
+
 ## [3.0.5](https://github.com/mondaycom/vibe/compare/@vibe/loader@3.0.4...@vibe/loader@3.0.5) (2025-11-06)
 
 **Note:** Version bump only for package @vibe/loader
