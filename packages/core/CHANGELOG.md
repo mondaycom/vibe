@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.76.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.75.0...@vibe/core@3.76.0) (2025-11-11)
+
+
+### Features
+
+* **Dropdown:** add support for ControlledPropUpdatedSelectedItem state change in combobox hooks ([#3179](https://github.com/mondaycom/vibe/issues/3179)) ([14d7d56](https://github.com/mondaycom/vibe/commit/14d7d563eee0815bcf00cdf05d9665e560078954))
+
+
+
+
+
 # [3.75.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.74.0...@vibe/core@3.75.0) (2025-11-10)
 
 

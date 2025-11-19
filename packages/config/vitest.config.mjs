@@ -24,6 +24,14 @@ function generateVibeComponentAliases() {
     });
   }
 
+  // Add @vibe/base package alias
+  const baseFolder = path.resolve(__dirname, "../../packages/base");
+  const baseSrcPath = path.join(baseFolder, "src");
+
+  if (fs.existsSync(baseSrcPath)) {
+    vibeComponents["@vibe/base"] = baseSrcPath;
+  }
+
   return vibeComponents;
 }
 

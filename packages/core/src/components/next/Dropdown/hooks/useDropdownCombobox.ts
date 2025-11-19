@@ -94,6 +94,7 @@ function useDropdownCombobox<T extends BaseListItemData<Record<string, unknown>>
         case useCombobox.stateChangeTypes.ItemClick:
           return { ...actionAndChanges.changes, inputValue: null, isOpen: !closeMenuOnSelect };
         case useCombobox.stateChangeTypes.InputBlur:
+        case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
           return { ...actionAndChanges.changes, inputValue: null };
 
         default:

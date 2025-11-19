@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/button",
-  "version": "3.0.5",
-  "description": "Vibe sub-package for button components",
+  "name": "@vibe/base",
+  "version": "3.0.0",
+  "description": "Vibe sub-package for base components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "components/button"
+    "directory": "packages/base"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -25,28 +25,21 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
-    },
-    "./mockedClassNames": {
-      "import": "./dist/mocked_classnames/src/index.js",
-      "default": "./dist/mocked_classnames/src/index.js"
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/icon": "3.0.5",
-    "@vibe/loader": "3.0.5",
     "@vibe/shared": "3.0.5",
-    "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@vibe/config": "3.0.4",
-    "@vibe/icons": "1.11.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -65,7 +58,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
   }
 }

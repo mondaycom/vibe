@@ -4,7 +4,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
-import BaseInput from "../BaseInput/BaseInput";
+import { BaseInput } from "@vibe/base";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import IconButton from "../IconButton/IconButton";
 import { Icon } from "@vibe/icon";
