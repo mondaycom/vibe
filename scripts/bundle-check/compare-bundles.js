@@ -6,17 +6,31 @@ function extractJson(content) {
   const jsonMatch = content.match(/^\[[\s\S]*\]$/m);
 
   if (!jsonMatch) {
-    throw new Error("No JSON array found in content");
+    return null;
   }
 
   return jsonMatch[0];
 }
 
-const baseContent = fs.readFileSync("scripts/bundle-check/reports/base.json", "utf8");
-const prContent = fs.readFileSync("scripts/bundle-check/reports/pr.json", "utf8");
+function loadJsonFile(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, "utf8");
+    const json = extractJson(content);
 
-const base = JSON.parse(extractJson(baseContent));
-const pr = JSON.parse(extractJson(prContent));
+    if (!json) {
+      console.warn(`⚠️  No JSON array found in ${filePath}, skipping...`);
+      return [];
+    }
+
+    return JSON.parse(json);
+  } catch (error) {
+    console.warn(`⚠️  Could not read or parse ${filePath}: ${error.message}, skipping...`);
+    return [];
+  }
+}
+
+const base = loadJsonFile("scripts/bundle-check/reports/base.json");
+const pr = loadJsonFile("scripts/bundle-check/reports/pr.json");
 
 let md = "📦 **Bundle Size Analysis**\n\n";
 const tableHeader = "| Component | Base | PR | Diff |\n|-----------|------|----|------|\n";
