@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/layers",
+  "name": "@vibe/layer",
   "version": "3.0.0",
   "description": "Vibe sub-package for layering components",
   "repository": {

@@ -29,7 +29,7 @@ import {
   type DialogTriggerEvent,
   type DialogEvent
 } from "./Dialog.types";
-import { LayerContext, LayerProvider } from "@vibe/layers";
+import { LayerContext, LayerProvider } from "@vibe/layer";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
 export interface DialogProps extends VibeComponentProps {

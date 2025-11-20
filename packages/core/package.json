@@ -97,7 +97,7 @@
     "@vibe/icon": "3.0.6",
     "@vibe/icons": "1.11.1",
     "@vibe/loader": "3.0.6",
-    "@vibe/layers": "3.0.0",
+    "@vibe/layer": "3.0.0",
     "@vibe/shared": "3.0.6",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
