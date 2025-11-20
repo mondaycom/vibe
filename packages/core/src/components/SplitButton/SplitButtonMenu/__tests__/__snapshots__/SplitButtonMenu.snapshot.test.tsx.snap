@@ -27,6 +27,14 @@ exports[`SplitButtonMenu > renders correctly 1`] = `
     >
       Test 1
     </div>
+    <div
+      className="container directionRow justifyStart alignCenter"
+      style={
+        {
+          "gap": "var(--spacing-xs)",
+        }
+      }
+    />
   </li>
   <li
     aria-selected={false}
@@ -42,6 +50,14 @@ exports[`SplitButtonMenu > renders correctly 1`] = `
     >
       Test 2
     </div>
+    <div
+      className="container directionRow justifyStart alignCenter"
+      style={
+        {
+          "gap": "var(--spacing-xs)",
+        }
+      }
+    />
   </li>
 </ul>
 `;

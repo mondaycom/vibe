@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.77.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.1...@vibe/core@3.77.0) (2025-11-19)
+
+
+### Features
+
+* **MenuItem:** add right icon ([#3183](https://github.com/mondaycom/vibe/issues/3183)) ([9e8b448](https://github.com/mondaycom/vibe/commit/9e8b44835e09ee43e9d962897f3798287d5fa64c))
+
+
+
+
+
+## [3.76.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.0...@vibe/core@3.76.1) (2025-11-19)
+
+
+### Bug Fixes
+
+* **AttentionBox:** change Text element type based on content type for… ([#3186](https://github.com/mondaycom/vibe/issues/3186)) ([8964e33](https://github.com/mondaycom/vibe/commit/8964e338526807342311f0431d5ad08a7ccc57e5))
+
+
+
+
+
 # [3.76.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.75.0...@vibe/core@3.76.0) (2025-11-11)
 
 

@@ -14,6 +14,14 @@ exports[`Snapshots > renders correctly when disabled 1`] = `
   >
     my item
   </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
+  />
 </li>
 `;
 
@@ -31,6 +39,14 @@ exports[`Snapshots > renders correctly when selected 1`] = `
   >
     my item
   </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
+  />
 </li>
 `;
 
@@ -48,26 +64,35 @@ exports[`Snapshots > renders correctly with a label 1`] = `
   >
     my item
   </div>
-  <span
-    className=""
-    data-testid="label"
-    data-vibe="Label"
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
   >
     <span
-      className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
-      data-testid="text"
+      className=""
+      data-testid="label"
+      data-vibe="Label"
     >
       <span
-        className="typography inherit start singleLineEllipsis text text2Normal"
+        className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
         data-testid="text"
       >
-        New
+        <span
+          className="typography inherit start singleLineEllipsis text text2Normal"
+          data-testid="text"
+        >
+          New
+        </span>
+        <span
+          className="legWrapper"
+        />
       </span>
-      <span
-        className="legWrapper"
-      />
     </span>
-  </span>
+  </div>
 </li>
 `;
 
@@ -85,6 +110,14 @@ exports[`Snapshots > renders correctly with custom class name 1`] = `
   >
     
   </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
+  />
 </li>
 `;
 
@@ -102,6 +135,14 @@ exports[`Snapshots > renders correctly with empty props 1`] = `
   >
     
   </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
+  />
 </li>
 `;
 
@@ -141,6 +182,14 @@ exports[`Snapshots > renders correctly with title and SVG icon 1`] = `
   >
     my item
   </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
+  />
 </li>
 `;
 
@@ -171,5 +220,13 @@ exports[`Snapshots > renders correctly with title and font icon 1`] = `
   >
     my item
   </div>
+  <div
+    className="container directionRow justifyStart alignCenter"
+    style={
+      {
+        "gap": "var(--spacing-xs)",
+      }
+    }
+  />
 </li>
 `;

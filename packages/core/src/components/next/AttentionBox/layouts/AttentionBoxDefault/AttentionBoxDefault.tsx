@@ -48,7 +48,12 @@ const AttentionBoxDefault = ({
         />
       )}
 
-      <Text type="text2" className={styles.text} ellipsis={false} element="p">
+      <Text
+        type="text2"
+        className={styles.text}
+        ellipsis={false}
+        element={typeof content === "string" ? "p" : undefined}
+      >
         {content}
       </Text>
 
