@@ -36,3 +36,5 @@ export type DialogOffset = {
   main?: number;
   secondary?: number;
 };
+
+export type DialogEvent = React.MouseEvent | React.KeyboardEvent | KeyboardEvent | React.FocusEvent | CustomEvent;

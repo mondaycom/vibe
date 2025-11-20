@@ -1,7 +1,7 @@
 export { default as useKeyEvent } from "./useKeyEvent";
 export { default as useEventListener } from "./useEventListener";
 export { default as useDebounceEvent } from "./useDebounceEvent";
-export { default as useClickOutside } from "./useClickOutside";
+export { useClickOutside } from "@vibe/hooks";
 export { default as useResizeObserver } from "./useResizeObserver";
 export { default as useAfterFirstRender } from "./useAfterFirstRender";
 export { default as useTimeout } from "./useTimeout";

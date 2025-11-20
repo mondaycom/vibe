@@ -1,6 +1,6 @@
 import { vi, beforeEach, afterEach, describe, expect, type MockInstance } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
-import useDisableScroll from "..";
+import useDisableScroll from "./useDisableScroll";
 
 describe("useDisableScroll", () => {
   let addEventListenerSpy: MockInstance;

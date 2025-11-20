@@ -4,9 +4,11 @@ import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
 import { type Modifier } from "react-popper";
-import Dialog from "../Dialog/Dialog";
-import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog/Dialog.types";
-import { HideShowEvent as HideShowEventEnum, AnimationType as AnimationTypeEnum } from "../Dialog/DialogConstants";
+import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
+import {
+  DialogTriggerEventEnum as HideShowEventEnum,
+  DialogAnimationTypeEnum as AnimationTypeEnum
+} from "@vibe/dialog";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import { type ElementContent } from "../../types/ElementContent";

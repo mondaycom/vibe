@@ -1,13 +1,12 @@
 import React, { forwardRef, useCallback, useRef, useState } from "react";
 import { Info as InfoIcon } from "@vibe/icons";
 import { IconButton } from "../IconButton";
-import { Dialog } from "../Dialog";
+import { Dialog, type DialogEvent } from "@vibe/dialog";
 import { InfoDialogContent } from "./components";
 import { type InfoProps } from "./Info.types";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type DialogEvent } from "../Dialog/Dialog";
 
 const Info = forwardRef(
   (

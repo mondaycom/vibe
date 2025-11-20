@@ -11,17 +11,20 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { CSSTransition } from "react-transition-group";
 import { type CSSTransitionProps } from "react-transition-group/CSSTransition";
-import useClickOutside from "../../../hooks/useClickOutside";
-import { chainFunctions, NOOP } from "../../../utils/function-utils";
-import useKeyEvent from "../../../hooks/useKeyEvent";
-import { type VibeComponentProps } from "../../../types";
-import { keyCodes } from "../../../constants";
+import { useClickOutside } from "@vibe/hooks";
+import {
+  chainFunctions,
+  NOOP,
+  useKeyEvent,
+  type VibeComponentProps,
+  keyCodes,
+  getStyle,
+  useMergeRef
+} from "@vibe/shared";
 import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog.types";
 import type * as PopperJS from "@popperjs/core";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./DialogContent.module.scss";
-import useDisableScroll from "../../../hooks/useDisableScroll";
-import useMergeRef from "../../../hooks/useMergeRef";
+import useDisableScroll from "./useDisableScroll";
 
 const EMPTY_OBJECT = {};
 const ESCAPE_KEYS = [keyCodes.ESCAPE];

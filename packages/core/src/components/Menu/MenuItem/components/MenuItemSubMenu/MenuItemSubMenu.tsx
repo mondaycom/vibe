@@ -1,10 +1,9 @@
 import React, { useMemo, useRef } from "react";
-import DialogContentContainer from "../../../../DialogContentContainer/DialogContentContainer";
-import usePopover from "../../../../../hooks/usePopover";
+import { DialogContentContainer } from "@vibe/dialog";
+import { usePopover, DialogPlacementEnum as Placement } from "@vibe/dialog";
 import { type MenuChild } from "../../../Menu/MenuConstants";
 import { type MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
-import { Placement } from "../../../../../hooks/popoverConstants";
-import useIsomorphicLayoutEffect from "../../../../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 
 const MenuItemSubMenu = ({
   anchorRef,

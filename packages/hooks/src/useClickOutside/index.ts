@@ -1,7 +1,5 @@
 import { useCallback, useRef, type RefObject } from "react";
-import useEventListener from "../useEventListener";
-import { type GenericEventCallback } from "../../types/events";
-import { isClient } from "../../utils/ssr-utils";
+import { type GenericEventCallback, isClient, useEventListener } from "@vibe/shared";
 
 export default function useClickOutside({
   ref,

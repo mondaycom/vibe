@@ -1,6 +1,5 @@
 import React, { type HTMLProps, type MutableRefObject, type ReactElement } from "react";
-import { chainFunctions, chainRefFunctions } from "../../utils/function-utils";
-import { type VibeComponentProps } from "../../types";
+import { chainFunctions, chainRefFunctions, type VibeComponentProps } from "@vibe/shared";
 
 export const Refable = React.forwardRef<
   ReactElement,
