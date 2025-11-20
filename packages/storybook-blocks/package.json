@@ -91,7 +91,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-test-renderer": "^16.14.0",
-    "rollup": "^3.26.3",
+    "rollup": "^2.79.2",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
