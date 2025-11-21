@@ -19,6 +19,16 @@
     }
   }
 }
+.chipWrapperWithOverflow {
+  max-width: 100%;
+  flex-shrink: 1;
+  min-width: 0;
+
+  .visibleChip {
+    max-width: 100%;
+  }
+}
+
 .hiddenChip {
   position: absolute;
   visibility: hidden;

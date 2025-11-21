@@ -23,7 +23,8 @@ const MultiSelectTrigger = () => {
     getToggleButtonProps,
     label,
     getLabelProps,
-    ariaLabel
+    ariaLabel,
+    minVisibleCount
   } = useDropdownContext<BaseListItemData>();
 
   return (
@@ -52,6 +53,7 @@ const MultiSelectTrigger = () => {
                   contextOnOptionRemove?.(item);
                 }}
                 renderInput={() => <DropdownInput inputSize="small" />}
+                minVisibleCount={minVisibleCount}
               />
             ) : (
               <Flex gap="xs" wrap>
