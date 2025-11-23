@@ -92,3 +92,21 @@
 
   box-shadow: 0 0 0 3px var(--text-color-on-primary-with-opacity), 0 0 0 1px var(--text-color-on-primary) inset;
 }
+
+@mixin clickable() {
+  @include focus-style;
+  cursor: pointer;
+}
+
+@mixin clickable-disabled() {
+  cursor: default;
+}
+
+@mixin clickable-disable-text-selection() {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}

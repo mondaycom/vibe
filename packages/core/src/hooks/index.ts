@@ -16,7 +16,6 @@ export { default as useActiveDescendantListFocus } from "./useActiveDescendantLi
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
 export { default as useListenFocusTriggers } from "./useListenFocusTriggers";
-export { default as useClickableProps } from "./useClickableProps/useClickableProps";
 export { default as useSwitch } from "./useSwitch";
 export { default as useElementsOverflowingIndex } from "./useElementsOverflowingIndex";
 export { default as useWizard } from "./useWizard/useWizard";

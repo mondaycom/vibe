@@ -6,7 +6,7 @@ import { contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import { Icon } from "@vibe/icon";
 import Tooltip from "../../../Tooltip/Tooltip";
-import Clickable from "../../../Clickable/Clickable";
+import { Clickable } from "@vibe/clickable";
 import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";

@@ -9,7 +9,7 @@ import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSiz
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
 import { type VibeComponentProps, withStaticProps } from "../../types";
-import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import { useClickableProps } from "@vibe/clickable";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";

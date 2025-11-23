@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import Clickable from "../../components/Clickable/Clickable";
+import { Clickable } from "@vibe/clickable";
 import {
   FlexAlign as FlexAlignEnum,
   FlexDirection as FlexDirectionEnum,

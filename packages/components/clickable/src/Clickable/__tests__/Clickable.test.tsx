@@ -3,8 +3,7 @@ import React from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import Clickable, { type ClickableProps } from "../Clickable";
 import userEvent from "@testing-library/user-event";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
 
 const renderComponent = (props: ClickableProps) => {
   return render(<Clickable {...props} />);

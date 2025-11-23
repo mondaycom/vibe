@@ -10,7 +10,8 @@ export * from "@vibe/button";
 export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./Chips";
-export * from "./Clickable";
+// TODO: export * after removing ClickableWrapper from @vibe/clickable
+export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "./ColorPicker";
 export * from "./Combobox";
 export * from "./Counter";
