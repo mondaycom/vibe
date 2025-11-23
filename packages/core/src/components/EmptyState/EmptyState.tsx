@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import Flex from "../../components/Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Heading from "../../components/Heading/Heading";
 import Text from "../../components/Text/Text";
 import { type EmptyStateProps } from "./EmptyState.types";
