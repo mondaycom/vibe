@@ -73,6 +73,24 @@ export default {
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
+    ...(shouldMockModularClassnames
+      ? [
+          {
+            name: "resolve-vibe-to-mocked-entry-points",
+            resolveId(source) {
+              // Redirect @vibe/* → @vibe/*/mockedClassNames
+              if (source.startsWith("@vibe/")) {
+                const afterScope = source.substring("@vibe/".length);
+                // If no additional "/" after the package name, redirect to /mockedClassNames
+                if (!afterScope.includes("/")) {
+                  return { id: `${source}/mockedClassNames`, external: true };
+                }
+              }
+              return null;
+            }
+          }
+        ]
+      : []),
     commonjs(),
     nodeResolve({
       extensions: [...EXTENSIONS, ".json", ".css"]
