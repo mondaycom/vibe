@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/mondaycom/vibe/compare/@vibe/shared@3.0.6...@vibe/shared@3.0.7) (2025-11-25)
+
+**Note:** Version bump only for package @vibe/shared
+
+
+
+
+
 ## [3.0.6](https://github.com/mondaycom/vibe/compare/@vibe/shared@3.0.5...@vibe/shared@3.0.6) (2025-11-19)
 
 **Note:** Version bump only for package @vibe/shared

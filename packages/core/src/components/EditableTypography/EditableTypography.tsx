@@ -25,6 +25,10 @@ export interface EditableTypographyImplementationProps {
    */
   onClick?: (event: React.KeyboardEvent | React.MouseEvent) => void;
   /**
+   * Callback fired when a key is pressed inside the input/textarea element.
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  /**
    * If true, the text is read-only and cannot be edited.
    */
   readOnly?: boolean;
@@ -92,6 +96,7 @@ const EditableTypography = forwardRef(
       value,
       onChange,
       onClick,
+      onKeyDown,
       readOnly = false,
       ariaLabel = "",
       placeholder,
@@ -187,6 +192,8 @@ const EditableTypography = forwardRef(
         handleEditModeChange(false);
         setInputValue(value);
       }
+
+      onKeyDown?.(event);
     }
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
