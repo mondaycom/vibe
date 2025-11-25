@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import BaseListItem from "../BaseListItem/BaseListItem";
 import styles from "./BaseList.module.scss";
 import { type BaseListProps } from "./BaseList.types";
-import { Flex } from "../Flex";
+import { Flex } from "@vibe/layout";
 import { type TextType } from "../Text";
 import Text from "../Text/Text";
 import cx from "classnames";

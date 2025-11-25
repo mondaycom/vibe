@@ -9,7 +9,7 @@ import InfoText from "../InfoText/InfoText";
 import { Icon } from "@vibe/icon";
 import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFieldSpinButton";
 import styles from "./NumberField.module.scss";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ComponentVibeId } from "../../tests/constants";
 

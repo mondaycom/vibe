@@ -6,7 +6,7 @@ import { Icon, type SubIcon } from "@vibe/icon";
 import IconButton from "../../IconButton/IconButton";
 import { Info } from "@vibe/icons";
 import Text from "../../Text/Text";
-import Flex from "../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
 import Tooltip from "../../Tooltip/Tooltip";
 import { getTestId } from "../../../tests/test-ids-utils";

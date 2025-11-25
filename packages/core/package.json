@@ -92,6 +92,8 @@
     "@popperjs/core": "2.11.6",
     "@vibe/base": "3.0.2",
     "@vibe/button": "3.0.7",
+    "@vibe/clickable": "3.0.0",
+    "@vibe/layout": "3.0.0",
     "@vibe/dialog": "3.0.1",
     "@vibe/hooks": "3.0.1",
     "@vibe/icon": "3.0.7",

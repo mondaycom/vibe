@@ -1,11 +1,7 @@
-import { useKeyboardButtonPressedFunc } from "../useKeyboardButtonPressedFunc";
 import type React from "react";
 import { useRef } from "react";
-import useMergeRef from "../useMergeRef";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { type ClickableProps } from "../../components/Clickable/Clickable";
-import { NOOP } from "../../utils/function-utils";
+import { getTestId, useMergeRef, NOOP, ComponentDefaultTestId, useKeyboardButtonPressedFunc } from "@vibe/shared";
+import { type ClickableProps } from "../Clickable/Clickable";
 
 /**
  * Return props for adding clickable functionality to the element except for the styles and classNames

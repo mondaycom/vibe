@@ -24,7 +24,7 @@ import {
 import { type TextFieldType, type TextFieldSize } from "./TextField.types";
 import { BASE_SIZES } from "../../constants/sizes";
 import useMergeRef from "../../hooks/useMergeRef";
-import Clickable from "../../components/Clickable/Clickable";
+import { Clickable } from "@vibe/clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";

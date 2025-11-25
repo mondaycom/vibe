@@ -1,7 +1,7 @@
-@use "../Clickable/Clickable.module" as clickable;
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
+@import "~monday-ui-style/dist/mixins/states";
 
 .chips {
   display: inline-flex;
@@ -65,12 +65,12 @@
   }
 
   &.clickable {
-    @include clickable.clickable;
+    @include clickable;
     &.disabled {
-      @include clickable.clickable-disabled;
+      @include clickable-disabled;
     }
     &.disableTextSelection {
-      @include clickable.clickable-disable-text-selection;
+      @include clickable-disable-text-selection;
     }
   }
 }

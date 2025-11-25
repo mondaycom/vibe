@@ -11,7 +11,7 @@ import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
 import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
 import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
 import { type SubmenuPosition } from "./MenuItem.types";
-import Flex from "../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**

@@ -4,7 +4,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
-import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
+import { useKeyboardButtonPressedFunc } from "@vibe/shared";
 import { type TooltipProps } from "../Tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { type TextType, type TextWeight } from "../Text";

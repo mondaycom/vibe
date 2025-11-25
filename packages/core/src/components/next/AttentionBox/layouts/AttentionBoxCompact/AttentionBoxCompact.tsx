@@ -1,5 +1,5 @@
 import React from "react";
-import Flex from "../../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Text from "../../../../Text/Text";
 import AttentionBoxButton from "../../components/AttentionBoxButton/AttentionBoxButton";
 import AttentionBoxLink from "../../components/AttentionBoxLink/AttentionBoxLink";

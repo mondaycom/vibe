@@ -12,7 +12,7 @@ import { Check } from "@vibe/icons";
 import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
-import Clickable from "../../../../components/Clickable/Clickable";
+import { Clickable } from "@vibe/clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
