@@ -1,0 +1,1 @@
+import{r as i}from"./index-CTZeEbLr.js";function E({eventName:t,callback:e,ref:r,capture:s=!1}){i.useEffect(()=>{const n=r&&r.current;if(!n)return;const o={capture:s};return n.addEventListener(t,e,o),()=>{n.removeEventListener(t,e,o)}},[t,r,e,s])}export{E as u};
