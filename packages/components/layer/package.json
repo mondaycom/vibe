@@ -27,8 +27,8 @@
       "default": "./dist/index.js"
     },
     "./mockedClassNames": {
-      "import": "./dist/mocked_classnames/src/index.js",
-      "default": "./dist/mocked_classnames/src/index.js"
+      "import": "./dist/mocked_classnames/index.js",
+      "default": "./dist/mocked_classnames/index.js"
     }
   },
   "scripts": {
