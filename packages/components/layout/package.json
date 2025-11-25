@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@vibe/clickable": "3.0.0",
-    "@vibe/shared": "3.0.6",
+    "@vibe/shared": "3.0.7",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
