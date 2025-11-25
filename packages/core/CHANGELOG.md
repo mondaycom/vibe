@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.78.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.77.0...@vibe/core@3.78.0) (2025-11-25)
+
+
+### Features
+
+* **EditableTypography:** add onKeyDown event ([#3190](https://github.com/mondaycom/vibe/issues/3190)) ([0b53625](https://github.com/mondaycom/vibe/commit/0b53625a00a22653ba43f92f85ab2bf5c728fe29))
+
+
+
+
+
 # [3.77.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.1...@vibe/core@3.77.0) (2025-11-19)
 
 
