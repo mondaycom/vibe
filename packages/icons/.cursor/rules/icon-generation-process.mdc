@@ -1,0 +1,60 @@
+---
+alwaysApply: false
+---
+
+# Icon Addition Process
+
+This document outlines the steps required to add a new SVG icon to the `@vibe/icons` package. This ensures consistency and proper integration of new icons.
+
+## Quick Links
+
+- **For icons from monday.com tasks**: Use the Cursor rule `.cursor/rules/add-icon-from-monday-task.mdc` - simply ask Cursor: "Add icon from task [monday.com URL]". This will extract data from the task and then continue with the manual process below.
+- **For manual icon addition**: Follow the steps below
+
+## Manual Icon Addition Process
+
+## Steps
+
+1. **Prepare and Place the SVG File:**
+
+   - Add the SVG file to `src/svg/` directory
+   - Ensure the SVG filename matches the icon name in PascalCase (e.g., `MyNewIcon.svg`)
+
+2. **Add Metadata Entry:**
+
+   - Open `src/iconsMetaData.ts`
+   - Add a new metadata entry before the closing `] satisfies Icon[];` bracket
+   - Add after the `// plop_marker:icon_metadata` comment
+   - The entry should be an object with the following properties:
+     - `name`: The icon's name, matching the filename without the `.svg` extension (e.g., "MyNewIcon")
+     - `file`: The full SVG filename (e.g., `MyNewIcon.svg`)
+     - `description`: A brief, clear description of the icon
+     - `tags`: A comma-separated string of relevant keywords (e.g., `"Tag1, Tag Two, Tag3"`)
+
+   Example:
+
+   ```typescript
+   {
+     name: "MyNewIcon",
+     file: "MyNewIcon.svg",
+     description: "A brief description of what this icon represents",
+     tags: "Tag1, Tag Two, Tag3",
+   },
+   ```
+
+3. **Build and Verify:**
+
+   - Run `yarn lint && yarn build` from the package root
+   - Verify the React component was created in `src/react/`
+   - Verify the lazy loader was generated in `src/lazy/`
+   - Check that the icon is exported correctly
+
+4. **Test:**
+   - Import and use the icon in a test file or Storybook story
+   - Verify it renders correctly
+
+The build process automatically:
+
+- Generates React components in `src/react/`
+- Generates lazy loaders in `src/lazy/`
+- Updates the main export files
