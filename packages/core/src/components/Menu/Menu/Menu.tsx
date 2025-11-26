@@ -3,7 +3,7 @@ import { SIZES } from "../../../constants";
 import React, { forwardRef, type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
-import useClickOutside from "../../../hooks/useClickOutside";
+import { useClickOutside } from "@vibe/hooks";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";

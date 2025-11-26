@@ -1,6 +1,6 @@
 {
   "name": "@vibe/loader",
-  "version": "3.0.5",
+  "version": "3.0.7",
   "description": "Vibe sub-package for loader components",
   "repository": {
     "type": "git",
@@ -25,20 +25,24 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./mockedClassNames": {
+      "import": "./dist/mocked_classnames/src/index.js",
+      "default": "./dist/mocked_classnames/src/index.js"
     }
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.5",
+    "@vibe/shared": "3.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.4",
+    "@vibe/config": "3.0.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

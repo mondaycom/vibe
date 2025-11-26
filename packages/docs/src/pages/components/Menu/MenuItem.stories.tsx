@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, MenuItem, type MenuItemProps } from "@vibe/core";
+import { Menu, MenuItem, type MenuItemProps, Flex, Text } from "@vibe/core";
 import { Activity } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
@@ -8,7 +8,7 @@ type Story = StoryObj<MenuItemProps>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItem,
-  iconPropNamesArray: ["icon"]
+  iconPropNamesArray: ["icon", "rightIcon"]
 });
 
 export default {
@@ -50,10 +50,22 @@ export const States: Story = {
 
 export const Icons: Story = {
   render: () => (
-    <Menu>
-      <MenuItem title="SVG icon" icon={Activity} />
-      <MenuItem title="Font icon" icon="fa fa-star" iconType="font" />
-    </Menu>
+    <Flex gap="large" align="start" justify="start">
+      <Flex direction="column" gap="medium">
+        <Text>Left icon</Text>
+        <Menu>
+          <MenuItem title="SVG icon" icon={Activity} />
+          <MenuItem title="Font icon" icon="fa fa-star" iconType="font" />
+        </Menu>
+      </Flex>
+      <Flex direction="column" gap="medium">
+        <Text>Right icon</Text>
+        <Menu>
+          <MenuItem title="SVG right icon" rightIcon={Activity} />
+          <MenuItem title="Font right icon" rightIcon="fa fa-star" rightIconType="font" />
+        </Menu>
+      </Flex>
+    </Flex>
   ),
   parameters: {
     docs: {

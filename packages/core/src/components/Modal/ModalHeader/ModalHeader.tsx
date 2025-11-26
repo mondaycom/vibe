@@ -4,7 +4,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./ModalHeader.module.scss";
 import { type ModalHeaderProps } from "./ModalHeader.types";
-import Flex from "../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Heading from "../../Heading/Heading";
 import Text from "../../Text/Text";
 import { Icon } from "@vibe/icon";

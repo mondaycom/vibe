@@ -15,6 +15,14 @@ const components = fs.readdirSync(componentsFolder).reduce((acc, component) => {
   return acc;
 }, {});
 
+// Add @vibe/base package alias
+const baseFolder = path.resolve(process.cwd(), "../base");
+const baseSrcPath = path.join(baseFolder, "src");
+
+if (fs.existsSync(baseSrcPath)) {
+  components["@vibe/base"] = path.join(baseFolder, "src/index.ts");
+}
+
 export default defineConfig({
   plugins: [
     react({

@@ -3,13 +3,13 @@ import cx from "classnames";
 import { type NumberFieldProps } from "./NumberField.types";
 import useNumberFieldState from "./hooks/useNumberFieldState";
 import useSpinButtonHandlers from "./hooks/useSpinButtonHandlers";
-import BaseInput from "../BaseInput/BaseInput";
+import { BaseInput } from "@vibe/base";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import InfoText from "../InfoText/InfoText";
 import { Icon } from "@vibe/icon";
 import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFieldSpinButton";
 import styles from "./NumberField.module.scss";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ComponentVibeId } from "../../tests/constants";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Flex from "../../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Text from "../../../../Text/Text";
 import AttentionBoxButton from "../../components/AttentionBoxButton/AttentionBoxButton";
 import AttentionBoxLink from "../../components/AttentionBoxLink/AttentionBoxLink";
@@ -25,7 +25,7 @@ const AttentionBoxCompact = ({
     <Flex align="center" className={styles.container}>
       <Flex gap="xs" flex="1" className={styles.mainContentGroup}>
         {icon && <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.leadingIcon} />}
-        <Text type="text2" element="p" ellipsis>
+        <Text type="text2" element={typeof content === "string" ? "p" : undefined} ellipsis>
           {content}
         </Text>
       </Flex>

@@ -1,7 +1,7 @@
 import React from "react";
 import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
 import { IconButton } from "../../../../IconButton";
-import { Flex } from "../../../../Flex";
+import { Flex } from "@vibe/layout";
 import { Loader } from "@vibe/loader";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
