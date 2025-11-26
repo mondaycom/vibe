@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.2.1...@vibe/docs@3.3.0) (2025-11-26)
+
+
+### Features
+
+* **AlertBanner:** add ariaLive to AlertBanner ([#3182](https://github.com/mondaycom/vibe/issues/3182)) ([961faca](https://github.com/mondaycom/vibe/commit/961faca14f6c8258650b3004ef6d0c30b7741720))
+
+
+
+
+
 ## [3.2.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.2.0...@vibe/docs@3.2.1) (2025-11-25)
 
 **Note:** Version bump only for package @vibe/docs

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/clickable",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Vibe sub-package for Clickable component",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.7",
+    "@vibe/shared": "3.0.8",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
