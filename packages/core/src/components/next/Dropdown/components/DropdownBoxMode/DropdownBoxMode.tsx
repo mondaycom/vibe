@@ -4,7 +4,7 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import MenuList from "../Menu/MenuList";
 import SingleSelectTrigger from "../Trigger/SingleSelectTrigger";
 import MultiSelectTrigger from "../Trigger/MultiSelectTrigger";
-import { Flex } from "../../../../Flex";
+import { Flex } from "@vibe/layout";
 import styles from "./DropdownBoxMode.module.scss";
 
 const DropdownBoxMode = () => {
