@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.3.0...@vibe/docs@3.4.0) (2025-11-27)
+
+
+### Features
+
+* **Dropdown:** add boxMode for inline dropdown display ([#3171](https://github.com/mondaycom/vibe/issues/3171)) ([c344822](https://github.com/mondaycom/vibe/commit/c3448224aa80b5f659fcd62d8739865912d60634))
+
+
+
+
+
 # [3.3.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.2.1...@vibe/docs@3.3.0) (2025-11-26)
 
 

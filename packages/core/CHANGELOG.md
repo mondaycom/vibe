@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.80.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.79.0...@vibe/core@3.80.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* **Label:** update text color ([#3194](https://github.com/mondaycom/vibe/issues/3194)) ([822f3a7](https://github.com/mondaycom/vibe/commit/822f3a70373c7bfdea8ca3d259af063b4bcecd8c))
+
+
+### Features
+
+* **Dropdown:** add borderless prop ([#3195](https://github.com/mondaycom/vibe/issues/3195)) ([0e1227d](https://github.com/mondaycom/vibe/commit/0e1227d24b6731b95e0935115c3551ffffc02aff))
+* **Dropdown:** add boxMode for inline dropdown display ([#3171](https://github.com/mondaycom/vibe/issues/3171)) ([c344822](https://github.com/mondaycom/vibe/commit/c3448224aa80b5f659fcd62d8739865912d60634))
+
+
+
+
+
 # [3.79.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.78.0...@vibe/core@3.79.0) (2025-11-26)
 
 
