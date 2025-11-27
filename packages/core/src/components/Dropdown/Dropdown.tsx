@@ -39,7 +39,7 @@ import {
 } from "./Dropdown.types";
 import { withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
-import LayerContext from "../LayerProvider/LayerContext";
+import { LayerContext } from "@vibe/layer";
 
 const Dropdown = forwardRef(
   (

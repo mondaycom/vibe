@@ -1,6 +1,6 @@
 import React, { type ReactElement, type Ref, useCallback, useMemo } from "react";
 import cx from "classnames";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";

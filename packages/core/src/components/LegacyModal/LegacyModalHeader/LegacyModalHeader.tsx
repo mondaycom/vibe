@@ -9,7 +9,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import Text from "../../Text/Text";
 import Heading from "../../Heading/Heading";
-import Flex from "../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import styles from "./LegacyModalHeader.module.scss";
 
 interface BaseLegacyModalHeaderProps extends VibeComponentProps {

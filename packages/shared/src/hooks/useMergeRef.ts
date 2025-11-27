@@ -1,5 +1,5 @@
 import { type ForwardedRef, type MutableRefObject, type RefObject, useRef } from "react";
-import useIsomorphicLayoutEffect from "./ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "./ssr/useIsomorphicLayoutEffect";
 /*
  * Example usage:
  * const Component = React.forwardRef((props, ref) => {

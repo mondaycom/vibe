@@ -4,26 +4,38 @@ export * from "./AttentionBox";
 export * from "./Avatar";
 export * from "./AvatarGroup";
 export * from "./Badge";
-export * from "./Box";
 export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
 export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./Chips";
-export * from "./Clickable";
+// TODO: export * after removing ClickableWrapper from @vibe/clickable
+export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "./ColorPicker";
 export * from "./Combobox";
 export * from "./Counter";
 export * from "./DatePicker";
-export * from "./Dialog";
-export * from "./DialogContentContainer";
+// TODO: export * after removing enums
+export {
+  Dialog,
+  DialogContentContainer,
+  type DialogProps,
+  type DialogContentContainerProps,
+  type DialogType,
+  type DialogSize,
+  type DialogPosition,
+  type DialogTriggerEvent,
+  type DialogAnimationType,
+  type DialogOffset,
+  type DialogEvent
+} from "@vibe/dialog";
 export * from "./Divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
 export * from "./EmptyState";
 export * from "./ExpandCollapse";
-export * from "./Flex";
+export * from "@vibe/layout";
 export * from "./FormattedNumber";
 export * from "./GridKeyboardNavigationContext";
 export * from "./Heading";
@@ -32,7 +44,7 @@ export * from "@vibe/icon";
 export * from "./IconButton";
 export * from "./Info";
 export * from "./Label";
-export * from "./LayerProvider";
+export { LayerProvider, type LayerProviderType } from "@vibe/layer";
 export * from "./Link";
 export * from "./List";
 export * from "./ListItem";

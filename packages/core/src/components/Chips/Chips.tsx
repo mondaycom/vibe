@@ -15,7 +15,7 @@ import { type AvatarType } from "../Avatar";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import useSetFocus from "../../hooks/useSetFocus";
-import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 

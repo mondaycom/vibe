@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import cx from "classnames";
 import Divider from "../../../../Divider/Divider";
 import { Icon } from "@vibe/icon";
-import Flex from "../../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import IconButton from "../../../../IconButton/IconButton";
 import { DropdownChevronRight } from "@vibe/icons";
 import styles from "./MenuItemSubMenuIcon.module.scss";

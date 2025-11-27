@@ -3,7 +3,7 @@ import cx from "classnames";
 import { type NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
 import IconButton from "../../../IconButton/IconButton";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
-import Flex from "../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import styles from "./NumberFieldSpinButton.module.scss";
 

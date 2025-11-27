@@ -30,18 +30,26 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     isOpen,
     helperText,
     dir,
-    tooltipProps
+    tooltipProps,
+    boxMode,
+    borderless
   } = useDropdownContext<BaseListItemData>();
 
   const coreDropdownElement = (
     <div
       ref={dropdownRef}
-      className={cx(styles.wrapper, className, {
-        [styles.disabled]: disabled,
-        [styles.readOnly]: readOnly,
-        [styles.error]: error,
-        [styles.active]: isFocused || isOpen
-      })}
+      className={cx(
+        styles.wrapper,
+        {
+          [styles.disabled]: disabled,
+          [styles.readOnly]: readOnly,
+          [styles.error]: error,
+          [styles.active]: isFocused || isOpen,
+          [styles.boxMode]: boxMode,
+          [styles.borderless]: borderless
+        },
+        className
+      )}
       id={id}
       aria-label={ariaLabel}
       data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}

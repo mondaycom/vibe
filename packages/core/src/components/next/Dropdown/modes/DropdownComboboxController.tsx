@@ -35,7 +35,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     size = "medium",
     id,
     readOnly,
-    disabled
+    disabled,
+    boxMode = false
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
@@ -62,7 +63,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     toggleMenu
   } = useDropdownCombobox<Item>(
     options,
-    isMenuOpenProp,
+    boxMode ? undefined : isMenuOpenProp,
     autoFocus,
     closeMenuOnSelect,
     defaultValue,
@@ -80,7 +81,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
 
   const contextValue: DropdownContextProps<Item> = {
     ...props,
-    isOpen,
+    isOpen: boxMode ? true : isOpen,
     inputValue: hookInputValue ?? null,
     highlightedIndex,
     selectedItem: hookSelectedItem,

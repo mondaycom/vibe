@@ -31,4 +31,9 @@ export interface MenuItemIconProps {
    * Additional class name for styling the icon wrapper.
    */
   wrapperClassName?: string;
+  /**
+   * If true, the icon appears on the right side.
+   * @default false
+   */
+  isRightIcon?: boolean;
 }

@@ -22,7 +22,7 @@ import {
 import { createPortal } from "react-dom";
 import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 import useFocusEscapeTargets from "../hooks/useFocusEscapeTargets/useFocusEscapeTargets";
-import { LayerProvider } from "../../LayerProvider";
+import { LayerProvider } from "@vibe/layer";
 import useMergeRef from "../../../hooks/useMergeRef";
 
 // @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)

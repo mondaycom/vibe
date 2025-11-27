@@ -4,7 +4,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
-import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
+import { useKeyboardButtonPressedFunc } from "@vibe/shared";
 import { type TooltipProps } from "../Tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { type TextType, type TextWeight } from "../Text";
@@ -24,6 +24,10 @@ export interface EditableTypographyImplementationProps {
    * Callback fired when the component is clicked.
    */
   onClick?: (event: React.KeyboardEvent | React.MouseEvent) => void;
+  /**
+   * Callback fired when a key is pressed inside the input/textarea element.
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   /**
    * If true, the text is read-only and cannot be edited.
    */
@@ -92,6 +96,7 @@ const EditableTypography = forwardRef(
       value,
       onChange,
       onClick,
+      onKeyDown,
       readOnly = false,
       ariaLabel = "",
       placeholder,
@@ -187,6 +192,8 @@ const EditableTypography = forwardRef(
         handleEditModeChange(false);
         setInputValue(value);
       }
+
+      onKeyDown?.(event);
     }
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {

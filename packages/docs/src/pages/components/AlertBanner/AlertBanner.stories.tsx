@@ -32,7 +32,9 @@ export default {
     AlertBannerLink,
     AlertBannerButton
   },
-  argTypes: metaSettings.argTypes,
+  argTypes: {
+    ...metaSettings.argTypes
+  },
   decorators: [
     ...metaSettings.decorators,
     (Story: React.ComponentType) => (

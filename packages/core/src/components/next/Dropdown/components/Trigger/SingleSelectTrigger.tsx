@@ -4,7 +4,7 @@ import { BaseListItem, type BaseListItemData } from "../../../../BaseListItem";
 import DropdownInput from "./DropdownInput";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { Flex } from "../../../../Flex";
+import { Flex } from "@vibe/layout";
 import TriggerActions from "./TriggerActions";
 import { getStyle } from "../../../../../helpers/typesciptCssModulesHelper";
 

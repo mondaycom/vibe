@@ -10,7 +10,7 @@ import { AttentionBoxType as AttentionBoxTypeEnum, IconTypeEnum } from "./Attent
 import { type AttentionBoxType } from "./AttentionBox.types";
 import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
 import Text from "../Text/Text";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import styles from "./AttentionBox.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
