@@ -118,6 +118,10 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
      */
     dir?: DropdownDirection;
     /**
+     * If true, the dropdown has no visible border by default, but shows border on hover, focus, and active states.
+     */
+    borderless?: boolean;
+    /**
      * The function to call to render an option.
      */
     optionRenderer?: (option: Item) => React.ReactNode;

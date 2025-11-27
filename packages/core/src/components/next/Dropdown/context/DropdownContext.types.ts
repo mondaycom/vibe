@@ -41,6 +41,7 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
     | "menuWrapperClassName"
     | "loading"
     | "boxMode"
+    | "borderless"
     | "onFocus"
     | "onBlur"
     | "onKeyDown"

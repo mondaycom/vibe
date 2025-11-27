@@ -31,7 +31,8 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     helperText,
     dir,
     tooltipProps,
-    boxMode
+    boxMode,
+    borderless
   } = useDropdownContext<BaseListItemData>();
 
   const coreDropdownElement = (
@@ -44,7 +45,8 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
           [styles.readOnly]: readOnly,
           [styles.error]: error,
           [styles.active]: isFocused || isOpen,
-          [styles.boxMode]: boxMode
+          [styles.boxMode]: boxMode,
+          [styles.borderless]: borderless
         },
         className
       )}
