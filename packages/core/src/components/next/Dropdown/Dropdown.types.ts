@@ -36,6 +36,10 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
    * Callback fired when the selected values change in multi-select mode.
    */
   onChange?: (options: Item[]) => void;
+  /**
+   * Minimum number of selected chips to always show before overflowing to the counter.
+   */
+  minVisibleCount?: number;
 }
 
 interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
@@ -67,6 +71,10 @@ interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unk
    * Callback fired when the selected value changes in single-select mode.
    */
   onChange?: (option: Item) => void;
+  /**
+   * Minimum number of selected chips to always show before overflowing to the counter. (Not available for single select)
+   */
+  minVisibleCount?: never;
 }
 
 type BoxModeConstraint =

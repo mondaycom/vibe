@@ -40,6 +40,7 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
     | "closeMenuOnSelect"
     | "menuWrapperClassName"
     | "loading"
+    | "minVisibleCount"
     | "boxMode"
     | "borderless"
     | "onFocus"
