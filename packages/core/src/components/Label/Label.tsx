@@ -138,7 +138,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
-            color="onInverted"
+            color={color === "dark" ? "onInverted" : "onPrimary"}
             data-celebration-text={isCelebrationAnimation}
           >
             <Text
@@ -165,7 +165,8 @@ const Label = forwardRef<HTMLElement, LabelProps>(
       text,
       isLegIncluded,
       size,
-      backgroundColorStyle
+      backgroundColorStyle,
+      color
     ]);
 
     // Celebration animation is applied only for line kind
