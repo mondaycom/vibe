@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.80.0...@vibe/core@3.81.0) (2025-11-27)
+
+
+### Features
+
+* **Dropdown:** add minVisibleCount prop to MultiSelect ([#3185](https://github.com/mondaycom/vibe/issues/3185)) ([e789214](https://github.com/mondaycom/vibe/commit/e789214a13666c6b8614569581a2d295fe9d8f1c))
+
+
+
+
+
 # [3.80.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.79.0...@vibe/core@3.80.0) (2025-11-27)
 
 
