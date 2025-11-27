@@ -1124,4 +1124,54 @@ describe("DropdownNew", () => {
       expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
     });
   });
+
+  describe("Box Mode", () => {
+    it("should render single select in box mode with input visible and menu always open", () => {
+      const { getByRole, getByPlaceholderText, getByText } = renderDropdown({
+        boxMode: true,
+        searchable: true
+      });
+
+      // Input should be visible
+      const input = getByPlaceholderText("Select an option");
+      expect(input).toBeInTheDocument();
+
+      // Menu should be visible without clicking
+      const listbox = getByRole("listbox");
+      expect(listbox).toBeInTheDocument();
+      expect(getByText("Option 1")).toBeInTheDocument();
+      expect(getByText("Option 3")).toBeInTheDocument();
+    });
+
+    it("should work with multi select in box mode", () => {
+      const { getByRole, getByPlaceholderText, getByTestId } = renderDropdown({
+        boxMode: true,
+        multi: true,
+        searchable: true
+      });
+
+      // Input should be visible
+      const input = getByPlaceholderText("Select an option");
+      expect(input).toBeInTheDocument();
+
+      // Menu should be visible
+      const listbox = getByRole("listbox");
+      expect(listbox).toBeInTheDocument();
+
+      // Select an option
+      fireEvent.click(within(listbox).getByText("Option 1"));
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+    });
+
+    it("should hide chevron in box mode", () => {
+      const { queryByRole } = renderDropdown({
+        boxMode: true,
+        searchable: true
+      });
+
+      // Chevron button should not be rendered
+      const chevronButton = queryByRole("button", { name: /expand|collapse/i });
+      expect(chevronButton).not.toBeInTheDocument();
+    });
+  });
 });
