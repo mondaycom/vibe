@@ -40,6 +40,19 @@
     background: transparent;
     cursor: default;
   }
+
+  &.borderless {
+    --border-color: transparent;
+
+    &:hover {
+      --border-color: var(--primary-text-color);
+    }
+
+    &.active,
+    &:focus {
+      --border-color: var(--primary-color);
+    }
+  }
 }
 .helperText {
   margin-top: var(--spacing-xs);
