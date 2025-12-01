@@ -9,7 +9,7 @@ import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSiz
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
 import { type VibeComponentProps, withStaticProps } from "../../types";
-import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import { useClickableProps } from "@vibe/clickable";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
@@ -138,7 +138,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
-            color="onInverted"
+            color={color === "dark" ? "onInverted" : "onPrimary"}
             data-celebration-text={isCelebrationAnimation}
           >
             <Text
@@ -165,7 +165,8 @@ const Label = forwardRef<HTMLElement, LabelProps>(
       text,
       isLegIncluded,
       size,
-      backgroundColorStyle
+      backgroundColorStyle,
+      color
     ]);
 
     // Celebration animation is applied only for line kind

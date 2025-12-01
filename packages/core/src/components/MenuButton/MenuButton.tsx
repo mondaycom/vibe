@@ -2,8 +2,9 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { isForwardRef } from "react-is";
-import Dialog, { type DialogEvent } from "../Dialog/Dialog";
-import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
+import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
+import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
+import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent } from "@vibe/dialog";
 import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -12,18 +13,7 @@ import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
 } from "./MenuButtonConstants";
-import {
-  DialogPosition as DialogPositionEnum,
-  HideShowEvent as DialogTriggerEventEnum,
-  DialogSize as DialogSizeEnum
-} from "../Dialog/DialogConstants";
 import { type MenuButtonComponentPosition, type MenuButtonSize } from "./MenuButton.types";
-import {
-  type DialogOffset,
-  type DialogPosition,
-  type DialogSize,
-  type DialogTriggerEvent
-} from "../Dialog/Dialog.types";
 import { NOOP } from "../../utils/function-utils";
 import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";

@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function generateVibeComponentAliases() {
-  const componentsFolder = path.resolve(__dirname, "../../components");
+  const componentsFolder = path.resolve(__dirname, "../../packages/components");
   const vibeComponents = {};
 
   if (fs.existsSync(componentsFolder)) {
@@ -22,6 +22,14 @@ function generateVibeComponentAliases() {
         vibeComponents[`@vibe/${component}`] = srcPath;
       }
     });
+  }
+
+  // Add @vibe/base package alias
+  const baseFolder = path.resolve(__dirname, "../../packages/base");
+  const baseSrcPath = path.join(baseFolder, "src");
+
+  if (fs.existsSync(baseSrcPath)) {
+    vibeComponents["@vibe/base"] = baseSrcPath;
   }
 
   return vibeComponents;

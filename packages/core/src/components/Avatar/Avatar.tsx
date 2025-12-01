@@ -11,7 +11,7 @@ import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
 import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
-import ClickableWrapper from "../Clickable/ClickableWrapper";
+import { ClickableWrapper } from "@vibe/clickable";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import styles from "./Avatar.module.scss";

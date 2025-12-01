@@ -1,5 +1,5 @@
 import { type BASE_SIZES } from "../../constants";
-import { type DialogPosition } from "../Dialog";
+import { type DialogPosition } from "@vibe/dialog";
 import { type TypographyColor } from "../Typography";
 
 export type SliderColor = "primary" | "negative" | "positive";

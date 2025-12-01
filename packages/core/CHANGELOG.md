@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.80.0...@vibe/core@3.81.0) (2025-11-27)
+
+
+### Features
+
+* **Dropdown:** add minVisibleCount prop to MultiSelect ([#3185](https://github.com/mondaycom/vibe/issues/3185)) ([e789214](https://github.com/mondaycom/vibe/commit/e789214a13666c6b8614569581a2d295fe9d8f1c))
+
+
+
+
+
+# [3.80.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.79.0...@vibe/core@3.80.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* **Label:** update text color ([#3194](https://github.com/mondaycom/vibe/issues/3194)) ([822f3a7](https://github.com/mondaycom/vibe/commit/822f3a70373c7bfdea8ca3d259af063b4bcecd8c))
+
+
+### Features
+
+* **Dropdown:** add borderless prop ([#3195](https://github.com/mondaycom/vibe/issues/3195)) ([0e1227d](https://github.com/mondaycom/vibe/commit/0e1227d24b6731b95e0935115c3551ffffc02aff))
+* **Dropdown:** add boxMode for inline dropdown display ([#3171](https://github.com/mondaycom/vibe/issues/3171)) ([c344822](https://github.com/mondaycom/vibe/commit/c3448224aa80b5f659fcd62d8739865912d60634))
+
+
+
+
+
+# [3.79.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.78.0...@vibe/core@3.79.0) (2025-11-26)
+
+
+### Features
+
+* **AlertBanner:** add ariaLive to AlertBanner ([#3182](https://github.com/mondaycom/vibe/issues/3182)) ([961faca](https://github.com/mondaycom/vibe/commit/961faca14f6c8258650b3004ef6d0c30b7741720))
+
+
+
+
+
+# [3.78.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.77.0...@vibe/core@3.78.0) (2025-11-25)
+
+
+### Features
+
+* **EditableTypography:** add onKeyDown event ([#3190](https://github.com/mondaycom/vibe/issues/3190)) ([0b53625](https://github.com/mondaycom/vibe/commit/0b53625a00a22653ba43f92f85ab2bf5c728fe29))
+
+
+
+
+
+# [3.77.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.1...@vibe/core@3.77.0) (2025-11-19)
+
+
+### Features
+
+* **MenuItem:** add right icon ([#3183](https://github.com/mondaycom/vibe/issues/3183)) ([9e8b448](https://github.com/mondaycom/vibe/commit/9e8b44835e09ee43e9d962897f3798287d5fa64c))
+
+
+
+
+
+## [3.76.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.0...@vibe/core@3.76.1) (2025-11-19)
+
+
+### Bug Fixes
+
+* **AttentionBox:** change Text element type based on content type for… ([#3186](https://github.com/mondaycom/vibe/issues/3186)) ([8964e33](https://github.com/mondaycom/vibe/commit/8964e338526807342311f0431d5ad08a7ccc57e5))
+
+
+
+
+
+# [3.76.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.75.0...@vibe/core@3.76.0) (2025-11-11)
+
+
+### Features
+
+* **Dropdown:** add support for ControlledPropUpdatedSelectedItem state change in combobox hooks ([#3179](https://github.com/mondaycom/vibe/issues/3179)) ([14d7d56](https://github.com/mondaycom/vibe/commit/14d7d563eee0815bcf00cdf05d9665e560078954))
+
+
+
+
+
+# [3.75.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.74.0...@vibe/core@3.75.0) (2025-11-10)
+
+
+### Features
+
+* Enhance metadata generation to support @vibe/* imports ([#3178](https://github.com/mondaycom/vibe/issues/3178)) ([70c5822](https://github.com/mondaycom/vibe/commit/70c5822573d385d151206fefbe49bc96d78a8698))
+
+
+
+
+
+# [3.74.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.73.0...@vibe/core@3.74.0) (2025-11-06)
+
+
+### Bug Fixes
+
+* **Tipseen:** resolve invalid HTML structure and ref/id prop issues ([#2799](https://github.com/mondaycom/vibe/issues/2799)) ([5f942d1](https://github.com/mondaycom/vibe/commit/5f942d17224e004251ddb016ab1dbf47ce3716d2))
+
+
+### Features
+
+* **Dialog:** add enableNestedDialogLayer prop ([#3176](https://github.com/mondaycom/vibe/issues/3176)) ([a14a063](https://github.com/mondaycom/vibe/commit/a14a063de3dad13dc2a315fabd4b5b880a437658))
+
+
+
+
+
 # [3.73.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.72.0...@vibe/core@3.73.0) (2025-11-03)
 
 

@@ -3,8 +3,8 @@ const path = require("path");
 
 const rootPath = process.cwd();
 const distIndexPath = path.join(rootPath, "packages/core/dist/src/index.js");
-const componentsPath = path.join(rootPath, "components");
 const distNextPath = path.join(rootPath, "packages/core/dist/src/components/next.js");
+const componentsPath = path.join(rootPath, "packages/components");
 const sizeLimitConfigPath = path.join(rootPath, ".size-limit.js");
 
 function generateSizeLimitConfig() {
@@ -58,7 +58,7 @@ function generateSizeLimitConfig() {
     for (const packageName of componentPackages) {
       const packageDistPath = path.join(componentsPath, packageName, "dist/index.js");
       if (fs.existsSync(packageDistPath)) {
-        const relativePath = path.join("components", packageName, "dist/index.js").replace(/\\/g, "/");
+        const relativePath = path.join("packages/components", packageName, "dist/index.js").replace(/\\/g, "/");
         allComponents.push({
           path: relativePath
         });

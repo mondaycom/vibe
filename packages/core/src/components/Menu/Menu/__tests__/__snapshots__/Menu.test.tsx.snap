@@ -39,6 +39,14 @@ exports[`Snapshots > renders correctly with children 1`] = `
     >
       item 1
     </div>
+    <div
+      className="container directionRow justifyStart alignCenter"
+      style={
+        {
+          "gap": "var(--spacing-xs)",
+        }
+      }
+    />
   </li>
   <li
     aria-selected={false}
@@ -54,6 +62,14 @@ exports[`Snapshots > renders correctly with children 1`] = `
     >
       item 2
     </div>
+    <div
+      className="container directionRow justifyStart alignCenter"
+      style={
+        {
+          "gap": "var(--spacing-xs)",
+        }
+      }
+    />
   </li>
 </ul>
 `;

@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import fs from "fs";
 
-const componentsFolder = path.resolve(process.cwd(), "../../components");
+const componentsFolder = path.resolve(process.cwd(), "../components");
 
 const components = fs.readdirSync(componentsFolder).reduce((acc, component) => {
   const componentFolderPath = path.resolve(componentsFolder, component);
@@ -14,6 +14,14 @@ const components = fs.readdirSync(componentsFolder).reduce((acc, component) => {
 
   return acc;
 }, {});
+
+// Add @vibe/base package alias
+const baseFolder = path.resolve(process.cwd(), "../base");
+const baseSrcPath = path.join(baseFolder, "src");
+
+if (fs.existsSync(baseSrcPath)) {
+  components["@vibe/base"] = path.join(baseFolder, "src/index.ts");
+}
 
 export default defineConfig({
   plugins: [

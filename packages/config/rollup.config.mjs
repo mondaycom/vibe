@@ -53,7 +53,7 @@ function onwarn(message, handler) {
 export default {
   onwarn,
   output: {
-    dir: DIST_PATH,
+    dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames") : DIST_PATH,
     indent: false,
     strict: false,
     exports: "named",

@@ -1,7 +1,10 @@
 import { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType as AnimationTypeEnum, HideShowEvent as HideShowEventEnum } from "../Dialog/DialogConstants";
-import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog/Dialog.types";
+import { type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
+import {
+  DialogAnimationTypeEnum as AnimationTypeEnum,
+  DialogTriggerEventEnum as HideShowEventEnum
+} from "@vibe/dialog";
 import useMergeRef from "../../hooks/useMergeRef";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import IconButton from "../../components/IconButton/IconButton";
@@ -193,6 +196,11 @@ const Tipseen = forwardRef(
     }, [color, closeButtonTheme]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
+    const wrapperProps =
+      TipseenWrapper === "div"
+        ? { ref: mergedRef, id, "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id) }
+        : {};
+
     const tooltipContent = (
       <div>
         <div className={cx(styles.tipseenHeader)}>
@@ -213,14 +221,14 @@ const Tipseen = forwardRef(
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color={textColor} type="text2" element="p" className={cx(styles.tipseenContent)}>
+        <Text color={textColor} type="text2" element="div" ellipsis={false} className={cx(styles.tipseenContent)}>
           <TipseenContext.Provider value={color}>{content}</TipseenContext.Provider>
         </Text>
       </div>
     );
 
     return (
-      <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
+      <TipseenWrapper {...wrapperProps}>
         <Tooltip
           className={cx(styles.tipseenWrapper, className, {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,

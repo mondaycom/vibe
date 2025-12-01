@@ -1,9 +1,9 @@
-@use "../Clickable/Clickable.module" as clickable;
+@import "~monday-ui-style/dist/mixins/states";
 @import "../../styles/typography";
 @import "../../styles/keyframes";
 
 .clickableWrapper {
-  @include clickable.clickable;
+  @include clickable;
 
   &:active {
     transform: scale(0.95) translate3d(0, 0, 0);

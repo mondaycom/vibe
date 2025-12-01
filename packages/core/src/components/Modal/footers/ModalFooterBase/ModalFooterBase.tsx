@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import styles from "./ModalFooterBase.module.scss";
 import { Button } from "@vibe/button";
-import Flex from "../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { type ModalFooterBaseProps } from "./ModalFooterBase.types";
 import cx from "classnames";
 import { Tooltip } from "../../../Tooltip";
