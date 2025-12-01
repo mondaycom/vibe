@@ -3,7 +3,7 @@ import cx from "classnames";
 import { useDayPicker, useNavigation } from "react-day-picker";
 import { Button } from "@vibe/button";
 import IconButton from "../../IconButton/IconButton";
-import Flex from "../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Dropdown from "../../next/Dropdown/Dropdown";
 import { DropdownChevronRight, DropdownChevronLeft } from "@vibe/icons";
 import styles from "./DatePickerHeader.module.scss";
@@ -87,6 +87,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
           valueRenderer={(_option: DatePickerDropdownItem) => monthButtonLabel}
           searchable={false}
           clearable={false}
+          borderless
         />
         <Dropdown
           className={styles.yearButtonDropdown}
@@ -99,6 +100,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
           valueRenderer={(_option: DatePickerDropdownItem) => yearsButtonLabel}
           searchable={false}
           clearable={false}
+          borderless
         />
       </Flex>
       <Flex>
