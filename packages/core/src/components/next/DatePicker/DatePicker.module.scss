@@ -106,7 +106,9 @@
         cursor: not-allowed;
       }
 
-      &:not(.datePickerDayDisabled):not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd):not(.datePickerAddToRangeMiddle):not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd)
+      &:not(.datePickerDayDisabled):not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd):not(
+          .datePickerAddToRangeMiddle
+        ):not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd)
         .datePickerDayContent:hover {
         background: var(--primary-background-hover-color);
       }
