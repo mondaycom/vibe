@@ -19,15 +19,15 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
             class="datePickerHeader"
           >
             <div
-              class="container_a62b51315a justifyStart_76c94191d7 alignCenter_47477e7082"
+              class="container directionRow justifyStart alignCenter"
               style="gap: var(--spacing-small);"
             >
               <div
-                class="outerWrapper_23800cfc3d"
+                class="outerWrapper"
               >
                 <div
                   aria-label="Month"
-                  class="wrapper_e32f067ec2 monthButtonDropdown"
+                  class="wrapper borderless monthButtonDropdown"
                   data-testid="dropdown"
                   data-vibe="Dropdown"
                 >
@@ -35,7 +35,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                     class=""
                   >
                     <div
-                      class="container_a62b51315a justifySpaceBetween_e74fdb83b2 alignCenter_47477e7082"
+                      class="container directionRow justifySpaceBetween alignCenter"
                     >
                       <div
                         aria-activedescendant=""
@@ -43,17 +43,17 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                         aria-expanded="false"
                         aria-haspopup="dialog"
                         aria-label="Month"
-                        class="triggerWrapper_ed6e034c01 small_fea165e511"
+                        class="triggerWrapper small"
                         id="downshift-0-toggle-button"
                         role="combobox"
                         tabindex="0"
                       >
                         <div
-                          class="selectedItem_01e6a9cd65 small_fea165e511"
+                          class="selectedItem small"
                         >
                           <div
                             aria-selected="false"
-                            class="wrapper_cdf1f7ad90 readOnly_464ac3d883 small_e70c30de80"
+                            class="wrapper readOnly small"
                           >
                             Mar
                           </div>
@@ -61,7 +61,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                       </div>
                       <div>
                         <div
-                          class="container_a62b51315a justifyStart_76c94191d7 alignCenter_47477e7082 actionsWrapper_083f930d08"
+                          class="container directionRow justifyStart alignCenter actionsWrapper"
                         >
                           <button
                             aria-busy="false"
@@ -69,7 +69,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                             aria-disabled="false"
                             aria-expanded="false"
                             aria-labelledby="downshift-0-menu"
-                            class="button_5cc6a6fcac sizeMedium_35ccf80f61 kindTertiary_6d5462f7c2 colorPrimary_e50f774206 noSidePadding_b22763a22f"
+                            class="button sizeMedium kindTertiary colorPrimary noSidePadding"
                             data-testid="icon-button"
                             data-vibe="Button"
                             style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
@@ -78,7 +78,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="icon_560b893605 noFocusStyle_f90433009d"
+                              class="icon noFocusStyle"
                               data-testid="icon"
                               data-vibe="Icon"
                               fill="currentColor"
@@ -98,11 +98,11 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="outerWrapper_23800cfc3d"
+                class="outerWrapper"
               >
                 <div
                   aria-label="Year"
-                  class="wrapper_e32f067ec2 yearButtonDropdown"
+                  class="wrapper borderless yearButtonDropdown"
                   data-testid="dropdown"
                   data-vibe="Dropdown"
                 >
@@ -110,7 +110,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                     class=""
                   >
                     <div
-                      class="container_a62b51315a justifySpaceBetween_e74fdb83b2 alignCenter_47477e7082"
+                      class="container directionRow justifySpaceBetween alignCenter"
                     >
                       <div
                         aria-activedescendant=""
@@ -118,17 +118,17 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                         aria-expanded="false"
                         aria-haspopup="dialog"
                         aria-label="Year"
-                        class="triggerWrapper_ed6e034c01 small_fea165e511"
+                        class="triggerWrapper small"
                         id="downshift-1-toggle-button"
                         role="combobox"
                         tabindex="0"
                       >
                         <div
-                          class="selectedItem_01e6a9cd65 small_fea165e511"
+                          class="selectedItem small"
                         >
                           <div
                             aria-selected="false"
-                            class="wrapper_cdf1f7ad90 readOnly_464ac3d883 small_e70c30de80"
+                            class="wrapper readOnly small"
                           >
                             1992
                           </div>
@@ -136,7 +136,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                       </div>
                       <div>
                         <div
-                          class="container_a62b51315a justifyStart_76c94191d7 alignCenter_47477e7082 actionsWrapper_083f930d08"
+                          class="container directionRow justifyStart alignCenter actionsWrapper"
                         >
                           <button
                             aria-busy="false"
@@ -144,7 +144,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                             aria-disabled="false"
                             aria-expanded="false"
                             aria-labelledby="downshift-1-menu"
-                            class="button_5cc6a6fcac sizeMedium_35ccf80f61 kindTertiary_6d5462f7c2 colorPrimary_e50f774206 noSidePadding_b22763a22f"
+                            class="button sizeMedium kindTertiary colorPrimary noSidePadding"
                             data-testid="icon-button"
                             data-vibe="Button"
                             style="justify-content: center; align-items: center; padding: 0px; width: 24px; height: 24px;"
@@ -153,7 +153,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="icon_560b893605 noFocusStyle_f90433009d"
+                              class="icon noFocusStyle"
                               data-testid="icon"
                               data-vibe="Icon"
                               fill="currentColor"
@@ -174,16 +174,16 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="container_a62b51315a justifyStart_76c94191d7 alignCenter_47477e7082"
+              class="container directionRow justifyStart alignCenter"
             >
               <span
-                class="referenceWrapper_115b9c7077"
+                class="referenceWrapper"
               >
                 <button
                   aria-busy="false"
                   aria-disabled="false"
                   aria-label="Previous"
-                  class="button_5cc6a6fcac sizeMedium_35ccf80f61 kindTertiary_6d5462f7c2 colorPrimary_e50f774206 noSidePadding_b22763a22f"
+                  class="button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="icon-button"
                   data-vibe="Button"
                   style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -191,7 +191,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="icon_560b893605 noFocusStyle_f90433009d"
+                    class="icon noFocusStyle"
                     data-testid="icon"
                     data-vibe="Icon"
                     fill="currentColor"
@@ -206,13 +206,13 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                 </button>
               </span>
               <span
-                class="referenceWrapper_115b9c7077"
+                class="referenceWrapper"
               >
                 <button
                   aria-busy="false"
                   aria-disabled="false"
                   aria-label="Next"
-                  class="button_5cc6a6fcac sizeMedium_35ccf80f61 kindTertiary_6d5462f7c2 colorPrimary_e50f774206 noSidePadding_b22763a22f"
+                  class="button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="icon-button"
                   data-vibe="Button"
                   style="justify-content: center; align-items: center; padding: 0px; width: 32px; height: 32px;"
@@ -220,7 +220,7 @@ exports[`DatePicker tests > snapshot tests > renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="icon_560b893605 noFocusStyle_f90433009d"
+                    class="icon noFocusStyle"
                     data-testid="icon"
                     data-vibe="Icon"
                     fill="currentColor"
