@@ -60,7 +60,7 @@
     th {
       color: var(--secondary-text-color);
       @include vibe-text(text2, normal);
-      padding-block: 2px;
+      padding-block: var(--space-2);
       text-align: center;
       height: var(--day-picker-day-height);
     }
@@ -106,14 +106,7 @@
         cursor: not-allowed;
       }
 
-      &:not(
-          .datePickerDayDisabled,
-          .datePickerAddToRangeStart,
-          .datePickerAddToRangeEnd,
-          .datePickerAddToRangeMiddle,
-          .datePickerDayRangeStart,
-          .datePickerDayRangeEnd
-        )
+      &:not(.datePickerDayDisabled):not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd):not(.datePickerAddToRangeMiddle):not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd)
         .datePickerDayContent:hover {
         background: var(--primary-background-hover-color);
       }
@@ -122,20 +115,15 @@
         color: var(--disabled-text-color);
       }
 
-      &.datePickerDaySelected:not(.datePickerDayRangeMiddle, .datePickerRemoveFromRange) {
+      &.datePickerDaySelected:not(.datePickerDayRangeMiddle):not(.datePickerRemoveFromRange) {
         background: var(--primary-color);
         color: var(--text-color-on-primary);
       }
 
-      &.datePickerDayRangeStart:not(.datePickerDayRangeEnd, .datePickerRemoveFromRange),
-      &.datePickerDayRangeEnd:not(.datePickerDayRangeStart, .datePickerRemoveFromRange) {
+      &.datePickerDayRangeStart:not(.datePickerDayRangeEnd):not(.datePickerRemoveFromRange),
+      &.datePickerDayRangeEnd:not(.datePickerDayRangeStart):not(.datePickerRemoveFromRange) {
         background: var(--primary-color);
         width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
-      }
-
-      &.datePickerDaySelected:not(.datePickerDayRangeMiddle, .datePickerRemoveFromRange) {
-        background: var(--primary-color);
-        color: var(--text-color-on-primary);
       }
 
       &.datePickerDayRangeStart.datePickerRemoveFromRange,
@@ -169,27 +157,27 @@
         margin: var(--day-picker-days-vertical-gap) 0;
       }
 
-      &.datePickerAddToRangeStart:not(.datePickerDayRangeStart, .datePickerDayRangeEnd),
-      &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart, .datePickerDayRangeEnd),
+      &.datePickerAddToRangeStart:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
       &.datePickerAddToRangeMiddle,
-      &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart, .datePickerAddToRangeEnd) {
+      &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd) {
         background-color: var(--primary-selected-color);
-        border: var(--day-picker-days-horizontal-gap) solid var(--primary-selected-color);
+        border: var(--day-picker-days-horizontal-gap) var(--border-style) var(--primary-selected-color);
         border-top: none;
         border-bottom: none;
         width: calc(var(--day-picker-day-width) + 2 * var(--day-picker-days-horizontal-gap));
       }
 
       &.datePickerAddToRangeMiddle,
-      &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart, .datePickerAddToRangeEnd) {
+      &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd) {
         background: var(--primary-selected-color);
         margin: var(--day-picker-days-vertical-gap) 0;
         border-radius: 0;
       }
 
-      &.datePickerRemoveFromRange:not(.datePickerDayRangeStart, .datePickerDayRangeEnd),
-      &.datePickerAddToRangeStart:not(.datePickerDayRangeMiddle, .datePickerDayRangeEnd),
-      &.datePickerAddToRangeEnd:not(.datePickerDayRangeMiddle, .datePickerDayRangeStart),
+      &.datePickerRemoveFromRange:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeStart:not(.datePickerDayRangeMiddle):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeEnd:not(.datePickerDayRangeMiddle):not(.datePickerDayRangeStart),
       &.datePickerAddToRangeMiddle {
         background: var(--day-picker-day-change-range);
         border-color: var(--day-picker-day-change-range);
@@ -199,9 +187,9 @@
     tr {
       td:first-child .datePickerDay {
         &.datePickerDayRangeMiddle,
-        &.datePickerAddToRangeStart:not(.datePickerDayRangeStart, .datePickerDayRangeEnd),
+        &.datePickerAddToRangeStart:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
         &.datePickerAddToRangeMiddle,
-        &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart, .datePickerDayRangeEnd) {
+        &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd) {
           border: none;
           width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
           margin-left: var(--day-picker-days-horizontal-gap);
@@ -222,9 +210,9 @@
 
       td:last-child .datePickerDay {
         &.datePickerDayRangeMiddle,
-        &.datePickerAddToRangeStart:not(.datePickerDayRangeStart, .datePickerDayRangeEnd),
+        &.datePickerAddToRangeStart:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
         &.datePickerAddToRangeMiddle,
-        &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart, .datePickerDayRangeEnd) {
+        &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd) {
           border: none;
           width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
           margin-right: var(--day-picker-days-horizontal-gap);
@@ -251,16 +239,6 @@
           border-color: var(--day-picker-day-change-range);
         }
       }
-
-      td:first-child .datePickerDay,
-      td:last-child .datePickerDay {
-        &.datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
-          border-left-width: 0;
-        }
-        &.datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
-          border-right-width: 0;
-        }
-      }
     }
 
     .datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
@@ -280,6 +258,16 @@
 
       &:not(.datePickerHalfRangeSelected) {
         margin-right: calc(var(--day-picker-days-horizontal-gap) * -1);
+      }
+    }
+
+    tr td:first-child .datePickerDay,
+    tr td:last-child .datePickerDay {
+      &.datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
+        border-left-width: 0;
+      }
+      &.datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
+        border-right-width: 0;
       }
     }
   }
