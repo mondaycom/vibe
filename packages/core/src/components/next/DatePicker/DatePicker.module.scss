@@ -240,6 +240,13 @@
         &.datePickerAddToRangeEnd:not(.datePickerDayRangeMiddle) {
           border-color: var(--day-picker-day-change-range);
         }
+
+        &.datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
+          border-left-width: 0;
+        }
+        &.datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
+          border-right-width: 0;
+        }
       }
     }
 
@@ -260,16 +267,6 @@
 
       &:not(.datePickerHalfRangeSelected) {
         margin-right: calc(var(--day-picker-days-horizontal-gap) * -1);
-      }
-    }
-
-    tr td:first-child .datePickerDay,
-    tr td:last-child .datePickerDay {
-      &.datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
-        border-left-width: 0;
-      }
-      &.datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
-        border-right-width: 0;
       }
     }
   }
