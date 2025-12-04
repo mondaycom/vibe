@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.15.0...@vibe/testkit@1.15.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* update dropdown and toggle testkit components ([#3197](https://github.com/mondaycom/vibe/issues/3197)) ([32ed679](https://github.com/mondaycom/vibe/commit/32ed6791e4d92692daa5aed3bfc9cf5c590d833b))
+
+
+
+
+
 # [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.3...@vibe/testkit@1.15.0) (2025-10-19)
 
 
