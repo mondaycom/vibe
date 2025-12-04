@@ -28,7 +28,7 @@
     }
   },
   "scripts": {
-    "build": "tsc --outDir dist --declaration",
+    "build": "rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
