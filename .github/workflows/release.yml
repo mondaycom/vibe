@@ -4,19 +4,34 @@ on:
   workflow_dispatch:
     inputs:
       deploy-stage-eu:
-        description: 'Deploy Stage EU? (not relevant on master)'
+        description: "Deploy Stage EU? (not relevant on master)"
         type: boolean
         default: false
       deploy-stage-us:
-        description: 'Deploy Stage US? (not relevant on master)'
+        description: "Deploy Stage US? (not relevant on master)"
         type: boolean
         default: false
       deploy-stage-il:
-        description: 'Deploy Stage IL? (not relevant on master)'
+        description: "Deploy Stage IL? (not relevant on master)"
         type: boolean
         default: false
 
 jobs:
+  log-context:
+    name: Log GitHub Context
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log github context
+        run: |
+          echo '## Context' >> $GITHUB_STEP_SUMMARY
+          echo '### Base branch' >> $GITHUB_STEP_SUMMARY
+          echo '`${{ github.event.ref }}`' >> $GITHUB_STEP_SUMMARY
+          echo '### Inputs' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo '${{ toJSON(github.event.inputs) }}' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        shell: bash
+
   notify-release-start:
     name: Notify Slack - Release Started
     runs-on: ubuntu-latest
