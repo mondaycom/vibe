@@ -1,6 +1,20 @@
 name: Release new version
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      deploy-stage-eu:
+        description: 'Deploy Stage EU? (not relevant on master)'
+        type: boolean
+        default: false
+      deploy-stage-us:
+        description: 'Deploy Stage US? (not relevant on master)'
+        type: boolean
+        default: false
+      deploy-stage-il:
+        description: 'Deploy Stage IL? (not relevant on master)'
+        type: boolean
+        default: false
 
 jobs:
   notify-release-start:
