@@ -72,7 +72,7 @@ describe("DatePicker tests", () => {
       expect(screen.getByRole("option", { name: "Apr" })).toBeInTheDocument();
     });
 
-    const aprilOption = screen.getByRole("option", { name: "April" });
+    const aprilOption = screen.getByRole("option", { name: "Apr" });
     fireEvent.click(aprilOption);
 
     // Verify the month changed to Apr (abbreviated) and year stayed the same
