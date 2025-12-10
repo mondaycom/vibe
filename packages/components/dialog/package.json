@@ -1,6 +1,6 @@
 {
   "name": "@vibe/dialog",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Vibe sub-package for dialog components",
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@popperjs/core": "2.11.6",
     "@vibe/hooks": "3.0.2",
-    "@vibe/layer": "3.0.2",
+    "@vibe/layer": "3.0.3",
     "@vibe/shared": "3.0.8",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",

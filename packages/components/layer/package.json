@@ -1,6 +1,6 @@
 {
   "name": "@vibe/layer",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Vibe sub-package for layering components",
   "repository": {
     "type": "git",

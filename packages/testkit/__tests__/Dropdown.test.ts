@@ -4,7 +4,7 @@ import { dropdownStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let dropdown: Dropdown;
-const dropdownLocator = "#dropdown-menu-id";
+const dropdownLocator = ".dropdown-stories-styles_spacing";
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Dropdown", () => {
