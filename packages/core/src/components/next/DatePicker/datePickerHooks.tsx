@@ -14,7 +14,7 @@ export const useMonthsOptionItems = ({ locale }: { locale?: Locale }) =>
       monthsIndexes.map(monthIndex => {
         const month = new Date();
         month.setMonth(monthIndex, 1);
-        return { id: monthIndex.toString(), label: format(month, "LLLL", { locale }) };
+        return { id: monthIndex.toString(), label: format(month, "LLL", { locale }) };
       }),
     [locale]
   );

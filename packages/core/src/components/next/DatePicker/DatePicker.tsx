@@ -62,8 +62,7 @@ const DatePicker: FC<DatePickerProps> = ({
   yearSelectionAriaLabel = "Year",
   dropdownsClassName,
   intent = "to",
-  dialogContainerSelector,
-  numberOfMonths = 1
+  dialogContainerSelector
 }) => {
   const selected = useMemo(() => (mode === "single" ? date : { from: date, to: endDate }), [date, endDate, mode]);
   const [displayMonth, setDisplayMonth] = useState(date || new Date());
@@ -176,7 +175,6 @@ const DatePicker: FC<DatePickerProps> = ({
                   modifiers={modifiers}
                   modifiersClassNames={modifiersClassNames}
                   locale={locale}
-                  numberOfMonths={numberOfMonths}
                 />
               );
             }}

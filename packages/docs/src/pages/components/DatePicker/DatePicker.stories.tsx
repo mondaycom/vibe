@@ -68,16 +68,6 @@ export const DateRange = {
   name: "Date Range"
 };
 
-export const NumberOfMonths = {
-  render: () => {
-    const [date, setDate] = useState(new Date("2023-05-01"));
-
-    return <DatePicker id="multi-month-picker" numberOfMonths={2} date={date} onDateChange={setDate} />;
-  },
-
-  name: "Number Of Months"
-};
-
 export const WithLocale = {
   render: () => {
     // import ja from 'date-fns/locale/ja';

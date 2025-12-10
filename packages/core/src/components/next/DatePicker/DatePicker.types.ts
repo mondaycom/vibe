@@ -18,7 +18,6 @@ interface DatePickerBaseProps extends VibeComponentProps {
   dropdownsClassName?: string;
   intent?: Intent;
   dialogContainerSelector?: string;
-  numberOfMonths?: number;
 }
 
 interface DatePickerSingleProps extends DatePickerBaseProps {

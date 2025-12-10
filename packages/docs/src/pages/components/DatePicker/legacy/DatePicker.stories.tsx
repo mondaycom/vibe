@@ -92,26 +92,6 @@ export const DateRange = {
   name: "Date Range"
 };
 
-export const NumberOfMonths = {
-  render: () => {
-    const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
-
-    return (
-      <DialogContentContainer>
-        <DatePicker
-          id="multi-month-picker"
-          numberOfMonths={2}
-          data-testid="date-picker"
-          date={date}
-          onPickDate={(d: Moment) => setDate(d)}
-        />
-      </DialogContentContainer>
-    );
-  },
-
-  name: "Number Of Months"
-};
-
 export const WithCustomPhrases = {
   render: () => {
     const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
