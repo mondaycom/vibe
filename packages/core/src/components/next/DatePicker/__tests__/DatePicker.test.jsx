@@ -69,7 +69,7 @@ describe("DatePicker tests", () => {
 
     // Wait for dropdown to open and click on April
     await waitFor(() => {
-      expect(screen.getByRole("option", { name: "April" })).toBeInTheDocument();
+      expect(screen.getByRole("option", { name: "Apr" })).toBeInTheDocument();
     });
 
     const aprilOption = screen.getByRole("option", { name: "April" });
