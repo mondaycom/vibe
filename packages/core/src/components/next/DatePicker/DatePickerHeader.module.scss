@@ -1,0 +1,28 @@
+@import "~monday-ui-style/dist/mixins";
+
+.monthButtonDropdown {
+  min-width: 70px;
+  justify-content: space-between;
+}
+
+.yearButtonDropdown {
+  justify-content: space-between;
+}
+
+.datePickerHeader {
+  @include vibe-text(text2, normal);
+  height: var(--day-picker-header-height);
+  color: var(--primary-text-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    &:focus:not(:active),
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--primary-color);
+      background: var(--primary-background-color) !important;
+    }
+  }
+}

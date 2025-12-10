@@ -1,43 +1,25 @@
 import React, { useState } from "react";
-import moment, { type Moment } from "moment";
-import { DatePicker, type DatePickerProps, DialogContentContainer, type RangeDate } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-
-// for Chromatic check to always have the same date UI
-const MOCK_INITIAL_DATE: RangeDate = { startDate: moment("2023-05-01"), endDate: moment("2023-05-03") };
+import { type DatePickerProps } from "../DatePicker.types";
+import { ja } from "date-fns/locale";
+import { DialogContentContainer } from "@vibe/core";
+import { DatePicker } from "@vibe/core/next";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,
-  actionPropsArray: ["onPickDate"]
+  actionPropsArray: ["onDateChange"]
 });
 
 export default {
-  title: "Components/DatePicker",
+  title: "Components/DatePicker [New]",
   component: DatePicker,
   argTypes: metaSettings.argTypes,
-  decorators: metaSettings.decorators,
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { MOCK_INITIAL_DATE }
-      }
-    }
-  }
+  decorators: metaSettings.decorators
 };
 
 const DatePickerTemplate = (args: DatePickerProps) => {
-  const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
-  return (
-    <DialogContentContainer>
-      <DatePicker
-        id="overview-date-picker"
-        data-testid="date-picker"
-        date={date}
-        onPickDate={(d: Moment) => setDate(d)}
-        {...args}
-      />
-    </DialogContentContainer>
-  );
+  const [date, setDate] = useState(new Date("2023-05-01"));
+  return <DatePicker id="overview-date-picker" date={date} onDateChange={setDate} {...args} />;
 };
 
 export const Overview = {
@@ -54,16 +36,11 @@ export const Overview = {
 
 export const SingleDay = {
   render: () => {
-    const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
+    const [date, setDate] = useState(new Date("2023-05-01"));
 
     return (
       <DialogContentContainer>
-        <DatePicker
-          id="single-day-picker"
-          data-testid="date-picker"
-          date={date}
-          onPickDate={(d: Moment) => setDate(d)}
-        />
+        <DatePicker id="single-day-picker" date={date} onDateChange={setDate} />
       </DialogContentContainer>
     );
   },
@@ -73,17 +50,16 @@ export const SingleDay = {
 
 export const DateRange = {
   render: () => {
-    const [date, setDate] = useState(MOCK_INITIAL_DATE);
+    const [date, setDate] = useState({ start: new Date("2023-05-01"), end: new Date("2023-05-03") });
 
     return (
       <DialogContentContainer>
         <DatePicker
           id="date-range-picker"
-          date={date.startDate}
-          endDate={date.endDate}
-          range
-          data-testid="date-picker"
-          onPickDate={(d: RangeDate) => setDate(d)}
+          mode="range"
+          date={date.start}
+          endDate={date.end}
+          onDateChange={range => setDate({ start: range.date, end: range.endDate })}
         />
       </DialogContentContainer>
     );
@@ -92,44 +68,13 @@ export const DateRange = {
   name: "Date Range"
 };
 
-export const NumberOfMonths = {
+export const WithLocale = {
   render: () => {
-    const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
+    // import ja from 'date-fns/locale/ja';
+    const [date, setDate] = useState(new Date("2023-05-01"));
 
-    return (
-      <DialogContentContainer>
-        <DatePicker
-          id="multi-month-picker"
-          numberOfMonths={2}
-          data-testid="date-picker"
-          date={date}
-          onPickDate={(d: Moment) => setDate(d)}
-        />
-      </DialogContentContainer>
-    );
+    return <DatePicker id="ja-locale-picker" date={date} onDateChange={setDate} locale={ja} />;
   },
 
-  name: "Number Of Months"
-};
-
-export const WithCustomPhrases = {
-  render: () => {
-    const [date, setDate] = useState(MOCK_INITIAL_DATE.startDate);
-
-    return (
-      <DialogContentContainer>
-        <DatePicker
-          id="custom-phrases-picker"
-          data-testid="date-picker"
-          date={date}
-          onPickDate={(d: Moment) => setDate(d)}
-          phrases={{
-            chooseAvailableDate: ({ date }) => `This is the date you are about to choose: ${date}`
-          }}
-        />
-      </DialogContentContainer>
-    );
-  },
-
-  name: "With Custom Phrases"
+  name: "With Locale"
 };
