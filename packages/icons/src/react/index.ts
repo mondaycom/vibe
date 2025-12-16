@@ -171,6 +171,7 @@ export {default as MoveArrowRightNarrow} from './MoveArrowRightNarrow';
 export {default as MoveArrowUp} from './MoveArrowUp';
 export {default as Mute} from './Mute';
 export {default as MyWeek} from './MyWeek';
+export {default as NavigationArrow} from './NavigationArrow';
 export {default as NavigationChevronDown} from './NavigationChevronDown';
 export {default as NavigationChevronLeft} from './NavigationChevronLeft';
 export {default as NavigationChevronRight} from './NavigationChevronRight';
