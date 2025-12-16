@@ -13,6 +13,12 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "NavigationArrow",
+    file: "NavigationArrow.svg",
+    description: "Primary tool for moving and selecting elements on the canvas",
+    tags: "Move, Tool, Navigation, Selection, Canvas, Cursor, Interaction"
+  },
+  {
     name: "EnterArrow",
     file: "EnterArrow.svg",
     description: "Indicates &quot;enter&quot; action without a surrounding box",
