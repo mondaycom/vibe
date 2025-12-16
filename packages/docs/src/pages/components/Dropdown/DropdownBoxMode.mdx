@@ -1,0 +1,95 @@
+import { Meta } from "@storybook/blocks";
+import * as DropdownBoxModeStories from "./DropdownBoxMode.stories";
+import boxModeDo from "./assets/boxModeDo.png";
+import boxModeDont from "./assets/boxModeDont.png";
+
+<Meta of={DropdownBoxModeStories} />
+
+# Dropdown box mode
+
+The dropdown box mode is intended for cases where users need to view and compare options at all times, without opening or closing a dropdown. It allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.
+
+<Canvas of={DropdownBoxModeStories.Overview} />
+
+### Import
+
+All the Dropdown components can be imported from `@vibe/core/next`.
+
+Notice not to import components directly from the `@vibe/core` package, as they are deprecated.
+
+```js
+import { Dropdown } from "@vibe/core/next";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
+    "Could be used inside a dialog or as part of a layout.",
+    "When users need to scan, compare, or evaluate multiple options at once.",
+    "The options list is considered primary content, not secondary UI."
+  ]}
+/>
+
+## Variants
+
+### Default state
+
+Dropdown box mode can be used without dialog or as part of the layout by default.
+
+<Canvas of={DropdownBoxModeStories.DefaultState} />
+
+### Inside a dialog
+
+Use this for Dropdown box mode that triggered by button.
+
+<Canvas of={DropdownBoxModeStories.InsideADialog} />
+
+### Multi select
+
+The box mode supports multi select option that display as chips. The selected items can be shown in either a single line (with additional option for hidden list), or multiple line. This mode also supports all standard dropdown states.
+
+<Canvas of={DropdownBoxModeStories.MultiSelect} />
+
+### With icons
+
+<Canvas of={DropdownBoxModeStories.WithIcons} />
+
+## Do's and don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <img src={boxModeDo} alt="do1" style={{ width: "300px" }} />,
+        description: "Use when there’s a need for a select that displays the list in a persistent, always-open panel."
+      },
+      negative: {
+        component: <img src={boxModeDont} alt="dont1" style={{ width: "300px" }} />,
+        description: (
+          <>
+            Use when there's need for a searchable menu, for navigation. Use a{" "}
+            <StorybookLink page="Components/Menu">menu</StorybookLink> instead
+          </>
+        )
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### People picker
+
+Can be used when there is a need for selecting people to assign a column
+
+<Canvas of={DropdownBoxModeStories.PeoplePicker} />
+
+## Related components
+
+<RelatedComponents componentsNames={["DropdownBasicSelect", "Combobox", "Menu"]} />

@@ -1,8 +1,8 @@
 import React, { type CSSProperties, type RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Avatar, { type AvatarProps } from "../Avatar/Avatar";
-import ClickableWrapper from "../Clickable/ClickableWrapper";
+import { ClickableWrapper } from "@vibe/clickable";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";

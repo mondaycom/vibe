@@ -4,7 +4,7 @@ import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalMediaLayout.module.scss";
 import { type ModalMediaLayoutProps } from "./ModalMediaLayout.types";
-import Flex from "../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 
 const ModalMediaLayout = forwardRef(
   (

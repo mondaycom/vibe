@@ -112,6 +112,7 @@ exports[`exports > should export all components 1`] = `
   "TransitionView",
   "VirtualizedGrid",
   "VirtualizedList",
+  "useClickableProps",
   "useGridKeyboardNavigationContext",
 ]
 `;
@@ -121,7 +122,6 @@ exports[`exports > should export all hooks 1`] = `
   "useActiveDescendantListFocus",
   "useAfterFirstRender",
   "useClickOutside",
-  "useClickableProps",
   "useDebounceEvent",
   "useElementsOverflowingIndex",
   "useEventListener",

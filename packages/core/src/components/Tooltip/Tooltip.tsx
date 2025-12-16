@@ -17,7 +17,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Tooltip.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { Icon, type SubIcon } from "@vibe/icon";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { type TooltipPositions, type TooltipTheme } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);

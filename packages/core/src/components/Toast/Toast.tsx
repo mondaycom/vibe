@@ -6,7 +6,7 @@ import { CSSTransition } from "react-transition-group";
 import { type IconSubComponentProps } from "@vibe/icon";
 import Text from "../Text/Text";
 import { Loader } from "@vibe/loader";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { CloseSmall } from "@vibe/icons";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";

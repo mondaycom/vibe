@@ -78,7 +78,7 @@ exports[`Snapshots > renders correctly with a label 1`] = `
       data-vibe="Label"
     >
       <span
-        className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorPrimary"
+        className="typography onPrimary start singleLineEllipsis text text2Normal label kindLine colorPrimary"
         data-testid="text"
       >
         <span

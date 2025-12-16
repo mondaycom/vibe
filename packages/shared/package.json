@@ -1,6 +1,6 @@
 {
   "name": "@vibe/shared",
-  "version": "3.0.6",
+  "version": "3.0.8",
   "description": "Shared utilities for Vibe packages",
   "repository": {
     "type": "git",

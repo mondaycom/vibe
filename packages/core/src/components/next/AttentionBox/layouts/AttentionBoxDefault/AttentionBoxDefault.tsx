@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import { Text } from "../../../../Text";
-import { Flex } from "../../../../Flex";
+import { Flex } from "@vibe/layout";
 import AttentionBoxButton from "../../components/AttentionBoxButton/AttentionBoxButton";
 import AttentionBoxLink from "../../components/AttentionBoxLink/AttentionBoxLink";
 import AttentionBoxCloseButton from "../../components/AttentionBoxCloseButton/AttentionBoxCloseButton";

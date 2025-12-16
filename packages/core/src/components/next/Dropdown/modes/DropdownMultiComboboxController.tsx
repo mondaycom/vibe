@@ -34,7 +34,8 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     onOptionRemove,
     loading = false,
     size = "medium",
-    id
+    id,
+    boxMode = false
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -61,7 +62,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     options,
     multiSelectedItemsState,
     setMultiSelectedItemsState,
-    isMenuOpenProp,
+    boxMode ? undefined : isMenuOpenProp,
     autoFocus,
     defaultValue,
     value,
@@ -78,7 +79,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
 
   const contextValue: DropdownContextProps<Item> = {
     ...props,
-    isOpen,
+    isOpen: boxMode ? true : isOpen,
     inputValue: hookInputValue ?? null,
     highlightedIndex,
     selectedItems: hookSelectedItems || [],

@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.81.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.81.0...@vibe/core@3.81.1) (2025-12-04)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.81.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.80.0...@vibe/core@3.81.0) (2025-11-27)
+
+
+### Features
+
+* **Dropdown:** add minVisibleCount prop to MultiSelect ([#3185](https://github.com/mondaycom/vibe/issues/3185)) ([e789214](https://github.com/mondaycom/vibe/commit/e789214a13666c6b8614569581a2d295fe9d8f1c))
+
+
+
+
+
+# [3.80.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.79.0...@vibe/core@3.80.0) (2025-11-27)
+
+
+### Bug Fixes
+
+* **Label:** update text color ([#3194](https://github.com/mondaycom/vibe/issues/3194)) ([822f3a7](https://github.com/mondaycom/vibe/commit/822f3a70373c7bfdea8ca3d259af063b4bcecd8c))
+
+
+### Features
+
+* **Dropdown:** add borderless prop ([#3195](https://github.com/mondaycom/vibe/issues/3195)) ([0e1227d](https://github.com/mondaycom/vibe/commit/0e1227d24b6731b95e0935115c3551ffffc02aff))
+* **Dropdown:** add boxMode for inline dropdown display ([#3171](https://github.com/mondaycom/vibe/issues/3171)) ([c344822](https://github.com/mondaycom/vibe/commit/c3448224aa80b5f659fcd62d8739865912d60634))
+
+
+
+
+
+# [3.79.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.78.0...@vibe/core@3.79.0) (2025-11-26)
+
+
+### Features
+
+* **AlertBanner:** add ariaLive to AlertBanner ([#3182](https://github.com/mondaycom/vibe/issues/3182)) ([961faca](https://github.com/mondaycom/vibe/commit/961faca14f6c8258650b3004ef6d0c30b7741720))
+
+
+
+
+
+# [3.78.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.77.0...@vibe/core@3.78.0) (2025-11-25)
+
+
+### Features
+
+* **EditableTypography:** add onKeyDown event ([#3190](https://github.com/mondaycom/vibe/issues/3190)) ([0b53625](https://github.com/mondaycom/vibe/commit/0b53625a00a22653ba43f92f85ab2bf5c728fe29))
+
+
+
+
+
 # [3.77.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.1...@vibe/core@3.77.0) (2025-11-19)
 
 

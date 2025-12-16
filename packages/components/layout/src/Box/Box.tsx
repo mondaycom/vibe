@@ -1,7 +1,6 @@
 import React, { forwardRef, useRef } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
 import {
   BackgroundColor as BackgroundColorEnum,
   BorderColor as BorderColorEnum,
@@ -33,10 +32,15 @@ import {
   type RoundedSize,
   type Shadow
 } from "./Box.types";
-import { type VibeComponentProps, withStaticProps, type ElementContent } from "../../types";
+import {
+  type VibeComponentProps,
+  withStaticProps,
+  type ElementContent,
+  getTestId,
+  ComponentDefaultTestId,
+  useMergeRef
+} from "@vibe/shared";
 import styles from "./Box.module.scss";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
 
 export interface BoxProps extends VibeComponentProps {
   /**

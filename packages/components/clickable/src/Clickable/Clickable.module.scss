@@ -1,0 +1,14 @@
+@import "~monday-ui-style/dist/mixins/typography";
+@import "~monday-ui-style/dist/mixins/states";
+
+.clickable {
+  @include clickable;
+}
+
+.clickable.disabled {
+  @include clickable-disabled;
+}
+
+.disableTextSelection {
+  @include clickable-disable-text-selection;
+}
