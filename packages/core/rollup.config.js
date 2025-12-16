@@ -53,6 +53,38 @@ function generateCssModulesMockName(name) {
   return name;
 }
 
+function getVibePackagesWithMockedClassNames() {
+  const packagesWithMocked = new Map();
+  const componentsDir = path.resolve(__dirname, "../components");
+
+  if (fs.existsSync(componentsDir)) {
+    const folders = fs
+      .readdirSync(componentsDir, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+
+    for (const folderName of folders) {
+      const packageJsonPath = path.join(componentsDir, folderName, "package.json");
+
+      if (fs.existsSync(packageJsonPath)) {
+        try {
+          const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+
+          if (packageJson.name?.startsWith("@vibe/") && packageJson.exports?.["./mockedClassNames"]) {
+            packagesWithMocked.set(packageJson.name, true);
+          }
+        } catch (e) {
+          // Skip invalid package.json files
+        }
+      }
+    }
+  }
+
+  return packagesWithMocked;
+}
+
+const vibePackagesWithMocked = shouldMockModularClassnames ? getVibePackagesWithMockedClassNames() : new Map();
+
 export default {
   onwarn,
   output: {
@@ -77,39 +109,21 @@ export default {
       ? [
           {
             name: "resolve-vibe-to-mocked-entry-points",
-            resolveId(source) {
-              if (source.startsWith("@vibe/")) {
-                const packageName = source.replace("@vibe/", "").split("/")[0];
-                const componentsDir = path.resolve(__dirname, "../components");
+            resolveId: {
+              order: "pre",
+              handler(source) {
+                if (source.startsWith("@vibe/") && !source.includes("/mockedClassNames")) {
+                  const packageName = source.replace("@vibe/", "").split("/")[0];
+                  const fullPackageName = `@vibe/${packageName}`;
 
-                if (fs.existsSync(componentsDir)) {
-                  const folders = fs
-                    .readdirSync(componentsDir, { withFileTypes: true })
-                    .filter(dirent => dirent.isDirectory())
-                    .map(dirent => dirent.name);
-
-                  for (const folderName of folders) {
-                    const packageJsonPath = path.join(componentsDir, folderName, "package.json");
-
-                    if (fs.existsSync(packageJsonPath)) {
-                      try {
-                        const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-
-                        if (
-                          packageJson.name === `@vibe/${packageName}` &&
-                          packageJson.exports &&
-                          packageJson.exports["./mockedClassNames"]
-                        ) {
-                          return { id: `${source}/mockedClassNames`, external: true };
-                        }
-                      } catch (e) {
-                        // Skip invalid package.json files
-                      }
-                    }
+                  if (vibePackagesWithMocked.has(fullPackageName)) {
+                    return { id: `${fullPackageName}/mockedClassNames`, external: true };
                   }
+
+                  return { id: source, external: true };
                 }
+                return null;
               }
-              return null;
             }
           }
         ]
