@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "ZoomIn",
+    file: "ZoomIn.svg",
+    description: "Zoom In icon for external views",
+    tags: "Zoom, Magnification, Increase, Detail, View, Interface, Action"
+  },
+
+  {
     name: "NavigationArrow",
     file: "NavigationArrow.svg",
     description: "Primary tool for moving and selecting elements on the canvas",
