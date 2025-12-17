@@ -273,5 +273,6 @@ export {default as Work} from './Work';
 export {default as Workflow} from './Workflow';
 export {default as Workspace} from './Workspace';
 export {default as WrapText} from './WrapText';
+export {default as ZoomIn} from './ZoomIn';
 /* tslint:enable */
 /* eslint-enable */
