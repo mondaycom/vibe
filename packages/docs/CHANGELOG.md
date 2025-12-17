@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.4.2...@vibe/docs@3.5.0) (2025-12-17)
+
+
+### Features
+
+* add new DatePicker component ([#3139](https://github.com/mondaycom/vibe/issues/3139)) ([cfea5a9](https://github.com/mondaycom/vibe/commit/cfea5a92f6daa5fce28179d8d9534e2dc7d80a2d))
+* **Combobox:** add migration guide and deprecation notice ([#3200](https://github.com/mondaycom/vibe/issues/3200)) ([6d7ddb7](https://github.com/mondaycom/vibe/commit/6d7ddb7a68ec26c17cd7fba3f8acf0991a1b0e8c))
+
+
+
+
+
 ## [3.4.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.4.1...@vibe/docs@3.4.2) (2025-12-04)
 
 **Note:** Version bump only for package @vibe/docs

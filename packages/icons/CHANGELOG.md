@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.2...@vibe/icons@1.12.0) (2025-12-17)
+
+
+### Features
+
+* **Icon:** added NavigationArrow ([#3201](https://github.com/mondaycom/vibe/issues/3201)) ([c9cc5d0](https://github.com/mondaycom/vibe/commit/c9cc5d022743e328720f89582632eeed0084ae2b))
+
+
+
+
+
 ## [1.11.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.1...@vibe/icons@1.11.2) (2025-11-26)
 
 **Note:** Version bump only for package @vibe/icons

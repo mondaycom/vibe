@@ -1,6 +1,6 @@
 {
   "name": "@vibe/base",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Vibe sub-package for base components",
   "repository": {
     "type": "git",
