@@ -53,6 +53,35 @@ function generateCssModulesMockName(name) {
   return name;
 }
 
+function getVibePackagesWithMockedClassNames() {
+  const packagesWithMocked = new Map();
+  const packagesRoot = path.resolve(__dirname, "..");
+
+  const scanDir = dir => {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const pkgJsonPath = path.join(dir, entry.name, "package.json");
+      if (!fs.existsSync(pkgJsonPath)) continue;
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
+        if (pkg.name?.startsWith("@vibe/") && pkg.exports?.["./mockedClassNames"]) {
+          packagesWithMocked.set(pkg.name, true);
+        }
+      } catch (e) {
+        // Skip invalid package.json
+      }
+    }
+  };
+
+  scanDir(packagesRoot);
+  scanDir(path.join(packagesRoot, "components"));
+
+  return packagesWithMocked;
+}
+
+const vibePackagesWithMocked = shouldMockModularClassnames ? getVibePackagesWithMockedClassNames() : new Map();
+
 export default {
   onwarn,
   output: {
@@ -73,6 +102,29 @@ export default {
   },
   external: [/node_modules\/(?!monday-ui-style)(.*)/],
   plugins: [
+    ...(shouldMockModularClassnames
+      ? [
+          {
+            name: "resolve-vibe-to-mocked-entry-points",
+            resolveId: {
+              order: "pre",
+              handler(source) {
+                if (source.startsWith("@vibe/") && !source.includes("/mockedClassNames")) {
+                  const packageName = source.replace("@vibe/", "").split("/")[0];
+                  const fullPackageName = `@vibe/${packageName}`;
+
+                  if (vibePackagesWithMocked.has(fullPackageName)) {
+                    return { id: `${fullPackageName}/mockedClassNames`, external: true };
+                  }
+
+                  return { id: source, external: true };
+                }
+                return null;
+              }
+            }
+          }
+        ]
+      : []),
     commonjs(),
     nodeResolve({
       extensions: [...EXTENSIONS, ".json", ".css"]
