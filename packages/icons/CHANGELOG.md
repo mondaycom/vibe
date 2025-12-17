@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.12.0...@vibe/icons@1.13.0) (2025-12-17)
+
+
+### Features
+
+* **icon:** add ZoomIn ([#3204](https://github.com/mondaycom/vibe/issues/3204)) ([0e97803](https://github.com/mondaycom/vibe/commit/0e97803418bb8b532030af13fd285acde674b044))
+
+
+
+
+
 # [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.2...@vibe/icons@1.12.0) (2025-12-17)
 
 

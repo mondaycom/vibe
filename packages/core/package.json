@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "3.82.0",
+  "version": "3.82.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -91,13 +91,13 @@
   "dependencies": {
     "@popperjs/core": "2.11.6",
     "@vibe/base": "3.0.4",
-    "@vibe/button": "3.0.9",
+    "@vibe/button": "3.0.10",
     "@vibe/clickable": "3.0.2",
-    "@vibe/dialog": "3.0.4",
+    "@vibe/dialog": "3.0.5",
     "@vibe/hooks": "3.0.2",
     "@vibe/icon": "3.0.9",
-    "@vibe/icons": "1.12.0",
-    "@vibe/layer": "3.0.4",
+    "@vibe/icons": "1.13.0",
+    "@vibe/layer": "3.0.5",
     "@vibe/layout": "3.0.2",
     "@vibe/loader": "3.0.9",
     "@vibe/shared": "3.0.8",
@@ -263,7 +263,7 @@
     "tsx": "^4.20.3",
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "vibe-storybook-components": "1.0.6",
+    "vibe-storybook-components": "1.0.7",
     "vite": "^5.3.1",
     "vitest": "^1.6.0"
   },

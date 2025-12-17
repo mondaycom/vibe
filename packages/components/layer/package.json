@@ -1,6 +1,6 @@
 {
   "name": "@vibe/layer",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Vibe sub-package for layering components",
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "3.0.5",
-    "@vibe/icons": "1.12.0",
+    "@vibe/icons": "1.13.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
