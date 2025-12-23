@@ -7,6 +7,9 @@ export default {
 
 export const Playground = {
   parameters: {
-    chromatic: { disable: true }
+    chromatic: { disable: true },
+    a11y: {
+      manual: true
+    }
   }
 };
