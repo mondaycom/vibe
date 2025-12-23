@@ -31,6 +31,11 @@
       "types": "./dist/lazy/index.d.ts",
       "import": "./dist/lazy/index.js",
       "default": "./dist/lazy/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js",
+      "default": "./dist/types.js"
     }
   },
   "typesVersions": {
@@ -46,6 +51,9 @@
       ],
       "lazy": [
         "./dist/lazy/index.d.ts"
+      ],
+      "types": [
+        "./dist/types.d.ts"
       ]
     }
   },
