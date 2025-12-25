@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { normalizeOptions } from "../utils/dropdownUtils";
 import { type BaseListItemData } from "../../../BaseListItem";
-import { type ListGroup } from "../../../BaseList";
+import { type ListGroup } from "../components/DropdownBaseList/BaseList.types";
 import { type DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownFiltering<Item extends BaseListItemData>(

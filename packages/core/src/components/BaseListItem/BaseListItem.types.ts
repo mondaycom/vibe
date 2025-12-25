@@ -2,9 +2,11 @@ import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
 import { type TooltipProps } from "../Tooltip";
-import { type BaseListDirection, type BaseListSizes } from "../BaseList/BaseList.types";
 import { type ChipsProps } from "../Chips";
 import { type SubIcon } from "@vibe/icon";
+
+export type BaseListSizes = "small" | "medium" | "large";
+export type BaseListDirection = "ltr" | "rtl" | "auto";
 
 export interface BaseListItemProps<Item extends Record<string, unknown>>
   extends Omit<React.HTMLAttributes<HTMLElement>, "role">,

@@ -1,5 +1,5 @@
 import type React from "react";
-import { type ListGroup } from "../../BaseList";
+import { type ListGroup } from "./components/DropdownBaseList/BaseList.types";
 import { type VibeComponentProps } from "../../../types";
 import { type BaseListItemData } from "../../BaseListItem";
 import { type TooltipProps } from "../../Tooltip/Tooltip";

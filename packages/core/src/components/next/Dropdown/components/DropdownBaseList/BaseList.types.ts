@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
-import { type BaseListItemData } from "../BaseListItem";
+import { type VibeComponentProps } from "../../../../../types";
+import { type BaseListItemData, type BaseListSizes, type BaseListDirection } from "../../../../BaseListItem";
 
 export interface BaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
@@ -88,6 +88,4 @@ export interface ListGroup<Item = Record<string, unknown>> {
   options: BaseListItemData<Item>[];
 }
 
-export type BaseListSizes = "small" | "medium" | "large";
-
-export type BaseListDirection = "ltr" | "rtl" | "auto";
+export type { BaseListSizes, BaseListDirection };
