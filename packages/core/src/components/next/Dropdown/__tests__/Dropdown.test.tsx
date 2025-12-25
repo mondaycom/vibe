@@ -3,7 +3,7 @@ import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { type BaseDropdownProps } from "../Dropdown.types";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
 const defaultOptions = [
@@ -23,7 +23,7 @@ const defaultOptions = [
   }
 ] as const;
 
-function renderDropdown<T extends BaseListItemData<Record<string, unknown>>>(props?: Partial<BaseDropdownProps<T>>) {
+function renderDropdown<T extends BaseItemData<Record<string, unknown>>>(props?: Partial<BaseDropdownProps<T>>) {
   const defaultProps = {
     options: props?.options ?? (defaultOptions as any),
     placeholder: "Select an option",
@@ -276,7 +276,7 @@ describe("DropdownNew", () => {
     });
 
     it("should not display indent startElement in selected value", () => {
-      const optionsWithIndent: DropdownListGroup<BaseListItemData<Record<string, unknown>>>[] = [
+      const optionsWithIndent: DropdownListGroup<BaseItemData<Record<string, unknown>>>[] = [
         {
           label: "Group 1",
           options: [
@@ -751,7 +751,7 @@ describe("DropdownNew", () => {
 
   describe("with custom type", () => {
     it("should work without explicit type parameter", () => {
-      type SimpleOptionType = BaseListItemData<{
+      type SimpleOptionType = BaseItemData<{
         value: string;
       }>;
 
@@ -782,7 +782,7 @@ describe("DropdownNew", () => {
         inlineData?: string;
       }
 
-      type InlineItemType = BaseListItemData<InlineType>;
+      type InlineItemType = BaseItemData<InlineType>;
 
       const typedInlineOptions: DropdownListGroup<InlineItemType>[] = [
         {
@@ -864,7 +864,7 @@ describe("DropdownNew", () => {
         icon?: string;
       }
 
-      type RenderedItemType = BaseListItemData<RenderedType>;
+      type RenderedItemType = BaseItemData<RenderedType>;
 
       const typedRenderedOptions: DropdownListGroup<RenderedItemType>[] = [
         {
@@ -909,7 +909,7 @@ describe("DropdownNew", () => {
   });
 
   describe("with filterOption prop", () => {
-    type FilterTestOptionType = BaseListItemData<{
+    type FilterTestOptionType = BaseItemData<{
       id: string;
       value: string;
     }>;

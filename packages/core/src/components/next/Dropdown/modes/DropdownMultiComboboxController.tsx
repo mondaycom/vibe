@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { type DropdownMultiControllerProps } from "../Dropdown.types";
 import useDropdownMultiCombobox from "../hooks/useDropdownMultiCombobox";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
-const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<string, unknown>>>(
+const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string, unknown>>>(
   props: DropdownMultiControllerProps<Item>
 ) => {
   const {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Chips, type ChipsProps } from "../../../../Chips";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 
-const getChipPropsFromItemElements = (item: BaseListItemData<Record<string, unknown>>): Partial<ChipsProps> => {
+const getChipPropsFromItemElements = (item: BaseItemData<Record<string, unknown>>): Partial<ChipsProps> => {
   const chipProps: Partial<ChipsProps> = {};
   if (item?.startElement) {
     switch (item?.startElement?.type) {
@@ -35,7 +35,7 @@ const getChipPropsFromItemElements = (item: BaseListItemData<Record<string, unkn
   return chipProps;
 };
 
-interface DropdownChipProps<Item extends BaseListItemData<Record<string, unknown>>> {
+interface DropdownChipProps<Item extends BaseItemData<Record<string, unknown>>> {
   item: Item;
   onDelete: () => void;
   disabled?: boolean;
@@ -43,7 +43,7 @@ interface DropdownChipProps<Item extends BaseListItemData<Record<string, unknown
   className?: string;
 }
 
-const DropdownChip = <Item extends BaseListItemData<Record<string, unknown>>>({
+const DropdownChip = <Item extends BaseItemData<Record<string, unknown>>>({
   item,
   onDelete,
   disabled,

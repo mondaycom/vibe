@@ -1,14 +1,14 @@
 import type React from "react";
 import { createContext, useContext } from "react";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type BaseDropdownProps, type DropdownSizes } from "../Dropdown.types";
 import { type DropdownContextProps } from "./DropdownContext.types";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;
 
-export interface DropdownContextValue<Item extends BaseListItemData<Record<string, unknown>> = any> {
+export interface DropdownContextValue<Item extends BaseItemData<Record<string, unknown>> = any> {
   isOpen: boolean;
   inputValue: string | null;
   highlightedIndex: number | null;
@@ -60,7 +60,7 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
 
 export const DropdownContext = createContext<DropdownContextProps<any> | undefined>(undefined);
 
-export function useDropdownContext<Item extends BaseListItemData<Record<string, unknown>>>() {
+export function useDropdownContext<Item extends BaseItemData<Record<string, unknown>>>() {
   const context = useContext(DropdownContext) as DropdownContextProps<Item>;
   if (context === undefined) {
     throw new Error("useDropdownContext must be used within a DropdownProvider");

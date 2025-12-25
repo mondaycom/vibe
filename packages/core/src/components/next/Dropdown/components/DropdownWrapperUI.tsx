@@ -3,15 +3,15 @@ import { DropdownContext } from "../context/DropdownContext";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownPopup from "./DropdownPopup/DropdownPopup";
 import DropdownBoxMode from "./DropdownBoxMode/DropdownBoxMode";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import DropdownBase from "./DropdownBase/DropdownBase";
 
-interface DropdownWrapperUIProps<Item extends BaseListItemData<Record<string, unknown>>> {
+interface DropdownWrapperUIProps<Item extends BaseItemData<Record<string, unknown>>> {
   contextValue: DropdownContextProps<Item>;
   dropdownRef: React.Ref<HTMLDivElement>;
 }
 
-const DropdownWrapperUI = <Item extends BaseListItemData<Record<string, unknown>>>(
+const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(
   props: DropdownWrapperUIProps<Item>
 ) => {
   const { contextValue, dropdownRef } = props;

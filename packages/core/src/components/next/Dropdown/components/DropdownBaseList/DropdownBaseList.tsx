@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import BaseListItem from "../../../../BaseListItem/BaseListItem";
+import BaseItem from "../../../../BaseItem/BaseItem";
 import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";
@@ -37,7 +37,7 @@ const DropdownBaseList = forwardRef(
         <div role="status">
           {typeof noOptionsMessage === "string" ? (
             <Flex justify="center">
-              <BaseListItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
+              <BaseItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
             </Flex>
           ) : (
             noOptionsMessage
@@ -61,7 +61,7 @@ const DropdownBaseList = forwardRef(
                 selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
               return (
-                <BaseListItem<Item>
+                <BaseItem<Item>
                   itemProps={itemProps}
                   key={typeof option.value === "string" ? option.value : itemIndex}
                   size={size}

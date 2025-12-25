@@ -1,8 +1,8 @@
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
-export function normalizeOptions<Item extends BaseListItemData>(
-  options: DropdownListGroup<Item>[] | BaseListItemData<Item>[],
+export function normalizeOptions<Item extends BaseItemData>(
+  options: DropdownListGroup<Item>[] | BaseItemData<Item>[],
   filter?: string,
   filterOption?: (option: Item, inputValue: string) => boolean,
   showSelectedOptions = true,
@@ -35,7 +35,7 @@ export function normalizeOptions<Item extends BaseListItemData>(
     : [
         {
           label: undefined,
-          options: (options as BaseListItemData<Item>[])
+          options: (options as BaseItemData<Item>[])
             .filter(item => {
               const matchesFilter = currentFilterFn(item, filter || "");
               if (!showSelectedOptions && isItemSelected(item)) {

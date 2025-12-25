@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../../../../types";
-import { type BaseListItemData, type BaseListSizes, type BaseListDirection } from "../../../../BaseListItem";
+import { type BaseItemData, type BaseItemSizes, type BaseItemDirection } from "../../../../BaseItem";
 
 export interface DropdownBaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
@@ -13,7 +13,7 @@ export interface DropdownBaseListProps<Item = Record<string, unknown>>
   /**
    * The selected item in the list.
    */
-  selectedItems?: BaseListItemData<Item>[] | null;
+  selectedItems?: BaseItemData<Item>[] | null;
   /**
    * The index of the highlighted item in the list.
    */
@@ -33,7 +33,7 @@ export interface DropdownBaseListProps<Item = Record<string, unknown>>
   /**
    * The size of the list item.
    */
-  size?: BaseListSizes;
+  size?: BaseItemSizes;
   /**
    * If true, displays dividers between grouped options.
    */
@@ -45,11 +45,11 @@ export interface DropdownBaseListProps<Item = Record<string, unknown>>
   /**
    * The text direction of the list.
    */
-  dir?: BaseListDirection;
+  dir?: BaseItemDirection;
   /**
    * Custom renderer for options.
    */
-  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
+  itemRenderer?: (item: BaseItemData<Item>) => React.ReactNode;
   /**
    * Custom renderer for the entire menu content inside the ul element.
    */
@@ -85,7 +85,7 @@ export interface DropdownListGroup<Item = Record<string, unknown>> {
   /**
    * The list of options within this group.
    */
-  options: BaseListItemData<Item>[];
+  options: BaseItemData<Item>[];
 }
 
-export type { BaseListSizes, BaseListDirection };
+export type { BaseItemSizes, BaseItemDirection };

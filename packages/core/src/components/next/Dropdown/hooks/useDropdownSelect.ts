@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { useSelect } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type DropdownGroupOption } from "../Dropdown.types";
 
-function useDropdownSelect<T extends BaseListItemData<Record<string, unknown>>>(
+function useDropdownSelect<T extends BaseItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
   autoFocus?: boolean,
   isMenuOpen?: boolean,

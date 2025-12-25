@@ -1,14 +1,14 @@
 import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
-import styles from "./BaseListItem.module.scss";
+import styles from "./BaseItem.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
-import { type BaseListItemData, type BaseListItemProps } from "./BaseListItem.types";
+import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { Tooltip } from "../Tooltip";
 import { type TextType } from "../Text";
 import { renderSideElement } from "./utils";
 
-const BaseListItem = forwardRef(
+const BaseItem = forwardRef(
   <Item extends Record<string, unknown>>(
     {
       className,
@@ -23,8 +23,8 @@ const BaseListItem = forwardRef(
       dir = "auto",
       itemRenderer,
       itemProps = {},
-      item = {} as BaseListItemData<Item>
-    }: BaseListItemProps<Item>,
+      item = {} as BaseItemData<Item>
+    }: BaseItemProps<Item>,
     ref: React.Ref<HTMLElement>
   ) => {
     const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
@@ -74,6 +74,7 @@ const BaseListItem = forwardRef(
   }
 );
 
-export default BaseListItem as <Item extends Record<string, unknown>>(
-  props: BaseListItemProps<Item> & { ref?: React.Ref<HTMLElement> }
+export default BaseItem as <Item extends Record<string, unknown>>(
+  props: BaseItemProps<Item> & { ref?: React.Ref<HTMLElement> }
 ) => React.ReactElement;
+

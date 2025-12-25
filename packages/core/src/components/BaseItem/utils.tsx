@@ -1,8 +1,8 @@
-import { type EndElement, type StartElement } from "./BaseListItem.types";
+import { type EndElement, type StartElement } from "./BaseItem.types";
 import { type TextType } from "../Text";
 import React from "react";
 import Avatar from "../Avatar/Avatar";
-import styles from "./BaseListItem.module.scss";
+import styles from "./BaseItem.module.scss";
 import { Icon } from "@vibe/icon";
 import Text from "../Text/Text";
 
@@ -42,3 +42,4 @@ export function renderSideElement(
       return element.render();
   }
 }
+

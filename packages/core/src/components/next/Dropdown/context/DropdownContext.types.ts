@@ -1,12 +1,12 @@
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type TooltipProps } from "../../../Tooltip/Tooltip";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;
 
-type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = Partial<
+type InheritedDropdownProps<Item extends BaseItemData<Record<string, unknown>>> = Partial<
   Pick<
     BaseDropdownProps<Item>,
     | "label"
@@ -51,7 +51,7 @@ type InheritedDropdownProps<Item extends BaseListItemData<Record<string, unknown
   >
 >;
 
-export interface DropdownContextProps<Item extends BaseListItemData<Record<string, unknown>> = any>
+export interface DropdownContextProps<Item extends BaseItemData<Record<string, unknown>> = any>
   extends InheritedDropdownProps<Item> {
   label?: string;
   isOpen: boolean;

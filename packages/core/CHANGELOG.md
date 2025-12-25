@@ -153,7 +153,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **BaseListItem:** fix overflow tooltip ([#3151](https://github.com/mondaycom/vibe/issues/3151)) ([6440534](https://github.com/mondaycom/vibe/commit/64405342d828fcfe5f482ab575d4efd3d7b743ac))
+* **BaseItem:** fix overflow tooltip ([#3151](https://github.com/mondaycom/vibe/issues/3151)) ([6440534](https://github.com/mondaycom/vibe/commit/64405342d828fcfe5f482ab575d4efd3d7b743ac))
 
 
 ### Features

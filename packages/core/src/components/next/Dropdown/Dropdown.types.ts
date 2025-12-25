@@ -1,13 +1,13 @@
 import type React from "react";
 import { type DropdownListGroup } from "./components/DropdownBaseList/DropdownBaseList.types";
 import { type VibeComponentProps } from "../../../types";
-import { type BaseListItemData } from "../../BaseListItem";
+import { type BaseItemData } from "../../BaseItem";
 import { type TooltipProps } from "../../Tooltip/Tooltip";
 
-export type DropdownOption<Item = Record<string, unknown>> = BaseListItemData<Item>;
-export type DropdownGroupOption<Item = Record<string, unknown>> = DropdownListGroup<Item>[] | BaseListItemData<Item>[];
+export type DropdownOption<Item = Record<string, unknown>> = BaseItemData<Item>;
+export type DropdownGroupOption<Item = Record<string, unknown>> = DropdownListGroup<Item>[] | BaseItemData<Item>[];
 
-interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
+interface MultiSelectSpecifics<Item extends BaseItemData<Record<string, unknown>>> {
   /**
    * If true, the dropdown allows multiple selections.
    */
@@ -42,7 +42,7 @@ interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unkn
   minVisibleCount?: number;
 }
 
-interface SingleSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
+interface SingleSelectSpecifics<Item extends BaseItemData<Record<string, unknown>>> {
   /**
    * If true, the dropdown allows multiple selections. Defaults to false.
    */
@@ -99,7 +99,7 @@ type BoxModeConstraint =
       boxMode?: boolean;
     };
 
-export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unknown>>> = VibeComponentProps &
+export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>> = VibeComponentProps &
   BoxModeConstraint & {
     /**
      * The list of options available in the list.
@@ -273,7 +273,7 @@ export type DropdownSizes = "small" | "medium" | "large";
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
 
-export type DropdownMultiControllerProps<Item extends BaseListItemData<Record<string, unknown>>> = Omit<
+export type DropdownMultiControllerProps<Item extends BaseItemData<Record<string, unknown>>> = Omit<
   BaseDropdownProps<Item>,
   keyof MultiSelectSpecifics<Item> | keyof BoxModeConstraint
 > &
@@ -282,7 +282,7 @@ export type DropdownMultiControllerProps<Item extends BaseListItemData<Record<st
     dropdownRef: React.Ref<HTMLDivElement>;
   };
 
-export type DropdownSingleControllerProps<Item extends BaseListItemData<Record<string, unknown>>> = Omit<
+export type DropdownSingleControllerProps<Item extends BaseItemData<Record<string, unknown>>> = Omit<
   BaseDropdownProps<Item>,
   keyof SingleSelectSpecifics<Item> | keyof BoxModeConstraint
 > &

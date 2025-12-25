@@ -1,13 +1,13 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
-import BaseListItem from "../BaseListItem";
+import BaseItem from "../BaseItem";
 import {
-  type BaseListItemProps,
+  type BaseItemProps,
   type StartElement,
   type EndElement,
-  type BaseListItemData
-} from "../BaseListItem.types";
+  type BaseItemData
+} from "../BaseItem.types";
 
 const startElement: StartElement = {
   type: "avatar",
@@ -20,15 +20,15 @@ const endElement: EndElement = {
   value: "check"
 };
 
-function renderBaseListItem(props?: Partial<BaseListItemProps<Record<string, unknown>>>) {
-  return render(<BaseListItem {...props} />);
+function renderBaseItem(props?: Partial<BaseItemProps<Record<string, unknown>>>) {
+  return render(<BaseItem {...props} />);
 }
 
-describe("BaseListItem", () => {
+describe("BaseItem", () => {
   const label = "Default Item";
 
   it("should render correctly with all props", () => {
-    const { getByText } = renderBaseListItem({
+    const { getByText } = renderBaseItem({
       item: {
         label,
         value: "item1",
@@ -50,7 +50,7 @@ describe("BaseListItem", () => {
 
   describe("with declared props", () => {
     it("should apply the size class", () => {
-      const { getByText } = renderBaseListItem({
+      const { getByText } = renderBaseItem({
         item: { label, value: "item1" },
         size: "large"
       });
@@ -58,7 +58,7 @@ describe("BaseListItem", () => {
     });
 
     it("should show start and end elements when provided", () => {
-      const { getByTestId } = renderBaseListItem({
+      const { getByTestId } = renderBaseItem({
         item: {
           label,
           value: "item1",
@@ -72,7 +72,7 @@ describe("BaseListItem", () => {
     });
 
     it("should apply the selected class", () => {
-      const { getByText } = renderBaseListItem({
+      const { getByText } = renderBaseItem({
         item: { label, value: "item1" },
         selected: true
       });
@@ -80,7 +80,7 @@ describe("BaseListItem", () => {
     });
 
     it("should apply the disabled class", () => {
-      const { getByText } = renderBaseListItem({
+      const { getByText } = renderBaseItem({
         item: {
           label,
           value: "item1",
@@ -91,7 +91,7 @@ describe("BaseListItem", () => {
     });
 
     it("should apply the highlighted class", () => {
-      const { getByText } = renderBaseListItem({
+      const { getByText } = renderBaseItem({
         item: { label, value: "item1" },
         highlighted: true
       });
@@ -99,7 +99,7 @@ describe("BaseListItem", () => {
     });
 
     it("should have role option", () => {
-      const { getByRole } = renderBaseListItem({
+      const { getByRole } = renderBaseItem({
         item: { label, value: "item1" },
         role: "option"
       });
@@ -116,7 +116,7 @@ describe("with custom type", () => {
     priority: number;
   };
 
-  const customItem: BaseListItemData<CustomItemType> = {
+  const customItem: BaseItemData<CustomItemType> = {
     id: "custom-123",
     value: "custom-123",
     customValue: 42,
@@ -126,17 +126,17 @@ describe("with custom type", () => {
   };
 
   it("should render correctly with a custom type", () => {
-    const { getByText } = render(<BaseListItem<CustomItemType> item={customItem} />);
+    const { getByText } = render(<BaseItem<CustomItemType> item={customItem} />);
     expect(getByText("Custom Item")).toBeInTheDocument();
   });
 
   it("should pass custom type properties to itemRenderer", () => {
-    const mockRenderer = vi.fn((item: BaseListItemData<CustomItemType>) => {
+    const mockRenderer = vi.fn((item: BaseItemData<CustomItemType>) => {
       const { id, customValue, label } = item;
       return <div data-testid="custom-rendered">{`${label} (${id}): ${customValue}`}</div>;
     });
 
-    const { getByTestId } = render(<BaseListItem<CustomItemType> item={customItem} itemRenderer={mockRenderer} />);
+    const { getByTestId } = render(<BaseItem<CustomItemType> item={customItem} itemRenderer={mockRenderer} />);
 
     expect(mockRenderer).toHaveBeenCalledWith(customItem);
 
@@ -152,7 +152,7 @@ describe("with type parameter scenarios", () => {
       customField: "custom value"
     };
 
-    const { getByText } = render(<BaseListItem item={simpleItem} />);
+    const { getByText } = render(<BaseItem item={simpleItem} />);
     expect(getByText("Simple Item")).toBeInTheDocument();
   });
 
@@ -162,14 +162,14 @@ describe("with type parameter scenarios", () => {
       isActive: boolean;
     };
 
-    const typedItem: BaseListItemData<ExplicitType> = {
+    const typedItem: BaseItemData<ExplicitType> = {
       label: "Typed Item",
       value: "typed-123",
       id: "123",
       isActive: true
     };
 
-    const { getByText } = render(<BaseListItem<ExplicitType> item={typedItem} />);
+    const { getByText } = render(<BaseItem<ExplicitType> item={typedItem} />);
     expect(getByText("Typed Item")).toBeInTheDocument();
   });
 
@@ -180,7 +180,7 @@ describe("with type parameter scenarios", () => {
     };
 
     const simpleRenderer = (item: any) => <div data-testid="simple-rendered">{`${item.label}: ${item.count}`}</div>;
-    const { getByTestId } = render(<BaseListItem item={simpleItem} itemRenderer={simpleRenderer} />);
+    const { getByTestId } = render(<BaseItem item={simpleItem} itemRenderer={simpleRenderer} />);
     expect(getByTestId("simple-rendered")).toHaveTextContent("Renderer Item: 42");
   });
 
@@ -203,7 +203,8 @@ describe("with type parameter scenarios", () => {
       );
     };
 
-    const { getByTestId } = render(<BaseListItem item={complexItem} itemRenderer={typedRenderer} />);
+    const { getByTestId } = render(<BaseItem item={complexItem} itemRenderer={typedRenderer} />);
     expect(getByTestId("complex-rendered")).toHaveTextContent("Complex Item (v2): active");
   });
 });
+
