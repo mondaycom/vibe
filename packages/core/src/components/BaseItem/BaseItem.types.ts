@@ -102,4 +102,3 @@ export type SideElement =
 export type StartElement = Extract<SideElement, { type: "avatar" | "icon" | "indent" | "custom" }>;
 
 export type EndElement = Extract<SideElement, { type: "icon" | "suffix" | "custom" }>;
-

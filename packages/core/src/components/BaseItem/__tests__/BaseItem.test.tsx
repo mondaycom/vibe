@@ -2,12 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import BaseItem from "../BaseItem";
-import {
-  type BaseItemProps,
-  type StartElement,
-  type EndElement,
-  type BaseItemData
-} from "../BaseItem.types";
+import { type BaseItemProps, type StartElement, type EndElement, type BaseItemData } from "../BaseItem.types";
 
 const startElement: StartElement = {
   type: "avatar",
@@ -207,4 +202,3 @@ describe("with type parameter scenarios", () => {
     expect(getByTestId("complex-rendered")).toHaveTextContent("Complex Item (v2): active");
   });
 });
-

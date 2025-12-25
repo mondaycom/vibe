@@ -77,4 +77,3 @@ const BaseItem = forwardRef(
 export default BaseItem as <Item extends Record<string, unknown>>(
   props: BaseItemProps<Item> & { ref?: React.Ref<HTMLElement> }
 ) => React.ReactElement;
-
