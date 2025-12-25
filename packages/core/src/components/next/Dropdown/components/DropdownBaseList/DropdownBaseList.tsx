@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../../../../BaseListItem/BaseListItem";
-import styles from "./BaseList.module.scss";
+import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";
 import { type TextType } from "../../../../Text";
@@ -8,7 +8,7 @@ import Text from "../../../../Text/Text";
 import cx from "classnames";
 import { Divider } from "../../../../Divider";
 
-const BaseList = forwardRef(
+const DropdownBaseList = forwardRef(
   <Item extends Record<string, unknown>>(
     {
       options,
@@ -101,6 +101,6 @@ const BaseList = forwardRef(
   }
 );
 
-export default BaseList as <Item extends Record<string, unknown>>(
+export default DropdownBaseList as <Item extends Record<string, unknown>>(
   props: DropdownBaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
 ) => React.ReactElement;
