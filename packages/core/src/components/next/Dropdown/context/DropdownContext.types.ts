@@ -1,4 +1,4 @@
-import { type DropdownListGroup } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 import { type BaseListItemData } from "../../../BaseListItem";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type TooltipProps } from "../../../Tooltip/Tooltip";

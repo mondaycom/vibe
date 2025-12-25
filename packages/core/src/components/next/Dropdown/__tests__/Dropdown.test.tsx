@@ -4,7 +4,7 @@ import { render, fireEvent, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type BaseListItemData } from "../../../BaseListItem";
-import { type DropdownDropdownListGroup } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownDropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
 const defaultOptions = [
   {

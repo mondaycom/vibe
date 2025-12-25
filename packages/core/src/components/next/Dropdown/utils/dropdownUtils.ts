@@ -1,5 +1,5 @@
 import { type BaseListItemData } from "../../../BaseListItem";
-import { type DropdownListGroup } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
 export function normalizeOptions<Item extends BaseListItemData>(
   options: DropdownListGroup<Item>[] | BaseListItemData<Item>[],

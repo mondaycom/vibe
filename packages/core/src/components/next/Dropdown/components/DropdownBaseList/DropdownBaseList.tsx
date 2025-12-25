@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../../../../BaseListItem/BaseListItem";
 import styles from "./BaseList.module.scss";
-import { type DropdownBaseListProps } from "./BaseList.types";
+import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";
 import { type TextType } from "../../../../Text";
 import Text from "../../../../Text/Text";

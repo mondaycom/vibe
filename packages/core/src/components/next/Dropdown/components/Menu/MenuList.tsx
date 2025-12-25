@@ -1,5 +1,5 @@
 import React from "react";
-import BaseList from "../DropdownBaseList/BaseList";
+import BaseList from "../DropdownBaseList/DropdownBaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseListItemData } from "../../../../BaseListItem";
 
