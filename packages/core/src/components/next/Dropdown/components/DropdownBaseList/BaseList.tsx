@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import BaseListItem from "../../../../BaseListItem/BaseListItem";
 import styles from "./BaseList.module.scss";
-import { type BaseListProps } from "./BaseList.types";
+import { type DropdownBaseListProps } from "./BaseList.types";
 import { Flex } from "@vibe/layout";
 import { type TextType } from "../../../../Text";
 import Text from "../../../../Text/Text";
@@ -27,7 +27,7 @@ const BaseList = forwardRef(
       renderOptions = true,
       onScroll,
       maxMenuHeight = 300
-    }: BaseListProps<Item>,
+    }: DropdownBaseListProps<Item>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
@@ -102,5 +102,5 @@ const BaseList = forwardRef(
 );
 
 export default BaseList as <Item extends Record<string, unknown>>(
-  props: BaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
+  props: DropdownBaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
 ) => React.ReactElement;

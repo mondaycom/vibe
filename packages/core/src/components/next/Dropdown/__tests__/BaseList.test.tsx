@@ -2,10 +2,10 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import BaseList from "../components/DropdownBaseList/BaseList";
-import { type BaseListProps } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownBaseListProps } from "../components/DropdownBaseList/BaseList.types";
 
-function renderBaseList(props?: Partial<BaseListProps<any>>) {
-  const defaultProps: BaseListProps<any> = {
+function renderBaseList(props?: Partial<DropdownBaseListProps<any>>) {
+  const defaultProps: DropdownBaseListProps<any> = {
     options: [],
     ...props
   };
@@ -241,4 +241,3 @@ describe("BaseList", () => {
     });
   });
 });
-

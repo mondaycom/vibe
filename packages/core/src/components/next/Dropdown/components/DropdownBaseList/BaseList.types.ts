@@ -3,13 +3,13 @@ import type React from "react";
 import { type VibeComponentProps } from "../../../../../types";
 import { type BaseListItemData, type BaseListSizes, type BaseListDirection } from "../../../../BaseListItem";
 
-export interface BaseListProps<Item = Record<string, unknown>>
+export interface DropdownBaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
     VibeComponentProps {
   /**
    * The list of options available in the list.
    */
-  options: ListGroup<Item>[];
+  options: DropdownListGroup<Item>[];
   /**
    * The selected item in the list.
    */
@@ -55,7 +55,7 @@ export interface BaseListProps<Item = Record<string, unknown>>
    */
   menuRenderer?: (props: {
     children: React.ReactNode;
-    filteredOptions: ListGroup<Item>[];
+    filteredOptions: DropdownListGroup<Item>[];
     selectedItem?: Item | null;
     selectedItems?: Item[];
   }) => React.ReactNode;
@@ -77,7 +77,7 @@ export interface BaseListProps<Item = Record<string, unknown>>
   maxMenuHeight?: number;
 }
 
-export interface ListGroup<Item = Record<string, unknown>> {
+export interface DropdownListGroup<Item = Record<string, unknown>> {
   /**
    * The label for the group of options.
    */

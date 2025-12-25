@@ -1,11 +1,11 @@
 import type React from "react";
-import { type ListGroup } from "./components/DropdownBaseList/BaseList.types";
+import { type DropdownListGroup } from "./components/DropdownBaseList/BaseList.types";
 import { type VibeComponentProps } from "../../../types";
 import { type BaseListItemData } from "../../BaseListItem";
 import { type TooltipProps } from "../../Tooltip/Tooltip";
 
 export type DropdownOption<Item = Record<string, unknown>> = BaseListItemData<Item>;
-export type DropdownGroupOption<Item = Record<string, unknown>> = ListGroup<Item>[] | BaseListItemData<Item>[];
+export type DropdownGroupOption<Item = Record<string, unknown>> = DropdownListGroup<Item>[] | BaseListItemData<Item>[];
 
 interface MultiSelectSpecifics<Item extends BaseListItemData<Record<string, unknown>>> {
   /**
@@ -138,7 +138,7 @@ export type BaseDropdownProps<Item extends BaseListItemData<Record<string, unkno
      */
     menuRenderer?: (props: {
       children: React.ReactNode;
-      filteredOptions: ListGroup<Item>[];
+      filteredOptions: DropdownListGroup<Item>[];
       selectedItems: Item[];
       getItemProps: (options: any) => Record<string, unknown>;
     }) => React.ReactNode;

@@ -1,4 +1,4 @@
-import { type ListGroup } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownListGroup } from "../components/DropdownBaseList/BaseList.types";
 import { type BaseListItemData } from "../../../BaseListItem";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type TooltipProps } from "../../../Tooltip/Tooltip";
@@ -59,7 +59,7 @@ export interface DropdownContextProps<Item extends BaseListItemData<Record<strin
   highlightedIndex: number | null;
   selectedItem?: Item | null | undefined;
   selectedItems?: Item[];
-  filteredOptions?: ListGroup<Item>[];
+  filteredOptions?: DropdownListGroup<Item>[];
   tooltipProps?: Partial<TooltipProps>;
 
   getToggleButtonProps: PropGetter;

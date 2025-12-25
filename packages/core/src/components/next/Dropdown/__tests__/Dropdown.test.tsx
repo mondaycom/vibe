@@ -4,7 +4,7 @@ import { render, fireEvent, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type BaseListItemData } from "../../../BaseListItem";
-import { type ListGroup } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownDropdownListGroup } from "../components/DropdownBaseList/BaseList.types";
 
 const defaultOptions = [
   {
@@ -276,7 +276,7 @@ describe("DropdownNew", () => {
     });
 
     it("should not display indent startElement in selected value", () => {
-      const optionsWithIndent: ListGroup<BaseListItemData<Record<string, unknown>>>[] = [
+      const optionsWithIndent: DropdownListGroup<BaseListItemData<Record<string, unknown>>>[] = [
         {
           label: "Group 1",
           options: [
@@ -755,7 +755,7 @@ describe("DropdownNew", () => {
         value: string;
       }>;
 
-      const inlineOptions: ListGroup<SimpleOptionType>[] = [
+      const inlineOptions: DropdownListGroup<SimpleOptionType>[] = [
         {
           label: "Inline Group",
           options: [
@@ -784,7 +784,7 @@ describe("DropdownNew", () => {
 
       type InlineItemType = BaseListItemData<InlineType>;
 
-      const typedInlineOptions: ListGroup<InlineItemType>[] = [
+      const typedInlineOptions: DropdownListGroup<InlineItemType>[] = [
         {
           label: "Typed Inline",
           options: [
@@ -866,7 +866,7 @@ describe("DropdownNew", () => {
 
       type RenderedItemType = BaseListItemData<RenderedType>;
 
-      const typedRenderedOptions: ListGroup<RenderedItemType>[] = [
+      const typedRenderedOptions: DropdownListGroup<RenderedItemType>[] = [
         {
           label: "Typed Rendered",
           options: [

@@ -1,6 +1,6 @@
 import type React from "react";
 import { createContext, useContext } from "react";
-import { type ListGroup } from "../components/DropdownBaseList/BaseList.types";
+import { type DropdownListGroup } from "../components/DropdownBaseList/BaseList.types";
 import { type BaseListItemData } from "../../../BaseListItem";
 import { type BaseDropdownProps, type DropdownSizes } from "../Dropdown.types";
 import { type DropdownContextProps } from "./DropdownContext.types";
@@ -14,7 +14,7 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
   highlightedIndex: number | null;
   selectedItem: Item | null | undefined;
   selectedItems: Item[];
-  filteredOptions: ListGroup<Item>[];
+  filteredOptions: DropdownListGroup<Item>[];
 
   getToggleButtonProps: PropGetter;
   getLabelProps: PropGetter;
