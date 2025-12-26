@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { type DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownCombobox from "../hooks/useDropdownCombobox";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 
-const DropdownComboboxController = <Item extends BaseListItemData<Record<string, unknown>>>(
+const DropdownComboboxController = <Item extends BaseItemData<Record<string, unknown>>>(
   props: DropdownSingleControllerProps<Item>
 ) => {
   const {

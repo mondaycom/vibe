@@ -3,7 +3,7 @@ import cx from "classnames";
 import { BaseInput } from "@vibe/base";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 import { Text } from "../../../../Text";
 
 const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {
@@ -24,7 +24,7 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
     getDropdownProps,
     getLabelProps,
     getInputProps
-  } = useDropdownContext<BaseListItemData>();
+  } = useDropdownContext<BaseItemData>();
 
   const inputRef = useRef<HTMLInputElement>(null);
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;

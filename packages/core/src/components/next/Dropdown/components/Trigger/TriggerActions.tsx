@@ -5,7 +5,7 @@ import { Flex } from "@vibe/layout";
 import { Loader } from "@vibe/loader";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 
 const sizeMap = {
   large: "medium",
@@ -30,7 +30,7 @@ const TriggerActions = () => {
     loading,
     clearAriaLabel,
     boxMode
-  } = useDropdownContext<BaseListItemData>();
+  } = useDropdownContext<BaseItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
   const iconButtonSize = sizeMap[size] || "small";

@@ -1,13 +1,13 @@
-import { type BaseListItemData } from "../../../BaseListItem";
-import { type ListGroup } from "../../../BaseList";
+import { type BaseItemData } from "../../../BaseItem";
+import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
-export function normalizeOptions<Item extends BaseListItemData>(
-  options: ListGroup<Item>[] | BaseListItemData<Item>[],
+export function normalizeOptions<Item extends BaseItemData>(
+  options: DropdownListGroup<Item>[] | BaseItemData<Item>[],
   filter?: string,
   filterOption?: (option: Item, inputValue: string) => boolean,
   showSelectedOptions = true,
   selectedItems: Item[] = []
-): ListGroup<Item>[] {
+): DropdownListGroup<Item>[] {
   let indexCounter = 0;
   const defaultFilterFn = (item: Item, inputValue: string) =>
     !inputValue || item.label.toLowerCase().includes(inputValue.toLowerCase());
@@ -16,7 +16,7 @@ export function normalizeOptions<Item extends BaseListItemData>(
   const isItemSelected = (item: Item) => selectedItems.some(selected => selected.value === item.value);
 
   return Array.isArray(options) && options.some(item => "options" in item)
-    ? (options as ListGroup<Item>[]).flatMap(group => {
+    ? (options as DropdownListGroup<Item>[]).flatMap(group => {
         const filteredGroupOptions = group.options
           .filter(item => {
             const matchesFilter = currentFilterFn(item, filter || "");
@@ -35,7 +35,7 @@ export function normalizeOptions<Item extends BaseListItemData>(
     : [
         {
           label: undefined,
-          options: (options as BaseListItemData<Item>[])
+          options: (options as BaseItemData<Item>[])
             .filter(item => {
               const matchesFilter = currentFilterFn(item, filter || "");
               if (!showSelectedOptions && isItemSelected(item)) {

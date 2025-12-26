@@ -3,7 +3,7 @@ import { Flex } from "@vibe/layout";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import DropdownInput from "./DropdownInput";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 import TriggerActions from "./TriggerActions";
 import styles from "./Trigger.module.scss";
 import { getStyle } from "../../../../../helpers/typesciptCssModulesHelper";
@@ -25,7 +25,7 @@ const MultiSelectTrigger = () => {
     getLabelProps,
     ariaLabel,
     minVisibleCount
-  } = useDropdownContext<BaseListItemData>();
+  } = useDropdownContext<BaseItemData>();
 
   return (
     <Flex justify="space-between" align="center">

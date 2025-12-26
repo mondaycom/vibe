@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, createRef } from "react";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 import { Chips } from "../../../../Chips";
 import { Flex } from "@vibe/layout";
 import { DialogContentContainer, Dialog } from "@vibe/dialog";
@@ -17,7 +17,7 @@ type MultiSelectedValuesProps<Item> = {
   minVisibleCount?: number;
 };
 
-function MultiSelectedValues<Item extends BaseListItemData<Record<string, unknown>>>({
+function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>({
   selectedItems,
   onRemove,
   renderInput,

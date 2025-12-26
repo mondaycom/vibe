@@ -2,11 +2,11 @@ import React from "react";
 import cx from "classnames";
 import { DialogContentContainer } from "@vibe/dialog";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 import MenuList from "./MenuList";
 import styles from "./Menu.module.scss";
 
-const Menu = <Item extends BaseListItemData<Record<string, unknown>>>() => {
+const Menu = <Item extends BaseItemData<Record<string, unknown>>>() => {
   const { isOpen, menuWrapperClassName } = useDropdownContext<Item>();
 
   return (

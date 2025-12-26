@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { BaseListItem, type BaseListItemData } from "../../../../BaseListItem";
+import { BaseItem, type BaseItemData } from "../../../../BaseItem";
 import DropdownInput from "./DropdownInput";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
@@ -23,7 +23,7 @@ const SingleSelectTrigger = () => {
     label,
     getLabelProps,
     ariaLabel
-  } = useDropdownContext<BaseListItemData>();
+  } = useDropdownContext<BaseItemData>();
 
   return (
     <Flex justify="space-between" align="center">
@@ -52,7 +52,7 @@ const SingleSelectTrigger = () => {
               getStyle(styles, size)
             )}
           >
-            <BaseListItem
+            <BaseItem
               component="div"
               itemRenderer={valueRenderer}
               size={size}

@@ -2,9 +2,9 @@ import { useMemo, useCallback } from "react";
 import { useMultipleSelection, useSelect } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { type DropdownGroupOption } from "../Dropdown.types";
-import { type BaseListItemData } from "../../../BaseListItem";
+import { type BaseItemData } from "../../../BaseItem";
 
-function useDropdownMultiSelect<T extends BaseListItemData<Record<string, unknown>>>(
+function useDropdownMultiSelect<T extends BaseItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
   selectedItems: T[],
   setSelectedItems: (items: T[]) => void,

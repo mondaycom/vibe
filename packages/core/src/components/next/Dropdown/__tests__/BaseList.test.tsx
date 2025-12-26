@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
-import BaseList from "../BaseList";
-import { type BaseListProps } from "../BaseList.types";
+import BaseList from "../components/DropdownBaseList/DropdownBaseList";
+import { type DropdownBaseListProps } from "../components/DropdownBaseList/DropdownBaseList.types";
 
-function renderBaseList(props?: Partial<BaseListProps<any>>) {
-  const defaultProps: BaseListProps<any> = {
+function renderBaseList(props?: Partial<DropdownBaseListProps<any>>) {
+  const defaultProps: DropdownBaseListProps<any> = {
     options: [],
     ...props
   };

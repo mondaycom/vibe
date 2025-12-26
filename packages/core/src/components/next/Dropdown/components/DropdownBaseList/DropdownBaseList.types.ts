@@ -1,19 +1,19 @@
 import { type ReactNode } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
-import { type BaseListItemData } from "../BaseListItem";
+import { type VibeComponentProps } from "../../../../../types";
+import { type BaseItemData, type BaseItemSizes, type BaseItemDirection } from "../../../../BaseItem";
 
-export interface BaseListProps<Item = Record<string, unknown>>
+export interface DropdownBaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
     VibeComponentProps {
   /**
    * The list of options available in the list.
    */
-  options: ListGroup<Item>[];
+  options: DropdownListGroup<Item>[];
   /**
    * The selected item in the list.
    */
-  selectedItems?: BaseListItemData<Item>[] | null;
+  selectedItems?: BaseItemData<Item>[] | null;
   /**
    * The index of the highlighted item in the list.
    */
@@ -33,7 +33,7 @@ export interface BaseListProps<Item = Record<string, unknown>>
   /**
    * The size of the list item.
    */
-  size?: BaseListSizes;
+  size?: BaseItemSizes;
   /**
    * If true, displays dividers between grouped options.
    */
@@ -45,17 +45,17 @@ export interface BaseListProps<Item = Record<string, unknown>>
   /**
    * The text direction of the list.
    */
-  dir?: BaseListDirection;
+  dir?: BaseItemDirection;
   /**
    * Custom renderer for options.
    */
-  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
+  itemRenderer?: (item: BaseItemData<Item>) => React.ReactNode;
   /**
    * Custom renderer for the entire menu content inside the ul element.
    */
   menuRenderer?: (props: {
     children: React.ReactNode;
-    filteredOptions: ListGroup<Item>[];
+    filteredOptions: DropdownListGroup<Item>[];
     selectedItem?: Item | null;
     selectedItems?: Item[];
   }) => React.ReactNode;
@@ -77,7 +77,7 @@ export interface BaseListProps<Item = Record<string, unknown>>
   maxMenuHeight?: number;
 }
 
-export interface ListGroup<Item = Record<string, unknown>> {
+export interface DropdownListGroup<Item = Record<string, unknown>> {
   /**
    * The label for the group of options.
    */
@@ -85,9 +85,7 @@ export interface ListGroup<Item = Record<string, unknown>> {
   /**
    * The list of options within this group.
    */
-  options: BaseListItemData<Item>[];
+  options: BaseItemData<Item>[];
 }
 
-export type BaseListSizes = "small" | "medium" | "large";
-
-export type BaseListDirection = "ltr" | "rtl" | "auto";
+export type { BaseItemSizes, BaseItemDirection };

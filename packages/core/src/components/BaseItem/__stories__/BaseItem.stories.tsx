@@ -1,21 +1,21 @@
 import { createComponentTemplate } from "vibe-storybook-components";
-import BaseListItem from "../BaseListItem";
+import BaseItem from "../BaseItem";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { Email } from "@vibe/icons";
 import person1 from "./person1.png";
 
-type Story = StoryObj<typeof BaseListItem>;
+type Story = StoryObj<typeof BaseItem>;
 
 export default {
-  title: "Internal/BaseListItem",
-  component: BaseListItem,
+  title: "Internal/BaseItem",
+  component: BaseItem,
   tags: ["internal"]
-} satisfies Meta<typeof BaseListItem>;
+} satisfies Meta<typeof BaseItem>;
 
-const baseListItemTemplate = createComponentTemplate(BaseListItem);
+const baseItemTemplate = createComponentTemplate(BaseItem);
 
 export const Overview: Story = {
-  render: baseListItemTemplate.bind({}),
+  render: baseItemTemplate.bind({}),
   args: {
     item: {
       value: "item1",

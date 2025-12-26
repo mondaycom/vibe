@@ -1,14 +1,14 @@
 import React, { forwardRef } from "react";
-import BaseListItem from "../BaseListItem/BaseListItem";
-import styles from "./BaseList.module.scss";
-import { type BaseListProps } from "./BaseList.types";
+import BaseItem from "../../../../BaseItem/BaseItem";
+import styles from "./DropdownBaseList.module.scss";
+import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";
-import { type TextType } from "../Text";
-import Text from "../Text/Text";
+import { type TextType } from "../../../../Text";
+import Text from "../../../../Text/Text";
 import cx from "classnames";
-import { Divider } from "../Divider";
+import { Divider } from "../../../../Divider";
 
-const BaseList = forwardRef(
+const DropdownBaseList = forwardRef(
   <Item extends Record<string, unknown>>(
     {
       options,
@@ -27,7 +27,7 @@ const BaseList = forwardRef(
       renderOptions = true,
       onScroll,
       maxMenuHeight = 300
-    }: BaseListProps<Item>,
+    }: DropdownBaseListProps<Item>,
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
@@ -37,7 +37,7 @@ const BaseList = forwardRef(
         <div role="status">
           {typeof noOptionsMessage === "string" ? (
             <Flex justify="center">
-              <BaseListItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
+              <BaseItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
             </Flex>
           ) : (
             noOptionsMessage
@@ -61,7 +61,7 @@ const BaseList = forwardRef(
                 selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
 
               return (
-                <BaseListItem<Item>
+                <BaseItem<Item>
                   itemProps={itemProps}
                   key={typeof option.value === "string" ? option.value : itemIndex}
                   size={size}
@@ -101,6 +101,6 @@ const BaseList = forwardRef(
   }
 );
 
-export default BaseList as <Item extends Record<string, unknown>>(
-  props: BaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
+export default DropdownBaseList as <Item extends Record<string, unknown>>(
+  props: DropdownBaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
 ) => React.ReactElement;

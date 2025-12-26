@@ -1,9 +1,9 @@
 import React from "react";
-import { BaseList } from "../../../../BaseList";
+import BaseList from "../DropdownBaseList/DropdownBaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 
-const MenuList = <Item extends BaseListItemData<Record<string, unknown>>>() => {
+const MenuList = <Item extends BaseItemData<Record<string, unknown>>>() => {
   const {
     filteredOptions,
     highlightedIndex,

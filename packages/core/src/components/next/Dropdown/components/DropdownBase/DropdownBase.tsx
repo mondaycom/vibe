@@ -6,7 +6,7 @@ import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseListItemData } from "../../../../BaseListItem";
+import { type BaseItemData } from "../../../../BaseItem";
 import Tooltip from "../../../../Tooltip/Tooltip";
 
 interface DropdownBaseProps {
@@ -33,7 +33,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     tooltipProps,
     boxMode,
     borderless
-  } = useDropdownContext<BaseListItemData>();
+  } = useDropdownContext<BaseItemData>();
 
   const coreDropdownElement = (
     <div
