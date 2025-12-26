@@ -11,9 +11,7 @@ interface DropdownWrapperUIProps<Item extends BaseItemData<Record<string, unknow
   dropdownRef: React.Ref<HTMLDivElement>;
 }
 
-const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(
-  props: DropdownWrapperUIProps<Item>
-) => {
+const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(props: DropdownWrapperUIProps<Item>) => {
   const { contextValue, dropdownRef } = props;
 
   return (
