@@ -6,7 +6,11 @@ export const keyCodes = {
   UP_ARROW: "ArrowUp",
   LEFT_ARROW: "ArrowLeft",
   RIGHT_ARROW: "ArrowRight",
-  TAB: "Tab"
+  TAB: "Tab",
+  HOME: "Home",
+  END: "End",
+  PAGE_UP: "PageUp",
+  PAGE_DOWN: "PageDown"
 };
 
 export const SELECTION_KEYS = [keyCodes.ENTER, keyCodes.SPACE];
