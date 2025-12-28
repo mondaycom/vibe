@@ -1,6 +1,6 @@
 {
   "name": "@vibe/button",
-  "version": "3.0.12",
+  "version": "3.0.13",
   "description": "Vibe sub-package for button components",
   "repository": {
     "type": "git",
