@@ -1,6 +1,6 @@
-import { vi, describe, it, expect, beforeEach } from "vitest";
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BaseList } from "../index";
 import BaseItem from "../../BaseItem/BaseItem";
@@ -262,4 +262,3 @@ describe("BaseList", () => {
     });
   });
 });
-
