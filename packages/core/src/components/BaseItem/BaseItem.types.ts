@@ -2,11 +2,13 @@ import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
 import { type TooltipProps } from "../Tooltip";
-import { type BaseListDirection, type BaseListSizes } from "../BaseList/BaseList.types";
 import { type ChipsProps } from "../Chips";
 import { type SubIcon } from "@vibe/icon";
 
-export interface BaseListItemProps<Item extends Record<string, unknown>>
+export type BaseItemSizes = "small" | "medium" | "large";
+export type BaseItemDirection = "ltr" | "rtl" | "auto";
+
+export interface BaseItemProps<Item extends Record<string, unknown>>
   extends Omit<React.HTMLAttributes<HTMLElement>, "role">,
     VibeComponentProps {
   /**
@@ -16,7 +18,7 @@ export interface BaseListItemProps<Item extends Record<string, unknown>>
   /**
    * The Size of the list item.
    */
-  size?: BaseListSizes;
+  size?: BaseItemSizes;
   /**
    * If true, the list item is selected.
    */
@@ -32,7 +34,7 @@ export interface BaseListItemProps<Item extends Record<string, unknown>>
   /**
    * Determines the position of the tooltip according to the direction.
    */
-  dir?: BaseListDirection;
+  dir?: BaseItemDirection;
   /**
    * The ARIA role of the list item.
    */
@@ -44,18 +46,18 @@ export interface BaseListItemProps<Item extends Record<string, unknown>>
   /**
    * Custom renderer for options.
    */
-  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
+  itemRenderer?: (item: BaseItemData<Item>) => React.ReactNode;
   /**
    * The original item data that this list item represents.
    */
-  item?: BaseListItemData<Item>;
+  item?: BaseItemData<Item>;
   /**
    * Additional props to pass to the list item element.
    */
   itemProps?: Record<string, unknown>;
 }
 
-export type BaseListItemData<Item = Record<string, unknown>> = Item & {
+export type BaseItemData<Item = Record<string, unknown>> = Item & {
   /**
    * The value of the list item.
    */

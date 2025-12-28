@@ -5,14 +5,14 @@ import {
   type DropdownSingleControllerProps
 } from "./Dropdown.types";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { type BaseListItemData } from "../../BaseListItem";
+import { type BaseItemData } from "../../BaseItem";
 import DropdownComboboxController from "./modes/DropdownComboboxController";
 import DropdownMultiComboboxController from "./modes/DropdownMultiComboboxController";
 import DropdownSelectController from "./modes/DropdownSelectController";
 import DropdownMultiSelectController from "./modes/DropdownMultiSelectController";
 
 const Dropdown = forwardRef(
-  <Item extends BaseListItemData<Record<string, unknown>>>(
+  <Item extends BaseItemData<Record<string, unknown>>>(
     dropdownProps: BaseDropdownProps<Item>,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -41,7 +41,7 @@ const Dropdown = forwardRef(
   }
 );
 
-export default Dropdown as <Item extends BaseListItemData<Record<string, unknown>>>(
+export default Dropdown as <Item extends BaseItemData<Record<string, unknown>>>(
   props: BaseDropdownProps<Item> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => React.ReactElement;
 
