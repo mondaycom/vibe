@@ -1,0 +1,19 @@
+@import "~monday-ui-style/dist/mixins";
+@import "../../styles/states";
+@import "../../styles/typography";
+
+.baseList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @include smoothing-text;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.scrollable {
+    overflow-y: auto;
+    @include scroller();
+  }
+}
