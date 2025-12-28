@@ -46,6 +46,19 @@ This metadata can be used to programmatically work with icons, such as building 
 import iconsMetaData from "@vibe/icons/meta";
 ```
 
+### Using Type-Safe Icon Names
+
+For TypeScript users, the types export provides type-safe icon names:
+
+```typescript
+import type { IconName } from "@vibe/icons/types";
+
+// Type-safe props
+interface IconButtonProps {
+  icon: IconName; // Autocomplete works!
+}
+```
+
 ## Peer dependencies
 
 We are reliant on React and React DOM, we are using them as externals, and we don't package them to the package, so you must have them in your project

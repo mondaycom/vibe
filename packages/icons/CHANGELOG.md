@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.14.0...@vibe/icons@1.15.0) (2025-12-25)
+
+
+### Features
+
+* **icons:** allow a type-safe way to get all available icon names ([#3209](https://github.com/mondaycom/vibe/issues/3209)) ([473b47b](https://github.com/mondaycom/vibe/commit/473b47bc5ab39598d7d4060c4cd5c08732a365bc))
+
+
+
+
+
 # [1.14.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.13.0...@vibe/icons@1.14.0) (2025-12-22)
 
 

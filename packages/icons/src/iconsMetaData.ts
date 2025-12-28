@@ -6,7 +6,7 @@ type Icon = {
   file: string;
   description: string;
   tags: string;
-  category?: Array<typeof BASIC | typeof PLATFORM | typeof VIEW>;
+  category?: readonly (typeof BASIC | typeof PLATFORM | typeof VIEW)[];
   ignore?: boolean;
 };
 export default [
@@ -2044,4 +2044,4 @@ export default [
     description: "User status",
     tags: "user, status"
   }
-] satisfies Icon[];
+] as const satisfies readonly Icon[];
