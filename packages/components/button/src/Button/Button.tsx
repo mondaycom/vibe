@@ -256,7 +256,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         id,
         onFocus,
         onBlur,
-        tabIndex: disabled || ariaHidden ? -1 : tabIndex,
+        tabIndex: tabIndex ?? (disabled || ariaHidden ? -1 : undefined),
         "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
         "data-vibe": ComponentVibeId.BUTTON,
         onMouseDown: onMouseDownClicked,
