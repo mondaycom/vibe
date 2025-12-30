@@ -49,7 +49,6 @@
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "3.0.5",
-    "@vibe/core": "3.82.4",
     "@vibe/icons": "1.15.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
