@@ -9,11 +9,11 @@ export type BaseListSizes = BaseItemSizes;
 
 export interface BaseListProps extends React.HTMLAttributes<HTMLElement>, VibeComponentProps {
   /**
-   * The HTML element to render. Defaults to "ul".
+   * The HTML element to render as. Defaults to "ul".
    */
-  component?: BaseListElement;
+  as?: BaseListElement;
   /**
-   * The child elements inside the list (typically BaseItem components).
+   * The child elements inside the list.
    */
   children?: ReactElement | ReactElement[];
   /**

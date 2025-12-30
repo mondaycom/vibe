@@ -19,13 +19,13 @@ export const isListItem = (element: HTMLElement | null): boolean => {
   return element instanceof HTMLElement && VALID_ROLES.includes(element.getAttribute("role") || "");
 };
 
-const COMPONENT_MAPPING: Record<string, string> = {
+const ELEMENT_MAPPING: Record<string, string> = {
   ul: "li",
   ol: "li",
   nav: "a"
 };
 
-export const getItemComponentType = (listComponent: string): string => COMPONENT_MAPPING[listComponent] || "div";
+export const getItemComponentType = (listElement: string): string => ELEMENT_MAPPING[listElement] || "div";
 
 export const findAdjacentFocusableIndex = (
   refs: (HTMLElement | null)[],

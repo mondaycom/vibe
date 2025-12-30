@@ -35,9 +35,9 @@ describe("BaseList", () => {
       expect(screen.getByRole("listbox")).toHaveClass("custom-list");
     });
 
-    it("should render with custom component type", () => {
+    it("should render with custom element type", () => {
       render(
-        <BaseList component="ol" ariaLabel="Ordered List">
+        <BaseList as="ol" ariaLabel="Ordered List">
           <BaseItem item={{ label: "Item 1", value: "1" }} />
         </BaseList>
       );

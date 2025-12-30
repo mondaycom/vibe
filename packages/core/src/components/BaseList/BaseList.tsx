@@ -20,7 +20,7 @@ const BaseList = forwardRef(
     {
       className,
       id,
-      component = "ul",
+      as = "ul",
       children,
       ariaLabel,
       ariaDescribedBy,
@@ -48,7 +48,7 @@ const BaseList = forwardRef(
       setListId(id || generateListId());
     }, [id]);
 
-    const Component = component as React.ElementType;
+    const Component = as as React.ElementType;
 
     const { focusIndex, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
       controlledFocusIndex,
@@ -114,7 +114,7 @@ const BaseList = forwardRef(
         return React.cloneElement(child, {
           ...baseProps,
           index,
-          component: getItemComponentType(component),
+          component: getItemComponentType(as),
           size,
           highlighted: focusIndex === index && isFocusableItem,
           role: childRole,
@@ -124,7 +124,7 @@ const BaseList = forwardRef(
           }
         } as Record<string, unknown>);
       });
-    }, [children, component, focusIndex, listId, role, size, childrenRefs]);
+    }, [children, as, focusIndex, listId, role, size, childrenRefs]);
 
     const contextValue: BaseListContextProps = useMemo(
       () => ({
