@@ -71,7 +71,7 @@ export * from "./TextArea";
 export * from "./TextField";
 export * from "./TextWithHighlight";
 export * from "./ThemeProvider";
-export * from "./Tipseen";
+export * from "@vibe/tipseen";
 export * from "./Toast";
 export * from "./Toggle";
 // TODO: export * after removing enums

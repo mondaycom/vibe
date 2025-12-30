@@ -1,0 +1,51 @@
+@mixin smoothing-text {
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+}
+
+.tipseenWrapper {
+  min-width: 100px;
+  min-height: 40px;
+  --tooltip-padding: 0;
+  --tooltip-border-radius: var(--border-radius-medium);
+  --tooltip-max-width: initial;
+
+  &.tipseenWrapperWithoutCustomWidth {
+    --tooltip-max-width: 320px;
+  }
+
+  &.floating {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: var(--spacing-medium);
+    margin-right: var(--spacing-medium);
+  }
+
+  .tipseen {
+    &Header {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &Title {
+      padding: var(--spacing-medium) var(--spacing-xl) 0 var(--spacing-medium);
+    }
+
+    &Content {
+      margin: 0;
+      @include smoothing-text;
+    }
+
+    &CloseButton {
+      position: absolute;
+      top: var(--spacing-small);
+      right: var(--spacing-small);
+      z-index: 2;
+
+      &.dark {
+        color: var(--color-asphalt);
+      }
+    }
+  }
+}
