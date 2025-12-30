@@ -96,6 +96,7 @@
     "@vibe/dialog": "3.0.7",
     "@vibe/hooks": "3.0.2",
     "@vibe/icon": "3.0.9",
+    "@vibe/icon-button": "3.0.0",
     "@vibe/icons": "1.15.0",
     "@vibe/layer": "3.0.7",
     "@vibe/layout": "3.0.2",

@@ -1,16 +1,20 @@
 import React, { type AriaAttributes, forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import { noop as NOOP } from "es-toolkit";
-import useMergeRef from "../../hooks/useMergeRef";
+import {
+  useMergeRef,
+  type VibeComponentProps,
+  withStaticProps,
+  getTestId,
+  ComponentDefaultTestId,
+  ComponentVibeId,
+  getStyle
+} from "@vibe/shared";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, type Size } from "./services/IconButton-helpers";
-import { type VibeComponentProps, withStaticProps } from "../../types";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { Button, type ButtonColor, type ButtonType } from "@vibe/button";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {

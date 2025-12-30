@@ -2,7 +2,7 @@ import React, { type FC, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { useDayPicker, useNavigation } from "react-day-picker";
 import { Button } from "@vibe/button";
-import IconButton from "../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { Flex } from "@vibe/layout";
 import Dropdown from "../../next/Dropdown/Dropdown";
 import { DropdownChevronRight, DropdownChevronLeft } from "@vibe/icons";

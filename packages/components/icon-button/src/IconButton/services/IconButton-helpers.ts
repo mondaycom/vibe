@@ -1,4 +1,4 @@
-import { SIZES } from "./../../../constants/sizes";
+import { SIZES } from "@vibe/shared";
 
 const sizesMap = {
   [SIZES.XXS]: 16,

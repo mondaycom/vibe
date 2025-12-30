@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { IconButton } from "../../../../IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import styles from "./AttentionBoxCloseButton.module.scss";
 

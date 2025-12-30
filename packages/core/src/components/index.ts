@@ -41,7 +41,7 @@ export * from "./GridKeyboardNavigationContext";
 export * from "./Heading";
 export * from "./HiddenText";
 export * from "@vibe/icon";
-export * from "./IconButton";
+export * from "@vibe/icon-button";
 export * from "./Info";
 export * from "./Label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";

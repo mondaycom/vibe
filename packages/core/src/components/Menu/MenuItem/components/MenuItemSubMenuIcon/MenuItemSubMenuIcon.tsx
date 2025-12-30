@@ -3,7 +3,7 @@ import cx from "classnames";
 import Divider from "../../../../Divider/Divider";
 import { Icon } from "@vibe/icon";
 import { Flex } from "@vibe/layout";
-import IconButton from "../../../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { DropdownChevronRight } from "@vibe/icons";
 import styles from "./MenuItemSubMenuIcon.module.scss";
 import { type MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";

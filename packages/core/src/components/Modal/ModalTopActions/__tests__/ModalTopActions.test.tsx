@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import ModalTopActions from "../ModalTopActions";
-import IconButton from "../../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { Feedback as FeedbackIcon } from "@vibe/icons";
 
 describe("ModalTopActions", () => {
