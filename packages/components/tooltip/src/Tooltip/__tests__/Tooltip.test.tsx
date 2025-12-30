@@ -2,7 +2,6 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import Tooltip from "../Tooltip";
-import { Button } from "@vibe/button";
 
 describe("Tooltip tests", () => {
   it("Should trigger onTooltipShow", async () => {
@@ -22,7 +21,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow}>
-        <Button data-testid={testId}>hello</Button>
+        <div data-testid={testId}>hello</div>
       </Tooltip>
     );
     fireEvent.focus(getByTestId(testId));
@@ -34,7 +33,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipShow={onTooltipShow} addKeyboardHideShowTriggersByDefault>
-        <Button data-testid={testId}>hello</Button>
+        <div data-testid={testId}>hello</div>
       </Tooltip>
     );
     fireEvent.focus(getByTestId(testId));
@@ -61,7 +60,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
-        <Button data-testid={testId}>hello</Button>
+        <div data-testid={testId}>hello</div>
       </Tooltip>
     );
     fireEvent.mouseOver(getByTestId(testId));
@@ -75,7 +74,7 @@ describe("Tooltip tests", () => {
     const testId = "tooltip-button";
     const { getByTestId } = render(
       <Tooltip content="content" onTooltipHide={onTooltipHide}>
-        <Button data-testid={testId}>hello</Button>
+        <div data-testid={testId}>hello</div>
       </Tooltip>
     );
     fireEvent.mouseOver(getByTestId(testId));
