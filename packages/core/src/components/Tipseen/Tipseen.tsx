@@ -7,7 +7,7 @@ import {
 } from "@vibe/dialog";
 import useMergeRef from "../../hooks/useMergeRef";
 import { Tooltip } from "@vibe/tooltip";
-import IconButton from "../../components/IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import TipseenTitle from "./TipseenTitle";
 import {

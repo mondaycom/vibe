@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import IconButton from "../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { type ElementContent, type VibeComponentProps } from "../../../types";

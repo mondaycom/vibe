@@ -19,4 +19,3 @@ vi.mock("react-inlinesvg", () => ({
       ...props
     })
 }));
-

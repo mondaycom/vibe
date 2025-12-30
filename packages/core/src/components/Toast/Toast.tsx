@@ -17,7 +17,7 @@ import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Toast.module.scss";
-import IconButton from "../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {

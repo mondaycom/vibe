@@ -6,7 +6,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
 import { BaseInput } from "@vibe/base";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import IconButton from "../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { Icon } from "@vibe/icon";
 import { type SearchProps } from "./Search.types";
 import { Loader } from "@vibe/loader";
