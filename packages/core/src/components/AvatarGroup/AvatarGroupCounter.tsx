@@ -10,7 +10,7 @@ import type VibeComponentProps from "../../types/VibeComponentProps";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
-import { type TooltipProps } from "../Tooltip/Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";

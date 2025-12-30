@@ -2,7 +2,7 @@ import React, { type AriaAttributes, forwardRef, Fragment, useMemo, useRef } fro
 import cx from "classnames";
 import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../hooks/useMergeRef";
-import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { AddSmall } from "@vibe/icons";
 import { getWidthHeight, type Size } from "./services/IconButton-helpers";

@@ -10,7 +10,7 @@ import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./Av
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
-import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { ClickableWrapper } from "@vibe/clickable";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import { type SubIcon } from "@vibe/icon";

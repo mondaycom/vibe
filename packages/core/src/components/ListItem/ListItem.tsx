@@ -19,7 +19,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "./ListItemConstants";
 import { type ListItemElement, type ListItemSize } from "./ListItem.types";
-import { type TooltipProps } from "../Tooltip/Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {

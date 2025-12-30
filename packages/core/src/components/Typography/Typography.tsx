@@ -7,7 +7,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { type ElementContent } from "../../types";
 import { type TypographyAlign, type TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
-import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { TypographyContext } from "./utils/TypographyContext";
 import styles from "./Typography.module.scss";
 

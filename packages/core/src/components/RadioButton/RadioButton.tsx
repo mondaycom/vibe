@@ -4,7 +4,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { Clickable } from "@vibe/clickable";
 import Text from "../Text/Text";
 import { type VibeComponentProps } from "../../types";
-import Tooltip from "../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
 import { ComponentVibeId } from "../../tests/constants";

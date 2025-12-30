@@ -7,7 +7,7 @@ import { getTestId } from "../../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";
-import Tooltip from "../../../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 
 interface DropdownBaseProps {
   dropdownRef: React.Ref<HTMLDivElement>;
