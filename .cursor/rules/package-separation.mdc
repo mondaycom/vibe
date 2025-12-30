@@ -281,16 +281,23 @@ import { EnumNameEnum } from "@vibe/component-name";
 import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
 ```
 
-### 7. Add Workspace Symlink
+### 7. Link Workspace Packages
 
-Ensure the package is linked in the monorepo's `node_modules`:
+Run `yarn install` at the root to create symlinks automatically:
 
 ```bash
-cd /path/to/monorepo/node_modules/@vibe
-ln -s ../../packages/components/component-name component-name
+# From anywhere in the monorepo
+cd $(git rev-parse --show-toplevel)
+yarn install
 ```
 
-Or run `yarn install` at the root to set up all symlinks.
+This will automatically create symlinks in `node_modules/@vibe/` for all packages defined in the `workspaces` field of the root `package.json`. You'll see:
+
+```
+node_modules/@vibe/component-name -> ../../packages/components/component-name
+```
+
+**Note:** The monorepo uses Yarn Workspaces, which automatically links all packages in `packages/*` and `packages/components/*`. Manual symlink creation with `ln -s` is NOT needed.
 
 ### 8. Update Dependencies
 
@@ -396,9 +403,12 @@ rm -rf node_modules/.cache
 If TypeScript can't find the new package, check:
 
 1. Is the package built? (`dist/` folder exists)
-2. Is the symlink in place? (`node_modules/@vibe/component-name`)
-3. Is `package.json` configured with correct `main` and `types` fields?
-4. Did you clear the TypeScript cache?
+2. Did you run `yarn install` at the root? (creates workspace symlinks)
+3. Is the symlink created? Check with `ls -la node_modules/@vibe/component-name`
+4. Is `package.json` configured with correct `main` and `types` fields?
+5. Did you clear the TypeScript cache?
+
+**Why symlinks are needed:** Yarn Workspaces creates symlinks so that `import { Component } from "@vibe/component-name"` resolves to `packages/components/component-name/dist/` instead of looking for a published npm package.
 
 ## Checklist for Package Separation
 
@@ -413,7 +423,7 @@ Use this checklist when separating a component:
 - [ ] Updated core package's `components/index.ts` with explicit exports
 - [ ] Updated all consumer imports in core package (component and enums)
 - [ ] Added dependencies to both packages' `package.json`
-- [ ] Created/verified workspace symlink
+- [ ] Ran `yarn install` at root to create workspace symlinks
 - [ ] Built the new package successfully
 - [ ] Cleared TypeScript cache and built core package successfully
 - [ ] Verified no TypeScript errors related to the component
@@ -429,21 +439,21 @@ mkdir -p packages/components/my-component/src/MyComponent
 # 2. Move files (adjust paths as needed)
 mv packages/core/src/components/MyComponent/* packages/components/my-component/src/MyComponent/
 
-# 3. Copy config files from reference package
-cp packages/components/tooltip/package.json packages/components/my-component/
-cp packages/components/tooltip/tsconfig.json packages/components/my-component/
-cp packages/components/tooltip/rollup.config.mjs packages/components/my-component/
-# ... edit these files with correct names
+# 3. Copy config files from templates
+cp .cursor/templates/package-separation/package.json packages/components/my-component/
+cp .cursor/templates/package-separation/tsconfig.json packages/components/my-component/
+cp .cursor/templates/package-separation/rollup.config.mjs packages/components/my-component/
+# ... edit package.json to replace {{PACKAGE_NAME}} and {{COMPONENT_NAME}}
 
-# 4. Create symlink
-cd node_modules/@vibe
-ln -s ../../packages/components/my-component my-component
+# 4. Link workspace packages (creates symlinks automatically)
+cd <VIBE_ROOT>  # Root of the monorepo
+yarn install
 
 # 5. Build and test
 cd packages/components/my-component
 yarn build
 
-cd ../../../packages/core
+cd ../../core
 rm -rf .rpt2_cache
 yarn build
 ```

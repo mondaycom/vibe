@@ -134,12 +134,15 @@ grep -r "from.*Badge" packages/core/src/components/
 # After:  import { BadgeColorEnum } from "@vibe/badge";
 ```
 
-### 9. Create Symlink
+### 9. Link Workspace Packages
 
 ```bash
-cd node_modules/@vibe
-ln -s ../../packages/components/badge badge
+# Run at root - Yarn Workspaces creates symlinks automatically
+cd <VIBE_ROOT>  # Root of the monorepo
+yarn install
 ```
+
+This creates: `node_modules/@vibe/badge -> ../../packages/components/badge`
 
 ### 10. Build
 
@@ -181,9 +184,10 @@ grep "^import.*from" packages/core/src/components/[ComponentName]/[ComponentName
 grep -r "from.*[ComponentName]" packages/core/src/ --include="*.tsx" --include="*.ts"
 ```
 
-### Verify symlink
+### Verify symlink (should be created automatically by yarn install)
 ```bash
 ls -la node_modules/@vibe/[package-name]
+# Should show: lrwxr-xr-x ... [package-name] -> ../../packages/components/[package-name]
 ```
 
 ### Check build output
@@ -199,6 +203,7 @@ After separation, verify:
 - [ ] Core builds successfully (`yarn build` in core dir)
 - [ ] No TypeScript errors mentioning the component
 - [ ] Tests pass
+- [ ] Ran `yarn install` at root (creates symlinks)
 - [ ] Symlink exists in `node_modules/@vibe/`
 - [ ] Component exports correctly (check `dist/index.d.ts`)
 - [ ] Enums have "Enum" suffix in exports

@@ -96,7 +96,11 @@ sed -i '' "s/{{ComponentName}}/$COMPONENT_NAME/g" packages/components/$PACKAGE_N
 mv packages/core/src/components/$COMPONENT_NAME/* \
    packages/components/$PACKAGE_NAME/src/$COMPONENT_NAME/
 
-# 5. Continue with rule file instructions...
+# 5. Link workspace packages
+cd <VIBE_ROOT>  # Root of the monorepo
+yarn install
+
+# 6. Continue with rule file instructions...
 ```
 
 ## Dependencies to Add
@@ -131,14 +135,17 @@ Real packages to reference:
 
 **Solution:**
 ```bash
-# Create symlink
-cd node_modules/@vibe
-ln -s ../../packages/components/[package-name] [package-name]
-
-# Or run yarn install at root
-cd /path/to/vibe
+# Run yarn install at root - Yarn Workspaces creates symlinks automatically
+cd <VIBE_ROOT>  # Root of the monorepo
 yarn install
 ```
+
+This automatically creates symlinks for all packages in `packages/components/*`. You should see:
+```
+node_modules/@vibe/[package-name] -> ../../packages/components/[package-name]
+```
+
+**Note:** Manual symlink creation with `ln -s` is NOT needed - Yarn Workspaces handles this automatically.
 
 ### Issue: Build fails with enum errors
 
