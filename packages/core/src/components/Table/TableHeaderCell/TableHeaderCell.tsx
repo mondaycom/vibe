@@ -8,7 +8,7 @@ import { Info } from "@vibe/icons";
 import Text from "../../Text/Text";
 import { Flex } from "@vibe/layout";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
-import Tooltip from "../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";

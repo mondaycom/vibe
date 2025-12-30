@@ -74,7 +74,8 @@ export * from "./ThemeProvider";
 export * from "./Tipseen";
 export * from "./Toast";
 export * from "./Toggle";
-export * from "./Tooltip";
+// TODO: export * after removing enums
+export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
 export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";

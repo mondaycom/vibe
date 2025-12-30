@@ -7,7 +7,7 @@ import { Icon, type IconType, type SubIcon } from "@vibe/icon";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import Tooltip, { type TooltipProps } from "../../Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
 import { keyCodes } from "../../../constants";
 

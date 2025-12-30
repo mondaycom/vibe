@@ -1,5 +1,5 @@
 import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
-import Tooltip, { type TooltipProps } from "../../../components/Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { type IconType, Icon, type SubIcon } from "@vibe/icon";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import { type VibeComponentProps, withStaticProps } from "../../../types";
@@ -8,8 +8,8 @@ import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
-import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
+import { type TooltipPositions } from "@vibe/tooltip";
+import { TooltipPositions as TooltipPositionsEnum } from "@vibe/tooltip";
 import { type SubmenuPosition } from "./MenuItem.types";
 import { Flex } from "@vibe/layout";
 

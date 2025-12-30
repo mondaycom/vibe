@@ -5,7 +5,7 @@ import { isForwardRef } from "react-is";
 import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
 import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
 import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent } from "@vibe/dialog";
-import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
@@ -20,7 +20,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
-import { type TooltipPositions } from "../Tooltip";
+import { type TooltipPositions } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };

@@ -4,7 +4,7 @@ import styles from "./BaseItem.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
-import { Tooltip } from "../Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { type TextType } from "../Text";
 import { renderSideElement } from "./utils";
 

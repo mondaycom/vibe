@@ -1,7 +1,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type FC, useRef } from "react";
-import Tooltip from "../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 

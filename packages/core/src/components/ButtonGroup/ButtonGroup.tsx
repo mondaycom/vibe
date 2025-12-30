@@ -14,7 +14,7 @@ import { type MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { type TooltipPositions } from "../Tooltip";
+import { type TooltipPositions } from "@vibe/tooltip";
 
 type ButtonGroupOption = {
   icon?: SubIcon;

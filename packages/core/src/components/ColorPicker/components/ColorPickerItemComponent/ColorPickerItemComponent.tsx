@@ -5,7 +5,7 @@ import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "reac
 import { contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import { Icon } from "@vibe/icon";
-import Tooltip from "../../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { Clickable } from "@vibe/clickable";
 import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";

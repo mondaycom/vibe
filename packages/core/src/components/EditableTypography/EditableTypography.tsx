@@ -5,7 +5,7 @@ import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "@vibe/shared";
-import { type TooltipProps } from "../Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { type TextType, type TextWeight } from "../Text";
 import { type HeadingType, type HeadingWeight } from "../Heading";
