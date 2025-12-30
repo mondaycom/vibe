@@ -24,8 +24,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import Text from "../Text/Text";
 import styles from "./Tipseen.module.scss";
 import React from "react";
-import { type TooltipPositions } from "@vibe/tooltip";
-import { TooltipPositions as TooltipPositionsEnum } from "@vibe/tooltip";
+import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
 
 export interface TipseenProps extends VibeComponentProps {
   /**

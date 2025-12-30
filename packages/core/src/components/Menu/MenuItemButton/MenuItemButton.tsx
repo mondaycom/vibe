@@ -10,8 +10,7 @@ import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutFor
 import { type SubIcon } from "@vibe/icon";
 import Text from "../../Text/Text";
 import styles from "./MenuItemButton.module.scss";
-import { type TooltipPositions } from "@vibe/tooltip";
-import { TooltipPositions as TooltipPositionsEnum } from "@vibe/tooltip";
+import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   /**

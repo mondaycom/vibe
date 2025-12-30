@@ -8,8 +8,7 @@ import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { type TooltipPositions } from "@vibe/tooltip";
-import { TooltipPositions as TooltipPositionsEnum } from "@vibe/tooltip";
+import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
 import { type SubmenuPosition } from "./MenuItem.types";
 import { Flex } from "@vibe/layout";
 
