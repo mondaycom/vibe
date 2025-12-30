@@ -125,6 +125,8 @@ Move these files from `packages/core/src/components/[ComponentName]/` to the new
 - Tests (`__tests__/`)
 - Stories (`__stories__/`) if applicable
 
+**Important:** Do **NOT** create `CHANGELOG.md` files for new packages. The changelog is managed automatically by the build/release system (Lerna).
+
 ### 3. Set Up Package Configuration
 
 #### package.json
@@ -416,7 +418,7 @@ Use this checklist when separating a component:
 
 - [ ] Created package directory structure under `packages/components/`
 - [ ] Moved all component files (source, types, constants, styles, tests)
-- [ ] Created `package.json` with correct exports configuration
+- [ ] Created `package.json` with correct exports configuration (DO NOT create CHANGELOG.md)
 - [ ] Copied/configured `tsconfig.json`, `rollup.config.mjs`, `vitest.config.mjs`
 - [ ] Set up subdirectory index with enum renaming (`src/ComponentName/index.ts`)
 - [ ] Set up main package index (`src/index.ts`)
