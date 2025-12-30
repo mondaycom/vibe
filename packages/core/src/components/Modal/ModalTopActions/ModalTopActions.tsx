@@ -5,7 +5,7 @@ import {
   type ModalTopActionsTheme,
   type ModalTopActionsProps
 } from "./ModalTopActions.types";
-import IconButton from "../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseMedium } from "@vibe/icons";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 

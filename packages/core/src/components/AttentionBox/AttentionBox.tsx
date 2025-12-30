@@ -4,7 +4,7 @@ import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { Icon, type SubIcon } from "@vibe/icon";
-import IconButton from "../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@vibe/icons";
 import { AttentionBoxType as AttentionBoxTypeEnum, IconTypeEnum } from "./AttentionBoxConstants";
 import { type AttentionBoxType } from "./AttentionBox.types";

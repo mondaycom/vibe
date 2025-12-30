@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import { type NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
-import IconButton from "../../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import { Flex } from "@vibe/layout";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
