@@ -38,15 +38,21 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      - name: Create reports directory
+        run: mkdir -p scripts/performance/reports
+
       - name: Build Storybook
         run: |
           cd packages/docs
           yarn build-storybook
 
-      - name: Run performance tests on PR branch
+      - name: Serve Storybook and run performance tests on PR branch
         run: |
           cd packages/docs
-          PERFORMANCE_TEST=true yarn test-storybook --url file://$(pwd)/static_storybook --maxWorkers=4
+          npx http-server static_storybook -p 6007 &
+          sleep 3
+          PERFORMANCE_TEST=true yarn test-storybook --url http://localhost:6007 --maxWorkers=4 || true
+          kill %1 || true
         continue-on-error: true
 
       - name: Save PR metrics
@@ -71,7 +77,10 @@ jobs:
 
           cd packages/docs
           yarn build-storybook
-          PERFORMANCE_TEST=true yarn test-storybook --url file://$(pwd)/static_storybook --maxWorkers=4 || true
+          npx http-server static_storybook -p 6007 &
+          sleep 3
+          PERFORMANCE_TEST=true yarn test-storybook --url http://localhost:6007 --maxWorkers=4 || true
+          kill %1 || true
 
           cd ../..
           if [ -f "scripts/performance/reports/metrics.json" ]; then
@@ -87,7 +96,7 @@ jobs:
 
       - name: Post PR comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: always()
+        if: always() && hashFiles('scripts/performance/reports/comparison.md') != ''
         with:
           header: performance
           path: scripts/performance/reports/comparison.md
