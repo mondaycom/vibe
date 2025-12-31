@@ -44,9 +44,7 @@ jobs:
           yarn build-storybook
 
       - name: Install Playwright browsers
-        run: |
-          cd packages/docs
-          yarn playwright install chromium
+        run: npx playwright install --with-deps chromium
 
       - name: Run performance tests on PR branch
         run: |
@@ -88,7 +86,9 @@ jobs:
 
           # Check if test-storybook exists before running
           if [ -f "./node_modules/.bin/test-storybook" ]; then
-            yarn playwright install chromium
+            cd ../..
+            npx playwright install --with-deps chromium
+            cd packages/docs
             npx http-server static_storybook -p 6008 &
             HTTP_PID=$!
             sleep 3
