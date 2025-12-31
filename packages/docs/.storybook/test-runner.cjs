@@ -4,7 +4,7 @@ const path = require("path");
 const isPerformanceTest = process.env.PERFORMANCE_TEST === "true";
 
 // Use process.cwd() for consistent path resolution in CI
-const METRICS_DIR = path.join(process.cwd(), "scripts/performance/reports");
+const METRICS_DIR = path.join(process.cwd(), "../../scripts/performance/reports");
 const METRICS_FILE = path.join(METRICS_DIR, "metrics.json");
 const TEMP_METRICS_FILE = path.join(METRICS_DIR, ".metrics-temp.jsonl");
 
