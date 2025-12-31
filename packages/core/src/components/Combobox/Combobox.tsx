@@ -8,7 +8,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
 import { Button } from "@vibe/button";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";

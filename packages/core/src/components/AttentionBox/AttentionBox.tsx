@@ -9,7 +9,7 @@ import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@vibe/icons";
 import { AttentionBoxType as AttentionBoxTypeEnum, IconTypeEnum } from "./AttentionBoxConstants";
 import { type AttentionBoxType } from "./AttentionBox.types";
 import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import { Flex } from "@vibe/layout";
 import styles from "./AttentionBox.module.scss";
 import { ComponentVibeId } from "../../tests/constants";

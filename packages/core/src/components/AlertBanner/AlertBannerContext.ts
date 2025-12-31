@@ -1,5 +1,5 @@
 import React from "react";
-import { type TypographyColor } from "@vibe/typography";
+import { type TypographyColor } from "../../../../components/typography/dist";
 
 type AlertBannerContextType = {
   textColor: Extract<TypographyColor, "onPrimary" | "onInverted" | "fixedDark">;

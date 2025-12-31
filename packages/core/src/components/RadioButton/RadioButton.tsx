@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { Clickable } from "@vibe/clickable";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import { type VibeComponentProps } from "../../types";
 import { Tooltip } from "@vibe/tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";

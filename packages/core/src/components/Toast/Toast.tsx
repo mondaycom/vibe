@@ -4,7 +4,7 @@ import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { type IconSubComponentProps } from "@vibe/icon";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import { Loader } from "@vibe/loader";
 import { Flex } from "@vibe/layout";
 import { CloseSmall } from "@vibe/icons";

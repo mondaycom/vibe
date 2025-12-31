@@ -1,2 +1,2 @@
-export { Text as default, type TextProps } from "@vibe/typography";
-export * from "@vibe/typography";
+export { Text as default, type TextProps } from "../../../../components/typography/dist";
+export * from "../../../../components/typography/dist";

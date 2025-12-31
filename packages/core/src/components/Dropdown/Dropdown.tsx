@@ -26,7 +26,7 @@ import {
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import {

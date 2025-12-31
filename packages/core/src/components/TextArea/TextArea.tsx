@@ -4,7 +4,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./TextArea.module.scss";
 import { type TextAreaProps, type TextAreaSize } from "./TextArea.types";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import { Flex } from "@vibe/layout";
 import { HiddenText } from "../HiddenText";
 

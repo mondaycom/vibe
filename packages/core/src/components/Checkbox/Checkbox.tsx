@@ -8,7 +8,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {

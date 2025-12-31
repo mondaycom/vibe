@@ -10,7 +10,7 @@ import React, {
 } from "react";
 import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
 import { withStaticProps, type VibeComponentProps, type ElementContent } from "../../types";

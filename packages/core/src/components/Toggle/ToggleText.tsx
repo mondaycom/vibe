@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 import cx from "classnames";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./ToggleText.module.scss";
-import { Text } from "@vibe/typography";
+import { Text } from "../../../../components/typography/dist";
 
 export interface ToggleTextProps extends VibeComponentProps {
   /**
