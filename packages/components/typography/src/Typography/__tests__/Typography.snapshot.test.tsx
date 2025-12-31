@@ -40,4 +40,3 @@ describe("Text renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 });
-

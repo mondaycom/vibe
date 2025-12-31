@@ -1,6 +1,12 @@
 import React, { forwardRef, useRef, type HTMLAttributes, useContext } from "react";
 import cx from "classnames";
-import { useMergeRef, type VibeComponentProps, getTestId, ComponentDefaultTestId, type ElementContent } from "@vibe/shared";
+import {
+  useMergeRef,
+  type VibeComponentProps,
+  getTestId,
+  ComponentDefaultTestId,
+  type ElementContent
+} from "@vibe/shared";
 import { type TypographyAlign, type TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
@@ -99,4 +105,3 @@ const Typography = forwardRef(
 );
 
 export default Typography;
-

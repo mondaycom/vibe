@@ -67,4 +67,3 @@ export default withStaticProps<TextProps, TextStaticProps>(Text, {
   colors: TypographyColorEnum,
   align: TypographyAlignEnum
 });
-

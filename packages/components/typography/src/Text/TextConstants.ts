@@ -15,4 +15,3 @@ export enum TextWeight {
   MEDIUM = "medium",
   NORMAL = "normal"
 }
-
