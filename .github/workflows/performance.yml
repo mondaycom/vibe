@@ -44,7 +44,9 @@ jobs:
           yarn build-storybook
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: |
+          ./node_modules/@playwright/test/node_modules/.bin/playwright install --with-deps chromium
+          ls -la ~/.cache/ms-playwright/ | head -10
 
       - name: Run performance tests on PR branch
         run: |
@@ -86,9 +88,12 @@ jobs:
 
           # Check if test-storybook exists before running
           if [ -f "./node_modules/.bin/test-storybook" ]; then
-            cd ../..
-            npx playwright install --with-deps chromium
-            cd packages/docs
+            # Install playwright browsers for @playwright/test version (used by test-storybook)
+            if [ -f "../../node_modules/@playwright/test/node_modules/.bin/playwright" ]; then
+              ../../node_modules/@playwright/test/node_modules/.bin/playwright install --with-deps chromium
+            else
+              npx playwright install --with-deps chromium
+            fi
             npx http-server static_storybook -p 6008 &
             HTTP_PID=$!
             sleep 3
