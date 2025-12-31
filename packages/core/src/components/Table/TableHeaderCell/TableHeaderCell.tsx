@@ -5,7 +5,7 @@ import styles from "./TableHeaderCell.module.scss";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { IconButton } from "@vibe/icon-button";
 import { Info } from "@vibe/icons";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
 import { Tooltip } from "@vibe/tooltip";

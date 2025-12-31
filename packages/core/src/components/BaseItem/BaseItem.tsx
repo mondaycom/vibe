@@ -5,7 +5,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { Text } from "../../../../components/typography/dist";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { Tooltip } from "@vibe/tooltip";
-import { type TextType } from "../Text";
+import { type TextType } from "@vibe/typography";
 import { renderSideElement } from "./utils";
 
 const BaseItem = forwardRef(

@@ -3,13 +3,18 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { withStaticProps } from "../../types";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "./HeadingConstants";
-import { Typography, type TypographyProps } from "../../../../components/typography/dist";
-import { TypographyAlignEnum, TypographyColorEnum } from "../../../../components/typography/dist";
+import {
+  Typography,
+  type TypographyProps,
+  TypographyAlignEnum,
+  TypographyColorEnum,
+  TypographyContext,
+  type TypographyAlign,
+  type TypographyColor
+} from "@vibe/typography";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./Heading.module.scss";
-import { TypographyContext } from "../../../../components/typography/dist";
 import { type HeadingType, type HeadingWeight } from "./Heading.types";
-import { type TypographyAlign, type TypographyColor } from "../../../../components/typography/dist";
 
 const OVERFLOW_TOLERANCE_IN_PX = 4;
 

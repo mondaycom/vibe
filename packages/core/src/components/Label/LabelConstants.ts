@@ -1,5 +1,4 @@
-import { type TextType } from "../../../../components/typography/dist";
-import { Text } from "../../../../components/typography/dist";
+import { type TextType, Text } from "@vibe/typography";
 import { type LabelSizes } from "./Label.types";
 import { ContentColorByName } from "../../utils/colors-vars-map";
 

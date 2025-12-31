@@ -8,7 +8,7 @@ import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
 import { type SubIcon } from "@vibe/icon";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./MenuItemButton.module.scss";
 import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
 
