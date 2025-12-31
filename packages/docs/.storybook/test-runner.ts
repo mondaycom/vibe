@@ -13,19 +13,25 @@ interface CollectedMetrics {
 
 const isPerformanceTest = process.env.PERFORMANCE_TEST === "true";
 
-const METRICS_DIR = path.resolve(__dirname, "../../../scripts/performance/reports");
+// Use process.cwd() for consistent path resolution in CI
+const METRICS_DIR = path.join(process.cwd(), "scripts/performance/reports");
 const METRICS_FILE = path.join(METRICS_DIR, "metrics.json");
 const TEMP_METRICS_FILE = path.join(METRICS_DIR, ".metrics-temp.jsonl");
 
+function ensureDir() {
+  if (!fs.existsSync(METRICS_DIR)) {
+    fs.mkdirSync(METRICS_DIR, { recursive: true });
+  }
+}
+
 function appendMetric(title: string, name: string, data: object) {
   try {
-    if (!fs.existsSync(METRICS_DIR)) {
-      fs.mkdirSync(METRICS_DIR, { recursive: true });
-    }
+    ensureDir();
     const line = JSON.stringify({ title, name, data }) + "\n";
     fs.appendFileSync(TEMP_METRICS_FILE, line, "utf-8");
-  } catch (error) {
-    console.error(`Failed to append metric for ${title}/${name}:`, error);
+  } catch (err) {
+    // Log but don't fail the test
+    console.warn(`[perf] Failed to write metric: ${err}`);
   }
 }
 
@@ -44,9 +50,9 @@ const config: TestRunnerConfig = {
 
     try {
       await page.waitForSelector("#storybook-root", { timeout: 10000 });
-      await page.waitForTimeout(150);
+      await page.waitForTimeout(100);
 
-      const metrics = (await page.evaluate((storyId: string) => {
+      const metrics = await page.evaluate((storyId: string) => {
         const container = document.querySelector("#storybook-root");
         if (!container) return null;
 
@@ -71,7 +77,7 @@ const config: TestRunnerConfig = {
           heapUsed: memory?.usedJSHeapSize ?? 0,
           heapTotal: memory?.totalJSHeapSize ?? 0
         };
-      }, id)) as CollectedMetrics | null;
+      }, id);
 
       if (metrics) {
         appendMetric(title, name, {
@@ -96,15 +102,14 @@ const config: TestRunnerConfig = {
 
   async setup() {
     if (!isPerformanceTest) return;
+    console.log(`[perf] Performance testing enabled, metrics dir: ${METRICS_DIR}`);
     try {
-      if (!fs.existsSync(METRICS_DIR)) {
-        fs.mkdirSync(METRICS_DIR, { recursive: true });
-      }
+      ensureDir();
       if (fs.existsSync(TEMP_METRICS_FILE)) {
         fs.unlinkSync(TEMP_METRICS_FILE);
       }
-    } catch (error) {
-      console.error("Failed to setup metrics directory:", error);
+    } catch (err) {
+      console.warn(`[perf] Setup warning: ${err}`);
     }
   }
 };
@@ -113,12 +118,20 @@ const config: TestRunnerConfig = {
   if (!isPerformanceTest) return;
 
   try {
+    console.log(`[perf] Teardown - checking for metrics at ${TEMP_METRICS_FILE}`);
+
     if (!fs.existsSync(TEMP_METRICS_FILE)) {
-      console.log("\n⚠️ No performance metrics collected\n");
+      console.log("[perf] No temp metrics file found");
       return;
     }
 
-    const lines = fs.readFileSync(TEMP_METRICS_FILE, "utf-8").trim().split("\n");
+    const content = fs.readFileSync(TEMP_METRICS_FILE, "utf-8").trim();
+    if (!content) {
+      console.log("[perf] Temp metrics file is empty");
+      return;
+    }
+
+    const lines = content.split("\n");
     const components: Record<string, Record<string, object>> = {};
 
     for (const line of lines) {
@@ -128,7 +141,7 @@ const config: TestRunnerConfig = {
         if (!components[title]) components[title] = {};
         components[title][name] = data;
       } catch {
-        /* skip */
+        /* skip malformed */
       }
     }
 
@@ -138,6 +151,7 @@ const config: TestRunnerConfig = {
       components
     };
 
+    ensureDir();
     fs.writeFileSync(METRICS_FILE, JSON.stringify(report, null, 2), "utf-8");
     fs.unlinkSync(TEMP_METRICS_FILE);
 
@@ -147,11 +161,11 @@ const config: TestRunnerConfig = {
       storyCount += Object.keys(stories).length;
     });
 
-    console.log("\n📊 Performance metrics collected");
+    console.log(`\n📊 Performance metrics collected`);
     console.log(`   Components: ${componentCount}, Stories: ${storyCount}`);
     console.log(`   Report: ${METRICS_FILE}\n`);
-  } catch (error) {
-    console.error("Failed to write performance report:", error);
+  } catch (err) {
+    console.error(`[perf] Teardown error: ${err}`);
   }
 };
 
