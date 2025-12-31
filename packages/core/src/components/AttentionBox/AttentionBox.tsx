@@ -61,13 +61,13 @@ export interface AttentionBoxProps extends VibeComponentProps {
    */
   compact?: boolean;
   /**
-   * If true, an entry animation is applied when the component appears.
-   */
-  entryAnimation?: boolean;
-  /**
    * The label of the close button.
    */
   closeButtonAriaLabel?: string;
+  /**
+   * If true, an entry animation is applied when the component appears.
+   */
+  entryAnimation?: boolean;
 }
 
 /**
