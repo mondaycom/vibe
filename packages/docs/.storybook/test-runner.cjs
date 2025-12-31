@@ -3,9 +3,8 @@ const path = require("path");
 
 const isPerformanceTest = process.env.PERFORMANCE_TEST === "true";
 
-// Use process.cwd() for consistent path resolution in CI
+// Metrics are written relative to repo root (from packages/docs)
 const METRICS_DIR = path.join(process.cwd(), "../../scripts/performance/reports");
-const METRICS_FILE = path.join(METRICS_DIR, "metrics.json");
 const TEMP_METRICS_FILE = path.join(METRICS_DIR, ".metrics-temp.jsonl");
 
 function ensureDir() {
@@ -20,7 +19,7 @@ function appendMetric(title, name, data) {
     const line = JSON.stringify({ title, name, data }) + "\n";
     fs.appendFileSync(TEMP_METRICS_FILE, line, "utf-8");
   } catch (e) {
-    // Silently ignore
+    // Silently ignore write errors
   }
 }
 
@@ -87,80 +86,7 @@ module.exports = {
         });
       }
     } catch (e) {
-      // Silently ignore
-    }
-  },
-
-  async setup() {
-    if (!isPerformanceTest) return;
-    console.log("[perf] Setup running, metrics dir:", METRICS_DIR);
-    try {
-      ensureDir();
-      if (fs.existsSync(TEMP_METRICS_FILE)) {
-        fs.unlinkSync(TEMP_METRICS_FILE);
-      }
-    } catch (e) {
-      console.log("[perf] Setup error:", e.message);
-    }
-  },
-
-  async teardown() {
-    if (!isPerformanceTest) return;
-    console.log("[perf] Teardown running");
-
-    try {
-      ensureDir();
-      
-      if (!fs.existsSync(TEMP_METRICS_FILE)) {
-        console.log("[perf] No temp metrics file found");
-        fs.writeFileSync(METRICS_FILE, JSON.stringify({
-          timestamp: new Date().toISOString(),
-          commit: process.env.GIT_COMMIT || "unknown",
-          components: {},
-          _note: "No metrics collected"
-        }, null, 2), "utf-8");
-        return;
-      }
-
-      const content = fs.readFileSync(TEMP_METRICS_FILE, "utf-8").trim();
-      const lines = content ? content.split("\n") : [];
-      const components = {};
-
-      for (const line of lines) {
-        if (!line) continue;
-        try {
-          const { title, name, data } = JSON.parse(line);
-          if (!components[title]) components[title] = {};
-          components[title][name] = data;
-        } catch { /* skip */ }
-      }
-
-      const report = {
-        timestamp: new Date().toISOString(),
-        commit: process.env.GIT_COMMIT || "unknown",
-        components
-      };
-
-      fs.writeFileSync(METRICS_FILE, JSON.stringify(report, null, 2), "utf-8");
-      
-      try { fs.unlinkSync(TEMP_METRICS_FILE); } catch { }
-
-      const componentCount = Object.keys(components).length;
-      let storyCount = 0;
-      Object.values(components).forEach(stories => {
-        storyCount += Object.keys(stories).length;
-      });
-
-      console.log("\n📊 Performance metrics collected");
-      console.log(`   Components: ${componentCount}, Stories: ${storyCount}`);
-      console.log(`   Report: ${METRICS_FILE}\n`);
-    } catch (e) {
-      console.log("[perf] Teardown error:", e.message);
-      fs.writeFileSync(METRICS_FILE, JSON.stringify({
-        timestamp: new Date().toISOString(),
-        components: {},
-        _error: e.message
-      }, null, 2), "utf-8");
+      // Silently ignore errors
     }
   }
 };

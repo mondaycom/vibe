@@ -47,7 +47,6 @@ jobs:
         run: |
           echo "=== Installing browsers for root playwright (build 1200) ==="
           ./node_modules/playwright/cli.js install --with-deps chromium
-
           echo "=== Installed browser builds ==="
           ls -la ~/.cache/ms-playwright/
 
@@ -59,22 +58,24 @@ jobs:
           sleep 3
           PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6007 --maxWorkers=4 || true
           kill $HTTP_PID 2>/dev/null || true
-          # Ensure port is freed
           sleep 1
         continue-on-error: true
 
-      - name: Save PR metrics
+      - name: Aggregate PR metrics
         run: |
+          node scripts/performance/aggregate-metrics.js
           if [ -f "scripts/performance/reports/metrics.json" ]; then
             cp scripts/performance/reports/metrics.json scripts/performance/reports/pr.json
+            echo "PR metrics saved"
           else
             echo '{"timestamp":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'","commit":"'${{ github.event.pull_request.head.sha }}'","components":{}}' > scripts/performance/reports/pr.json
+            echo "Created empty PR metrics"
           fi
 
       - name: Run performance tests on base commit
         run: |
-          # Kill any leftover processes on port 6007
           fuser -k 6007/tcp 2>/dev/null || true
+          rm -f scripts/performance/reports/.metrics-temp.jsonl
 
           PR_HEAD_SHA=$(git rev-parse HEAD)
           trap "echo 'Checking out back to PR commit'; git checkout --force $PR_HEAD_SHA" EXIT
@@ -89,9 +90,7 @@ jobs:
           cd packages/docs
           yarn build-storybook
 
-          # Check if test-storybook exists before running
           if [ -f "./node_modules/.bin/test-storybook" ]; then
-            # Install playwright browsers using root playwright (for test-storybook)
             cd ../..
             if [ -f "./node_modules/playwright/cli.js" ]; then
               ./node_modules/playwright/cli.js install --with-deps chromium
@@ -109,10 +108,15 @@ jobs:
           fi
 
           cd ../..
+          if [ -f "scripts/performance/aggregate-metrics.js" ]; then
+            node scripts/performance/aggregate-metrics.js
+          fi
           if [ -f "scripts/performance/reports/metrics.json" ]; then
             cp scripts/performance/reports/metrics.json scripts/performance/reports/base.json
+            echo "Base metrics saved"
           else
             echo '{"timestamp":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'","commit":"'$BASE'","components":{}}' > scripts/performance/reports/base.json
+            echo "Created empty base metrics"
           fi
         continue-on-error: true
 
