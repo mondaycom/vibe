@@ -45,9 +45,10 @@ jobs:
 
       - name: Install Playwright browsers
         run: |
-          npx playwright install --with-deps chromium
-          npx -y playwright@1.49.1 install --with-deps chromium
-          # Verify both builds are installed
+          echo "=== Installing browsers for root playwright (build 1200) ==="
+          ./node_modules/playwright/cli.js install --with-deps chromium
+
+          echo "=== Installed browser builds ==="
           ls -la ~/.cache/ms-playwright/
 
       - name: Run performance tests on PR branch
@@ -90,10 +91,13 @@ jobs:
 
           # Check if test-storybook exists before running
           if [ -f "./node_modules/.bin/test-storybook" ]; then
-            # Install playwright browsers for both versions
+            # Install playwright browsers using root playwright (for test-storybook)
             cd ../..
-            npx playwright install --with-deps chromium
-            npx -y playwright@1.49.1 install --with-deps chromium
+            if [ -f "./node_modules/playwright/cli.js" ]; then
+              ./node_modules/playwright/cli.js install --with-deps chromium
+            else
+              npx playwright install --with-deps chromium
+            fi
             cd packages/docs
             npx http-server static_storybook -p 6008 &
             HTTP_PID=$!
