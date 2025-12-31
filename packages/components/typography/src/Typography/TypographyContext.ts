@@ -9,4 +9,3 @@ type TypographyContext = {
 };
 
 export const TypographyContext = React.createContext<TypographyContext>({ overflowTolerance: 0 });
-
