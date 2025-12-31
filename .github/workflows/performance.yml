@@ -45,8 +45,13 @@ jobs:
 
       - name: Install Playwright browsers
         run: |
+          # Install for both playwright versions in the project (version conflict)
+          # Root playwright (1.57.0)
+          npx playwright install --with-deps chromium
+          # Nested playwright in @playwright/test (1.49.1 - build 1200)
           ./node_modules/@playwright/test/node_modules/.bin/playwright install --with-deps chromium
-          ls -la ~/.cache/ms-playwright/ | head -10
+          # Show installed browsers
+          ls -la ~/.cache/ms-playwright/
 
       - name: Run performance tests on PR branch
         run: |
@@ -88,12 +93,13 @@ jobs:
 
           # Check if test-storybook exists before running
           if [ -f "./node_modules/.bin/test-storybook" ]; then
-            # Install playwright browsers for @playwright/test version (used by test-storybook)
-            if [ -f "../../node_modules/@playwright/test/node_modules/.bin/playwright" ]; then
-              ../../node_modules/@playwright/test/node_modules/.bin/playwright install --with-deps chromium
-            else
-              npx playwright install --with-deps chromium
+            # Install playwright browsers (both versions for compatibility)
+            cd ../..
+            npx playwright install --with-deps chromium
+            if [ -f "./node_modules/@playwright/test/node_modules/.bin/playwright" ]; then
+              ./node_modules/@playwright/test/node_modules/.bin/playwright install --with-deps chromium
             fi
+            cd packages/docs
             npx http-server static_storybook -p 6008 &
             HTTP_PID=$!
             sleep 3
