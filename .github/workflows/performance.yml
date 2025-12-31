@@ -35,9 +35,6 @@ jobs:
         uses: ./.github/actions/download-builds
         if: ${{ needs.build.outputs.has_changes == 'true' }}
 
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
-
       - name: Create reports directory
         run: mkdir -p scripts/performance/reports
 
@@ -46,13 +43,21 @@ jobs:
           cd packages/docs
           yarn build-storybook
 
-      - name: Serve Storybook and run performance tests on PR branch
+      - name: Install Playwright browsers
+        run: |
+          cd packages/docs
+          yarn playwright install chromium
+
+      - name: Run performance tests on PR branch
         run: |
           cd packages/docs
           npx http-server static_storybook -p 6007 &
+          HTTP_PID=$!
           sleep 3
-          PERFORMANCE_TEST=true yarn test-storybook --url http://localhost:6007 --maxWorkers=4 || true
-          kill %1 || true
+          PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6007 --maxWorkers=4 || true
+          kill $HTTP_PID 2>/dev/null || true
+          # Ensure port is freed
+          sleep 1
         continue-on-error: true
 
       - name: Save PR metrics
@@ -65,6 +70,9 @@ jobs:
 
       - name: Run performance tests on base commit
         run: |
+          # Kill any leftover processes on port 6007
+          fuser -k 6007/tcp 2>/dev/null || true
+
           PR_HEAD_SHA=$(git rev-parse HEAD)
           trap "echo 'Checking out back to PR commit'; git checkout --force $PR_HEAD_SHA" EXIT
 
@@ -77,10 +85,18 @@ jobs:
 
           cd packages/docs
           yarn build-storybook
-          npx http-server static_storybook -p 6007 &
-          sleep 3
-          PERFORMANCE_TEST=true yarn test-storybook --url http://localhost:6007 --maxWorkers=4 || true
-          kill %1 || true
+
+          # Check if test-storybook exists before running
+          if [ -f "./node_modules/.bin/test-storybook" ]; then
+            yarn playwright install chromium
+            npx http-server static_storybook -p 6008 &
+            HTTP_PID=$!
+            sleep 3
+            PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6008 --maxWorkers=4 || true
+            kill $HTTP_PID 2>/dev/null || true
+          else
+            echo "test-storybook not available on base branch, skipping"
+          fi
 
           cd ../..
           if [ -f "scripts/performance/reports/metrics.json" ]; then
