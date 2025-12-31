@@ -66,7 +66,7 @@ export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Table";
 export * from "./Tabs";
-export * from "@vibe/typography";
+export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./TextWithHighlight";
