@@ -4,7 +4,7 @@ import React from "react";
 import Avatar from "../Avatar/Avatar";
 import styles from "./BaseItem.module.scss";
 import { Icon } from "@vibe/icon";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 
 export function renderSideElement(
   element: StartElement | EndElement,

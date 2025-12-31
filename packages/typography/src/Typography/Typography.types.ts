@@ -9,3 +9,4 @@ export type TypographyColor =
   | "negative";
 
 export type TypographyAlign = "start" | "center" | "end" | "inherit";
+

@@ -113,7 +113,7 @@ exports[`Snapshot tests > Tipseen tests > renders correctly without props 1`] = 
 exports[`Snapshot tests > TipseenTitle > should render correctly with given text 1`] = `
 <div
   aria-level={3}
-  className="typography inherit start multiLineEllipsis text text1Bold title"
+  className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 multiLineEllipsis_46786a0cbd text_fa06f86ba0 text1Bold_273f90acf9 title"
   data-testid="tipseen-title"
   role="heading"
   style={

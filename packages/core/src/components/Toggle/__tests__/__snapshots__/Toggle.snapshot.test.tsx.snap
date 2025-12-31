@@ -16,7 +16,7 @@ exports[`Toggle renders correctly > renders correctly when disabled 1`] = `
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text disabled"
     data-testid="text"
   >
     Off
@@ -27,7 +27,7 @@ exports[`Toggle renders correctly > renders correctly when disabled 1`] = `
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text disabled"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text disabled"
     data-testid="text"
   >
     On
@@ -72,7 +72,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -83,7 +83,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -106,7 +106,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -117,7 +117,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -140,7 +140,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -151,7 +151,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -174,7 +174,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -185,7 +185,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -209,7 +209,7 @@ exports[`Toggle renders correctly > renders correctly with aria controls 1`] = `
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -220,7 +220,7 @@ exports[`Toggle renders correctly > renders correctly with aria controls 1`] = `
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -243,7 +243,7 @@ exports[`Toggle renders correctly > renders correctly with empty props 1`] = `
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -254,7 +254,7 @@ exports[`Toggle renders correctly > renders correctly with empty props 1`] = `
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -277,7 +277,7 @@ exports[`Toggle renders correctly > renders correctly with not default offOverri
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     TestOff
@@ -288,7 +288,7 @@ exports[`Toggle renders correctly > renders correctly with not default offOverri
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     On
@@ -311,7 +311,7 @@ exports[`Toggle renders correctly > renders correctly with not default onOverrid
     type="checkbox"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     Off
@@ -322,7 +322,7 @@ exports[`Toggle renders correctly > renders correctly with not default onOverrid
     data-testid="toggle"
   />
   <span
-    className="typography primary start singleLineEllipsis text text2Normal text"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text"
     data-testid="text"
   >
     TestOn

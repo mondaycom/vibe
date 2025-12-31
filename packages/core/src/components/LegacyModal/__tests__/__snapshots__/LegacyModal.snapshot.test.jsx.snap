@@ -32,7 +32,7 @@ exports[`Modal renders correctly > with Footer 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -76,7 +76,7 @@ exports[`Modal renders correctly > with Footer 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -127,7 +127,7 @@ exports[`Modal renders correctly > with Header 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -171,7 +171,7 @@ exports[`Modal renders correctly > with Header 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -215,7 +215,7 @@ exports[`Modal renders correctly > with alertDialog 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -259,7 +259,7 @@ exports[`Modal renders correctly > with alertDialog 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -303,7 +303,7 @@ exports[`Modal renders correctly > with all parts 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -347,7 +347,7 @@ exports[`Modal renders correctly > with all parts 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -398,7 +398,7 @@ exports[`Modal renders correctly > with base props 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -442,7 +442,7 @@ exports[`Modal renders correctly > with base props 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -486,7 +486,7 @@ exports[`Modal renders correctly > with class names 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -530,7 +530,7 @@ exports[`Modal renders correctly > with class names 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -574,7 +574,7 @@ exports[`Modal renders correctly > with closeButtonAriaLabel 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -618,7 +618,7 @@ exports[`Modal renders correctly > with closeButtonAriaLabel 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -663,7 +663,7 @@ exports[`Modal renders correctly > with custom width 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -707,7 +707,7 @@ exports[`Modal renders correctly > with custom width 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -751,7 +751,7 @@ exports[`Modal renders correctly > with description 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -760,7 +760,7 @@ exports[`Modal renders correctly > with description 1`] = `
           </h1>
         </div>
         <div
-          class="typography primary start multiLineEllipsis text text2Normal description"
+          class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd text_fa06f86ba0 text2Normal_fc6192f39e description"
           data-testid="text"
           style="--text-clamp-lines: 2;"
         >
@@ -801,7 +801,7 @@ exports[`Modal renders correctly > with description 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>
@@ -845,7 +845,7 @@ exports[`Modal renders correctly > with full width 1`] = `
           style="gap: var(--spacing-small);"
         >
           <h1
-            class="typography primary start multiLineEllipsis heading h1Normal"
+            class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
             data-testid="text_modal-id-title"
             id="modal-id-title"
             style="--text-clamp-lines: 2;"
@@ -889,7 +889,7 @@ exports[`Modal renders correctly > with full width 1`] = `
         </div>
       </div>
       <div
-        class="typography primary start text text1Normal container"
+        class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text1Normal_825d27cf03 container"
         data-testid="modal-content"
       >
         <p>

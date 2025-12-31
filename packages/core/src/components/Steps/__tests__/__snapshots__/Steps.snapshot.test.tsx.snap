@@ -526,7 +526,7 @@ exports[`Steps > with numeric type renders correctly > when hide navigations ico
       Back
     </button>
     <div
-      className="typography primary start singleLineEllipsis text text2Normal numbers"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e numbers"
       data-testid="text"
     >
       2 \\ 2
@@ -599,7 +599,7 @@ exports[`Steps > with numeric type renders correctly > when steps content is on 
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text text2Normal numbers"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e numbers"
       data-testid="text"
     >
       2 \\ 2
@@ -684,7 +684,7 @@ exports[`Steps > with numeric type renders correctly > when viewing first step 1
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text text2Normal numbers"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e numbers"
       data-testid="text"
     >
       1 \\ 2
@@ -770,7 +770,7 @@ exports[`Steps > with numeric type renders correctly > when viewing last step 1`
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text text2Normal numbers"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e numbers"
       data-testid="text"
     >
       2 \\ 2
@@ -858,7 +858,7 @@ exports[`Steps > with numeric type renders correctly > with regular props 1`] = 
       </svg>
     </button>
     <div
-      className="typography primary start singleLineEllipsis text text2Normal numbers"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e numbers"
       data-testid="text"
     >
       1 \\ 2

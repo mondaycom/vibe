@@ -21,3 +21,4 @@ export enum TypographyAlign {
   END = "end",
   INHERIT = "inherit"
 }
+

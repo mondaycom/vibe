@@ -283,7 +283,7 @@ exports[`AccordionItem renders correctly > with title 1`] = `
           type="button"
         >
           <div
-            className="typography primary start singleLineEllipsis text text1Normal headerContent"
+            className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Normal_825d27cf03 headerContent"
             data-testid="text"
           >
             Test title

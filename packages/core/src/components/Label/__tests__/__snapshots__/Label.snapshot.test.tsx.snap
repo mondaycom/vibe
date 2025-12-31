@@ -7,11 +7,11 @@ exports[`Label renders correctly > fill > dark 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindFill colorDark"
+    className="typography_b59898fd6b onInverted_6c661badd8 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorDark"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -30,11 +30,11 @@ exports[`Label renders correctly > fill > negative 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorNegative"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorNegative"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -53,11 +53,11 @@ exports[`Label renders correctly > fill > positive 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorPositive"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorPositive"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -76,11 +76,11 @@ exports[`Label renders correctly > fill > primary 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorPrimary"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorPrimary"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -99,11 +99,11 @@ exports[`Label renders correctly > line > dark 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onInverted start singleLineEllipsis text text2Normal label kindLine colorDark"
+    className="typography_b59898fd6b onInverted_6c661badd8 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindLine colorDark"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -122,11 +122,11 @@ exports[`Label renders correctly > line > negative 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindLine colorNegative"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindLine colorNegative"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -145,11 +145,11 @@ exports[`Label renders correctly > line > positive 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindLine colorPositive"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindLine colorPositive"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -168,11 +168,11 @@ exports[`Label renders correctly > line > primary 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindLine colorPrimary"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindLine colorPrimary"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -191,11 +191,11 @@ exports[`Label renders correctly > line > with className 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorPrimary"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorPrimary"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       
@@ -214,11 +214,11 @@ exports[`Label renders correctly > line > with leg 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorPrimary withLeg"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorPrimary withLeg"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -250,11 +250,11 @@ exports[`Label renders correctly > line > without animation 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorPrimary"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorPrimary"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       Test
@@ -273,11 +273,11 @@ exports[`Label renders correctly > with empty props 1`] = `
   data-vibe="Label"
 >
   <span
-    className="typography onPrimary start singleLineEllipsis text text2Normal label kindFill colorPrimary"
+    className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e label kindFill colorPrimary"
     data-testid="text"
   >
     <span
-      className="typography inherit start singleLineEllipsis text text2Normal"
+      className="typography_b59898fd6b inherit_c3c92166a1 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e"
       data-testid="text"
     >
       

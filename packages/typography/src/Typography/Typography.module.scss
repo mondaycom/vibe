@@ -1,12 +1,21 @@
-@import "../../styles/typography";
-@import "../../styles/states";
+@import "~monday-ui-style/dist/mixins";
 
 .typography {
   // TODO: [breaking] remove anchor styles
   > a {
     text-decoration: none;
     color: var(--link-color);
-    @include focus-style();
+    border-radius: 4px;
+    outline: none;
+
+    &:focus-visible,
+    &.focus-visible {
+      box-shadow: 0 0 0 3px hsl(209deg 100% 50% / 50%), 0 0 0 1px var(--primary-hover-color) inset;
+    }
+
+    &:focus:not(.focus-visible) {
+      outline: none;
+    }
 
     &:hover {
       text-decoration: underline;
@@ -94,3 +103,4 @@
 .multiLineEllipsis {
   @include line-clamp(var(--text-clamp-lines));
 }
+

@@ -46,7 +46,7 @@ describe("Table", () => {
       const cell = getByRole("cell");
       const textElement = cell.children[0];
 
-      expect(textElement.classList).toContain("typography");
+      expect(textElement.className).toContain("typography");
       expect(textElement.textContent).toBe("String");
     });
 
@@ -55,7 +55,7 @@ describe("Table", () => {
       const cell = getByRole("cell");
       const textElement = cell.children[0];
 
-      expect(textElement.classList).toContain("typography");
+      expect(textElement.className).toContain("typography");
       expect(textElement.textContent).toBe("100");
     });
 

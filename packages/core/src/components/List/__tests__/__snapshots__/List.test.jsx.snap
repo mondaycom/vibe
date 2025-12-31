@@ -24,7 +24,7 @@ exports[`List > renders correctly with list items 1`] = `
 >
   <li
     aria-disabled={false}
-    className="typography primary start singleLineEllipsis text text2Normal listItem small"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e listItem small"
     data-testid="list-2-item-0"
     id="list-2-item-0"
     onClick={[Function]}
@@ -37,7 +37,7 @@ exports[`List > renders correctly with list items 1`] = `
   </li>
   <li
     aria-disabled={false}
-    className="typography primary start singleLineEllipsis text text2Normal listItem small"
+    className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e listItem small"
     data-testid="list-2-item-1"
     id="list-2-item-1"
     onClick={[Function]}

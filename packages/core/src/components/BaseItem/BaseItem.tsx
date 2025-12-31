@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
 import styles from "./BaseItem.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { Tooltip } from "@vibe/tooltip";
 import { type TextType } from "../Text";

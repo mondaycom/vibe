@@ -804,7 +804,7 @@ exports[`TextField renders correctly > with showCharCount 1`] = `
       />
     </div>
     <div
-      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
+      className="typography_b59898fd6b secondary_8c8b98f792 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e subTextContainer"
       data-testid="text"
     >
       <span
@@ -945,7 +945,7 @@ exports[`TextField renders correctly > with validation 1`] = `
       />
     </div>
     <div
-      className="typography secondary start singleLineEllipsis text text2Normal subTextContainer"
+      className="typography_b59898fd6b secondary_8c8b98f792 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e subTextContainer"
       data-testid="text"
     >
       <span

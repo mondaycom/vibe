@@ -10,7 +10,7 @@ exports[`ModalHeader renders correctly > with classNames 1`] = `
     style="gap: var(--spacing-small);"
   >
     <h1
-      class="typography primary start multiLineEllipsis heading h1Normal"
+      class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
       data-testid="text_modal-title-id"
       id="modal-title-id"
       style="--text-clamp-lines: 2;"
@@ -65,7 +65,7 @@ exports[`ModalHeader renders correctly > with description 1`] = `
     style="gap: var(--spacing-small);"
   >
     <h1
-      class="typography primary start multiLineEllipsis heading h1Normal"
+      class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
       data-testid="text_modal-title-id"
       id="modal-title-id"
       style="--text-clamp-lines: 2;"
@@ -74,7 +74,7 @@ exports[`ModalHeader renders correctly > with description 1`] = `
     </h1>
   </div>
   <div
-    class="typography primary start multiLineEllipsis text text2Normal description"
+    class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd text_fa06f86ba0 text2Normal_fc6192f39e description"
     data-testid="text"
     style="--text-clamp-lines: 2;"
   >
@@ -143,7 +143,7 @@ exports[`ModalHeader renders correctly > with icon 1`] = `
       />
     </svg>
     <h1
-      class="typography primary start multiLineEllipsis heading h1Normal"
+      class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
       data-testid="text_modal-title-id"
       id="modal-title-id"
       style="--text-clamp-lines: 2;"
@@ -198,7 +198,7 @@ exports[`ModalHeader renders correctly > with required props 1`] = `
     style="gap: var(--spacing-small);"
   >
     <h1
-      class="typography primary start multiLineEllipsis heading h1Normal"
+      class="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 multiLineEllipsis_46786a0cbd heading h1Normal"
       data-testid="text_modal-title-id"
       id="modal-title-id"
       style="--text-clamp-lines: 2;"

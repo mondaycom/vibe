@@ -1,6 +1,6 @@
 import { type MutableRefObject, useMemo } from "react";
-import { type ElementContent } from "../../types";
-import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import { type ElementContent } from "@vibe/shared";
+import useIsOverflowing from "../hooks/useIsOverflowing";
 import { type TooltipProps } from "@vibe/tooltip";
 import styles from "./Typography.module.scss";
 
@@ -39,3 +39,4 @@ export function useTooltipProps(
   const isTooltipRendered = !withoutTooltip && ellipsis && isOverflowing;
   return isTooltipRendered ? { ...tooltipProps, content: children } : {};
 }
+

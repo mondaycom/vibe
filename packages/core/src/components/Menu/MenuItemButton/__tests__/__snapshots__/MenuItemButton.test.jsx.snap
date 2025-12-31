@@ -3,7 +3,7 @@
 exports[`Snapshots > renders correctly when disabled 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text text2Normal itemButton"
+  className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e itemButton"
   data-testid="menu-item-button"
   role="menuitem"
 >
@@ -33,7 +33,7 @@ exports[`Snapshots > renders correctly when disabled 1`] = `
 exports[`Snapshots > renders correctly when selected 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text text2Normal itemButton"
+  className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e itemButton"
   data-testid="menu-item-button"
   role="menuitem"
 >
@@ -62,7 +62,7 @@ exports[`Snapshots > renders correctly when selected 1`] = `
 exports[`Snapshots > renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text text2Normal itemButton dummy-class-name"
+  className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e itemButton dummy-class-name"
   data-testid="menu-item-button"
   role="menuitem"
 >
@@ -89,7 +89,7 @@ exports[`Snapshots > renders correctly with custom class name 1`] = `
 exports[`Snapshots > renders correctly with empty props 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text text2Normal itemButton"
+  className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e itemButton"
   data-testid="menu-item-button"
   role="menuitem"
 >
@@ -116,7 +116,7 @@ exports[`Snapshots > renders correctly with empty props 1`] = `
 exports[`Snapshots > renders correctly with title and icon 1`] = `
 <li
   aria-current={false}
-  className="typography primary start singleLineEllipsis text text2Normal itemButton"
+  className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e itemButton"
   data-testid="menu-item-button"
   role="menuitem"
 >

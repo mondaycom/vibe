@@ -1,3 +1,2 @@
-export { default as Typography, TypographyProps } from "./Typography";
-
-export * from "./Typography.types";
+export { Typography as default, type TypographyProps } from "@vibe/typography";
+export * from "@vibe/typography";

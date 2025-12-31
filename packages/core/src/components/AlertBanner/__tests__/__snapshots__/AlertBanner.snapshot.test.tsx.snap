@@ -3,7 +3,7 @@
 exports[`AlertBanner > should render correctly with background color 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner positive"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e alertBanner positive"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"
@@ -59,7 +59,7 @@ exports[`AlertBanner > should render correctly with background color 1`] = `
 exports[`AlertBanner > should render correctly with hidden close button 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e alertBanner primary"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"
@@ -76,7 +76,7 @@ exports[`AlertBanner > should render correctly with hidden close button 1`] = `
 exports[`AlertBanner > should render correctly with props 1`] = `
 <div
   aria-label="lorem-banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal my-lorem-ipsum-banner alertBanner negative"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e my-lorem-ipsum-banner alertBanner negative"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"
@@ -149,7 +149,7 @@ exports[`AlertBanner > should render correctly with props 1`] = `
 exports[`AlertBanner > should render correctly without props 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e alertBanner primary"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"
@@ -205,7 +205,7 @@ exports[`AlertBanner > should render correctly without props 1`] = `
 exports[`AlertBanner > should render with correctly with multiple elements 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e alertBanner primary"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"
@@ -346,7 +346,7 @@ exports[`AlertBanner > should render with correctly with multiple elements 1`] =
 exports[`AlertBanner > should render with correctly with text and button 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e alertBanner primary"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"
@@ -443,7 +443,7 @@ exports[`AlertBanner > should render with correctly with text and button 1`] = `
 exports[`AlertBanner > should render with correctly with text and link 1`] = `
 <div
   aria-label="banner"
-  className="typography onPrimary start singleLineEllipsis text text2Normal alertBanner primary"
+  className="typography_b59898fd6b onPrimary_29cd9d38f2 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e alertBanner primary"
   data-testid="alert-banner"
   data-vibe="AlertBanner"
   role="banner"

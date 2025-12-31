@@ -21,7 +21,7 @@ import { type MoveBy } from "../../types/MoveBy";
 import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./Tipseen.module.scss";
 import React from "react";
 import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";

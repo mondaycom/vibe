@@ -33,7 +33,7 @@ exports[`AttentionBox renders correctly > renders correctly 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -48,7 +48,7 @@ exports[`AttentionBox renders correctly > renders correctly 1`] = `
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       Text
@@ -90,7 +90,7 @@ exports[`AttentionBox renders correctly > renders correctly className 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -105,7 +105,7 @@ exports[`AttentionBox renders correctly > renders correctly className 1`] = `
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       Text
@@ -147,7 +147,7 @@ exports[`AttentionBox renders correctly > renders correctly dark type 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -162,7 +162,7 @@ exports[`AttentionBox renders correctly > renders correctly dark type 1`] = `
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       Text
@@ -204,7 +204,7 @@ exports[`AttentionBox renders correctly > renders correctly when compact 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -219,7 +219,7 @@ exports[`AttentionBox renders correctly > renders correctly when compact 1`] = `
     }
   >
     <div
-      className="typography primary start singleLineEllipsis text text2Normal text compact"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text2Normal_fc6192f39e text compact"
       data-testid="text"
     >
       Text
@@ -244,7 +244,7 @@ exports[`AttentionBox renders correctly > renders correctly with empty props 1`]
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     />
   </div>
@@ -268,7 +268,7 @@ exports[`AttentionBox renders correctly > renders correctly with empty title pro
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       Text
@@ -293,7 +293,7 @@ exports[`AttentionBox renders correctly > renders correctly with no icon 1`] = `
     }
   >
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -308,7 +308,7 @@ exports[`AttentionBox renders correctly > renders correctly with no icon 1`] = `
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       Text
@@ -350,7 +350,7 @@ exports[`AttentionBox renders correctly > renders correctly with onClose 1`] = `
       />
     </svg>
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -365,7 +365,7 @@ exports[`AttentionBox renders correctly > renders correctly with onClose 1`] = `
     }
   >
     <p
-      className="typography primary start text text2Normal text dismissible paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text dismissible paragraph"
       data-testid="text"
     >
       Text
@@ -432,7 +432,7 @@ exports[`AttentionBox renders correctly > renders correctly with renderer 1`] = 
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       <span>
@@ -470,7 +470,7 @@ exports[`AttentionBox renders correctly > renders with icon font type 1`] = `
       role="img"
     />
     <h5
-      className="typography primary start singleLineEllipsis text text1Medium title"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 singleLineEllipsis_997d25a8b3 text_fa06f86ba0 text1Medium_a83d526418 title"
       data-testid="text"
     >
       Title
@@ -485,7 +485,7 @@ exports[`AttentionBox renders correctly > renders with icon font type 1`] = `
     }
   >
     <p
-      className="typography primary start text text2Normal text paragraph"
+      className="typography_b59898fd6b primary_98f8177071 start_4d6f783fa9 text_fa06f86ba0 text2Normal_fc6192f39e text paragraph"
       data-testid="text"
     >
       Text

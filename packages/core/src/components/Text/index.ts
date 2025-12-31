@@ -1,3 +1,2 @@
-export { default as Text, type TextProps } from "./Text";
-
-export * from "./Text.types";
+export { Text as default, type TextProps } from "@vibe/typography";
+export * from "@vibe/typography";
