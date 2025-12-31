@@ -65,4 +65,3 @@ export default function useResizeObserver({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref?.current, callback, debounceTime, debouncedCallback]);
 }
-
