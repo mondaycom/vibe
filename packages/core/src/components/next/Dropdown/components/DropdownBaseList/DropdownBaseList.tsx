@@ -3,8 +3,8 @@ import BaseItem from "../../../../BaseItem/BaseItem";
 import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";
-import { type TextType } from "../../../../Text";
-import Text from "../../../../Text/Text";
+import { type TextType } from "@vibe/typography";
+import { Text } from "@vibe/typography";
 import cx from "classnames";
 import { Divider } from "../../../../Divider";
 

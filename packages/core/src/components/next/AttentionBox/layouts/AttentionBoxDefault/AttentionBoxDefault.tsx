@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { Text } from "../../../../Text";
+import { Text } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
 import AttentionBoxButton from "../../components/AttentionBoxButton/AttentionBoxButton";
 import AttentionBoxLink from "../../components/AttentionBoxLink/AttentionBoxLink";

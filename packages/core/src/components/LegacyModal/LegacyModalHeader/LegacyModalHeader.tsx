@@ -7,7 +7,7 @@ import { type ElementContent, type VibeComponentProps } from "../../../types";
 import { NOOP } from "../../../utils/function-utils";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 import Heading from "../../Heading/Heading";
 import { Flex } from "@vibe/layout";
 import styles from "./LegacyModalHeader.module.scss";

@@ -2,7 +2,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import { useIsOverflowing } from "@vibe/hooks";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import type VibeComponentProps from "../../types/VibeComponentProps";

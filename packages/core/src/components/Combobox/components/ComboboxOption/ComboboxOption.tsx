@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { type RefObject, useCallback, useEffect, useMemo, useRef } from "react";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Tooltip } from "@vibe/tooltip";
-import useIsOverflowing from "../../../../hooks/useIsOverflowing/useIsOverflowing";
+import { useIsOverflowing } from "@vibe/hooks";
 import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
 import { withStaticPropsWithoutForwardRef } from "../../../../types";

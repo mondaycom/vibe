@@ -66,7 +66,7 @@ export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Table";
 export * from "./Tabs";
-export * from "./Text";
+export * from "@vibe/typography";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./TextWithHighlight";
@@ -80,6 +80,6 @@ export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
 
-export type { TypographyColor, TypographyAlign } from "./Typography";
+export type { TypographyColor, TypographyAlign } from "@vibe/typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";

@@ -3,7 +3,7 @@ import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import Leg from "./Leg";
 import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";

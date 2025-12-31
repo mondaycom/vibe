@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import FieldLabel from "../../../../FieldLabel/FieldLabel";
-import Text from "../../../../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../../../tests/constants";

@@ -1,10 +1,10 @@
 import { type EndElement, type StartElement } from "./BaseItem.types";
-import { type TextType } from "../Text";
+import { type TextType } from "@vibe/typography";
 import React from "react";
 import Avatar from "../Avatar/Avatar";
 import styles from "./BaseItem.module.scss";
 import { Icon } from "@vibe/icon";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 
 export function renderSideElement(
   element: StartElement | EndElement,
