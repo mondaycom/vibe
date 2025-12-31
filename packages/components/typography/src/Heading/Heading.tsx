@@ -1,15 +1,17 @@
 import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { withStaticProps } from "../../types";
+import { getStyle, withStaticProps } from "@vibe/shared";
 import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "./HeadingConstants";
-import { Typography, type TypographyProps } from "@vibe/typography";
-import { TypographyAlignEnum, TypographyColorEnum } from "@vibe/typography";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import Typography, { type TypographyProps } from "../Typography/Typography";
+import {
+  TypographyAlign as TypographyAlignEnum,
+  TypographyColor as TypographyColorEnum
+} from "../Typography/TypographyConstants";
+import { TypographyContext } from "../Typography/TypographyContext";
 import styles from "./Heading.module.scss";
-import { TypographyContext } from "@vibe/typography";
 import { type HeadingType, type HeadingWeight } from "./Heading.types";
-import { type TypographyAlign, type TypographyColor } from "@vibe/typography";
+import { type TypographyAlign, type TypographyColor } from "../Typography/Typography.types";
 
 const OVERFLOW_TOLERANCE_IN_PX = 4;
 

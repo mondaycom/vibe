@@ -65,28 +65,3 @@ $textClasses: (
     "normal"
   )
 );
-
-@mixin smoothing-text {
-  -webkit-font-smoothing: var(--font-smoothing-webkit);
-  -moz-osx-font-smoothing: var(--font-smoothing-moz);
-}
-
-@mixin label-text {
-  @include smoothing-text;
-  @include vibe-text(text2, normal);
-}
-
-// Caption / Subtext (small)
-@mixin font-caption {
-  @include vibe-text(text2, normal);
-  @include smoothing-text;
-}
-
-@mixin font-input {
-  @include vibe-text(text2, normal);
-}
-
-@mixin heading-padding {
-  padding: 0 4px;
-}
-

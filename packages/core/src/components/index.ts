@@ -38,7 +38,7 @@ export * from "./ExpandCollapse";
 export * from "@vibe/layout";
 export * from "./FormattedNumber";
 export * from "./GridKeyboardNavigationContext";
-export * from "./Heading";
+export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "./HiddenText";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";

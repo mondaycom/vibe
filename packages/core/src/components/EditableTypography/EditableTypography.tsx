@@ -8,7 +8,7 @@ import { useKeyboardButtonPressedFunc } from "@vibe/shared";
 import { type TooltipProps } from "@vibe/tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { type TextType, type TextWeight } from "@vibe/typography";
-import { type HeadingType, type HeadingWeight } from "../Heading";
+import { type HeadingType, type HeadingWeight } from "@vibe/typography";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
