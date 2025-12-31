@@ -1,0 +1,129 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshot tests > Tipseen content tests > renders correctly with dismiss 1`] = `
+<div
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
+>
+  <div
+    className="buttons"
+  >
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="dismiss button sizeSmall kindTertiary colorOnPrimaryColor"
+      data-testid="tipseen-content-dismiss"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Dismiss
+    </button>
+    <button
+      aria-busy={false}
+      aria-disabled={false}
+      className="button sizeSmall kindPrimary colorOnPrimaryColor"
+      data-testid="tipseen-content-submit"
+      data-vibe="Button"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Snapshot tests > Tipseen content tests > renders correctly without props 1`] = `
+<DocumentFragment>
+  <div
+    class="tipseenBasicContent"
+    data-testid="tipseen-content"
+  >
+    <div
+      class="buttons"
+    >
+      <button
+        aria-busy="false"
+        aria-disabled="false"
+        class="button sizeSmall kindPrimary colorOnPrimaryColor"
+        data-testid="tipseen-content-submit"
+        data-vibe="Button"
+        style="color: rgba(0, 0, 0, 0);"
+        type="button"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Snapshot tests > Tipseen content tests > renders correctly without submit 1`] = `
+<div
+  className="tipseenBasicContent"
+  data-testid="tipseen-content"
+>
+  <div
+    className="buttons"
+  />
+</div>
+`;
+
+exports[`Snapshot tests > Tipseen tests > renders correctly with dark close button theme 1`] = `
+<DocumentFragment>
+  <div
+    class="monday-storybook-tipseen_container"
+  />
+</DocumentFragment>
+`;
+
+exports[`Snapshot tests > Tipseen tests > renders correctly with floating variation 1`] = `null`;
+
+exports[`Snapshot tests > Tipseen tests > renders correctly without close 1`] = `
+<DocumentFragment>
+  <div
+    class="monday-storybook-tipseen_container"
+  />
+</DocumentFragment>
+`;
+
+exports[`Snapshot tests > Tipseen tests > renders correctly without props 1`] = `
+<div
+  className="monday-storybook-tipseen_container"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+/>
+`;
+
+exports[`Snapshot tests > TipseenTitle > should render correctly with given text 1`] = `
+<div
+  aria-level={3}
+  className="typography inherit start multiLineEllipsis text text1Bold title"
+  data-testid="tipseen-title"
+  role="heading"
+  style={
+    {
+      "--text-clamp-lines": "2",
+    }
+  }
+>
+  I'm a title
+</div>
+`;
+
+exports[`Snapshot tests > TipseenTitle > should render null without text 1`] = `null`;

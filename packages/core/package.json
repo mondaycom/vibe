@@ -102,6 +102,7 @@
     "@vibe/layout": "3.0.2",
     "@vibe/loader": "3.0.9",
     "@vibe/shared": "3.0.8",
+    "@vibe/tipseen": "3.0.0",
     "@vibe/tooltip": "3.0.0",
     "a11y-dialog": "^7.5.2",
     "body-scroll-lock": "^4.0.0-beta.0",
