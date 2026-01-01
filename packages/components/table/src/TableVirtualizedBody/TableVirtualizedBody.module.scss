@@ -1,0 +1,16 @@
+@import "~monday-ui-style/dist/mixins";
+
+.tableBody {
+  // Take into consideration header's height since VirtualizedBody sets a static height
+  height: calc(100% - var(--table-row-size));
+
+  .tableBodyItems {
+    @include scroller(6px, 6px);
+  }
+
+  &.withHeader {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
