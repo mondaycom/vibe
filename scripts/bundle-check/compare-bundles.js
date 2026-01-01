@@ -6,7 +6,7 @@ function extractJson(content) {
   const jsonMatch = content.match(/^\[[\s\S]*\]$/m);
 
   if (!jsonMatch) {
-    throw new Error("No JSON array found in content");
+    return null;
   }
 
   return jsonMatch[0];
@@ -15,10 +15,22 @@ function extractJson(content) {
 const baseContent = fs.readFileSync("scripts/bundle-check/reports/base.json", "utf8");
 const prContent = fs.readFileSync("scripts/bundle-check/reports/pr.json", "utf8");
 
-const base = JSON.parse(extractJson(baseContent));
-const pr = JSON.parse(extractJson(prContent));
+const baseJson = extractJson(baseContent);
+const prJson = extractJson(prContent);
+
+if (!prJson) {
+  throw new Error("No JSON array found in PR content - build may have failed");
+}
+
+const base = baseJson ? JSON.parse(baseJson) : [];
+const pr = JSON.parse(prJson);
 
 let md = "📦 **Bundle Size Analysis**\n\n";
+
+if (base.length === 0) {
+  md += "⚠️ **Note:** Base commit bundle data not available (build may have failed on base). Showing PR sizes only.\n\n";
+}
+
 const tableHeader = "| Component | Base | PR | Diff |\n|-----------|------|----|------|\n";
 
 const baseMap = new Map();
