@@ -23,7 +23,6 @@ interface VibePerformanceData {
 declare global {
   interface Window {
     __VIBE_PERFORMANCE__?: VibePerformanceData;
-    __PERFORMANCE_TEST_ENABLED__?: boolean;
   }
 }
 
@@ -52,19 +51,8 @@ function createOnRenderCallback(storyId: string): ProfilerOnRenderCallback {
   };
 }
 
-function isPerformanceEnabled(): boolean {
-  if (typeof window === "undefined") return false;
-  return window.__PERFORMANCE_TEST_ENABLED__ === true;
-}
-
 const withPerformanceProfiler: Decorator = (Story, context) => {
-  // Always initialize store so it's accessible in console
   initializeStore();
-
-  // Only wrap in Profiler when enabled
-  if (!isPerformanceEnabled()) {
-    return <Story />;
-  }
 
   const storyId = context.id;
   const onRender = createOnRenderCallback(storyId);

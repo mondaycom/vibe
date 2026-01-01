@@ -27,7 +27,6 @@ module.exports = {
   async preVisit(page) {
     if (!isPerformanceTest) return;
     await page.addInitScript(() => {
-      window.__PERFORMANCE_TEST_ENABLED__ = true;
       window.__VIBE_PERFORMANCE__ = { renders: {} };
     });
   },
@@ -39,17 +38,17 @@ module.exports = {
     try {
       const root = await page.waitForSelector("#storybook-root", { timeout: 5000 }).catch(() => null);
       if (!root) return;
-      
+
       await page.waitForTimeout(50);
 
-      const metrics = await page.evaluate((storyId) => {
+      const metrics = await page.evaluate(storyId => {
         const container = document.querySelector("#storybook-root");
         if (!container) return null;
 
         const perfData = window.__VIBE_PERFORMANCE__;
         const renderMetrics = perfData?.renders?.[storyId];
 
-        const countNodes = (el) => {
+        const countNodes = el => {
           let count = 1;
           for (let i = 0; i < el.children.length; i++) {
             count += countNodes(el.children[i]);
