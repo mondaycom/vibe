@@ -2,7 +2,6 @@
   "name": "@vibe/hooks",
   "version": "3.0.2",
   "description": "Vibe sub-package for React hooks",
-  "_note": "Force rebuild for CI",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
