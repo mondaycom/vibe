@@ -59,7 +59,7 @@ export * from "./LegacyModal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";
 export * from "./RadioButton";
-export * from "./Search";
+export * from "@vibe/search";
 export * from "./Skeleton";
 export * from "./Slider";
 export * from "./SplitButton";

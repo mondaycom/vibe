@@ -1,9 +1,7 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type SubIcon } from "@vibe/icon";
 import { type InputSize } from "@vibe/base";
-import type { IconButton } from "@vibe/icon-button";
-import type MenuButton from "../MenuButton/MenuButton";
 
 export interface SearchProps extends VibeComponentProps {
   /**
@@ -21,7 +19,7 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * Renders an additional action button in the search input.
    */
-  renderAction?: React.ReactElement<typeof IconButton | typeof MenuButton>;
+  renderAction?: React.ReactElement;
   /**
    * If true, hides the additional action button when input has text.
    */
