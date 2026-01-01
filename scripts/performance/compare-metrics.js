@@ -115,7 +115,6 @@ function generateMarkdownReport(prReport, baseReport, regressions, improvements,
   let md = "## ⚡ Performance Report\n\n";
 
   // Summary counts
-  const totalComponents = Object.keys(prReport.components).length;
   let totalStories = 0;
   Object.values(prReport.components).forEach(stories => {
     totalStories += Object.keys(stories).length;
@@ -123,7 +122,6 @@ function generateMarkdownReport(prReport, baseReport, regressions, improvements,
 
   md += `| Metric | Count |\n`;
   md += `|--------|-------|\n`;
-  md += `| Components tested | ${totalComponents} |\n`;
   md += `| Stories tested | ${totalStories} |\n`;
   md += `| Regressions | ${regressions.length} |\n`;
   md += `| Improvements | ${improvements.length} |\n`;
