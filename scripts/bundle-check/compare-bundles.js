@@ -19,6 +19,7 @@ const base = JSON.parse(extractJson(baseContent));
 const pr = JSON.parse(extractJson(prContent));
 
 let md = "📦 **Bundle Size Analysis**\n\n";
+
 const tableHeader = "| Component | Base | PR | Diff |\n|-----------|------|----|------|\n";
 
 const baseMap = new Map();

@@ -1,8 +1,7 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import { Flex } from "@vibe/layout";
-import Heading from "../../components/Heading/Heading";
-import Text from "../../components/Text/Text";
+import { Heading, Text } from "@vibe/typography";
 import { type EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";

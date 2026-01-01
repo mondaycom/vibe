@@ -1,6 +1,6 @@
 import { type MutableRefObject, useMemo } from "react";
-import { type ElementContent } from "../../types";
-import useIsOverflowing from "../../hooks/useIsOverflowing/useIsOverflowing";
+import { type ElementContent } from "@vibe/shared";
+import { useIsOverflowing } from "@vibe/hooks";
 import { type TooltipProps } from "@vibe/tooltip";
 import styles from "./Typography.module.scss";
 

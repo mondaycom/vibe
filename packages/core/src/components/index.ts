@@ -38,7 +38,7 @@ export * from "./ExpandCollapse";
 export * from "@vibe/layout";
 export * from "./FormattedNumber";
 export * from "./GridKeyboardNavigationContext";
-export * from "./Heading";
+export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "./HiddenText";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";
@@ -66,7 +66,7 @@ export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Table";
 export * from "./Tabs";
-export * from "./Text";
+export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./TextWithHighlight";
@@ -80,6 +80,6 @@ export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
 
-export type { TypographyColor, TypographyAlign } from "./Typography";
+export type { TypographyColor, TypographyAlign } from "@vibe/typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";

@@ -4,7 +4,7 @@ import { BaseInput } from "@vibe/base";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";
-import { Text } from "../../../../Text";
+import { Text } from "@vibe/typography";
 
 const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {
   const {

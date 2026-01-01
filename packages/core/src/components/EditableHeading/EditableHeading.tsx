@@ -1,10 +1,8 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
-import Heading from "../Heading/Heading";
+import { Heading, HeadingTypeEnum, HeadingWeightEnum, type HeadingType, type HeadingWeight } from "@vibe/typography";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
-import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "../Heading/HeadingConstants";
-import { type HeadingType, type HeadingWeight } from "../Heading";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
 import EditableTypography, {
