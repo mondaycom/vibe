@@ -157,10 +157,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     // TODO: REMOVE - Fake performance regression for testing
     let _fake = 0;
-    for (let i = 0; i < 100000; i++) {
-      _fake += Math.sqrt(i);
+    for (let i = 0; i < 5000000; i++) {
+      _fake += Math.sqrt(i) * Math.sin(i) * Math.cos(i);
     }
-    console.log(_fake); // Prevent optimization
+    if (_fake === -999) console.log(_fake); // Prevent optimization
 
     const { loading } = useButtonLoading({ isLoading });
 

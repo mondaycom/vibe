@@ -60,6 +60,17 @@ const Modal = forwardRef(
     const modalMergedRef = useMergeRef<HTMLDivElement>(ref, modalRef);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // TODO: REMOVE - Fake JSON serialization bloat for testing
+    const _jsonBloat = useMemo(() => {
+      const obj: Record<string, unknown> = {};
+      for (let i = 0; i < 10000; i++) {
+        obj[`key_${i}`] = { value: i, nested: { data: "x".repeat(50) } };
+      }
+      // Force serialization on every access
+      return JSON.parse(JSON.stringify(obj));
+    }, []);
+    if (Object.keys(_jsonBloat).length === -1) console.log(_jsonBloat);
+
     const [titleId, setTitleId] = useState<string>();
     const [descriptionId, setDescriptionId] = useState<string>();
 
