@@ -1,0 +1,59 @@
+import React, { type ReactElement, type ComponentProps, forwardRef } from "react";
+import cx from "classnames";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId } from "@vibe/shared";
+import TableRow, { type TableRowProps } from "../TableRow/TableRow";
+import type VirtualizedList from "../VirtualizedList/VirtualizedList";
+import styles from "./TableBody.module.scss";
+import { useTable } from "../context/TableContext/TableContext";
+import TableCellSkeleton from "../TableCellSkeleton/TableCellSkeleton";
+import { SKELETON_ROWS_AMOUNT } from "../Table/TableConsts";
+import { getLoadingTypeForCell } from "../Table/tableHelpers";
+
+export interface TableBodyProps extends VibeComponentProps {
+  /**
+   * The child components inside the table body, such as `<TableRow />` elements.
+   */
+  children?:
+    | ReactElement<TableRowProps>
+    | ReactElement<TableRowProps>[]
+    | ReactElement<ComponentProps<typeof VirtualizedList>>;
+}
+
+const TableBody = forwardRef(
+  ({ id, className, "data-testid": dataTestId, children }: TableBodyProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+    const { dataState, emptyState, errorState, columns } = useTable();
+    const { isLoading, isError } = dataState || {};
+
+    const skeletonRender = [...new Array(SKELETON_ROWS_AMOUNT)].map((_, rowIndex) => (
+      <TableRow key={rowIndex}>
+        {columns.map(({ loadingStateType }, columnIndex) => (
+          <TableCellSkeleton
+            key={`${rowIndex}-${columnIndex}`}
+            type={getLoadingTypeForCell(loadingStateType, rowIndex)}
+          />
+        ))}
+      </TableRow>
+    ));
+
+    return (
+      <div
+        ref={ref}
+        id={id}
+        className={cx(styles.tableBody, className)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE_BODY, id)}
+        role="rowgroup"
+      >
+        {isLoading
+          ? skeletonRender
+          : isError
+          ? errorState
+          : !children || (Array.isArray(children) && children.length === 0)
+          ? emptyState
+          : children}
+      </div>
+    );
+  }
+);
+
+export default TableBody;
+

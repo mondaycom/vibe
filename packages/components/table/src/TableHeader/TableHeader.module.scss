@@ -1,0 +1,25 @@
+.tableHeader {
+  display: grid;
+  grid-template-columns: var(--table-grid-template-columns);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--primary-background-color);
+  min-width: 100%;
+  width: fit-content;
+
+  > [role="columnheader"] {
+    background-color: inherit;
+  }
+
+  &.virtualized {
+    overflow: auto;
+    width: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+

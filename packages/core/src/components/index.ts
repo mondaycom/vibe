@@ -64,7 +64,7 @@ export * from "./Skeleton";
 export * from "./Slider";
 export * from "./SplitButton";
 export * from "./Steps";
-export * from "./Table";
+export * from "@vibe/table";
 export * from "./Tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "./TextArea";
