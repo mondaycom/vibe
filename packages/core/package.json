@@ -101,6 +101,7 @@
     "@vibe/layer": "3.0.7",
     "@vibe/layout": "3.0.2",
     "@vibe/loader": "3.0.9",
+    "@vibe/search": "3.0.0",
     "@vibe/shared": "3.0.8",
     "@vibe/tooltip": "3.0.0",
     "@vibe/typography": "3.0.0",

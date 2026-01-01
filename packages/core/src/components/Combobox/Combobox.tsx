@@ -5,7 +5,7 @@ import { noop as NOOP, camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
-import Search from "../Search/Search";
+import { Search } from "@vibe/search";
 import { BASE_SIZES } from "../../constants";
 import { Button } from "@vibe/button";
 import { Text } from "@vibe/typography";

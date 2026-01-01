@@ -1,0 +1,73 @@
+{
+  "name": "@vibe/search",
+  "version": "3.0.0",
+  "description": "Vibe sub-package for search component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/components/search"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "author": "monday.com",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./mockedClassNames": {
+      "import": "./dist/mocked_classnames/index.js",
+      "default": "./dist/mocked_classnames/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c && mock_classnames=on rollup -c",
+    "test": "vitest run",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
+  },
+  "dependencies": {
+    "@vibe/base": "3.0.4",
+    "@vibe/icon": "3.0.9",
+    "@vibe/icon-button": "3.0.0",
+    "@vibe/icons": "1.15.0",
+    "@vibe/loader": "3.0.9",
+    "@vibe/shared": "3.0.8",
+    "classnames": "^2.5.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@vibe/config": "3.0.5",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-test-renderer": "16",
+    "typescript": "^4.7.3",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "sideEffects": [
+    "*.scss",
+    "*.css",
+    "*.scss.js",
+    "*.css.js"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+    ]
+  }
+}
