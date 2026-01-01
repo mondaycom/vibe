@@ -13,6 +13,12 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "ZoomOut",
+    file: "ZoomOut.svg",
+    description: "Decreases magnification to view more of the layout",
+    tags: "Zoom, Decrease, Magnification, Layout, Detail, Interface, Canvas, Editor"
+  },
+  {
     name: "ZoomIn",
     file: "ZoomIn.svg",
     description: "Zoom In icon for external views",
