@@ -35,9 +35,6 @@ jobs:
         uses: ./.github/actions/download-builds
         if: ${{ needs.build.outputs.has_changes == 'true' }}
 
-      - name: Build Storybook
-        run: cd packages/docs && yarn build-storybook
-
       - name: Install Playwright
         # Use root playwright directly (not npx) due to version mismatch with @playwright/test
         run: ./node_modules/playwright/cli.js install --with-deps chromium
@@ -46,10 +43,11 @@ jobs:
         run: |
           mkdir -p scripts/performance/reports
           cd packages/docs
-          npx http-server static_storybook -p 6007 &
-          sleep 3
-          PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6007 --maxWorkers=4 || true
-          pkill -f "http-server.*6007" || true
+          yarn storybook &
+          STORYBOOK_PID=$!
+          npx wait-on http://localhost:7008 --timeout 120000
+          PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
+          kill $STORYBOOK_PID 2>/dev/null || true
         continue-on-error: true
 
       - name: Save PR metrics
@@ -68,20 +66,19 @@ jobs:
           git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
-          cd packages/docs && yarn build-storybook
 
           # Run tests if test-storybook exists on base
-          if [ -f "./node_modules/.bin/test-storybook" ]; then
-            cd ../..
+          if [ -f "packages/docs/node_modules/.bin/test-storybook" ]; then
             ./node_modules/playwright/cli.js install --with-deps chromium 2>/dev/null || npx playwright install --with-deps chromium
             cd packages/docs
-            npx http-server static_storybook -p 6008 &
-            sleep 3
-            PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6008 --maxWorkers=4 || true
-            pkill -f "http-server.*6008" || true
+            yarn storybook &
+            STORYBOOK_PID=$!
+            npx wait-on http://localhost:7008 --timeout 120000 || true
+            PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
+            kill $STORYBOOK_PID 2>/dev/null || true
+            cd ../..
           fi
 
-          cd ../..
           node scripts/performance/aggregate-metrics.js 2>/dev/null || true
           cp scripts/performance/reports/metrics.json scripts/performance/reports/base.json 2>/dev/null || \
             echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/base.json
