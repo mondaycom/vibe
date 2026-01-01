@@ -58,7 +58,7 @@ const Search = forwardRef(
       onClear?.();
     }, [disabled, clearValue, onClear]);
 
-    const SearchIconElement = (
+    const SearchIcon = (
       <Icon
         icon={searchIconName}
         className={styles.icon}
@@ -102,7 +102,7 @@ const Search = forwardRef(
         className={cx(styles.searchWrapper, className)}
         inputClassName={styles.search}
         value={inputValue}
-        renderLeft={SearchIconElement}
+        renderLeft={SearchIcon}
         renderRight={RenderRight}
         autoFocus={autoFocus}
         placeholder={placeholder}
