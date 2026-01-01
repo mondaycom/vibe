@@ -35,109 +35,75 @@ jobs:
         uses: ./.github/actions/download-builds
         if: ${{ needs.build.outputs.has_changes == 'true' }}
 
-      - name: Create reports directory
-        run: mkdir -p scripts/performance/reports
-
       - name: Build Storybook
-        run: |
-          cd packages/docs
-          yarn build-storybook
+        run: cd packages/docs && yarn build-storybook
 
-      - name: Install Playwright browsers
-        run: |
-          echo "=== Installing browsers for root playwright (build 1200) ==="
-          ./node_modules/playwright/cli.js install --with-deps chromium
-          echo "=== Installed browser builds ==="
-          ls -la ~/.cache/ms-playwright/
+      - name: Install Playwright
+        # Use root playwright directly (not npx) due to version mismatch with @playwright/test
+        run: ./node_modules/playwright/cli.js install --with-deps chromium
 
-      - name: Run performance tests on PR branch
+      - name: Test PR branch
         run: |
+          mkdir -p scripts/performance/reports
           cd packages/docs
           npx http-server static_storybook -p 6007 &
-          HTTP_PID=$!
           sleep 3
           PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6007 --maxWorkers=4 || true
-          kill $HTTP_PID 2>/dev/null || true
-          sleep 1
+          pkill -f "http-server.*6007" || true
         continue-on-error: true
 
-      - name: Aggregate PR metrics
+      - name: Save PR metrics
         run: |
           node scripts/performance/aggregate-metrics.js
-          if [ -f "scripts/performance/reports/metrics.json" ]; then
-            cp scripts/performance/reports/metrics.json scripts/performance/reports/pr.json
-            echo "PR metrics saved"
-          else
-            echo '{"timestamp":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'","commit":"'${{ github.event.pull_request.head.sha }}'","components":{}}' > scripts/performance/reports/pr.json
-            echo "Created empty PR metrics"
-          fi
+          cp scripts/performance/reports/metrics.json scripts/performance/reports/pr.json 2>/dev/null || \
+            echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/pr.json
 
-      - name: Run performance tests on base commit
+      - name: Test base branch
         run: |
-          fuser -k 6007/tcp 2>/dev/null || true
           rm -f scripts/performance/reports/.metrics-temp.jsonl
-
-          PR_HEAD_SHA=$(git rev-parse HEAD)
-          trap "echo 'Checking out back to PR commit'; git checkout --force $PR_HEAD_SHA" EXIT
-
+          PR_SHA=$(git rev-parse HEAD)
           BASE=$(git merge-base origin/master HEAD)
-          echo "Base commit: $BASE"
-          git checkout $BASE
+          echo "Base: $BASE"
 
+          git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
+          cd packages/docs && yarn build-storybook
 
-          cd packages/docs
-          yarn build-storybook
-
+          # Run tests if test-storybook exists on base
           if [ -f "./node_modules/.bin/test-storybook" ]; then
             cd ../..
-            if [ -f "./node_modules/playwright/cli.js" ]; then
-              ./node_modules/playwright/cli.js install --with-deps chromium
-            else
-              npx playwright install --with-deps chromium
-            fi
+            ./node_modules/playwright/cli.js install --with-deps chromium 2>/dev/null || npx playwright install --with-deps chromium
             cd packages/docs
             npx http-server static_storybook -p 6008 &
-            HTTP_PID=$!
             sleep 3
             PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:6008 --maxWorkers=4 || true
-            kill $HTTP_PID 2>/dev/null || true
-          else
-            echo "test-storybook not available on base branch, skipping"
+            pkill -f "http-server.*6008" || true
           fi
 
           cd ../..
-          if [ -f "scripts/performance/aggregate-metrics.js" ]; then
-            node scripts/performance/aggregate-metrics.js
-          fi
-          if [ -f "scripts/performance/reports/metrics.json" ]; then
-            cp scripts/performance/reports/metrics.json scripts/performance/reports/base.json
-            echo "Base metrics saved"
-          else
-            echo '{"timestamp":"'$(date -u +"%Y-%m-%dT%H:%M:%SZ")'","commit":"'$BASE'","components":{}}' > scripts/performance/reports/base.json
-            echo "Created empty base metrics"
-          fi
+          node scripts/performance/aggregate-metrics.js 2>/dev/null || true
+          cp scripts/performance/reports/metrics.json scripts/performance/reports/base.json 2>/dev/null || \
+            echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/base.json
+
+          git checkout $PR_SHA
         continue-on-error: true
 
-      - name: Compare performance metrics
+      - name: Generate report
         run: node scripts/performance/compare-metrics.js
         continue-on-error: true
 
       - name: Post PR comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: always() && hashFiles('scripts/performance/reports/comparison.md') != ''
+        if: hashFiles('scripts/performance/reports/comparison.md') != ''
         with:
           header: performance
           path: scripts/performance/reports/comparison.md
 
-      - name: Upload performance reports
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: performance-reports
-          path: |
-            scripts/performance/reports/pr.json
-            scripts/performance/reports/base.json
-            scripts/performance/reports/comparison.md
+          path: scripts/performance/reports/*.json
           retention-days: 7

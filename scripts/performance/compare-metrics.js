@@ -112,7 +112,7 @@ function compareStoryMetrics(baseMetrics, prMetrics, componentName, storyName) {
 }
 
 function generateMarkdownReport(prReport, baseReport, regressions, improvements, unchanged) {
-  let md = "# ⚡ Performance Report\n\n";
+  let md = "## ⚡ Performance Report\n\n";
 
   // Summary counts
   const totalComponents = Object.keys(prReport.components).length;
@@ -121,7 +121,6 @@ function generateMarkdownReport(prReport, baseReport, regressions, improvements,
     totalStories += Object.keys(stories).length;
   });
 
-  md += "## 📊 Summary\n\n";
   md += `| Metric | Count |\n`;
   md += `|--------|-------|\n`;
   md += `| Components tested | ${totalComponents} |\n`;
@@ -156,7 +155,7 @@ function generateMarkdownReport(prReport, baseReport, regressions, improvements,
 
     md += "\n";
   } else {
-    md += "## ✅ No Significant Performance Changes\n\n";
+    md += "### ✅ No Significant Performance Changes\n\n";
     md += "All components are performing within acceptable thresholds.\n\n";
   }
 
@@ -167,15 +166,16 @@ function generateMarkdownReport(prReport, baseReport, regressions, improvements,
     md += "</details>\n\n";
   }
 
-  // Thresholds info
-  md += "---\n\n";
+  // Collapsible thresholds info
+  md += "<details><summary>ℹ️ About this report</summary>\n\n";
   md += "**📏 Thresholds:**\n";
   md += `- Mount time: ±${THRESHOLDS.MOUNT_TIME_REGRESSION}% for regression\n`;
   md += `- Memory usage: ±${THRESHOLDS.MEMORY_REGRESSION}% for regression\n`;
   md += `- DOM nodes: ±${THRESHOLDS.DOM_NODES_REGRESSION}% for regression\n`;
   md += `- Changes under ${THRESHOLDS.NOISE_FLOOR}% are not reported\n\n`;
   md +=
-    "**Legend:** ⚠️ Regression | 🔺 Minor increase | ✨ Significant improvement | 🟢 Minor improvement | ➖ No change\n";
+    "**Legend:** ⚠️ Regression | 🔺 Minor increase | ✨ Significant improvement | 🟢 Minor improvement | ➖ No change\n\n";
+  md += "</details>\n";
 
   return md;
 }
