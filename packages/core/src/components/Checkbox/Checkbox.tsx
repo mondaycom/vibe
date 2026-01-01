@@ -103,16 +103,6 @@ const Checkbox = forwardRef(
     const mergedInputRef = useMergeRef(ref, inputRef);
     const iconContainerRef = useRef<HTMLDivElement>(null);
 
-    // TODO: REMOVE - Fake memory bloat for testing
-    const _memoryBloat = useMemo(() => {
-      const arr = [];
-      for (let i = 0; i < 50000; i++) {
-        arr.push({ id: i, data: "x".repeat(100), nested: { a: i, b: i * 2 } });
-      }
-      return arr;
-    }, []);
-    if (_memoryBloat.length === -1) console.log(_memoryBloat);
-
     const onMouseUpCallback = useCallback(() => {
       const input = inputRef.current;
       if (!input) return;

@@ -45,9 +45,9 @@ jobs:
           cd packages/docs
           yarn storybook &
           STORYBOOK_PID=$!
-          npx wait-on http://localhost:7008 --timeout 120000
+          trap 'kill $STORYBOOK_PID 2>/dev/null || true' EXIT
+          npx wait-on http://localhost:7008 --timeout 120000 || exit 1
           PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
-          kill $STORYBOOK_PID 2>/dev/null || true
         continue-on-error: true
 
       - name: Save PR metrics
@@ -61,25 +61,22 @@ jobs:
           rm -f scripts/performance/reports/.metrics-temp.jsonl
           PR_SHA=$(git rev-parse HEAD)
           BASE=$(git merge-base origin/master HEAD)
-          echo "Base: $BASE"
+          echo "Testing base commit: $BASE"
 
           git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
+          ./node_modules/playwright/cli.js install --with-deps chromium
 
-          # Run tests if test-storybook exists on base
-          if [ -f "packages/docs/node_modules/.bin/test-storybook" ]; then
-            ./node_modules/playwright/cli.js install --with-deps chromium 2>/dev/null || npx playwright install --with-deps chromium
-            cd packages/docs
-            yarn storybook &
-            STORYBOOK_PID=$!
-            npx wait-on http://localhost:7008 --timeout 120000 || true
-            PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
-            kill $STORYBOOK_PID 2>/dev/null || true
-            cd ../..
-          fi
+          cd packages/docs
+          yarn storybook &
+          STORYBOOK_PID=$!
+          trap 'kill $STORYBOOK_PID 2>/dev/null || true' EXIT
+          npx wait-on http://localhost:7008 --timeout 120000 || exit 1
+          PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
+          cd ../..
 
-          node scripts/performance/aggregate-metrics.js 2>/dev/null || true
+          node scripts/performance/aggregate-metrics.js
           cp scripts/performance/reports/metrics.json scripts/performance/reports/base.json 2>/dev/null || \
             echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/base.json
 

@@ -155,13 +155,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, buttonRef);
 
-    // TODO: REMOVE - Fake performance regression for testing
-    let _fake = 0;
-    for (let i = 0; i < 5000000; i++) {
-      _fake += Math.sqrt(i) * Math.sin(i) * Math.cos(i);
-    }
-    if (_fake === -999) console.log(_fake); // Prevent optimization
-
     const { loading } = useButtonLoading({ isLoading });
 
     useEffect(() => {
