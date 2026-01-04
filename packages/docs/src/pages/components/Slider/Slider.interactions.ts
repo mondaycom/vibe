@@ -1,119 +1,140 @@
 import { expect } from "@storybook/jest";
-import { userEvent, within } from "@storybook/test";
-import { delay, drag, interactionSuite, waitForElementVisible, resetFocus } from "@vibe/core/interactionsTests";
+import { fireEvent, within } from "@storybook/test";
+import { delay, interactionSuite, resetFocus } from "@vibe/core/interactionsTests";
 
-const CHANGES_DELAY = 1;
-const MOVE_DURATION = 100;
+const CHANGES_DELAY = 50;
+const DRAG_STEPS = 20;
+const DRAG_STEP_DELAY = 5;
 
-// Decrease/Increase value by mouse click on Track/Rail of Slider (NON-Ranged)
-const changeSliderValueByClickingOnTrackTest = async canvas => {
-  // prepare: take sizes of slider and waiting for render
+function clickAtX(element: HTMLElement, clientX: number): void {
+  const rect = element.getBoundingClientRect();
+  const clientY = rect.top + rect.height / 2;
+  fireEvent.click(element, { clientX, clientY });
+}
+
+async function dragToX(element: HTMLElement, targetX: number): Promise<void> {
+  const rect = element.getBoundingClientRect();
+  const startX = rect.left + rect.width / 2;
+  const startY = rect.top + rect.height / 2;
+
+  const stepX = (targetX - startX) / DRAG_STEPS;
+  let currentX = startX;
+
+  // Start the drag
+  fireEvent.pointerDown(element, { clientX: currentX, clientY: startY });
+
+  // Move through steps
+  for (let i = 0; i < DRAG_STEPS; i++) {
+    currentX += stepX;
+    await delay(DRAG_STEP_DELAY);
+    fireEvent.pointerMove(document, { clientX: currentX, clientY: startY });
+  }
+
+  // End the drag
+  fireEvent.pointerUp(document, { clientX: currentX, clientY: startY });
+}
+
+async function testNonRangedSliderClickOnRail(canvas: ReturnType<typeof within>): Promise<void> {
   const elRail = canvas.getByTestId("monday-slider-show-value-s__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumb = await within(elRail).findByRole("slider");
-  // go to start
-  userEvent.click(elRail, { clientX: Math.ceil(rect.left) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumb.getAttribute("aria-valuenow")).toBe("0");
-  // go to end
-  userEvent.click(elRail, { clientX: Math.floor(rect.right) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumb.getAttribute("aria-valuenow")).toBe("100");
-  // go to middle
-  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.5) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumb.getAttribute("aria-valuenow")).toBe("50");
-};
+  const elThumb = within(elRail).getByRole("slider");
 
-// Decrease value by drug Thumb of Slider (NON-Ranged)
-const changeSliderValueByDragThumbTest = async canvas => {
+  // Click at start (0%)
+  clickAtX(elRail, rect.left);
+  await delay(CHANGES_DELAY);
+  expect(elThumb.getAttribute("aria-valuenow")).toBe("0");
+
+  // Click at end (100%)
+  clickAtX(elRail, rect.right);
+  await delay(CHANGES_DELAY);
+  expect(elThumb.getAttribute("aria-valuenow")).toBe("100");
+
+  // Click at middle (50%)
+  clickAtX(elRail, rect.left + rect.width * 0.5);
+  await delay(CHANGES_DELAY);
+  expect(elThumb.getAttribute("aria-valuenow")).toBe("50");
+}
+
+async function testNonRangedSliderDragThumb(canvas: ReturnType<typeof within>): Promise<void> {
   const elRail = canvas.getByTestId("monday-slider-show-value-m__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumb = await waitForElementVisible(() => within(elRail).getByRole("slider"));
-  await drag(elThumb, {
-    duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) }
-  });
-  await expect(elThumb.getAttribute("aria-valuenow")).toBe("25");
-  await drag(elThumb, {
-    duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.75) }
-  });
-  await expect(elThumb.getAttribute("aria-valuenow")).toBe("75");
-};
+  const elThumb = within(elRail).getByRole("slider");
 
-// Decrease/Increase values by mouse click on Track/Rail of Ranged Slider
-const changeRangedSliderValueByClickingOnTrackTest = async canvas => {
-  // prepare: take sizes of slider and waiting for render
+  // Drag to 25%
+  await dragToX(elThumb, rect.left + rect.width * 0.25);
+  await delay(CHANGES_DELAY);
+  expect(elThumb.getAttribute("aria-valuenow")).toBe("25");
+
+  // Drag to 75%
+  await dragToX(elThumb, rect.left + rect.width * 0.75);
+  await delay(CHANGES_DELAY);
+  expect(elThumb.getAttribute("aria-valuenow")).toBe("75");
+}
+
+async function testRangedSliderClickOnRail(canvas: ReturnType<typeof within>): Promise<void> {
   const elRail = canvas.getByTestId("monday-ranged-slider-m__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumbStart = await within(elRail).findByTestId("monday-ranged-slider-m__thumb-0");
-  const elThumbEnd = await within(elRail).findByTestId("monday-ranged-slider-m__thumb-1");
-  // Start Thumb to Start (0)
-  userEvent.click(elRail, { clientX: Math.ceil(rect.left) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("0");
-  // End Thumb to End (100)
-  userEvent.click(elRail, { clientX: Math.floor(rect.right) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("100");
-  // Start Thumb to 1/3 (33)
-  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.25) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("25");
-  // Start Thumb to 3/4 (75)
-  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.75) });
-  await delay(CHANGES_DELAY);
-  await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("75");
-};
+  const elThumbStart = within(elRail).getByTestId("monday-ranged-slider-m__thumb-0");
+  const elThumbEnd = within(elRail).getByTestId("monday-ranged-slider-m__thumb-1");
 
-// Change value by drug Thumbs of Ranged Slider
-const changeRangedSliderValueByDragThumbTest = async canvas => {
-  // prepare slider tests
+  // Click at start - moves start thumb to 0
+  clickAtX(elRail, rect.left);
+  await delay(CHANGES_DELAY);
+  expect(elThumbStart.getAttribute("aria-valuenow")).toBe("0");
+
+  // Click at end - moves end thumb to 100
+  clickAtX(elRail, rect.right);
+  await delay(CHANGES_DELAY);
+  expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("100");
+
+  // Click at 25% - moves start thumb (nearest)
+  clickAtX(elRail, rect.left + rect.width * 0.25);
+  await delay(CHANGES_DELAY);
+  expect(elThumbStart.getAttribute("aria-valuenow")).toBe("25");
+
+  // Click at 75% - moves end thumb (nearest)
+  clickAtX(elRail, rect.left + rect.width * 0.75);
+  await delay(CHANGES_DELAY);
+  expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("75");
+}
+
+async function testRangedSliderDragThumbs(canvas: ReturnType<typeof within>): Promise<void> {
   const elRail = canvas.getByTestId("monday-ranged-slider-s__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumbStart = await within(elRail).findByTestId("monday-ranged-slider-s__thumb-0");
-  const elThumbEnd = await within(elRail).findByTestId("monday-ranged-slider-s__thumb-1");
+  const elThumbStart = within(elRail).getByTestId("monday-ranged-slider-s__thumb-0");
+  const elThumbEnd = within(elRail).getByTestId("monday-ranged-slider-s__thumb-1");
 
-  // move Start Thumb from 0% to 25%
-  await drag(elThumbStart, {
-    duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) }
-  });
-  await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("25");
+  // Drag start thumb to 25%
+  await dragToX(elThumbStart, rect.left + rect.width * 0.25);
+  await delay(CHANGES_DELAY);
+  expect(elThumbStart.getAttribute("aria-valuenow")).toBe("25");
 
-  // move End Thumb from 100% to 65%
-  await drag(elThumbEnd, {
-    duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.65) }
-  });
-  await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("65");
+  // Drag end thumb to 65%
+  await dragToX(elThumbEnd, rect.left + rect.width * 0.65);
+  await delay(CHANGES_DELAY);
+  expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("65");
 
-  // move Start Thumb to 95% --> switch End/Start Thumbs when crossing
-  await drag(elThumbStart, {
-    duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.95) }
-  });
-  // drag Start Thumb but after crossing it switching to End Thumb - should be checked
-  await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("95");
+  // Drag start thumb past end thumb to 95% - thumbs should switch
+  await dragToX(elThumbStart, rect.left + rect.width * 0.95);
+  await delay(CHANGES_DELAY);
+  // After crossing, the end thumb should now be at 95%
+  expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("95");
 
-  // move Start Thumb from 75% to 5%
-  await drag(elThumbStart, {
-    duration: MOVE_DURATION,
-    toCoords: { x: Math.ceil(rect.left + rect.width * 0.05) }
-  });
-  await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("5");
-};
+  // Drag start thumb to 5%
+  await dragToX(elThumbStart, rect.left + rect.width * 0.05);
+  await delay(CHANGES_DELAY);
+  expect(elThumbStart.getAttribute("aria-valuenow")).toBe("5");
+}
 
 export const nonRangedSliderMouseEventsPlaySuite = interactionSuite({
-  tests: [changeSliderValueByClickingOnTrackTest, changeSliderValueByDragThumbTest],
+  tests: [testNonRangedSliderClickOnRail, testNonRangedSliderDragThumb],
   afterEach: async () => {
     await resetFocus();
   }
 });
 
 export const rangedSliderMouseEventsPlaySuite = interactionSuite({
-  tests: [changeRangedSliderValueByClickingOnTrackTest, changeRangedSliderValueByDragThumbTest],
+  tests: [testRangedSliderClickOnRail, testRangedSliderDragThumbs],
   afterEach: async () => {
     await resetFocus();
   }
