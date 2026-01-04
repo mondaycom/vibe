@@ -40,14 +40,16 @@ module.exports = {
       if (!root) return;
 
       // Wait for React Profiler to record metrics (replaces arbitrary timeout)
-      await page.waitForFunction(
-        (storyId) => {
-          const data = window.__VIBE_PERFORMANCE__?.renders?.[storyId];
-          return data && data.actualDuration > 0;
-        },
-        { timeout: 5000 },
-        id
-      ).catch(() => null); // Graceful fallback if profiler doesn't fire
+      await page
+        .waitForFunction(
+          storyId => {
+            const data = window.__VIBE_PERFORMANCE__?.renders?.[storyId];
+            return data && data.actualDuration > 0;
+          },
+          { timeout: 5000 },
+          id
+        )
+        .catch(() => null); // Graceful fallback if profiler doesn't fire
 
       const metrics = await page.evaluate(storyId => {
         const container = document.querySelector("#storybook-root");
