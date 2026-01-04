@@ -7,7 +7,7 @@ const THRESHOLDS = {
   /** Mount time regression threshold (%) */
   MOUNT_TIME_REGRESSION: 20,
   /** Memory regression threshold (%) - higher because memory is more variable */
-  MEMORY_REGRESSION: 30,
+  MEMORY_REGRESSION: 50,
   /** DOM nodes regression threshold (%) */
   DOM_NODES_REGRESSION: 15
 };

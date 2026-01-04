@@ -140,10 +140,10 @@ const preview: Preview = {
     }
   },
   decorators: [
-    withPerformanceProfiler,
     withLiveEdit,
     withGlobalStyle,
     withMemoryStats,
+    withPerformanceProfiler,
     // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
     withThemeByClassName({
       themes: {
