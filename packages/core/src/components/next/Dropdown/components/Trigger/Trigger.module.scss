@@ -35,6 +35,11 @@
       width: 48px;
       flex-shrink: 0;
       padding: 0 var(--spacing-xs);
+
+      &.fullWidth {
+        width: 100%;
+        flex-grow: 1;
+      }
     }
 
     &.hasSelected {
@@ -89,7 +94,7 @@
 }
 
 .multiWrapper {
-  padding: var(--spacing-xs) var(--spacing-small);
+  padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-small);
   width: 100%;
 }
 
