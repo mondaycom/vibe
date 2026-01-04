@@ -1,6 +1,6 @@
 {
   "name": "@vibe/typography",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Vibe sub-package for typography components (Text and Typography)",
   "repository": {
     "type": "git",
@@ -37,9 +37,9 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "3.0.2",
+    "@vibe/hooks": "3.0.3",
     "@vibe/shared": "3.0.8",
-    "@vibe/tooltip": "3.0.0",
+    "@vibe/tooltip": "3.0.1",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "monday-ui-style": "0.26.2"

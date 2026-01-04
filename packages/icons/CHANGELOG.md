@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.15.0...@vibe/icons@1.16.0) (2026-01-04)
+
+
+### Features
+
+* **Icons:** New zoom out icon ([#3227](https://github.com/mondaycom/vibe/issues/3227)) ([d480582](https://github.com/mondaycom/vibe/commit/d4805829ae79c9300a3a5767c84bc08db9cafa7c))
+
+
+
+
+
 # [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.14.0...@vibe/icons@1.15.0) (2025-12-25)
 
 
