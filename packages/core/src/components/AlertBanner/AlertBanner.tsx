@@ -13,7 +13,7 @@ import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { AlertBannerContext } from "./AlertBannerContext";
 
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;

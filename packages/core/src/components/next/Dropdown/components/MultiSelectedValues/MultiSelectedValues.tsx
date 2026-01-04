@@ -8,6 +8,8 @@ import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
 import DropdownChip from "../Trigger/DropdownChip";
 
+const INPUT_DEDUCTED_WIDTH = 48;
+
 type MultiSelectedValuesProps<Item> = {
   selectedItems: Item[];
   onRemove: (item: Item) => void;
@@ -35,6 +37,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
     itemRefs,
     gap: 4,
     deductedSpaceRef,
+    deductedWidth: renderInput ? INPUT_DEDUCTED_WIDTH : 0,
     minVisibleCount: selectedItems.length === 1 ? 1 : minVisibleCount
   });
 
@@ -111,9 +114,10 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
     >
       {chipElements}
 
-      <Flex ref={deductedSpaceRef} gap="xs">
+      <Flex gap="xs" className={styles.inputAndCounterWrapper}>
         {hiddenCount > 0 && (
           <div
+            ref={deductedSpaceRef}
             onClick={e => {
               e.stopPropagation();
             }}

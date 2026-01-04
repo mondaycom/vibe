@@ -8,7 +8,7 @@ import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colo
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "@vibe/icon-button";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";

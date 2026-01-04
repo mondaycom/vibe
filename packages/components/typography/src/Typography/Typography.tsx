@@ -1,14 +1,16 @@
 import React, { forwardRef, useRef, type HTMLAttributes, useContext } from "react";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../types";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { type ElementContent } from "../../types";
+import {
+  useMergeRef,
+  type VibeComponentProps,
+  getTestId,
+  ComponentDefaultTestId,
+  type ElementContent
+} from "@vibe/shared";
 import { type TypographyAlign, type TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import { TypographyContext } from "./utils/TypographyContext";
+import { TypographyContext } from "./TypographyContext";
 import styles from "./Typography.module.scss";
 
 export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTMLElement> {

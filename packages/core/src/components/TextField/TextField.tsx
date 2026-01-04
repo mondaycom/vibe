@@ -12,7 +12,7 @@ import React, {
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import {
   FEEDBACK_CLASSES,

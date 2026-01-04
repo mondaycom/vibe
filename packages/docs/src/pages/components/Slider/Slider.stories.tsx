@@ -3,7 +3,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { Slider, Chips, Flex } from "@vibe/core";
 import { Sound, Video } from "@vibe/icons";
-// import { rangedSliderMouseEventsPlaySuite, nonRangedSliderMouseEventsPlaySuite } from "./Slider.interactions";
+import { rangedSliderMouseEventsPlaySuite, nonRangedSliderMouseEventsPlaySuite } from "./Slider.interactions";
 
 const argTypes = createStoryMetaSettingsDecorator({
   component: Slider
@@ -62,10 +62,8 @@ export const Ranged = {
       />
       <Slider id="ranged-large" ariaLabel="Large ranged slider" size="large" ranged={true} defaultValue={[25, 32]} />
     </Flex>
-  )
-
-  // TODO storybook 7 migration: interactive test isn't working correctly
-  // play: rangedSliderMouseEventsPlaySuite
+  ),
+  play: rangedSliderMouseEventsPlaySuite
 };
 
 export const Colors = {
@@ -200,10 +198,8 @@ export const ShowValue = {
         size="large"
       />
     </Flex>
-  )
-
-  // TODO storybook 7 migration: interactive test isn't working correctly
-  // play: nonRangedSliderMouseEventsPlaySuite
+  ),
+  play: nonRangedSliderMouseEventsPlaySuite
 };
 
 export const LimitsSteps = {

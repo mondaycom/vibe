@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.83.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.0...@vibe/core@3.83.1) (2026-01-04)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+# [3.83.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.4...@vibe/core@3.83.0) (2026-01-04)
+
+
+### Features
+
+* **Dropdown:** enhance MultiSelectedValues and DropdownInput for better layout and responsiveness ([#3230](https://github.com/mondaycom/vibe/issues/3230)) ([40f8791](https://github.com/mondaycom/vibe/commit/40f8791d4b1855bcb568005e625b4b2c7967c704))
+
+
+
+
+
 ## [3.82.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.3...@vibe/core@3.82.4) (2025-12-28)
 
 **Note:** Version bump only for package @vibe/core

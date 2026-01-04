@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import Avatar from "../../../Avatar/Avatar";
 import { Icon } from "@vibe/icon";
-import Text from "../../../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./ChildrenContent.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
