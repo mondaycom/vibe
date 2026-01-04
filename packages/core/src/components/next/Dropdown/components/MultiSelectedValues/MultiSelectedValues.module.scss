@@ -19,10 +19,23 @@
     }
   }
 }
+
+.inputAndCounterWrapper {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.inputWrapper {
+  flex-grow: 1;
+
+  input {
+    width: 100%;
+  }
+}
+
 .chipWrapperWithOverflow {
   max-width: 100%;
-  flex-shrink: 1;
-  min-width: 0;
+  flex-shrink: 0;
 
   .visibleChip {
     max-width: 100%;

@@ -6,7 +6,7 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";
 import { Text } from "@vibe/typography";
 
-const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large" }) => {
+const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium" | "large"; fullWidth?: boolean }) => {
   const {
     inputValue,
     autoFocus,
@@ -49,7 +49,8 @@ const DropdownInput = ({ inputSize }: { inputSize?: "small" | "medium" | "large"
             [styles.hasSelected]: !multi && selectedItem && !inputValue,
             [styles.small]: inputSize === "small",
             [styles.multi]: multi && hasSelection,
-            [styles.multiSelected]: multi && hasSelection && inputSize === "small"
+            [styles.multiSelected]: multi && hasSelection && inputSize === "small",
+            [styles.fullWidth]: fullWidth
           })}
           disabled={disabled}
           readOnly={readOnly}
