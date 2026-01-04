@@ -2,6 +2,11 @@ name: Build and Upload Artifacts
 
 on:
   workflow_call:
+    inputs:
+      skip_release_artifacts:
+        description: Whether to skip release-only build artifacts (mocked classnames, metadata) to speed up CI checks.
+        type: boolean
+        default: false
     secrets:
       npm_token:
         required: true
@@ -35,6 +40,7 @@ jobs:
         shell: bash
         env:
           SINCE_FLAG: ${{ steps.determine-since-flag.outputs.since_flag }}
+          SKIP_RELEASE_ARTIFACTS: ${{ inputs.skip_release_artifacts }}
         run: yarn lerna run build $SINCE_FLAG --include-dependencies
       - name: Upload
         if: ${{ steps.check-changed-packages.outputs.has_changes == 'true' }}

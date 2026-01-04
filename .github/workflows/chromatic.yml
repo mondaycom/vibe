@@ -11,6 +11,8 @@ jobs:
   build:
     name: Build
     uses: ./.github/workflows/build-and-upload.yml
+    with:
+      skip_release_artifacts: true
     secrets:
       npm_token: ${{ secrets.npm_token }}
 
