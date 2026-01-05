@@ -35,9 +35,9 @@ async function dragToX(element: HTMLElement, targetX: number): Promise<void> {
 }
 
 async function testNonRangedSliderClickOnRail(canvas: ReturnType<typeof within>): Promise<void> {
-  const elRail = canvas.getByTestId("monday-slider-show-value-s__rail");
+  const elRail = await canvas.findByTestId("monday-slider-show-value-s__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumb = within(elRail).getByRole("slider");
+  const elThumb = await within(elRail).findByRole("slider");
 
   // Click at start (0%)
   clickAtX(elRail, rect.left);
@@ -56,9 +56,9 @@ async function testNonRangedSliderClickOnRail(canvas: ReturnType<typeof within>)
 }
 
 async function testNonRangedSliderDragThumb(canvas: ReturnType<typeof within>): Promise<void> {
-  const elRail = canvas.getByTestId("monday-slider-show-value-m__rail");
+  const elRail = await canvas.findByTestId("monday-slider-show-value-m__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumb = within(elRail).getByRole("slider");
+  const elThumb = await within(elRail).findByRole("slider");
 
   // Drag to 25%
   await dragToX(elThumb, rect.left + rect.width * 0.25);
@@ -72,10 +72,10 @@ async function testNonRangedSliderDragThumb(canvas: ReturnType<typeof within>): 
 }
 
 async function testRangedSliderClickOnRail(canvas: ReturnType<typeof within>): Promise<void> {
-  const elRail = canvas.getByTestId("monday-ranged-slider-m__rail");
+  const elRail = await canvas.findByTestId("monday-ranged-slider-m__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumbStart = within(elRail).getByTestId("monday-ranged-slider-m__thumb-0");
-  const elThumbEnd = within(elRail).getByTestId("monday-ranged-slider-m__thumb-1");
+  const elThumbStart = await within(elRail).findByTestId("monday-ranged-slider-m__thumb-0");
+  const elThumbEnd = await within(elRail).findByTestId("monday-ranged-slider-m__thumb-1");
 
   // Click at start - moves start thumb to 0
   clickAtX(elRail, rect.left);
@@ -99,10 +99,10 @@ async function testRangedSliderClickOnRail(canvas: ReturnType<typeof within>): P
 }
 
 async function testRangedSliderDragThumbs(canvas: ReturnType<typeof within>): Promise<void> {
-  const elRail = canvas.getByTestId("monday-ranged-slider-s__rail");
+  const elRail = await canvas.findByTestId("monday-ranged-slider-s__rail");
   const rect = elRail.getBoundingClientRect();
-  const elThumbStart = within(elRail).getByTestId("monday-ranged-slider-s__thumb-0");
-  const elThumbEnd = within(elRail).getByTestId("monday-ranged-slider-s__thumb-1");
+  const elThumbStart = await within(elRail).findByTestId("monday-ranged-slider-s__thumb-0");
+  const elThumbEnd = await within(elRail).findByTestId("monday-ranged-slider-s__thumb-1");
 
   // Drag start thumb to 25%
   await dragToX(elThumbStart, rect.left + rect.width * 0.25);
