@@ -149,6 +149,8 @@
     "snapshot-diff": "^0.9.0",
     "storybook": "^8.6.15",
     "storybook-addon-playground": "^2.0.1",
+    "@storybook/test-runner": "^0.19.1",
+    "playwright": "^1.40.0",
     "ts-loader": "^9.3.1",
     "ts-morph": "^25.0.1",
     "ts-node": "^10.9.2",

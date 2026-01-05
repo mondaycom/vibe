@@ -16,4 +16,6 @@ coverage
 packages/testkit/test-results
 packages/testkit/reports
 scripts/bundle-check/reports
+scripts/performance/reports/*.json
+scripts/performance/reports/*.md
 .size-limit.js
