@@ -213,6 +213,37 @@ Make sure to import them from `@vibe/core` instead of the `/next` entry:
 `}
 />
 
+**Search**
+
+- The `type` prop was removed. The `Search.types.SQUARE`, `ROUND`, and `UNDERLINE` variants are no longer available
+- The `validation` prop was removed
+- The `wrapperClassName` prop was removed, use `className` instead
+- The `setRef` prop was removed, use the standard `ref` prop instead
+- The `iconNames` prop was removed. Use `clearIconLabel` for the clear button accessibility label
+- The `iconName` prop was renamed to `searchIconName`
+- The `secondaryIconName` prop was renamed to `clearIconName`
+- The `activeDescendant` prop was renamed to `currentAriaResultId`:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <Search iconName={MyIcon} secondaryIconName={ClearIcon} activeDescendant="result-1" />
++ <Search searchIconName={MyIcon} clearIconName={ClearIcon} currentAriaResultId="result-1" />
+`}
+  />
+</ul>
+
+- The `Search.sizes.SMALL/MEDIUM/LARGE` size values were removed, use `small`, `medium`, `large` respectively:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <Search size={Search.sizes.SMALL} />
++ <Search size="small" />
+`}
+  />
+</ul>
+
+- The `debounceRate` default changed from `200` to `400`
+
 The following components have breaking changes to their API, behavior, or style, as detailed below:
 
 **AvatarGroup**
