@@ -5,7 +5,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "components/typography"
+    "directory": "packages/components/typography"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
