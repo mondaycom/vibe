@@ -18,15 +18,14 @@ jobs:
     secrets:
       npm_token: ${{ secrets.npm_token }}
 
-  performance:
+  test-pr:
+    name: Test PR Branch
     runs-on: ubuntu-latest
     needs: build
-    timeout-minutes: 30
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Run Setup
         uses: ./.github/actions/setup
@@ -38,10 +37,9 @@ jobs:
         if: ${{ needs.build.outputs.has_changes == 'true' }}
 
       - name: Install Playwright
-        # Use root playwright directly (not npx) due to version mismatch with @playwright/test
         run: ./node_modules/playwright/cli.js install --with-deps chromium
 
-      - name: Test PR branch
+      - name: Run performance tests
         run: |
           mkdir -p scripts/performance/reports
           cd packages/docs
@@ -52,38 +50,99 @@ jobs:
           PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
         continue-on-error: true
 
-      - name: Save PR metrics
+      - name: Aggregate metrics
         run: |
           node scripts/performance/aggregate-metrics.js
           cp scripts/performance/reports/metrics.json scripts/performance/reports/pr.json 2>/dev/null || \
             echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/pr.json
 
-      - name: Test base branch
+      - name: Upload PR metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-metrics
+          path: scripts/performance/reports/pr.json
+          retention-days: 1
+
+  test-base:
+    name: Test Base Branch
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout base commit
         run: |
-          rm -f scripts/performance/reports/.metrics-temp.jsonl
-          PR_SHA=$(git rev-parse HEAD)
-          BASE=$(git merge-base origin/master HEAD)
+          BASE=$(git merge-base origin/${{ github.event.pull_request.base.ref }} ${{ github.event.pull_request.head.sha }})
           echo "Testing base commit: $BASE"
-
           git checkout $BASE
-          yarn install --frozen-lockfile
-          yarn build
-          ./node_modules/playwright/cli.js install --with-deps chromium
 
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+
+      - name: Build
+        run: yarn build
+
+      - name: Install Playwright
+        run: ./node_modules/playwright/cli.js install --with-deps chromium
+
+      - name: Run performance tests
+        run: |
+          mkdir -p scripts/performance/reports
           cd packages/docs
           yarn storybook &
           STORYBOOK_PID=$!
           trap 'kill $STORYBOOK_PID 2>/dev/null || true' EXIT
           npx wait-on http://localhost:7008 --timeout 120000 || exit 1
           PERFORMANCE_TEST=true ./node_modules/.bin/test-storybook --url http://localhost:7008 --maxWorkers=4 || true
-          cd ../..
+        continue-on-error: true
 
+      - name: Aggregate metrics
+        run: |
           node scripts/performance/aggregate-metrics.js
           cp scripts/performance/reports/metrics.json scripts/performance/reports/base.json 2>/dev/null || \
             echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/base.json
 
-          git checkout $PR_SHA
+      - name: Upload base metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: base-metrics
+          path: scripts/performance/reports/base.json
+          retention-days: 1
+
+  compare:
+    name: Compare & Report
+    runs-on: ubuntu-latest
+    needs: [test-pr, test-base]
+    if: always() && needs.test-pr.result != 'cancelled' && needs.test-base.result != 'cancelled'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download PR metrics
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-metrics
+          path: scripts/performance/reports
         continue-on-error: true
+
+      - name: Download base metrics
+        uses: actions/download-artifact@v4
+        with:
+          name: base-metrics
+          path: scripts/performance/reports
+        continue-on-error: true
+
+      - name: Ensure metrics files exist
+        run: |
+          mkdir -p scripts/performance/reports
+          [ -f scripts/performance/reports/pr.json ] || echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/pr.json
+          [ -f scripts/performance/reports/base.json ] || echo '{"timestamp":"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'","components":{}}' > scripts/performance/reports/base.json
 
       - name: Generate report
         run: node scripts/performance/compare-metrics.js
@@ -96,10 +155,10 @@ jobs:
           header: performance
           path: scripts/performance/reports/comparison.md
 
-      - name: Upload artifacts
+      - name: Upload all reports
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: performance-reports
-          path: scripts/performance/reports/*.json
+          path: scripts/performance/reports/*
           retention-days: 7
