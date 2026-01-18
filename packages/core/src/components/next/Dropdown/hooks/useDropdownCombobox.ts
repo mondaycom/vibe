@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { type BaseItemData } from "../../../BaseItem";
@@ -22,6 +22,7 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
   id?: string
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   // Use controlled value if provided, otherwise use internal state
   const selectedItem = value !== undefined ? value : currentSelectedItem;
@@ -88,6 +89,18 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
       },
       [value, onOptionSelect, filterOptions, onChange]
     ),
+    onStateChange: useCallback(
+      ({ type }) => {
+        // Blur input after selection via click or Enter key
+        if (
+          closeMenuOnSelect &&
+          (type === useCombobox.stateChangeTypes.ItemClick || type === useCombobox.stateChangeTypes.InputKeyDownEnter)
+        ) {
+          inputRef.current?.blur();
+        }
+      },
+      [closeMenuOnSelect]
+    ),
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
@@ -111,7 +124,7 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
-    getInputProps,
+    getInputProps: (options?: Parameters<typeof getInputProps>[0]) => getInputProps({ ...options, ref: inputRef }),
     getItemProps,
     reset: () => {
       if (value === undefined) {
