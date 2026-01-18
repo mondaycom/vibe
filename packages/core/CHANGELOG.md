@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.83.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.1...@vibe/core@3.83.2) (2026-01-18)
+
+
+### Bug Fixes
+
+* **Dropdown:** : blur searchable dropdown select item ([#3236](https://github.com/mondaycom/vibe/issues/3236)) ([5f62a8f](https://github.com/mondaycom/vibe/commit/5f62a8fe17f20445369883a4d150995a7326c3f1))
+
+
+
+
+
 ## [3.83.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.0...@vibe/core@3.83.1) (2026-01-04)
 
 **Note:** Version bump only for package @vibe/core

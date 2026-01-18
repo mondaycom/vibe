@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icon",
-  "version": "3.0.10",
+  "version": "3.0.11",
   "description": "Vibe sub-package for icon components",
   "repository": {
     "type": "git",

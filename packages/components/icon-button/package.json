@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icon-button",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Vibe sub-package for icon button component",
   "repository": {
     "type": "git",
@@ -38,11 +38,11 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/button": "3.0.15",
-    "@vibe/icon": "3.0.10",
+    "@vibe/button": "3.0.16",
+    "@vibe/icon": "3.0.11",
     "@vibe/icons": "1.16.0",
     "@vibe/shared": "3.0.8",
-    "@vibe/tooltip": "3.0.2",
+    "@vibe/tooltip": "3.0.3",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
