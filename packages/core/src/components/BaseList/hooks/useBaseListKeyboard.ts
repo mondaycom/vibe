@@ -5,7 +5,7 @@ import {
   findAdjacentFocusableIndex,
   findFirstFocusableIndex,
   findLastFocusableIndex,
-  isListItem
+  isFocusableListItem
 } from "../utils/BaseListUtils";
 
 export interface UseBaseListKeyboardProps {
@@ -26,24 +26,46 @@ const NAVIGATION_KEYS: string[] = [
   keyCodes.PAGE_DOWN
 ];
 
-const findPageNavigationIndex = (
-  refs: (HTMLElement | null)[],
-  currentIndex: number,
-  targetIndex: number,
-  direction: "up" | "down",
-  fallbackFn: (refs: (HTMLElement | null)[]) => number
-): number | undefined => {
-  const step = direction === "up" ? 1 : -1;
-  const condition = direction === "up" ? (i: number) => i < currentIndex : (i: number) => i > currentIndex;
+const PAGE_JUMP_SIZE = 10;
 
-  for (let i = targetIndex; condition(i); i += step) {
-    if (isListItem(refs[i])) {
+/**
+ * Finds the best focusable index for PageUp.
+ * Searches from target toward current position, returning the first focusable item found.
+ * Falls back to first focusable item if none found in the jump range.
+ */
+const findPageUpIndex = (refs: (HTMLElement | null)[], currentIndex: number): number | undefined => {
+  const targetIndex = Math.max(0, currentIndex - PAGE_JUMP_SIZE);
+
+  // Search forward from target toward current position
+  for (let i = targetIndex; i < currentIndex; i++) {
+    if (isFocusableListItem(refs[i])) {
       return i;
     }
   }
 
-  const fallbackIndex = fallbackFn(refs);
-  return fallbackIndex !== -1 ? fallbackIndex : undefined;
+  // No focusable item in jump range - go to first focusable item
+  const firstFocusableIndex = findFirstFocusableIndex(refs);
+  return firstFocusableIndex !== -1 ? firstFocusableIndex : undefined;
+};
+
+/**
+ * Finds the best focusable index for PageDown.
+ * Searches from target toward current position, returning the first focusable item found.
+ * Falls back to last focusable item if none found in the jump range.
+ */
+const findPageDownIndex = (refs: (HTMLElement | null)[], currentIndex: number): number | undefined => {
+  const targetIndex = Math.min(refs.length - 1, currentIndex + PAGE_JUMP_SIZE);
+
+  // Search backward from target toward current position
+  for (let i = targetIndex; i > currentIndex; i--) {
+    if (isFocusableListItem(refs[i])) {
+      return i;
+    }
+  }
+
+  // No focusable item in jump range - go to last focusable item
+  const lastFocusableIndex = findLastFocusableIndex(refs);
+  return lastFocusableIndex !== -1 ? lastFocusableIndex : undefined;
 };
 
 export const useBaseListKeyboard = ({
@@ -85,19 +107,15 @@ export const useBaseListKeyboard = ({
           if (newFocusIndex === -1) newFocusIndex = undefined;
           break;
 
-        case keyCodes.PAGE_UP: {
+        case keyCodes.PAGE_UP:
           event.preventDefault();
-          const targetIndex = Math.max(0, focusIndex - 10);
-          newFocusIndex = findPageNavigationIndex(refs, focusIndex, targetIndex, "up", findFirstFocusableIndex);
+          newFocusIndex = findPageUpIndex(refs, focusIndex);
           break;
-        }
 
-        case keyCodes.PAGE_DOWN: {
+        case keyCodes.PAGE_DOWN:
           event.preventDefault();
-          const targetIndex = Math.min(refs.length - 1, focusIndex + 10);
-          newFocusIndex = findPageNavigationIndex(refs, focusIndex, targetIndex, "down", findLastFocusableIndex);
+          newFocusIndex = findPageDownIndex(refs, focusIndex);
           break;
-        }
 
         default:
           return;

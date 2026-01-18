@@ -6,13 +6,7 @@ import { type BaseListProps } from "./BaseList.types";
 import { BaseListContext, type BaseListContextProps } from "./context/BaseListContext";
 import { useBaseListFocus } from "./hooks/useBaseListFocus";
 import { useBaseListKeyboard } from "./hooks/useBaseListKeyboard";
-import {
-  generateListId,
-  getChildRole,
-  getItemComponentType,
-  isListItem,
-  mergeStyleWithMaxHeight
-} from "./utils/BaseListUtils";
+import { generateListId, getChildRole, getItemComponentType, isListItem } from "./utils/BaseListUtils";
 import styles from "./BaseList.module.scss";
 
 const BaseList = forwardRef(
@@ -28,7 +22,6 @@ const BaseList = forwardRef(
       role = "listbox",
       size = "medium",
       maxHeight,
-      tabIndex = 0,
       focusOnMount = false,
       defaultFocusIndex = 0,
       focusIndex: controlledFocusIndex,
@@ -136,21 +129,30 @@ const BaseList = forwardRef(
       [focusIndex, updateFocusedItem, registerItem, size]
     );
 
-    const listStyle = useMemo(() => mergeStyleWithMaxHeight(style, maxHeight), [maxHeight, style]);
+    const listStyle = useMemo(
+      () =>
+        maxHeight
+          ? ({
+              ...style,
+              "--baselist-max-height": typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight
+            } as React.CSSProperties)
+          : style,
+      [maxHeight, style]
+    );
 
     return (
       <BaseListContext.Provider value={contextValue}>
         <Component
           ref={mergedRef}
           id={listId}
-          className={cx(styles.baseList, { [styles.scrollable]: maxHeight !== undefined }, className)}
+          className={cx(styles.baseList, className)}
           style={listStyle}
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           aria-disabled={disabled || undefined}
           role={role}
-          tabIndex={disabled ? -1 : tabIndex}
+          tabIndex={-1}
           data-testid={dataTestId}
           {...rest}
         >

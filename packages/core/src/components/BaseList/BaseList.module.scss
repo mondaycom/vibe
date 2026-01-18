@@ -6,14 +6,12 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  overflow-y: auto;
+  max-height: var(--baselist-max-height, none);
   @include smoothing-text;
+  @include scroller();
 
   &:focus {
     outline: none;
-  }
-
-  &.scrollable {
-    overflow-y: auto;
-    @include scroller();
   }
 }

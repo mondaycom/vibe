@@ -41,10 +41,6 @@ export interface BaseListProps extends React.HTMLAttributes<HTMLElement>, VibeCo
    */
   maxHeight?: number | string;
   /**
-   * The tab index of the list for keyboard navigation. Defaults to 0.
-   */
-  tabIndex?: number;
-  /**
    * If true, the list will automatically focus on mount.
    */
   focusOnMount?: boolean;

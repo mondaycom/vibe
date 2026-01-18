@@ -1,5 +1,3 @@
-import type React from "react";
-
 export const VALID_ROLES = ["option", "listitem", "menuitem", "tab", "treeitem"];
 
 const ROLE_MAPPING: Record<string, string> = {
@@ -17,6 +15,11 @@ export const generateListId = (): string => `baselist-${listIdCounter++}`;
 
 export const isListItem = (element: HTMLElement | null): boolean => {
   return element instanceof HTMLElement && VALID_ROLES.includes(element.getAttribute("role") || "");
+};
+
+export const isFocusableListItem = (element: HTMLElement | null): boolean => {
+  if (!isListItem(element)) return false;
+  return element.getAttribute("aria-disabled") !== "true";
 };
 
 const ELEMENT_MAPPING: Record<string, string> = {
@@ -37,7 +40,7 @@ export const findAdjacentFocusableIndex = (
   let index = currentIndex + step;
 
   while (index >= 0 && index < refs.length) {
-    if (isListItem(refs[index])) {
+    if (isFocusableListItem(refs[index])) {
       return index;
     }
     index += step;
@@ -48,7 +51,7 @@ export const findAdjacentFocusableIndex = (
     index = startIndex;
 
     while (index !== currentIndex) {
-      if (isListItem(refs[index])) {
+      if (isFocusableListItem(refs[index])) {
         return index;
       }
       index += step;
@@ -63,12 +66,12 @@ export const findAdjacentFocusableIndex = (
 };
 
 export const findFirstFocusableIndex = (refs: (HTMLElement | null)[]): number => {
-  return refs.findIndex(isListItem);
+  return refs.findIndex(isFocusableListItem);
 };
 
 export const findLastFocusableIndex = (refs: (HTMLElement | null)[]): number => {
   for (let i = refs.length - 1; i >= 0; i--) {
-    if (isListItem(refs[i])) {
+    if (isFocusableListItem(refs[i])) {
       return i;
     }
   }
@@ -80,18 +83,4 @@ export const findSelectedItemIndex = (refs: (HTMLElement | null)[]): number => {
     if (!isListItem(element)) return false;
     return element.getAttribute("aria-selected") === "true";
   });
-};
-
-export const mergeStyleWithMaxHeight = (
-  style: React.CSSProperties | undefined,
-  maxHeight: number | string | undefined
-): React.CSSProperties => {
-  if (maxHeight === undefined) {
-    return style || {};
-  }
-
-  return {
-    ...style,
-    maxHeight: typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight
-  };
 };
