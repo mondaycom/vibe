@@ -235,6 +235,10 @@ export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>
      */
     onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
     /**
+     * Callback fired when content is pasted into the dropdown input. Only available when searchable is true.
+     */
+    onPaste?: (event: React.ClipboardEvent<HTMLInputElement>) => void;
+    /**
      * Callback fired when the dropdown menu opens.
      */
     onMenuOpen?: () => void;

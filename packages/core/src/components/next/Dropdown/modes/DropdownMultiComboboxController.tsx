@@ -30,6 +30,7 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     onFocus,
     onBlur,
     onKeyDown,
+    onPaste,
     onClear,
     onOptionRemove,
     loading = false,
@@ -105,6 +106,10 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
         onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
           onKeyDown?.(event);
           inputOptions?.onKeyDown?.(event);
+        },
+        onPaste: (event: React.ClipboardEvent<HTMLInputElement>) => {
+          onPaste?.(event);
+          inputOptions?.onPaste?.(event);
         }
       });
     },

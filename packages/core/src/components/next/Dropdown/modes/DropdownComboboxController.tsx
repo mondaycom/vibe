@@ -30,6 +30,7 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
     onFocus,
     onBlur,
     onKeyDown,
+    onPaste,
     onClear,
     loading = false,
     size = "medium",
@@ -108,6 +109,10 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
         onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
           onKeyDown?.(event);
           inputOptions?.onKeyDown?.(event);
+        },
+        onPaste: (event: React.ClipboardEvent<HTMLInputElement>) => {
+          onPaste?.(event);
+          inputOptions?.onPaste?.(event);
         }
       });
     },

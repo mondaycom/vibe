@@ -46,6 +46,7 @@ type InheritedDropdownProps<Item extends BaseItemData<Record<string, unknown>>> 
     | "onFocus"
     | "onBlur"
     | "onKeyDown"
+    | "onPaste"
     | "onScroll"
     | "onClear"
   >
