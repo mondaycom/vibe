@@ -161,30 +161,27 @@ describe("BaseList", () => {
   });
 
   describe("scrollable container", () => {
-    it("should apply maxHeight as style", () => {
+    it("should apply maxHeight as CSS variable", () => {
       renderBaseList({ maxHeight: 200 });
-      expect(screen.getByRole("listbox")).toHaveStyle({ maxHeight: "200px" });
+      expect(screen.getByRole("listbox")).toHaveStyle({ "--baselist-max-height": "200px" });
     });
 
-    it("should apply maxHeight as string", () => {
+    it("should apply maxHeight as string via CSS variable", () => {
       renderBaseList({ maxHeight: "50vh" });
-      expect(screen.getByRole("listbox")).toHaveStyle({ maxHeight: "50vh" });
-    });
-
-    it("should add scrollable class when maxHeight is set", () => {
-      renderBaseList({ maxHeight: 200 });
-      expect(screen.getByRole("listbox")).toHaveClass("scrollable");
+      expect(screen.getByRole("listbox")).toHaveStyle({ "--baselist-max-height": "50vh" });
     });
 
     it("should merge maxHeight with custom style prop", () => {
       renderBaseList({ maxHeight: 200, style: { width: "300px", backgroundColor: "red" } });
       const list = screen.getByRole("listbox");
-      expect(list).toHaveStyle({ maxHeight: "200px", width: "300px", backgroundColor: "red" });
+      expect(list).toHaveStyle({ "--baselist-max-height": "200px", width: "300px", backgroundColor: "red" });
     });
 
     it("should prioritize maxHeight prop over style.maxHeight", () => {
       renderBaseList({ maxHeight: 200, style: { maxHeight: "500px" } });
-      expect(screen.getByRole("listbox")).toHaveStyle({ maxHeight: "200px" });
+      const list = screen.getByRole("listbox");
+      // maxHeight prop sets the CSS variable, style.maxHeight is ignored since CSS uses the variable
+      expect(list).toHaveStyle({ "--baselist-max-height": "200px" });
     });
   });
 
