@@ -224,39 +224,6 @@ export const DefaultFocusIndex: Story = {
   )
 };
 
-export const ControlledFocus: Story = {
-  render: function ControlledFocusExample() {
-    const [focusIndex, setFocusIndex] = useState(0);
-
-    return (
-      <div>
-        <div style={{ marginBottom: 16 }}>
-          <p style={{ marginBottom: 8 }}>
-            Controlled focus (external state): <strong>Item {focusIndex + 1}</strong>
-          </p>
-          <div style={{ display: "flex", gap: 8 }}>
-            <button onClick={() => setFocusIndex(0)}>Focus First</button>
-            <button onClick={() => setFocusIndex(1)}>Focus Second</button>
-            <button onClick={() => setFocusIndex(2)}>Focus Third</button>
-            <button onClick={() => setFocusIndex(3)}>Focus Fourth</button>
-          </div>
-        </div>
-        <BaseList
-          ariaLabel="Controlled focus list"
-          focusIndex={focusIndex}
-          onFocusChange={setFocusIndex}
-          style={{ width: 300 }}
-        >
-          <BaseItem item={{ value: "1", label: "First item" }} />
-          <BaseItem item={{ value: "2", label: "Second item" }} />
-          <BaseItem item={{ value: "3", label: "Third item" }} />
-          <BaseItem item={{ value: "4", label: "Fourth item" }} />
-        </BaseList>
-      </div>
-    );
-  }
-};
-
 export const WithAriaControls: Story = {
   render: () => {
     const detailsId = "list-details";

@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { findSelectedItemIndex } from "../utils/BaseListUtils";
 
 export interface UseBaseListFocusProps {
-  controlledFocusIndex?: number;
   defaultFocusIndex: number;
   onFocusChange?: (index: number, id?: string) => void;
   listId: string | undefined;
@@ -18,7 +17,6 @@ export interface UseBaseListFocusResult {
 }
 
 export const useBaseListFocus = ({
-  controlledFocusIndex,
   defaultFocusIndex,
   onFocusChange,
   listId,
@@ -26,21 +24,17 @@ export const useBaseListFocus = ({
   disabled
 }: UseBaseListFocusProps): UseBaseListFocusResult => {
   const childrenRefs = useRef<(HTMLElement | null)[]>([]);
-  const isControlled = useMemo(() => controlledFocusIndex !== undefined, [controlledFocusIndex]);
-  const [internalFocusIndex, setInternalFocusIndex] = useState(defaultFocusIndex);
-  const focusIndex = isControlled ? controlledFocusIndex : internalFocusIndex;
+  const [focusIndex, setFocusIndex] = useState(defaultFocusIndex);
 
   const updateFocusedItem = useCallback(
     (itemId: string, index: number) => {
       if (disabled) return;
 
-      if (!isControlled) {
-        setInternalFocusIndex(index);
-      }
+      setFocusIndex(index);
       onFocusChange?.(index, itemId);
       componentRef.current?.setAttribute("aria-activedescendant", itemId);
     },
-    [isControlled, onFocusChange, componentRef, disabled]
+    [onFocusChange, componentRef, disabled]
   );
 
   const registerItem = useCallback((itemRef: HTMLElement | null, index: number) => {

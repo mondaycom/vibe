@@ -24,7 +24,6 @@ const BaseList = forwardRef(
       maxHeight,
       focusOnMount = false,
       defaultFocusIndex = 0,
-      focusIndex: controlledFocusIndex,
       onFocusChange,
       style,
       disabled = false,
@@ -44,7 +43,6 @@ const BaseList = forwardRef(
     const Component = as as React.ElementType;
 
     const { focusIndex, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
-      controlledFocusIndex,
       defaultFocusIndex,
       onFocusChange,
       listId,

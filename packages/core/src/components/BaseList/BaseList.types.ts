@@ -49,10 +49,6 @@ export interface BaseListProps extends React.HTMLAttributes<HTMLElement>, VibeCo
    */
   defaultFocusIndex?: number;
   /**
-   * Controlled focus index. When provided, the component becomes controlled.
-   */
-  focusIndex?: number;
-  /**
    * Callback fired when the focused item changes.
    */
   onFocusChange?: (index: number, id?: string) => void;
