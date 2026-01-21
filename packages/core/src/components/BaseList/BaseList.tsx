@@ -3,7 +3,12 @@ import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import { type BaseListProps } from "./BaseList.types";
-import { BaseListContext, type BaseListContextProps } from "./context/BaseListContext";
+import {
+  BaseListProvider,
+  BaseListItemProvider,
+  type BaseListContextProps,
+  type BaseListItemContextProps
+} from "./context/BaseListContext";
 import { useBaseListFocus } from "./hooks/useBaseListFocus";
 import { useBaseListKeyboard } from "./hooks/useBaseListKeyboard";
 import { generateListId, getChildRole, getItemComponentType, isListItem } from "./utils/BaseListUtils";
@@ -84,36 +89,29 @@ const BaseList = forwardRef(
         const existingRole = (child.props as { role?: string }).role;
         const childRole = existingRole || (!isDOMElement ? getChildRole(role) : undefined);
 
-        const baseProps = {
-          ref: (itemRef: HTMLElement | null) => {
-            childrenRefs.current[index] = itemRef;
-          },
-          id: childId
+        // Create a ref callback that registers the element
+        const refCallback = (itemRef: HTMLElement | null) => {
+          childrenRefs.current[index] = itemRef;
         };
 
-        if (isDOMElement) {
-          const domProps: Record<string, unknown> = {
-            ...baseProps,
-            tabIndex: focusIndex === index && isFocusableItem ? 0 : -1
-          };
-          if (childRole) {
-            domProps.role = childRole;
-          }
-          return React.cloneElement(child, domProps);
-        }
-
-        return React.cloneElement(child, {
-          ...baseProps,
+        // Create context value for this item
+        const itemContextValue: BaseListItemContextProps = {
           index,
+          id: childId,
+          highlighted: focusIndex === index && isFocusableItem,
+          tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
           component: getItemComponentType(as),
           size,
-          highlighted: focusIndex === index && isFocusableItem,
           role: childRole,
-          itemProps: {
-            ...(child.props as { itemProps?: Record<string, unknown> }).itemProps,
-            tabIndex: focusIndex === index && isFocusableItem ? 0 : -1
-          }
-        } as Record<string, unknown>);
+          refCallback
+        };
+
+        // Wrap with context provider so children can consume props
+        return (
+          <BaseListItemProvider key={childId} value={itemContextValue}>
+            {child}
+          </BaseListItemProvider>
+        );
       });
     }, [children, as, focusIndex, listId, role, size, childrenRefs]);
 
@@ -139,7 +137,7 @@ const BaseList = forwardRef(
     );
 
     return (
-      <BaseListContext.Provider value={contextValue}>
+      <BaseListProvider value={contextValue}>
         <Component
           ref={mergedRef}
           id={listId}
@@ -156,7 +154,7 @@ const BaseList = forwardRef(
         >
           {enhancedChildren}
         </Component>
-      </BaseListContext.Provider>
+      </BaseListProvider>
     );
   }
 );

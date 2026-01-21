@@ -1,12 +1,14 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
-import styles from "./BaseItem.module.scss";
+import useMergeRef from "../../hooks/useMergeRef";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Text from "../Text/Text";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { Tooltip } from "../Tooltip";
 import { type TextType } from "../Text";
+import { useListItemProps } from "./hooks/useListItemProps";
 import { renderSideElement } from "./utils";
+import styles from "./BaseItem.module.scss";
 
 const BaseItem = forwardRef(
   <Item extends Record<string, unknown>>(
@@ -27,7 +29,17 @@ const BaseItem = forwardRef(
     }: BaseItemProps<Item>,
     ref: React.Ref<HTMLElement>
   ) => {
+    const internalRef = useRef<HTMLElement>(null);
+    const mergedRef = useMergeRef(ref, internalRef);
+
+    const listItemProps = useListItemProps({ id, component, size, highlighted, role, itemProps });
+
+    useEffect(() => {
+      listItemProps.refCallback?.(internalRef.current);
+    }, [listItemProps]);
+
     const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
+
     const listItemClassNames = useMemo(
       () =>
         cx(
@@ -35,17 +47,17 @@ const BaseItem = forwardRef(
           {
             [styles.selected]: selected,
             [styles.disabled]: disabled,
-            [styles.highlighted]: highlighted,
+            [styles.highlighted]: listItemProps.highlighted,
             [styles.readOnly]: readOnly
           },
-          getStyle(styles, size),
+          getStyle(styles, listItemProps.size),
           className
         ),
-      [selected, disabled, highlighted, readOnly, size, className]
+      [selected, disabled, listItemProps.highlighted, readOnly, listItemProps.size, className]
     );
 
-    const textVariant: TextType = size === "small" ? "text2" : "text1";
-    const Element = component as React.ElementType;
+    const textVariant: TextType = listItemProps.size === "small" ? "text2" : "text1";
+    const Element = listItemProps.component as React.ElementType;
 
     return (
       <Tooltip
@@ -54,7 +66,14 @@ const BaseItem = forwardRef(
         position={dir === "rtl" ? "right" : "left"}
         containerSelector="body"
       >
-        <Element id={id} ref={ref} className={listItemClassNames} role={role} {...itemProps} aria-selected={selected}>
+        <Element
+          id={listItemProps.id}
+          ref={mergedRef}
+          className={listItemClassNames}
+          role={listItemProps.role}
+          aria-selected={selected}
+          {...listItemProps.itemProps}
+        >
           {itemRenderer ? (
             itemRenderer(item)
           ) : (

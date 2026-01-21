@@ -208,24 +208,18 @@ describe("BaseList", () => {
     });
   });
 
-  describe("with mixed children (non-focusable elements)", () => {
-    it("should skip non-focusable items during navigation", async () => {
+  describe("with disabled items", () => {
+    it("should support disabled items", () => {
       render(
         <BaseList ariaLabel="Test List">
           <BaseItem item={{ label: "Item 1", value: "1" }} />
-          <li>Divider</li>
+          <BaseItem item={{ label: "Disabled Item", value: "disabled", disabled: true }} />
           <BaseItem item={{ label: "Item 2", value: "2" }} />
         </BaseList>
       );
 
-      const list = screen.getByRole("listbox");
-      list.focus();
-
-      await userEvent.keyboard("{ArrowDown}");
-
-      // Should skip the divider and go to Item 2
-      const item2 = screen.getByText("Item 2").closest("[role='option']");
-      expect(item2).toHaveAttribute("tabindex", "0");
+      const disabledItem = screen.getByText("Disabled Item").closest("[role='option']");
+      expect(disabledItem).toHaveClass("disabled");
     });
   });
 

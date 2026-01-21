@@ -262,33 +262,3 @@ export const WithAriaControls: Story = {
     );
   }
 };
-
-export const WithMixedChildren: Story = {
-  render: () => (
-    <div>
-      <p style={{ marginBottom: 16 }}>
-        BaseList can contain a mix of BaseItems and other elements (like dividers). Keyboard navigation automatically
-        skips non-focusable elements.
-      </p>
-      <BaseList ariaLabel="List with mixed children" style={{ width: 300 }}>
-        <BaseItem item={{ value: "1", label: "First item" }} />
-        <BaseItem item={{ value: "2", label: "Second item" }} />
-        <li
-          style={{
-            padding: "8px 0",
-            margin: "8px 0",
-            borderTop: "1px solid #ddd",
-            borderBottom: "1px solid #ddd",
-            textAlign: "center",
-            color: "#666",
-            fontSize: "12px"
-          }}
-        >
-          Group Divider
-        </li>
-        <BaseItem item={{ value: "3", label: "Third item" }} />
-        <BaseItem item={{ value: "4", label: "Fourth item" }} />
-      </BaseList>
-    </div>
-  )
-};

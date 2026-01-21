@@ -1,3 +1,12 @@
 export { default as BaseList } from "./BaseList";
 export * from "./BaseList.types";
-export { BaseListContext, useBaseList, type BaseListContextProps } from "./context/BaseListContext";
+export {
+  BaseListProvider,
+  BaseListItemProvider,
+  useBaseList,
+  useBaseListItem,
+  type BaseListContextProps,
+  type BaseListItemContextProps,
+  type BaseListProviderProps,
+  type BaseListItemProviderProps
+} from "./context/BaseListContext";
