@@ -72,6 +72,7 @@ const BaseItem = forwardRef(
           className={listItemClassNames}
           role={listItemProps.role}
           aria-selected={selected}
+          aria-disabled={disabled || undefined}
           {...listItemProps.itemProps}
         >
           {itemRenderer ? (
