@@ -5,12 +5,12 @@ export interface UseBaseListFocusProps {
   defaultFocusIndex: number;
   onFocusChange?: (index: number, id?: string) => void;
   listId: string | undefined;
-  componentRef: React.RefObject<HTMLElement>;
   disabled: boolean;
 }
 
 export interface UseBaseListFocusResult {
   focusIndex: number;
+  activeDescendantId: string | undefined;
   updateFocusedItem: (itemId: string, index: number) => void;
   registerItem: (itemRef: HTMLElement | null, index: number) => void;
   childrenRefs: React.MutableRefObject<(HTMLElement | null)[]>;
@@ -20,21 +20,21 @@ export const useBaseListFocus = ({
   defaultFocusIndex,
   onFocusChange,
   listId,
-  componentRef,
   disabled
 }: UseBaseListFocusProps): UseBaseListFocusResult => {
   const childrenRefs = useRef<(HTMLElement | null)[]>([]);
   const [focusIndex, setFocusIndex] = useState(defaultFocusIndex);
+  const [activeDescendantId, setActiveDescendantId] = useState<string | undefined>(undefined);
 
   const updateFocusedItem = useCallback(
     (itemId: string, index: number) => {
       if (disabled) return;
 
       setFocusIndex(index);
+      setActiveDescendantId(itemId);
       onFocusChange?.(index, itemId);
-      componentRef.current?.setAttribute("aria-activedescendant", itemId);
     },
-    [onFocusChange, componentRef, disabled]
+    [onFocusChange, disabled]
   );
 
   const registerItem = useCallback((itemRef: HTMLElement | null, index: number) => {
@@ -57,6 +57,7 @@ export const useBaseListFocus = ({
 
   return {
     focusIndex,
+    activeDescendantId,
     updateFocusedItem,
     registerItem,
     childrenRefs

@@ -47,11 +47,10 @@ const BaseList = forwardRef(
 
     const Component = as as React.ElementType;
 
-    const { focusIndex, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
+    const { focusIndex, activeDescendantId, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
       defaultFocusIndex,
       onFocusChange,
       listId,
-      componentRef,
       disabled
     });
 
@@ -146,6 +145,7 @@ const BaseList = forwardRef(
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
+          aria-activedescendant={activeDescendantId}
           aria-disabled={disabled || undefined}
           role={role}
           tabIndex={-1}
