@@ -9,6 +9,7 @@ import Search from "../Search/Search";
 import { BASE_SIZES } from "../../constants";
 import { Button } from "@vibe/button";
 import { Text } from "@vibe/typography";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
@@ -232,6 +233,12 @@ const Combobox = forwardRef(
     }: ComboboxProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
+    useWarnDeprecated({
+      component: "Combobox",
+      message:
+        "This component is deprecated and will be removed in the next major version. Please use Dropdown box mode from @vibe/core/next instead."
+    });
+
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
