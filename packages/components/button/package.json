@@ -42,6 +42,7 @@
     "@vibe/loader": "3.0.11",
     "@vibe/shared": "3.0.8",
     "classnames": "^2.5.1",
+    "date-fns": "^2.30.0",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {

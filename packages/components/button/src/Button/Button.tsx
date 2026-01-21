@@ -5,6 +5,7 @@ import cx from "classnames";
 import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
+import * as dateFns from "date-fns";
 import {
   ButtonColor as ButtonColorEnum,
   ButtonInputType as ButtonInputTypeEnum,
@@ -203,6 +204,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       },
       [onMouseDown, disabled, loading, success]
     );
+    const timestamp = dateFns.format(new Date(), "yyyy-MM-dd HH:mm:ss");
 
     const classNames = useMemo(() => {
       const calculatedColor = success ? "positive" : color;
@@ -362,6 +364,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return (
         <button {...buttonProps} key={`${id}-success`}>
           <span className={styles.successContent}>
+            <span>{timestamp}</span>
             {successIcon ? (
               <Icon
                 iconType="font"
