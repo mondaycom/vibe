@@ -1,10 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { List, ListItem, type ListProps } from "@vibe/core/next";
 import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search, Send, Add, Filter } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { Flex, DialogContentContainer, Divider } from "@vibe/core";
 import { StoryDescription } from "vibe-storybook-components";
+import { FixedSizeList } from "react-window";
 import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
@@ -265,52 +266,13 @@ export const DefaultFocusIndex: Story = {
 
 export const DisabledList: Story = {
   render: () => (
-    <div>
-      <p style={{ marginBottom: 16 }}>This list is disabled - keyboard navigation is blocked.</p>
       <List ariaLabel="Disabled list" disabled style={{ width: 300 }}>
         <ListItem label="Item 1" value="1" />
         <ListItem label="Item 2" value="2" />
         <ListItem label="Item 3" value="3" />
       </List>
-    </div>
   ),
   name: "Disabled list"
-};
-
-export const CustomRole: Story = {
-  render: () => (
-    <Flex gap="large" align="start">
-      <StoryDescription description="role='menu'">
-        <List ariaLabel="Actions menu" role="menu" style={{ width: 200 }}>
-          <ListItem label="Cut" value="cut" endElement={{ type: "suffix", value: "⌘X" }} />
-          <ListItem label="Copy" value="copy" endElement={{ type: "suffix", value: "⌘C" }} />
-          <ListItem label="Paste" value="paste" endElement={{ type: "suffix", value: "⌘V" }} />
-        </List>
-      </StoryDescription>
-      <StoryDescription description="role='listbox' (default)">
-        <List ariaLabel="Select option" role="listbox" style={{ width: 200 }}>
-          <ListItem label="Option 1" value="1" />
-          <ListItem label="Option 2" value="2" selected />
-          <ListItem label="Option 3" value="3" />
-        </List>
-      </StoryDescription>
-      <StoryDescription description="role='list'">
-        <List ariaLabel="Navigation links" role="list" style={{ width: 200 }}>
-          <ListItem label="Home" value="home" />
-          <ListItem label="About" value="about" />
-          <ListItem label="Contact" value="contact" />
-        </List>
-      </StoryDescription>
-    </Flex>
-  ),
-  name: "Custom role",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { StoryDescription }
-      }
-    }
-  }
 };
 
 export const InDialogContainer: Story = {
@@ -494,6 +456,56 @@ export const DoAndDont: Story = {
     docs: {
       liveEdit: {
         scope: { StoryDescription, Add, Filter, Board }
+      }
+    }
+  }
+};
+
+export const VirtualizedList: Story = {
+  render: () => {
+    const items = useMemo(
+      () =>
+        Array.from({ length: 10000 }, (_, index) => ({
+          label: `Option ${index + 1}`,
+          value: `option-${index + 1}`
+        })),
+      []
+    );
+
+    // Item height based on medium size (default): 9px padding top + 9px padding bottom + ~24px line height = ~42px
+    const itemHeight = 42;
+    const containerHeight = 300;
+
+    const Row = useCallback(
+      ({ index, style }: { index: number; style: React.CSSProperties }) => (
+        <div style={style}>
+          <ListItem label={items[index].label} value={items[index].value} />
+        </div>
+      ),
+      [items]
+    );
+
+    return (
+      <DialogContentContainer style={{ width: 300 }}>
+        <div role="listbox" aria-label="Virtualized list with 10,000 items">
+          <FixedSizeList
+            height={containerHeight}
+            width="100%"
+            itemCount={items.length}
+            itemSize={itemHeight}
+            overscanCount={5}
+          >
+            {Row}
+          </FixedSizeList>
+        </div>
+      </DialogContentContainer>
+    );
+  },
+  name: "Virtualized list",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { FixedSizeList }
       }
     }
   }

@@ -66,6 +66,16 @@ Use `maxHeight` to create a scrollable list with a fixed height.
 
 <Canvas of={ListStories.ScrollableList} />
 
+### Virtualized list
+
+For performance optimization with large datasets (thousands of items), you can implement virtualization by composing the List components with a virtualization library. This example demonstrates using <a href="https://github.com/bvaughn/react-window" target="_blank">react-window</a> to render only the visible items.
+
+<Tip>
+  Note that keyboard navigation is handled by the virtualization library when using this pattern. The List's built-in keyboard navigation works best with non-virtualized lists.
+</Tip>
+
+<Canvas of={ListStories.VirtualizedList} />
+
 ### Sizes
 
 <Canvas of={ListStories.Sizes} />
@@ -74,14 +84,6 @@ Use `maxHeight` to create a scrollable list with a fixed height.
 
 <Canvas of={ListStories.States} />
 
-### Custom role
-
-The List supports different ARIA roles for different use cases:
-- `listbox` (default): For selection-based lists
-- `menu`: For action menus
-- `list`: For static/navigation lists
-
-<Canvas of={ListStories.CustomRole} />
 
 ### Different element types
 

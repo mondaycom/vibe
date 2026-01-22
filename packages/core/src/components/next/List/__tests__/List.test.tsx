@@ -315,7 +315,6 @@ describe("ListItem", () => {
       );
       expect(screen.getByText("Test Label")).toBeInTheDocument();
     });
-
   });
 
   describe("interactions", () => {

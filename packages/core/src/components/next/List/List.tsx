@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import BaseList from "../../BaseList/BaseList";
-import { type ListProps } from "./List.types";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { type ListProps } from "./List.types";
 import styles from "./List.module.scss";
 
 const List = forwardRef(
