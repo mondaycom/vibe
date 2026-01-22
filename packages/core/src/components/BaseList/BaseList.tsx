@@ -11,7 +11,7 @@ import {
 } from "./context/BaseListContext";
 import { useBaseListFocus } from "./hooks/useBaseListFocus";
 import { useBaseListKeyboard } from "./hooks/useBaseListKeyboard";
-import { generateListId, getChildRole, getItemComponentType, getItemId, isListItem } from "./utils/BaseListUtils";
+import { generateListId, getChildRole, getItemComponentType, getItemId, isListItem } from "./utils/baseListUtils";
 import styles from "./BaseList.module.scss";
 
 const BaseList = forwardRef(

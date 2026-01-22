@@ -1,18 +1,45 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { findSelectedItemIndex, getItemId } from "../utils/BaseListUtils";
+import { findSelectedItemIndex, getItemId } from "../utils/baseListUtils";
 
 export interface UseBaseListFocusProps {
+  /**
+   * Index of the item that should be focused initially.
+   */
   defaultFocusIndex: number;
+  /**
+   * Callback fired when the focused item changes.
+   */
   onFocusChange?: (index: number, id?: string) => void;
+  /**
+   * The unique identifier for the list.
+   */
   listId: string | undefined;
+  /**
+   * If true, disables focus management.
+   */
   disabled: boolean;
 }
 
 export interface UseBaseListFocusResult {
+  /**
+   * The index of the currently focused item.
+   */
   focusIndex: number;
+  /**
+   * The ID of the active descendant for aria-activedescendant.
+   */
   activeDescendantId: string | undefined;
+  /**
+   * Callback to update the focused item.
+   */
   updateFocusedItem: (itemId: string, index: number) => void;
+  /**
+   * Callback to register an item ref.
+   */
   registerItem: (itemRef: HTMLElement | null, index: number) => void;
+  /**
+   * Ref array containing all item DOM elements.
+   */
   childrenRefs: React.MutableRefObject<(HTMLElement | null)[]>;
 }
 

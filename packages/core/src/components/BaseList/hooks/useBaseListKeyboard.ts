@@ -7,14 +7,32 @@ import {
   findLastFocusableIndex,
   getItemId,
   isFocusableListItem
-} from "../utils/BaseListUtils";
+} from "../utils/baseListUtils";
 
 export interface UseBaseListKeyboardProps {
+  /**
+   * The index of the currently focused item.
+   */
   focusIndex: number;
+  /**
+   * Ref array containing all item DOM elements.
+   */
   childrenRefs: React.MutableRefObject<(HTMLElement | null)[]>;
+  /**
+   * The unique identifier for the list.
+   */
   listId: string | undefined;
+  /**
+   * Callback to update the focused item.
+   */
   updateFocusedItem: (itemId: string, index: number) => void;
+  /**
+   * Ref to the list container element.
+   */
   componentRef: React.RefObject<HTMLElement>;
+  /**
+   * If true, disables keyboard navigation.
+   */
   disabled: boolean;
 }
 

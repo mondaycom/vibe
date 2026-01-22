@@ -1,7 +1,6 @@
-import React, { createContext, useContext, type ReactNode } from "react";
+import React, { createContext, useContext, type ReactNode, type AriaRole } from "react";
 import { NOOP } from "../../../utils/function-utils";
 import { type BaseListSizes } from "../BaseList.types";
-import { type AriaRole } from "react";
 
 export interface BaseListItemContextProps {
   /**
