@@ -6,7 +6,8 @@
   color: var(--primary-text-color);
   cursor: pointer;
 
-  &.highlighted {
+  &.highlighted,
+  &:hover:not(.disabled):not(.readOnly) {
     background-color: var(--primary-background-hover-color);
   }
 
@@ -22,7 +23,8 @@
   &.selected {
     background-color: var(--primary-selected-color);
 
-    &.highlighted {
+    &.highlighted,
+    &:hover:not(.disabled):not(.readOnly) {
       background-color: var(--primary-selected-hover-color);
     }
   }

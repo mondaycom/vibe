@@ -1,77 +1,162 @@
-import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { ListItem, ListItemIcon, ListItemAvatar, Flex } from "@vibe/core";
+import React, { useState, useCallback } from "react";
+import { type Meta, type StoryObj } from "@storybook/react";
+import { List, ListItem, type ListItemProps } from "@vibe/core/next";
+import { Board, Favorite, Person, Settings, Team, ThumbsUp, Search, Send } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+import { Flex } from "@vibe/core";
+import { StoryDescription } from "vibe-storybook-components";
 import person1 from "../Avatar/assets/person1.png";
-import { Send } from "@vibe/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ListItem
 });
 
 export default {
-  title: "Components/List/ListItem",
+  title: "Components/List [New]/ListItem",
   component: ListItem,
-  subcomponents: {
-    ListItemIcon,
-    ListItemAvatar
-  },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof ListItem>;
 
-const listItemTemplate = createComponentTemplate(ListItem);
+type Story = StoryObj<typeof ListItem>;
 
-export const Overview = {
-  render: listItemTemplate.bind({}),
-  name: "Overview",
-  args: { children: "List item" }
-};
-
-export const States = {
-  render: () => (
-    <Flex>
-      <ListItem>Default state</ListItem>
-      <ListItem disabled>Disabled state</ListItem>
-      <ListItem selected>Selected state</ListItem>
-    </Flex>
+export const Overview: Story = {
+  render: (args: ListItemProps) => (
+    <List ariaLabel="List item overview">
+      <ListItem {...args} />
+    </List>
   ),
+  name: "Overview",
+  args: {
+    label: "List item",
+    value: "item-1"
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        isEnabled: false
+      }
+    }
+  }
+};
 
+export const States: Story = {
+  render: () => (
+    <List ariaLabel="States example">
+      <ListItem label="Default state" value="default" />
+      <ListItem label="Disabled state" value="disabled" disabled />
+      <ListItem label="Selected state" value="selected" selected />
+    </List>
+  ),
   name: "States"
 };
 
-export const Sizes = {
+export const WithIcon: Story = {
   render: () => (
-    <Flex>
-      <ListItem size="small">Small item</ListItem>
-      <ListItem size="medium">Medium item</ListItem>
-      <ListItem size="large">Large item</ListItem>
-    </Flex>
+    <List ariaLabel="List with icon">
+      <ListItem
+        label="Productivity"
+        value="productivity"
+        startElement={{ type: "icon", value: Send }}
+      />
+    </List>
   ),
-
-  name: "Sizes"
+  name: "List item with an icon",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Send }
+      }
+    }
+  }
 };
 
-export const WithIcon = {
+export const WithAvatar: Story = {
   render: () => (
-    <Flex>
-      <ListItem>
-        <ListItemIcon icon={Send} />
-        Productivity
+    <List ariaLabel="List with avatar">
+      <ListItem
+        label="Sophia Johnson"
+        value="sophia"
+        startElement={{ type: "avatar", value: person1 }}
+      />
+    </List>
+  ),
+  name: "List item with an avatar",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1 }
+      }
+    }
+  }
+};
+
+export const WithEndElement: Story = {
+  render: () => (
+    <List ariaLabel="List with end elements" style={{ width: 250 }}>
+      <ListItem
+        label="Settings"
+        value="settings"
+        startElement={{ type: "icon", value: Settings }}
+        endElement={{ type: "suffix", value: "⌘S" }}
+      />
+      <ListItem
+        label="Favorites"
+        value="favorites"
+        startElement={{ type: "icon", value: Favorite }}
+        endElement={{ type: "suffix", value: "⌘F" }}
+      />
+    </List>
+  ),
+  name: "List item with end element",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Settings, Favorite }
+      }
+    }
+  }
+};
+
+export const WithClickHandler: Story = {
+  render: function WithClickHandlerExample() {
+    const [clickCount, setClickCount] = useState(0);
+    const handleClick = useCallback(() => {
+      setClickCount(prev => prev + 1);
+    }, []);
+
+    return (
+      <div>
+        <p style={{ marginBottom: 16 }}>Click count: {clickCount}</p>
+        <List ariaLabel="Clickable list">
+          <ListItem label="Click me!" value="clickable" onClick={handleClick} />
+        </List>
+      </div>
+    );
+  },
+  name: "With click handler"
+};
+
+export const CustomChildren: Story = {
+  render: () => (
+    <List ariaLabel="List with custom children" style={{ width: 300 }}>
+      <ListItem label="Custom content" value="custom">
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ fontWeight: "bold" }}>Custom</span>
+          <span style={{ color: "var(--secondary-text-color)" }}>content</span>
+        </div>
       </ListItem>
-    </Flex>
+    </List>
   ),
-
-  name: "List item with an icon"
+  name: "With custom children"
 };
 
-export const WithAvatar = {
+export const ReadOnly: Story = {
   render: () => (
-    <ListItem>
-      <ListItemAvatar src={person1} />
-      Sophia Johnson
-    </ListItem>
+    <List ariaLabel="Read-only list">
+      <ListItem label="Editable item" value="editable" />
+      <ListItem label="Read-only item" value="readonly" readOnly />
+    </List>
   ),
-
-  name: "List item with an avatar"
+  name: "Read-only"
 };

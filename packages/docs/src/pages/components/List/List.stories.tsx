@@ -1,18 +1,10 @@
-import React from "react";
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemAvatar,
-  type ListProps,
-  Flex,
-  ListTitle,
-  DialogContentContainer
-} from "@vibe/core";
-import { Board, Team, ThumbsUp } from "@vibe/icons";
-import { useCallback } from "react";
-import { StoryDescription } from "vibe-storybook-components";
+import React, { useState, useCallback } from "react";
+import { type Meta, type StoryObj } from "@storybook/react";
+import { List, ListItem, type ListProps } from "@vibe/core/next";
+import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search, Send, Add, Filter } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+import { Flex, DialogContentContainer, Divider } from "@vibe/core";
+import { StoryDescription } from "vibe-storybook-components";
 import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
@@ -22,32 +14,34 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/List/List",
+  title: "Components/List [New]/List",
   component: List,
   subcomponents: {
-    ListItem,
-    ListItemIcon,
-    ListItemAvatar
+    ListItem
   },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-};
+} satisfies Meta<typeof List>;
+
+type Story = StoryObj<typeof List>;
 
 const listTemplate = (args: ListProps) => {
   const onClick = useCallback(() => alert("On click!"), []);
   return (
     <List {...args}>
-      <ListItem onClick={onClick}>Board Power up</ListItem>
-      <ListItem onClick={onClick}>Team Power up</ListItem>
-      <ListItem onClick={onClick}>Essentials</ListItem>
+      <ListItem label="Board Power up" onClick={onClick} />
+      <ListItem label="Team Power up" onClick={onClick} />
+      <ListItem label="Essentials" onClick={onClick} />
     </List>
   );
 };
 
-export const Overview = {
-  render: listTemplate.bind({}),
+export const Overview: Story = {
+  render: listTemplate,
   name: "Overview",
-  args: {},
+  args: {
+    ariaLabel: "Power ups list"
+  },
   parameters: {
     docs: {
       liveEdit: {
@@ -57,36 +51,27 @@ export const Overview = {
   }
 };
 
-export const ListWithCategories = {
+export const ListWithIcons: Story = {
   render: () => (
-    <List>
-      <ListTitle>First category</ListTitle>
-      <ListItem>List item 1</ListItem>
-      <ListItem>List item 2</ListItem>
-      <ListTitle>Second category</ListTitle>
-      <ListItem>List item 3</ListItem>
-      <ListItem>List item 4</ListItem>
-    </List>
-  )
-};
-
-export const ListWithIcons = {
-  render: () => (
-    <List>
-      <ListItem id="list-1">
-        <ListItemIcon icon={Board} />
-        List item 1
-      </ListItem>
-      <ListItem id="list-2">
-        <ListItemIcon icon={Team} />
-        List item 2
-      </ListItem>
-      <ListItem id="list-3">
-        <ListItemIcon icon={ThumbsUp} />
-        List item 3
-      </ListItem>
+    <List ariaLabel="List with icons">
+      <ListItem
+        label="List item 1"
+        value="list-1"
+        startElement={{ type: "icon", value: Board }}
+      />
+      <ListItem
+        label="List item 2"
+        value="list-2"
+        startElement={{ type: "icon", value: Team }}
+      />
+      <ListItem
+        label="List item 3"
+        value="list-3"
+        startElement={{ type: "icon", value: ThumbsUp }}
+      />
     </List>
   ),
+  name: "List with icons",
   parameters: {
     docs: {
       liveEdit: {
@@ -96,24 +81,27 @@ export const ListWithIcons = {
   }
 };
 
-export const ListWithAvatars = {
+export const ListWithAvatars: Story = {
   render: () => (
-    <List>
-      <ListItem id="list-1">
-        <ListItemAvatar src={person1} />
-        List item 1
-      </ListItem>
-      <ListItem id="list-2">
-        <ListItemAvatar src={person2} />
-        List item 2
-      </ListItem>
-      <ListItem id="list-3">
-        <ListItemAvatar src={person3} />
-        List item 3
-      </ListItem>
+    <List ariaLabel="List with avatars">
+      <ListItem
+        label="List item 1"
+        value="list-1"
+        startElement={{ type: "avatar", value: person1 }}
+      />
+      <ListItem
+        label="List item 2"
+        value="list-2"
+        startElement={{ type: "avatar", value: person2 }}
+      />
+      <ListItem
+        label="List item 3"
+        value="list-3"
+        startElement={{ type: "avatar", value: person3 }}
+      />
     </List>
   ),
-
+  name: "List with avatars",
   parameters: {
     docs: {
       liveEdit: {
@@ -123,83 +111,389 @@ export const ListWithAvatars = {
   }
 };
 
-export const ListWithVirtualizationOptimization = {
+export const ScrollableList: Story = {
   render: () => (
-    <Flex
-      align="start"
-      gap="large"
-      style={{
-        width: "100%"
-      }}
-      direction="column"
-    >
+    <Flex align="start" gap="large" style={{ width: "100%" }} direction="column">
       <StoryDescription description="Regular">
-        <DialogContentContainer
-          style={{
-            height: "162px",
-            width: "200px"
-          }}
-        >
-          <List
-            renderOnlyVisibleItems
-            style={{
-              height: "100%",
-              width: "100%"
-            }}
-          >
-            <ListItem>List item 1</ListItem>
-            <ListItem>List item 2</ListItem>
-            <ListItem>List item 3</ListItem>
-            <ListItem>List item 4</ListItem>
-            <ListItem>List item 5</ListItem>
-            <ListItem>List item 6</ListItem>
-            <ListItem>List item 7</ListItem>
-            <ListItem>List item 8</ListItem>
-            <ListItem>List item 9</ListItem>
-            <ListItem>List item 10</ListItem>
-            <ListItem>List item 11</ListItem>
-            <ListItem>List item 12</ListItem>
-          </List>
-        </DialogContentContainer>
-      </StoryDescription>
-      <StoryDescription description="With categories">
-        <DialogContentContainer
-          style={{
-            height: "159px",
-            width: "200px"
-          }}
-        >
-          <List
-            renderOnlyVisibleItems
-            style={{
-              height: "100%",
-              width: "100%"
-            }}
-          >
-            <ListTitle>First category</ListTitle>
-            <ListItem>List item 1</ListItem>
-            <ListItem>List item 2</ListItem>
-            <ListTitle>Second category</ListTitle>
-            <ListItem>List item 3</ListItem>
-            <ListItem>List item 4</ListItem>
-            <ListItem>List item 5</ListItem>
-            <ListItem>List item 6</ListItem>
-            <ListItem>List item 7</ListItem>
-            <ListItem>List item 8</ListItem>
-            <ListItem>List item 9</ListItem>
-            <ListItem>List item 10</ListItem>
-            <ListItem>List item 11</ListItem>
-            <ListItem>List item 12</ListItem>
+        <DialogContentContainer style={{ width: "200px" }}>
+          <List ariaLabel="Scrollable list" maxHeight={162}>
+            <ListItem label="List item 1" value="1" />
+            <ListItem label="List item 2" value="2" />
+            <ListItem label="List item 3" value="3" />
+            <ListItem label="List item 4" value="4" />
+            <ListItem label="List item 5" value="5" />
+            <ListItem label="List item 6" value="6" />
+            <ListItem label="List item 7" value="7" />
+            <ListItem label="List item 8" value="8" />
+            <ListItem label="List item 9" value="9" />
+            <ListItem label="List item 10" value="10" />
+            <ListItem label="List item 11" value="11" />
+            <ListItem label="List item 12" value="12" />
           </List>
         </DialogContentContainer>
       </StoryDescription>
     </Flex>
   ),
-
+  name: "Scrollable list",
   parameters: {
     docs: {
       liveEdit: {
         scope: { StoryDescription }
+      }
+    }
+  }
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <Flex gap="large" align="start">
+      <StoryDescription description="Small">
+        <List ariaLabel="Small list" size="small" style={{ width: 200 }}>
+          <ListItem label="Small item 1" value="1" />
+          <ListItem label="Small item 2" value="2" />
+          <ListItem label="Small item 3" value="3" />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="Medium">
+        <List ariaLabel="Medium list" size="medium" style={{ width: 200 }}>
+          <ListItem label="Medium item 1" value="1" />
+          <ListItem label="Medium item 2" value="2" />
+          <ListItem label="Medium item 3" value="3" />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="Large">
+        <List ariaLabel="Large list" size="large" style={{ width: 200 }}>
+          <ListItem label="Large item 1" value="1" />
+          <ListItem label="Large item 2" value="2" />
+          <ListItem label="Large item 3" value="3" />
+        </List>
+      </StoryDescription>
+    </Flex>
+  ),
+  name: "Sizes",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
+};
+
+export const States: Story = {
+  render: () => (
+    <Flex gap="large" align="start">
+      <List ariaLabel="States example">
+        <ListItem label="Default state" value="default" />
+        <ListItem label="Disabled state" value="disabled" disabled />
+        <ListItem label="Selected state" value="selected" selected />
+      </List>
+    </Flex>
+  ),
+  name: "States"
+};
+
+export const WithFocusCallback: Story = {
+  render: function WithFocusCallbackExample() {
+    const [focusedIndex, setFocusedIndex] = useState(0);
+
+    return (
+      <div>
+        <p style={{ marginBottom: 16 }}>Currently focused index: {focusedIndex}</p>
+        <List ariaLabel="List with focus callback" onFocusChange={setFocusedIndex} style={{ width: 300 }}>
+          <ListItem
+            label="First item"
+            value="1"
+            startElement={{ type: "icon", value: Favorite }}
+          />
+          <ListItem
+            label="Second item"
+            value="2"
+            startElement={{ type: "icon", value: Search }}
+          />
+          <ListItem
+            label="Third item"
+            value="3"
+            startElement={{ type: "icon", value: Settings }}
+          />
+        </List>
+      </div>
+    );
+  },
+  name: "With focus callback",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Favorite, Search, Settings }
+      }
+    }
+  }
+};
+
+export const KeyboardNavigation: Story = {
+  render: () => (
+    <div>
+      <p style={{ marginBottom: 16 }}>
+        Use arrow keys to navigate. Press <strong>Home</strong> for first item, <strong>End</strong> for last item.
+        <strong>PageUp</strong>/<strong>PageDown</strong> moves by 10 items. Navigation wraps around.
+      </p>
+      <List ariaLabel="List with keyboard navigation" style={{ width: 300 }}>
+        <ListItem label="First item - Press ↑ to wrap to last" value="1" />
+        <ListItem label="Second item" value="2" />
+        <ListItem label="Third item" value="3" />
+        <ListItem label="Fourth item - Press ↓ to wrap to first" value="4" />
+      </List>
+    </div>
+  ),
+  name: "Keyboard navigation"
+};
+
+export const DefaultFocusIndex: Story = {
+  render: () => (
+    <div>
+      <p style={{ marginBottom: 16 }}>This list starts with the third item focused (defaultFocusIndex=2).</p>
+      <List ariaLabel="List with default focus" defaultFocusIndex={2} style={{ width: 300 }}>
+        <ListItem label="First item" value="1" />
+        <ListItem label="Second item" value="2" />
+        <ListItem label="Third item (initially focused)" value="3" />
+        <ListItem label="Fourth item" value="4" />
+      </List>
+    </div>
+  ),
+  name: "Default focus index"
+};
+
+export const DisabledList: Story = {
+  render: () => (
+    <div>
+      <p style={{ marginBottom: 16 }}>This list is disabled - keyboard navigation is blocked.</p>
+      <List ariaLabel="Disabled list" disabled style={{ width: 300 }}>
+        <ListItem label="Item 1" value="1" />
+        <ListItem label="Item 2" value="2" />
+        <ListItem label="Item 3" value="3" />
+      </List>
+    </div>
+  ),
+  name: "Disabled list"
+};
+
+export const CustomRole: Story = {
+  render: () => (
+    <Flex gap="large" align="start">
+      <StoryDescription description="role='menu'">
+        <List ariaLabel="Actions menu" role="menu" style={{ width: 200 }}>
+          <ListItem label="Cut" value="cut" endElement={{ type: "suffix", value: "⌘X" }} />
+          <ListItem label="Copy" value="copy" endElement={{ type: "suffix", value: "⌘C" }} />
+          <ListItem label="Paste" value="paste" endElement={{ type: "suffix", value: "⌘V" }} />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="role='listbox' (default)">
+        <List ariaLabel="Select option" role="listbox" style={{ width: 200 }}>
+          <ListItem label="Option 1" value="1" />
+          <ListItem label="Option 2" value="2" selected />
+          <ListItem label="Option 3" value="3" />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="role='list'">
+        <List ariaLabel="Navigation links" role="list" style={{ width: 200 }}>
+          <ListItem label="Home" value="home" />
+          <ListItem label="About" value="about" />
+          <ListItem label="Contact" value="contact" />
+        </List>
+      </StoryDescription>
+    </Flex>
+  ),
+  name: "Custom role",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
+};
+
+export const InDialogContainer: Story = {
+  render: () => (
+    <DialogContentContainer style={{ width: 250 }}>
+      <List ariaLabel="List in dialog" maxHeight={200}>
+        <ListItem
+          label="View Profile"
+          value="profile"
+          startElement={{ type: "icon", value: Person }}
+        />
+        <ListItem
+          label="Settings"
+          value="settings"
+          startElement={{ type: "icon", value: Settings }}
+        />
+        <ListItem
+          label="Favorites"
+          value="favorites"
+          startElement={{ type: "icon", value: Favorite }}
+        />
+        <ListItem
+          label="Email Preferences"
+          value="email"
+          startElement={{ type: "icon", value: Email }}
+        />
+        <ListItem
+          label="Team Settings"
+          value="team"
+          startElement={{ type: "icon", value: Team }}
+        />
+      </List>
+    </DialogContentContainer>
+  ),
+  name: "In dialog container",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Person, Settings, Favorite, Email, Team }
+      }
+    }
+  }
+};
+
+export const DifferentElementTypes: Story = {
+  render: () => (
+    <Flex gap="large" align="start">
+      <StoryDescription description="as='ul' (default)">
+        <List ariaLabel="Unordered list" as="ul" style={{ width: 200 }}>
+          <ListItem label="Item 1" value="1" />
+          <ListItem label="Item 2" value="2" />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="as='ol'">
+        <List ariaLabel="Ordered list" as="ol" style={{ width: 200 }}>
+          <ListItem label="Item 1" value="1" />
+          <ListItem label="Item 2" value="2" />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="as='div'">
+        <List ariaLabel="Div list" as="div" style={{ width: 200 }}>
+          <ListItem label="Item 1" value="1" />
+          <ListItem label="Item 2" value="2" />
+        </List>
+      </StoryDescription>
+      <StoryDescription description="as='nav'">
+        <List ariaLabel="Navigation list" as="nav" style={{ width: 200 }}>
+          <ListItem label="Item 1" value="1" />
+          <ListItem label="Item 2" value="2" />
+        </List>
+      </StoryDescription>
+    </Flex>
+  ),
+  name: "Different element types",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription }
+      }
+    }
+  }
+};
+
+export const WithClickHandler: Story = {
+  render: function WithClickHandlerExample() {
+    const [lastClicked, setLastClicked] = useState<string | null>(null);
+
+    return (
+      <div>
+        <p style={{ marginBottom: 16 }}>Last clicked: {lastClicked ?? "None"}</p>
+        <List ariaLabel="Clickable list" style={{ width: 300 }}>
+          <ListItem
+            label="Click me"
+            value="1"
+            onClick={() => setLastClicked("Item 1")}
+          />
+          <ListItem
+            label="Or click me"
+            value="2"
+            onClick={() => setLastClicked("Item 2")}
+          />
+          <ListItem
+            label="Disabled (can't click)"
+            value="3"
+            disabled
+            onClick={() => setLastClicked("Item 3")}
+          />
+        </List>
+      </div>
+    );
+  },
+  name: "With click handler"
+};
+
+export const WithEndElements: Story = {
+  render: () => (
+    <List ariaLabel="List with end elements" style={{ width: 300 }}>
+      <ListItem
+        label="Settings"
+        value="1"
+        startElement={{ type: "icon", value: Settings }}
+        endElement={{ type: "suffix", value: "⌘S" }}
+      />
+      <ListItem
+        label="Favorites"
+        value="2"
+        startElement={{ type: "icon", value: Favorite }}
+        endElement={{ type: "suffix", value: "⌘F" }}
+      />
+      <ListItem
+        label="Search"
+        value="3"
+        startElement={{ type: "icon", value: Search }}
+        endElement={{ type: "suffix", value: "⌘K" }}
+      />
+    </List>
+  ),
+  name: "With end elements",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Settings, Favorite, Search }
+      }
+    }
+  }
+};
+
+export const DoAndDont: Story = {
+  render: () => (
+    <Flex gap="large" align="start">
+      <StoryDescription description="✓ Do: Use for page sections">
+        <div>
+          <List ariaLabel="Actions">
+            <ListItem label="Add" value="add" startElement={{ type: "icon", value: Add }} />
+            <ListItem label="Filter" value="filter" startElement={{ type: "icon", value: Filter }} />
+          </List>
+          <Divider />
+          <List ariaLabel="Boards">
+            <ListItem label="Board name" value="board1" startElement={{ type: "icon", value: Board }} />
+            <ListItem label="Board name" value="board2" startElement={{ type: "icon", value: Board }} />
+          </List>
+        </div>
+      </StoryDescription>
+      <StoryDescription description="✗ Don't: Use Menu for dialogs">
+        <DialogContentContainer>
+          <List ariaLabel="Actions">
+            <ListItem label="Add" value="add" startElement={{ type: "icon", value: Add }} />
+            <ListItem label="Filter" value="filter" startElement={{ type: "icon", value: Filter }} />
+          </List>
+          <Divider />
+          <List ariaLabel="Boards">
+            <ListItem label="Board name" value="board1" startElement={{ type: "icon", value: Board }} />
+            <ListItem label="Board name" value="board2" startElement={{ type: "icon", value: Board }} />
+          </List>
+        </DialogContentContainer>
+      </StoryDescription>
+    </Flex>
+  ),
+  name: "Do's and Don'ts",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { StoryDescription, Add, Filter, Board }
       }
     }
   }
