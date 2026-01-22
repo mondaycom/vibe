@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { findSelectedItemIndex } from "../utils/BaseListUtils";
+import { findSelectedItemIndex, getItemId } from "../utils/BaseListUtils";
 
 export interface UseBaseListFocusProps {
   defaultFocusIndex: number;
@@ -50,7 +50,7 @@ export const useBaseListFocus = ({
     const element = refs[targetIndex];
 
     if (element) {
-      const itemId = element.id || `${listId}-item-${targetIndex}`;
+      const itemId = getItemId(listId, targetIndex, element.id);
       updateFocusedItem(itemId, targetIndex);
     }
   }, [listId, disabled, defaultFocusIndex, updateFocusedItem]);

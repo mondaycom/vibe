@@ -11,7 +11,7 @@ import {
 } from "./context/BaseListContext";
 import { useBaseListFocus } from "./hooks/useBaseListFocus";
 import { useBaseListKeyboard } from "./hooks/useBaseListKeyboard";
-import { generateListId, getChildRole, getItemComponentType, isListItem } from "./utils/BaseListUtils";
+import { generateListId, getChildRole, getItemComponentType, getItemId, isListItem } from "./utils/BaseListUtils";
 import styles from "./BaseList.module.scss";
 
 const BaseList = forwardRef(
@@ -80,7 +80,7 @@ const BaseList = forwardRef(
           return child;
         }
 
-        const childId = (child.props as { id?: string }).id || `${listId}-item-${index}`;
+        const childId = getItemId(listId, index, (child.props as { id?: string }).id);
         const currentRef = childrenRefs.current[index];
         const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
         const isDOMElement = typeof child.type === "string";

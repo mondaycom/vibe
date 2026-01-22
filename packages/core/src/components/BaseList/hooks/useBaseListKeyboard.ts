@@ -5,6 +5,7 @@ import {
   findAdjacentFocusableIndex,
   findFirstFocusableIndex,
   findLastFocusableIndex,
+  getItemId,
   isFocusableListItem
 } from "../utils/BaseListUtils";
 
@@ -124,7 +125,7 @@ export const useBaseListKeyboard = ({
       if (newFocusIndex !== undefined) {
         const element = refs[newFocusIndex];
         if (element) {
-          const itemId = element.id || `${listId}-item-${newFocusIndex}`;
+          const itemId = getItemId(listId, newFocusIndex, element.id);
           updateFocusedItem(itemId, newFocusIndex);
           element.focus();
         }

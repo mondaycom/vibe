@@ -13,6 +13,10 @@ let listIdCounter = 0;
 
 export const generateListId = (): string => `baselist-${listIdCounter++}`;
 
+export const getItemId = (listId: string | undefined, index: number, customId?: string): string => {
+  return customId || `${listId}-item-${index}`;
+};
+
 export const isListItem = (element: HTMLElement | null): boolean => {
   return element instanceof HTMLElement && VALID_ROLES.includes(element.getAttribute("role") || "");
 };
