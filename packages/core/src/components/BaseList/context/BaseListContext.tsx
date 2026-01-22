@@ -3,10 +3,6 @@ import { NOOP } from "../../../utils/function-utils";
 import { type BaseListSizes } from "../BaseList.types";
 import { type AriaRole } from "react";
 
-/**
- * Props that BaseList provides to each item via context.
- * These are the same props that were previously injected via cloneElement.
- */
 export interface BaseListItemContextProps {
   /**
    * The index of this item in the list.
@@ -81,34 +77,18 @@ const defaultListContextValue: BaseListContextProps = {
 const BaseListContext = createContext<BaseListContextProps>(defaultListContextValue);
 const BaseListItemContext = createContext<BaseListItemContextProps | undefined>(undefined);
 
-/**
- * Provider component for BaseList context.
- */
 export const BaseListProvider = ({ value, children }: BaseListProviderProps) => {
   return <BaseListContext.Provider value={value}>{children}</BaseListContext.Provider>;
 };
 
-/**
- * Provider component for individual BaseList item context.
- */
 export const BaseListItemProvider = ({ value, children }: BaseListItemProviderProps) => {
   return <BaseListItemContext.Provider value={value}>{children}</BaseListItemContext.Provider>;
 };
 
-/**
- * Hook to access the BaseList context.
- * Returns the context value, which includes list-level state and registration functions.
- */
 export const useBaseList = (): BaseListContextProps => {
   return useContext(BaseListContext);
 };
 
-/**
- * Hook for BaseItem to get its item-specific props from the parent BaseList.
- * This is a non-breaking addition - if used outside a BaseList, returns undefined.
- *
- * @returns The item props if inside a BaseList, undefined otherwise.
- */
 export const useBaseListItem = (): BaseListItemContextProps | undefined => {
   return useContext(BaseListItemContext);
 };

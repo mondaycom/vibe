@@ -88,12 +88,10 @@ const BaseList = forwardRef(
         const existingRole = (child.props as { role?: string }).role;
         const childRole = existingRole || (!isDOMElement ? getChildRole(role) : undefined);
 
-        // Create a ref callback that registers the element
         const refCallback = (itemRef: HTMLElement | null) => {
           childrenRefs.current[index] = itemRef;
         };
 
-        // Create context value for this item
         const itemContextValue: BaseListItemContextProps = {
           index,
           id: childId,
@@ -105,7 +103,6 @@ const BaseList = forwardRef(
           refCallback
         };
 
-        // Wrap with context provider so children can consume props
         return (
           <BaseListItemProvider key={childId} value={itemContextValue}>
             {child}

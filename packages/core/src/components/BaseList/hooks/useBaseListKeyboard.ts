@@ -29,42 +29,28 @@ const NAVIGATION_KEYS: string[] = [
 
 const PAGE_JUMP_SIZE = 10;
 
-/**
- * Finds the best focusable index for PageUp.
- * Searches from target toward current position, returning the first focusable item found.
- * Falls back to first focusable item if none found in the jump range.
- */
 const findPageUpIndex = (refs: (HTMLElement | null)[], currentIndex: number): number | undefined => {
   const targetIndex = Math.max(0, currentIndex - PAGE_JUMP_SIZE);
 
-  // Search forward from target toward current position
   for (let i = targetIndex; i < currentIndex; i++) {
     if (isFocusableListItem(refs[i])) {
       return i;
     }
   }
 
-  // No focusable item in jump range - go to first focusable item
   const firstFocusableIndex = findFirstFocusableIndex(refs);
   return firstFocusableIndex !== -1 ? firstFocusableIndex : undefined;
 };
 
-/**
- * Finds the best focusable index for PageDown.
- * Searches from target toward current position, returning the first focusable item found.
- * Falls back to last focusable item if none found in the jump range.
- */
 const findPageDownIndex = (refs: (HTMLElement | null)[], currentIndex: number): number | undefined => {
   const targetIndex = Math.min(refs.length - 1, currentIndex + PAGE_JUMP_SIZE);
 
-  // Search backward from target toward current position
   for (let i = targetIndex; i > currentIndex; i--) {
     if (isFocusableListItem(refs[i])) {
       return i;
     }
   }
 
-  // No focusable item in jump range - go to last focusable item
   const lastFocusableIndex = findLastFocusableIndex(refs);
   return lastFocusableIndex !== -1 ? lastFocusableIndex : undefined;
 };
