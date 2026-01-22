@@ -18,7 +18,6 @@ const ListItem = forwardRef(
       startElement,
       endElement,
       tooltipProps,
-      children,
       onClick,
       onHover,
       "data-testid": dataTestId
@@ -65,9 +64,6 @@ const ListItem = forwardRef(
       [handleClick, handleHover, dataTestId]
     );
 
-    // If children are provided, use custom renderer
-    const itemRenderer = children ? () => <>{children}</> : undefined;
-
     return (
       <BaseItem
         ref={ref}
@@ -78,7 +74,6 @@ const ListItem = forwardRef(
         readOnly={readOnly}
         dir={dir}
         role={role}
-        itemRenderer={itemRenderer}
         itemProps={itemProps}
       />
     );

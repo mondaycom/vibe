@@ -316,16 +316,6 @@ describe("ListItem", () => {
       expect(screen.getByText("Test Label")).toBeInTheDocument();
     });
 
-    it("should render with custom children", () => {
-      render(
-        <List ariaLabel="Test">
-          <ListItem label="Hidden Label">
-            <span>Custom Content</span>
-          </ListItem>
-        </List>
-      );
-      expect(screen.getByText("Custom Content")).toBeInTheDocument();
-    });
   });
 
   describe("interactions", () => {

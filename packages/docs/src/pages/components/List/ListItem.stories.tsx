@@ -137,20 +137,6 @@ export const WithClickHandler: Story = {
   name: "With click handler"
 };
 
-export const CustomChildren: Story = {
-  render: () => (
-    <List ariaLabel="List with custom children" style={{ width: 300 }}>
-      <ListItem label="Custom content" value="custom">
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontWeight: "bold" }}>Custom</span>
-          <span style={{ color: "var(--secondary-text-color)" }}>content</span>
-        </div>
-      </ListItem>
-    </List>
-  ),
-  name: "With custom children"
-};
-
 export const ReadOnly: Story = {
   render: () => (
     <List ariaLabel="Read-only list">
