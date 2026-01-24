@@ -4,7 +4,6 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { Text, type TextType } from "@vibe/typography";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
-import { type TextType } from "../Text";
 import { useListItemProps } from "./hooks/useListItemProps";
 import { Tooltip } from "@vibe/tooltip";
 import { renderSideElement } from "./utils";
