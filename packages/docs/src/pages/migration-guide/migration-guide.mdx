@@ -300,6 +300,39 @@ The following components have breaking changes to their API, behavior, or style,
 - The `unmountOnClose` prop default value changes to "true", meaning the Modal will not render when `show` is "false". To disable this behavior set `unmountOnClose` to "false"
 - Tooltips, Tipseens, and Dialogs on Modals will now be rendered inside the Modal's container by default, without any z-index interference
 
+**Search**
+
+- The `type` prop was removed. The `Search.types.SQUARE`, `ROUND`, and `UNDERLINE` variants are no longer available
+- The `validation` prop was removed
+- The `wrapperClassName` prop was removed, use `className` instead
+- The `setRef` prop was removed, use the standard `ref` prop instead
+- The `iconNames` prop was removed. Use `clearIconLabel` for the clear button accessibility label
+- The `iconName` prop was renamed to `searchIconName`
+- The `secondaryIconName` prop was renamed to `clearIconName`
+- The `activeDescendant` prop was renamed to `currentAriaResultId`:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <Search iconName={MyIcon} secondaryIconName={ClearIcon} activeDescendant="result-1" />
++ <Search searchIconName={MyIcon} clearIconName={ClearIcon} currentAriaResultId="result-1" />
+`}
+  />
+</ul>
+
+- The `Search.sizes.SMALL/MEDIUM/LARGE` size values were removed, use `small`, `medium`, `large` respectively:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <Search size={Search.sizes.SMALL} />
++ <Search size="small" />
+`}
+  />
+</ul>
+
+- The `debounceRate` default changed from `200` to `400`
+
+The following components have breaking changes to their API, behavior, or style, as detailed below:
+
 **SplitButton**
 
 - The `data-testId` prop will no longer be applied to the internal elements, only the root element

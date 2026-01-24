@@ -3,7 +3,7 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./MenuTitleConstants";
 import { type MenuTitleCaptionPosition } from "./MenuTitle.type";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";

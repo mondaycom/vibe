@@ -20,6 +20,13 @@ export default [
   },
 
   {
+    name: "ZoomOut",
+    file: "ZoomOut.svg",
+    description: "Decreases magnification to view more of the layout",
+    tags: "Zoom, Decrease, Magnification, Layout, Detail, Interface, Canvas, Editor"
+  },
+
+  {
     name: "NavigationArrow",
     file: "NavigationArrow.svg",
     description: "Primary tool for moving and selecting elements on the canvas",

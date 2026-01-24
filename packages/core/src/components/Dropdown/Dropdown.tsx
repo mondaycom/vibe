@@ -26,7 +26,8 @@ import {
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
 import {
@@ -120,6 +121,12 @@ const Dropdown = forwardRef(
     }: DropdownComponentProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
+    useWarnDeprecated({
+      component: "Dropdown",
+      message:
+        "This component is deprecated and will be removed in the next major version. Please use Dropdown from @vibe/core/next instead."
+    });
+
     const controlRef = useRef();
     const { layerRef } = useContext(LayerContext);
     const overrideMenuPortalTarget =

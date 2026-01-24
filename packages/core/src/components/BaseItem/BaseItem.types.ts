@@ -1,7 +1,7 @@
 import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
-import { type TooltipProps } from "../Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 import { type ChipsProps } from "../Chips";
 import { type SubIcon } from "@vibe/icon";
 

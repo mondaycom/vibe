@@ -19,6 +19,7 @@ import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import styles from "./DatePicker.module.scss";
 // Make sure to update when upgrading react-dates
 import "./external_datepicker.scss";
@@ -105,6 +106,12 @@ const DatePicker = forwardRef(
     }: DatePickerProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    useWarnDeprecated({
+      component: "DatePicker",
+      message:
+        "This component is deprecated and will be removed in the next major version. Please use DatePicker from @vibe/core/next instead."
+    });
+
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);

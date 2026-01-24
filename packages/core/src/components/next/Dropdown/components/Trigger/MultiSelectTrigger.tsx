@@ -52,7 +52,7 @@ const MultiSelectTrigger = () => {
                 onRemove={item => {
                   contextOnOptionRemove?.(item);
                 }}
-                renderInput={() => <DropdownInput inputSize="small" />}
+                renderInput={searchable ? () => <DropdownInput inputSize="small" fullWidth /> : undefined}
                 minVisibleCount={minVisibleCount}
               />
             ) : (

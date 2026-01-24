@@ -1,7 +1,7 @@
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import cx from "classnames";
 import React, { type ForwardedRef, forwardRef, type ReactElement, useMemo } from "react";
-import IconButton from "../../components/IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
 import { type AlertBannerBackgroundColor } from "./AlertBanner.types";
@@ -13,7 +13,7 @@ import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { AlertBannerContext } from "./AlertBannerContext";
 
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;

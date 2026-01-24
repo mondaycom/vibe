@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import cx from "classnames";
 import styles from "./TipseenTitle.module.scss";
 

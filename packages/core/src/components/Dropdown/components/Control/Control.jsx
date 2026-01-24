@@ -1,6 +1,6 @@
 import React from "react";
 import { components } from "react-select";
-import Tooltip from "../../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 
 const Control = props => {
   const { selectProps } = props;

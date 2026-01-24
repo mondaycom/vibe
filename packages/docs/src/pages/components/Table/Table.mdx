@@ -65,6 +65,12 @@ Table with both vertical and horizontal scroll
 
 This is an example of a table with 5000 rows
 
+<Tip>
+  The row element returned by `rowRenderer` must accept a `style` prop. This is required for `react-window` to position
+  rows correctly. If rows appear stacked or scrolling breaks, ensure your row component doesn't ignore or override the
+  `style` prop.
+</Tip>
+
 <Canvas of={TableStories.VirtualizedScroll} />
 
 ## Sticky column
