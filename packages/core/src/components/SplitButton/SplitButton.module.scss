@@ -22,6 +22,12 @@
   transform: scale(0.95);
 }
 
+/* Disable press-scale on wrapper while split menu is open
+   to avoid layout shift on close */
+.button:has(button[aria-expanded="true"]) {
+  transform: none;
+}
+
 .disabled {
   cursor: not-allowed;
   pointer-events: none;
