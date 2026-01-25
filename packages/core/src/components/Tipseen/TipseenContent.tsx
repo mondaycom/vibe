@@ -72,35 +72,39 @@ const TipseenContent: FC<TipseenContentProps> = ({
     return color === TipseenColor.INVERTED ? "on-inverted-background" : "on-primary-color";
   }, [color]);
 
+  const showButtons = !hideDismiss || !hideSubmit;
+
   return (
     <TipseenBasicContent title={title} titleClassName={titleClassName} id={id}>
       {children ? <span>{children}</span> : null}
-      <div className={cx(styles.buttons)}>
-        {hideDismiss ? null : (
-          <Button
-            kind="tertiary"
-            color={buttonColor}
-            className={styles.dismiss}
-            size="small"
-            onClick={onDismiss}
-            data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_DISMISS)}
-          >
-            {dismissButtonText}
-          </Button>
-        )}
-        {hideSubmit ? null : (
-          <Button
-            kind="primary"
-            color={buttonColor}
-            size="small"
-            onClick={onSubmit}
-            data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
-            leftIcon={submitButtonIcon}
-          >
-            {submitButtonText}
-          </Button>
-        )}
-      </div>
+      {showButtons && (
+        <div className={cx(styles.buttons)}>
+          {hideDismiss ? null : (
+            <Button
+              kind="tertiary"
+              color={buttonColor}
+              className={styles.dismiss}
+              size="small"
+              onClick={onDismiss}
+              data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_DISMISS)}
+            >
+              {dismissButtonText}
+            </Button>
+          )}
+          {hideSubmit ? null : (
+            <Button
+              kind="primary"
+              color={buttonColor}
+              size="small"
+              onClick={onSubmit}
+              data-testid={getTestId(ComponentDefaultTestId.TIPSEEN_CONTENT_SUBMIT)}
+              leftIcon={submitButtonIcon}
+            >
+              {submitButtonText}
+            </Button>
+          )}
+        </div>
+      )}
     </TipseenBasicContent>
   );
 };
