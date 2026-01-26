@@ -45,7 +45,7 @@ const BaseList = forwardRef(
       setListId(id || generateListId());
     }, [id]);
 
-    const Component = as as React.ElementType;
+    const Element = as as React.ElementType;
 
     const { focusIndex, activeDescendantId, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
       defaultFocusIndex,
