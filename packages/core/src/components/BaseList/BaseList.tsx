@@ -71,7 +71,7 @@ const BaseList = forwardRef(
       }
     }, [focusOnMount]);
 
-    const enhancedChildren = useMemo(() => {
+    const enrichedChildren = useMemo(() => {
       const childArray = React.Children.toArray(children) as ReactElement[];
       childrenRefs.current = childrenRefs.current.slice(0, childArray.length);
 
