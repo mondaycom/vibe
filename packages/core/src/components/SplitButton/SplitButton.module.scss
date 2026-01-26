@@ -23,8 +23,8 @@
 }
 
 /* Disable press-scale on wrapper while split menu is open
-   to avoid layout shift on close */
-.button:has(button[aria-expanded="true"]) {
+to avoid layout shift on close */
+.active.splitContentOpen {
   transform: none;
 }
 
