@@ -3,8 +3,10 @@ export const VALID_ROLES = ["option", "listitem", "menuitem", "tab", "treeitem"]
 const ROLE_MAPPING: Record<string, string> = {
   listbox: "option",
   menu: "menuitem",
+  menubar: "menuitem",
   tablist: "tab",
-  tree: "treeitem"
+  tree: "treeitem",
+  list: "listitem"
 };
 
 export const getChildRole = (listRole: string): string => ROLE_MAPPING[listRole] || "listitem";

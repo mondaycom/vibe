@@ -134,7 +134,7 @@ const BaseList = forwardRef(
 
     return (
       <BaseListProvider value={contextValue}>
-        <Component
+        <Element
           ref={mergedRef}
           id={listId}
           className={cx(styles.baseList, className)}
@@ -149,8 +149,8 @@ const BaseList = forwardRef(
           data-testid={dataTestId}
           {...rest}
         >
-          {enhancedChildren}
-        </Component>
+          {enrichedChildren}
+        </Element>
       </BaseListProvider>
     );
   }
