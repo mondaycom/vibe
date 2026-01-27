@@ -58,10 +58,14 @@ export default function usePopover(
         },
         createObserveContentResizeModifier(observeContentResize),
         createObserveReferenceResizeModifier(observeReferenceResize),
-        offset !== undefined && {
-          name: "offset",
-          options: { offset }
-        }
+        ...(offset !== undefined
+          ? [
+              {
+                name: "offset" as const,
+                options: { offset }
+              }
+            ]
+          : [])
       ]
     };
   }, [placement, observeContentResize, offset, isOpen]);
