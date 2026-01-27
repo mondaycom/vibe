@@ -7,7 +7,11 @@ export type BaseListElement = "div" | "nav" | "ul" | "ol";
 
 export type BaseListSizes = BaseItemSizes;
 
-export interface BaseListProps extends React.HTMLAttributes<HTMLElement>, VibeComponentProps {
+export interface BaseListProps extends Omit<React.HTMLAttributes<HTMLElement>, "id">, VibeComponentProps {
+  /**
+   * A unique identifier for the list. Required to ensure unique IDs across micro-frontends.
+   */
+  id: string;
   /**
    * The HTML element to render as. Defaults to "ul".
    */
