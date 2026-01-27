@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.83.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.2...@vibe/core@3.83.3) (2026-01-25)
+
+
+### Bug Fixes
+
+* **Tipseen:** hide button div when no buttons are displayed ([#3242](https://github.com/mondaycom/vibe/issues/3242)) ([e48766e](https://github.com/mondaycom/vibe/commit/e48766e3c8ec1194a0281ac6a9ec1db3a0d3c3eb))
+
+
+
+
+
 ## [3.83.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.1...@vibe/core@3.83.2) (2026-01-18)
 
 
