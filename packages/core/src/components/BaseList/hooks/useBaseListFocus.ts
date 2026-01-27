@@ -50,7 +50,8 @@ export const useBaseListFocus = ({
   disabled
 }: UseBaseListFocusProps): UseBaseListFocusResult => {
   const childrenRefs = useRef<(HTMLElement | null)[]>([]);
-  const [focusIndex, setFocusIndex] = useState(defaultFocusIndex);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [focusIndex, setFocusIndex] = useState(-1);
   const [activeDescendantId, setActiveDescendantId] = useState<string | undefined>(undefined);
 
   const updateFocusedItem = useCallback(
@@ -69,9 +70,12 @@ export const useBaseListFocus = ({
   }, []);
 
   useEffect(() => {
-    if (disabled || !listId) return;
+    if (disabled || isInitialized) return;
 
     const refs = childrenRefs.current;
+    // Wait until refs are populated
+    if (refs.length === 0 || refs.every(ref => ref === null)) return;
+
     const selectedIndex = findSelectedItemIndex(refs);
     const targetIndex = selectedIndex !== -1 ? selectedIndex : defaultFocusIndex;
     const element = refs[targetIndex];
@@ -79,8 +83,9 @@ export const useBaseListFocus = ({
     if (element) {
       const itemId = getItemId(listId, targetIndex, element.id);
       updateFocusedItem(itemId, targetIndex);
+      setIsInitialized(true);
     }
-  }, [listId, disabled, defaultFocusIndex, updateFocusedItem]);
+  }, [listId, disabled, defaultFocusIndex, updateFocusedItem, isInitialized]);
 
   return {
     focusIndex,
