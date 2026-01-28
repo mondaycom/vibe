@@ -10,8 +10,4 @@
   max-height: var(--baselist-max-height, none);
   @include smoothing-text;
   @include scroller();
-
-  &:focus {
-    outline: none;
-  }
 }

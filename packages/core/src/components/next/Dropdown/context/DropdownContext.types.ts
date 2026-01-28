@@ -1,7 +1,7 @@
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 import { type BaseItemData } from "../../../BaseItem";
 import { type BaseDropdownProps } from "../Dropdown.types";
-import { type TooltipProps } from "../../../Tooltip/Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 
 type PropGetter = (options?: any) => Record<string, any>;
 type ItemPropGetter<Item> = (options: { item: Item; index: number }) => Record<string, any>;

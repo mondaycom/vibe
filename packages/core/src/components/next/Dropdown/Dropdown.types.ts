@@ -2,7 +2,7 @@ import type React from "react";
 import { type DropdownListGroup } from "./components/DropdownBaseList/DropdownBaseList.types";
 import { type VibeComponentProps } from "../../../types";
 import { type BaseItemData } from "../../BaseItem";
-import { type TooltipProps } from "../../Tooltip/Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 
 export type DropdownOption<Item = Record<string, unknown>> = BaseItemData<Item>;
 export type DropdownGroupOption<Item = Record<string, unknown>> = DropdownListGroup<Item>[] | BaseItemData<Item>[];

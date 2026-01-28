@@ -1,6 +1,6 @@
 import React from "react";
 import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
-import { IconButton } from "../../../../IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { Flex } from "@vibe/layout";
 import { Loader } from "@vibe/loader";
 import styles from "./Trigger.module.scss";

@@ -1,14 +1,13 @@
 import React from "react";
 import cx from "classnames";
-import IconButton from "../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { type ElementContent, type VibeComponentProps } from "../../../types";
 import { NOOP } from "../../../utils/function-utils";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import Text from "../../Text/Text";
-import Heading from "../../Heading/Heading";
+import { Text, Heading } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
 import styles from "./LegacyModalHeader.module.scss";
 

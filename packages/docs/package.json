@@ -1,6 +1,6 @@
 {
   "name": "@vibe/docs",
-  "version": "3.5.3",
+  "version": "3.5.9",
   "private": true,
   "description": "Vibe documentation",
   "repository": {
@@ -22,8 +22,8 @@
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@vibe/core": "3.82.3",
-    "@vibe/icons": "1.15.0",
+    "@vibe/core": "3.83.4",
+    "@vibe/icons": "1.16.0",
     "@vibe/shared": "3.0.8",
     "classnames": "^2.3.2",
     "es-toolkit": "^1.39.10",
@@ -68,6 +68,7 @@
     "@storybook/source-loader": "^8.6.15",
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/test": "^8.6.15",
+    "@storybook/test-runner": "^0.19.1",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^8.6.15",
     "@testing-library/jest-dom": "^6.4.6",
@@ -129,6 +130,7 @@
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "playwright": "^1.40.0",
     "plop": "4.0.1",
     "postcss": "^8.4.5",
     "postcss-import": "^15.1.0",

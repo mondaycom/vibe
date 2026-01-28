@@ -10,7 +10,7 @@ import React, {
 } from "react";
 import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
 import { withStaticProps, type VibeComponentProps, type ElementContent } from "../../types";
@@ -19,7 +19,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "./ListItemConstants";
 import { type ListItemElement, type ListItemSize } from "./ListItem.types";
-import { type TooltipProps } from "../Tooltip/Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 import styles from "./ListItem.module.scss";
 
 export interface ListItemProps extends VibeComponentProps {

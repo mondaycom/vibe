@@ -1,4 +1,4 @@
-import React, { forwardRef, type ReactElement, useMemo, useRef, useState } from "react";
+import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
@@ -11,7 +11,7 @@ import {
 } from "./context/BaseListContext";
 import { useBaseListFocus } from "./hooks/useBaseListFocus";
 import { useBaseListKeyboard } from "./hooks/useBaseListKeyboard";
-import { generateListId, getChildRole, getItemComponentType, getItemId, isListItem } from "./utils/baseListUtils";
+import { getChildRole, getItemComponentType, getItemId, isListItem } from "./utils/baseListUtils";
 import styles from "./BaseList.module.scss";
 
 const BaseList = forwardRef(
@@ -40,24 +40,19 @@ const BaseList = forwardRef(
     const componentRef = useRef<HTMLElement>(null);
     const mergedRef = useMergeRef(ref, componentRef);
 
-    const [listId, setListId] = useState<string | undefined>(undefined);
-    useIsomorphicLayoutEffect(() => {
-      setListId(id || generateListId());
-    }, [id]);
-
-    const Component = as as React.ElementType;
+    const Element = as as React.ElementType;
 
     const { focusIndex, activeDescendantId, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
       defaultFocusIndex,
       onFocusChange,
-      listId,
+      listId: id,
       disabled
     });
 
     useBaseListKeyboard({
       focusIndex,
       childrenRefs,
-      listId,
+      listId: id,
       updateFocusedItem,
       componentRef,
       disabled
@@ -71,7 +66,7 @@ const BaseList = forwardRef(
       }
     }, [focusOnMount]);
 
-    const enhancedChildren = useMemo(() => {
+    const enrichedChildren = useMemo(() => {
       const childArray = React.Children.toArray(children) as ReactElement[];
       childrenRefs.current = childrenRefs.current.slice(0, childArray.length);
 
@@ -80,7 +75,7 @@ const BaseList = forwardRef(
           return child;
         }
 
-        const childId = getItemId(listId, index, (child.props as { id?: string }).id);
+        const childId = getItemId(id, index, (child.props as { id?: string }).id);
         const currentRef = childrenRefs.current[index];
         const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
         const isDOMElement = typeof child.type === "string";
@@ -109,7 +104,7 @@ const BaseList = forwardRef(
           </BaseListItemProvider>
         );
       });
-    }, [children, as, focusIndex, listId, role, size, childrenRefs]);
+    }, [children, as, focusIndex, id, role, size, childrenRefs]);
 
     const contextValue: BaseListContextProps = useMemo(
       () => ({
@@ -134,9 +129,9 @@ const BaseList = forwardRef(
 
     return (
       <BaseListProvider value={contextValue}>
-        <Component
+        <Element
           ref={mergedRef}
-          id={listId}
+          id={id}
           className={cx(styles.baseList, className)}
           style={listStyle}
           aria-label={ariaLabel}
@@ -149,8 +144,8 @@ const BaseList = forwardRef(
           data-testid={dataTestId}
           {...rest}
         >
-          {enhancedChildren}
-        </Component>
+          {enrichedChildren}
+        </Element>
       </BaseListProvider>
     );
   }

@@ -38,10 +38,10 @@ export * from "./ExpandCollapse";
 export * from "@vibe/layout";
 export * from "./FormattedNumber";
 export * from "./GridKeyboardNavigationContext";
-export * from "./Heading";
+export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "./HiddenText";
 export * from "@vibe/icon";
-export * from "./IconButton";
+export * from "@vibe/icon-button";
 export * from "./Info";
 export * from "./Label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
@@ -66,7 +66,7 @@ export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Table";
 export * from "./Tabs";
-export * from "./Text";
+export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./TextWithHighlight";
@@ -74,11 +74,12 @@ export * from "./ThemeProvider";
 export * from "./Tipseen";
 export * from "./Toast";
 export * from "./Toggle";
-export * from "./Tooltip";
+// TODO: export * after removing enums
+export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
 export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
 
-export type { TypographyColor, TypographyAlign } from "./Typography";
+export type { TypographyColor, TypographyAlign } from "@vibe/typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";

@@ -17,6 +17,7 @@ import { NOOP } from "../../utils/function-utils";
 import { withStaticPropsWithoutForwardRef } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import styles from "./LegacyModal.module.scss";
 import { type ModalWidth } from "./LegacyModal.types";
 import { LayerProvider } from "@vibe/layer";
@@ -104,6 +105,12 @@ const Modal = ({
   unmountOnClose = true,
   "data-testid": dataTestId
 }: LegacyModalProps) => {
+  useWarnDeprecated({
+    component: "Modal (Legacy)",
+    message:
+      "This component is deprecated and will be removed in the next major version. Please use Modal from @vibe/core/next instead."
+  });
+
   const childrenArray: ReactElement[] = useMemo(
     () => (children ? (React.Children.toArray(children) as ReactElement[]) : []),
     [children]

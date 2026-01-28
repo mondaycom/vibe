@@ -38,6 +38,7 @@ import {
 } from "../src/pages/playground/playground-helpers";
 import reactDocgenOutput from "../src/pages/playground/react-docgen-output.json";
 import withLiveEdit from "../src/decorators/withLiveEdit/withLiveEdit";
+import withPerformanceProfiler from "../src/decorators/withPerformanceProfiler/withPerformanceProfiler";
 import modes from "./modes";
 import Footer from "../src/layout/footer/Footer";
 import StorybookTableOfContents from "../src/layout/toc/TableOfContents";
@@ -142,6 +143,7 @@ const preview: Preview = {
     withLiveEdit,
     withGlobalStyle,
     withMemoryStats,
+    withPerformanceProfiler,
     // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
     withThemeByClassName({
       themes: {

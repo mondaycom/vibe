@@ -3,17 +3,15 @@ export const VALID_ROLES = ["option", "listitem", "menuitem", "tab", "treeitem"]
 const ROLE_MAPPING: Record<string, string> = {
   listbox: "option",
   menu: "menuitem",
+  menubar: "menuitem",
   tablist: "tab",
-  tree: "treeitem"
+  tree: "treeitem",
+  list: "listitem"
 };
 
 export const getChildRole = (listRole: string): string => ROLE_MAPPING[listRole] || "listitem";
 
-let listIdCounter = 0;
-
-export const generateListId = (): string => `baselist-${listIdCounter++}`;
-
-export const getItemId = (listId: string | undefined, index: number, customId?: string): string => {
+export const getItemId = (listId: string, index: number, customId?: string): string => {
   return customId || `${listId}-item-${index}`;
 };
 

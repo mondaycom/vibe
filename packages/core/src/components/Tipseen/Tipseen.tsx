@@ -6,8 +6,8 @@ import {
   DialogTriggerEventEnum as HideShowEventEnum
 } from "@vibe/dialog";
 import useMergeRef from "../../hooks/useMergeRef";
-import Tooltip from "../../components/Tooltip/Tooltip";
-import IconButton from "../../components/IconButton/IconButton";
+import { Tooltip } from "@vibe/tooltip";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import TipseenTitle from "./TipseenTitle";
 import {
@@ -21,11 +21,10 @@ import { type MoveBy } from "../../types/MoveBy";
 import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./Tipseen.module.scss";
 import React from "react";
-import { type TooltipPositions } from "../Tooltip/Tooltip.types";
-import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipConstants";
+import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
 
 export interface TipseenProps extends VibeComponentProps {
   /**

@@ -12,7 +12,7 @@ import React, {
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import {
   FEEDBACK_CLASSES,
@@ -30,7 +30,7 @@ import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
-import { Tooltip } from "../Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { HiddenText } from "../HiddenText";
 
 const EMPTY_OBJECT = { primary: "", secondary: "" };

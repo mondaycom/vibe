@@ -4,7 +4,7 @@ import { Button } from "@vibe/button";
 import { Flex } from "@vibe/layout";
 import { type ModalFooterBaseProps } from "./ModalFooterBase.types";
 import cx from "classnames";
-import { Tooltip } from "../../../Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 
 const ModalFooterBase = forwardRef(
   (

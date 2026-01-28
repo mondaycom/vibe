@@ -1,6 +1,6 @@
 import React, { type FC, useEffect, useRef } from "react";
 import { NOOP } from "../../../utils/function-utils";
-import Tooltip from "../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
