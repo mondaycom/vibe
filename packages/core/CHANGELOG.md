@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.83.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.3...@vibe/core@3.83.4) (2026-01-28)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
 ## [3.83.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.2...@vibe/core@3.83.3) (2026-01-25)
 
 
