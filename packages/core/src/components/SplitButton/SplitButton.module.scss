@@ -1,16 +1,19 @@
 .button {
   display: inline-flex;
   border-radius: var(--border-radius-small);
-  transition: var(--motion-productive-short) transform,
-    var(--motion-productive-medium) var(--motion-timing-transition) min-width;
+  transition: var(--motion-productive-medium) var(--motion-timing-transition) min-width;
 }
 
 .button .mainButton {
   margin-right: 0;
+  transition: var(--motion-productive-short) transform;
+  transform-origin: right center;
 }
 
 .button .secondaryButton {
   margin-left: 0;
+  transition: var(--motion-productive-short) transform;
+  transform-origin: left center;
 }
 
 .secondaryButtonWrapper .secondaryButtonIconWrapper {
@@ -18,14 +21,9 @@
   padding: 0 4px;
 }
 
-.active {
+.active .mainButton,
+.active .secondaryButton {
   transform: scale(0.95);
-}
-
-/* Disable press-scale on wrapper while split menu is open
-to avoid layout shift on close */
-.active.splitContentOpen {
-  transform: none;
 }
 
 .disabled {
