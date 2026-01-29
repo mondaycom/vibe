@@ -253,12 +253,12 @@ describe("List (next)", () => {
       list.focus();
 
       const items = screen.getAllByRole("option");
-      const initialFocusedIndex = items.findIndex(item => item.getAttribute("tabindex") === "0");
 
       await userEvent.keyboard("{ArrowDown}");
 
-      // Focus should not change when disabled
-      expect(items[initialFocusedIndex]).toHaveAttribute("tabindex", "0");
+      // When disabled, no item should have tabIndex="0" (focus management is disabled)
+      const focusedItem = items.find(item => item.getAttribute("tabindex") === "0");
+      expect(focusedItem).toBeUndefined();
     });
   });
 
