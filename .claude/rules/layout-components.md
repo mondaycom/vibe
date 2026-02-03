@@ -1,0 +1,338 @@
+# Layout Components Guidelines
+
+**Purpose**: Guidelines for using Box and Flex layout components in the @vibe/core library instead of custom CSS for spacing, borders, and flexbox layouts.
+
+**Apply to**: `*.tsx`, `*.ts`
+
+This rule provides comprehensive guidelines for using Box and Flex components from `@vibe/core` instead of custom CSS for layout, spacing, borders, and containers.
+
+## Core Principle: Props Over CSS
+
+**Always prefer component props over custom CSS** for layout properties that Box and Flex provide. This ensures:
+
+- Consistent design token usage
+- Better maintainability
+- Type safety
+- Reduced CSS bundle size
+- Design system compliance
+
+## Box Component Usage
+
+### When to Use Box
+
+- **Container styling**: Backgrounds, borders, shadows, padding, margins
+- **Scrollable containers**: Use `scrollable` prop instead of `overflow: auto` in CSS
+- **Bordered containers**: Use `border` props instead of CSS border
+- **Spacing containers**: Use margin/padding props instead of CSS spacing
+- **Styled wrappers**: Any div that needs visual styling
+
+### Box Props Reference
+
+#### Spacing Props
+
+```tsx
+// ❌ Avoid CSS
+<div className={styles.container}>
+  <Content />
+</div>
+// .container { padding: var(--space-16); margin-bottom: var(--space-24); }
+
+// ✅ Prefer Box props
+<Box padding="medium" marginBottom="large">
+  <Content />
+</Box>
+```
+
+**Available spacing values**: `xs`, `small`, `medium`, `large`, `xl`, `xxl`, `xxxl`.
+
+If needing for a size that does not exist on `Box` (like `var(--space-12)`), you can use css for this value instead of using a prop.
+
+- Margin props also support: `auto`, `none`
+- Directional props: `marginX`, `marginY`, `marginTop`, `marginEnd`, `marginBottom`, `marginStart`
+- Directional props: `paddingX`, `paddingY`, `paddingTop`, `paddingEnd`, `paddingBottom`, `paddingStart`
+
+#### Border & Visual Props
+
+```tsx
+// ❌ Avoid CSS
+<div className={styles.bordered}>
+  <Content />
+</div>
+// .bordered { border: 1px solid var(--border-color); border-radius: 8px; }
+
+// ✅ Prefer Box props
+<Box border borderColor="uiBorderColor" rounded="medium">
+  <Content />
+</Box>
+```
+
+**Border colors**: `uiBorderColor`, `layoutBorderColor`
+**Rounded values**: `small`, `medium`, `big`
+**Shadow values**: `xs`, `small`, `medium`, `large`
+
+#### Scrollable Containers
+
+```tsx
+// ❌ Avoid CSS
+<div className={styles.scrollableContainer}>
+  <Content />
+</div>
+// .scrollableContainer { overflow: auto; }
+
+// ✅ Prefer Box scrollable prop
+<Box scrollable>
+  <Content />
+</Box>
+```
+
+#### Background & Text Colors
+
+```tsx
+// ❌ Avoid CSS
+<div className={styles.cardContainer}>
+  <Content />
+</div>
+// .cardContainer { background-color: var(--secondary-background-color); }
+
+// ✅ Prefer Box props
+<Box backgroundColor="secondaryBackgroundColor" textColor="primaryTextColor">
+  <Content />
+</Box>
+```
+
+**Background colors**: `primaryBackgroundColor`, `secondaryBackgroundColor`, `greyBackgroundColor`, `allgreyBackgroundColor`, `invertedColorBackground`
+**Text colors**: `primaryTextColor`, `textColorOnInverted`, `secondaryTextColor`
+
+## Flex Component Usage
+
+### When to Use Flex
+
+- **Layout positioning**: Arrange elements horizontally or vertically
+- **Gap spacing**: Space between flex items
+- **Alignment**: Justify and align flex items
+- **Responsive layouts**: Wrapping flex containers
+- **Toolbar/header layouts**: Horizontal arrangements with spacing
+
+### Flex Props Reference
+
+#### Basic Layout
+
+```tsx
+// ❌ Avoid CSS
+<div className={styles.flexContainer}>
+  <Item1 />
+  <Item2 />
+  <Item3 />
+</div>
+// .flexContainer { display: flex; gap: 16px; justify-content: space-between; }
+
+// ✅ Prefer Flex props
+<Flex gap="medium" justify="space-between">
+  <Item1 />
+  <Item2 />
+  <Item3 />
+</Flex>
+```
+
+**Direction values**: `row` (default), `column`
+**Gap values**: `xs` (4px), `small` (8px), `medium` (16px), `large` (24px), or custom number in px
+**Justify values**: `start`, `center`, `end`, `stretch`, `space-around`, `space-between`, `initial`
+**Align values**: `start`, `center`, `end`, `stretch`, `baseline`, `initial`
+
+#### Common Patterns
+
+```tsx
+// Horizontal toolbar
+<Flex gap="small" justify="space-between" align="center">
+  <Button>Action 1</Button>
+  <Button>Action 2</Button>
+</Flex>
+
+// Vertical stack
+<Flex direction="column" gap="medium">
+  <Item1 />
+  <Item2 />
+  <Item3 />
+</Flex>
+
+// Centered content
+<Flex justify="center" align="center">
+  <Content />
+</Flex>
+
+// With custom gap (px value)
+<Flex gap={32} direction="column">
+  <Item1 />
+  <Item2 />
+</Flex>
+```
+
+#### Clickable Flex
+
+When providing `onClick`, Flex automatically wraps with Clickable component:
+
+```tsx
+<Flex gap="small" onClick={handleClick} ariaLabel="Clickable toolbar" tabIndex={0}>
+  <Item1 />
+  <Item2 />
+</Flex>
+```
+
+## Component Combination Patterns
+
+### Box + Flex for Complex Layouts
+
+```tsx
+// Container with border and internal flex layout
+<Box border rounded="medium" padding="medium">
+  <Flex gap="small" justify="space-between" align="center">
+    <Text>Title</Text>
+    <Button>Action</Button>
+  </Flex>
+</Box>
+
+// Scrollable flex container
+<Box scrollable>
+  <Flex direction="column" gap="small">
+    {items.map(item => <Item key={item.id} {...item} />)}
+  </Flex>
+</Box>
+```
+
+### Nested Layout Structure
+
+```tsx
+// Page layout example
+<Box padding="large">
+  <Flex direction="column" gap="large">
+    {/* Header */}
+    <Flex justify="space-between" align="center">
+      <Heading>Page Title</Heading>
+      <Button>Action</Button>
+    </Flex>
+
+    {/* Content cards */}
+    <Flex gap="medium" wrap>
+      {cards.map(card => (
+        <Box key={card.id} border rounded="medium" padding="medium" backgroundColor="secondaryBackgroundColor">
+          <Card {...card} />
+        </Box>
+      ))}
+    </Flex>
+  </Flex>
+</Box>
+```
+
+## Migration Guidelines
+
+### From CSS to Box
+
+1. **Replace border CSS**: `border: 1px solid var(--border-color)` → `border` prop
+2. **Replace padding/margin CSS**: `padding: var(--spacing-medium)` → `padding="medium"`
+3. **Replace overflow CSS**: `overflow: auto` → `scrollable` prop
+4. **Replace background CSS**: `background-color: var(--secondary-bg)` → `backgroundColor="secondaryBackgroundColor"`
+
+### From CSS to Flex
+
+1. **Replace display flex**: `display: flex` → `<Flex>`
+2. **Replace gap CSS**: `gap: 16px` → `gap="medium"` or `gap={16}`
+3. **Replace justify-content**: `justify-content: space-between` → `justify="space-between"`
+4. **Replace align-items**: `align-items: center` → `align="center"`
+5. **Replace flex-direction**: `flex-direction: column` → `direction="column"`
+
+## Anti-Patterns to Avoid
+
+### ❌ Don't Use CSS When Props Are Available
+
+```tsx
+// ❌ Bad
+<div className={styles.container}>
+  <Content />
+</div>
+// .container {
+//   display: flex;
+//   gap: 16px;
+//   padding: 24px;
+//   border: 1px solid var(--border-color);
+// }
+
+// ✅ Good
+<Box border padding="large">
+  <Flex gap="medium">
+    <Content />
+  </Flex>
+</Box>
+```
+
+### ❌ Don't Mix CSS Layout with Component Props
+
+```tsx
+// ❌ Bad - mixing CSS flex with Flex props
+<Flex className={styles.customFlex} gap="medium">
+  <Content />
+</Flex>
+// .customFlex { justify-content: space-between; } // Use justify prop instead
+
+// ✅ Good
+<Flex gap="medium" justify="space-between">
+  <Content />
+</Flex>
+```
+
+### ❌ Don't Use Plain Divs for Styled Containers
+
+```tsx
+// ❌ Bad
+<div className={styles.card}>
+  <div className={styles.scrollableContent}>
+    <Content />
+  </div>
+</div>
+
+// ✅ Good
+<Box border rounded="medium" padding="medium">
+  <Box scrollable>
+    <Content />
+  </Box>
+</Box>
+```
+
+## Element Types
+
+Both Box and Flex support `elementType` prop to render as different HTML elements:
+
+```tsx
+<Box elementType="section" padding="large">
+  <Content />
+</Box>
+
+<Flex elementType="header" justify="space-between">
+  <Logo />
+  <Navigation />
+</Flex>
+```
+
+## Accessibility
+
+- Use `ariaLabel` and `ariaLabelledby` props on Flex when it's a meaningful container
+- Box and Flex support all standard HTML accessibility attributes
+- When using `onClick` on Flex, proper accessibility attributes are automatically handled
+
+## Claude Implementation Notes
+
+When implementing layouts with Box and Flex components:
+
+- **Always prefer props over CSS** for spacing, borders, backgrounds
+- **Use Box for containers** that need visual styling (borders, backgrounds, padding)
+- **Use Flex for layout arrangement** (spacing between items, alignment)
+- **Combine Box + Flex** for complex layouts with both styling and arrangement needs
+- **Don't mix CSS layout** with component props - choose one approach
+- **Use semantic element types** when appropriate (`elementType` prop)
+- **Apply accessibility props** when components serve as meaningful containers
+- **Check existing Box/Flex stories** for usage examples and available props
+
+## Examples Reference
+
+See usage examples in:
+- Box Stories: `packages/core/src/components/Box/__stories__/Box.stories.tsx`
+- Flex Stories: `packages/core/src/components/Flex/__stories__/Flex.stories.tsx`
