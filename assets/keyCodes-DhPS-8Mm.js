@@ -1,0 +1,1 @@
+const E={ENTER:"Enter",SPACE:" ",ESCAPE:"Escape",DOWN_ARROW:"ArrowDown",UP_ARROW:"ArrowUp",LEFT_ARROW:"ArrowLeft",RIGHT_ARROW:"ArrowRight",TAB:"Tab",HOME:"Home",END:"End",PAGE_UP:"PageUp",PAGE_DOWN:"PageDown"},R=[E.ENTER,E.SPACE],A=[E.UP_ARROW,E.DOWN_ARROW];export{R as S,A as U,E as k};
