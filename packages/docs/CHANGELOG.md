@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.9...@vibe/docs@3.6.0) (2026-02-04)
+
+
+### Features
+
+* **BaseList:** new component ([#3212](https://github.com/mondaycom/vibe/issues/3212)) ([8372ddd](https://github.com/mondaycom/vibe/commit/8372ddde21e2357e108c1dbbda81e48f00fbc105))
+
+
+
+
+
 ## [3.5.9](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.8...@vibe/docs@3.5.9) (2026-01-28)
 
 **Note:** Version bump only for package @vibe/docs
