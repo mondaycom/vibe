@@ -10,8 +10,6 @@ const frameLocator = "[id='storybook-preview-iframe']";
 test.describe("Testkit - Unit Tests - EditableHeading", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(editableHeadingStory);
-    // Wait for the iframe to be ready
-    await page.waitForSelector(frameLocator);
     frame = page.frameLocator(frameLocator);
     editableHeading = new EditableHeading(page, frame.locator(editableHeadingLocator), "EditableHeading");
     await editableHeading.waitForElementToBeVisible();
