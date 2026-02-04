@@ -1,2 +1,2 @@
-export * from "./Dialog";
-export * from "./DialogContentContainer";
+export { default as Dialog, type DialogProps } from "./Dialog";
+export * from "./Dialog.types";

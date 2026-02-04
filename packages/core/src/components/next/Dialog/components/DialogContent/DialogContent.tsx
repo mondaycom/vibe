@@ -5,6 +5,7 @@ import React, {
   type ReactElement,
   useCallback,
   useEffect,
+  useMemo,
   useRef
 } from "react";
 import cx from "classnames";
@@ -21,12 +22,16 @@ import {
   getStyle,
   useMergeRef
 } from "@vibe/shared";
-import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog.types";
-import type * as PopperJS from "@popperjs/core";
+import {
+  type DialogAnimationType,
+  type DialogTriggerEvent,
+  type DialogStartingEdge,
+  type DialogPlacement
+} from "../../Dialog.types";
 import styles from "./DialogContent.module.scss";
-import useDisableScroll from "./useDisableScroll";
+import useDisableScroll from "../../hooks/useDisableScroll";
 
-const EMPTY_OBJECT = {};
+const EMPTY_OBJECT: CSSProperties = {};
 const ESCAPE_KEYS = [keyCodes.ESCAPE];
 
 export interface DialogContentProps extends VibeComponentProps {
@@ -37,7 +42,7 @@ export interface DialogContentProps extends VibeComponentProps {
   /**
    * The placement of the dialog relative to the reference element.
    */
-  position?: PopperJS.Placement;
+  position?: DialogPlacement;
   /**
    * Class name applied to the dialog wrapper.
    */
@@ -46,11 +51,10 @@ export interface DialogContentProps extends VibeComponentProps {
    * If true, the dialog is open.
    */
   isOpen?: boolean;
-  // TODO: [breaking] use type
   /**
-   * The starting edge of the dialog.
+   * The starting edge for animation direction.
    */
-  startingEdge?: any;
+  startingEdge?: DialogStartingEdge;
   /**
    * The animation type used for showing/hiding the dialog.
    */
@@ -76,36 +80,36 @@ export interface DialogContentProps extends VibeComponentProps {
    */
   onClick?: (event: React.MouseEvent) => void;
   /**
-   * Delay before showing the dialog.
+   * Delay before showing the dialog (used for animation timing).
    */
   showDelay?: number;
   /**
-   * Inline styles applied to the dialog.
+   * Inline styles applied to the dialog wrapper.
    */
   styleObject?: CSSProperties;
   /**
-   * If true, hides the reference element when the dialog is shown.
+   * If true, indicates the reference element is hidden.
    */
   isReferenceHidden?: boolean;
   /**
-   * If true, applies tooltip arrow to the dialog.
+   * If true, applies tooltip arrow styling.
    */
   hasTooltip?: boolean;
   /**
-   * The CSS selector of the container where the dialog should be rendered.
+   * CSS selector of the container for scroll disabling.
    */
   containerSelector?: string;
   /**
-   * If true, disables scrolling in the container when the dialog is open.
+   * If true or a selector string, disables scrolling when open.
    */
   disableContainerScroll?: boolean | string;
   /**
-   * Callback fired when the context menu (right-click) event occurs outside the dialog.
+   * Callback fired on context menu (right-click) events.
    */
   onContextMenu?: (e: React.MouseEvent) => void;
 }
 
-const DialogContent = forwardRef(
+const DialogContent = forwardRef<HTMLElement, DialogContentProps>(
   (
     {
       onEsc = NOOP,
@@ -127,15 +131,14 @@ const DialogContent = forwardRef(
       containerSelector,
       disableContainerScroll = false,
       "data-testid": dataTestId
-    }: DialogContentProps,
-    forwardRef: React.ForwardedRef<HTMLElement>
+    },
+    forwardedRef
   ) => {
     const contentRef = useRef<HTMLDivElement>(null);
-
     const wrapperRef = useRef<HTMLSpanElement>(null);
-    const mergedWrapperRef = useMergeRef(forwardRef, wrapperRef);
+    const mergedWrapperRef = useMergeRef(forwardedRef, wrapperRef);
 
-    const onOutSideClick = useCallback(
+    const onOutsideClick = useCallback(
       (event: React.MouseEvent) => {
         if (isOpen) {
           return onClickOutside(event, "clickoutside");
@@ -151,9 +154,20 @@ const DialogContent = forwardRef(
       },
       [isOpen, onContextMenu]
     );
-    useKeyEvent({ keys: ESCAPE_KEYS, callback: onEsc });
+
+    // Wrap escape callback to ensure useKeyEvent always receives a valid function
+    const escapeCallback = useMemo(
+      () => (event: KeyboardEvent) => {
+        if (isOpen && onEsc !== NOOP) {
+          onEsc(event as unknown as React.KeyboardEvent);
+        }
+      },
+      [isOpen, onEsc]
+    );
+    useKeyEvent({ keys: ESCAPE_KEYS, callback: escapeCallback });
+
     // Watch the wrapper ref to include padding area, tooltip arrows, and nested Dialogs
-    useClickOutside({ callback: onOutSideClick, ref: wrapperRef });
+    useClickOutside({ callback: onOutsideClick, ref: wrapperRef });
     useClickOutside({ eventName: "contextmenu", callback: overrideOnContextMenu, ref: wrapperRef });
     const selectorToDisable = typeof disableContainerScroll === "string" ? disableContainerScroll : containerSelector;
     const { disableScroll, enableScroll } = useDisableScroll(selectorToDisable);
@@ -185,15 +199,29 @@ const DialogContent = forwardRef(
         };
         break;
     }
+
+    // Clone children to attach mouse event handlers, with proper type checking
+    const childrenWithHandlers = React.Children.map(children, child => {
+      // Only clone valid React elements, pass through primitives unchanged
+      if (!React.isValidElement(child)) {
+        return child;
+      }
+
+      return cloneElement(child as ReactElement, {
+        onMouseEnter: chainFunctions([(child as ReactElement).props.onMouseEnter, onMouseEnter]),
+        onMouseLeave: chainFunctions([(child as ReactElement).props.onMouseLeave, onMouseLeave])
+      });
+    });
+
     return (
       <span
-        // don't remove old classname - override from Monolith
+        // Legacy class name preserved for Monolith overrides
         className={cx("monday-style-dialog-content-wrapper", styles.contentWrapper, wrapperClassName)}
         ref={mergedWrapperRef}
         data-testid={dataTestId}
         style={styleObject}
         onClickCapture={onClick}
-        data-popper-reference-hidden={isReferenceHidden}
+        data-dialog-reference-hidden={isReferenceHidden}
       >
         <CSSTransition
           classNames={transitionOptions.classNames}
@@ -209,12 +237,7 @@ const DialogContent = forwardRef(
             })}
             ref={contentRef}
           >
-            {React.Children.toArray(children).map((child: ReactElement) => {
-              return cloneElement(child, {
-                onMouseEnter: chainFunctions([child.props.onMouseEnter, onMouseEnter]),
-                onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave])
-              });
-            })}
+            {childrenWithHandlers}
           </div>
         </CSSTransition>
       </span>

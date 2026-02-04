@@ -32,9 +32,13 @@ export type DialogTriggerEvent =
 
 export type DialogAnimationType = "opacity-and-slide" | "expand";
 
+export type DialogStartingEdge = "top" | "bottom";
+
 export type DialogOffset = {
   main?: number;
   secondary?: number;
 };
 
 export type DialogEvent = React.MouseEvent | React.KeyboardEvent | KeyboardEvent | React.FocusEvent | CustomEvent;
+
+export type { Middleware as DialogMiddleware, Placement as DialogPlacement } from "@floating-ui/react-dom";

@@ -1,6 +1,6 @@
 import { vi, beforeEach, afterEach, describe, expect, type MockInstance } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
-import useDisableScroll from "./useDisableScroll";
+import useDisableScroll from "../hooks/useDisableScroll";
 
 describe("useDisableScroll", () => {
   let addEventListenerSpy: MockInstance;
@@ -22,7 +22,7 @@ describe("useDisableScroll", () => {
     result.current.disableScroll();
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
-    expect(addEventListenerSpy).toHaveBeenCalledWith("wheel", expect.any(Function));
+    expect(addEventListenerSpy).toHaveBeenCalledWith("wheel", expect.any(Function), { passive: false });
   });
 
   test("should remove event listeners when disableScroll is called", () => {

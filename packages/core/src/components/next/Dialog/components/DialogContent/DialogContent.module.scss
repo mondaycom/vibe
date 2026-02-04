@@ -39,7 +39,7 @@
   }
 }
 
-.contentWrapper[data-popper-reference-hidden="true"] {
+.contentWrapper[data-dialog-reference-hidden="true"] {
   visibility: hidden;
   pointer-events: none;
 }
