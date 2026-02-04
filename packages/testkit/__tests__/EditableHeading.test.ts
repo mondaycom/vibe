@@ -1,3 +1,4 @@
+/* eslint-disable playwright/no-wait-for-selector */
 import { test, expect, FrameLocator } from "@playwright/test";
 import { EditableHeading } from "../components";
 import { editableHeadingStory } from "./utils/url-helper";
