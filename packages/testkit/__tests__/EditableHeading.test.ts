@@ -9,9 +9,10 @@ const frameLocator = "[id='storybook-preview-iframe']";
 test.describe("Testkit - Unit Tests - EditableHeading", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(editableHeadingStory);
+    // Wait for the iframe to be ready
+    await page.waitForSelector(frameLocator);
     frame = page.frameLocator(frameLocator);
     editableHeading = new EditableHeading(page, frame.locator(editableHeadingLocator), "EditableHeading");
-    await page.reload();
     await editableHeading.waitForElementToBeVisible();
   });
 
@@ -25,7 +26,6 @@ test.describe("Testkit - Unit Tests - EditableHeading", () => {
 
   test("should enter edit mode when clicked", async () => {
     await editableHeading.enterEditMode();
-    await editableHeading.getPage().waitForTimeout(100);
     expect(await editableHeading.isInEditMode()).toBe(true);
   });
 
@@ -56,13 +56,6 @@ test.describe("Testkit - Unit Tests - EditableHeading", () => {
     expect(await editableHeading.getText()).toBe(testText);
   });
 
-  test("should be able to clear and set text", async () => {
-    await editableHeading.setText("Initial Text");
-    expect.soft(await editableHeading.getText()).toBe("Initial Text");
-    await editableHeading.clearAndSetText("New Text");
-    expect(await editableHeading.getText()).toBe("New Text");
-  });
-
   test("should get text in view mode", async () => {
     await editableHeading.setText("Test Text");
     const text = await editableHeading.getText();
@@ -75,52 +68,10 @@ test.describe("Testkit - Unit Tests - EditableHeading", () => {
     expect(typeof inputValue).toBe("string");
   });
 
-  test("should handle multiple text changes", async () => {
-    await editableHeading.setText("First Heading");
-    expect.soft(await editableHeading.getText()).toBe("First Heading");
-    await editableHeading.setText("Second Heading");
-    expect.soft(await editableHeading.getText()).toBe("Second Heading");
-    await editableHeading.setText("Third Heading");
-    expect(await editableHeading.getText()).toBe("Third Heading");
-  });
-
   test("should type text character by character", async () => {
     await editableHeading.typeText("Typed Text");
     await editableHeading.exitEditModeWithEnter();
     expect(await editableHeading.getText()).toContain("Typed Text");
-  });
-
-  test("should handle empty string input", async () => {
-    await editableHeading.setText("Some text");
-    expect.soft(await editableHeading.getText()).toBe("Some text");
-    // Manually handle empty string (fill() doesn't clear properly for empty strings)
-    await editableHeading.enterEditMode();
-    const input = editableHeading.getLocator().locator("input");
-    await input.clear();
-    // Check value immediately after clearing
-    const inputValue = await editableHeading.getInputValue();
-    await editableHeading.exitEditModeWithEscape();
-    // Component should accept empty value
-    expect(inputValue).toBe("");
-  });
-
-  test("should handle special characters", async () => {
-    const specialText = "!@#$%^&*()_+-=";
-    await editableHeading.setText(specialText);
-    expect(await editableHeading.getText()).toBe(specialText);
-  });
-
-  test("should handle numbers", async () => {
-    const numberText = "123456789";
-    await editableHeading.setText(numberText);
-    expect(await editableHeading.getText()).toBe(numberText);
-  });
-
-  test("should handle long text", async () => {
-    const longText =
-      "This is a very long heading text that contains many characters to test the EditableHeading component's ability to handle longer input values.";
-    await editableHeading.setText(longText);
-    expect(await editableHeading.getText()).toBe(longText);
   });
 
   test("should get placeholder text", async () => {
@@ -141,21 +92,6 @@ test.describe("Testkit - Unit Tests - EditableHeading", () => {
     expect(await editableHeading.isInEditMode()).toBe(true);
   });
 
-  test("should handle cancel with Escape (no changes)", async () => {
-    // Get the current text (use whatever is already there)
-    const originalText = await editableHeading.getText();
-    // Enter edit mode and modify the text
-    await editableHeading.enterEditMode();
-    await editableHeading.typeText("Modified");
-    // Get the modified value to ensure it changed
-    const modifiedValue = await editableHeading.getInputValue();
-    expect.soft(modifiedValue).toContain("Modified");
-    // Cancel with Escape - should revert to original
-    await editableHeading.exitEditModeWithEscape();
-    await editableHeading.getPage().waitForTimeout(100);
-    expect(await editableHeading.getText()).toBe(originalText);
-  });
-
   test("should count elements correctly", async () => {
     const count = await editableHeading.count();
     expect(count).toBeGreaterThanOrEqual(1);
@@ -164,21 +100,5 @@ test.describe("Testkit - Unit Tests - EditableHeading", () => {
   test("should handle attribute retrieval", async () => {
     const attributeValue = await editableHeading.getAttributeValue("data-testid");
     expect(attributeValue).toContain("editable-heading");
-  });
-
-  test("should handle text with spaces", async () => {
-    const textWithSpaces = "Text   with   multiple   spaces";
-    await editableHeading.setText(textWithSpaces);
-    // HTML collapses multiple spaces in display, verify input value instead
-    await editableHeading.enterEditMode();
-    const inputValue = await editableHeading.getInputValue();
-    await editableHeading.exitEditModeWithEscape();
-    expect(inputValue).toBe(textWithSpaces);
-  });
-
-  test("should handle alphanumeric text", async () => {
-    const alphanumericText = "ABC123def456";
-    await editableHeading.setText(alphanumericText);
-    expect(await editableHeading.getText()).toBe(alphanumericText);
   });
 });

@@ -45,6 +45,9 @@ export class EditableHeading extends BaseElement {
   async exitEditModeWithEnter(): Promise<void> {
     await test.step(`Exit edit mode with Enter for ${this.getElementReportName()}`, async () => {
       await pressKey(this.getPage(), "Enter");
+      await this.getInputLocator().waitFor({ state: "hidden", timeout: 5000 });
+      // Wait for view mode to be ready
+      await this.getPage().waitForTimeout(50);
     });
   }
 
@@ -55,6 +58,9 @@ export class EditableHeading extends BaseElement {
   async exitEditModeWithEscape(): Promise<void> {
     await test.step(`Exit edit mode with Escape for ${this.getElementReportName()}`, async () => {
       await pressKey(this.getPage(), "Escape");
+      await this.getInputLocator().waitFor({ state: "hidden", timeout: 5000 });
+      // Wait for view mode to be ready
+      await this.getPage().waitForTimeout(50);
     });
   }
 
@@ -65,6 +71,9 @@ export class EditableHeading extends BaseElement {
   async exitEditModeWithBlur(): Promise<void> {
     await test.step(`Exit edit mode with blur for ${this.getElementReportName()}`, async () => {
       await this.removeFocus();
+      await this.getInputLocator().waitFor({ state: "hidden", timeout: 5000 });
+      // Wait for view mode to be ready
+      await this.getPage().waitForTimeout(50);
     });
   }
 
@@ -78,6 +87,7 @@ export class EditableHeading extends BaseElement {
     await test.step(`Set text: "${text}" for ${this.getElementReportName()}`, async () => {
       await this.enterEditMode();
       const input = this.getInputLocator();
+      await input.clear();
       await input.fill(text);
       await this.exitEditModeWithEnter();
     });
@@ -141,16 +151,17 @@ export class EditableHeading extends BaseElement {
     return await test.step(`Check if ${this.getElementReportName()} is read-only`, async () => {
       // Try to enter edit mode
       await this.click();
-      // Wait a bit for potential mode change
-      await this.getPage().waitForTimeout(100);
-      // Check if edit mode was entered
-      const isInEditMode = await this.isInEditMode();
-      // If we entered edit mode, exit and return false
-      if (isInEditMode) {
+      
+      // Wait for either input to appear or confirm it doesn't
+      try {
+        await this.getInputLocator().waitFor({ state: "visible", timeout: 500 });
+        // If we got here, we entered edit mode - exit and return false
         await this.exitEditModeWithEscape();
         return false;
+      } catch {
+        // Input didn't appear, it's read-only
+        return true;
       }
-      return true;
     });
   }
 
@@ -163,6 +174,7 @@ export class EditableHeading extends BaseElement {
     await test.step(`Type text: "${text}" for ${this.getElementReportName()}`, async () => {
       await this.enterEditMode();
       const input = this.getInputLocator();
+      await input.clear();
       await input.pressSequentially(text);
     });
   }

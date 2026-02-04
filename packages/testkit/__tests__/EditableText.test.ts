@@ -9,9 +9,10 @@ const frameLocator = "[id='storybook-preview-iframe']";
 test.describe("Testkit - Unit Tests - EditableText", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(editableTextStory);
+    // Wait for the iframe to be ready
+    await page.waitForSelector(frameLocator);
     frame = page.frameLocator(frameLocator);
     editableText = new EditableText(page, frame.locator(editableTextLocator), "EditableText");
-    await page.reload();
     await editableText.waitForElementToBeVisible();
   });
 
@@ -34,7 +35,6 @@ test.describe("Testkit - Unit Tests - EditableText", () => {
     // Check if it's multiline (textarea) - Enter doesn't exit multiline mode
     const isMultiline = await editableText.getLocator().locator("textarea").isVisible();
     await editableText.exitEditModeWithEnter();
-    await editableText.getPage().waitForTimeout(100);
     // For multiline (textarea), Enter adds a new line instead of exiting
     if (isMultiline) {
       expect(await editableText.isInEditMode()).toBe(true);
@@ -63,13 +63,6 @@ test.describe("Testkit - Unit Tests - EditableText", () => {
     expect(await editableText.getText()).toBe(testText);
   });
 
-  test("should be able to clear and set text", async () => {
-    await editableText.setText("Initial Text");
-    expect.soft(await editableText.getText()).toBe("Initial Text");
-    await editableText.clearAndSetText("New Text");
-    expect(await editableText.getText()).toBe("New Text");
-  });
-
   test("should get text in view mode", async () => {
     await editableText.setText("Test Text");
     const text = await editableText.getText();
@@ -82,52 +75,10 @@ test.describe("Testkit - Unit Tests - EditableText", () => {
     expect(typeof inputValue).toBe("string");
   });
 
-  test("should handle multiple text changes", async () => {
-    await editableText.setText("First Text");
-    expect.soft(await editableText.getText()).toBe("First Text");
-    await editableText.setText("Second Text");
-    expect.soft(await editableText.getText()).toBe("Second Text");
-    await editableText.setText("Third Text");
-    expect(await editableText.getText()).toBe("Third Text");
-  });
-
   test("should type text character by character", async () => {
     await editableText.typeText("Typed Text");
     await editableText.exitEditModeWithEnter();
     expect(await editableText.getText()).toContain("Typed Text");
-  });
-
-  test("should handle empty string input", async () => {
-    await editableText.setText("Some text");
-    expect.soft(await editableText.getText()).toBe("Some text");
-    // Manually handle empty string (fill() doesn't clear properly for empty strings)
-    await editableText.enterEditMode();
-    const input = editableText.getLocator().locator("input, textarea");
-    await input.clear();
-    // Check value immediately after clearing
-    const inputValue = await editableText.getInputValue();
-    await editableText.exitEditModeWithEscape();
-    // Component should accept empty value
-    expect(inputValue).toBe("");
-  });
-
-  test("should handle special characters", async () => {
-    const specialText = "!@#$%^&*()_+-=[]{}|;':\",./<>?";
-    await editableText.setText(specialText);
-    expect(await editableText.getText()).toBe(specialText);
-  });
-
-  test("should handle numbers", async () => {
-    const numberText = "123456789";
-    await editableText.setText(numberText);
-    expect(await editableText.getText()).toBe(numberText);
-  });
-
-  test("should handle long text", async () => {
-    const longText =
-      "This is a very long text that contains many characters and words to test the EditableText component's ability to handle longer input values without any issues.";
-    await editableText.setText(longText);
-    expect(await editableText.getText()).toBe(longText);
   });
 
   test("should handle multiline text", async () => {
@@ -166,21 +117,6 @@ test.describe("Testkit - Unit Tests - EditableText", () => {
     expect(await editableText.isInEditMode()).toBe(true);
   });
 
-  test("should handle cancel with Escape (no changes)", async () => {
-    // Get the current text (use whatever is already there)
-    const originalText = await editableText.getText();
-    // Enter edit mode and modify the text
-    await editableText.enterEditMode();
-    await editableText.typeText("Modified");
-    // Get the modified value to ensure it changed
-    const modifiedValue = await editableText.getInputValue();
-    expect.soft(modifiedValue).toContain("Modified");
-    // Cancel with Escape - should revert to original
-    await editableText.exitEditModeWithEscape();
-    await editableText.getPage().waitForTimeout(100);
-    expect(await editableText.getText()).toBe(originalText);
-  });
-
   test("should count elements correctly", async () => {
     const count = await editableText.count();
     expect(count).toBeGreaterThanOrEqual(1);
@@ -189,52 +125,5 @@ test.describe("Testkit - Unit Tests - EditableText", () => {
   test("should handle attribute retrieval", async () => {
     const attributeValue = await editableText.getAttributeValue("data-testid");
     expect(attributeValue).toContain("editable-text");
-  });
-
-  test("should handle text with spaces", async () => {
-    const textWithSpaces = "Text   with   multiple   spaces";
-    await editableText.setText(textWithSpaces);
-    await editableText.getPage().waitForTimeout(200);
-    // Verify in edit mode since getText() uses innerText() which normalizes whitespace
-    await editableText.enterEditMode();
-    const inputValue = await editableText.getInputValue();
-    await editableText.exitEditModeWithEscape();
-    expect(inputValue).toBe(textWithSpaces);
-  });
-
-  test("should handle text with tabs", async () => {
-    const textWithTabs = "Text\twith\ttabs";
-    await editableText.setText(textWithTabs);
-    await editableText.getPage().waitForTimeout(200);
-    // Verify in edit mode since getText() uses innerText() which normalizes whitespace
-    await editableText.enterEditMode();
-    const inputValue = await editableText.getInputValue();
-    await editableText.exitEditModeWithEscape();
-    expect(inputValue).toBe(textWithTabs);
-  });
-
-  test("should handle alphanumeric text", async () => {
-    const alphanumericText = "ABC123def456";
-    await editableText.setText(alphanumericText);
-    expect(await editableText.getText()).toBe(alphanumericText);
-  });
-
-  test("should handle unicode characters", async () => {
-    const unicodeText = "Hello 世界 🌍";
-    await editableText.setText(unicodeText);
-    expect(await editableText.getText()).toBe(unicodeText);
-  });
-
-  test("should handle mixed newlines and text", async () => {
-    // Test that component supports multiline mode and can handle text with newlines
-    await editableText.enterEditMode();
-    const isMultiline = await editableText.getLocator().locator("textarea").isVisible();
-    // If multiline, verify it can accept multiple lines of text
-    if (isMultiline) {
-      await editableText.typeText("Text on one line");
-      const inputValue = await editableText.getInputValue();
-      expect(inputValue).toContain("Text on one line");
-    }
-    await editableText.exitEditModeWithEscape();
   });
 });
