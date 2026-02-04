@@ -1,17 +1,12 @@
 import React from "react";
+import { shift } from "@floating-ui/react-dom";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import {
-  Button,
-  Dialog,
-  DialogContentContainer,
-  type DialogTriggerEvent,
-  Flex,
-  IconButton,
-  Skeleton,
-  useSwitch,
-  type DialogProps
-} from "@vibe/core";
+import { Button, Flex, DialogContentContainer, IconButton, Skeleton, useSwitch } from "@vibe/core";
+import { Dialog, type DialogTriggerEvent, type DialogProps } from "@vibe/core/next";
 import { Info } from "@vibe/icons";
+
+// Floating UI middleware to prevent dialog from shifting along the main axis while scrolling
+const preventMainAxisShift = [shift({ mainAxis: false })];
 import {
   closeTriggersInteractionSuite,
   CLICK_OUTSIDE_DIALOG,
@@ -63,7 +58,7 @@ export default {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { useSwitch }
+        scope: { useSwitch, shift, preventMainAxisShift }
       }
     }
   }
@@ -76,14 +71,7 @@ export const Overview = {
         <Dialog
           id="overview-dialog"
           aria-label="Overview dialog"
-          modifiers={[
-            {
-              name: "preventOverflow",
-              options: {
-                mainAxis: false
-              }
-            }
-          ]}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           showTrigger={["click"]}
           hideTrigger={["click"]}
@@ -148,21 +136,12 @@ export const Positions = {
         defaultChecked: false
       });
 
-      const modifiers = [
-        {
-          name: "preventOverflow",
-          options: {
-            mainAxis: false
-          }
-        }
-      ];
-
       return (
         <Flex style={{ padding: "80px var(--sb-spacing-small)" }} gap="medium">
           <Dialog
             id="positions-top-dialog"
             aria-label="Top positioned dialog"
-            modifiers={modifiers}
+            middleware={preventMainAxisShift}
             open={checkedTop}
             position="top"
             showTrigger={[]}
@@ -199,7 +178,7 @@ export const Positions = {
           <Dialog
             id="positions-bottom-dialog"
             aria-label="Bottom positioned dialog"
-            modifiers={modifiers}
+            middleware={preventMainAxisShift}
             position="bottom"
             showTrigger={[]}
             hideTrigger={[]}
@@ -236,7 +215,7 @@ export const Positions = {
           <Dialog
             id="positions-right-dialog"
             aria-label="Right positioned dialog"
-            modifiers={modifiers}
+            middleware={preventMainAxisShift}
             showTrigger={[]}
             hideTrigger={[]}
             position="right"
@@ -273,7 +252,7 @@ export const Positions = {
           <Dialog
             id="positions-left-dialog"
             aria-label="Left positioned dialog"
-            modifiers={modifiers}
+            middleware={preventMainAxisShift}
             position="left"
             showTrigger={[]}
             hideTrigger={[]}
@@ -328,19 +307,10 @@ export const ShowTriggers = {
       defaultChecked: false
     });
 
-    const modifiers = [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
-      }
-    ];
-
     return (
       <Flex style={{ padding: "80px var(--sb-spacing-small)" }} gap="medium">
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           showTrigger={["click"]}
           hideTrigger={["click"]}
           content={
@@ -367,7 +337,7 @@ export const ShowTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           showTrigger={["mouseenter"]}
           hideTrigger={["mouseleave"]}
           content={
@@ -396,7 +366,7 @@ export const ShowTriggers = {
           </div>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           showTrigger={["focus"]}
           hideTrigger={["blur"]}
           content={
@@ -423,7 +393,7 @@ export const ShowTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           showTrigger={[]}
           hideTrigger={[]}
@@ -491,16 +461,6 @@ export const HideTriggers = {
       defaultChecked: true
     });
 
-    // for prevent dialog to move while scrolling
-    const modifiers = [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
-      }
-    ];
-
     return (
       <Flex
         data-testid={HIDE_TRIGGERS_CONTAINER}
@@ -512,7 +472,7 @@ export const HideTriggers = {
         align="start"
       >
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           containerSelector={`#${HIDE_TRIGGERS_CONTAINER}`}
           onClickOutside={switchClickOutsideActive}
@@ -549,7 +509,7 @@ export const HideTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           position="right"
           showTrigger={["click"]}
@@ -583,7 +543,7 @@ export const HideTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           position="right"
           showTrigger={["focus", "click"]}
@@ -617,7 +577,7 @@ export const HideTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           position="right"
           showTrigger={["click"]}
@@ -652,7 +612,7 @@ export const HideTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           showTrigger={["mouseenter"]}
           hideTrigger={["mouseleave"]}
@@ -688,7 +648,7 @@ export const HideTriggers = {
           </Button>
         </Dialog>
         <Dialog
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           showTrigger={["click"]}
           hideTrigger={["contextmenu"]}
@@ -788,22 +748,12 @@ export const ControlledDialog = {
 };
 
 export const DialogWithTooltip = {
-  // for prevent dialog to move while scrolling
   render: () => {
-    const modifiers = [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
-      }
-    ];
-
     return (
       <div style={{ padding: "80px var(--sb-spacing-small)" }}>
         <Dialog
           tooltip
-          modifiers={modifiers}
+          middleware={preventMainAxisShift}
           shouldShowOnMount
           showTrigger={["click"]}
           hideTrigger={["click"]}
@@ -837,7 +787,7 @@ export const DialogWithTooltip = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { Info }
+        scope: { Info, shift, preventMainAxisShift }
       }
     }
   }

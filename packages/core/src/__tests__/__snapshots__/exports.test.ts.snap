@@ -147,6 +147,7 @@ exports[`exports > should export next all components 1`] = `
 [
   "AttentionBox",
   "DatePicker",
+  "Dialog",
   "Dropdown",
   "Modal",
   "ModalBasicLayout",
