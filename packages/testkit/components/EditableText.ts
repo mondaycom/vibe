@@ -62,7 +62,7 @@ export class EditableText extends BaseElement {
     await test.step(`Exit edit mode with Enter for ${this.getElementReportName()}`, async () => {
       const isMultiline = await this.getTextareaLocator().isVisible();
       await pressKey(this.getPage(), "Enter");
-      
+
       // For single-line input, wait for edit mode to exit
       if (!isMultiline) {
         await this.getActiveInputLocator().waitFor({ state: "hidden", timeout: 5000 });
@@ -111,7 +111,7 @@ export class EditableText extends BaseElement {
       const input = this.getActiveInputLocator();
       await input.clear();
       await input.fill(text);
-      
+
       // Press Enter to exit (for single-line) or Tab+Escape for multiline
       const isMultiline = await this.getTextareaLocator().isVisible();
       if (isMultiline) {
@@ -133,7 +133,7 @@ export class EditableText extends BaseElement {
       const input = this.getActiveInputLocator();
       await input.clear();
       await input.fill(text);
-      
+
       // Press Enter to exit (for single-line) or Escape for multiline
       const isMultiline = await this.getTextareaLocator().isVisible();
       if (isMultiline) {
@@ -202,7 +202,7 @@ export class EditableText extends BaseElement {
     return await test.step(`Check if ${this.getElementReportName()} is read-only`, async () => {
       // Try to enter edit mode
       await this.click();
-      
+
       // Wait for either input to appear or confirm it doesn't
       try {
         await this.getActiveInputLocator().waitFor({ state: "visible", timeout: 500 });

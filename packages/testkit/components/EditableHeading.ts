@@ -151,7 +151,7 @@ export class EditableHeading extends BaseElement {
     return await test.step(`Check if ${this.getElementReportName()} is read-only`, async () => {
       // Try to enter edit mode
       await this.click();
-      
+
       // Wait for either input to appear or confirm it doesn't
       try {
         await this.getInputLocator().waitFor({ state: "visible", timeout: 500 });
