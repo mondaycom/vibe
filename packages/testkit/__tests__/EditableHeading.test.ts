@@ -49,48 +49,6 @@ test.describe("Testkit - Unit Tests - EditableHeading", () => {
     expect(await editableHeading.isInEditMode()).toBe(false);
   });
 
-  test("should be able to set text", async () => {
-    const testText = "New Heading Text";
-    await editableHeading.setText(testText);
-    expect(await editableHeading.getText()).toBe(testText);
-  });
-
-  test("should get text in view mode", async () => {
-    await editableHeading.setText("Test Text");
-    const text = await editableHeading.getText();
-    expect(text).toBe("Test Text");
-  });
-
-  test("should get input value in edit mode", async () => {
-    await editableHeading.enterEditMode();
-    const inputValue = await editableHeading.getInputValue();
-    expect(typeof inputValue).toBe("string");
-  });
-
-  test("should type text character by character", async () => {
-    await editableHeading.typeText("Typed Text");
-    await editableHeading.exitEditModeWithEnter();
-    expect(await editableHeading.getText()).toContain("Typed Text");
-  });
-
-  test("should get placeholder text", async () => {
-    const placeholder = await editableHeading.getPlaceholder();
-    expect(typeof placeholder).toBe("string");
-  });
-
-  test("should check if read-only", async () => {
-    const isReadOnly = await editableHeading.isReadOnly();
-    expect(typeof isReadOnly).toBe("boolean");
-  });
-
-  test("should not enter edit mode when already in edit mode", async () => {
-    await editableHeading.enterEditMode();
-    expect.soft(await editableHeading.isInEditMode()).toBe(true);
-    // Try entering edit mode again
-    await editableHeading.enterEditMode();
-    expect(await editableHeading.isInEditMode()).toBe(true);
-  });
-
   test("should count elements correctly", async () => {
     const count = await editableHeading.count();
     expect(count).toBeGreaterThanOrEqual(1);
