@@ -328,42 +328,16 @@ export const DoAndDont: Story = {
 
 export const VirtualizedList: Story = {
   render: () => {
-    const items = useMemo(
-      () =>
-        Array.from({ length: 10000 }, (_, index) => ({
-          label: `Option ${index + 1}`,
-          value: `option-${index + 1}`
-        })),
-      []
-    );
-
-    // Item height based on medium size (default): 9px padding top + 9px padding bottom + ~24px line height = ~42px
-    const itemHeight = 42;
-    const containerHeight = 300;
-
-    const Row = useCallback(
-      ({ index, style }: { index: number; style: React.CSSProperties }) => (
-        <div style={style}>
-          <ListItem label={items[index].label} value={items[index].value} />
-        </div>
-      ),
-      [items]
-    );
+    const items = Array.from({ length: 1000 }, (_, i) => ({ label: `Item ${i + 1}`, value: `${i + 1}` }));
 
     return (
-      <DialogContentContainer style={{ width: 300 }}>
-        <div role="listbox" aria-label="Virtualized list with 10,000 items">
-          <FixedSizeList
-            height={containerHeight}
-            width="100%"
-            itemCount={items.length}
-            itemSize={itemHeight}
-            overscanCount={5}
-          >
-            {Row}
-          </FixedSizeList>
-        </div>
-      </DialogContentContainer>
+      <FixedSizeList height={300} width={300} itemCount={items.length} itemSize={32}>
+        {({ index, style }) => (
+          <div style={style}>
+            <ListItem label={items[index].label} value={items[index].value} />
+          </div>
+        )}
+      </FixedSizeList>
     );
   },
   name: "Virtualized list",
