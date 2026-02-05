@@ -9,14 +9,7 @@ import styles from "./ListTitle.module.scss";
 
 const ListTitle = forwardRef(
   (
-    {
-      className,
-      id,
-      children,
-      size: sizeProp,
-      sticky = false,
-      "data-testid": dataTestId
-    }: ListTitleProps,
+    { className, id, children, size: sizeProp, sticky = false, "data-testid": dataTestId }: ListTitleProps,
     ref: React.ForwardedRef<HTMLLIElement>
   ) => {
     const { size: contextSize } = useBaseList();
