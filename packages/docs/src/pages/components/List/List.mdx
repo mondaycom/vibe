@@ -1,6 +1,6 @@
 import { Meta, Canvas } from "@storybook/blocks";
 import { Board, Add, Filter } from "@vibe/icons";
-import { List, ListItem } from "@vibe/core/next";
+import { List, ListItem, ListTitle } from "@vibe/core/next";
 import { DialogContentContainer, Divider, Flex } from "@vibe/core";
 import { Link, Tip, StorybookLink } from "vibe-storybook-components";
 import { TipCheckYourself } from "./List.stories.helpers";
@@ -12,12 +12,6 @@ import * as ListStories from "./List.stories";
 
 Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text.
 
-<Tip title="Migration Guide Available" emoji="🚀">
-  Migrating from the old List? Check out our comprehensive{" "}
-  <Link href="/?path=/docs/components-list-new-migration-guide--docs">List Migration Guide</Link> for step-by-step
-  instructions, breaking changes, and new features.
-</Tip>
-
 <Canvas of={ListStories.Overview} />
 
 ### Import
@@ -25,7 +19,7 @@ Lists is a group of actionable items containing primary and supplemental actions
 All the List-related components can be imported from `@vibe/core/next`.
 
 ```js
-import { List, ListItem } from "@vibe/core/next";
+import { List, ListItem, ListTitle } from "@vibe/core/next";
 ```
 
 ## Props
@@ -83,6 +77,18 @@ import { List, ListItem } from "@vibe/core/next";
 ### List with avatars
 
 <Canvas of={ListStories.ListWithAvatars} />
+
+### List with title
+
+Use `ListTitle` to create section headers within your list. Titles are automatically skipped during keyboard navigation.
+
+<Canvas of={ListStories.ListWithTitle} />
+
+### Sticky title
+
+Use the `sticky` prop on `ListTitle` to keep section headers visible at the top while scrolling through a list.
+
+<Canvas of={ListStories.StickyTitle} />
 
 ### Scrollable list
 

@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { List, ListItem, type ListProps } from "@vibe/core/next";
+import { List, ListItem, ListTitle, type ListProps } from "@vibe/core/next";
 import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search, Send, Add, Filter } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { Flex, DialogContentContainer, Divider, Text } from "@vibe/core";
@@ -9,21 +9,24 @@ import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
 
+type Story = StoryObj<typeof List>;
+
 const metaSettings = createStoryMetaSettingsDecorator({
   component: List
 });
 
-export default {
+const meta: Meta<typeof List> = {
   title: "Components/List [New]/List",
   component: List,
   subcomponents: {
-    ListItem
+    ListItem,
+    ListTitle
   },
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
-} satisfies Meta<typeof List>;
+};
 
-type Story = StoryObj<typeof List>;
+export default meta;
 
 const listTemplate = (args: ListProps) => {
   const onClick = useCallback(() => alert("On click!"), []);
@@ -82,6 +85,59 @@ export const ListWithAvatars: Story = {
     docs: {
       liveEdit: {
         scope: { person1, person2, person3 }
+      }
+    }
+  }
+};
+
+export const ListWithTitle: Story = {
+  render: () => (
+    <List ariaLabel="List with title">
+      <ListTitle>Category A</ListTitle>
+      <ListItem label="List item 1" value="list-1" startElement={{ type: "icon", value: Board }} />
+      <ListItem label="List item 2" value="list-2" startElement={{ type: "icon", value: Team }} />
+      <ListTitle>Category B</ListTitle>
+      <ListItem label="List item 3" value="list-3" startElement={{ type: "icon", value: ThumbsUp }} />
+      <ListItem label="List item 4" value="list-4" startElement={{ type: "icon", value: Favorite }} />
+    </List>
+  ),
+  name: "List with title",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Board, Team, ThumbsUp, Favorite }
+      }
+    }
+  }
+};
+
+export const StickyTitle: Story = {
+  render: () => (
+    <DialogContentContainer style={{ width: "250px" }}>
+      <List ariaLabel="List with sticky titles" maxHeight={200}>
+        <ListTitle sticky>Category A</ListTitle>
+        <ListItem label="List item 1" value="1" startElement={{ type: "icon", value: Board }} />
+        <ListItem label="List item 2" value="2" startElement={{ type: "icon", value: Board }} />
+        <ListItem label="List item 3" value="3" startElement={{ type: "icon", value: Board }} />
+        <ListItem label="List item 4" value="4" startElement={{ type: "icon", value: Board }} />
+        <ListTitle sticky>Category B</ListTitle>
+        <ListItem label="List item 5" value="5" startElement={{ type: "icon", value: Team }} />
+        <ListItem label="List item 6" value="6" startElement={{ type: "icon", value: Team }} />
+        <ListItem label="List item 7" value="7" startElement={{ type: "icon", value: Team }} />
+        <ListItem label="List item 8" value="8" startElement={{ type: "icon", value: Team }} />
+        <ListTitle sticky>Category C</ListTitle>
+        <ListItem label="List item 9" value="9" startElement={{ type: "icon", value: ThumbsUp }} />
+        <ListItem label="List item 10" value="10" startElement={{ type: "icon", value: ThumbsUp }} />
+        <ListItem label="List item 11" value="11" startElement={{ type: "icon", value: ThumbsUp }} />
+        <ListItem label="List item 12" value="12" startElement={{ type: "icon", value: ThumbsUp }} />
+      </List>
+    </DialogContentContainer>
+  ),
+  name: "Sticky title",
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Board, Team, ThumbsUp }
       }
     }
   }
