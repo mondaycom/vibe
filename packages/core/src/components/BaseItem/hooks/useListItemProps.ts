@@ -44,7 +44,7 @@ export function useListItemProps<Item extends Record<string, unknown>>(
     id: props.id ?? context.id,
     component: props.component !== "li" ? props.component! : context.component,
     size: props.size !== "medium" ? props.size! : context.size,
-    highlighted: props.highlighted || context.highlighted,
+    highlighted: props.highlighted !== undefined ? props.highlighted : context.highlighted,
     role: props.role ?? context.role,
     itemProps: {
       tabIndex: context.tabIndex,

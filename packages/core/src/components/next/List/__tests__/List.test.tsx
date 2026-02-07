@@ -240,28 +240,6 @@ describe("List (next)", () => {
     });
   });
 
-  describe("disabled state", () => {
-    it("should have aria-disabled when disabled", () => {
-      renderList({ disabled: true });
-      expect(screen.getByRole("listbox")).toHaveAttribute("aria-disabled", "true");
-    });
-
-    it("should not navigate when disabled", async () => {
-      renderList({ disabled: true });
-
-      const list = screen.getByRole("listbox");
-      list.focus();
-
-      const items = screen.getAllByRole("option");
-
-      await userEvent.keyboard("{ArrowDown}");
-
-      // When disabled, no item should have tabIndex="0" (focus management is disabled)
-      const focusedItem = items.find(item => item.getAttribute("tabindex") === "0");
-      expect(focusedItem).toBeUndefined();
-    });
-  });
-
   describe("with selected items", () => {
     it("should support selected items", () => {
       render(

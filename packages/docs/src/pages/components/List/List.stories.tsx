@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { List, ListItem, ListTitle, type ListProps } from "@vibe/core/next";
-import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search, Send, Add, Filter } from "@vibe/icons";
+import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Flex, DialogContentContainer, Divider, Text } from "@vibe/core";
+import { Flex, DialogContentContainer, Text } from "@vibe/core";
 import { FixedSizeList } from "react-window";
 import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
@@ -278,49 +278,6 @@ export const WithEndElements: Story = {
     docs: {
       liveEdit: {
         scope: { Settings, Favorite, Search }
-      }
-    }
-  }
-};
-
-export const DoAndDont: Story = {
-  render: () => (
-    <Flex gap="large" align="start">
-      <Flex direction="column" gap="small">
-        <Text type="text1">Do: Use for page sections</Text>
-        <div>
-          <List ariaLabel="Actions">
-            <ListItem label="Add" value="add" startElement={{ type: "icon", value: Add }} />
-            <ListItem label="Filter" value="filter" startElement={{ type: "icon", value: Filter }} />
-          </List>
-          <Divider />
-          <List ariaLabel="Boards">
-            <ListItem label="Board name" value="board1" startElement={{ type: "icon", value: Board }} />
-            <ListItem label="Board name" value="board2" startElement={{ type: "icon", value: Board }} />
-          </List>
-        </div>
-      </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1">Don't: Use Menu for dialogs</Text>
-        <DialogContentContainer>
-          <List ariaLabel="Actions">
-            <ListItem label="Add" value="add" startElement={{ type: "icon", value: Add }} />
-            <ListItem label="Filter" value="filter" startElement={{ type: "icon", value: Filter }} />
-          </List>
-          <Divider />
-          <List ariaLabel="Boards">
-            <ListItem label="Board name" value="board1" startElement={{ type: "icon", value: Board }} />
-            <ListItem label="Board name" value="board2" startElement={{ type: "icon", value: Board }} />
-          </List>
-        </DialogContentContainer>
-      </Flex>
-    </Flex>
-  ),
-  name: "Do's and Don'ts",
-  parameters: {
-    docs: {
-      liveEdit: {
-        scope: { Add, Filter, Board }
       }
     }
   }

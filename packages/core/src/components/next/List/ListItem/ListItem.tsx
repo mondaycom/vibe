@@ -71,6 +71,7 @@ const ListItem = forwardRef(
         id={id}
         item={item}
         selected={selected}
+        highlighted={false}
         readOnly={readOnly}
         dir={dir}
         role={role}

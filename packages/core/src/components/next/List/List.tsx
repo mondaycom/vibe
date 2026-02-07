@@ -20,7 +20,6 @@ const List = forwardRef(
       focusOnMount = false,
       defaultFocusIndex,
       onFocusChange,
-      disabled = false,
       style,
       "data-testid": dataTestId
     }: ListProps,
@@ -40,7 +39,6 @@ const List = forwardRef(
         focusOnMount={focusOnMount}
         defaultFocusIndex={defaultFocusIndex}
         onFocusChange={onFocusChange}
-        disabled={disabled}
         style={style}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
       >

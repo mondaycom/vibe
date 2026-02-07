@@ -48,10 +48,6 @@ export interface ListProps extends VibeComponentProps {
    */
   onFocusChange?: (index: number, id?: string) => void;
   /**
-   * If true, disables all keyboard navigation and focus management.
-   */
-  disabled?: boolean;
-  /**
    * Custom inline styles applied to the list.
    */
   style?: React.CSSProperties;
