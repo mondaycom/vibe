@@ -1,10 +1,11 @@
 name: Performance Testing
 
 on:
-  pull_request:
-    paths:
-      - "packages/core/src/components/**"
-      - "packages/components/**"
+  workflow_dispatch:
+  # pull_request:
+  #   paths:
+  #     - "packages/core/src/components/**"
+  #     - "packages/components/**"
 
 permissions:
   pull-requests: write
