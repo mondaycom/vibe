@@ -20,7 +20,6 @@ const List = forwardRef(
       focusOnMount = false,
       defaultFocusIndex,
       onFocusChange,
-      style,
       "data-testid": dataTestId
     }: ListProps,
     ref: React.ForwardedRef<HTMLElement>
@@ -39,7 +38,6 @@ const List = forwardRef(
         focusOnMount={focusOnMount}
         defaultFocusIndex={defaultFocusIndex}
         onFocusChange={onFocusChange}
-        style={style}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
       >
         {children}

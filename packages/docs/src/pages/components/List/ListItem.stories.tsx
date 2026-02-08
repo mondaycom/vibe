@@ -93,20 +93,22 @@ export const WithAvatar: Story = {
 
 export const WithEndElement: Story = {
   render: () => (
-    <List ariaLabel="List with end elements" style={{ width: 250 }}>
-      <ListItem
-        label="Settings"
-        value="settings"
-        startElement={{ type: "icon", value: Settings }}
-        endElement={{ type: "suffix", value: "⌘S" }}
-      />
-      <ListItem
-        label="Favorites"
-        value="favorites"
-        startElement={{ type: "icon", value: Favorite }}
-        endElement={{ type: "suffix", value: "⌘F" }}
-      />
-    </List>
+    <div style={{ width: 250 }}>
+      <List ariaLabel="List with end elements">
+        <ListItem
+          label="Settings"
+          value="settings"
+          startElement={{ type: "icon", value: Settings }}
+          endElement={{ type: "suffix", value: "⌘S" }}
+        />
+        <ListItem
+          label="Favorites"
+          value="favorites"
+          startElement={{ type: "icon", value: Favorite }}
+          endElement={{ type: "suffix", value: "⌘F" }}
+        />
+      </List>
+    </div>
   ),
   name: "List item with end element",
   parameters: {

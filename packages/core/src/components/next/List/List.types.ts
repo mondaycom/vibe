@@ -1,4 +1,3 @@
-import type React from "react";
 import { type ReactElement, type AriaRole } from "react";
 import { type VibeComponentProps } from "../../../types";
 import { type BaseListSizes, type BaseListElement } from "../../BaseList";
@@ -47,8 +46,4 @@ export interface ListProps extends VibeComponentProps {
    * Callback fired when the focused item changes.
    */
   onFocusChange?: (index: number, id?: string) => void;
-  /**
-   * Custom inline styles applied to the list.
-   */
-  style?: React.CSSProperties;
 }

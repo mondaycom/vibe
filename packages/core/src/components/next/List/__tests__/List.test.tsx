@@ -203,12 +203,6 @@ describe("List (next)", () => {
       renderList({ maxHeight: "50vh" });
       expect(screen.getByRole("listbox")).toHaveStyle({ "--baselist-max-height": "50vh" });
     });
-
-    it("should merge maxHeight with custom style prop", () => {
-      renderList({ maxHeight: 200, style: { width: "300px", backgroundColor: "red" } });
-      const list = screen.getByRole("listbox");
-      expect(list).toHaveStyle({ "--baselist-max-height": "200px", width: "300px", backgroundColor: "red" });
-    });
   });
 
   describe("sizes", () => {

@@ -168,29 +168,41 @@ export const ScrollableList: Story = {
 export const Sizes: Story = {
   render: () => (
     <Flex gap="large" align="start">
-      <Flex direction="column" gap="small">
-        <Text type="text1">Small</Text>
-        <List ariaLabel="Small list" size="small" style={{ width: 200 }}>
-          <ListItem label="Small item 1" value="1" />
-          <ListItem label="Small item 2" value="2" />
-          <ListItem label="Small item 3" value="3" />
-        </List>
+      <Flex direction="column" gap="small" align="start">
+        <Text type="text1" weight="bold">
+          Small
+        </Text>
+        <div style={{ width: 200 }}>
+          <List ariaLabel="Small list" size="small">
+            <ListItem label="Small item 1" value="1" />
+            <ListItem label="Small item 2" value="2" />
+            <ListItem label="Small item 3" value="3" />
+          </List>
+        </div>
       </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1">Medium</Text>
-        <List ariaLabel="Medium list" size="medium" style={{ width: 200 }}>
-          <ListItem label="Medium item 1" value="1" />
-          <ListItem label="Medium item 2" value="2" />
-          <ListItem label="Medium item 3" value="3" />
-        </List>
+      <Flex direction="column" gap="small" align="start">
+        <Text type="text1" weight="bold">
+          Medium
+        </Text>
+        <div style={{ width: 200 }}>
+          <List ariaLabel="Medium list" size="medium">
+            <ListItem label="Medium item 1" value="1" />
+            <ListItem label="Medium item 2" value="2" />
+            <ListItem label="Medium item 3" value="3" />
+          </List>
+        </div>
       </Flex>
-      <Flex direction="column" gap="small">
-        <Text type="text1">Large</Text>
-        <List ariaLabel="Large list" size="large" style={{ width: 200 }}>
-          <ListItem label="Large item 1" value="1" />
-          <ListItem label="Large item 2" value="2" />
-          <ListItem label="Large item 3" value="3" />
-        </List>
+      <Flex direction="column" gap="small" align="start">
+        <Text type="text1" weight="bold">
+          Large
+        </Text>
+        <div style={{ width: 200 }}>
+          <List ariaLabel="Large list" size="large">
+            <ListItem label="Large item 1" value="1" />
+            <ListItem label="Large item 2" value="2" />
+            <ListItem label="Large item 3" value="3" />
+          </List>
+        </div>
       </Flex>
     </Flex>
   ),
@@ -239,11 +251,13 @@ export const WithClickHandler: Story = {
     return (
       <div>
         <p style={{ marginBottom: 16 }}>Last clicked: {lastClicked ?? "None"}</p>
-        <List ariaLabel="Clickable list" style={{ width: 300 }}>
-          <ListItem label="Click me" value="1" onClick={() => setLastClicked("Item 1")} />
-          <ListItem label="Or click me" value="2" onClick={() => setLastClicked("Item 2")} />
-          <ListItem label="Disabled (can't click)" value="3" disabled onClick={() => setLastClicked("Item 3")} />
-        </List>
+        <div style={{ width: 300 }}>
+          <List ariaLabel="Clickable list">
+            <ListItem label="Click me" value="1" onClick={() => setLastClicked("Item 1")} />
+            <ListItem label="Or click me" value="2" onClick={() => setLastClicked("Item 2")} />
+            <ListItem label="Disabled (can't click)" value="3" disabled onClick={() => setLastClicked("Item 3")} />
+          </List>
+        </div>
       </div>
     );
   },
@@ -252,26 +266,28 @@ export const WithClickHandler: Story = {
 
 export const WithEndElements: Story = {
   render: () => (
-    <List ariaLabel="List with end elements" style={{ width: 300 }}>
-      <ListItem
-        label="Settings"
-        value="1"
-        startElement={{ type: "icon", value: Settings }}
-        endElement={{ type: "suffix", value: "⌘S" }}
-      />
-      <ListItem
-        label="Favorites"
-        value="2"
-        startElement={{ type: "icon", value: Favorite }}
-        endElement={{ type: "suffix", value: "⌘F" }}
-      />
-      <ListItem
-        label="Search"
-        value="3"
-        startElement={{ type: "icon", value: Search }}
-        endElement={{ type: "suffix", value: "⌘K" }}
-      />
-    </List>
+    <div style={{ width: 300 }}>
+      <List ariaLabel="List with end elements">
+        <ListItem
+          label="Settings"
+          value="1"
+          startElement={{ type: "icon", value: Settings }}
+          endElement={{ type: "suffix", value: "⌘S" }}
+        />
+        <ListItem
+          label="Favorites"
+          value="2"
+          startElement={{ type: "icon", value: Favorite }}
+          endElement={{ type: "suffix", value: "⌘F" }}
+        />
+        <ListItem
+          label="Search"
+          value="3"
+          startElement={{ type: "icon", value: Search }}
+          endElement={{ type: "suffix", value: "⌘K" }}
+        />
+      </List>
+    </div>
   ),
   name: "With end elements",
   parameters: {

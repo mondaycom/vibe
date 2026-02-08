@@ -10,7 +10,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/List [Deprecated]/ListItem",
+  title: "Components/List/ListItem",
   component: ListItem,
   subcomponents: {
     ListItemIcon,

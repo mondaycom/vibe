@@ -22,7 +22,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/List [Deprecated]/List",
+  title: "Components/List/List",
   component: List,
   subcomponents: {
     ListItem,
