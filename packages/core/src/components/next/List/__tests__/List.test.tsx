@@ -277,6 +277,116 @@ describe("List (next)", () => {
   });
 });
 
+describe("List with wrapped items", () => {
+  function CustomWrapper({ children }: { children: React.ReactNode }) {
+    return <>{children}</>;
+  }
+
+  it("should render items wrapped in a custom component", () => {
+    render(
+      <List ariaLabel="Test List">
+        <ListItem label="Item 1" value="1" />
+        <CustomWrapper>
+          <ListItem label="Wrapped Item" value="wrapped" />
+        </CustomWrapper>
+        <ListItem label="Item 3" value="3" />
+      </List>
+    );
+
+    expect(screen.getByText("Item 1")).toBeInTheDocument();
+    expect(screen.getByText("Wrapped Item")).toBeInTheDocument();
+    expect(screen.getByText("Item 3")).toBeInTheDocument();
+  });
+
+  it("should include wrapped items in keyboard navigation", async () => {
+    render(
+      <List ariaLabel="Test List">
+        <ListItem label="Item 1" value="1" />
+        <CustomWrapper>
+          <ListItem label="Wrapped Item" value="wrapped" />
+        </CustomWrapper>
+        <ListItem label="Item 3" value="3" />
+      </List>
+    );
+
+    const list = screen.getByRole("listbox");
+    list.focus();
+
+    const items = screen.getAllByRole("option");
+    expect(items[0]).toHaveAttribute("tabindex", "0");
+
+    await userEvent.keyboard("{ArrowDown}");
+    expect(items[1]).toHaveAttribute("tabindex", "0");
+    expect(items[0]).toHaveAttribute("tabindex", "-1");
+
+    await userEvent.keyboard("{ArrowDown}");
+    expect(items[2]).toHaveAttribute("tabindex", "0");
+    expect(items[1]).toHaveAttribute("tabindex", "-1");
+  });
+
+  it("should support click on wrapped item", async () => {
+    const onClick = vi.fn();
+    render(
+      <List ariaLabel="Test List">
+        <ListItem label="Item 1" value="1" />
+        <CustomWrapper>
+          <ListItem label="Wrapped Item" value="wrapped" onClick={onClick} />
+        </CustomWrapper>
+      </List>
+    );
+
+    await userEvent.click(screen.getByText("Wrapped Item"));
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it("should support selected state on wrapped item", () => {
+    render(
+      <List ariaLabel="Test List">
+        <ListItem label="Item 1" value="1" />
+        <CustomWrapper>
+          <ListItem label="Wrapped Item" value="wrapped" selected />
+        </CustomWrapper>
+      </List>
+    );
+
+    const items = screen.getAllByRole("option");
+    expect(items[1]).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("should render items from a mapped array with keyboard navigation", async () => {
+    const items = [
+      { label: "Dynamic 1", value: "d1" },
+      { label: "Dynamic 2", value: "d2" },
+      { label: "Dynamic 3", value: "d3" }
+    ];
+
+    render(
+      <List ariaLabel="Test List">
+        {items.map(item => (
+          <ListItem key={item.value} label={item.label} value={item.value} />
+        ))}
+      </List>
+    );
+
+    expect(screen.getByText("Dynamic 1")).toBeInTheDocument();
+    expect(screen.getByText("Dynamic 2")).toBeInTheDocument();
+    expect(screen.getByText("Dynamic 3")).toBeInTheDocument();
+
+    const options = screen.getAllByRole("option");
+    expect(options).toHaveLength(3);
+
+    // Keyboard navigation should work across dynamically rendered items
+    const list = screen.getByRole("listbox");
+    list.focus();
+
+    await userEvent.keyboard("{ArrowDown}");
+    expect(options[1]).toHaveAttribute("tabindex", "0");
+
+    await userEvent.keyboard("{ArrowDown}");
+    expect(options[2]).toHaveAttribute("tabindex", "0");
+  });
+});
+
 describe("ListItem", () => {
   describe("rendering", () => {
     it("should render with label", () => {
