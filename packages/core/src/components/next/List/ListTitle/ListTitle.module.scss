@@ -1,0 +1,26 @@
+@import "~monday-ui-style/dist/mixins";
+
+.listTitle {
+  @include smoothing-text;
+  border-radius: var(--border-radius-small);
+}
+
+// Inline padding matches BaseItem for alignment
+.small {
+  padding: var(--spacing-medium) var(--spacing-small) var(--spacing-small);
+}
+
+.medium {
+  padding: var(--spacing-medium) 12px var(--spacing-small);
+}
+
+.large {
+  padding: var(--spacing-medium) 12px var(--spacing-small);
+}
+
+.sticky {
+  position: sticky;
+  inset-block-start: 0;
+  background-color: var(--primary-background-color);
+  z-index: 1;
+}
