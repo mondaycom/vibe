@@ -13,7 +13,7 @@ const ListItem = forwardRef(
       selected = false,
       disabled = false,
       readOnly = false,
-      dir = "auto",
+      dir,
       role,
       startElement,
       endElement,
