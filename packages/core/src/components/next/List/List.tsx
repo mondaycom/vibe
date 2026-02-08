@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import cx from "classnames";
 import BaseList from "../../BaseList/BaseList";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { ComponentVibeId } from "../../../tests/constants";
 import { type ListProps } from "./List.types";
 import styles from "./List.module.scss";
 
@@ -39,6 +40,7 @@ const List = forwardRef(
         defaultFocusIndex={defaultFocusIndex}
         onFocusChange={onFocusChange}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+        data-vibe={ComponentVibeId.LIST}
       >
         {children}
       </BaseList>
