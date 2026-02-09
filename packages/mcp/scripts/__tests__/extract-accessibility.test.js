@@ -1,5 +1,11 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { describe, it, expect } from "vitest";
-import { cleanUpAccessibilityContent } from "../extract-accessibility.js";
+import { cleanUpAccessibilityContent, run } from "../extract-accessibility.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const outputDir = path.join(__dirname, "../../dist/generated/accessibility/");
 
 describe("cleanUpAccessibilityContent", () => {
   describe("UsageGuidelines extraction", () => {
@@ -143,5 +149,14 @@ describe("cleanUpAccessibilityContent", () => {
       expect(result).toContain("Some preamble");
       expect(result).toContain("After text");
     });
+  });
+});
+
+describe("run - integration", () => {
+  it("should generate accessibility markdown files from MDX files", () => {
+    run();
+
+    const outputFiles = fs.readdirSync(outputDir).filter(f => f.endsWith(".md"));
+    expect(outputFiles.length).toBeGreaterThan(0);
   });
 });

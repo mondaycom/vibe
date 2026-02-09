@@ -1,6 +1,12 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { describe, it, expect } from "vitest";
 import parser from "@babel/parser";
-import { generateCodeForOneLiner } from "../extract-code-samples.js";
+import { generateCodeForOneLiner, run } from "../extract-code-samples.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const outputDir = path.join(__dirname, "../../dist/generated/");
 
 function parseCode(code) {
   return parser.parse(code, {
@@ -94,5 +100,14 @@ describe("generateCodeForOneLiner - JSX handling", () => {
     expect(result).not.toBeNull();
     expect(result).toContain("const");
     expect(result).toContain("someOtherFunction");
+  });
+});
+
+describe("run - integration", () => {
+  it("should generate markdown files from story files", () => {
+    run();
+
+    const outputFiles = fs.readdirSync(outputDir).filter(f => f.endsWith(".md"));
+    expect(outputFiles.length).toBeGreaterThan(0);
   });
 });
