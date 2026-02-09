@@ -7,11 +7,7 @@ const __dirname = path.dirname(__filename);
 const componentsDir = path.join(__dirname, "../../docs/src/pages/components/");
 const outputDir = path.join(__dirname, "../dist/generated/accessibility/");
 
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
-}
-
-function getMdxFiles() {
+export function getMdxFiles() {
   const mdxFiles = [];
 
   function traverseDirectory(dir) {
@@ -36,7 +32,7 @@ function getMdxFiles() {
   return mdxFiles;
 }
 
-function extractAccessibilityFromMdx(file) {
+export function extractAccessibilityFromMdx(file) {
   const inputFile = path.join(__dirname, file);
   const inputFileComponentName = path.basename(inputFile).split(".")[0];
   const outputFile = path.resolve(__dirname, outputDir, inputFileComponentName + ".md");
@@ -91,7 +87,7 @@ function extractAccessibilityFromMdx(file) {
   console.log(`Accessibility extracted for ${inputFileComponentName} at ${outputFile}`);
 }
 
-function cleanUpAccessibilityContent(content) {
+export function cleanUpAccessibilityContent(content) {
   // Extract guidelines from UsageGuidelines component
   const guidelinesMatch = content.match(/guidelines=\{(\[[\s\S]*?\])\}/);
 
@@ -143,7 +139,11 @@ function cleanUpAccessibilityContent(content) {
   return cleaned || "No accessibility guidelines found in expected format.";
 }
 
-function run() {
+export function run() {
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
   console.log("🔍 Extracting accessibility content from MDX files...");
 
   const mdxFiles = getMdxFiles();
@@ -162,4 +162,6 @@ function run() {
   console.log("✅ Accessibility extraction completed!");
 }
 
-run();
+if (process.argv[1] === __filename) {
+  run();
+}
