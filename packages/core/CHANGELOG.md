@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.85.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.84.0...@vibe/core@3.85.0) (2026-02-09)
+
+
+### Bug Fixes
+
+* **Dropdown:** use vibe scroller ([#3248](https://github.com/mondaycom/vibe/issues/3248)) ([aba1ad2](https://github.com/mondaycom/vibe/commit/aba1ad28861d89bdae858bb7080175618323ffe0))
+
+
+### Features
+
+* **List:** new component ([#3240](https://github.com/mondaycom/vibe/issues/3240)) ([c9a15d6](https://github.com/mondaycom/vibe/commit/c9a15d685e586b461e56fcbb008750bf8572821e))
+
+
+
+
+
 # [3.84.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.4...@vibe/core@3.84.0) (2026-02-04)
 
 

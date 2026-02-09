@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.1...@vibe/mcp@0.8.2) (2026-02-09)
+
+
+### Bug Fixes
+
+* adjust mcp metadata source ([#3249](https://github.com/mondaycom/vibe/issues/3249)) ([db5fcc2](https://github.com/mondaycom/vibe/commit/db5fcc25cc037ab34945bb6095ee78e541df5be1))
+
+
+
+
+
 ## [0.8.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.0...@vibe/mcp@0.8.1) (2026-01-18)
 
 **Note:** Version bump only for package @vibe/mcp
