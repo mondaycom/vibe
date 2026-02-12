@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.85.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.0...@vibe/core@3.85.1) (2026-02-12)
+
+
+### Bug Fixes
+
+* **DropdownBoxMode:** add menuWrapperClassName ([#3253](https://github.com/mondaycom/vibe/issues/3253)) ([c05a846](https://github.com/mondaycom/vibe/commit/c05a8467ba63d1930acc58ee6b584bda9dde8c66))
+
+
+
+
+
 # [3.85.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.84.0...@vibe/core@3.85.0) (2026-02-09)
 
 
