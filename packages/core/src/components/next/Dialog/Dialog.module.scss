@@ -1,0 +1,42 @@
+$arrow-size: 12px;
+
+.arrow {
+  width: $arrow-size;
+  height: $arrow-size;
+  position: absolute;
+  border-radius: 2px;
+  background-color: var(--secondary-background-color);
+
+  :global(.dark-app-theme) &,
+  :global(.black-app-theme) &,
+  :global(.hacker-app-theme) & {
+    &[data-placement*="right"] {
+      box-shadow: -1px 1px 0px 0px var(--layout-border-color);
+    }
+    &[data-placement*="left"] {
+      box-shadow: 1px -1px 0px 0px var(--layout-border-color);
+    }
+    &[data-placement*="bottom"] {
+      box-shadow: -1px -1px 0px 0px var(--layout-border-color);
+    }
+    &[data-placement*="top"] {
+      box-shadow: 1px 1px 0px 0px var(--layout-border-color);
+    }
+  }
+}
+
+.arrow[data-placement*="bottom"] {
+  top: 1px;
+}
+
+.arrow[data-placement*="top"] {
+  bottom: 1px;
+}
+
+.arrow[data-placement*="left"] {
+  right: 1px;
+}
+
+.arrow[data-placement*="right"] {
+  left: 1px;
+}
