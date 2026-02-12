@@ -8,7 +8,7 @@ import { Flex } from "@vibe/layout";
 import styles from "./DropdownBoxMode.module.scss";
 
 const DropdownBoxMode = () => {
-  const { multi, searchable, disabled, readOnly, error } = useDropdownContext();
+  const { multi, searchable, disabled, readOnly, error, menuWrapperClassName } = useDropdownContext();
 
   if (!searchable) {
     return null;
@@ -25,7 +25,7 @@ const DropdownBoxMode = () => {
       >
         {multi ? <MultiSelectTrigger /> : <SingleSelectTrigger />}
       </div>
-      <div className={styles.menuContainer}>
+      <div className={cx(styles.menuContainer, menuWrapperClassName)}>
         <MenuList />
       </div>
     </Flex>
