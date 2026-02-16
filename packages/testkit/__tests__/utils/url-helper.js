@@ -5,6 +5,8 @@ export const checkboxStory = "/?path=/story/components-checkbox--overview";
 export const colorPickerStory = "/?path=/story/components-colorpicker--overview";
 export const comboboxStory = "/?path=/story/components-combobox--overview";
 export const dropdownStory = "/?path=/story/components-dropdown-deprecated--overview";
+export const editableHeadingStory = "/?path=/story/components-editableheading--overview";
+export const editableTextStory = "/?path=/story/components-editabletext--overview";
 export const expandCollapseStory = "/?path=/story/components-expandcollapse--overview";
 export const iconButtonStory = "/?path=/story/components-iconbutton--overview";
 export const linkStory = "/?path=/story/components-link--overview";

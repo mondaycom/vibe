@@ -1,3 +1,5 @@
+@import "../../styles/states";
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -5,8 +7,10 @@
   border-radius: var(--border-radius-small);
   color: var(--primary-text-color);
   cursor: pointer;
+  @include focus-style-inset();
 
-  &.highlighted {
+  &.highlighted,
+  &:hover:not(.disabled):not(.readOnly) {
     background-color: var(--primary-background-hover-color);
   }
 
@@ -22,7 +26,8 @@
   &.selected {
     background-color: var(--primary-selected-color);
 
-    &.highlighted {
+    &.highlighted,
+    &:hover:not(.disabled):not(.readOnly) {
       background-color: var(--primary-selected-hover-color);
     }
   }

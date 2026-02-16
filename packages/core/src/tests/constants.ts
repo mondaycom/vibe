@@ -1,6 +1,7 @@
 export enum ComponentDefaultTestId {
   // Don't remove next line
   // plop_marker:default-data-testid-declarations
+  LIST_TITLE = "list-title",
   EMPTY_STATE = "empty-state",
   TRANSITION_VIEW = "transition-view",
   TEXT_AREA = "text-area",
@@ -149,6 +150,7 @@ export enum NavigationCommand {
 
 export enum ComponentVibeId {
   ACCORDION = "Accordion",
+  LIST_TITLE = "ListTitle",
   ALERT_BANNER = "AlertBanner",
   ATTENTION_BOX = "AttentionBox",
   AVATAR = "Avatar",

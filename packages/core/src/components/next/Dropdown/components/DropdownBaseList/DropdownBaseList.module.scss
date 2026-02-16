@@ -1,5 +1,8 @@
+@import "~monday-ui-style/dist/mixins";
+
 .wrapper {
   overflow-y: auto;
+  @include scroller();
   padding: 0;
   margin: 0;
 
