@@ -89,6 +89,7 @@
     "stylelint:fix": "yarn stylelint -- --fix"
   },
   "dependencies": {
+    "@floating-ui/react-dom": "^2.1.2",
     "@popperjs/core": "2.11.6",
     "@vibe/base": "3.0.5",
     "@vibe/button": "3.0.16",
