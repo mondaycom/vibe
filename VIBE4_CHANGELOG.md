@@ -29,6 +29,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### FieldLabel
+
+- [x] **Status**: Done
+- **Change**: Removed `iconLabel` prop from `FieldLabel`
+- **Reason**: The prop was already a no-op in v3 — it was accepted but not passed to the internal `Icon` component and had no effect
+- **Migration**: Remove `iconLabel` from all `<FieldLabel>` usage (no replacement needed)
+- **Codemod**: ✅ Available (`FieldLabel-component-migration`)
+- **PR**: TBD
+
 #### Button
 
 - [ ] **Status**: Planning

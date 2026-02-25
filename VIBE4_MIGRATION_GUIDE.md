@@ -142,6 +142,28 @@ npm run build
 
 ## Component-Specific Migration
 
+### FieldLabel
+
+#### Removed `iconLabel` prop
+
+The `iconLabel` prop has been removed from `FieldLabel`. This prop was already a no-op in v3 — it was accepted but not passed to the internal `Icon` component, so removing it has no visual or behavioral impact.
+
+**Before (v3):**
+```tsx
+<FieldLabel labelText="Name" iconLabel="icon description" />
+```
+
+**After (v4):**
+```tsx
+<FieldLabel labelText="Name" />
+```
+
+**Codemod available:** The automated codemod will remove `iconLabel` from `<FieldLabel>` usage automatically.
+
+```bash
+npx @vibe/codemod --migration v4
+```
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->
