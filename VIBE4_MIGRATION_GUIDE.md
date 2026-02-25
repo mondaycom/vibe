@@ -63,7 +63,19 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### AvatarBadge
+
+**Removed `ariaLabel` pass-through**
+
+AvatarBadge no longer forwards arbitrary props (including `ariaLabel`) to the underlying Icon/CustomSvgIcon. Badges are decorative elements and should not carry accessibility labels. Remove any `ariaLabel` from badge props:
+
+```tsx
+// Before (v3)
+<Avatar topRightBadgeProps={{ icon: StatusIcon, ariaLabel: "online" }} />
+
+// After (v4)
+<Avatar topRightBadgeProps={{ icon: StatusIcon }} />
+```
 
 ### TypeScript Types
 

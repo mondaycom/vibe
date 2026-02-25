@@ -36,18 +36,17 @@ const AvatarBadge = ({
   className,
   size = "large",
   id,
-  "data-testid": dataTestId,
-  ...otherProps
+  "data-testid": dataTestId
 }: AvatarBadgeProps) => {
   const classNames = cx(getStyle(styles, camelCase("badge--" + size)), className);
   const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
 
   if (icon) {
-    return <Icon icon={icon} className={classNames} {...otherProps} data-testid={testId} />;
+    return <Icon icon={icon} className={classNames} data-testid={testId} />;
   }
 
   return src ? (
-    <CustomSvgIcon src={src} className={classNames} clickable={tabIndex === -1} {...otherProps} data-testid={testId} />
+    <CustomSvgIcon src={src} className={classNames} clickable={tabIndex === -1} data-testid={testId} />
   ) : null;
 };
 

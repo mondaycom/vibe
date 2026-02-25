@@ -47,6 +47,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: 🔄 Planned
 - **PR**: TBD
 
+#### AvatarBadge
+
+- [x] **Status**: Complete
+- **Change**: Remove `ariaLabel` prop pass-through from AvatarBadge
+- **Reason**: Badges are decorative elements and should not carry accessibility labels; the `...otherProps` spread was forwarding arbitrary props to underlying Icon/CustomSvgIcon
+- **Migration**: Remove `ariaLabel` from any badge props passed to Avatar
+- **Codemod**: ❌ Manual
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
