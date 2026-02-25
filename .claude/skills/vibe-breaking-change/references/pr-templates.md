@@ -51,7 +51,7 @@ npx @vibe/codemod component-name-api-update
 ```
 
 ## Task Link
-[Monday.com task link or GitHub issue]
+[Monday.com Task](https://monday.monday.com/boards/<BOARD_ID>/pulses/<PULSE_ID>)
 
 ## Testing
 - [ ] All component tests pass

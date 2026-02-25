@@ -275,6 +275,12 @@ yarn storybook:build
 
 ### Phase 6: Branch and PR Creation
 
+**📋 Monday.com Task Link:**
+Extract the Monday.com task link from the user's original prompt if provided.
+The link format is: `https://monday.monday.com/boards/<BOARD_ID>/pulses/<PULSE_ID>`
+Include this link in the PR description under the "Task Link" section.
+If no task link was provided in the original prompt, ask the user for it before creating the PR.
+
 ```bash
 # Create feature branch from vibe4
 git checkout vibe4
@@ -309,7 +315,7 @@ gh pr create \
 - \`ComponentName.oldProp\` → \`ComponentName.newProp\`
 
 ## Task Link
-[Link to task/issue]
+[Monday.com Task](https://monday.monday.com/boards/<BOARD_ID>/pulses/<PULSE_ID>)
 
 ## Test Plan
 - [ ] All component tests pass
