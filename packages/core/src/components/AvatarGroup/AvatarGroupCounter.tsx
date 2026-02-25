@@ -119,7 +119,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
   const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);
   if (areAvatarsClickable) {
     return (
-      (<MenuButton
+      <MenuButton
         component={counterComponent}
         zIndex={1}
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
@@ -130,7 +130,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
           {counterTooltipAvatars.map((avatar, index) => {
             return (
               // eslint-disable-next-line react/jsx-key
-              (<AvatarMenuItem
+              <AvatarMenuItem
                 menuItemProps={{
                   key: avatar.props?.id || String(index),
                   title: (avatar.props?.tooltipProps?.content as string) || avatar?.props?.ariaLabel,
@@ -142,11 +142,11 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
                   ariaLabel: "",
                   tabIndex: -1
                 }}
-              />)
+              />
             );
           })}
         </Menu>
-      </MenuButton>)
+      </MenuButton>
     );
   }
 
