@@ -22,9 +22,10 @@ export const useFocusOnMount = ({
       return;
     }
 
-    const indexToFocusOnMount = isMenuChildSelectable(focusChildOnMount)
-      ? focusItemIndexOnMount
-      : getNextSelectableIndex(focusItemIndexOnMount);
+    const indexToFocusOnMount =
+      focusChildOnMount && isMenuChildSelectable(focusChildOnMount)
+        ? focusItemIndexOnMount
+        : getNextSelectableIndex(focusItemIndexOnMount);
 
     if (indexToFocusOnMount !== null) {
       requestAnimationFrame(() => {

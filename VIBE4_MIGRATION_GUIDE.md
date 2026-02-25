@@ -142,6 +142,35 @@ npm run build
 
 ## Component-Specific Migration
 
+### Menu
+
+#### `focusItemIndexOnMount` default changed from `-1` to `0`
+
+The `focusItemIndexOnMount` prop now defaults to `0`, meaning the first menu item receives focus automatically when the menu mounts. This improves accessibility out of the box.
+
+**Before (v3):** Menu defaulted to no automatic focus on mount.
+
+**After (v4):** Menu automatically focuses the first selectable item on mount.
+
+```tsx
+// Before (v3) — no focus on mount by default
+<Menu>
+  <MenuItem title="Item 1" />
+</Menu>
+
+// After (v4) — first item is focused on mount by default
+<Menu>
+  <MenuItem title="Item 1" />
+</Menu>
+
+// To preserve v3 behavior (no focus on mount):
+<Menu focusItemIndexOnMount={-1}>
+  <MenuItem title="Item 1" />
+</Menu>
+```
+
+> **Note:** No codemod is available for this change since there is no deterministic way to know whether you want the new accessible default or the old no-focus behavior. Review your Menu usages and add `focusItemIndexOnMount={-1}` where you need to opt out.
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->

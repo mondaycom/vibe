@@ -29,6 +29,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### Menu
+
+- [x] **Status**: Done
+- **Change**: `focusItemIndexOnMount` default changed from `-1` to `0`
+- **Reason**: Improves accessibility by focusing the first menu item on mount by default, aligning with WCAG guidelines for keyboard navigation
+- **Migration**: If you relied on the default no-focus behavior, explicitly pass `focusItemIndexOnMount={-1}`
+- **Codemod**: ❌ Manual (not deterministic — cannot know if existing Menu usages should opt out of the new default)
+- **PR**: TBD
+
 #### Button
 
 - [ ] **Status**: Planning

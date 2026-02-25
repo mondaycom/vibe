@@ -69,6 +69,7 @@ export interface MenuProps extends VibeComponentProps {
   useDocumentEventListeners?: boolean;
   /**
    * Index of the item that should be focused when the menu mounts.
+   * Defaults to `0` (first item). Pass `-1` to disable automatic focus on mount.
    */
   focusItemIndexOnMount?: number;
   /**
@@ -96,7 +97,7 @@ const Menu = forwardRef(
       onItemFocus,
       focusOnMount = false,
       focusItemIndex = -1,
-      focusItemIndexOnMount = -1,
+      focusItemIndexOnMount = 0,
       isSubMenu = false,
       useDocumentEventListeners = false,
       shouldScrollMenu = false,
