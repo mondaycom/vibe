@@ -569,12 +569,6 @@ grep -r "iconLabel=" packages/mcp packages/docs
 - [ ] Codemod tested (if applicable)
 - [ ] Documentation updated
 
-**Before merging:**
-- [ ] PR approved by component owners
-- [ ] CI/CD pipeline passes
-- [ ] Migration path validated
-- [ ] Breaking change properly flagged
-
 ## Integration Points
 
 - **Package Dependencies:** Update `package.json` files as needed
