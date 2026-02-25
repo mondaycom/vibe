@@ -189,7 +189,7 @@ const MenuItem = forwardRef(
       rightIcon = "",
       rightIconType,
       rightIconBackgroundColor,
-      rightIconAriaLabel,
+      rightIconAriaLabel: _rightIconAriaLabel,
       iconType,
       iconBackgroundColor,
       disabled = false,
@@ -201,16 +201,12 @@ const MenuItem = forwardRef(
       tooltipPosition = "right",
       tooltipShowDelay = 300,
       tooltipProps,
-      "aria-label": ariaLabel,
+      "aria-label": _ariaLabel,
       ...baseMenuProps
     }: MenuItemProps | MenuItemTitleComponentProps,
     ref: ForwardedRef<HTMLElement>
   ) => {
     const titleRef = useRef();
-
-    // if "title" is a component ariaLabel is mandatory
-    const iconLabel = ariaLabel ?? (title as string);
-    const rightIconLabel = rightIconAriaLabel ?? (title as string);
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
     const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
@@ -251,7 +247,6 @@ const MenuItem = forwardRef(
             <MenuItemIcon
               icon={icon}
               type={iconType}
-              label={iconLabel}
               disabled={disabled}
               selected={selected}
               backgroundColor={iconBackgroundColor}
@@ -266,7 +261,6 @@ const MenuItem = forwardRef(
               <MenuItemIcon
                 icon={rightIcon}
                 type={rightIconType}
-                label={rightIconLabel}
                 disabled={disabled}
                 selected={selected}
                 backgroundColor={rightIconBackgroundColor}
