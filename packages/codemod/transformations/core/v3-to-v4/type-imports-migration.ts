@@ -12,17 +12,13 @@ import { TransformationContext } from "../../../types";
  * 2. Moving types between packages
  * 3. Converting deprecated types to new ones
  */
-function transform({ j, root }: TransformationContext) {
+function transform(_context: TransformationContext) {
   // No type migrations identified for v3-to-v4 yet
   // This is a no-op transformation to satisfy the codemod infrastructure
-
   // TODO: Add specific type migrations here as they are identified:
   // - Interface renames: { "OldInterface": "NewInterface" }
   // - Type alias updates: { "OldType": "NewType" }
   // - Import path changes for moved types
-
-  // For now, return unchanged AST
-  return root.toSource();
 }
 
 export default wrap(transform);
