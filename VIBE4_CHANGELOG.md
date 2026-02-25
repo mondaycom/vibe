@@ -47,6 +47,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: 🔄 Planned
 - **PR**: TBD
 
+#### Toggle
+
+- [x] **Status**: Complete
+- **Change**: Remove duplicate `data-testid` from internal MockToggle div element
+- **Reason**: `data-testid="toggle"` was set on both the Switch input and the internal visual div, causing ambiguous test queries
+- **Migration**: If tests query `[data-testid="toggle"]` and rely on multiple matches, update to expect a single match
+- **Codemod**: ❌ Manual (DOM structure change, not a prop API change)
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks

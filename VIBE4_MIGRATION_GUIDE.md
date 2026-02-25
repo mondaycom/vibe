@@ -63,7 +63,13 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### Toggle
+
+**Removed duplicate `data-testid` from internal element**
+
+The Toggle component previously set `data-testid="toggle"` on both the input element and the internal visual div. The internal div's `data-testid` has been removed, so only the interactive input element carries the test ID.
+
+If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
 ### TypeScript Types
 
