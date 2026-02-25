@@ -33,8 +33,6 @@ import styles from "./TextField.module.scss";
 import { Tooltip } from "@vibe/tooltip";
 import { HiddenText } from "../HiddenText";
 
-const EMPTY_OBJECT = { primary: "", secondary: "" };
-
 export interface TextFieldProps extends VibeComponentProps {
   /**
    * The placeholder text displayed when the input is empty.
@@ -144,12 +142,13 @@ export interface TextFieldProps extends VibeComponentProps {
    */
   activeDescendant?: string;
   /**
-   * Icon labels for accessibility.
+   * Accessible label for the primary icon.
    */
-  iconsNames?: {
-    primary: string;
-    secondary: string;
-  };
+  iconLabel?: string;
+  /**
+   * Accessible label for the secondary icon.
+   */
+  secondaryIconLabel?: string;
   /**
    * The type of the text field.
    */
@@ -247,7 +246,8 @@ const TextField = forwardRef(
       inputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
-      iconsNames = EMPTY_OBJECT,
+      iconLabel,
+      secondaryIconLabel,
       type = "text",
       maxLength = null,
       allowExceedingMaxLength = false,
@@ -357,7 +357,7 @@ const TextField = forwardRef(
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnPrimaryIcon =
-      (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
+      (onIconClick !== NOOP || iconLabel || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength ? `${id}-allow-exceeding-max-length-text` : undefined;
 
@@ -372,8 +372,8 @@ const TextField = forwardRef(
 
     const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
 
-    const primaryIconLabel = iconsNames.primary || iconTooltipContent;
-    const secondaryIconLabel = iconsNames.secondary || secondaryTooltipContent;
+    const primaryIconAriaLabel = iconLabel || iconTooltipContent;
+    const secondaryIconAriaLabel = secondaryIconLabel || secondaryTooltipContent;
 
     return (
       <div
@@ -446,7 +446,7 @@ const TextField = forwardRef(
                   })}
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnPrimaryIcon ? "0" : "-1"}
-                  ariaLabel={primaryIconLabel}
+                  ariaLabel={primaryIconAriaLabel}
                 >
                   <Icon
                     icon={iconName}
@@ -472,7 +472,7 @@ const TextField = forwardRef(
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnSecondaryIcon ? "0" : "-1"}
                   data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
-                  ariaLabel={secondaryIconLabel}
+                  ariaLabel={secondaryIconAriaLabel}
                 >
                   <Icon
                     icon={secondaryIconName}
