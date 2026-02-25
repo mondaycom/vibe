@@ -1499,20 +1499,26 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
             data-testid="value-container-chips"
           >
             <div
+              aria-expanded={false}
+              aria-haspopup={false}
+              aria-hidden={false}
               aria-label="Primary"
-              className="chips chips multiselect-chip-multi-line noAnimation"
+              className="clickable chips chips multiselect-chip-multi-line noAnimation disableTextSelection"
               data-testid="value-container-chip"
               data-vibe="Chips"
               id="primary"
               onClick={[Function]}
+              onKeyDown={[Function]}
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
+              role="button"
               style={
                 {
                   "backgroundColor": "var(--primary-selected-color)",
                 }
               }
+              tabIndex={0}
             >
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
@@ -1560,20 +1566,26 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               </button>
             </div>
             <div
+              aria-expanded={false}
+              aria-haspopup={false}
+              aria-hidden={false}
               aria-label="Positive"
-              className="chips chips multiselect-chip-multi-line noAnimation"
+              className="clickable chips chips multiselect-chip-multi-line noAnimation disableTextSelection"
               data-testid="value-container-chip"
               data-vibe="Chips"
               id="positive"
               onClick={[Function]}
+              onKeyDown={[Function]}
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
+              role="button"
               style={
                 {
                   "backgroundColor": "var(--positive-color-selected)",
                 }
               }
+              tabIndex={0}
             >
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
@@ -1624,20 +1636,26 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-expanded={false}
+                aria-haspopup={false}
+                aria-hidden={false}
                 aria-label="Negative"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="clickable chips chips multiselect-chip-multi-line noAnimation disableTextSelection"
                 data-testid="value-container-chip"
                 data-vibe="Chips"
                 id="negative"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
+                role="button"
                 style={
                   {
                     "backgroundColor": "var(--negative-color-selected)",
                   }
                 }
+                tabIndex={0}
               >
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
@@ -2335,20 +2353,26 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-expanded={false}
+                aria-haspopup={false}
+                aria-hidden={false}
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="clickable chips chips multiselect-chip-multi-line noAnimation disableTextSelection"
                 data-testid="value-container-chip"
                 data-vibe="Chips"
                 id="ocean"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
+                role="button"
                 style={
                   {
                     "backgroundColor": "var(--primary-selected-color)",
                   }
                 }
+                tabIndex={0}
               >
                 <div
                   className="avatar large avatar left"
@@ -2569,20 +2593,26 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-expanded={false}
+                aria-haspopup={false}
+                aria-hidden={false}
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="clickable chips chips multiselect-chip-multi-line noAnimation disableTextSelection"
                 data-testid="value-container-chip"
                 data-vibe="Chips"
                 id="ocean"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
+                role="button"
                 style={
                   {
                     "backgroundColor": "var(--primary-selected-color)",
                   }
                 }
+                tabIndex={0}
               >
                 <svg
                   aria-hidden={true}
@@ -2929,20 +2959,24 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
             data-testid="value-container-chips"
           >
             <div
+              aria-expanded={false}
+              aria-haspopup={false}
+              aria-hidden={false}
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
+              className="clickable chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation disabled disableTextSelection"
               data-testid="value-container-chip"
               data-vibe="Chips"
               id="ocean"
-              onClick={[Function]}
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
+              role="button"
               style={
                 {
                   "backgroundColor": undefined,
                 }
               }
+              tabIndex={-1}
             >
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
@@ -2955,20 +2989,24 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-expanded={false}
+                aria-haspopup={false}
+                aria-hidden={false}
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
+                className="clickable chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation disabled disableTextSelection"
                 data-testid="value-container-chip"
                 data-vibe="Chips"
                 id="blue"
-                onClick={[Function]}
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
+                role="button"
                 style={
                   {
                     "backgroundColor": undefined,
                   }
                 }
+                tabIndex={-1}
               >
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"
@@ -3102,20 +3140,26 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
             data-testid="value-container-chips"
           >
             <div
+              aria-expanded={false}
+              aria-haspopup={false}
+              aria-hidden={false}
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
+              className="clickable chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
               data-testid="value-container-chip"
               data-vibe="Chips"
               id="ocean"
               onClick={[Function]}
+              onKeyDown={[Function]}
               onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
+              role="button"
               style={
                 {
                   "backgroundColor": "var(--primary-selected-color)",
                 }
               }
+              tabIndex={0}
             >
               <div
                 className="typography primary start singleLineEllipsis text text2Normal label"
@@ -3128,20 +3172,26 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
               className="chip-with-input-wrapper"
             >
               <div
+                aria-expanded={false}
+                aria-haspopup={false}
+                aria-hidden={false}
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
+                className="clickable chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
                 data-testid="value-container-chip"
                 data-vibe="Chips"
                 id="blue"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
+                role="button"
                 style={
                   {
                     "backgroundColor": "var(--primary-selected-color)",
                   }
                 }
+                tabIndex={0}
               >
                 <div
                   className="typography primary start singleLineEllipsis text text2Normal label"

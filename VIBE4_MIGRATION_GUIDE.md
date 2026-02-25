@@ -63,7 +63,21 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### Chips
+
+**Removed `disableClickableBehavior` prop**
+
+The `disableClickableBehavior` prop has been removed. Chips now always uses the clickable wrapper when `onClick` or `onMouseDown` handlers are provided. Simply remove the prop:
+
+```tsx
+// Before (v3)
+<Chips label="Tag" disableClickableBehavior onMouseDown={handler} />
+
+// After (v4)
+<Chips label="Tag" onMouseDown={handler} />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
 
 ### TypeScript Types
 

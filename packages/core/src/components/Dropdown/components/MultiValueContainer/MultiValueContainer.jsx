@@ -74,7 +74,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
             id={option.value}
             label={option.label}
             onDelete={() => onDelete(option)}
-            disableClickableBehavior
             onMouseDown={e => {
               e.stopPropagation();
             }}

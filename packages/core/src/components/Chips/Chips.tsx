@@ -111,10 +111,6 @@ export interface ChipsProps extends VibeComponentProps {
    */
   ariaHasPopup?: boolean;
   /**
-   * If true, disables all click behaviors.
-   */
-  disableClickableBehavior?: boolean;
-  /**
    * If true, displays a border around the chip.
    */
   showBorder?: boolean;
@@ -152,7 +148,6 @@ const Chips = forwardRef(
       ariaLabel,
       ariaHasPopup = false,
       "data-testid": dataTestId,
-      disableClickableBehavior = false,
       leftAvatarType = "img",
       rightAvatarType = "img",
       showBorder = false,
@@ -164,7 +159,7 @@ const Chips = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
+    const hasClickableWrapper = !!onClick || !!onMouseDown;
     const hasCloseButton = !readOnly && !disabled;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
 
