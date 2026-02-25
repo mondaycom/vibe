@@ -126,7 +126,6 @@ const Icon = forwardRef(
           src={icon}
           {...screenReaderAccessProps}
           className={cx(computedClassName)}
-          onClick={onClickCallback}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
           data-testid={overrideDataTestId}

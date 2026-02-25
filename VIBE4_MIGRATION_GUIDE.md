@@ -142,6 +142,30 @@ npm run build
 
 ## Component-Specific Migration
 
+### CustomSvgIcon
+
+#### Removed `onClick` and `clickable` props
+
+The `onClick` and `clickable` props have been removed from `CustomSvgIcon`. SVG icons should be purely decorative; use an accessible wrapper (e.g. a `<button>`) for clickable icon patterns.
+
+**Before (v3):**
+```tsx
+<CustomSvgIcon src="/icon.svg" onClick={handleClick} clickable />
+```
+
+**After (v4):**
+```tsx
+<button onClick={handleClick}>
+  <CustomSvgIcon src="/icon.svg" />
+</button>
+```
+
+**Codemod available:** Removes `onClick` and `clickable` props from `<CustomSvgIcon>` automatically.
+
+```bash
+npx @vibe/codemod --migration v4
+```
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->

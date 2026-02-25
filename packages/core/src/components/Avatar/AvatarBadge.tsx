@@ -47,7 +47,7 @@ const AvatarBadge = ({
   }
 
   return src ? (
-    <CustomSvgIcon src={src} className={classNames} clickable={tabIndex === -1} {...otherProps} data-testid={testId} />
+    <CustomSvgIcon src={src} className={classNames} {...otherProps} data-testid={testId} />
   ) : null;
 };
 
