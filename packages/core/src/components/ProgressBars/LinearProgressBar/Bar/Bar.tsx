@@ -83,6 +83,15 @@ const Bar: FC<BarProps> = ({
     return Math.min(valuePercentage, 100);
   }, [valuePercentage]);
 
+  const ariaValueMax = useMemo(() => {
+    // When allowExceedingMax is true and value exceeds max,
+    // set aria-valuemax to the actual value percentage to maintain consistency
+    if (allowExceedingMax && valuePercentage > 100) {
+      return Math.max(valuePercentage, 100);
+    }
+    return 100;
+  }, [allowExceedingMax, valuePercentage]);
+
   if (!value) return null;
 
   return (
@@ -91,7 +100,7 @@ const Bar: FC<BarProps> = ({
       aria-label={barLabelName}
       aria-valuenow={valuePercentage}
       aria-valuemin={0}
-      aria-valuemax={100}
+      aria-valuemax={ariaValueMax}
       className={classNames}
       style={{
         width: `${visualWidthPercentage}%`,
