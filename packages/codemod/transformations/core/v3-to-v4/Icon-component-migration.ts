@@ -1,10 +1,11 @@
 import {
   wrap,
-  getCoreImportsForFile,
+  getImports,
   getComponentNameOrAliasFromImports,
   findComponentElements,
   migratePropsNames
 } from "../../../src/utils";
+import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
 import { TransformationContext } from "../../../types";
 
 /**
@@ -14,7 +15,7 @@ import { TransformationContext } from "../../../types";
  * 3. Rename iconSize prop to size
  */
 function transform({ j, root, filePath }: TransformationContext) {
-  const imports = getCoreImportsForFile(root);
+  const imports = getImports(root, NEW_CORE_IMPORT_PATH);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "Icon");
   if (!componentName) return;
 
