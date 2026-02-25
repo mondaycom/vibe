@@ -74,6 +74,6 @@ export const VirtualizedListItems: React.FC<VirtualizedListItemsProps> = ({ chil
 
   return (
     // @ts-ignore TODO TS-migration fix when VirtualizedList is converted to TS
-    (<VirtualizedList scrollableClassName={cx(styles.scrollableContainer)} items={items} itemRenderer={itemRenderer} />)
+    <VirtualizedList scrollableClassName={cx(styles.scrollableContainer)} items={items} itemRenderer={itemRenderer} />
   );
 };

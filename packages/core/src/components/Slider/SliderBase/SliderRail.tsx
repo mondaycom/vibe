@@ -32,14 +32,14 @@ const SliderRail: VibeComponent<SliderRailProps, unknown> = forwardRef<unknown, 
 
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-      (<div
+      <div
         data-testid={shapeTestId("rail")}
         className={cx(styles.rail, getStyle(styles, size), className)}
         onClick={handleClick}
         ref={ref}
       >
         {children}
-      </div>)
+      </div>
     );
   }
 );

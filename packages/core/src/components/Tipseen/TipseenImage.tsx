@@ -24,10 +24,10 @@ export interface TipseenImageProps {
 
 const TipseenImage: React.FC<TipseenImageProps> = ({ src, alt, className, tipseenMediaClassName }) => {
   return (
-   // TODO future breaking change where we remove the TipseenMedia component and we remove TipseenImage?
-   (<TipseenMedia className={tipseenMediaClassName}>
-    <img src={src} alt={alt} className={cx(styles.tipseenImage, className)} />
-   </TipseenMedia>)
+    // TODO future breaking change where we remove the TipseenMedia component and we remove TipseenImage?
+    <TipseenMedia className={tipseenMediaClassName}>
+      <img src={src} alt={alt} className={cx(styles.tipseenImage, className)} />
+    </TipseenMedia>
   );
 };
 
