@@ -90,14 +90,16 @@ function transform({ j, root }: TransformationContext) {
   const interfaceDeclarations = root.find(j.TSInterfaceDeclaration);
 
   interfaceDeclarations.forEach(path => {
-    const interfaceName = path.value.id.name;
+    const id = path.value.id;
+    if (!("name" in id)) return;
+    const interfaceName = id.name;
 
     const interfaceRenames: Record<string, string> = {
       // "OldInterfaceName": "NewInterfaceName",
     };
 
     if (interfaceRenames[interfaceName]) {
-      path.value.id.name = interfaceRenames[interfaceName];
+      id.name = interfaceRenames[interfaceName];
     }
   });
 }
