@@ -142,6 +142,31 @@ npm run build
 
 ## Component-Specific Migration
 
+### Flex
+
+#### Removed `"stretch"` from `justify` prop
+
+The `"stretch"` value has been removed from the `FlexJustify` type. `justify-content: stretch` is not valid CSS in flexbox contexts, so this value had no effect.
+
+**Before (v3):**
+```tsx
+<Flex justify="stretch" />
+// or using the deprecated enum:
+<Flex justify={FlexJustify.STRETCH} />
+```
+
+**After (v4):**
+```tsx
+// Remove the prop entirely (stretch had no visual effect)
+<Flex />
+```
+
+**Codemod available:** The automated codemod will remove `justify="stretch"` and `justify={FlexJustify.STRETCH}` props automatically.
+
+```bash
+npx @vibe/codemod --migration v4
+```
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->

@@ -29,6 +29,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### Flex
+
+- [x] **Status**: Done
+- **Change**: Removed `"stretch"` from the `justify` prop (`FlexJustify` type and `FlexJustify.STRETCH` enum value)
+- **Reason**: `justify-content: stretch` is not valid CSS in flexbox, so the value had no effect and no CSS implementation
+- **Migration**: Remove `justify="stretch"` or `justify={FlexJustify.STRETCH}` from `<Flex>` usage
+- **Codemod**: ✅ Available (`Flex-component-migration`)
+- **PR**: TBD
+
 #### Button
 
 - [ ] **Status**: Planning
