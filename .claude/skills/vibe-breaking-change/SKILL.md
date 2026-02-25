@@ -251,8 +251,8 @@ export default wrap(transform);
 ### Phase 5: Comprehensive Validation
 
 ```bash
-# Fix lint issues first before building
-yarn workspace @vibe/core lint:fix
+# Fix lint issues across all packages before building
+lerna run lint:fix
 
 # Full build verification
 yarn build
