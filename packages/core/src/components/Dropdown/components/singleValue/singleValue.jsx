@@ -7,7 +7,7 @@ import styles from "./singleValue.module.scss";
 const SingleValue = ({ Renderer, data, children, readOnly, singleValueWrapperClassName, ...props }) => {
   const rendererProps = { children, readOnly, data, ...props };
   const value = Renderer ? (
-    <Renderer {...rendererProps} {...data} /> // Spreading data here for a backward compatability
+    (<Renderer {...rendererProps} {...data} />) // Spreading data here for a backward compatability
   ) : (
     <ChildrenContent data={data} readOnly={readOnly}>
       {children}

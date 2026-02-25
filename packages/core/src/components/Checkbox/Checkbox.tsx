@@ -137,7 +137,7 @@ const Checkbox = forwardRef(
 
     if (separateLabel) {
       return (
-        <div
+        (<div
           className={cx(styles.wrapper, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
           data-vibe={ComponentVibeId.CHECKBOX}
@@ -177,7 +177,7 @@ const Checkbox = forwardRef(
           </label>
           {label === false ? null : (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-            <label
+            (<label
               htmlFor={id}
               className={cx(styles.label, labelClassName)}
               data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_LABEL, id)}
@@ -187,15 +187,15 @@ const Checkbox = forwardRef(
               <Text element="span" type="text2">
                 {label}
               </Text>
-            </label>
+            </label>)
           )}
-        </div>
+        </div>)
       );
     }
 
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-      <label
+      (<label
         className={cx(styles.wrapper, className)}
         onMouseUp={onMouseUpCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
@@ -243,7 +243,7 @@ const Checkbox = forwardRef(
             {label}
           </Text>
         )}
-      </label>
+      </label>)
     );
   }
 );
