@@ -252,7 +252,7 @@ export default wrap(transform);
 
 ```bash
 # Fix lint issues across all packages before building
-lerna run lint:fix
+yarn lint:fix
 
 # Full build verification
 yarn build
