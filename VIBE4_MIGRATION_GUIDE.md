@@ -229,13 +229,7 @@ If you encounter TypeScript errors:
    - Get team approval
 
 2. **Create Migration**
-   ```bash
-   cd packages/codemod/transformations/core/v3-to-v4
-   node generate-migration.js ComponentName
-   ```
-
-3. **Implement Migration**
-   - Edit the generated migration file
+   - Create a new migration file in `packages/codemod/transformations/core/v3-to-v4/`
    - Add comprehensive tests
    - Test on real codebases
 
