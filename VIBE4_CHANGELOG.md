@@ -31,11 +31,11 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### Button
 
-- [ ] **Status**: Planning
-- **Change**: TBD
-- **Reason**: TBD
-- **Migration**: TBD
-- **Codemod**: 🔄 Planned
+- [x] **Status**: Complete
+- **Change**: Change `blurOnMouseUp` default from `true` to `false` on Button and ButtonGroup
+- **Reason**: Buttons should retain focus after click for better keyboard navigation and accessibility
+- **Migration**: If you need the old blur behavior, add `blurOnMouseUp={true}` explicitly
+- **Codemod**: ❌ Manual (behavioral default change)
 - **PR**: TBD
 
 #### Dialog

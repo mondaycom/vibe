@@ -63,7 +63,19 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### Button / ButtonGroup
+
+**`blurOnMouseUp` default changed from `true` to `false`**
+
+Buttons no longer blur on mouse up by default. If you rely on the button losing focus after click, explicitly pass `blurOnMouseUp={true}`:
+
+```tsx
+// Before (v3) - button blurred on mouse up by default
+<Button onClick={handleClick}>Click me</Button>
+
+// After (v4) - to preserve old behavior, explicitly opt in
+<Button onClick={handleClick} blurOnMouseUp>Click me</Button>
+```
 
 ### TypeScript Types
 
