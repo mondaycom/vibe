@@ -29,6 +29,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### Tooltip
+
+- [x] **Status**: Done
+- **Change**: `addKeyboardHideShowTriggersByDefault` default changed from `false` to `true`
+- **Reason**: Improves keyboard accessibility by default — tooltips should appear on keyboard focus per WCAG guidelines
+- **Migration**: To preserve previous no-keyboard-trigger behavior, pass `addKeyboardHideShowTriggersByDefault={false}` explicitly
+- **Codemod**: ❌ Manual (behavioral default change, non-deterministic)
+- **PR**: TBD
+
 #### Button
 
 - [ ] **Status**: Planning

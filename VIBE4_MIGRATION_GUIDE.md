@@ -142,6 +142,25 @@ npm run build
 
 ## Component-Specific Migration
 
+### Tooltip
+
+#### `addKeyboardHideShowTriggersByDefault` default changed to `true`
+
+The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true`, meaning keyboard focus/blur events behave like mouse enter/leave by default. This improves keyboard accessibility out of the box.
+
+**Before (v3):** Keyboard focus did not show the tooltip by default.
+
+**After (v4):** Keyboard focus shows the tooltip by default.
+
+```tsx
+// To opt out of keyboard triggers:
+<Tooltip addKeyboardHideShowTriggersByDefault={false} content="...">
+  <Button />
+</Tooltip>
+```
+
+> **Note:** No codemod available — cannot deterministically migrate usages that relied on the previous default `false` behavior.
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->
