@@ -89,10 +89,8 @@ describe("TextField renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with iconsNames", () => {
-    const tree = renderer
-      .create(<TextField iconsNames={{ primary: "primary-label", secondary: "secondary-label" }} />)
-      .toJSON();
+  it("with iconLabel and secondaryIconLabel", () => {
+    const tree = renderer.create(<TextField iconLabel="primary-label" secondaryIconLabel="secondary-label" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

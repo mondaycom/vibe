@@ -47,6 +47,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: 🔄 Planned
 - **PR**: TBD
 
+#### TextField
+
+- [x] **Status**: Complete
+- **Change**: Replace `iconsNames` object prop with flat `iconLabel` and `secondaryIconLabel` props
+- **Reason**: API consistency — other TextField icon-related props (`iconName`/`secondaryIconName`, `iconTooltipContent`/`secondaryTooltipContent`) are flat string props
+- **Migration**: `<TextField iconsNames={{ primary: "X", secondary: "Y" }} />` → `<TextField iconLabel="X" secondaryIconLabel="Y" />`
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks

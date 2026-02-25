@@ -124,7 +124,6 @@ describe("TextField Tests", () => {
   });
 
   it("should display an icon", () => {
-    const iconNames = { primary: "Primary Icon" };
     const { rerender, queryByLabelText } = inputComponent;
     act(() => {
       rerender(
@@ -133,12 +132,12 @@ describe("TextField Tests", () => {
           onChange={onChangeStub}
           id="test"
           iconName="test"
-          iconsNames={iconNames}
+          iconLabel="Primary Icon"
         />
       );
     });
 
-    const icon = queryByLabelText(iconNames.primary);
+    const icon = queryByLabelText("Primary Icon");
     expect(icon).toBeTruthy();
   });
 
