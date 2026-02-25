@@ -108,14 +108,7 @@ const AttentionBox = ({
       {title && (
         <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">
           {!withoutIcon && (
-            <Icon
-              className={styles.icon}
-              iconType={iconType}
-              ariaHidden
-              icon={overrideIcon}
-              ignoreFocusStyle
-              iconSize="20"
-            />
+            <Icon className={styles.icon} type={iconType} ariaHidden icon={overrideIcon} ignoreFocusStyle size="20" />
           )}
           <Text type="text1" element="h5" weight="medium" className={styles.title}>
             {title}
@@ -124,7 +117,7 @@ const AttentionBox = ({
       )}
       <Flex justify="start" align="center" gap="xs">
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
-          <Icon iconType={iconType} iconSize={18} ariaHidden icon={overrideIcon} ignoreFocusStyle />
+          <Icon type={iconType} size={18} ariaHidden icon={overrideIcon} ignoreFocusStyle />
         )}
         <Text
           type="text2"

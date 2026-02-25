@@ -42,7 +42,7 @@ const ListItemIcon = forwardRef(
         id={id}
         aria-hidden="true"
       >
-        <Icon icon={icon} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
+        <Icon icon={icon} ignoreFocusStyle size={LIST_ITEM_ICON_SIZE} />
       </Component>
     );
   }

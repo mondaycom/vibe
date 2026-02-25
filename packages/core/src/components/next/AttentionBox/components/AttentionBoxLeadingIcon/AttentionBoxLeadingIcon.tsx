@@ -10,7 +10,7 @@ export interface AttentionBoxLeadingIconProps {
 }
 
 const AttentionBoxLeadingIcon = ({ icon, iconType = "svg", className }: AttentionBoxLeadingIconProps) => {
-  return <Icon icon={icon} iconType={iconType} iconSize={20} className={cx(styles.icon, className)} />;
+  return <Icon icon={icon} type={iconType} size={20} className={cx(styles.icon, className)} />;
 };
 
 export default AttentionBoxLeadingIcon;

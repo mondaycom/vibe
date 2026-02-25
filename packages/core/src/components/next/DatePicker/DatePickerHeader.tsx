@@ -105,15 +105,15 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
       </Flex>
       <Flex>
         <IconButton
-          kind={Button.kinds.TERTIARY}
-          size={Button.sizes.SMALL}
+          kind="tertiary"
+          size="small"
           ariaLabel={prevButtonAriaLabel}
           onClick={goToPreviousMonth}
           icon={DropdownChevronLeft}
         />
         <IconButton
-          kind={Button.kinds.TERTIARY}
-          size={Button.sizes.SMALL}
+          kind="tertiary"
+          size="small"
           ariaLabel={nextButtonAriaLabel}
           onClick={goToNextMonth}
           icon={DropdownChevronRight}

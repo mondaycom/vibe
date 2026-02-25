@@ -92,7 +92,7 @@ const Icon = forwardRef(
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
-      iconLabel: label,
+      label,
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
