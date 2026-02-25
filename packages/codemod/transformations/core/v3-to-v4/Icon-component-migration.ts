@@ -3,8 +3,7 @@ import {
   getCoreImportsForFile,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  renameProp,
-  isPropExists
+  migratePropsNames
 } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
@@ -14,7 +13,7 @@ import { TransformationContext } from "../../../types";
  * 2. Rename iconType prop to type
  * 3. Rename iconSize prop to size
  */
-function transform({ j, root }: TransformationContext) {
+function transform({ j, root, filePath }: TransformationContext) {
   const imports = getCoreImportsForFile(root);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "Icon");
   if (!componentName) return;
@@ -23,20 +22,11 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
-    // Rename iconLabel to label
-    if (isPropExists(j, elementPath, "iconLabel")) {
-      renameProp(j, elementPath, "iconLabel", "label");
-    }
-
-    // Rename iconType to type
-    if (isPropExists(j, elementPath, "iconType")) {
-      renameProp(j, elementPath, "iconType", "type");
-    }
-
-    // Rename iconSize to size
-    if (isPropExists(j, elementPath, "iconSize")) {
-      renameProp(j, elementPath, "iconSize", "size");
-    }
+    migratePropsNames(j, elementPath, filePath, componentName, {
+      iconLabel: "label",
+      iconType: "type",
+      iconSize: "size"
+    });
   });
 }
 
