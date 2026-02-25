@@ -75,6 +75,8 @@ find packages/mcp -name "*.ts" | xargs grep -l "ComponentName"          # MCP ex
    - [ ] Codemod feasibility (deterministic vs manual)
    - [ ] Documentation updates required
 
+See `references/dependency-analysis.md` for advanced dependency mapping techniques.
+
 **📊 Expected Findings:**
 - **20-40 component files** typically need updates for major component changes
 - **Multiple package types** - standalone, core, docs, examples
@@ -165,6 +167,8 @@ yarn workspace @vibe/core test -- Component
 yarn workspace @vibe/core test -- --updateSnapshot
 ```
 
+See `references/testing-validation.md` for detailed testing patterns and examples.
+
 **Testing requirements:**
 - All existing tests pass or are updated appropriately
 - New tests cover breaking change scenarios
@@ -200,6 +204,7 @@ npx @vibe/codemod componentname-old-prop-to-new-prop
 #### Codemod Generation (if deterministic)
 
 ⚠️ **CRITICAL**: Follow established Vibe codemod patterns to avoid common pitfalls.
+See `references/codemod-best-practices.md` and `references/codemod-examples.md` for detailed patterns and real examples.
 
 ```typescript
 // packages/codemod/transformations/core/v3-to-v4/ComponentName-component-migration.ts
@@ -269,6 +274,9 @@ yarn test
 If any step fails, fix the issues and re-run until all pass.
 
 **Step 2: Create branch and commit only after all checks pass**
+
+See `references/pr-templates.md` for PR description, commit message, and migration guide templates.
+See `references/workflow-checklist.md` for a comprehensive checklist of all phases.
 
 **📋 Monday.com Task Link:**
 Extract the Monday.com task link from the user's original prompt if provided.
@@ -569,4 +577,3 @@ grep -r "iconLabel=" packages/mcp packages/docs
 - **Storybook:** Update stories to reflect new API
 - **Documentation:** Sync with component documentation site
 
-See `references/` for detailed examples and edge cases.
