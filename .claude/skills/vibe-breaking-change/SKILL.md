@@ -32,8 +32,7 @@ Implements breaking changes to Vibe Design System components following the estab
 | 2. Implementation | Apply breaking change, update dependents | Tests pass locally |
 | 3. Testing | Run full test suite, update failing tests | All tests green |
 | 4. Documentation | Update migration guide, add codemod if deterministic | Documentation complete |
-| 5. Validation | Code review, build verification | Build successful |
-| 6. Delivery | Create branch, PR with task link | PR ready for review |
+| 5. Cleanup & Delivery | lint:fix, lint, build, test → commit, push, PR with task link | All checks pass, PR ready for review |
 
 ## Core Workflow
 
@@ -248,35 +247,28 @@ export default wrap(transform);
 - ✅ Include `filePath` parameter for error reporting
 - ✅ Use established utility imports
 
-### Phase 5: Comprehensive Validation
+### Phase 5: Cleanup, Validation, and PR Creation
 
+**⚠️ CRITICAL: Do NOT commit or push until all validation steps pass.**
+
+**Step 1: Fix and verify**
 ```bash
-# Fix lint issues across all packages before building
+# Fix lint issues across all packages
 yarn lint:fix
 
-# Full build verification
-yarn build
-lerna run build
-
-# Lint checks (verify no remaining issues)
+# Verify lint passes
 yarn lint
-lerna run lint
 
-# Style validation
-yarn workspace @vibe/core stylelint
+# Build all packages
+yarn build
 
-# Run Storybook build test
-yarn storybook:build
+# Run tests
+yarn test
 ```
 
-**Validation checklist:**
-- [ ] All packages build successfully
-- [ ] No linting errors
-- [ ] Storybook stories render correctly
-- [ ] TypeScript compilation passes
-- [ ] No broken imports or exports
+If any step fails, fix the issues and re-run until all pass.
 
-### Phase 6: Branch and PR Creation
+**Step 2: Create branch and commit only after all checks pass**
 
 **📋 Monday.com Task Link:**
 Extract the Monday.com task link from the user's original prompt if provided.
@@ -290,7 +282,7 @@ git checkout vibe4
 git pull origin vibe4
 git checkout -b breaking-change/component-name-api-update
 
-# Commit changes
+# Commit changes (only after all checks above pass)
 git add .
 git commit -m "breaking: update ComponentName API
 
