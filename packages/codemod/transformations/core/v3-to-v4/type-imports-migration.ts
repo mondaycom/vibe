@@ -90,6 +90,9 @@ function transform({ j, root }: TransformationContext) {
   const interfaceDeclarations = root.find(j.TSInterfaceDeclaration);
 
   interfaceDeclarations.forEach(path => {
+    // Only handle simple Identifier types, not TSQualifiedName
+    if (path.value.id.type !== "Identifier") return;
+
     const interfaceName = path.value.id.name;
 
     const interfaceRenames: Record<string, string> = {
