@@ -27,9 +27,9 @@ export const Refable = React.forwardRef<HTMLElement, RefableProps>(
         const WrapperElement = wrapperElement;
         return (
           // @ts-expect-error - TypeScript can't infer the correct ref type when using a variable as JSX tag
-          (<WrapperElement ref={ref} {...rest}>
+          <WrapperElement ref={ref} {...rest}>
             {child}
-          </WrapperElement>)
+          </WrapperElement>
         );
       }
 

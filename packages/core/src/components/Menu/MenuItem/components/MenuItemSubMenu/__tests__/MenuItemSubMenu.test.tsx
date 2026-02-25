@@ -17,9 +17,9 @@ const mockConsoleError = () => {
 
 const MockMenuChild = React.forwardRef(({ onClose }: MenuProps, ref: React.ForwardedRef<HTMLDivElement>) => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-  (<div data-testid="close-button" onClick={() => onClose({})}>
+  <div data-testid="close-button" onClick={() => onClose({})}>
     <div ref={ref}>Items</div>
-  </div>)
+  </div>
 ));
 Object.assign(MockMenuChild, { isMenu: true });
 
