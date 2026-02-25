@@ -124,31 +124,53 @@ npx @vibe/codemod componentname-old-prop-to-new-prop
 
 #### Codemod Generation (if deterministic)
 
+⚠️ **CRITICAL**: Follow established Vibe codemod patterns to avoid common pitfalls.
+
 ```typescript
-// packages/codemod/src/transforms/componentname-old-prop-to-new-prop.ts
-import type { Transform } from 'jscodeshift';
+// packages/codemod/transformations/core/v3-to-v4/ComponentName-component-migration.ts
+import {
+  wrap,
+  getImports,
+  getComponentNameOrAliasFromImports,
+  findComponentElements,
+  migratePropsNames
+} from "../../../src/utils";
+import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
+import { TransformationContext } from "../../../types";
 
-const transform: Transform = (file, api) => {
-  const j = api.jscodeshift;
-  const root = j(file.source);
+/**
+ * ComponentName migration for v3 to v4:
+ * 1. Rename oldProp1 to newProp1
+ * 2. Rename oldProp2 to newProp2
+ */
+function transform({ j, root, filePath }: TransformationContext) {
+  // ✅ Use correct import path detection
+  const imports = getImports(root, NEW_CORE_IMPORT_PATH);
+  const componentName = getComponentNameOrAliasFromImports(j, imports, "ComponentName");
+  if (!componentName) return;
 
-  // Transform JSX prop usage
-  root
-    .find(j.JSXElement, {
-      openingElement: {
-        name: { name: 'ComponentName' }
-      }
-    })
-    .forEach(path => {
-      const attributes = path.value.openingElement.attributes;
-      // Transform logic here
+  const elements = findComponentElements(root, componentName);
+  if (!elements.length) return;
+
+  // ✅ Single efficient call handles all prop renames
+  elements.forEach(elementPath => {
+    migratePropsNames(j, elementPath, filePath, componentName, {
+      oldProp1: "newProp1",
+      oldProp2: "newProp2",
+      oldProp3: "newProp3"
     });
+  });
+}
 
-  return root.toSource();
-};
-
-export default transform;
+export default wrap(transform);
 ```
+
+**Key Pattern Elements:**
+- ✅ Use `getImports(root, NEW_CORE_IMPORT_PATH)` not `getCoreImportsForFile()`
+- ✅ Use `migratePropsNames()` not non-existent `renameProp()`
+- ✅ Single loop with batch prop updates
+- ✅ Include `filePath` parameter for error reporting
+- ✅ Use established utility imports
 
 ### Phase 5: Comprehensive Validation
 
@@ -242,6 +264,108 @@ gh pr create \
 - If build fails: Check import/export consistency
 - If codemod fails: Validate transform logic with test cases
 - If PR blocked: Address review feedback before merging
+
+## ⚠️ Common Pitfalls & Lessons Learned
+
+### Codemod Implementation Issues
+
+**❌ Wrong Function Usage:**
+```typescript
+// WRONG - this function doesn't exist
+renameProp(j, elementPath, "oldProp", "newProp");
+
+// CORRECT - use established utility
+migratePropsNames(j, elementPath, filePath, componentName, {
+  oldProp: "newProp"
+});
+```
+
+**❌ Wrong Import Path:**
+```typescript
+// WRONG - looks for old package name
+const imports = getCoreImportsForFile(root);
+
+// CORRECT - specify the right import path
+const imports = getImports(root, NEW_CORE_IMPORT_PATH); // "@vibe/core"
+```
+
+**❌ Inefficient Multiple Loops:**
+```typescript
+// WRONG - separate loops for each prop
+if (isPropExists(j, elementPath, "prop1")) {
+  // handle prop1
+}
+if (isPropExists(j, elementPath, "prop2")) {
+  // handle prop2
+}
+
+// CORRECT - single efficient call
+migratePropsNames(j, elementPath, filePath, componentName, {
+  prop1: "newProp1",
+  prop2: "newProp2",
+  prop3: "newProp3"
+});
+```
+
+### JSCodeshift Formatting Artifacts
+
+**⚠️ Problem:** jscodeshift adds unnecessary parentheses around JSX elements in files that don't even use the target component.
+
+**Example Artifacts:**
+```jsx
+// Before codemod
+<div className="wrapper">
+
+// After codemod (WRONG!)
+(<div className="wrapper">
+```
+
+**🔧 Prevention:**
+1. **Target specific files** instead of entire directories
+2. **Use `--dry` run first** to verify only expected files change
+3. **Review all diffs carefully** before committing
+4. **Create cleanup commits** if formatting issues slip through
+
+**🔧 Cleanup Pattern:**
+```typescript
+// Find files with formatting artifacts
+git diff HEAD~1 HEAD --name-only | grep -v "target-component"
+
+// Manual cleanup needed for unintended changes
+```
+
+### Documentation Reversion Issues
+
+**⚠️ Problem:** Linters, formatters, or branch switches can revert documentation changes.
+
+**🔧 Prevention:**
+- **Commit documentation separately** from code changes
+- **Verify documentation persists** after all code changes
+- **Check git status** before final PR creation
+- **Re-add documentation** if reverted by automation
+
+### Component Package Dependencies
+
+**⚠️ Problem:** Components in different packages need different import handling.
+
+```typescript
+// Icon is in @vibe/icon but also re-exported from @vibe/core
+// Both need to be handled correctly
+```
+
+**🔧 Solution:**
+- Check component package structure first
+- Handle both direct imports and re-exports
+- Test codemod on actual usage patterns
+
+### Build System Validation
+
+**⚠️ Problem:** Not all components build even before changes, causing false positives.
+
+**🔧 Approach:**
+- **Test individual packages** first (`yarn workspace @vibe/icon build`)
+- **Focus on changed packages** rather than full monorepo build
+- **Separate build issues** from breaking change issues
 
 ## Quality Gates
 
