@@ -35,7 +35,7 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Change**: Removed `onClick` and `clickable` props from `CustomSvgIcon`
 - **Reason**: SVG icons should be decorative; use an accessible wrapper for clickable patterns
 - **Migration**: Replace `<CustomSvgIcon onClick={fn} />` with `<button onClick={fn}><CustomSvgIcon /></button>`
-- **Codemod**: ✅ Available (`CustomSvgIcon-component-migration`) — removes the props, manual wrapper addition needed
+- **Codemod**: ❌ Manual — wrap with a clickable element and move onClick to the wrapper
 - **PR**: TBD
 
 #### Button

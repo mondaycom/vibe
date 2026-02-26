@@ -160,11 +160,7 @@ The `onClick` and `clickable` props have been removed from `CustomSvgIcon`. SVG 
 </button>
 ```
 
-**Codemod available:** Removes `onClick` and `clickable` props from `<CustomSvgIcon>` automatically.
-
-```bash
-npx @vibe/codemod --migration v4
-```
+> **No codemod available.** This change requires manual migration — wrap the icon with an accessible clickable element (e.g. `<button>`, `<IconButton>`) and move the `onClick` handler to the wrapper.
 
 ### Button
 
