@@ -136,8 +136,12 @@ export const Clickable = {
 export const ChipsPalette = {
   render: () => {
     const excludedColors = ["dark_indigo", "blackish"];
-    const allowedColors = ColorUtils.contentColors.filter(c => !excludedColors.includes(c));
-    const allowedColorsChunks = _chunk(allowedColors, 7);
+    const stateColors = ["positive", "negative", "primary", "warning", "neutral"];
+    const allColors = [
+      ...ColorUtils.contentColors.filter((c: string) => !excludedColors.includes(c)),
+      ...stateColors
+    ];
+    const allowedColorsChunks = _chunk(allColors, 7);
     return (
       <Flex
         style={{
