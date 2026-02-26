@@ -15,7 +15,7 @@ const ModalContent = forwardRef(
         ref={ref}
         className={className}
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_CONTENT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_CONTENT, id)}
         data-autofocus-inside={autoFocus}
       >
         {children}
