@@ -84,4 +84,66 @@ As a result, `moment` is no longer a peer dependency of `@vibe/core`.
 | `startDate` / `endDate` (Moment) | `date` / `endDate` (Date) |
 | `moment` peer dependency | No `moment` dependency |
 
+---
+
+**AttentionBox**
+
+The deprecated legacy `AttentionBox` has been removed and replaced with the new implementation that was previously available at `@vibe/core/next`. The `AttentionBoxLink` standalone export has also been removed.
+
+**Migration for `@vibe/core/next` users:**
+
+<ul>
+  <DiffCodeBlock
+    code={`- import { AttentionBox } from "@vibe/core/next";
++ import { AttentionBox } from "@vibe/core";`}
+  />
+</ul>
+
+**Migration for legacy `AttentionBox` users:**
+
+1. Update type values:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <AttentionBox type="danger" ... />
++ <AttentionBox type="negative" ... />
+- <AttentionBox type="success" ... />
++ <AttentionBox type="positive" ... />
+- <AttentionBox type="dark" ... />
++ <AttentionBox type="neutral" ... />`}
+  />
+</ul>
+
+2. Replace `AttentionBoxLink` children with `link` prop:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <AttentionBox compact>
+-   <AttentionBoxLink href="/docs" text="Learn more" />
+- </AttentionBox>
++ <AttentionBox compact text="Your message" link={{ href: "/docs", text: "Learn more" }} />`}
+  />
+</ul>
+
+3. Replace deprecated props:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <AttentionBox entryAnimation withoutIcon withIconWithoutHeader ... />
++ <AttentionBox animate icon={false} ... />`}
+  />
+</ul>
+
+**Key API changes:**
+
+| Legacy (v3) | New (v4) |
+|---|---|
+| `type="danger"` | `type="negative"` |
+| `type="success"` | `type="positive"` |
+| `type="dark"` | `type="neutral"` |
+| `entryAnimation` | `animate` |
+| `withoutIcon` / `withIconWithoutHeader` | `icon={false}` |
+| `AttentionBoxLink` (standalone) | `link` prop |
+| — | `action` prop (new) |
+
 </div>
