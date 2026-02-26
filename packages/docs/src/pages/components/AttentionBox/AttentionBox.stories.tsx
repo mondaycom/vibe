@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Info, Invite } from "@vibe/icons";
-import { AttentionBox } from "@vibe/core/next";
 import {
+  AttentionBox,
   Button,
   Flex,
   Heading,
@@ -27,7 +27,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/AttentionBox [New]",
+  title: "Components/AttentionBox",
   component: AttentionBox,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

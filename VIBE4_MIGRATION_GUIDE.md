@@ -93,6 +93,48 @@ Some changes require manual attention:
 ```bash
 npx @vibe/codemod icon-props-rename src/
 ```
+#### AttentionBox
+
+**Replaced legacy AttentionBox with new implementation**
+
+The deprecated `AttentionBox` has been removed. The new `AttentionBox` (previously available at `@vibe/core/next`) is now the default export from `@vibe/core`.
+
+**Key changes:**
+- `AttentionBoxLink` is no longer a public export - use the `link` prop instead
+- Type values renamed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
+- `entryAnimation` prop → `animate` prop
+- `withIconWithoutHeader` / `withoutIcon` props removed - use `icon={false}` to hide the icon
+- New `action` prop for button actions
+- New `compact` layout mode (replaces inline compact patterns)
+
+**Migration:**
+
+```jsx
+// Before (legacy)
+import { AttentionBox, AttentionBoxLink } from "@vibe/core";
+<AttentionBox type="danger" title="Warning" text="Something went wrong" entryAnimation>
+  <AttentionBoxLink href="/docs" text="Learn more" />
+</AttentionBox>
+
+// After (new)
+import { AttentionBox } from "@vibe/core";
+<AttentionBox
+  type="negative"
+  title="Warning"
+  text="Something went wrong"
+  animate
+  link={{ href: "/docs", text: "Learn more" }}
+/>
+```
+
+```jsx
+// Before (from @vibe/core/next)
+import { AttentionBox } from "@vibe/core/next";
+
+// After
+import { AttentionBox } from "@vibe/core";
+```
+
 #### Toggle
 
 **Removed duplicate `data-testid` from internal element**
@@ -357,7 +399,6 @@ import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 ```
 
 **Codemod:** ❌ Manual migration required due to complete API change.
-
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->
