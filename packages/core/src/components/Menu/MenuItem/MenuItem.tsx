@@ -50,10 +50,6 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   rightIconWrapperClassName?: string;
   /**
-   * The label of the menu item for accessibility.
-   */
-  rightIconAriaLabel?: AriaAttributes["aria-label"];
-  /**
    * If true, the menu item is disabled.
    */
   disabled?: boolean;
@@ -189,7 +185,6 @@ const MenuItem = forwardRef(
       rightIcon = "",
       rightIconType,
       rightIconBackgroundColor,
-      rightIconAriaLabel: _rightIconAriaLabel,
       iconType,
       iconBackgroundColor,
       disabled = false,
@@ -201,7 +196,6 @@ const MenuItem = forwardRef(
       tooltipPosition = "right",
       tooltipShowDelay = 300,
       tooltipProps,
-      "aria-label": _ariaLabel,
       ...baseMenuProps
     }: MenuItemProps | MenuItemTitleComponentProps,
     ref: ForwardedRef<HTMLElement>
