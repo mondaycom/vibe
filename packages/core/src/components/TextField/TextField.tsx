@@ -94,7 +94,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * The primary icon displayed inside the text field.
    */
-  iconName?: string | React.FunctionComponent | null;
+  icon?: string | React.FunctionComponent | null;
   /**
    * The secondary icon displayed inside the text field.
    */
@@ -233,7 +233,7 @@ const TextField = forwardRef(
       disabled = false,
       readonly = false,
       setRef = NOOP,
-      iconName,
+      icon: iconName,
       secondaryIconName,
       id = "input",
       title = "",
