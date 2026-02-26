@@ -106,17 +106,17 @@ describe("Dropdown renders correctly", () => {
       {
         value: "primary",
         label: "Primary",
-        chipColor: Dropdown.chipColors.PRIMARY
+        chipColor: "primary"
       },
       {
         value: "positive",
         label: "Positive",
-        chipColor: Dropdown.chipColors.POSITIVE
+        chipColor: "positive"
       },
       {
         value: "negative",
         label: "Negative",
-        chipColor: Dropdown.chipColors.NEGATIVE
+        chipColor: "negative"
       }
     ];
     const tree = renderer.create(<Dropdown options={options} defaultValue={options} multi multiline />).toJSON();
@@ -163,7 +163,7 @@ describe("Dropdown renders correctly", () => {
     });
 
     it("should render correctly for the different sizes", () => {
-      Object.values(Dropdown.sizes).forEach(size => {
+      Object.values(["small", "medium", "large"]).forEach(size => {
         const component = new DropdownDriver().withSize(size).withPlaceholder();
 
         expect(component.snapshot).toMatchSnapshot();

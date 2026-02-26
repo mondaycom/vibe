@@ -6,15 +6,8 @@ import ModalContent from "./LegacyModalContent/LegacyModalContent";
 import ModalHeader from "./LegacyModalHeader/LegacyModalHeader";
 import useBodyScrollLock from "./useBodyScrollLock";
 import useShowHideModal from "./useShowHideModal";
-import {
-  isModalContent,
-  isModalFooter,
-  isModalHeader,
-  ModalWidth as ModalWidthEnum,
-  validateTitleProp
-} from "./ModalHelper";
+import { isModalContent, isModalFooter, isModalHeader, validateTitleProp } from "./ModalHelper";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticPropsWithoutForwardRef } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
@@ -208,10 +201,4 @@ const Modal = ({
   return isClient() ? ReactDOM.createPortal(dialog, document.body) : null;
 };
 
-interface LegacyModalStaticProps {
-  width: typeof ModalWidthEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<LegacyModalProps, LegacyModalStaticProps>(Modal, {
-  width: ModalWidthEnum
-});
+export default Modal;

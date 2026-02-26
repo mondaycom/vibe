@@ -1,14 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef } from "react";
-import {
-  type VibeComponentProps,
-  withStaticProps,
-  ComponentDefaultTestId,
-  getTestId,
-  ComponentVibeId,
-  useMergeRef
-} from "@vibe/shared";
-import { IconTypeEnum } from "./constants";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVibeId, useMergeRef } from "@vibe/shared";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
@@ -147,10 +139,4 @@ const Icon = forwardRef(
   }
 );
 
-interface IconStaticProps {
-  type: typeof IconTypeEnum;
-}
-
-export default withStaticProps<IconProps, IconStaticProps>(Icon, {
-  type: IconTypeEnum
-});
+export default Icon;

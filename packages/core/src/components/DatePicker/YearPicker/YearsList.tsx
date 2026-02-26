@@ -29,7 +29,7 @@ const YearsList = ({ yearsItems, isYearBlocked, onSelect, selectedYear }: YearsL
       {yearsItems.map(currYear => {
         const shouldBlockYear = isYearBlocked && isYearBlocked(currYear);
         const onClick = !shouldBlockYear ? () => onSelect(currYear) : NOOP;
-        const kind = parseInt(selectedYear, 10) === currYear ? Button?.kinds?.PRIMARY : Button?.kinds?.TERTIARY;
+        const kind = parseInt(selectedYear, 10) === currYear ? "primary" : "tertiary";
 
         return (
           <Button

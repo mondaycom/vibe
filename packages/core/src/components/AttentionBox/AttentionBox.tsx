@@ -6,9 +6,8 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { IconButton } from "@vibe/icon-button";
 import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@vibe/icons";
-import { AttentionBoxType as AttentionBoxTypeEnum, IconTypeEnum } from "./AttentionBoxConstants";
 import { type AttentionBoxType } from "./AttentionBox.types";
-import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps, type ElementContent } from "../../types";
 import { Text } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
 import styles from "./AttentionBox.module.scss";
@@ -156,12 +155,4 @@ const AttentionBox = ({
   );
 };
 
-interface AttentionBoxStaticProps {
-  types: typeof AttentionBoxTypeEnum;
-  iconTypes: typeof IconTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<AttentionBoxProps, AttentionBoxStaticProps>(AttentionBox, {
-  types: AttentionBoxTypeEnum,
-  iconTypes: IconTypeEnum
-});
+export default AttentionBox;

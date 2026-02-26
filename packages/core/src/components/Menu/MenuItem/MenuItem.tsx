@@ -1,14 +1,14 @@
 import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import { type IconType, Icon, type SubIcon } from "@vibe/icon";
+import { type IconType, type SubIcon } from "@vibe/icon";
 import { useIsOverflowing } from "@vibe/hooks";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
+import { type TooltipPositions } from "@vibe/tooltip";
 import { type SubmenuPosition } from "./MenuItem.types";
 import { Flex } from "@vibe/layout";
 
@@ -287,12 +287,4 @@ Object.assign(MenuItem, {
   isMenuChild: true
 });
 
-interface MenuItemStaticProps {
-  iconType: typeof Icon.type;
-  tooltipPositions: typeof TooltipPositionsEnum;
-}
-
-export default withStaticProps<MenuItemProps | MenuItemTitleComponentProps, MenuItemStaticProps>(MenuItem, {
-  iconType: Icon.type,
-  tooltipPositions: TooltipPositionsEnum
-});
+export default MenuItem;

@@ -1,8 +1,8 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import { BaseSizes, type SIZES_VALUES } from "../../constants";
+import { type SIZES_VALUES } from "../../constants";
 import React, { forwardRef, useCallback, useMemo, useRef, useState, useEffect, useContext } from "react";
-import Select, { type InputProps, components, createFilter, type ActionMeta } from "react-select";
+import Select, { type InputProps, components, type ActionMeta } from "react-select";
 import AsyncSelect from "react-select/async";
 import BaseSelect from "react-select/base";
 import { noop as NOOP } from "es-toolkit";
@@ -13,22 +13,19 @@ import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import MultiValueContainer from "./components/MultiValueContainer/MultiValueContainer";
 import { isClient } from "../../utils/ssr-utils";
-import {
-  ADD_AUTO_HEIGHT_COMPONENTS,
-  defaultCustomStyles,
-  DROPDOWN_CHIP_COLORS,
-  DROPDOWN_ID,
-  DROPDOWN_INPUT_ARIA_LABEL,
-  DROPDOWN_MENU_ARIA_LABEL,
-  DROPDOWN_MENU_ID,
-  DROPDOWN_MENU_PLACEMENT,
-  DROPDOWN_MENU_POSITION
-} from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
 import { Text } from "@vibe/typography";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import menuStyles from "./components/menu/menu.module.scss";
+import {
+  defaultCustomStyles,
+  ADD_AUTO_HEIGHT_COMPONENTS,
+  DROPDOWN_ID,
+  DROPDOWN_MENU_ID,
+  DROPDOWN_MENU_ARIA_LABEL,
+  DROPDOWN_INPUT_ARIA_LABEL
+} from "./DropdownConstants";
 import styles from "./Dropdown.module.scss";
 import {
   type DropdownOption,
@@ -38,7 +35,6 @@ import {
   type CustomSingleValueProps,
   type DropdownComponentProps
 } from "./Dropdown.types";
-import { withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
 import { LayerContext } from "@vibe/layer";
 
@@ -512,21 +508,7 @@ const Dropdown = forwardRef(
   }
 );
 
-interface DropdownStaticProps {
-  sizes: typeof BaseSizes;
-  chipColors: typeof DROPDOWN_CHIP_COLORS;
-  menuPlacements: typeof DROPDOWN_MENU_PLACEMENT;
-  menuPositions: typeof DROPDOWN_MENU_POSITION;
-  createFilter: typeof createFilter;
-}
-
-export default withStaticProps<DropdownComponentProps, DropdownStaticProps>(Dropdown, {
-  sizes: BaseSizes,
-  chipColors: DROPDOWN_CHIP_COLORS,
-  menuPlacements: DROPDOWN_MENU_PLACEMENT,
-  menuPositions: DROPDOWN_MENU_POSITION,
-  createFilter
-});
+export default Dropdown;
 
 function isTestEnv() {
   try {

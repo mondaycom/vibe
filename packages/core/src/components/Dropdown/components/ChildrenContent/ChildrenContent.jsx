@@ -37,7 +37,7 @@ export const ChildrenContent = ({ data, children, readOnly }) => {
           {data?.leftIcon && <Icon className={styles.icon} iconSize={18} icon={data.leftIcon} />}
         </>
       )}
-      <Text type={Text.types.TEXT2} color={Text.colors.INHERIT}>
+      <Text type="text2" color="inherit">
         {children}
       </Text>
       {data?.rightIcon && <Icon iconSize={18} icon={data.rightIcon} />}

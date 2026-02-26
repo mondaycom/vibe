@@ -1,5 +1,3 @@
-import { type Theme } from "../ThemeProvider/ThemeProviderConstants";
-
 export const defaultCustomStyles = (baseStyles: string) => baseStyles;
 
 export enum ADD_AUTO_HEIGHT_COMPONENTS {

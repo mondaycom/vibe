@@ -11,7 +11,7 @@ const Control = props => {
       <Tooltip
         content={selectProps?.selectProps?.tooltipContent}
         hideTrigger={["mouseleave", "click"]}
-        showTrigger={[Tooltip.hideShowTriggers.MOUSE_ENTER]}
+        showTrigger={["mouseenter"]}
       >
         <div ref={controlRef}>{control}</div>
       </Tooltip>
