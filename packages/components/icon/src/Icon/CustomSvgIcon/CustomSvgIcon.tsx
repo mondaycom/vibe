@@ -60,6 +60,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   "data-testid": dataTestId
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
+    isClickable: false,
     label: ariaLabel,
     isDecorationOnly: ariaHidden
   });
