@@ -218,7 +218,7 @@ export const AttentionBoxInsideADialogCombobox = {
               </Flex>
             </Flex>
             <Flex gap="small">
-              <Icon id="invite-icon" iconSize="32" icon={Invite} style={{ padding: "0 6px" }} />
+              <Icon id="invite-icon" size="32" icon={Invite} style={{ padding: "0 6px" }} />
               <Text>Invite new board member by email</Text>
             </Flex>
             <AttentionBox

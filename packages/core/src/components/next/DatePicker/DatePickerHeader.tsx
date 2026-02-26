@@ -1,7 +1,6 @@
 import React, { type FC, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { useDayPicker, useNavigation } from "react-day-picker";
-import { Button } from "@vibe/button";
 import { IconButton } from "@vibe/icon-button";
 import { Flex } from "@vibe/layout";
 import Dropdown from "../../Dropdown/Dropdown";
@@ -105,15 +104,15 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
       </Flex>
       <Flex>
         <IconButton
-          kind={Button.kinds.TERTIARY}
-          size={Button.sizes.SMALL}
+          kind="tertiary"
+          size="small"
           ariaLabel={prevButtonAriaLabel}
           onClick={goToPreviousMonth}
           icon={DropdownChevronLeft}
         />
         <IconButton
-          kind={Button.kinds.TERTIARY}
-          size={Button.sizes.SMALL}
+          kind="tertiary"
+          size="small"
           ariaLabel={nextButtonAriaLabel}
           onClick={goToNextMonth}
           icon={DropdownChevronRight}

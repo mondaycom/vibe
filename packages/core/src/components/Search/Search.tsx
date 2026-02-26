@@ -62,12 +62,7 @@ const Search = forwardRef(
     }, [disabled, clearValue, onClear]);
 
     const SearchIcon = (
-      <Icon
-        icon={searchIconName}
-        className={styles.icon}
-        iconType="font"
-        iconSize={size === "small" ? "16px" : "20px"}
-      />
+      <Icon icon={searchIconName} className={styles.icon} type="font" size={size === "small" ? "16px" : "20px"} />
     );
 
     const ClearIcon = (

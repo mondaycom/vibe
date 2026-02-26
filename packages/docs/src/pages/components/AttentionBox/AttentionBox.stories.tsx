@@ -250,7 +250,7 @@ export const AttentionBoxInsideADialogCombobox: Story = {
                 </Flex>
               </Flex>
               <Flex gap="small">
-                <Icon iconSize="32" icon={Invite} />
+                <Icon size="32" icon={Invite} />
                 <Text>Invite new board member by email</Text>
               </Flex>
               <AttentionBox text="Hold ⌘ to select more than one person or team" onClose={() => {}} />

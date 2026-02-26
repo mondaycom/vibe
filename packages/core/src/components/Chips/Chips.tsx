@@ -276,9 +276,9 @@ const Chips = forwardRef(
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType="font"
+            type="font"
             icon={leftIcon}
-            iconSize={iconSize}
+            size={iconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -289,9 +289,9 @@ const Chips = forwardRef(
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType="font"
+            type="font"
             icon={rightIcon}
-            iconSize={iconSize}
+            size={iconSize}
             ignoreFocusStyle
           />
         ) : null}

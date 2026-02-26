@@ -319,9 +319,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <>
           {leftIcon ? (
             <Icon
-              iconType="font"
+              type="font"
               icon={leftIcon}
-              iconSize={iconSize(leftIcon)}
+              size={iconSize(leftIcon)}
               className={cx({
                 [styles.leftIcon]: hasRenderableChildren
               })}
@@ -331,9 +331,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {children}
           {rightIcon ? (
             <Icon
-              iconType="font"
+              type="font"
               icon={rightIcon}
-              iconSize={iconSize(rightIcon)}
+              size={iconSize(rightIcon)}
               className={cx({
                 [styles.rightIcon]: hasRenderableChildren
               })}
@@ -364,9 +364,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <span className={styles.successContent}>
             {successIcon ? (
               <Icon
-                iconType="font"
+                type="font"
                 icon={successIcon}
-                iconSize={iconSize(successIcon)}
+                size={iconSize(successIcon)}
                 className={cx({
                   [styles.leftIcon]: !!successText
                 })}
