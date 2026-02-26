@@ -1,6 +1,6 @@
 import React from "react";
 import { chunk as _chunk } from "es-toolkit";
-import { Chips, Text, Avatar, DialogContentContainer, Flex, Search } from "@vibe/core";
+import { Chips, Text, Avatar, DialogContentContainer, Flex, Search, ColorUtils } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { createComponentTemplate } from "vibe-storybook-components";
 import { Email } from "@vibe/icons";
@@ -135,12 +135,9 @@ export const Clickable = {
 
 export const ChipsPalette = {
   render: () => {
-    const excludedColors = ["darkIndigo", "blackish"];
-    const allowedColorsChunks = _chunk(
-      // @ts-ignore
-      Object.keys(Chips.colors).filter(k => !excludedColors.includes(Chips.colors[k])),
-      7
-    );
+    const excludedColors = ["dark_indigo", "blackish"];
+    const allowedColors = ColorUtils.contentColors.filter(c => !excludedColors.includes(c));
+    const allowedColorsChunks = _chunk(allowedColors, 7);
     return (
       <Flex
         style={{
@@ -153,8 +150,7 @@ export const ChipsPalette = {
           return (
             <Flex direction="column" key={colorChunk} justify="space-between" align="stretch">
               {colorChunk.map((colorName: any) => (
-                // @ts-ignore
-                <Chips label={colorName} key={colorName} color={Chips.colors[colorName]} readOnly allowTextSelection />
+                <Chips label={colorName} key={colorName} color={colorName} readOnly allowTextSelection />
               ))}
             </Flex>
           );
@@ -165,7 +161,7 @@ export const ChipsPalette = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { _chunk }
+        scope: { _chunk, ColorUtils }
       }
     }
   },
