@@ -193,12 +193,6 @@ export interface DialogProps extends VibeComponentProps {
    * that may grow or shrink without a re-render being triggered.
    */
   observeContentResize?: boolean;
-  /**
-   * If true, provides a LayerProvider context for nested dialogs to render correctly.
-   * This is useful when you have components that use Dialog internally (like Dropdown)
-   * inside another Dialog, ensuring proper z-index stacking and click-outside behavior.
-   */
-  enableNestedDialogLayer?: boolean;
 }
 
 export interface DialogState {
@@ -245,7 +239,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false,
     observeContentResize: false,
-    enableNestedDialogLayer: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -574,7 +567,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       disableContainerScroll,
       containerSelector,
       observeContentResize,
-      enableNestedDialogLayer,
       id,
       "data-testid": dataTestId
     } = this.props;
@@ -701,10 +693,8 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   </DialogContent>
                 );
 
-                return enableNestedDialogLayer ? (
+                return (
                   <LayerProvider layerRef={this.containerRef}>{dialogContent}</LayerProvider>
-                ) : (
-                  dialogContent
                 );
               }}
             </Popper>,

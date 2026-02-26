@@ -148,7 +148,29 @@ npm run build
 
 ### Dialog
 
-<!-- Will be populated when Dialog breaking changes are identified -->
+#### Removed `enableNestedDialogLayer` prop
+
+The `enableNestedDialogLayer` prop has been removed. Dialog now **always** wraps its content with `LayerProvider`, ensuring nested dialogs (e.g., Dropdown inside Dialog) work correctly without any additional configuration.
+
+**Before (v3):**
+
+```jsx
+<Dialog enableNestedDialogLayer content={<Dropdown />}>
+  <button>Open</button>
+</Dialog>
+```
+
+**After (v4):**
+
+```jsx
+<Dialog content={<Dropdown />}>
+  <button>Open</button>
+</Dialog>
+```
+
+**Migration:** Simply remove the `enableNestedDialogLayer` prop. No replacement is needed — the behavior is now the default.
+
+**Codemod:** This change is handled automatically by the v4 codemod.
 
 ### Other Components
 
