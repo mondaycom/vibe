@@ -56,6 +56,20 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available (`Flex-component-migration`)
 - **PR**: TBD
 
+#### AttentionBox
+
+- [x] **Status**: Done
+- **Change**: Removed deprecated legacy AttentionBox and promoted the new AttentionBox from `@vibe/core/next` to `@vibe/core`
+  - Removed legacy `AttentionBox` component with props: `withIconWithoutHeader`, `withoutIcon`, `entryAnimation`, `iconType` (limited to `"svg" | "font"`)
+  - Removed `AttentionBoxLink` as a standalone public export (now internal to AttentionBox)
+  - Removed `AttentionBoxConstants` (deprecated enums: `AttentionBoxType`, `IconTypeEnum`)
+  - New component uses modern `forwardRef` pattern, new layout system (default + compact), new action/link props
+  - Type values changed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
+- **Reason**: Legacy component was deprecated; new component provides better API, layouts, and accessibility
+- **Migration**: Replace `import { AttentionBox } from "@vibe/core/next"` with `import { AttentionBox } from "@vibe/core"`. For legacy users: update type values, replace `AttentionBoxLink` children with `link` prop, replace `entryAnimation` with `animate`, remove `withIconWithoutHeader`/`withoutIcon` (use `icon={false}` instead)
+- **Codemod**: ❌ Manual (significant API differences between legacy and new component)
+- **PR**: TBD
+
 #### Button
 
 - [ ] **Status**: Planning

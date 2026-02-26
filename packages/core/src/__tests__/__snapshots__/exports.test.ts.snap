@@ -9,7 +9,6 @@ exports[`exports > should export all components 1`] = `
   "AlertBannerLink",
   "AlertBannerText",
   "AttentionBox",
-  "AttentionBoxLink",
   "Avatar",
   "AvatarGroup",
   "Badge",
@@ -142,7 +141,6 @@ exports[`exports > should export all hooks 1`] = `
 
 exports[`exports > should export next all components 1`] = `
 [
-  "AttentionBox",
   "Dialog",
   "List",
   "ListItem",
