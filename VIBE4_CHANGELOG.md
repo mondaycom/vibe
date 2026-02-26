@@ -47,6 +47,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: 🔄 Planned
 - **PR**: TBD
 
+#### TextField
+
+- [x] **Status**: Complete
+- **Change**: Rename `iconName` prop to `icon`
+- **Reason**: Consistent naming with other components (e.g., Icon component uses `icon` prop)
+- **Migration**: `<TextField iconName={X} />` → `<TextField icon={X} />`
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks

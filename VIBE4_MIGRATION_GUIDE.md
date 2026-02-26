@@ -63,7 +63,19 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### TextField
+
+**Renamed `iconName` prop to `icon`**
+
+```tsx
+// Before (v3)
+<TextField iconName={Search} placeholder="Search..." />
+
+// After (v4)
+<TextField icon={Search} placeholder="Search..." />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
 
 ### TypeScript Types
 
