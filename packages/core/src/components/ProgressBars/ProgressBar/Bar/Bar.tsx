@@ -3,9 +3,9 @@ import { camelCase } from "es-toolkit";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
-import { calculatePercentage } from "../LinearProgressBarHelpers";
+import { calculatePercentage } from "../ProgressBarHelpers";
 import { type VibeComponentProps } from "../../../../types";
-import { type ProgressBarStyle } from "../LinearProgressBar.types";
+import { type ProgressBarStyle } from "../ProgressBar.types";
 import styles from "./Bar.module.scss";
 
 export type BarType = "primary" | "secondary";

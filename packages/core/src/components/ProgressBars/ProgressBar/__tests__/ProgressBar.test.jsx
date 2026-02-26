@@ -1,7 +1,7 @@
 import { beforeEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render, cleanup, act, screen } from "@testing-library/react";
-import ProgressBar from "../LinearProgressBar";
+import ProgressBar from "../ProgressBar";
 
 describe("ProgressBars Tests", () => {
   let component;

@@ -6,14 +6,14 @@ import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import {
   ProgressBarStyle as ProgressBarStyleEnum,
   ProgressBarType as ProgressBarTypeEnum
-} from "./LinearProgressBarConstants";
-import { type ProgressBarSize, type ProgressBarStyle } from "./LinearProgressBar.types";
-import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
+} from "./ProgressBarConstants";
+import { type ProgressBarSize, type ProgressBarStyle } from "./ProgressBar.types";
+import { calculatePercentage, getProgressBarClassNames } from "./ProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { type VibeComponentProps, withStaticProps } from "../../../types";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
-import styles from "./LinearProgressBar.module.scss";
+import styles from "./ProgressBar.module.scss";
 
 export interface ProgressBarProps extends VibeComponentProps {
   /**

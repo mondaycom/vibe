@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
-import ProgressBar from "../LinearProgressBar";
+import ProgressBar from "../ProgressBar";
 
 const multiValues = [
   { value: 25, color: "red" },
