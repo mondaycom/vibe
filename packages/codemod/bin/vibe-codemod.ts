@@ -13,8 +13,7 @@ import { hideBin } from "yargs/helpers";
 
 const mapMigrationType: { [key: string]: string } = {
   v3: "v2-to-v3",
-  enums: "v2-to-v3/enums",
-  v4: "v3-to-v4"
+  enums: "v2-to-v3/enums"
 };
 
 const migrations = Object.keys(mapMigrationType);

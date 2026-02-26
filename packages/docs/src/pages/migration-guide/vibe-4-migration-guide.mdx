@@ -24,15 +24,9 @@ Vibe 4 is the next major version of the Vibe design system. This guide will help
    yarn add @vibe/core@^4.0.0
    ```
 
-2. Run the migration script to update your codebase:
+2. Follow the changes in the [Breaking Changes](#breaking-changes-) section below and apply any manual changes required.
 
-   ```bash
-   npx @vibe/codemod -m v4
-   ```
-
-3. Follow the changes in the [Breaking Changes](#breaking-changes-) section below and apply any manual changes required.
-
-4. **Review the changes and test your application thoroughly.**
+3. **Review the changes and test your application thoroughly.**
 
 ## Breaking Changes 🚨
 
@@ -40,22 +34,13 @@ Vibe 4 is the next major version of the Vibe design system. This guide will help
 
 **DatePicker**
 
-The legacy `DatePicker` component (which relied on `moment.js` and `react-dates`) has been **removed**. Use the modern `DatePicker` from `@vibe/core/next` instead, which uses native `Date` objects and `date-fns`.
+The legacy `DatePicker` component (which relied on `moment.js` and `react-dates`) has been **replaced** with the modern DatePicker that uses native `Date` objects and `date-fns`. The import path remains `@vibe/core`.
 
 As a result, `moment` is no longer a peer dependency of `@vibe/core`.
 
 **Migration:**
 
-1. Update your import:
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { DatePicker } from "@vibe/core";
-+ import { DatePicker } from "@vibe/core/next";`}
-  />
-</ul>
-
-2. Replace `moment` objects with native `Date` objects:
+1. Replace `moment` objects with native `Date` objects:
 
 <ul>
   <DiffCodeBlock
@@ -65,7 +50,7 @@ As a result, `moment` is no longer a peer dependency of `@vibe/core`.
   />
 </ul>
 
-3. Update the component props:
+2. Update the component props:
 
 <ul>
   <DiffCodeBlock
@@ -74,7 +59,7 @@ As a result, `moment` is no longer a peer dependency of `@vibe/core`.
   />
 </ul>
 
-4. For range mode, update the API:
+3. For range mode, update the API:
 
 <ul>
   <DiffCodeBlock
@@ -83,7 +68,7 @@ As a result, `moment` is no longer a peer dependency of `@vibe/core`.
   />
 </ul>
 
-5. Remove `moment` from your dependencies if it was only used for the DatePicker:
+4. Remove `moment` from your dependencies if it was only used for the DatePicker:
 
    ```bash
    yarn remove moment
@@ -91,7 +76,7 @@ As a result, `moment` is no longer a peer dependency of `@vibe/core`.
 
 **Key API changes:**
 
-| Legacy (`@vibe/core`) | New (`@vibe/core/next`) |
+| Legacy (v3) | New (v4) |
 |---|---|
 | `date: moment.Moment` | `date: Date` |
 | `onPickDate` | `onDateChange` |
