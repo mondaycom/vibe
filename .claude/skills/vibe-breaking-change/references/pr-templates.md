@@ -3,13 +3,16 @@
 ## PR Template for Breaking Changes
 
 ### PR Title Format
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/). Use the appropriate type (`feat`, `fix`, `refactor`, etc.):
+
 ```
-breaking: [scope] brief description
+<type>(<scope>): brief description
 
 Examples:
-breaking: Button remove deprecated size prop
-breaking: Dialog update API for better accessibility
-breaking: Form replace onSubmit with onFormSubmit
+feat(Button): remove deprecated size prop
+refactor(Dialog): update API for better accessibility
+fix(Form): replace onSubmit with onFormSubmit
 ```
 
 ### PR Description Template
@@ -85,8 +88,10 @@ npx @vibe/codemod component-name-api-update
 
 ## Commit Message Template
 
+Follow [Conventional Commits](https://www.conventionalcommits.org/). Use the appropriate type (`feat`, `fix`, `refactor`, etc.):
+
 ```
-breaking: [scope] brief description
+<type>(<scope>): brief description
 
 Detailed explanation of what changed and why.
 Include context about the problem being solved.
