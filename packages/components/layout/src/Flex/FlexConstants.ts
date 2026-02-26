@@ -17,7 +17,6 @@ export enum FlexJustify {
   START = "start",
   CENTER = "center",
   END = "end",
-  STRETCH = "stretch",
   SPACE_AROUND = "space-around",
   SPACE_BETWEEN = "space-between",
   INITIAL = "initial"
