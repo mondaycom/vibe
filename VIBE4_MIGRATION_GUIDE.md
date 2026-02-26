@@ -63,7 +63,13 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### Toggle
+
+**Removed duplicate `data-testid` from internal element**
+
+The Toggle component previously set `data-testid="toggle"` on both the input element and the internal visual div. The internal div's `data-testid` has been removed, so only the interactive input element carries the test ID.
+
+If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
 ### TypeScript Types
 
@@ -170,6 +176,31 @@ The `focusItemIndexOnMount` prop now defaults to `0`, meaning the first menu ite
 ```
 
 > **Note:** No codemod is available for this change since there is no deterministic way to know whether you want the new accessible default or the old no-focus behavior. Review your Menu usages and add `focusItemIndexOnMount={-1}` where you need to opt out.
+
+### Flex
+
+#### Removed `"stretch"` from `justify` prop
+
+The `"stretch"` value has been removed from the `FlexJustify` type. `justify-content: stretch` is not valid CSS in flexbox contexts, so this value had no effect.
+
+**Before (v3):**
+```tsx
+<Flex justify="stretch" />
+// or using the deprecated enum:
+<Flex justify={FlexJustify.STRETCH} />
+```
+
+**After (v4):**
+```tsx
+// Remove the prop entirely (stretch had no visual effect)
+<Flex />
+```
+
+**Codemod available:** The automated codemod will remove `justify="stretch"` and `justify={FlexJustify.STRETCH}` props automatically.
+
+```bash
+npx @vibe/codemod --migration v4
+```
 
 ### Button
 
