@@ -1,10 +1,11 @@
 import {
   wrap,
-  getCoreImportsForFile,
+  getImports,
   getComponentNameOrAliasFromImports,
   findComponentElements,
   removeProp
 } from "../../../src/utils";
+import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
 import { TransformationContext } from "../../../types";
 
 /**
@@ -12,7 +13,7 @@ import { TransformationContext } from "../../../types";
  * 1. Remove enableNestedDialogLayer prop (LayerProvider is now always applied)
  */
 function transform({ j, root }: TransformationContext) {
-  const imports = getCoreImportsForFile(root);
+  const imports = getImports(root, NEW_CORE_IMPORT_PATH);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "Dialog");
   if (!componentName) return;
 
