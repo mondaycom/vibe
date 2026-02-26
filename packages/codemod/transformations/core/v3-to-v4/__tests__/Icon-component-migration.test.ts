@@ -82,10 +82,10 @@ describe("Icon component migration", () => {
     prependImport(`
       function MyComponent() {
         return (
-          <div>
+          (<div>
             <Icon icon={Home} label="Home" />
             <Icon icon={Settings} type="font" size={20} />
-          </div>
+          </div>)
         );
       }
     `),
