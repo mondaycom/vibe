@@ -26,6 +26,7 @@ import styles from "./Dialog.module.scss";
 import {
   type DialogAnimationType,
   type DialogPosition,
+  type DialogStartingEdge,
   type DialogTriggerEvent,
   type DialogEvent
 } from "./Dialog.types";
@@ -53,7 +54,7 @@ export interface DialogProps extends VibeComponentProps {
   /**
    * The starting edge of the dialog.
    */
-  startingEdge?: string;
+  startingEdge?: DialogStartingEdge;
   /**
    * Offset values for positioning adjustments.
    * `main` - horizontal offset

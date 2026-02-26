@@ -32,6 +32,8 @@ export type DialogTriggerEvent =
 
 export type DialogAnimationType = "opacity-and-slide" | "expand";
 
+export type DialogStartingEdge = "top" | "bottom";
+
 export type DialogOffset = {
   main?: number;
   secondary?: number;
