@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useRef, useState } from "react";
 import { Info as InfoIcon } from "@vibe/icons";
 import { IconButton } from "@vibe/icon-button";
-import { Dialog, type DialogEvent } from "@vibe/dialog";
+import { Dialog, type DialogEvent } from "@vibe/core";
 import { InfoDialogContent } from "./components";
 import { type InfoProps } from "./Info.types";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";

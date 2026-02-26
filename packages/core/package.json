@@ -94,7 +94,6 @@
     "@vibe/base": "3.0.5",
     "@vibe/button": "3.0.16",
     "@vibe/clickable": "3.0.3",
-    "@vibe/dialog": "3.0.11",
     "@vibe/hooks": "3.0.3",
     "@vibe/icon": "3.0.11",
     "@vibe/icon-button": "3.0.4",

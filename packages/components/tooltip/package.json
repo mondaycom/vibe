@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/dialog": "3.0.11",
+    "@vibe/core": "^3.0.0",
     "@vibe/icon": "3.0.11",
     "@vibe/layout": "3.0.3",
     "@vibe/shared": "3.0.8",

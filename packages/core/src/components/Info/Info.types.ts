@@ -1,5 +1,5 @@
 import { type VibeComponentProps } from "../../types";
-import { type DialogPosition } from "@vibe/dialog";
+import { type DialogPosition } from "@vibe/core";
 import { type InfoLinkProps } from "./components";
 
 export type InfoProps = BaseInfoProps & VibeComponentProps & InfoAriaLabelProps;

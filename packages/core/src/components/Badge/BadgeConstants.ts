@@ -1,4 +1,4 @@
-import { DialogPositionEnum as DialogPosition } from "@vibe/dialog";
+import { type DialogPosition } from "@vibe/core";
 
 /**
  * @deprecated
@@ -12,10 +12,10 @@ export enum BadgeType {
  * @deprecated
  */
 export enum BadgeAnchor {
-  TOP_START = DialogPosition.TOP_START,
-  TOP_END = DialogPosition.TOP_END,
-  BOTTOM_START = DialogPosition.BOTTOM_START,
-  BOTTOM_END = DialogPosition.BOTTOM_END
+  TOP_START = "top-start",
+  TOP_END = "top-end",
+  BOTTOM_START = "bottom-start",
+  BOTTOM_END = "bottom-end"
 }
 
 /**

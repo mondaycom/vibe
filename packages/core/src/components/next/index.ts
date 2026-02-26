@@ -3,4 +3,4 @@ export * from "./Dropdown";
 export * from "./DatePicker";
 export * from "./List";
 export * from "../../components/Modal";
-export * from "./Dialog";
+export * from "../Dialog";

@@ -3,7 +3,7 @@ import { components } from "react-select";
 import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
 import Counter from "../../../Counter/Counter";
-import { Dialog, DialogContentContainer } from "@vibe/dialog";
+import { Dialog, DialogContentContainer } from "@vibe/core";
 import Chips from "../../../Chips/Chips";
 import classes from "./MultiValueContainer.module.scss";
 

@@ -15,20 +15,7 @@ export * from "./ColorPicker";
 export * from "./Combobox";
 export * from "./Counter";
 export * from "./DatePicker";
-// TODO: export * after removing enums
-export {
-  Dialog,
-  DialogContentContainer,
-  type DialogProps,
-  type DialogContentContainerProps,
-  type DialogType,
-  type DialogSize,
-  type DialogPosition,
-  type DialogTriggerEvent,
-  type DialogAnimationType,
-  type DialogOffset,
-  type DialogEvent
-} from "@vibe/dialog";
+export * from "./Dialog";
 export * from "./Divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";

@@ -21,7 +21,8 @@ import {
   isInsideClass,
   ComponentDefaultTestId,
   getTestId,
-  isClient
+  isClient,
+  withStaticProps
 } from "@vibe/shared";
 import DialogContent from "./components/DialogContent/DialogContent";
 import { Refable } from "./components/Refable/Refable";
@@ -538,4 +539,24 @@ function Dialog({
   );
 }
 
-export default Dialog;
+// Static properties for backward compatibility
+import {
+  DialogTriggerEventEnum,
+  DialogPositionEnum,
+  DialogAnimationTypeEnum,
+  DialogSizeEnum
+} from "./DialogConstants";
+
+interface DialogStaticProps {
+  hideShowTriggers: typeof DialogTriggerEventEnum;
+  positions: typeof DialogPositionEnum;
+  animationTypes: typeof DialogAnimationTypeEnum;
+  sizes: typeof DialogSizeEnum;
+}
+
+export default withStaticProps<DialogProps, DialogStaticProps>(Dialog, {
+  hideShowTriggers: DialogTriggerEventEnum,
+  positions: DialogPositionEnum,
+  animationTypes: DialogAnimationTypeEnum,
+  sizes: DialogSizeEnum
+});

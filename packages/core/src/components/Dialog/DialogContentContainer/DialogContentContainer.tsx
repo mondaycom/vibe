@@ -9,8 +9,7 @@ import {
   getTestId,
   getStyle
 } from "@vibe/shared";
-import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
-import { type DialogSize, type DialogType } from "../Dialog";
+import { type DialogSize, type DialogType } from "../Dialog.types";
 import styles from "./DialogContentContainer.module.scss";
 
 export interface DialogContentContainerProps extends VibeComponentProps {
@@ -90,12 +89,25 @@ const DialogContentContainer = forwardRef(
   }
 );
 
+// Static properties for backward compatibility
+const DialogContentContainerTypes = {
+  MODAL: "modal" as const,
+  POPOVER: "popover" as const
+} as const;
+
+const DialogContentContainerSizes = {
+  NONE: "none" as const,
+  SMALL: "small" as const,
+  MEDIUM: "medium" as const,
+  LARGE: "large" as const
+} as const;
+
 interface DialogContentContainerStaticProps {
-  types: typeof DialogTypeEnum;
-  sizes: typeof DialogSizeEnum;
+  types: typeof DialogContentContainerTypes;
+  sizes: typeof DialogContentContainerSizes;
 }
 
 export default withStaticProps<DialogContentContainerProps, DialogContentContainerStaticProps>(DialogContentContainer, {
-  types: DialogTypeEnum,
-  sizes: DialogSizeEnum
+  types: DialogContentContainerTypes,
+  sizes: DialogContentContainerSizes
 });

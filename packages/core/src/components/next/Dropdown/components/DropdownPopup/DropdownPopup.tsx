@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog } from "@vibe/dialog";
+import { Dialog } from "@vibe/core";
 import { matchWidthModifier } from "../../utils/dropdown-modifiers";
 import { useDropdownContext } from "../../context/DropdownContext";
 import Menu from "../Menu/Menu";

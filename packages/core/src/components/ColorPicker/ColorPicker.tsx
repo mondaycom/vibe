@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import { BaseSizes } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
-import { DialogContentContainer } from "@vibe/dialog";
+import { DialogContentContainer } from "@vibe/core";
 import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";

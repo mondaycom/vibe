@@ -32,9 +32,10 @@ import {
   type DialogTriggerEvent,
   Dialog,
   type DialogEvent,
-  type DialogPosition
-} from "@vibe/dialog";
-import { DialogAnimationTypeEnum as AnimationType, DialogTriggerEventEnum as HideShowEvent } from "@vibe/dialog";
+  type DialogPosition,
+  DialogAnimationTypeEnum as AnimationType,
+  DialogTriggerEventEnum as HideShowEvent
+} from "@vibe/core";
 import styles from "./SplitButton.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 

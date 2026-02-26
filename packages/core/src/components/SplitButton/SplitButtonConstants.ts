@@ -1,6 +1,6 @@
 // Constants
 import { keyCodes } from "../../constants";
-import { DialogTriggerEventEnum as HideShowEvent } from "@vibe/dialog";
+import { DialogTriggerEventEnum as HideShowEvent } from "@vibe/core";
 
 export const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
 export const DEFAULT_DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK];

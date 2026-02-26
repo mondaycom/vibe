@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { DialogContentContainer } from "@vibe/dialog";
+import { DialogContentContainer } from "@vibe/core";
 import { Text } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
 import InfoLink from "../InfoLink/InfoLink";

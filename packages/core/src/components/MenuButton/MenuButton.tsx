@@ -2,9 +2,8 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { isForwardRef } from "react-is";
-import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
-import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
-import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent } from "@vibe/dialog";
+import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/core";
+import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent, DialogPositionEnum, DialogSizeEnum, DialogTriggerEventEnum } from "@vibe/core";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -24,7 +23,7 @@ import { type TooltipPositions } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
-const CLOSE_KEYS: DialogTriggerEventEnum[] = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY];
+const CLOSE_KEYS: DialogTriggerEvent[] = ["esckey", "tab"];
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
