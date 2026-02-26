@@ -276,6 +276,88 @@ import { Dropdown } from "@vibe/core";
 
 **Codemod:** ❌ Manual migration required due to complete API change. See the [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs) for detailed instructions.
 
+### Modal (Legacy)
+
+#### Legacy Modal removed, replaced with new Modal
+
+The legacy `Modal` component and its sub-components (`ModalHeader`, `ModalContent`, `ModalFooter`, `ModalFooterButtons`) have been completely removed. The new Modal (previously available via `@vibe/core/next`) is now the default export from `@vibe/core`.
+
+**Removed components:**
+- `Modal` (legacy) - replaced by new `Modal`
+- `ModalHeader` (legacy) - replaced by new `ModalHeader`
+- `ModalContent` (legacy) - replaced by new `ModalContent`
+- `ModalFooter` (legacy) - replaced by new `ModalFooter`
+- `ModalFooterButtons` - removed entirely (use `ModalFooter` with `primaryButton`/`secondaryButton` props)
+
+**New components available from `@vibe/core`:**
+- `Modal`, `ModalHeader`, `ModalContent`, `ModalMedia`
+- `ModalFooter`, `ModalFooterWizard`
+- `ModalBasicLayout`, `ModalMediaLayout`, `ModalSideBySideLayout`
+
+**Removed types:**
+- `ModalWidth` type
+- `LegacyModalProps`, `LegacyModalHeaderProps`, `LegacyModalContentProps`, `LegacyModalFooterProps`, `LegacyModalFooterButtonsProps`
+
+**Removed dependencies:**
+- `a11y-dialog` - no longer used
+- `body-scroll-lock` - replaced by `react-remove-scroll`
+
+**If you were using the legacy Modal from `@vibe/core`:**
+
+```tsx
+// Before (v3) - Legacy Modal
+import { Modal, ModalContent, ModalFooterButtons } from "@vibe/core";
+
+<Modal
+  id="my-modal"
+  title="Modal title"
+  description="Subtitle"
+  show={show}
+  onClose={closeModal}
+  contentSpacing
+  triggerElement={buttonRef.current}
+>
+  <ModalContent>Content here</ModalContent>
+  <ModalFooterButtons
+    primaryButtonText="Confirm"
+    secondaryButtonText="Cancel"
+    onPrimaryButtonClick={closeModal}
+    onSecondaryButtonClick={closeModal}
+  />
+</Modal>
+
+// After (v4) - New Modal
+import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
+
+<Modal
+  id="my-modal"
+  show={show}
+  size="medium"
+  onClose={closeModal}
+>
+  <ModalBasicLayout>
+    <ModalHeader title="Modal title" description="Subtitle" />
+    <ModalContent>Content here</ModalContent>
+  </ModalBasicLayout>
+  <ModalFooter
+    primaryButton={{ text: "Confirm", onClick: closeModal }}
+    secondaryButton={{ text: "Cancel", onClick: closeModal }}
+  />
+</Modal>
+```
+
+**If you were using the new Modal from `@vibe/core/next`:**
+
+```tsx
+// Before (v3)
+import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core/next";
+
+// After (v4) - just change the import path
+import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
+```
+
+**Codemod:** ❌ Manual migration required due to complete API change.
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->

@@ -8,7 +8,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalFooterWizard
-} from "@vibe/core/next";
+} from "@vibe/core";
 import {
   TransitionView,
   useWizard,

@@ -8,7 +8,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalFooterWizard
-} from "@vibe/core/next";
+} from "@vibe/core";
 import { useWizard, Button, Text, Link, Flex, IconButton, TransitionView } from "@vibe/core";
 import { Menu } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
