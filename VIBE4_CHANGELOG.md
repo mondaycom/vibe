@@ -36,6 +36,13 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: SVG icons should be decorative; use an accessible wrapper for clickable patterns
 - **Migration**: Replace `<CustomSvgIcon onClick={fn} />` with `<button onClick={fn}><CustomSvgIcon /></button>`
 - **Codemod**: ❌ Manual — wrap with a clickable element and move onClick to the wrapper
+#### Flex
+
+- [x] **Status**: Done
+- **Change**: Removed `"stretch"` from the `justify` prop (`FlexJustify` type and `FlexJustify.STRETCH` enum value)
+- **Reason**: `justify-content: stretch` is not valid CSS in flexbox, so the value had no effect and no CSS implementation
+- **Migration**: Remove `justify="stretch"` or `justify={FlexJustify.STRETCH}` from `<Flex>` usage
+- **Codemod**: ✅ Available (`Flex-component-migration`)
 - **PR**: TBD
 
 #### Button
@@ -54,6 +61,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: TBD
 - **Migration**: TBD
 - **Codemod**: 🔄 Planned
+- **PR**: TBD
+
+#### Toggle
+
+- [x] **Status**: Complete
+- **Change**: Remove duplicate `data-testid` from internal MockToggle div element
+- **Reason**: `data-testid="toggle"` was set on both the Switch input and the internal visual div, causing ambiguous test queries
+- **Migration**: If tests query `[data-testid="toggle"]` and rely on multiple matches, update to expect a single match
+- **Codemod**: ❌ Manual (DOM structure change, not a prop API change)
 - **PR**: TBD
 
 <!-- Add more components as breaking changes are identified -->
