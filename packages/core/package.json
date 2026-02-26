@@ -121,11 +121,9 @@
     "react-is": "^16.9.0",
     "react-popper": "^2.3.0",
     "react-remove-scroll": "^2.6.0",
-    "react-select": "npm:react-select-module@3.4.0",
     "react-transition-group": "^4.4.5",
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7",
-    "react-windowed-select": "^2.0.4",
     "style-inject": "^0.3.0"
   },
   "devDependencies": {
@@ -183,7 +181,6 @@
     "@types/react-dates": "^21.8.3",
     "@types/react-is": "^16.7.5",
     "@types/react-resizable": "^3.0.7",
-    "@types/react-select": "^3.1.2",
     "@types/react-syntax-highlighter": "^11.0.5",
     "@types/react-test-renderer": "^16.9.0",
     "@types/react-transition-group": "^4.4.5",
