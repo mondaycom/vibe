@@ -9,8 +9,6 @@ const MenuItemIcon = ({
   icon,
   isRightIcon = false,
   type,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  label,
   disabled,
   selected,
   backgroundColor,

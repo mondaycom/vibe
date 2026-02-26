@@ -29,6 +29,13 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### MenuItem
+
+- [x] **Status**: Done
+- **Change**: Removed deprecated `label` prop from internal `MenuItemIcon` component; removed now-unused `iconLabel`/`rightIconLabel` internal variables from `MenuItem`
+- **Reason**: The prop was a no-op — accepted but never passed to the underlying `Icon` component
+- **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
+- **Codemod**: ❌ Manual (no-op removal, no functional impact)
 #### Icon
 
 - [x] **Status**: Implemented ✅

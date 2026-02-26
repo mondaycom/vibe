@@ -178,6 +178,15 @@ npm run build
 
 ## Component-Specific Migration
 
+### MenuItem
+
+#### Removed deprecated `label` prop from `MenuItemIcon`
+
+The internal `MenuItemIcon` component's `label` prop has been removed. This prop was already a no-op — it was accepted but not passed to the underlying `Icon` component.
+
+> **Note:** The `MenuItem.label` prop (visual badge like "New" or "Beta") is **not affected**.
+
+**Migration:** No action required for users of `MenuItem`. If you used `MenuItemIcon` directly, remove any `label` prop passed to it.
 ### Flex
 
 #### Removed `"stretch"` from `justify` prop
