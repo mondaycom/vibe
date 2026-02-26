@@ -63,6 +63,36 @@ Some changes require manual attention:
 
 ### Components
 
+#### Icon Component API Changes
+
+**Props Renamed - Remove "icon" Prefix**
+- ❌ **Removed**: `iconLabel`, `iconType`, `iconSize` props
+- ✅ **Added**: `label`, `type`, `size` props with same functionality
+- **Reason**: Simplified API for better consistency and reduced verbosity
+
+**Migration:**
+```jsx
+// Before
+<Icon
+  icon={MyIcon}
+  iconLabel="Close dialog"
+  iconType="svg"
+  iconSize={24}
+/>
+
+// After
+<Icon
+  icon={MyIcon}
+  label="Close dialog"
+  type="svg"
+  size={24}
+/>
+```
+
+**Automated Migration Available:**
+```bash
+npx @vibe/codemod icon-props-rename src/
+```
 #### Toggle
 
 **Removed duplicate `data-testid` from internal element**

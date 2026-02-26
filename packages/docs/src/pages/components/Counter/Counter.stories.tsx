@@ -177,17 +177,17 @@ export const CounterOnInboxFilters = {
 export const CountTheNumberOfUpdates = {
   render: () => (
     <Flex gap={12} direction="column" align="start">
-      <Icon icon={AddUpdate} iconSize="36" />
+      <Icon icon={AddUpdate} size="36" />
       <Divider />
       <div style={{ position: "relative" }}>
-        <Icon icon={Update} iconSize="36" />
+        <Icon icon={Update} size="36" />
         <div style={{ position: "absolute", bottom: 0, right: -3 }}>
           <Counter count={5} size="small" id="count-the-number-of-updates-1" ariaLabel="5 updates" />
         </div>
       </div>
       <Divider />
       <div style={{ position: "relative" }}>
-        <Icon icon={Update} iconSize="36" />
+        <Icon icon={Update} size="36" />
         <div style={{ position: "absolute", bottom: 0, right: -3 }}>
           <Counter count={5} color="dark" size="small" id="count-the-number-of-updates-2" ariaLabel="5 updates" />
         </div>

@@ -9,7 +9,7 @@ export const ExpandCollapseDescription = () => {
     return (
       <ExpandCollapse title="ExpandCollapse" className={styles.expandCollapseDescription}>
         <Text maxLines={2}>Insert any component that you want, here is a robot for you</Text>
-        <Icon iconType="svg" icon={Robot} iconSize={40} />
+        <Icon type="svg" icon={Robot} size={40} />
       </ExpandCollapse>
     );
   }, []);

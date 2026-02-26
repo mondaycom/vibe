@@ -29,7 +29,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
-<<<<<<< breaking-change/menuitem-remove-label-prop
 #### MenuItem
 
 - [x] **Status**: Done
@@ -37,7 +36,17 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: The prop was a no-op — accepted but never passed to the underlying `Icon` component
 - **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
 - **Codemod**: ❌ Manual (no-op removal, no functional impact)
-=======
+#### Icon
+
+- [x] **Status**: Implemented ✅
+- **Change**: Renamed props to remove "icon" prefix
+  - `iconLabel` → `label`
+  - `iconType` → `type`
+  - `iconSize` → `size`
+- **Reason**: Simplified API for better consistency and reduced verbosity
+- **Migration**: Replace prop names in all Icon usages
+- **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
+- **Task**: Monday.com task #9713029042
 #### Flex
 
 - [x] **Status**: Done
@@ -45,7 +54,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: `justify-content: stretch` is not valid CSS in flexbox, so the value had no effect and no CSS implementation
 - **Migration**: Remove `justify="stretch"` or `justify={FlexJustify.STRETCH}` from `<Flex>` usage
 - **Codemod**: ✅ Available (`Flex-component-migration`)
->>>>>>> vibe4
 - **PR**: TBD
 
 #### Button
