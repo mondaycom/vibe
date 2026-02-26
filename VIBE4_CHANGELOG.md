@@ -81,11 +81,18 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### Dialog
 
-- [ ] **Status**: Planning
-- **Change**: TBD
-- **Reason**: TBD
-- **Migration**: TBD
-- **Codemod**: 🔄 Planned
+- [x] **Status**: Done
+- **Change**: Replaced legacy class-based Dialog (react-popper/Popper.js) with new functional Dialog (@floating-ui/react-dom)
+  - Removed `modifiers` prop (Popper.js) — use `middleware` prop (Floating UI) instead
+  - Removed `usePopover` hook from `@vibe/dialog`
+  - Removed `modifiers` prop from `Tooltip` and `Tipseen` components
+  - Component rewritten as functional component (was class-based `PureComponent`)
+  - Positioning now uses Floating UI instead of Popper.js
+  - Removed dependencies: `react-popper`, `@popperjs/core`
+  - Added dependency: `@floating-ui/react-dom`
+- **Reason**: Floating UI is the actively maintained successor to Popper.js, provides better positioning, middleware architecture, and smaller bundle size
+- **Migration**: Replace `modifiers` with `middleware` on Dialog. Remove `modifiers` from Tooltip/Tipseen usage. Replace `usePopover` with `useFloating` from `@floating-ui/react-dom`
+- **Codemod**: ❌ Manual (API differs between Popper.js modifiers and Floating UI middleware)
 - **PR**: TBD
 
 #### Toggle

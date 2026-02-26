@@ -145,7 +145,6 @@ exports[`exports > should export all hooks 1`] = `
 
 exports[`exports > should export next all components 1`] = `
 [
-  "Dialog",
   "List",
   "ListItem",
   "ListTitle",

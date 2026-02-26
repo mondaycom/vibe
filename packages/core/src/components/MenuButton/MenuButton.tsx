@@ -24,7 +24,7 @@ import { type TooltipPositions } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
-const CLOSE_KEYS: DialogTriggerEventEnum[] = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY];
+const CLOSE_KEYS: DialogTriggerEventEnum[] = [DialogTriggerEventEnum.ESCAPE_KEY, DialogTriggerEventEnum.TAB_KEY];
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
@@ -181,7 +181,7 @@ const MenuButton = forwardRef(
       ariaLabel = "Menu",
       closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
-      dialogPosition = Dialog.positions.BOTTOM_START,
+      dialogPosition = DialogPositionEnum.BOTTOM_START,
       dialogClassName,
       dialogPaddingSize = DialogContentContainer.sizes.SMALL,
       dialogShowTriggerIgnoreClass,
@@ -257,18 +257,18 @@ const MenuButton = forwardRef(
 
     const [clonedChildren, hideTrigger] = useMemo(() => {
       const triggers = new Set([
-        Dialog.hideShowTriggers.CLICK_OUTSIDE,
-        Dialog.hideShowTriggers.TAB_KEY,
-        Dialog.hideShowTriggers.ESCAPE_KEY
+        DialogTriggerEventEnum.CLICK_OUTSIDE,
+        DialogTriggerEventEnum.TAB_KEY,
+        DialogTriggerEventEnum.ESCAPE_KEY
       ]);
 
       if (closeDialogOnContentClick) {
-        triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
-        triggers.add(Dialog.hideShowTriggers.ENTER);
+        triggers.add(DialogTriggerEventEnum.CONTENT_CLICK);
+        triggers.add(DialogTriggerEventEnum.ENTER);
       }
 
       if (removeTabCloseTrigger) {
-        triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
+        triggers.delete(DialogTriggerEventEnum.TAB_KEY);
       }
       const childrenArr = React.Children.toArray(children) as MenuChild[];
       const cloned = childrenArr.map(child => {
@@ -277,7 +277,7 @@ const MenuButton = forwardRef(
         const newProps: { focusOnMount?: boolean; onClose?: (event: React.KeyboardEvent) => void } = {};
         if (child.type && child.type.supportFocusOnMount) {
           newProps.focusOnMount = true;
-          triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
+          triggers.delete(DialogTriggerEventEnum.ESCAPE_KEY);
         }
 
         if (child.type && child.type.isMenu) {
@@ -419,9 +419,9 @@ const MenuButton = forwardRef(
 
 interface MenuButtonStaticProps {
   sizes: typeof MenuButtonSizeEnum;
-  paddingSizes: typeof DialogContentContainer.sizes;
+  paddingSizes: typeof DialogSizeEnum;
   dialogPositions: typeof DialogPositionEnum;
-  hideTriggers: typeof Dialog.hideShowTriggers;
+  hideTriggers: typeof DialogTriggerEventEnum;
   componentPositions: typeof MenuButtonComponentPositionEnum;
 }
 

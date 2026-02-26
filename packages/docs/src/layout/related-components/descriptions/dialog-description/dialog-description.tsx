@@ -6,20 +6,9 @@ import styles from "./dialog-description.module.scss";
 
 export const DialogDescription = () => {
   const component = useMemo(() => {
-    const modifiers =
-      // for prevent dialog to move while scrolling
-      [
-        {
-          name: "preventOverflow",
-          options: {
-            mainAxis: false
-          }
-        }
-      ];
     return (
       <div className={styles.container}>
         <Dialog
-          modifiers={modifiers}
           shouldShowOnMount
           showTrigger={["click"]}
           hideTrigger={["click"]}

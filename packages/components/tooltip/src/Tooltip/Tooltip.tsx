@@ -3,7 +3,6 @@ import { isFunction } from "es-toolkit";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
-import { type Modifier } from "react-popper";
 import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
 import {
   DialogTriggerEventEnum as HideShowEventEnum,
@@ -122,11 +121,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   onTooltipShow?: () => void;
   /**
-   * Custom Popper.js modifiers.
-   * https://popper.js.org/docs/v2/modifiers/
-   */
-  modifiers?: Array<Modifier<unknown>>;
-  /**
    * The placement of the tooltip relative to the reference element.
    */
   position?: TooltipPositions;
@@ -205,7 +199,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     withoutDialog: false,
     tip: true,
     hideWhenReferenceHidden: false,
-    modifiers: new Array<Modifier<unknown>>(),
     showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
     hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
     showOnDialogEnter: true,

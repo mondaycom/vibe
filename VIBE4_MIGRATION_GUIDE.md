@@ -405,7 +405,53 @@ import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 
 ### Dialog
 
-<!-- Will be populated when Dialog breaking changes are identified -->
+#### New Dialog implementation (floating-ui based)
+
+The legacy class-based `Dialog` component (using `react-popper` / Popper.js) has been replaced with a new functional implementation using `@floating-ui/react-dom`.
+
+**Key changes:**
+- `modifiers` prop removed - use `middleware` prop instead (Floating UI middleware)
+- `usePopover` hook removed from `@vibe/dialog`
+- Component is now a functional component (was class-based `PureComponent`)
+- Positioning is handled by Floating UI instead of Popper.js
+
+**Migration:**
+
+```tsx
+// Before (v3) - Popper.js modifiers
+import { Dialog } from "@vibe/core";
+
+<Dialog
+  modifiers={[
+    { name: "preventOverflow", options: { mainAxis: false } }
+  ]}
+  position="bottom"
+  content={<div>Content</div>}
+>
+  <button>Reference</button>
+</Dialog>
+
+// After (v4) - Floating UI middleware
+import { Dialog } from "@vibe/core";
+import { shift } from "@floating-ui/react-dom";
+
+<Dialog
+  middleware={[shift({ mainAxis: false })]}
+  position="bottom"
+  content={<div>Content</div>}
+>
+  <button>Reference</button>
+</Dialog>
+```
+
+**Tooltip / Tipseen changes:**
+- `modifiers` prop removed from `Tooltip` and `Tipseen` components
+- Most users don't need modifiers — the new Dialog handles positioning automatically
+
+**`usePopover` hook removed:**
+If you were using `usePopover` from `@vibe/dialog`, migrate to `useFloating` from `@floating-ui/react-dom` directly.
+
+**Codemod:** ❌ Manual migration required for `modifiers` → `middleware` conversion.
 
 ### Other Components
 

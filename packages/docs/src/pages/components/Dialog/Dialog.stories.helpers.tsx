@@ -11,12 +11,12 @@ export const TipDialogContentContainer = () => (
   </Tip>
 );
 
-export const TipDevTipPopperJs = () => (
+export const TipDevTipFloatingUi = () => (
   <Tip title="Dev tip">
-    You can use the
-    <Link size={Link.sizes.SMALL} href="https://popper.js.org/docs/v2/modifiers/">
-      Popper.js modifiers
-    </Link>
+    You can use{" "}
+    <Link size={Link.sizes.SMALL} href="https://floating-ui.com/docs/middleware">
+      Floating UI middleware
+    </Link>{" "}
     for extended Dialog customization.
   </Tip>
 );

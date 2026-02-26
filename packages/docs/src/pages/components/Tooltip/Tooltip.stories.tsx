@@ -1,7 +1,6 @@
 import React from "react";
 import { Tooltip, type TooltipProps, Button, Flex, IconButton } from "@vibe/core";
 import { Hide, Menu, Subitems } from "@vibe/icons";
-import { modifiers } from "./Tooltip.stories.helpers";
 import image from "./assets/tooltip-image.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
@@ -25,23 +24,6 @@ export const Overview = {
         {...args}
         open
         hideWhenReferenceHidden
-        // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
-        // Therefore, there is no need to move this prop in your implementations.
-        modifiers={[
-          {
-            name: "preventOverflow",
-            options: {
-              mainAxis: false
-            }
-          },
-          {
-            name: "flip",
-            options: {
-              // @ts-ignore
-              fallbackPlacements: []
-            }
-          }
-        ]}
       >
         <div id="overview-tooltip-trigger" />
       </Tooltip>
@@ -68,23 +50,6 @@ export const TooltipWithTitle = () => (
       shouldShowOnMount
       position="right"
       hideWhenReferenceHidden
-      // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
-      // Therefore, there is no need to move this prop in your implementations.
-      modifiers={[
-        {
-          name: "preventOverflow",
-          options: {
-            mainAxis: false
-          }
-        },
-        {
-          name: "flip",
-          options: {
-            // @ts-ignore
-            fallbackPlacements: []
-          }
-        }
-      ]}
       open
     >
       <div id="tooltip-with-title-trigger" />
@@ -102,7 +67,6 @@ export const TooltipWithImage = () => (
       image={image}
       position="right"
       hideWhenReferenceHidden
-      modifiers={modifiers}
       style={{ minHeight: "135px" }}
       open
     >
@@ -113,33 +77,12 @@ export const TooltipWithImage = () => (
 
 export const Positions = {
   render: () => {
-    // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
-    // Therefore, there is no need to move this prop in your implementations.
-    const modifiers = [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
-      },
-      {
-        name: "flip",
-        options: {
-          // @ts-ignore
-          fallbackPlacements: []
-        }
-      }
-    ];
-
     return (
       <Flex gap={16}>
         <div style={{ padding: "0 64px 68px 0", margin: "0 32px" }}>
-          {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-         Therefore, there is no need to move this prop in your implementations. */}
           <Tooltip
             id="position-top-tooltip"
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Top"
             shouldShowOnMount
             position="bottom"
@@ -152,7 +95,6 @@ export const Positions = {
           <Tooltip
             id="position-bottom-tooltip"
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Bottom"
             shouldShowOnMount
             open
@@ -164,7 +106,6 @@ export const Positions = {
           <Tooltip
             id="position-left-tooltip"
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Left"
             position="right"
             shouldShowOnMount
@@ -177,7 +118,6 @@ export const Positions = {
           <Tooltip
             id="position-right-tooltip"
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Right"
             position="left"
             shouldShowOnMount

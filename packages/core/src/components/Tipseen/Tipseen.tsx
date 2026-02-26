@@ -18,7 +18,6 @@ import {
 import { type TipseenCloseButtonTheme, type TipseenColor } from "./Tipseen.types";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
-import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import { Text } from "@vibe/typography";
@@ -96,11 +95,6 @@ export interface TipseenProps extends VibeComponentProps {
    */
   tooltipArrowClassName?: string;
   /**
-   * Custom Popper.js modifiers.
-   * https://popper.js.org/docs/v2/modifiers/
-   */
-  modifiers?: Array<Modifier<unknown>>;
-  /**
    * The aria-label for the close button.
    */
   closeAriaLabel?: string;
@@ -154,7 +148,6 @@ const Tipseen = forwardRef(
       referenceWrapperClassName,
       tip = true,
       tooltipArrowClassName,
-      modifiers = [],
       floating = false,
       color: colorProp,
       "data-testid": dataTestId
@@ -252,7 +245,6 @@ const Tipseen = forwardRef(
           hideWhenReferenceHidden={hideWhenReferenceHidden}
           referenceWrapperClassName={referenceWrapperClassName}
           tip={tip && !floating}
-          modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
           forceRenderWithoutChildren={floating}
         >

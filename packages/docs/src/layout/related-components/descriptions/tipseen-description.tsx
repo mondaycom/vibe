@@ -23,24 +23,9 @@ export const TipseenDescription = () => {
       <div key="tipseen-key-4">Popover message will appear here loremipsum dolor samet…</div>,
       <div key="tipseen-key-5">Popover message will appear here loremipsum dolor samet…</div>
     ];
-    const modifiers = [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
-      },
-      {
-        name: "flip",
-        options: {
-          fallbackPlacements: [] as string[]
-        }
-      }
-    ];
     return (
       <div style={style}>
         <Tipseen
-          modifiers={modifiers}
           width={280}
           position="right"
           content={
