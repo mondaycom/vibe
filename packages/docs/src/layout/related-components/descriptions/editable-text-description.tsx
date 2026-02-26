@@ -7,7 +7,7 @@ export const EditableTextDescription = () => {
   const component = useMemo(() => {
     return (
       <Flex justify="center" style={{ width: "100%" }}>
-        <EditableText value="Hello world" type={Editable"text1"} />
+        <EditableText value="Hello world" type="text1" />
       </Flex>
     );
   }, []);

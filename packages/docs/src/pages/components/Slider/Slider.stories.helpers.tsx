@@ -4,7 +4,7 @@ import { StorybookLink, Tip } from "vibe-storybook-components";
 export const TipMultiStepIndicator = () => (
   <Tip title="Not what you were looking for?">
     If you need to visualize progress use{" "}
-    <StorybookLink page="Components/MultiStepIndicator" size={"small"}>
+    <StorybookLink page="Components/MultiStepIndicator" size="small">
       MultiStepIndicator
     </StorybookLink>{" "}
     component instead

@@ -173,7 +173,7 @@ export const LinksInsideRunningText = {
     <Flex direction="column" align="start" gap="small">
       <Text align="center">
         This is the story of a{" "}
-        <StorybookLink page="Foundations/Typography" size={"small"}>
+        <StorybookLink page="Foundations/Typography" size="small">
           link
         </StorybookLink>{" "}
         inside running text.
@@ -181,7 +181,7 @@ export const LinksInsideRunningText = {
       <Box style={{ backgroundColor: "var(--primary-color)", width: "420px" }} padding="small">
         <Text align="center" color="onPrimary">
           This is the story of a{" "}
-          <StorybookLink page="Foundations/Typography" size={"small"}>
+          <StorybookLink page="Foundations/Typography" size="small">
             link
           </StorybookLink>{" "}
           inside running text on a primary color
@@ -190,7 +190,7 @@ export const LinksInsideRunningText = {
       <Box style={{ width: "420px" }} backgroundColor="invertedColorBackground" padding="small">
         <Text align="center" color="onInverted">
           This is the story of a{" "}
-          <StorybookLink page="Foundations/Typography" size={"small"}>
+          <StorybookLink page="Foundations/Typography" size="small">
             link
           </StorybookLink>{" "}
           inside running text on an inverted color
@@ -199,7 +199,7 @@ export const LinksInsideRunningText = {
       <Box style={{ backgroundColor: "black", width: "420px" }} padding="small">
         <Text ellipsis={false} style={{}} align="center" color="fixedLight">
           This is the story of a{" "}
-          <StorybookLink page="Foundations/Typography" size={"small"}>
+          <StorybookLink page="Foundations/Typography" size="small">
             link
           </StorybookLink>{" "}
           inside running text with fixed light color
@@ -208,7 +208,7 @@ export const LinksInsideRunningText = {
       <Box style={{ backgroundColor: "whitesmoke", width: "420px" }} padding="small">
         <Text ellipsis={false} align="center" color="fixedDark">
           This is the story of a{" "}
-          <StorybookLink page="Foundations/Typography" size={"small"}>
+          <StorybookLink page="Foundations/Typography" size="small">
             link
           </StorybookLink>{" "}
           inside running text with fixed dark color

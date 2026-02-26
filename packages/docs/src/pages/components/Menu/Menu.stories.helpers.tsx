@@ -6,7 +6,7 @@ import React from "react";
 export const TipCombobox = () => (
   <Tip>
     Need to place a search field to filter results? Use the{" "}
-    <StorybookLink size={"small"} page="Components/Combobox">
+    <StorybookLink size="small" page="Components/Combobox">
       Combobox
     </StorybookLink>{" "}
     component instead
