@@ -3,7 +3,7 @@ import cx from "classnames";
 import { useDayPicker, useNavigation } from "react-day-picker";
 import { IconButton } from "@vibe/icon-button";
 import { Flex } from "@vibe/layout";
-import Dropdown from "../../next/Dropdown/Dropdown";
+import Dropdown from "../next/Dropdown/Dropdown";
 import { DropdownChevronRight, DropdownChevronLeft } from "@vibe/icons";
 import styles from "./DatePickerHeader.module.scss";
 import { useMonthsOptionItems, useYearsOptionItems, type DatePickerDropdownItem } from "./datePickerHooks";
