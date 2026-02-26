@@ -84,13 +84,7 @@ const LegacyModalHeader = ({
       ) : (
         <Flex align="start" gap="small" className={titleClassName}>
           {icon && (
-            <Icon
-              className={cx(styles.icon, iconClassName)}
-              icon={icon}
-              iconType="svg"
-              iconSize={iconSize}
-              ignoreFocusStyle
-            />
+            <Icon className={cx(styles.icon, iconClassName)} icon={icon} type="svg" size={iconSize} ignoreFocusStyle />
           )}
           <Heading id={id} maxLines={2}>
             {title}

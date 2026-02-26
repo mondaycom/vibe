@@ -112,9 +112,9 @@ const ComboboxOption = ({
     return (
       <Icon
         className={cx(styles.optionIcon, className)}
-        iconType="font"
+        type="font"
         icon={icon as SubIcon}
-        iconSize={iconSize}
+        size={iconSize}
         ignoreFocusStyle
       />
     );

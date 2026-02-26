@@ -9,12 +9,6 @@ export interface MenuItemIconProps {
    * The type of icon to be used.
    */
   type?: IconType;
-  // TODO: [breaking] remove in next major
-  /**
-   * Label for the icon, used for accessibility.
-   * @deprecated This property will be removed in the next major version.
-   */
-  label?: string;
   /**
    * If true, the icon appears disabled.
    */

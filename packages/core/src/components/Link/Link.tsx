@@ -141,7 +141,7 @@ const Link = forwardRef(
 
 function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
   if (!shouldShow) return;
-  return <Icon className={className} icon={icon} iconType="font" />;
+  return <Icon className={className} icon={icon} type="font" />;
 }
 
 export default Link;

@@ -27,33 +27,34 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - Related PR/Issue links
 -->
 
-### 🚨 **Major Breaking Change: Enum Exports and Static Properties Removal**
-
-**What Changed**:
-
-```tsx
-// ❌ v3 - Both enum and string literals worked
-<Button size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} />
-<Button size="large" kind="primary" />
-
-// ✅ v4 - Only string literals work
-<Button size="large" kind="primary" />
-// Button.sizes.LARGE no longer exists ❌
-```
-
-**Benefits**:
-
-- **Bundle size reduction**: 15-25% smaller bundles through better tree-shaking
-- **Simplified API**: Single way to specify values (string literals only)
-- **Better TypeScript performance**: Faster compilation without complex enum checking
-- **Improved autocomplete**: Better IntelliSense with string union types
-
-**Migration**:
-
-- **Automated**: Use codemod `npx @vibe/codemod --transform v3-to-v4/enums src/`
-- **Manual**: Replace all `Component.staticProperty.VALUE` with `"value"`
-
 ### Components
+
+#### Dropdown
+
+- **Change**: Removed old `Dropdown` component (react-select based) and promoted new Dropdown implementation as the default export
+- **Reason**: The old Dropdown was deprecated in favor of a new custom implementation with better accessibility, performance, TypeScript support, and built-in form integration
+- **Migration**: Complete API change - see [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs). Options structure changed from `{ id, text }` to `{ value, label }`. Removed sub-components: `DropdownMenu`, `DropdownOption`, `DropdownSingleValue`. Removed enums: `DROPDOWN_CHIP_COLORS`, `DROPDOWN_MENU_POSITION`, `DROPDOWN_MENU_PLACEMENT`. Removed static properties. If using `@vibe/core/next` import, change to `@vibe/core`.
+- **Codemod**: ❌ Manual (complete API change, not automatable)
+
+#### MenuItem
+
+- [x] **Status**: Done
+- **Change**: Removed deprecated `label` prop from internal `MenuItemIcon` component; removed now-unused `iconLabel`/`rightIconLabel` internal variables from `MenuItem`
+- **Reason**: The prop was a no-op — accepted but never passed to the underlying `Icon` component
+- **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
+- **Codemod**: ❌ Manual (no-op removal, no functional impact)
+
+#### Icon
+
+- [x] **Status**: Implemented ✅
+- **Change**: Renamed props to remove "icon" prefix
+  - `iconLabel` → `label`
+  - `iconType` → `type`
+  - `iconSize` → `size`
+- **Reason**: Simplified API for better consistency and reduced verbosity
+- **Migration**: Replace prop names in all Icon usages
+- **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
+- **Task**: Monday.com task #9713029042
 
 #### Flex
 
@@ -61,6 +62,20 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: `justify-content: stretch` is not valid CSS in flexbox, so the value had no effect and no CSS implementation
 - **Migration**: Remove `justify="stretch"` or `justify={FlexJustify.STRETCH}` from `<Flex>` usage
 - **Codemod**: ✅ Available (`Flex-component-migration`)
+- **PR**: TBD
+
+#### AttentionBox
+
+- [x] **Status**: Done
+- **Change**: Removed deprecated legacy AttentionBox and promoted the new AttentionBox from `@vibe/core/next` to `@vibe/core`
+  - Removed legacy `AttentionBox` component with props: `withIconWithoutHeader`, `withoutIcon`, `entryAnimation`, `iconType` (limited to `"svg" | "font"`)
+  - Removed `AttentionBoxLink` as a standalone public export (now internal to AttentionBox)
+  - Removed `AttentionBoxConstants` (deprecated enums: `AttentionBoxType`, `IconTypeEnum`)
+  - New component uses modern `forwardRef` pattern, new layout system (default + compact), new action/link props
+  - Type values changed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
+- **Reason**: Legacy component was deprecated; new component provides better API, layouts, and accessibility
+- **Migration**: Replace `import { AttentionBox } from "@vibe/core/next"` with `import { AttentionBox } from "@vibe/core"`. For legacy users: update type values, replace `AttentionBoxLink` children with `link` prop, replace `entryAnimation` with `animate`, remove `withIconWithoutHeader`/`withoutIcon` (use `icon={false}` instead)
+- **Codemod**: ❌ Manual (significant API differences between legacy and new component)
 - **PR**: TBD
 
 #### Button
@@ -333,26 +348,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
 - **Migration**: Replace enum usage with string literals for theme type properties
 - **Codemod**: ✅ Available (`v3-to-v4/enums`)
-- **PR**: TBD
-
-#### Type System Cleanup
-
-- **Change**: Removed `withStaticProps.ts` utility files from both `packages/shared/src/types/` and `packages/core/src/types/`
-- **Reason**: No longer needed after removing all static properties from components
-- **Migration**: Remove any imports of `withStaticProps` utility - functionality no longer needed
-- **Codemod**: ✅ Available (`v3-to-v4/enums`)
-- **PR**: TBD
-
-#### Build and Type Fixes Applied During Implementation
-
-- **Change**: Fixed TypeScript compilation issues discovered during enum removal:
-  - **AvatarGroup**: Fixed `FlexProps` type compatibility for `direction` and `gap` properties
-  - **MenuItemSubMenu**: Fixed `DialogPlacement` type mismatch by using string literals instead of enum references
-  - **SplitButton**: Replaced `HideShowEvent.CONTENT_CLICK` enum with `"onContentClick"` string literal
-  - **Button**: Removed unused `SIZES` import after enum removal
-- **Reason**: Ensure clean compilation after removing enum dependencies
-- **Migration**: These are internal fixes that don't affect public APIs
-- **Codemod**: ❌ Internal implementation fixes
 - **PR**: TBD
 
 <!-- Add more components as breaking changes are identified -->

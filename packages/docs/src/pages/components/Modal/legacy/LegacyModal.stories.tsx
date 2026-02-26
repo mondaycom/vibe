@@ -203,7 +203,7 @@ export const ModalWithIcon = {
             contentSpacing
           >
             {}
-            <ModalHeader title={"Modal Heading"} icon={Upgrade} iconSize={32} />
+            <ModalHeader title={"Modal Heading"} description="Modal with description" descriptionIcon={Upgrade} />
             <ModalContent>Modal content goes here</ModalContent>
             <ModalFooterButtons
               primaryButtonText="Confirm"

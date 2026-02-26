@@ -234,7 +234,7 @@ const IconButton = forwardRef(
             loading={loading}
             loaderClassName={cx(styles.loader, getStyle(styles, size))}
           >
-            <Icon icon={icon} iconType="svg" iconSize={iconSize} ignoreFocusStyle className={iconClassName} />
+            <Icon icon={icon} type="svg" size={iconSize} ignoreFocusStyle className={iconClassName} />
           </Button>
         </Tooltip>
       </IconButtonWrapper>
