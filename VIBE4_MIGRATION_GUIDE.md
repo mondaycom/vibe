@@ -63,7 +63,20 @@ Some changes require manual attention:
 
 ### Components
 
-<!-- This section will be populated as breaking changes are identified -->
+#### Clickable
+
+**Removed string types from `ariaHasPopup` and `tabIndex`**
+
+- `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
+- `tabIndex` now accepts `number` only (was `string | number`)
+
+```tsx
+// Before (v3)
+<Clickable tabIndex="-1" ariaHasPopup="true" />
+
+// After (v4)
+<Clickable tabIndex={-1} ariaHasPopup={true} />
+```
 
 ### TypeScript Types
 

@@ -203,7 +203,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   return (
     <Clickable
-      tabIndex="-1"
+      tabIndex={-1}
       elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [styles.withAnimation]: statusChangeAnimationState,
