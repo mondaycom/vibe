@@ -8,7 +8,7 @@ const ClearIndicator = props => {
   const { size } = props;
   return (
     <components.ClearIndicator {...props} className="clear-indicator">
-      <Icon iconType="svg" icon={CloseSmall} iconSize={getIndicatorSize(size)} tabindex="-1" />
+      <Icon type="svg" icon={CloseSmall} size={getIndicatorSize(size)} tabindex="-1" />
     </components.ClearIndicator>
   );
 };

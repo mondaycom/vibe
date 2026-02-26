@@ -30,11 +30,11 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      iconType={type || (typeof icon === "function" ? "svg" : "font")}
+      type={type || (typeof icon === "function" ? "svg" : "font")}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
-      iconSize={18}
+      size={18}
     />
   </Flex>
 );
