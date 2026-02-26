@@ -22,7 +22,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Modal [New]/Media modal",
+  title: "Components/Modal/Media modal",
   component: Modal,
   subcomponents: {
     ModalMediaLayout,

@@ -33,7 +33,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Modal [New]/Side by side modal",
+  title: "Components/Modal/Side by side modal",
   component: Modal,
   subcomponents: {
     ModalSideBySideLayout,
