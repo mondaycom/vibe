@@ -34,9 +34,6 @@ exports[`exports > should export all components 1`] = `
   "DialogContentContainer",
   "Divider",
   "Dropdown",
-  "DropdownMenu",
-  "DropdownOption",
-  "DropdownSingleValue",
   "EditableHeading",
   "EditableText",
   "EmptyState",
@@ -147,7 +144,6 @@ exports[`exports > should export next all components 1`] = `
 [
   "AttentionBox",
   "Dialog",
-  "Dropdown",
   "List",
   "ListItem",
   "ListTitle",

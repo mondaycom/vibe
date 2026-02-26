@@ -212,6 +212,70 @@ The `"stretch"` value has been removed from the `FlexJustify` type. `justify-con
 npx @vibe/codemod --migration v4
 ```
 
+### Dropdown
+
+#### Old Dropdown removed, replaced with new implementation
+
+The old `Dropdown` component (based on `react-select`) has been completely removed and replaced with a new custom implementation. The new Dropdown was previously available as an alpha component via `@vibe/core/next` and is now the default export from `@vibe/core`.
+
+**Key changes:**
+- Completely new API (not backward compatible)
+- No longer depends on `react-select`
+- Built-in form field support (`label`, `helperText`, `error`, `required`)
+- Enhanced accessibility with proper ARIA attributes
+- Full TypeScript generics support
+- `DropdownMenu`, `DropdownOption` (component), and `DropdownSingleValue` sub-components removed
+- `DROPDOWN_CHIP_COLORS`, `DROPDOWN_MENU_POSITION`, `DROPDOWN_MENU_PLACEMENT` enums removed
+- Static properties (`Dropdown.sizes`, `Dropdown.chipColors`, etc.) removed
+
+**If you were using the old Dropdown from `@vibe/core`:**
+
+```tsx
+// Before (v3)
+import { Dropdown } from "@vibe/core";
+
+const options = [
+  { id: "1", label: "Option 1" },
+  { id: "2", label: "Option 2" }
+];
+
+<Dropdown
+  placeholder="Select..."
+  options={options}
+  size={Dropdown.sizes.MEDIUM}
+  searchable
+/>
+
+// After (v4)
+import { Dropdown } from "@vibe/core";
+
+const options = [
+  { value: "1", label: "Option 1" },
+  { value: "2", label: "Option 2" }
+];
+
+<Dropdown
+  placeholder="Select..."
+  options={options}
+  size="medium"
+  searchable
+  label="Select an option"
+  clearAriaLabel="Clear"
+/>
+```
+
+**If you were using the new Dropdown from `@vibe/core/next`:**
+
+```tsx
+// Before (v3)
+import { Dropdown } from "@vibe/core/next";
+
+// After (v4)
+import { Dropdown } from "@vibe/core";
+```
+
+**Codemod:** ❌ Manual migration required due to complete API change. See the [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs) for detailed instructions.
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->

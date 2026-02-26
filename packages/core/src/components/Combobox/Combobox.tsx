@@ -236,7 +236,7 @@ const Combobox = forwardRef(
     useWarnDeprecated({
       component: "Combobox",
       message:
-        "This component is deprecated and will be removed in the next major version. Please use Dropdown box mode from @vibe/core/next instead."
+        "This component is deprecated and will be removed in the next major version. Please use Dropdown box mode from @vibe/core instead."
     });
 
     const componentRef = useRef(null);
