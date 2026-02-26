@@ -121,10 +121,10 @@ function getDropdownMigrationInstructions(projectInfo: any) {
         {
           step: 2,
           title: "Update Import Statements",
-          action: "Change import path from '@vibe/core' to '@vibe/core/next'",
-          example: "import { Dropdown } from '@vibe/core/next';",
-          description: "Update all Dropdown imports to use the new Alpha version",
-          command: "Find and replace: 'from \"@vibe/core\"' → 'from \"@vibe/core/next\"' (for Dropdown imports only)"
+          action: "Import Dropdown from '@vibe/core'",
+          example: "import { Dropdown } from '@vibe/core';",
+          description: "In v4, the new Dropdown is the default export from @vibe/core. If you were using @vibe/core/next, update to @vibe/core.",
+          command: "Find and replace: 'from \"@vibe/core/next\"' → 'from \"@vibe/core\"' (for Dropdown imports)"
         },
         {
           step: 3,
@@ -165,9 +165,9 @@ function getDropdownMigrationInstructions(projectInfo: any) {
     },
     breakingChanges: {
       importPath: {
-        old: "import { Dropdown } from '@vibe/core';",
-        new: "import { Dropdown } from '@vibe/core/next';",
-        reason: "New Dropdown is available in Alpha under /next path"
+        old: "import { Dropdown } from '@vibe/core'; // v3 (react-select based)",
+        new: "import { Dropdown } from '@vibe/core'; // v4 (new implementation)",
+        reason: "The old react-select Dropdown has been removed in v4. The new Dropdown is now the default export."
       },
       optionStructure: {
         old: "{ id: 1, text: 'Option 1' }",
@@ -480,10 +480,10 @@ function generateRecommendations(analysis: any, projectInfo: any) {
       recommendations.push({
         type: "import-migration",
         priority: "high",
-        action: "Update Dropdown imports to use Alpha version",
+        action: "Update Dropdown imports for v4",
         details: `Found ${imports.oldDropdownImports.length} files importing Dropdown from '@vibe/core'`,
         files: imports.oldDropdownImports.slice(0, 10),
-        fix: "Change 'from \"@vibe/core\"' to 'from \"@vibe/core/next\"' for Dropdown imports",
+        fix: "The Dropdown API has changed in v4. Update usage to match the new API (see migration guide).",
         command: "Find and replace in files with Dropdown imports"
       });
     }
