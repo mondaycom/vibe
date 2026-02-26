@@ -26,6 +26,7 @@ export {
   type DialogPosition,
   type DialogTriggerEvent,
   type DialogAnimationType,
+  type DialogStartingEdge,
   type DialogOffset,
   type DialogEvent
 } from "@vibe/dialog";

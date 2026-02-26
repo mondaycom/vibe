@@ -172,6 +172,29 @@ The `enableNestedDialogLayer` prop has been removed. Dialog now **always** wraps
 
 **Codemod:** This change is handled automatically by the v4 codemod.
 
+### DialogContent / Dialog
+
+#### `startingEdge` prop now properly typed
+
+The `startingEdge` prop on `DialogContent` and `Dialog` was previously typed as `any`/`string`. It is now strictly typed as `DialogStartingEdge` (`"top" | "bottom"`).
+
+**Before (v3):**
+
+```tsx
+<Dialog startingEdge="top" ... />      // string accepted
+<Dialog startingEdge="anything" ... /> // any string accepted
+```
+
+**After (v4):**
+
+```tsx
+<Dialog startingEdge="top" ... />    // valid
+<Dialog startingEdge="bottom" ... /> // valid
+// <Dialog startingEdge="anything" ... /> // TypeScript error
+```
+
+**Migration:** Ensure `startingEdge` values are `"top"` or `"bottom"`. The new `DialogStartingEdge` type is exported from `@vibe/core`.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
