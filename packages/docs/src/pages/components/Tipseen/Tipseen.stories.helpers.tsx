@@ -21,11 +21,11 @@ export const wizardContent = [
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
     If you need to provide additional information about a component, use the{" "}
-    <StorybookLink page="Components/Tooltip" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/Tooltip" size={"small"}>
       Tooltip
     </StorybookLink>{" "}
     or{" "}
-    <StorybookLink page="Components/AttentionBox" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/AttentionBox" size={"small"}>
       Attention box.
     </StorybookLink>
   </Tip>

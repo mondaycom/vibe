@@ -76,7 +76,7 @@ Now you can use type-safe strings instead of static enums for props, providing a
 
 ```tsx
 // Before
-<Button kind={Button.kinds.PRIMARY} size={Button.sizes.SMALL}>click</Button>
+<Button kind={"primary"} size={"small"}>click</Button>
 
 // After
 <Button kind="primary" size="small">click</Button>
@@ -263,7 +263,7 @@ The following components have breaking changes to their API, behavior, or style,
 
 **Flex**
 
-- The `Flex.gaps.NONE` property has been removed. To specify no gap simply omit the `gap` prop
+- The `"none"` property has been removed. To specify no gap simply omit the `gap` prop
 
 **Dropdown**
 
@@ -302,7 +302,7 @@ The following components have breaking changes to their API, behavior, or style,
 
 **Search**
 
-- The `type` prop was removed. The `Search.types.SQUARE`, `ROUND`, and `UNDERLINE` variants are no longer available
+- The `type` prop was removed. The `"square"`, `ROUND`, and `UNDERLINE` variants are no longer available
 - The `validation` prop was removed
 - The `wrapperClassName` prop was removed, use `className` instead
 - The `setRef` prop was removed, use the standard `ref` prop instead
@@ -319,11 +319,11 @@ The following components have breaking changes to their API, behavior, or style,
   />
 </ul>
 
-- The `Search.sizes.SMALL/MEDIUM/LARGE` size values were removed, use `small`, `medium`, `large` respectively:
+- The `"small"/MEDIUM/LARGE` size values were removed, use `small`, `medium`, `large` respectively:
 
 <ul>
   <DiffCodeBlock
-    code={`- <Search size={Search.sizes.SMALL} />
+    code={`- <Search size={"small"} />
 + <Search size="small" />
 `}
   />
@@ -427,7 +427,7 @@ It is recommended to follow the migration steps outlined in this guide to ensure
 
 While the migration script covers most changes, some manual changes may still be required where style, UX, or behavior changes are involved. You should walk through the [breaking changes](#breaking-changes-) section to identify any manual changes required.
 
-**Do I need to stop using static properties (e.g. `Button.kinds.PRIMARY`) in my code?**
+**Do I need to stop using static properties (e.g. `"primary"`) in my code?**
 
 You can still use static properties, but it is recommended to use type-safe strings instead. Static properties are likely to be deprecated in the future. To migrate to type-safe strings, use the following script: `npx @vibe/codemod -m enums`.
 

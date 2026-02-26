@@ -4,7 +4,7 @@ import { StorybookLink, Tip, UsageGuidelines } from "vibe-storybook-components";
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">
     Need to indicate information that is not numeric? Use the{" "}
-    <StorybookLink page="Components/Label" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/Label" size={"small"}>
       Label
     </StorybookLink>{" "}
     component instead.

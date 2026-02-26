@@ -4,7 +4,7 @@ import { StorybookLink, Tip } from "vibe-storybook-components";
 export const TipTooltip = () => (
   <Tip title={"What to do when overflow is detected?"}>
     You might want to use{" "}
-    <StorybookLink size={StorybookLink.sizes.SMALL} page="Components/Tooltip">
+    <StorybookLink size={"small"} page="Components/Tooltip">
       Tooltip
     </StorybookLink>{" "}
     to display all the content.

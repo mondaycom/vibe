@@ -181,7 +181,7 @@ export const Animation = {
           id="animation-success-button"
           ariaLabel="Trigger success toast"
           onClick={onSuccessClick}
-          kind={Button.kinds.SECONDARY}
+          kind={"secondary"}
         >
           Success action
         </Button>
@@ -189,7 +189,7 @@ export const Animation = {
           id="animation-failure-button"
           ariaLabel="Trigger failure toast"
           onClick={onFailureClick}
-          kind={Button.kinds.SECONDARY}
+          kind={"secondary"}
         >
           Failure action
         </Button>

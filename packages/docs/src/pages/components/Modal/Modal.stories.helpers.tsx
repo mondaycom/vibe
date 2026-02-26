@@ -118,7 +118,7 @@ export const ModalTip = () => (
     <Tip>
       Since the modal is used for short and non-frequent tasks, consider using the main flow for common tasks. For
       creating a popover positioned next to other components, like customized menus, check out our{" "}
-      <StorybookLink page="Popover/Dialog" size={StorybookLink.sizes.SMALL}>
+      <StorybookLink page="Popover/Dialog" size={"small"}>
         Dialog
       </StorybookLink>{" "}
       component.
