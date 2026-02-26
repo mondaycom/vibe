@@ -59,6 +59,7 @@ const MenuItemSubMenu = ({
             ...subMenu?.props,
             isVisible: open,
             isSubMenu: true,
+            focusItemIndexOnMount: -1,
             onClose,
             ref: childRef,
             useDocumentEventListeners: !autoFocusOnMount
