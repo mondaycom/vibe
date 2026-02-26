@@ -135,7 +135,7 @@ export const Clickable = {
 
 export const ChipsPalette = {
   render: () => {
-    const excludedColors = [Chips.colors.DARK_INDIGO, Chips.colors.BLACKISH];
+    const excludedColors = ["darkIndigo", "blackish"];
     const allowedColorsChunks = _chunk(
       // @ts-ignore
       Object.keys(Chips.colors).filter(k => !excludedColors.includes(Chips.colors[k])),
