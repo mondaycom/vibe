@@ -8,13 +8,7 @@ const DropdownIndicator = props => {
   const { isDisabled, size } = props;
   return (
     <components.DropdownIndicator {...props} className="dropdown-indicator">
-      <Icon
-        type="svg"
-        icon={DropdownChevronDown}
-        size={getIndicatorSize(size)}
-        tabindex="-1"
-        clickable={!isDisabled}
-      />
+      <Icon type="svg" icon={DropdownChevronDown} size={getIndicatorSize(size)} tabindex="-1" clickable={!isDisabled} />
     </components.DropdownIndicator>
   );
 };
