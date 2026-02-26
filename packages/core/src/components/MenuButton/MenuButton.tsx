@@ -4,7 +4,13 @@ import { camelCase } from "es-toolkit";
 import { isForwardRef } from "react-is";
 import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
 import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
-import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent } from "@vibe/dialog";
+import {
+  type DialogOffset,
+  type DialogPosition,
+  type DialogSize,
+  type DialogStartingEdge,
+  type DialogTriggerEvent
+} from "@vibe/dialog";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
@@ -90,7 +96,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   /**
    * The starting edge alignment of the menu.
    */
-  startingEdge?: string;
+  startingEdge?: DialogStartingEdge;
   /**
    * Callback fired when the menu is shown.
    */
