@@ -239,7 +239,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false,
-    observeContentResize: false,
+    observeContentResize: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -694,9 +694,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   </DialogContent>
                 );
 
-                return (
-                  <LayerProvider layerRef={this.containerRef}>{dialogContent}</LayerProvider>
-                );
+                return <LayerProvider layerRef={this.containerRef}>{dialogContent}</LayerProvider>;
               }}
             </Popper>,
             this.getContainer()
