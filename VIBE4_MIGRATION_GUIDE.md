@@ -76,6 +76,13 @@ Buttons no longer blur on mouse up by default. If you rely on the button losing 
 // After (v4) - to preserve old behavior, explicitly opt in
 <Button onClick={handleClick} blurOnMouseUp>Click me</Button>
 ```
+#### Toggle
+
+**Removed duplicate `data-testid` from internal element**
+
+The Toggle component previously set `data-testid="toggle"` on both the input element and the internal visual div. The internal div's `data-testid` has been removed, so only the interactive input element carries the test ID.
+
+If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
 ### TypeScript Types
 
@@ -153,6 +160,31 @@ npm run build
 ```
 
 ## Component-Specific Migration
+
+### Flex
+
+#### Removed `"stretch"` from `justify` prop
+
+The `"stretch"` value has been removed from the `FlexJustify` type. `justify-content: stretch` is not valid CSS in flexbox contexts, so this value had no effect.
+
+**Before (v3):**
+```tsx
+<Flex justify="stretch" />
+// or using the deprecated enum:
+<Flex justify={FlexJustify.STRETCH} />
+```
+
+**After (v4):**
+```tsx
+// Remove the prop entirely (stretch had no visual effect)
+<Flex />
+```
+
+**Codemod available:** The automated codemod will remove `justify="stretch"` and `justify={FlexJustify.STRETCH}` props automatically.
+
+```bash
+npx @vibe/codemod --migration v4
+```
 
 ### Button
 
