@@ -56,7 +56,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
 
     return (
       <section className={cx(styles.labelComponentWrapper, className)}>
-        <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} iconType="font" />
+        <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} type="font" />
         <label
           id={id}
           htmlFor={labelFor || htmlFor}

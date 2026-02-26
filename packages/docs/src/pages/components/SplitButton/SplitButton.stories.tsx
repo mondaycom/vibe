@@ -227,9 +227,9 @@ export const CustomMenu = {
       secondaryDialogContent={
         <Menu focusItemIndexOnMount={2} id="custom-menu-content" size="medium">
           <MenuTitle caption="Look up, you might see" captionPosition="top" />
-          <MenuItem id="custom-menu-sun" icon={Sun} iconType="svg" title="The sun" />
-          <MenuItem id="custom-menu-moon" icon={Moon} iconType="svg" title="The moon" />
-          <MenuItem id="custom-menu-stars" icon={Favorite} iconType="svg" title="And the stars" />
+          <MenuItem id="custom-menu-sun" icon={Sun} type="svg" title="The sun" />
+          <MenuItem id="custom-menu-moon" icon={Moon} type="svg" title="The moon" />
+          <MenuItem id="custom-menu-stars" icon={Favorite} type="svg" title="And the stars" />
         </Menu>
       }
     >

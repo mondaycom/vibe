@@ -22,7 +22,7 @@ export interface DateNavigationItemProps {
 const DateNavigationItem = ({ kind, onClick }: DateNavigationItemProps) => {
   return (
     <button type="button" className={styles.navigationItemContainer} onClick={() => onClick && onClick()}>
-      <Icon iconType="svg" icon={ICONS[kind]} iconSize={24} />
+      <Icon type="svg" icon={ICONS[kind]} size={24} />
     </button>
   );
 };

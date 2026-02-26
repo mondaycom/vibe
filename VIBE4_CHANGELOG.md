@@ -29,6 +29,17 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### Icon
+
+- [x] **Status**: Implemented ✅
+- **Change**: Renamed props to remove "icon" prefix
+  - `iconLabel` → `label`
+  - `iconType` → `type`
+  - `iconSize` → `size`
+- **Reason**: Simplified API for better consistency and reduced verbosity
+- **Migration**: Replace prop names in all Icon usages
+- **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
+- **Task**: Monday.com task #9713029042
 #### Flex
 
 - [x] **Status**: Done
