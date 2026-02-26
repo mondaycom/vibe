@@ -33,8 +33,8 @@ describe("Icon component migration", () => {
   defineInlineTest(
     transform,
     {},
-    prependImport('const element = <Icon icon={MyIcon} />;'),
-    prependImport('const element = <Icon icon={MyIcon} />;'),
+    prependImport("const element = <Icon icon={MyIcon} />;"),
+    prependImport("const element = <Icon icon={MyIcon} />;"),
     "should not change Icon without deprecated props"
   );
 
