@@ -5,7 +5,7 @@ import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-ut
 import cx from "classnames";
 import { calculatePercentage } from "../LinearProgressBarHelpers";
 import { type VibeComponentProps } from "../../../../types";
-import { type LinearProgressBarStyle } from "../LinearProgressBar.types";
+import { type ProgressBarStyle } from "../LinearProgressBar.types";
 import styles from "./Bar.module.scss";
 
 export type BarType = "primary" | "secondary";
@@ -14,7 +14,7 @@ export interface BarProps extends VibeComponentProps {
   /**
    * Determines the visual style of the progress bar.
    */
-  barStyle?: LinearProgressBarStyle;
+  barStyle?: ProgressBarStyle;
   /**
    * The minimum value of the progress bar.
    */

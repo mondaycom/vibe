@@ -1,7 +1,7 @@
 import { beforeEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render, cleanup, act, screen } from "@testing-library/react";
-import LinearProgressBar from "../LinearProgressBar";
+import ProgressBar from "../LinearProgressBar";
 
 describe("ProgressBars Tests", () => {
   let component;
@@ -9,7 +9,7 @@ describe("ProgressBars Tests", () => {
   beforeEach(() => {
     cleanup();
     act(() => {
-      component = render(<LinearProgressBar id="test" />);
+      component = render(<ProgressBar id="test" />);
     });
   });
 
@@ -21,12 +21,12 @@ describe("ProgressBars Tests", () => {
     it("should render progress bars if values are provided", () => {
       const { rerender } = component;
       act(() => {
-        component = rerender(<LinearProgressBar value={13} id="test" />);
+        component = rerender(<ProgressBar value={13} id="test" />);
       });
       expect(screen.queryAllByRole("progressbar").length).toBe(1);
 
       act(() => {
-        component = rerender(<LinearProgressBar value={14} valueSecondary={15} id="test" />);
+        component = rerender(<ProgressBar value={14} valueSecondary={15} id="test" />);
       });
       expect(screen.queryAllByRole("progressbar").length).toBe(2);
     });
@@ -36,7 +36,7 @@ describe("ProgressBars Tests", () => {
     it("should not render progress indication if not set", () => {
       const { rerender } = component;
       act(() => {
-        component = rerender(<LinearProgressBar value={13} max={100} id="test" />);
+        component = rerender(<ProgressBar value={13} max={100} id="test" />);
       });
       expect(screen.queryAllByText("13%").length).toBe(0);
     });
@@ -44,7 +44,7 @@ describe("ProgressBars Tests", () => {
     it("should render progress indication if set", () => {
       const { rerender } = component;
       act(() => {
-        component = rerender(<LinearProgressBar value={13} max={100} id="test" indicateProgress={true} />);
+        component = rerender(<ProgressBar value={13} max={100} id="test" indicateProgress={true} />);
       });
 
       expect(screen.getByText("13%")).toBeTruthy();
@@ -55,7 +55,7 @@ describe("ProgressBars Tests", () => {
       const value = 13;
       for (let i = 0; i < 2; i++) {
         act(() => {
-          rerender(<LinearProgressBar value={value + i} max={100} id="test" indicateProgress={true} />);
+          rerender(<ProgressBar value={value + i} max={100} id="test" indicateProgress={true} />);
         });
 
         expect(screen.getByText(`${value + i}%`)).toBeTruthy();
@@ -72,13 +72,13 @@ describe("ProgressBars Tests", () => {
     let multiBarsComponent;
 
     beforeEach(() => {
-      multiBarsComponent = render(<LinearProgressBar max={100} id="test" multi />);
+      multiBarsComponent = render(<ProgressBar max={100} id="test" multi />);
     });
 
     it("should not render multiple bars if multi is not set", () => {
       const { rerender } = component;
       act(() => {
-        component = rerender(<LinearProgressBar max={100} id="test" multiValues={multiValues} />);
+        component = rerender(<ProgressBar max={100} id="test" multiValues={multiValues} />);
       });
 
       expect(screen.queryAllByRole("progressbar").length).toBe(0);
@@ -86,7 +86,7 @@ describe("ProgressBars Tests", () => {
 
     it("should render all the given bars with the correct values", () => {
       const { rerender } = multiBarsComponent;
-      rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValues} />);
+      rerender(<ProgressBar max={100} id="test" multi multiValues={multiValues} />);
 
       const progressBarElements = screen.queryAllByRole("progressbar");
       expect(progressBarElements.length).toBe(3);
@@ -97,11 +97,11 @@ describe("ProgressBars Tests", () => {
     it("should propagate value changes to bars", () => {
       const multiValuesWithChange = [{ value: 100, color: "rgb(255, 255, 255)" }, multiValues[1], multiValues[2]];
       const { rerender } = multiBarsComponent;
-      rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValues} />);
+      rerender(<ProgressBar max={100} id="test" multi multiValues={multiValues} />);
 
       let progressBarElements = screen.queryAllByRole("progressbar");
 
-      rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValuesWithChange} />);
+      rerender(<ProgressBar max={100} id="test" multi multiValues={multiValuesWithChange} />);
       progressBarElements = screen.queryAllByRole("progressbar");
       const style = window.getComputedStyle(progressBarElements[2]);
 

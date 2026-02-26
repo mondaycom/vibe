@@ -1,5 +1,5 @@
 import { type SIZES } from "../../../constants";
 
-export type LinearProgressBarStyle = "primary" | "secondary" | "positive" | "negative" | "warning" | "none";
+export type ProgressBarStyle = "primary" | "secondary" | "positive" | "negative" | "warning" | "none";
 
-export type LinearProgressBarSize = (typeof SIZES)[keyof typeof SIZES];
+export type ProgressBarSize = (typeof SIZES)[keyof typeof SIZES];

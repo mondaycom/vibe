@@ -7,7 +7,7 @@ import {
   ProgressBarStyle as ProgressBarStyleEnum,
   ProgressBarType as ProgressBarTypeEnum
 } from "./LinearProgressBarConstants";
-import { type LinearProgressBarSize, type LinearProgressBarStyle } from "./LinearProgressBar.types";
+import { type ProgressBarSize, type ProgressBarStyle } from "./LinearProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import { type VibeComponentProps, withStaticProps } from "../../../types";
@@ -15,11 +15,11 @@ import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constant
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
 
-export interface LinearProgressBarProps extends VibeComponentProps {
+export interface ProgressBarProps extends VibeComponentProps {
   /**
    * Determines the visual style of the progress bar.
    */
-  barStyle?: LinearProgressBarStyle;
+  barStyle?: ProgressBarStyle;
   /**
    * The minimum value of the progress bar.
    */
@@ -43,7 +43,7 @@ export interface LinearProgressBarProps extends VibeComponentProps {
   /**
    * The size of the progress bar.
    */
-  size?: LinearProgressBarSize;
+  size?: ProgressBarSize;
   /**
    * If true, displays the progress percentage.
    */
@@ -76,7 +76,7 @@ export interface LinearProgressBarProps extends VibeComponentProps {
   fullWidth?: boolean;
 }
 
-const LinearProgressBar = forwardRef(
+const ProgressBar = forwardRef(
   (
     {
       min = 0,
@@ -94,7 +94,7 @@ const LinearProgressBar = forwardRef(
       id,
       fullWidth = false,
       "data-testid": dataTestId
-    }: LinearProgressBarProps,
+    }: ProgressBarProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const wrapperClassName = useMemo(() => {
@@ -175,8 +175,8 @@ const LinearProgressBar = forwardRef(
         className={wrapperClassName}
         ref={ref}
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
-        data-vibe={ComponentVibeId.LINEAR_PROGRESS_BAR}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.PROGRESS_BAR, id)}
+        data-vibe={ComponentVibeId.PROGRESS_BAR}
       >
         <div className={styles.container}>
           {renderBaseBars}
@@ -188,7 +188,7 @@ const LinearProgressBar = forwardRef(
   }
 );
 
-interface LinearProgressBarStaticProps {
+interface ProgressBarStaticProps {
   styles: typeof ProgressBarStyleEnum;
   barStyles: typeof ProgressBarStyleEnum;
   types: typeof ProgressBarTypeEnum;
@@ -196,7 +196,7 @@ interface LinearProgressBarStaticProps {
   sizes: typeof SIZES;
 }
 
-export default withStaticProps<LinearProgressBarProps, LinearProgressBarStaticProps>(LinearProgressBar, {
+export default withStaticProps<ProgressBarProps, ProgressBarStaticProps>(ProgressBar, {
   styles: ProgressBarStyleEnum,
   barStyles: ProgressBarStyleEnum,
   types: ProgressBarTypeEnum,
