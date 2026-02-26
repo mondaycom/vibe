@@ -65,6 +65,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ❌ Manual (DOM structure change, not a prop API change)
 - **PR**: TBD
 
+#### Dropdown
+
+- [x] **Status**: Done
+- **Change**: Removed old `Dropdown` component (react-select based) and promoted new Dropdown implementation as the default export
+- **Reason**: The old Dropdown was deprecated in favor of a new custom implementation with better accessibility, performance, TypeScript support, and built-in form integration
+- **Migration**: Complete API change - see [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs). Options structure changed from `{ id, text }` to `{ value, label }`. Removed sub-components: `DropdownMenu`, `DropdownOption`, `DropdownSingleValue`. Removed enums: `DROPDOWN_CHIP_COLORS`, `DROPDOWN_MENU_POSITION`, `DROPDOWN_MENU_PLACEMENT`. Removed static properties. If using `@vibe/core/next` import, change to `@vibe/core`.
+- **Codemod**: ❌ Manual (complete API change, not automatable)
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
