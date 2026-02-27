@@ -5,7 +5,7 @@ import { DialogContentContainer, Text, Flex, LinearProgressBar } from "@vibe/cor
 export const TipMultiStepIndicator = () => (
   <Tip>
     If you need to lead a user through a progress, use the{" "}
-    <StorybookLink page="Components/MultiStepIndicator" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/MultiStepIndicator" size="small">
       MultiStepIndicator
     </StorybookLink>{" "}
     instead.

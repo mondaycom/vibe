@@ -1,28 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import {
-  BackgroundColor as BackgroundColorEnum,
-  BorderColor as BorderColorEnum,
-  BoxTextColor as BoxTextColorEnum,
-  Margin as MarginEnum,
-  MarginBottom as MarginBottomEnum,
-  MarginEnd as MarginEndEnum,
-  MarginStart as MarginStartEnum,
-  MarginTop as MarginTopEnum,
-  MarginX as MarginXEnum,
-  MarginY as MarginYEnum,
-  Padding as PaddingEnum,
-  PaddingBottom as PaddingBottomEnum,
-  PaddingEnd as PaddingEndEnum,
-  PaddingStart as PaddingStartEnum,
-  PaddingTop as PaddingTopEnum,
-  PaddingX as PaddingXEnum,
-  PaddingY as PaddingYEnum,
-  Rounded as RoundedEnum,
-  Shadow as ShadowEnum,
-  SizePrefixMapping
-} from "./BoxConstants";
+import { SizePrefixMapping } from "./BoxConstants";
 import {
   type BackgroundColor,
   type BorderColor,
@@ -34,7 +13,6 @@ import {
 } from "./Box.types";
 import {
   type VibeComponentProps,
-  withStaticProps,
   type ElementContent,
   getTestId,
   ComponentDefaultTestId,
@@ -194,46 +172,4 @@ const Box = forwardRef(
   }
 );
 
-interface BoxStaticProps {
-  borderColors: typeof BorderColorEnum;
-  roundeds: typeof RoundedEnum;
-  shadows: typeof ShadowEnum;
-  margins: typeof MarginEnum;
-  marginXs: typeof MarginXEnum;
-  marginYs: typeof MarginYEnum;
-  marginTops: typeof MarginTopEnum;
-  marginEnds: typeof MarginEndEnum;
-  marginBottoms: typeof MarginBottomEnum;
-  marginStarts: typeof MarginStartEnum;
-  paddings: typeof PaddingEnum;
-  paddingXs: typeof PaddingXEnum;
-  paddingYs: typeof PaddingYEnum;
-  paddingTops: typeof PaddingTopEnum;
-  paddingEnds: typeof PaddingEndEnum;
-  paddingBottoms: typeof PaddingBottomEnum;
-  paddingStarts: typeof PaddingStartEnum;
-  backgroundColors: typeof BackgroundColorEnum;
-  textColors: typeof BoxTextColorEnum;
-}
-
-export default withStaticProps<BoxProps, BoxStaticProps>(Box, {
-  borderColors: BorderColorEnum,
-  roundeds: RoundedEnum,
-  shadows: ShadowEnum,
-  margins: MarginEnum,
-  marginXs: MarginXEnum,
-  marginYs: MarginYEnum,
-  marginTops: MarginTopEnum,
-  marginEnds: MarginEndEnum,
-  marginBottoms: MarginBottomEnum,
-  marginStarts: MarginStartEnum,
-  paddings: PaddingEnum,
-  paddingXs: PaddingXEnum,
-  paddingYs: PaddingYEnum,
-  paddingTops: PaddingTopEnum,
-  paddingEnds: PaddingEndEnum,
-  paddingBottoms: PaddingBottomEnum,
-  paddingStarts: PaddingStartEnum,
-  backgroundColors: BackgroundColorEnum,
-  textColors: BoxTextColorEnum
-});
+export default Box;

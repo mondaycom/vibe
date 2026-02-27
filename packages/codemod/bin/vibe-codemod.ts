@@ -13,7 +13,8 @@ import { hideBin } from "yargs/helpers";
 
 const mapMigrationType: { [key: string]: string } = {
   v3: "v2-to-v3",
-  enums: "v2-to-v3/enums"
+  enums: "v2-to-v3/enums",
+  v4: "v3-to-v4"
 };
 
 const migrations = Object.keys(mapMigrationType);
@@ -22,7 +23,7 @@ const argv = yargs(hideBin(process.argv))
   .option("migration", {
     alias: "m",
     type: "string",
-    description: "Migration type to run (e.g., v3, enums)",
+    description: "Migration type to run (e.g., v3, v4, enums)",
     choices: migrations
   })
   .option("target", {
@@ -122,6 +123,9 @@ async function main() {
   const isVibeCoreInstalled = checkIfPackageExists("@vibe/core");
   if (migrationType === "v3" && !isVibeCoreInstalled) {
     console.log(chalk.yellow("Warning: You need to install @vibe/core package to fully apply the v3 migration."));
+  }
+  if (migrationType === "v4" && !isVibeCoreInstalled) {
+    console.log(chalk.yellow("Warning: You need to install @vibe/core package to fully apply the v4 migration."));
   }
   if (migrationType === "enums" && !isVibeCoreInstalled) {
     console.log(chalk.red("Error: Please install @vibe/core to run the enum migration."));
@@ -259,7 +263,12 @@ async function main() {
           resolve(transformationsDir, "type-imports-migration.js"),
           resolve(transformationsDir, "packages-rename-migration.js")
         ]
-      : [];
+      : migrationType === "v4"
+        ? [
+            resolve(transformationsDir, "type-imports-migration.js"),
+            resolve(transformationsDir, "packages-rename-migration.js")
+          ]
+        : [];
   const orderedTransformationFiles = [
     ...transformationFiles.filter(file => !filesToProcessLast.includes(file)),
     ...filesToProcessLast

@@ -1,0 +1,15 @@
+{
+  "_comment": "This file maps enum names to their string literal replacements for v4 migration",
+  "_example": {
+    "ExampleEnum": {
+      "ENUM_VALUE_ONE": "value-one",
+      "ENUM_VALUE_TWO": "value-two"
+    }
+  },
+  "_instructions": [
+    "Add enum mappings here as breaking changes are identified",
+    "Key: Enum name (as imported)",
+    "Value: Object mapping old enum values to new string literals",
+    "Example: ButtonSize.LARGE -> 'large'"
+  ]
+}

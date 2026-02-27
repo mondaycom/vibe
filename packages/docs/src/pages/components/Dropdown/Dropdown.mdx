@@ -5,35 +5,27 @@ import { Overview as BoxModePreview } from "./DropdownBoxMode.stories";
 import do1 from "./assets/do1.png";
 import dont1 from "./assets/dont1.png";
 
-<Meta title="Components/Dropdown [New]" />
+<Meta title="Components/Dropdown" />
 
 # Dropdown
 
 Select component present a list of options from which a user can select one or several.
 
-<Tip title="Migration Guide Available" emoji="🚀">
-  Migrating from the old Dropdown? Check out our comprehensive{" "}
-  <Link href="/?path=/docs/components-dropdown-new-migration-guide--docs">Dropdown Migration Guide</Link> for
-  step-by-step instructions, breaking changes, and new features.
-</Tip>
-
 ### Import
 
-All the Dropdown-related components can be imported from `@vibe/core/next`.
-
 ```js
-import { Dropdown } from "@vibe/core/next";
+import { Dropdown } from "@vibe/core";
 ```
 
 ### Basic dropdown
 
-The <StorybookLink page="Components/Dropdown [New]/Basic dropdown">Basic dropdown</StorybookLink> present a popup list of options from which a user can select one or several.
+The <StorybookLink page="Components/Dropdown/Basic dropdown">Basic dropdown</StorybookLink> present a popup list of options from which a user can select one or several.
 
 <Canvas of={BasicDropdownPreview} sourceState="none" />
 
 ### Dropdown box mode
 
-The <StorybookLink page="Components/Dropdown [New]/Dropdown box mode">Dropdown box mode</StorybookLink> is an always open Dropdown, with the same properties as the basic Dropdown.
+The <StorybookLink page="Components/Dropdown/Dropdown box mode">Dropdown box mode</StorybookLink> is an always open Dropdown, with the same properties as the basic Dropdown.
 
 <Canvas of={BoxModePreview} sourceState="none" />
 
