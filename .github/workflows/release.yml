@@ -1,6 +1,6 @@
 name: Release new version
 
-on: workflow_dispatch
+on: []
 
 jobs:
   validate-branch:
