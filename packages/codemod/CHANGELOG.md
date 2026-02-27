@@ -3,24 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.2.0](https://github.com/mondaycom/vibe/compare/@vibe/codemod@1.1.0...@vibe/codemod@1.2.0) (2026-02-27)
-
-
-### Bug Fixes
-
-* **Flex:** remove stretch from justify prop ([#3259](https://github.com/mondaycom/vibe/issues/3259)) ([57d9644](https://github.com/mondaycom/vibe/commit/57d964403ded14641f8753f3494d568ae93dfcb9))
-* **Icon:** props rename - remove "icon" prefix ([#3256](https://github.com/mondaycom/vibe/issues/3256)) ([ee9ba03](https://github.com/mondaycom/vibe/commit/ee9ba03aeb2d025f3846b5c1dc2609dc399a1781))
-* resolve TypeScript build error in v3-to-v4 type-imports-migration ([76e52d9](https://github.com/mondaycom/vibe/commit/76e52d9908bd2d1406d064cffdf4b37813b17a00))
-
-
-### Features
-
-* set up vibe4 migration infrastructure ([853dd0d](https://github.com/mondaycom/vibe/commit/853dd0dddb560b9e8420262b77e295ae0cbbf52e))
-
-
-
-
-
 # [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/codemod@1.0.1...@vibe/codemod@1.1.0) (2025-05-29)
 
 

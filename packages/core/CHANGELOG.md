@@ -3,24 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.86.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.1...@vibe/core@3.86.0) (2026-02-27)
-
-
-### Bug Fixes
-
-* **Icon:** props rename - remove "icon" prefix ([#3256](https://github.com/mondaycom/vibe/issues/3256)) ([ee9ba03](https://github.com/mondaycom/vibe/commit/ee9ba03aeb2d025f3846b5c1dc2609dc399a1781))
-* **MenuItemIcon:** remove deprecated label prop ([#3262](https://github.com/mondaycom/vibe/issues/3262)) ([1e37c32](https://github.com/mondaycom/vibe/commit/1e37c324b8f4a4fe7735cdbe95654500da8ac96d))
-* **Toggle:** remove duplicate data-testid from Toggle internal element ([#3266](https://github.com/mondaycom/vibe/issues/3266)) ([804190a](https://github.com/mondaycom/vibe/commit/804190a4d76dbcfdb90da1d22cd2139171bbcdbf))
-
-
-### Features
-
-* remove enums and static properties from Vibe components ([9afae91](https://github.com/mondaycom/vibe/commit/9afae917dcec0ae58348e41378c8319180902a78))
-
-
-
-
-
 ## [3.85.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.0...@vibe/core@3.85.1) (2026-02-12)
 
 
