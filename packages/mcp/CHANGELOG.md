@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.3](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.2...@vibe/mcp@0.8.3) (2026-02-27)
+
+
+### Bug Fixes
+
+* **Icon:** props rename - remove "icon" prefix ([#3256](https://github.com/mondaycom/vibe/issues/3256)) ([ee9ba03](https://github.com/mondaycom/vibe/commit/ee9ba03aeb2d025f3846b5c1dc2609dc399a1781))
+
+
+
+
+
 ## [0.8.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.1...@vibe/mcp@0.8.2) (2026-02-09)
 
 

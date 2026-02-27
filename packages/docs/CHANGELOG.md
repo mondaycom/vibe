@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.1...@vibe/docs@3.7.2) (2026-02-27)
+
+
+### Bug Fixes
+
+* **Icon:** props rename - remove "icon" prefix ([#3256](https://github.com/mondaycom/vibe/issues/3256)) ([ee9ba03](https://github.com/mondaycom/vibe/commit/ee9ba03aeb2d025f3846b5c1dc2609dc399a1781))
+
+
+
+
+
 ## [3.7.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.0...@vibe/docs@3.7.1) (2026-02-12)
 
 **Note:** Version bump only for package @vibe/docs

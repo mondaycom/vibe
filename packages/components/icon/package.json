@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icon",
-  "version": "3.0.11",
+  "version": "3.1.0",
   "description": "Vibe sub-package for icon components",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.8",
+    "@vibe/shared": "3.1.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-inlinesvg": "^4.1.3"
