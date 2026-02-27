@@ -1,13 +1,13 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./EditableText.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";
-import { Text, TextTypeEnum, TextWeightEnum, type TextType, type TextWeight } from "@vibe/typography";
+import { Text, type TextType, type TextWeight } from "@vibe/typography";
 import cx from "classnames";
 
 export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {
@@ -54,12 +54,4 @@ const EditableText = forwardRef(
   }
 );
 
-interface EditableTextStaticProps {
-  types: typeof TextTypeEnum;
-  weights: typeof TextWeightEnum;
-}
-
-export default withStaticProps<EditableTextProps, EditableTextStaticProps>(EditableText, {
-  types: TextTypeEnum,
-  weights: TextWeightEnum
-});
+export default EditableText;

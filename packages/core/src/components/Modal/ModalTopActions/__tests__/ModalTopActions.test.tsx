@@ -46,9 +46,7 @@ describe("ModalTopActions", () => {
   });
 
   it("renders the action button using the renderAction prop directly", () => {
-    const renderAction = (
-      <IconButton data-testid="extra-action" icon={FeedbackIcon} color={IconButton.colors.ON_PRIMARY_COLOR} />
-    );
+    const renderAction = <IconButton data-testid="extra-action" icon={FeedbackIcon} color="on-primary-color" />;
     const { getByTestId } = render(<ModalTopActions renderAction={renderAction} />);
 
     expect(within(getByTestId("extra-action")).getByTestId("icon")).toBeInTheDocument();

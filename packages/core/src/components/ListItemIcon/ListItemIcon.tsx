@@ -2,10 +2,8 @@ import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { Icon, type SubIcon } from "@vibe/icon";
-import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
-import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 import { type ListItemIconMargin } from "./ListItemIcon.types";
@@ -48,12 +46,4 @@ const ListItemIcon = forwardRef(
   }
 );
 
-interface ListItemIconStaticProps {
-  margin: typeof ListItemIconMarginEnum;
-  components: typeof ListItemComponentTypeEnum;
-}
-
-export default withStaticProps<ListItemIconProps, ListItemIconStaticProps>(ListItemIcon, {
-  margin: ListItemIconMarginEnum,
-  components: ListItemComponentTypeEnum
-});
+export default ListItemIcon;

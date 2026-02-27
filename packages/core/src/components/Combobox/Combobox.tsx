@@ -6,17 +6,15 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import Search from "../Search/Search";
-import { BASE_SIZES } from "../../constants";
 import { Button } from "@vibe/button";
 import { Text } from "@vibe/typography";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
-import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps } from "../../types";
 import {
   type IComboboxCategoryMap,
   type IComboboxItem,
@@ -439,12 +437,4 @@ const Combobox = forwardRef(
 // color it with --secondary-text-color
 // size it like the icon - we think it's 16px - make sure it's not fat
 
-interface ComboboxStaticProps {
-  sizes: typeof BASE_SIZES;
-  iconTypes: typeof ComboboxOption.iconTypes;
-}
-
-export default withStaticProps<ComboboxProps, ComboboxStaticProps>(Combobox, {
-  sizes: BASE_SIZES,
-  iconTypes: ComboboxOption.iconTypes
-});
+export default Combobox;

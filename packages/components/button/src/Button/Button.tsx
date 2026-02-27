@@ -2,23 +2,12 @@
 import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
+import { useMergeRef, NOOP } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
-import {
-  ButtonColor as ButtonColorEnum,
-  ButtonInputType as ButtonInputTypeEnum,
-  ButtonType as ButtonTypeEnum
-} from "./ButtonConstants";
 import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import {
-  getTestId,
-  type VibeComponentProps,
-  withStaticProps,
-  ComponentDefaultTestId,
-  ComponentVibeId
-} from "@vibe/shared";
+import { getTestId, type VibeComponentProps, ComponentDefaultTestId, ComponentVibeId } from "@vibe/shared";
 import { getStyle } from "@vibe/shared";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
@@ -390,18 +379,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-interface ButtonStaticProps {
-  sizes: typeof SIZES;
-  colors: typeof ButtonColorEnum;
-  kinds: typeof ButtonTypeEnum;
-  types: typeof ButtonInputTypeEnum;
-  inputTags: typeof ButtonInputTypeEnum;
-}
-
-export default withStaticProps<ButtonProps, ButtonStaticProps>(Button, {
-  sizes: SIZES,
-  colors: ButtonColorEnum,
-  kinds: ButtonTypeEnum,
-  types: ButtonInputTypeEnum,
-  inputTags: ButtonInputTypeEnum
-});
+export default Button;

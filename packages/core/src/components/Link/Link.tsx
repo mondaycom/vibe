@@ -3,9 +3,8 @@ import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { NOOP } from "../../utils/function-utils";
 import { Icon, type SubIcon } from "@vibe/icon";
-import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
 import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.types";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
@@ -145,14 +144,4 @@ function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | n
   return <Icon className={className} icon={icon} type="font" />;
 }
 
-interface LinkStaticProps {
-  targets: typeof LinkTargetEnum;
-  iconPositions: typeof IconPositionEnum;
-  position: typeof IconPositionEnum;
-}
-
-export default withStaticProps<LinkProps, LinkStaticProps>(Link, {
-  position: IconPositionEnum,
-  iconPositions: IconPositionEnum,
-  targets: LinkTargetEnum
-});
+export default Link;

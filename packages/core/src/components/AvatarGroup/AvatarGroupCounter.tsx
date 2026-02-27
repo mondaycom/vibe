@@ -126,7 +126,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         ariaLabel={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
         dialogContainerSelector={dialogContainerSelector}
       >
-        <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
+        <Menu id="menu" size="medium" className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
               // eslint-disable-next-line react/jsx-key
