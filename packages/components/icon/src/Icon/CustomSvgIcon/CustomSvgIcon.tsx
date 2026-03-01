@@ -32,6 +32,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   role?: AriaRole;
   /**
    * If true, hides the icon from screen readers.
+   * @default true
    */
   ariaHidden?: boolean;
   /**
@@ -53,7 +54,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   ref,
   src,
   ariaLabel,
-  ariaHidden,
+  ariaHidden = true,
   replaceToCurrentColor = false,
   customColor,
   id,
