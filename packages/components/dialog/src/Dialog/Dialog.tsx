@@ -516,25 +516,21 @@ function Dialog({
 
   return (
     <>
-      {hasValidChildren ? (
-        <Refable
-          className={cx(referenceWrapperClassName)}
-          wrapperElement={referenceWrapperElement}
-          ref={setReferenceElement}
-          onBlur={chainedOnBlur}
-          onKeyDown={chainedOnKeyDown}
-          onClick={chainedOnClick}
-          onFocus={chainedOnFocus}
-          onMouseDown={chainedOnMouseDown}
-          onMouseEnter={chainedOnMouseEnter}
-          onMouseLeave={chainedOnMouseLeave}
-          onContextMenu={chainedOnContextMenu}
-        >
-          {children}
-        </Refable>
-      ) : (
-        <span ref={setReferenceElement} className={cx(referenceWrapperClassName)} />
-      )}
+      <Refable
+        className={cx(referenceWrapperClassName)}
+        wrapperElement={referenceWrapperElement}
+        ref={setReferenceElement}
+        onBlur={chainedOnBlur}
+        onKeyDown={chainedOnKeyDown}
+        onClick={chainedOnClick}
+        onFocus={chainedOnFocus}
+        onMouseDown={chainedOnMouseDown}
+        onMouseEnter={chainedOnMouseEnter}
+        onMouseLeave={chainedOnMouseLeave}
+        onContextMenu={chainedOnContextMenu}
+      >
+        {children}
+      </Refable>
       {isClient() &&
         isShown &&
         createPortal(
