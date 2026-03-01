@@ -44,6 +44,7 @@ export interface IconProps extends VibeComponentProps {
   tabindex?: number | string;
   /**
    * If true, hides the icon from screen readers.
+   * @default true
    */
   ariaHidden?: boolean;
   /**
@@ -74,7 +75,7 @@ const Icon = forwardRef(
       size = 16,
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
-      ariaHidden,
+      ariaHidden = true,
       style,
       useCurrentColor = false,
       customColor,

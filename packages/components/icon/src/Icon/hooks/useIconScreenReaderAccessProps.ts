@@ -12,7 +12,7 @@ export function getIconScreenReaderAccessProps({
   isKeyboardAccessible?: boolean;
   label: string;
 }) {
-  const overrideIsDecorationOnly = isDecorationOnly ?? (!isClickable && !label);
+  const overrideIsDecorationOnly = isDecorationOnly;
   if (isClickable || label) {
     return getClickableIconScreenReaderAccessProps({
       label,

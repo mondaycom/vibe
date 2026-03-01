@@ -100,6 +100,29 @@ The `disableClickableBehavior` prop has been removed. Chips now always uses the 
 
 #### Icon Component API Changes
 
+**`ariaHidden` now defaults to `true`**
+
+Icons are now hidden from screen readers by default (`ariaHidden={true}`). Previously, `ariaHidden` was auto-detected — icons without a `label` and not clickable were hidden; icons with a `label` were visible. Now all icons are decorative by default, and you must explicitly opt in with `ariaHidden={false}` for meaningful icons.
+
+**Migration:**
+```jsx
+// Before (v3) — icon with label was automatically visible to screen readers
+<Icon icon={Info} label="Information" />
+
+// After (v4) — must explicitly set ariaHidden={false}
+<Icon icon={Info} label="Information" ariaHidden={false} />
+
+// Decorative icons (no label) — no change needed
+<Icon icon={Bolt} />
+```
+
+**Automated Migration Available:**
+```bash
+npx @vibe/codemod icon-ariaHidden-migration src/
+```
+
+The codemod finds all `Icon` elements with `label` but no `ariaHidden` and adds `ariaHidden={false}`. It also handles `CustomSvgIcon` elements with `ariaLabel`.
+
 **Props Renamed - Remove "icon" Prefix**
 - ❌ **Removed**: `iconLabel`, `iconType`, `iconSize` props
 - ✅ **Added**: `label`, `type`, `size` props with same functionality
