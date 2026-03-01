@@ -1,6 +1,6 @@
 import { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
+import { type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
 import useMergeRef from "../../hooks/useMergeRef";
 import { Tooltip } from "@vibe/tooltip";
 import { IconButton } from "@vibe/icon-button";
@@ -75,6 +75,11 @@ export interface TipseenProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
+   * Custom Floating UI middleware for positioning logic.
+   * @see https://floating-ui.com/docs/middleware
+   */
+  middleware?: DialogMiddleware[];
+  /**
    * Class name applied to the reference wrapper element.
    */
   referenceWrapperClassName?: string;
@@ -137,6 +142,7 @@ const Tipseen = forwardRef(
       width,
       moveBy,
       hideWhenReferenceHidden = false,
+      middleware,
       referenceWrapperClassName,
       tip = true,
       tooltipArrowClassName,
@@ -235,6 +241,7 @@ const Tipseen = forwardRef(
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          middleware={middleware}
           referenceWrapperClassName={referenceWrapperClassName}
           tip={tip && !floating}
           open={defaultDelayOpen ? delayedOpen : undefined}

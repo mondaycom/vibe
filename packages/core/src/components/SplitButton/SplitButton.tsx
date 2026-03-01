@@ -27,6 +27,7 @@ import { DropdownChevronDown } from "@vibe/icons";
 import {
   DialogContentContainer,
   type DialogSize,
+  type DialogStartingEdge,
   type DialogTriggerEvent,
   Dialog,
   type DialogEvent,
@@ -206,15 +207,15 @@ const SplitButton = ({
     );
   }, [secondaryDialogContent, dialogPaddingSize]);
 
-  const animationEdgePosition = useMemo(() => {
+  const animationEdgePosition: DialogStartingEdge | undefined = useMemo(() => {
     if (secondaryDialogPosition === "bottom") {
       return undefined;
     }
     if (secondaryDialogPosition === "bottom-start") {
-      return "bottom" as const;
+      return "bottom";
     }
 
-    return "top" as const;
+    return "top";
   }, [secondaryDialogPosition]);
 
   return (

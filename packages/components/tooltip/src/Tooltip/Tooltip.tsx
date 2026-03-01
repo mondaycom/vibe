@@ -3,7 +3,7 @@ import { isFunction } from "es-toolkit";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
-import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
+import { Dialog, type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
 import {
   type VibeComponentProps,
   type ElementContent,
@@ -107,6 +107,11 @@ interface TooltipBaseProps extends VibeComponentProps {
    * If true, hides the tooltip when the reference element is hidden.
    */
   hideWhenReferenceHidden?: boolean;
+  /**
+   * Custom Floating UI middleware for positioning logic.
+   * @see https://floating-ui.com/docs/middleware
+   */
+  middleware?: DialogMiddleware[];
   /**
    * Callback fired when the tooltip is hidden.
    */
