@@ -110,7 +110,7 @@ const ButtonGroup = forwardRef(
       tooltipShowDelay,
       tooltipContainerSelector,
       tooltipMoveBy,
-      blurOnMouseUp = true,
+      blurOnMouseUp = false,
       id,
       "data-testid": dataTestId,
       fullWidth = false

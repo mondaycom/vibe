@@ -88,6 +88,11 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### Button
 
+- [x] **Status**: Complete
+- **Change**: Change `blurOnMouseUp` default from `true` to `false` on Button and ButtonGroup
+- **Reason**: Buttons should retain focus after click for better keyboard navigation and accessibility
+- **Migration**: If you need the old blur behavior, add `blurOnMouseUp={true}` explicitly
+- **Codemod**: ❌ Manual (behavioral default change)
 - **Change**: Removed deprecated enum exports and static properties (`ButtonType`, `ButtonColor`, `ButtonInputType` enums and `Button.sizes`, `Button.kinds`, etc.)
 - **Reason**: Simplify API by removing dual ways to specify values (enum vs string), reduce bundle size, improve TypeScript performance
 - **Migration**: Replace `Button.sizes.LARGE` with `"large"`, `Button.kinds.PRIMARY` with `"primary"`, etc.

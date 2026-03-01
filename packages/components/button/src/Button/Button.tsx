@@ -134,7 +134,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       "aria-pressed": ariaPressed,
-      blurOnMouseUp = true,
+      blurOnMouseUp = false,
       "data-testid": dataTestId,
       insetFocus = false,
       tabIndex
