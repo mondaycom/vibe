@@ -507,23 +507,30 @@ function Dialog({
     </DialogContent>
   );
 
+  // Check if children are valid React elements (Refable returns null for non-elements)
+  const hasValidChildren = React.Children.toArray(children).some(child => React.isValidElement(child));
+
   return (
     <>
-      <Refable
-        className={cx(referenceWrapperClassName)}
-        wrapperElement={referenceWrapperElement}
-        ref={setReferenceElement}
-        onBlur={chainedOnBlur}
-        onKeyDown={chainedOnKeyDown}
-        onClick={chainedOnClick}
-        onFocus={chainedOnFocus}
-        onMouseDown={chainedOnMouseDown}
-        onMouseEnter={chainedOnMouseEnter}
-        onMouseLeave={chainedOnMouseLeave}
-        onContextMenu={chainedOnContextMenu}
-      >
-        {children}
-      </Refable>
+      {hasValidChildren ? (
+        <Refable
+          className={cx(referenceWrapperClassName)}
+          wrapperElement={referenceWrapperElement}
+          ref={setReferenceElement}
+          onBlur={chainedOnBlur}
+          onKeyDown={chainedOnKeyDown}
+          onClick={chainedOnClick}
+          onFocus={chainedOnFocus}
+          onMouseDown={chainedOnMouseDown}
+          onMouseEnter={chainedOnMouseEnter}
+          onMouseLeave={chainedOnMouseLeave}
+          onContextMenu={chainedOnContextMenu}
+        >
+          {children}
+        </Refable>
+      ) : (
+        <span ref={setReferenceElement} className={cx(referenceWrapperClassName)} />
+      )}
       {isClient() &&
         isShown &&
         createPortal(
