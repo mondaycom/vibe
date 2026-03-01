@@ -1,6 +1,6 @@
 import { type SIZES } from "./../../../constants/sizes";
 import cx from "classnames";
-import styles from "./LinearProgressBar.module.scss";
+import styles from "./ProgressBar.module.scss";
 
 export type Size = (typeof SIZES)[keyof typeof SIZES];
 

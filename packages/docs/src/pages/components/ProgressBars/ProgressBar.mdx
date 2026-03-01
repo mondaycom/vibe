@@ -3,21 +3,21 @@ import {
   ComponentRuleNegative,
   ComponentRulePositive,
   TipMultiStepIndicator
-} from "./LinearProgressBar.stories.helpers";
-import * as LinearProgressBarStories from "./LinearProgressBar.stories";
+} from "./ProgressBar.stories.helpers";
+import * as ProgressBarStories from "./ProgressBar.stories";
 
-<Meta of={LinearProgressBarStories} />
+<Meta of={ProgressBarStories} />
 
-# LinearProgressBar
+# ProgressBar
 
 Progress bars show continuous progress through a process, such as a percentage value. They show how much progress is complete and how much remains.
 
-<Canvas of={LinearProgressBarStories.Overview} />
+<Canvas of={ProgressBarStories.Overview} />
 
 ### Import
 
 ```js
-import { LinearProgressBar } from "@vibe/core";
+import { ProgressBar } from "@vibe/core";
 ```
 
 ## Props
@@ -36,15 +36,15 @@ import { LinearProgressBar } from "@vibe/core";
 
 ### Regular
 
-<Canvas of={LinearProgressBarStories.Regular} />
+<Canvas of={ProgressBarStories.Regular} />
 
 ### With secondary value
 
-<Canvas of={LinearProgressBarStories.WithSecondaryValue} />
+<Canvas of={ProgressBarStories.WithSecondaryValue} />
 
 ### Multi progress bar
 
-<Canvas of={LinearProgressBarStories.MultiProgressBar} />
+<Canvas of={ProgressBarStories.MultiProgressBar} />
 
 ## Do’s and Don’ts
 
@@ -69,11 +69,11 @@ import { LinearProgressBar } from "@vibe/core";
 
 The user can see in a clear way the number of items used in the account.
 
-<Canvas of={LinearProgressBarStories.ProgressBarAsACounter} />
+<Canvas of={ProgressBarStories.ProgressBarAsACounter} />
 
 ### Progress bar as loading indicator
 
-<Canvas of={LinearProgressBarStories.ProgressBarAsLoadingIndicator} />
+<Canvas of={ProgressBarStories.ProgressBarAsLoadingIndicator} />
 
 ## Related components
 

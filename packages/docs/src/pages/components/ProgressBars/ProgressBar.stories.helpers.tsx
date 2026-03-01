@@ -1,6 +1,6 @@
 import React from "react";
 import { StorybookLink, Tip } from "vibe-storybook-components";
-import { DialogContentContainer, Text, Flex, LinearProgressBar } from "@vibe/core";
+import { DialogContentContainer, Text, Flex, ProgressBar } from "@vibe/core";
 
 export const TipMultiStepIndicator = () => (
   <Tip>
@@ -22,7 +22,7 @@ export const ComponentRulePositive = () => (
         <Text>Items</Text>
         <Text>142/200</Text>
       </Flex>
-      <LinearProgressBar value={71} />
+      <ProgressBar value={71} />
     </DialogContentContainer>
   </div>
 );
@@ -37,19 +37,19 @@ export const ComponentRuleNegative = () => (
         <Text ellipsis={false} style={{ flexBasis: 80 }}>
           Drive 1
         </Text>
-        <LinearProgressBar value={88} />
+        <ProgressBar value={88} />
       </Flex>
       <Flex gap="medium">
         <Text ellipsis={false} style={{ flexBasis: 80 }}>
           Drive 2
         </Text>
-        <LinearProgressBar value={46} />
+        <ProgressBar value={46} />
       </Flex>
       <Flex gap="medium">
         <Text ellipsis={false} style={{ flexBasis: 80 }}>
           Drive 3
         </Text>
-        <LinearProgressBar value={72} />
+        <ProgressBar value={72} />
       </Flex>
     </DialogContentContainer>
   </div>
