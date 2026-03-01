@@ -421,7 +421,52 @@ import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 
 ### Dialog
 
-<!-- Will be populated when Dialog breaking changes are identified -->
+#### Removed `enableNestedDialogLayer` prop
+
+The `enableNestedDialogLayer` prop has been removed. Dialog now **always** wraps its content with `LayerProvider`, ensuring nested dialogs (e.g., Dropdown inside Dialog) work correctly without any additional configuration.
+
+**Before (v3):**
+
+```jsx
+<Dialog enableNestedDialogLayer content={<Dropdown />}>
+  <button>Open</button>
+</Dialog>
+```
+
+**After (v4):**
+
+```jsx
+<Dialog content={<Dropdown />}>
+  <button>Open</button>
+</Dialog>
+```
+
+**Migration:** Simply remove the `enableNestedDialogLayer` prop. No replacement is needed — the behavior is now the default.
+
+**Codemod:** This change is handled automatically by the v4 codemod.
+
+### DialogContent / Dialog
+
+#### `startingEdge` prop now properly typed
+
+The `startingEdge` prop on `DialogContent` and `Dialog` was previously typed as `any`/`string`. It is now strictly typed as `DialogStartingEdge` (`"top" | "bottom"`).
+
+**Before (v3):**
+
+```tsx
+<Dialog startingEdge="top" ... />      // string accepted
+<Dialog startingEdge="anything" ... /> // any string accepted
+```
+
+**After (v4):**
+
+```tsx
+<Dialog startingEdge="top" ... />    // valid
+<Dialog startingEdge="bottom" ... /> // valid
+// <Dialog startingEdge="anything" ... /> // TypeScript error
+```
+
+**Migration:** Ensure `startingEdge` values are `"top"` or `"bottom"`. The new `DialogStartingEdge` type is exported from `@vibe/core`.
 
 ### Other Components
 

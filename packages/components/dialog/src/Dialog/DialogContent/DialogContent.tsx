@@ -21,7 +21,7 @@ import {
   getStyle,
   useMergeRef
 } from "@vibe/shared";
-import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog.types";
+import { type DialogAnimationType, type DialogStartingEdge, type DialogTriggerEvent } from "../Dialog.types";
 import type * as PopperJS from "@popperjs/core";
 import styles from "./DialogContent.module.scss";
 import useDisableScroll from "./useDisableScroll";
@@ -46,11 +46,10 @@ export interface DialogContentProps extends VibeComponentProps {
    * If true, the dialog is open.
    */
   isOpen?: boolean;
-  // TODO: [breaking] use type
   /**
    * The starting edge of the dialog.
    */
-  startingEdge?: any;
+  startingEdge?: DialogStartingEdge;
   /**
    * The animation type used for showing/hiding the dialog.
    */

@@ -78,8 +78,7 @@ function Dialog({
   onContentClick: onContentClickProp = NOOP,
   hideWhenReferenceHidden = false,
   shouldCallbackOnMount = false,
-  observeContentResize = false,
-  enableNestedDialogLayer = false
+  observeContentResize = false
 }: DialogProps) {
   const [isOpenState, setIsOpenState] = useState(shouldShowOnMount);
   const [preventAnimation, setPreventAnimation] = useState(false);
@@ -526,14 +525,7 @@ function Dialog({
       </Refable>
       {isClient() &&
         isShown &&
-        createPortal(
-          enableNestedDialogLayer ? (
-            <LayerProvider layerRef={containerRef}>{dialogContent}</LayerProvider>
-          ) : (
-            dialogContent
-          ),
-          getContainer()
-        )}
+        createPortal(<LayerProvider layerRef={containerRef}>{dialogContent}</LayerProvider>, getContainer())}
     </>
   );
 }

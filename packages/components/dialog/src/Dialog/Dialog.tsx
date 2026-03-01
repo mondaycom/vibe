@@ -21,6 +21,7 @@ import styles from "./Dialog.module.scss";
 import {
   type DialogAnimationType,
   type DialogPosition,
+  type DialogStartingEdge,
   type DialogTriggerEvent,
   type DialogEvent
 } from "./Dialog.types";
@@ -48,7 +49,7 @@ export interface DialogProps extends VibeComponentProps {
   /**
    * The starting edge of the dialog.
    */
-  startingEdge?: string;
+  startingEdge?: DialogStartingEdge;
   /**
    * Offset values for positioning adjustments.
    * `main` - horizontal offset
@@ -188,12 +189,6 @@ export interface DialogProps extends VibeComponentProps {
    * that may grow or shrink without a re-render being triggered.
    */
   observeContentResize?: boolean;
-  /**
-   * If true, provides a LayerProvider context for nested dialogs to render correctly.
-   * This is useful when you have components that use Dialog internally (like Dropdown)
-   * inside another Dialog, ensuring proper z-index stacking and click-outside behavior.
-   */
-  enableNestedDialogLayer?: boolean;
 }
 
 export interface DialogState {
@@ -236,8 +231,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     shouldCallbackOnMount: false,
     instantShowAndHide: false,
     addKeyboardHideShowTriggersByDefault: false,
-    observeContentResize: false,
-    enableNestedDialogLayer: false
+    observeContentResize: false
   };
   private showTimeout: NodeJS.Timeout;
   private hideTimeout: NodeJS.Timeout;
@@ -566,7 +560,6 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
       disableContainerScroll,
       containerSelector,
       observeContentResize,
-      enableNestedDialogLayer,
       id,
       "data-testid": dataTestId
     } = this.props;
@@ -693,11 +686,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                   </DialogContent>
                 );
 
-                return enableNestedDialogLayer ? (
-                  <LayerProvider layerRef={this.containerRef}>{dialogContent}</LayerProvider>
-                ) : (
-                  dialogContent
-                );
+                return <LayerProvider layerRef={this.containerRef}>{dialogContent}</LayerProvider>;
               }}
             </Popper>,
             this.getContainer()
