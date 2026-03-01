@@ -82,7 +82,11 @@ exports[`Snapshot tests > Tipseen tests > renders correctly with dark close butt
 </DocumentFragment>
 `;
 
-exports[`Snapshot tests > Tipseen tests > renders correctly with floating variation 1`] = `null`;
+exports[`Snapshot tests > Tipseen tests > renders correctly with floating variation 1`] = `
+<span
+  class=""
+/>
+`;
 
 exports[`Snapshot tests > Tipseen tests > renders correctly without close 1`] = `
 <DocumentFragment>
