@@ -129,7 +129,7 @@ export const avatarRenderer = (
     <ClickableWrapper
       key={index}
       isClickable={!!avatarProps?.onClick}
-      clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
+      clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: -1 }}
     >
       <div style={overrideStyle}>
         <Flex direction="row" gap="xs" ariaLabelledby={labelId}>
