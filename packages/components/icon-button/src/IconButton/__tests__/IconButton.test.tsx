@@ -110,10 +110,16 @@ describe("IconButton tests", () => {
         expect(buttonComponent).toHaveAttribute("aria-hidden", "true");
       });
 
-      it("should not have aria-hidden attribute on Button component if not specified", () => {
+      it("should have aria-hidden true by default", () => {
         const { getByRole } = renderComponent();
+        const buttonComponent = getByRole("button", { hidden: true });
+        expect(buttonComponent).toHaveAttribute("aria-hidden", "true");
+      });
+
+      it("should allow overriding aria-hidden to false", () => {
+        const { getByRole } = renderComponent({ "aria-hidden": false });
         const buttonComponent = getByRole("button");
-        expect(buttonComponent).not.toHaveAttribute("aria-hidden");
+        expect(buttonComponent).toHaveAttribute("aria-hidden", "false");
       });
     });
   });

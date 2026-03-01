@@ -29,6 +29,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### IconButton
+
+- [x] **Status**: Done
+- **Change**: `aria-hidden` now defaults to `true` on `IconButton`
+- **Reason**: Icon buttons are typically decorative and rely on `ariaLabel` for accessibility; the button element itself should be hidden from assistive technologies by default
+- **Migration**: If your IconButton needs to be visible to screen readers, explicitly pass `aria-hidden={false}`
+- **Codemod**: ❌ Manual (behavioral default change)
+
 #### CustomSvgIcon
 
 - [x] **Status**: Done
