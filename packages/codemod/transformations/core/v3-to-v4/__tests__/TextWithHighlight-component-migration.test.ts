@@ -11,9 +11,11 @@ import { TextWithHighlight } from "@vibe/core";
     `,
     `
 import { TextWithHighlight } from "@vibe/core";
-<TextWithHighlight text="hello" highlightTerm="he" />
+<TextWithHighlight text="hello" highlightTerm="he" tooltipProps={{
+  position: "top"
+}} />
     `,
-    "should remove tooltipPosition prop"
+    "should migrate tooltipPosition to tooltipProps"
   );
 
   defineInlineTest(
@@ -39,7 +41,9 @@ import { TextWithHighlight as TWH } from "@vibe/core";
     `,
     `
 import { TextWithHighlight as TWH } from "@vibe/core";
-<TWH text="hello" highlightTerm="he" />
+<TWH text="hello" highlightTerm="he" tooltipProps={{
+  position: "bottom"
+}} />
     `,
     "should handle aliased imports"
   );
@@ -56,5 +60,53 @@ import { Button } from "@vibe/core";
 <Button tooltipPosition="top">Click</Button>
     `,
     "should not affect non-TextWithHighlight components"
+  );
+
+  defineInlineTest(
+    { default: transform, parser: "tsx" },
+    {},
+    `
+import { TextWithHighlight } from "@vibe/core";
+<TextWithHighlight tooltipPosition="left" text="hello" />
+    `,
+    `
+import { TextWithHighlight } from "@vibe/core";
+<TextWithHighlight text="hello" tooltipProps={{
+  position: "left"
+}} />
+    `,
+    "should handle different position values"
+  );
+
+  defineInlineTest(
+    { default: transform, parser: "tsx" },
+    {},
+    `
+import { TextWithHighlight } from "@vibe/core";
+const pos = "right";
+<TextWithHighlight tooltipPosition={pos} text="hello" />
+    `,
+    `
+import { TextWithHighlight } from "@vibe/core";
+const pos = "right";
+<TextWithHighlight text="hello" tooltipProps={{
+  position: pos
+}} />
+    `,
+    "should handle expression values"
+  );
+
+  defineInlineTest(
+    { default: transform, parser: "tsx" },
+    {},
+    `
+import { TextWithHighlight } from "@vibe/core";
+<TextWithHighlight tooltipPosition="top" tooltipProps={{content: "test"}} text="hello" />
+    `,
+    `
+import { TextWithHighlight } from "@vibe/core";
+<TextWithHighlight tooltipProps={{content: "test"}} text="hello" />
+    `,
+    "should warn and remove tooltipPosition when tooltipProps exists (user must manually merge to: tooltipProps={{content: 'test', position: 'top'}})"
   );
 });
