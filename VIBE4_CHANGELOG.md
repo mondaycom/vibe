@@ -350,6 +350,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available (`v3-to-v4/enums`)
 - **PR**: TBD
 
+#### Chips
+
+- [x] **Status**: Complete
+- **Change**: Remove `disableClickableBehavior` prop
+- **Reason**: Simplifies the API; chips should always use the clickable wrapper when click handlers are provided
+- **Migration**: Remove `disableClickableBehavior` from Chips usage
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
