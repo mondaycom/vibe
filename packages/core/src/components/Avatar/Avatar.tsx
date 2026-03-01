@@ -226,7 +226,7 @@ const Avatar = ({
         isClickable={!!onClick}
         clickableProps={{
           onClick: clickHandler,
-          tabIndex: "-1",
+          tabIndex: -1,
           className: styles.clickableWrapper
         }}
       >

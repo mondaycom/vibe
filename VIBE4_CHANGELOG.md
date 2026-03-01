@@ -367,6 +367,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available
 - **PR**: TBD
 
+#### Clickable
+
+- [x] **Status**: Complete
+- **Change**: Remove string type from `ariaHasPopup` (now `boolean` only) and `tabIndex` (now `number` only)
+- **Reason**: Type safety - removes implicit string-to-number/boolean coercion
+- **Migration**: Change `tabIndex="-1"` to `tabIndex={-1}` and `ariaHasPopup="true"` to `ariaHasPopup={true}`
+- **Codemod**: ❌ Manual
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
