@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useCallback } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { Tipseen, TipseenWizard } from "@vibe/core";
+import { shift, flip } from "@floating-ui/react-dom";
 
 export const TipseenDescription = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);
@@ -26,6 +27,7 @@ export const TipseenDescription = () => {
     return (
       <div style={style}>
         <Tipseen
+          middleware={[shift({ mainAxis: false }), flip({ fallbackPlacements: [] })]}
           width={280}
           position="right"
           content={

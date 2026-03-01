@@ -10,9 +10,14 @@ import {
   TipseenMedia,
   Flex
 } from "@vibe/core";
+import { shift, flip } from "@floating-ui/react-dom";
 import picture from "./assets/picture.svg";
 import video from "./assets/video.mp4";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+
+// Middleware to prevent the tipseen from being displaced when the user scrolls the story.
+// Not needed in real implementations.
+const storyMiddleware = [shift({ mainAxis: false }), flip({ fallbackPlacements: [] })];
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Tipseen
@@ -34,6 +39,7 @@ export default {
 const tipseenTemplate = ({ title, children, position, ...otherArgs }: TipseenProps & TipseenContentProps) => {
   return (
     <Tipseen
+      middleware={storyMiddleware}
       position={position}
       content={<TipseenContent title={title}>{children}</TipseenContent>}
       {...otherArgs}
@@ -67,6 +73,7 @@ export const Colors: StoryObj<typeof Tipseen> = {
       <Flex direction="column">
         <Tipseen
           id="colors-tipseen-1"
+          middleware={storyMiddleware}
           position="right"
           content={
             <TipseenContent id="colors-content-1" title="This is a title">
@@ -78,6 +85,7 @@ export const Colors: StoryObj<typeof Tipseen> = {
         </Tipseen>
         <Tipseen
           id="colors-tipseen-2"
+          middleware={storyMiddleware}
           position="right"
           color="primary"
           content={
@@ -112,6 +120,7 @@ export const TipseenWithAWizard: StoryObj<typeof Tipseen> = {
 
     return (
       <Tipseen
+        middleware={storyMiddleware}
         position="right"
         content={
           <TipseenWizard
@@ -143,6 +152,7 @@ export const TipseenWithImage: StoryObj<typeof Tipseen> = {
 
     return (
       <Tipseen
+        middleware={storyMiddleware}
         position="right"
         closeButtonTheme="light"
         content={
@@ -171,6 +181,7 @@ export const TipseenWithCustomMedia: StoryObj<typeof Tipseen> = {
   render: () => {
     return (
       <Tipseen
+        middleware={storyMiddleware}
         position="right"
         closeButtonTheme="dark"
         content={

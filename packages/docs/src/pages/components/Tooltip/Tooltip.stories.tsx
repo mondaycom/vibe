@@ -1,8 +1,13 @@
 import React from "react";
 import { Tooltip, type TooltipProps, Button, Flex, IconButton } from "@vibe/core";
 import { Hide, Menu, Subitems } from "@vibe/icons";
+import { shift, flip } from "@floating-ui/react-dom";
 import image from "./assets/tooltip-image.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+
+// Middleware to prevent the tooltip from being displaced when the user scrolls the story.
+// Not needed in real implementations.
+const storyMiddleware = [shift({ mainAxis: false }), flip({ fallbackPlacements: [] })];
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Tooltip,
@@ -23,6 +28,7 @@ export const Overview = {
         id="overview-tooltip"
         {...args}
         open
+        middleware={storyMiddleware}
         hideWhenReferenceHidden
       >
         <div id="overview-tooltip-trigger" />
@@ -49,6 +55,7 @@ export const TooltipWithTitle = () => (
       title="Tooltip title"
       shouldShowOnMount
       position="right"
+      middleware={storyMiddleware}
       hideWhenReferenceHidden
       open
     >
@@ -66,6 +73,7 @@ export const TooltipWithImage = () => (
       shouldShowOnMount
       image={image}
       position="right"
+      middleware={storyMiddleware}
       hideWhenReferenceHidden
       style={{ minHeight: "135px" }}
       open
@@ -82,6 +90,7 @@ export const Positions = {
         <div style={{ padding: "0 64px 68px 0", margin: "0 32px" }}>
           <Tooltip
             id="position-top-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
             content="Top"
             shouldShowOnMount
@@ -94,6 +103,7 @@ export const Positions = {
         <div style={{ padding: "50px 0 0 0", margin: "0 32px" }}>
           <Tooltip
             id="position-bottom-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
             content="Bottom"
             shouldShowOnMount
@@ -105,6 +115,7 @@ export const Positions = {
         <div style={{ padding: "0 32px 8px 32px", margin: "0 32px" }}>
           <Tooltip
             id="position-left-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
             content="Left"
             position="right"
@@ -117,6 +128,7 @@ export const Positions = {
         <div style={{ padding: "0 64px 8px 64px", margin: "0 64px" }}>
           <Tooltip
             id="position-right-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
             content="Right"
             position="left"
