@@ -8,6 +8,7 @@ import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
 import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
+import { ClickableWrapper } from "@vibe/clickable";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
   /**
@@ -26,6 +27,10 @@ export interface AvatarBadgeProps extends VibeComponentProps {
    * The size of the badge.
    */
   size?: AvatarSize;
+  /**
+   * Callback fired when the badge is clicked.
+   */
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
 }
 
 const AvatarBadge = ({
@@ -35,18 +40,34 @@ const AvatarBadge = ({
   className,
   size = "large",
   id,
+  onClick,
   "data-testid": dataTestId,
   ...otherProps
 }: AvatarBadgeProps) => {
   const classNames = cx(getStyle(styles, camelCase("badge--" + size)), className);
   const testId = dataTestId || getTestId(ComponentDefaultTestId.AVATAR_BADGE, id);
+  const isClickable = tabIndex === -1 && !!onClick;
 
   if (icon) {
-    return <Icon icon={icon} className={classNames} {...otherProps} data-testid={testId} />;
+    return isClickable ? (
+      <ClickableWrapper isClickable clickableProps={{ onClick, tabIndex }}>
+        <Icon icon={icon} className={classNames} {...otherProps} data-testid={testId} />
+      </ClickableWrapper>
+    ) : (
+      <Icon icon={icon} className={classNames} tabindex={tabIndex} {...otherProps} data-testid={testId} />
+    );
   }
 
+  const svgIcon = <CustomSvgIcon src={src} className={classNames} {...otherProps} data-testid={testId} />;
+
   return src ? (
-    <CustomSvgIcon src={src} className={classNames} clickable={tabIndex === -1} {...otherProps} data-testid={testId} />
+    isClickable ? (
+      <ClickableWrapper isClickable clickableProps={{ onClick, tabIndex }}>
+        {svgIcon}
+      </ClickableWrapper>
+    ) : (
+      svgIcon
+    )
   ) : null;
 };
 

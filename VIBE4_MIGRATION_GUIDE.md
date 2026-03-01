@@ -236,6 +236,26 @@ npm run build
 
 ## Component-Specific Migration
 
+### CustomSvgIcon
+
+#### Removed `onClick` and `clickable` props
+
+The `onClick` and `clickable` props have been removed from `CustomSvgIcon`. SVG icons should be purely decorative; use an accessible wrapper (e.g. a `<button>`) for clickable icon patterns.
+
+**Before (v3):**
+```tsx
+<CustomSvgIcon src="/icon.svg" onClick={handleClick} clickable />
+```
+
+**After (v4):**
+```tsx
+<button onClick={handleClick}>
+  <CustomSvgIcon src="/icon.svg" />
+</button>
+```
+
+> **No codemod available.** This change requires manual migration — wrap the icon with an accessible clickable element (e.g. `<Clickable>`, `<IconButton>`) and move the `onClick` handler to the wrapper.
+
 ### MenuItem
 
 #### Removed deprecated `label` prop from `MenuItemIcon`
@@ -245,6 +265,7 @@ The internal `MenuItemIcon` component's `label` prop has been removed. This prop
 > **Note:** The `MenuItem.label` prop (visual badge like "New" or "Beta") is **not affected**.
 
 **Migration:** No action required for users of `MenuItem`. If you used `MenuItemIcon` directly, remove any `label` prop passed to it.
+
 ### Flex
 
 #### Removed `"stretch"` from `justify` prop
