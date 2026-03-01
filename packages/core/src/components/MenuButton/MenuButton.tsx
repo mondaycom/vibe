@@ -265,9 +265,16 @@ const MenuButton = forwardRef(
       const cloned = childrenArr.map(child => {
         if (!React.isValidElement(child)) return null;
 
-        const newProps: { focusOnMount?: boolean; onClose?: (event: React.KeyboardEvent) => void } = {};
+        const newProps: {
+          focusOnMount?: boolean;
+          focusItemIndexOnMount?: number;
+          onClose?: (event: React.KeyboardEvent) => void;
+        } = {};
         if (child.type && child.type.supportFocusOnMount) {
           newProps.focusOnMount = true;
+          if (child.props.focusItemIndexOnMount === undefined) {
+            newProps.focusItemIndexOnMount = 0;
+          }
           triggers.delete("esckey");
         }
 
