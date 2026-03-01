@@ -358,6 +358,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available (`v3-to-v4/enums`)
 - **PR**: TBD
 
+#### TextWithHighlight
+
+- [x] **Status**: Complete
+- **Change**: Removed deprecated `tooltipPosition` prop
+- **Reason**: Simplifies API by consolidating tooltip configuration under a single `tooltipProps` object
+- **Migration**: Replace `tooltipPosition="value"` with `tooltipProps={{ position: "value" }}`
+- **Codemod**: ✅ Available (`TextWithHighlight-component-migration`)
+- **PR**: [#XXXX](https://github.com/mondaycom/vibe/pull/XXXX) - breaking-change/textwith-highlight-remove-tooltip-position
+
 #### Chips
 
 - [x] **Status**: Complete

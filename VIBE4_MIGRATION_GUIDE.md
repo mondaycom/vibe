@@ -487,6 +487,28 @@ The Steps component now always displays a "Finish" button on the last step, repl
 
 **Migration:** No code changes required. If you want to customize the finish button, use `finishButtonProps`.
 
+### TextWithHighlight
+
+#### Removed `tooltipPosition` prop
+
+The deprecated `tooltipPosition` prop has been removed. Use `tooltipProps.position` instead.
+
+**Before (v3):**
+
+```jsx
+<TextWithHighlight tooltipPosition="top" text="hello" highlightTerm="he" />
+```
+
+**After (v4):**
+
+```jsx
+<TextWithHighlight tooltipProps={{ position: "top" }} text="hello" highlightTerm="he" />
+```
+
+**Migration:** Replace `tooltipPosition="value"` with `tooltipProps={{ position: "value" }}`.
+
+**Codemod:** The v4 codemod automatically migrates `tooltipPosition` values to `tooltipProps.position`.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
