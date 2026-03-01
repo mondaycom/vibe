@@ -51,8 +51,10 @@ function transform({ j, root, filePath }: TransformationContext) {
         const existingTooltipProps = findProps(j, elementPath, "tooltipProps");
         const existingTooltipPropsAttr = existingTooltipProps.get().node;
 
-        if (existingTooltipPropsAttr.value?.type === "JSXExpressionContainer" &&
-            existingTooltipPropsAttr.value.expression?.type === "ObjectExpression") {
+        if (
+          existingTooltipPropsAttr.value?.type === "JSXExpressionContainer" &&
+          existingTooltipPropsAttr.value.expression?.type === "ObjectExpression"
+        ) {
           // Add position property to existing object
           const existingObject = existingTooltipPropsAttr.value.expression;
           const positionProperty = j.property("init", j.identifier("position"), positionValue);
@@ -60,15 +62,13 @@ function transform({ j, root, filePath }: TransformationContext) {
         } else {
           console.warn(
             `[MANUAL] ${filePath}: ${componentName} has both tooltipPosition and tooltipProps with complex structure. ` +
-            `Please manually merge tooltipPosition="${tooltipPositionValue}" into existing tooltipProps.`
+              `Please manually merge tooltipPosition="${tooltipPositionValue}" into existing tooltipProps.`
           );
         }
       } else {
         // Create new tooltipProps={{ position: value }}
         const tooltipPropsValue = j.jsxExpressionContainer(
-          j.objectExpression([
-            j.property("init", j.identifier("position"), positionValue)
-          ])
+          j.objectExpression([j.property("init", j.identifier("position"), positionValue)])
         );
 
         const tooltipPropAttr = j.jsxAttribute(j.jsxIdentifier("tooltipProps"), tooltipPropsValue);
