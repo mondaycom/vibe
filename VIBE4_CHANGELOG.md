@@ -29,6 +29,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### Components
 
+#### MenuButton
+
+- [x] **Status**: Done
+- **Change**: MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by default, so the first menu item is focused when the menu opens
+- **Reason**: Improves keyboard accessibility — opening a menu via MenuButton should focus the first item for immediate keyboard navigation
+- **Migration**: If you relied on no item being focused when MenuButton opens a Menu, explicitly pass `focusItemIndexOnMount={-1}` to your Menu child
+- **Codemod**: ❌ Manual (behavioral default change, not a prop rename)
+
 #### CustomSvgIcon
 
 - [x] **Status**: Done

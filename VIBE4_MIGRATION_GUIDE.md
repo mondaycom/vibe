@@ -63,6 +63,10 @@ Some changes require manual attention:
 
 ### Components
 
+#### MenuButton
+
+**First menu item focused by default** — MenuButton now passes `focusItemIndexOnMount={0}` to Menu children. Pass `focusItemIndexOnMount={-1}` on your Menu to restore old behavior.
+
 #### Clickable
 
 **Removed string types from `ariaHasPopup` and `tabIndex`**
@@ -250,6 +254,25 @@ npm run build
 ```
 
 ## Component-Specific Migration
+
+### MenuButton
+
+#### First menu item is now focused by default
+
+When a `MenuButton` opens a `Menu`, the first menu item is now automatically focused (`focusItemIndexOnMount={0}`). Previously, no item was focused on mount.
+
+This improves keyboard accessibility — users can immediately navigate menu items with arrow keys after opening the menu.
+
+**If you need the old behavior** (no item focused on mount), explicitly pass `focusItemIndexOnMount={-1}` to your Menu:
+
+```tsx
+<MenuButton>
+  <Menu focusItemIndexOnMount={-1}>
+    <MenuItem title="Option 1" />
+    <MenuItem title="Option 2" />
+  </Menu>
+</MenuButton>
+```
 
 ### CustomSvgIcon
 
