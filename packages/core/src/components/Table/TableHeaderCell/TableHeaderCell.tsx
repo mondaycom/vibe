@@ -94,7 +94,7 @@ const TableHeaderCell = forwardRef(
           )}
           {infoContent && (
             <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
-              <Icon icon={Info} label={infoContent} ariaHidden={false} />
+              <Icon icon={Info} label={infoContent} />
             </Tooltip>
           )}
         </Flex>

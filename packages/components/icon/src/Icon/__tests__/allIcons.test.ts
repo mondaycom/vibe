@@ -31,15 +31,6 @@ describe("getIconScreenReaderAccessProps", () => {
     });
   });
 
-  it("should return aria-hidden true when isDecorationOnly is true even with label", () => {
-    const props = getIconScreenReaderAccessProps({
-      isClickable: false,
-      isDecorationOnly: true,
-      label: "Icon Label"
-    });
-    expect(props["aria-hidden"]).toBe(true);
-  });
-
   it("should return correct props for non-clickable icon with label", () => {
     const props = getIconScreenReaderAccessProps({
       isClickable: false,
