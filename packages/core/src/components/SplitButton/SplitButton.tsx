@@ -208,13 +208,13 @@ const SplitButton = ({
 
   const animationEdgePosition = useMemo(() => {
     if (secondaryDialogPosition === "bottom") {
-      return "";
+      return undefined;
     }
     if (secondaryDialogPosition === "bottom-start") {
-      return "bottom";
+      return "bottom" as const;
     }
 
-    return "top";
+    return "top" as const;
   }, [secondaryDialogPosition]);
 
   return (
