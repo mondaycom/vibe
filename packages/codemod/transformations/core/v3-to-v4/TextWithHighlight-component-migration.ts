@@ -34,26 +34,37 @@ function transform({ j, root, filePath }: TransformationContext) {
       // Check if tooltipProps already exists
       const hasTooltipProps = isPropExists(j, elementPath, "tooltipProps");
 
+      // Handle different value types: string literals, expressions, etc.
+      const tooltipPositionAttr = tooltipPositionProps.get().node;
+
+      let positionValue;
+      if (tooltipPositionAttr.value?.type === "JSXExpressionContainer") {
+        // Use the expression directly (e.g., {pos} becomes pos)
+        positionValue = tooltipPositionAttr.value.expression;
+      } else {
+        // Use literal value (e.g., "top" stays "top")
+        positionValue = j.literal(String(tooltipPositionValue));
+      }
+
       if (hasTooltipProps) {
-        console.warn(
-          `[MANUAL] ${filePath}: ${componentName} has both tooltipPosition and tooltipProps. ` +
-          `Please manually merge tooltipPosition="${tooltipPositionValue}" into existing tooltipProps.`
-        );
+        // Merge position into existing tooltipProps
+        const existingTooltipProps = findProps(j, elementPath, "tooltipProps");
+        const existingTooltipPropsAttr = existingTooltipProps.get().node;
+
+        if (existingTooltipPropsAttr.value?.type === "JSXExpressionContainer" &&
+            existingTooltipPropsAttr.value.expression?.type === "ObjectExpression") {
+          // Add position property to existing object
+          const existingObject = existingTooltipPropsAttr.value.expression;
+          const positionProperty = j.property("init", j.identifier("position"), positionValue);
+          existingObject.properties.push(positionProperty);
+        } else {
+          console.warn(
+            `[MANUAL] ${filePath}: ${componentName} has both tooltipPosition and tooltipProps with complex structure. ` +
+            `Please manually merge tooltipPosition="${tooltipPositionValue}" into existing tooltipProps.`
+          );
+        }
       } else {
         // Create new tooltipProps={{ position: value }}
-        // Handle different value types: string literals, expressions, etc.
-        const tooltipPositionProps = findProps(j, elementPath, "tooltipPosition");
-        const tooltipPositionAttr = tooltipPositionProps.get().node;
-
-        let positionValue;
-        if (tooltipPositionAttr.value?.type === "JSXExpressionContainer") {
-          // Use the expression directly (e.g., {pos} becomes pos)
-          positionValue = tooltipPositionAttr.value.expression;
-        } else {
-          // Use literal value (e.g., "top" stays "top")
-          positionValue = j.literal(String(tooltipPositionValue));
-        }
-
         const tooltipPropsValue = j.jsxExpressionContainer(
           j.objectExpression([
             j.property("init", j.identifier("position"), positionValue)

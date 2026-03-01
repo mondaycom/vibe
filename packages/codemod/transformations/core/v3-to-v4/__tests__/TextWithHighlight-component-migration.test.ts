@@ -105,8 +105,54 @@ import { TextWithHighlight } from "@vibe/core";
     `,
     `
 import { TextWithHighlight } from "@vibe/core";
-<TextWithHighlight tooltipProps={{content: "test"}} text="hello" />
+<TextWithHighlight
+  tooltipProps={{
+    content: "test",
+    position: "top"
+  }}
+  text="hello" />
     `,
-    "should warn and remove tooltipPosition when tooltipProps exists (user must manually merge to: tooltipProps={{content: 'test', position: 'top'}})"
+    "should merge tooltipPosition into existing tooltipProps"
+  );
+
+  defineInlineTest(
+    { default: transform, parser: "tsx" },
+    {},
+    `
+import { TextWithHighlight } from "@vibe/core";
+<TextWithHighlight tooltipPosition="bottom" tooltipProps={{content: "test", showDelay: 100}} text="hello" />
+    `,
+    `
+import { TextWithHighlight } from "@vibe/core";
+<TextWithHighlight
+  tooltipProps={{
+    content: "test",
+    showDelay: 100,
+    position: "bottom"
+  }}
+  text="hello" />
+    `,
+    "should merge tooltipPosition into existing tooltipProps with multiple properties"
+  );
+
+  defineInlineTest(
+    { default: transform, parser: "tsx" },
+    {},
+    `
+import { TextWithHighlight } from "@vibe/core";
+const pos = "left";
+<TextWithHighlight tooltipPosition={pos} tooltipProps={{content: "dynamic"}} text="hello" />
+    `,
+    `
+import { TextWithHighlight } from "@vibe/core";
+const pos = "left";
+<TextWithHighlight
+  tooltipProps={{
+    content: "dynamic",
+    position: pos
+  }}
+  text="hello" />
+    `,
+    "should merge expression tooltipPosition into existing tooltipProps"
   );
 });
