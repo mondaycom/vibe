@@ -3,8 +3,7 @@ import { isFunction } from "es-toolkit";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
-import { type Modifier } from "react-popper";
-import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
+import { Dialog, type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
 import {
   type VibeComponentProps,
   type ElementContent,
@@ -109,6 +108,11 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
+   * Custom Floating UI middleware for positioning logic.
+   * @see https://floating-ui.com/docs/middleware
+   */
+  middleware?: DialogMiddleware[];
+  /**
    * Callback fired when the tooltip is hidden.
    */
   onTooltipHide?: () => void;
@@ -116,11 +120,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    * Callback fired when the tooltip is shown.
    */
   onTooltipShow?: () => void;
-  /**
-   * Custom Popper.js modifiers.
-   * https://popper.js.org/docs/v2/modifiers/
-   */
-  modifiers?: Array<Modifier<unknown>>;
   /**
    * The placement of the tooltip relative to the reference element.
    */
@@ -196,7 +195,6 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     withoutDialog: false,
     tip: true,
     hideWhenReferenceHidden: false,
-    modifiers: new Array<Modifier<unknown>>(),
     showTrigger: "mouseenter",
     hideTrigger: "mouseleave",
     showOnDialogEnter: true,

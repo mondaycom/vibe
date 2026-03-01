@@ -1,6 +1,6 @@
 import React from "react";
 import { Dialog } from "@vibe/dialog";
-import { matchWidthModifier } from "../../utils/dropdown-modifiers";
+import { matchWidthMiddleware } from "../../utils/dropdown-modifiers";
 import { useDropdownContext } from "../../context/DropdownContext";
 import Menu from "../Menu/Menu";
 import SingleSelectTrigger from "../Trigger/SingleSelectTrigger";
@@ -18,7 +18,7 @@ const DropdownPopup = () => {
       observeContentResize={true}
       showTrigger={[]}
       hideTrigger={[]}
-      modifiers={matchWidthModifier}
+      middleware={[matchWidthMiddleware]}
       content={<Menu />}
       referenceWrapperElement="div"
     >

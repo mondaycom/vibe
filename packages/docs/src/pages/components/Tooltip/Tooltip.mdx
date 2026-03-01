@@ -2,7 +2,7 @@ import { Tooltip, Icon, Button, TabList, Tab, Link, IconButton } from "@vibe/cor
 import { Canvas, Meta } from "@storybook/blocks";
 import { Bolt } from "@vibe/icons";
 import * as TooltipStories from "./Tooltip.stories";
-import { TipOtherComponents, modifiers } from "./Tooltip.stories.helpers";
+import { TipOtherComponents } from "./Tooltip.stories.helpers";
 import image from "./assets/tooltip-image.png";
 
 <Meta of={TooltipStories} />
@@ -89,7 +89,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
     {
       positive: {
         component: (
-          <Tooltip shouldShowOnMount content="Quick search + B" modifiers={modifiers}>
+          <Tooltip shouldShowOnMount content="Quick search + B">
             <IconButton kind="secondary" icon={Bolt} iconSize="32" />
           </Tooltip>
         ),
@@ -97,7 +97,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
       },
       negative: {
         component: (
-          <Tooltip shouldShowOnMount content="Quick search + B" modifiers={modifiers}>
+          <Tooltip shouldShowOnMount content="Quick search + B">
             <Button>Quick search</Button>
           </Tooltip>
         ),
@@ -117,7 +117,7 @@ Tooltip's arrow can appear from top, bottom, left or right.
       negative: {
         component: (
           <TabList>
-            <Tooltip shouldShowOnMount content="Boards" position="bottom" modifiers={modifiers}>
+            <Tooltip shouldShowOnMount content="Boards" position="bottom">
               <Tab>Boards</Tab>
             </Tooltip>
             <Tab>Items</Tab>
@@ -132,7 +132,6 @@ Tooltip's arrow can appear from top, bottom, left or right.
           <Tooltip
             shouldShowOnMount
             title="I'm a rich tooltip"
-            modifiers={modifiers}
             open
             content={
               <div>
@@ -150,7 +149,6 @@ Tooltip's arrow can appear from top, bottom, left or right.
           <Tooltip
             shouldShowOnMount
             title="I'm a rich tooltip"
-            modifiers={modifiers}
             open
             content={
               <div>
@@ -172,7 +170,6 @@ Tooltip's arrow can appear from top, bottom, left or right.
             shouldShowOnMount
             image={image}
             position="right"
-            modifiers={modifiers}
             open
           >
             <div style={{ position: "relative", left: "-25%" }} />
@@ -187,7 +184,6 @@ Tooltip's arrow can appear from top, bottom, left or right.
             shouldShowOnMount
             image={image}
             position="right"
-            modifiers={modifiers}
             open
           >
             <div style={{ position: "relative", left: "-25%" }} />

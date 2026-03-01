@@ -96,11 +96,19 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### Dialog
 
-- **Change**: Removed deprecated enum exports and static properties (`DialogTriggerEventEnum`, `DialogAnimationTypeEnum`, `DialogPositionEnum`, `DialogSizeEnum` and `Dialog.hideShowTriggers`, `Dialog.positions`, etc.)
-- **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size, improve TypeScript performance
-- **Migration**: Replace `Dialog.hideShowTriggers.ESCAPE_KEY` with `"esckey"`, `Dialog.positions.TOP` with `"top"`, etc.
-- **Codemod**: ✅ Available (`v3-to-v4/enums`)
-- **PR**: TBD
+- [x] **Status**: Done
+- **Change**: Replaced legacy class-based Dialog (react-popper/Popper.js) with new functional Dialog (@floating-ui/react-dom)
+  - Removed `modifiers` prop (Popper.js) — use `middleware` prop (Floating UI) instead
+  - Removed `usePopover` hook from `@vibe/dialog`
+  - Removed `modifiers` prop from `Tooltip` and `Tipseen` components
+  - Component rewritten as functional component (was class-based `PureComponent`)
+  - Positioning now uses Floating UI instead of Popper.js
+  - Removed dependencies: `react-popper`, `@popperjs/core`
+  - Added dependency: `@floating-ui/react-dom`
+  - Removed deprecated enum exports and static properties (`DialogTriggerEventEnum`, `DialogAnimationTypeEnum`, `DialogPositionEnum`, `DialogSizeEnum` and `Dialog.hideShowTriggers`, `Dialog.positions`, etc.)
+- **Reason**: Floating UI is the actively maintained successor to Popper.js, provides better positioning, middleware architecture, and smaller bundle size. Also simplifies API by removing dual ways to specify values.
+- **Migration**: Replace `modifiers` with `middleware` on Dialog. Remove `modifiers` from Tooltip/Tipseen usage. Replace `usePopover` with `useFloating` from `@floating-ui/react-dom`. Replace `Dialog.hideShowTriggers.ESCAPE_KEY` with `"esckey"`, `Dialog.positions.TOP` with `"top"`, etc.
+- **Codemod**: ❌ Manual (API differs between Popper.js modifiers and Floating UI middleware)
 
 #### Toast
 

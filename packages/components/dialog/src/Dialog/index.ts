@@ -1,3 +1,3 @@
-export { default as Dialog, type DialogProps } from "./Dialog";
-export { default as usePopover } from "./usePopover";
+export { default as Dialog } from "./Dialog";
+export { DialogPlacement as DialogPlacementEnum } from "./DialogConstants";
 export * from "./Dialog.types";

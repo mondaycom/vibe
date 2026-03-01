@@ -1,9 +1,13 @@
 import React from "react";
 import { Tooltip, type TooltipProps, Button, Flex, IconButton } from "@vibe/core";
 import { Hide, Menu, Subitems } from "@vibe/icons";
-import { modifiers } from "./Tooltip.stories.helpers";
+import { shift, flip } from "@floating-ui/react-dom";
 import image from "./assets/tooltip-image.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+
+// Middleware to prevent the tooltip from being displaced when the user scrolls the story.
+// Not needed in real implementations.
+const storyMiddleware = [shift({ mainAxis: false }), flip({ fallbackPlacements: [] })];
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Tooltip,
@@ -24,24 +28,8 @@ export const Overview = {
         id="overview-tooltip"
         {...args}
         open
+        middleware={storyMiddleware}
         hideWhenReferenceHidden
-        // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
-        // Therefore, there is no need to move this prop in your implementations.
-        modifiers={[
-          {
-            name: "preventOverflow",
-            options: {
-              mainAxis: false
-            }
-          },
-          {
-            name: "flip",
-            options: {
-              // @ts-ignore
-              fallbackPlacements: []
-            }
-          }
-        ]}
       >
         <div id="overview-tooltip-trigger" />
       </Tooltip>
@@ -67,24 +55,8 @@ export const TooltipWithTitle = () => (
       title="Tooltip title"
       shouldShowOnMount
       position="right"
+      middleware={storyMiddleware}
       hideWhenReferenceHidden
-      // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
-      // Therefore, there is no need to move this prop in your implementations.
-      modifiers={[
-        {
-          name: "preventOverflow",
-          options: {
-            mainAxis: false
-          }
-        },
-        {
-          name: "flip",
-          options: {
-            // @ts-ignore
-            fallbackPlacements: []
-          }
-        }
-      ]}
       open
     >
       <div id="tooltip-with-title-trigger" />
@@ -101,8 +73,8 @@ export const TooltipWithImage = () => (
       shouldShowOnMount
       image={image}
       position="right"
+      middleware={storyMiddleware}
       hideWhenReferenceHidden
-      modifiers={modifiers}
       style={{ minHeight: "135px" }}
       open
     >
@@ -113,33 +85,13 @@ export const TooltipWithImage = () => (
 
 export const Positions = {
   render: () => {
-    // The modifier's purpose is to prevent the tooltip from being displayed when the user scrolls the story upwards / downwards.
-    // Therefore, there is no need to move this prop in your implementations.
-    const modifiers = [
-      {
-        name: "preventOverflow",
-        options: {
-          mainAxis: false
-        }
-      },
-      {
-        name: "flip",
-        options: {
-          // @ts-ignore
-          fallbackPlacements: []
-        }
-      }
-    ];
-
     return (
       <Flex gap={16}>
         <div style={{ padding: "0 64px 68px 0", margin: "0 32px" }}>
-          {/* The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-         Therefore, there is no need to move this prop in your implementations. */}
           <Tooltip
             id="position-top-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Top"
             shouldShowOnMount
             position="bottom"
@@ -151,8 +103,8 @@ export const Positions = {
         <div style={{ padding: "50px 0 0 0", margin: "0 32px" }}>
           <Tooltip
             id="position-bottom-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Bottom"
             shouldShowOnMount
             open
@@ -163,8 +115,8 @@ export const Positions = {
         <div style={{ padding: "0 32px 8px 32px", margin: "0 32px" }}>
           <Tooltip
             id="position-left-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Left"
             position="right"
             shouldShowOnMount
@@ -176,8 +128,8 @@ export const Positions = {
         <div style={{ padding: "0 64px 8px 64px", margin: "0 64px" }}>
           <Tooltip
             id="position-right-tooltip"
+            middleware={storyMiddleware}
             hideWhenReferenceHidden
-            modifiers={modifiers}
             content="Right"
             position="left"
             shouldShowOnMount
