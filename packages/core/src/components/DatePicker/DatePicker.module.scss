@@ -1,285 +1,272 @@
-/* stylelint-disable selector-class-pattern, no-duplicate-selectors */
+@import "~monday-ui-style/dist/mixins";
 
-@mixin pseudo-circle {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  box-sizing: border-box;
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border-radius: 50%;
-}
-:global {
-  :local(.datepickerContainer) {
-    position: relative;
-    min-height: 302px;
-    table tbody {
-      border-spacing: 0;
-      border-collapse: collapse;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      box-shadow: none;
+.datePicker {
+  --day-picker-header-height: 34px;
+  --day-picker-content-height: 234px;
+  --day-picker-day-width: 30px;
+  --day-picker-day-height: 30px;
+  --day-picker-days-horizontal-gap: 4px;
+  --day-picker-days-vertical-gap: 2px;
+  --day-picker-day-change-range: var(--primary-surface-color);
+
+  .datePickerMonths {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-medium);
+    align-items: flex-start;
+  }
+
+  &.withWeekNumber {
+    --day-picker-days-horizontal-gap: 2px;
+    width: 284px;
+    margin: 0;
+
+    .datePickerHead {
+      td:first-child {
+        width: var(--day-picker-day-width);
+        border-top-left-radius: var(--border-radius-medium);
+        border-top-right-radius: var(--border-radius-medium);
+        background-color: var(--primary-background-hover-color);
+
+        &::after {
+          color: var(--secondary-text-color);
+          @include vibe-text(text2, normal);
+          display: flex;
+          justify-content: center;
+          content: "No.";
+        }
+      }
     }
+
+    .datePickerBody {
+      td:first-child {
+        background-color: var(--primary-background-hover-color);
+      }
+
+      tr:last-child td:first-child {
+        border-bottom-left-radius: var(--border-radius-medium);
+        border-bottom-right-radius: var(--border-radius-medium);
+      }
+    }
+  }
+
+  .datePickerTable {
+    margin-top: var(--spacing-small);
+    border-collapse: collapse;
+    height: var(--day-picker-content-height);
+  }
+
+  .datePickerHead {
+    th {
+      color: var(--secondary-text-color);
+      @include vibe-text(text2, normal);
+      padding-block: var(--space-2);
+      text-align: center;
+      height: var(--day-picker-day-height);
+    }
+  }
+  .datePickerBody {
     td {
-      border: none;
-    }
-    &:local(.monthYearSelection) {
-      table {
-        tbody {
-          opacity: 0;
-        }
-      }
-      .DayPicker_transitionContainer__horizontal {
-        transition: none;
-      }
-    }
-    .CalendarMonthGrid {
-      background-color: var(--secondary-background-color);
-    }
-    .CalendarMonth {
-      background-color: var(--secondary-background-color);
-    }
-    .DayPicker__horizontal {
-      background-color: var(--secondary-background-color);
-    }
-    .DayPicker {
-      box-shadow: none;
-      border: none;
-      border-radius: 0;
+      color: var(--secondary-text-color);
+      @include vibe-text(text2, normal);
+      text-align: center;
+      padding: 0;
     }
 
-    .CalendarDay__default {
-      border: none;
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--primary-text-on-secondary-color);
-      background-color: var(--secondary-background-color);
-      border-top: 1px solid var(--secondary-background-color);
-      border-bottom: 1px solid var(--secondary-background-color);
-      z-index: 1;
-      position: relative;
-
-      &:hover {
-        background: none;
-        border: none;
-        border-top: 1px solid var(--secondary-background-color);
-        border-bottom: 1px solid var(--secondary-background-color);
-        &::before {
-          @include pseudo-circle;
-          border: none;
-          background-color: var(--primary-background-hover-color);
-        }
-      }
-      &.CalendarDay__selected {
-        color: var(--text-color-on-primary);
-        &::before {
-          @include pseudo-circle;
-          border: none;
-
-          background: var(--primary-color);
-          &:hover {
-            color: var(--text-color-on-primary);
-            background: var(--primary-color);
-          }
-        }
-      }
-    }
-    .CalendarMonth_caption {
-      color: var(--primary-text-on-secondary-color);
-    }
-
-    .CalendarDay__today {
-      &::before {
-        @include pseudo-circle;
-        border: 1px solid var(--primary-color);
-      }
-      &:hover {
-        &::before {
-          border: 1px solid var(--primary-color);
-        }
-      }
-    }
-    .CalendarDay__blocked_calendar,
-    .CalendarDay__blocked_calendar:active,
-    .CalendarDay__blocked_calendar:hover {
-      background-color: var(--secondary-background-color);
+    .datePickerDay {
       color: var(--primary-text-color);
-      opacity: 0.2;
-      pointer-events: none;
-    }
-    .DayPicker_weekHeader_li {
-      small {
-        font-size: 12px;
-        color: var(--secondary-text-on-secondary-color);
-        font-weight: 300;
-        cursor: default;
-      }
-    }
-    .DayPickerNavigation_rightButton__horizontal {
-      right: 22px;
-    }
+      @include vibe-text(text2, normal);
+      width: var(--day-picker-day-width);
+      height: var(--day-picker-day-height);
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--border-radius-small);
+      margin: var(--day-picker-days-vertical-gap) var(--day-picker-days-horizontal-gap);
+      padding: 0;
 
-    .DayPickerNavigation {
-      .DayPickerNavigation_button:nth-child(1) {
-        left: 12px;
-      }
-      .DayPickerNavigation_button:nth-child(2) {
-        right: 12px;
-      }
-    }
-
-    .DayPickerNavigation_button__horizontal {
-      position: absolute;
-      top: 15px;
-      line-height: 0.78;
-      border-radius: 3px;
-      padding: 6px 9px;
-    }
-
-    // range picker
-    &:local(.rangePickerMode) {
-      .CalendarDay__selected {
-        &.CalendarDay__selected_start {
-          border-radius: 0;
-          background: linear-gradient(90deg, var(--secondary-background-color) 50%, var(--primary-selected-color) 50%);
-          z-index: 1;
-          position: relative;
-          &:hover {
-            background: linear-gradient(
-              90deg,
-              var(--secondary-background-color) 50%,
-              var(--primary-selected-color) 50%
-            );
-          }
-          &::before {
-            @include pseudo-circle;
-            background-color: var(--primary-color);
-          }
-        }
-      }
-      .CalendarDay__selected {
-        &.CalendarDay__selected_end {
-          border-radius: 0;
-          background: linear-gradient(90deg, var(--primary-selected-color) 50%, var(--secondary-background-color) 50%);
-          z-index: 1;
-          position: relative;
-          &:hover {
-            background: linear-gradient(
-              90deg,
-              var(--primary-selected-color) 50%,
-              var(--secondary-background-color) 50%
-            );
-          }
-          &::before {
-            @include pseudo-circle;
-            background-color: var(--primary-color);
-          }
-        }
-      }
-
-      .CalendarDay__hovered_span,
-      .CalendarDay__hovered_span:hover {
-        border-radius: 0;
-        color: var(--primary-text-color);
-        background: var(--primary-selected-color);
-        &:hover {
-          &::before {
-            border-radius: 0;
-            background: var(--primary-selected-color);
-          }
-        }
-      }
-      .CalendarDay__selected_span {
-        background: var(--primary-selected-color);
-        &:hover {
-          color: var(--primary-text-color);
-        }
-        &.CalendarDay__today {
-          &::before {
-            border-radius: 0;
-          }
-        }
-        &:hover {
-          &::before {
-            border-radius: 0;
-          }
-        }
-      }
-
-      &.range-single-date-selected {
-        .CalendarDay__hovered_span {
-          background: var(--primary-background-hover-color);
-          &.CalendarDay__today {
-            &::before {
-              border-radius: 0;
-            }
-          }
-          &:hover {
-            &::before {
-              background: var(--primary-background-hover-color);
-            }
-          }
-        }
-      }
-    }
-
-    //show number of week
-    &:local(.withWeekNumber) {
-      .CalendarDay :local(.calendarDayWeekNumber) {
-        color: #b1b1b8bf;
-        pointer-events: none;
-        visibility: visible;
-        display: none;
-        align-items: center;
+      .datePickerDayContent {
+        display: flex;
         justify-content: center;
-        position: absolute;
-        top: -1px;
-        font-size: 14px;
-        width: 40px;
-        height: 37px;
-        left: 0px;
-        transform: translateX(-100%);
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--border-radius-small);
       }
-      .CalendarMonthGrid_month__horizontal:not(.CalendarMonthGrid_month__hidden) {
-        tr {
-          & > td.CalendarDay :local(.calendarDayWeekNumber) {
-            display: flex;
-          }
 
-          & > td.CalendarDay ~ td.CalendarDay :local(.calendarDayWeekNumber) {
-            display: none;
-          }
+      &:focus-visible {
+        outline: none;
+        .datePickerDayContent {
+          outline: 2px solid var(--primary-color);
         }
       }
 
-      .DayPicker_weekHeader:before {
-        content: "Wk";
-        position: absolute;
-        font-size: 12px;
-        width: 40px;
-        top: 3px;
-        left: -28px;
-        height: 24px;
-      }
-      padding: 0 4px 0 8px;
-      .DayPicker__horizontal {
-        margin: 4px;
+      &.datePickerDayDisabled {
+        color: var(--disabled-text-color);
+        cursor: not-allowed;
       }
 
-      .CalendarMonthGrid_month__horizontal:not(.CalendarMonthGrid_month__hidden) {
-        margin-left: 17px;
+      &:not(.datePickerDayDisabled):not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd):not(
+          .datePickerAddToRangeMiddle
+        ):not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd)
+        .datePickerDayContent:hover {
+        background: var(--primary-background-hover-color);
       }
-      .DayPicker_weekHeader {
-        padding: 0 !important; //override inline style
-        left: 30px !important; //override inline style
+
+      &.datePickerDayOutside {
+        color: var(--disabled-text-color);
       }
-      .CalendarMonth_caption {
-        margin-right: 20px;
+
+      &.datePickerDaySelected:not(.datePickerDayRangeMiddle):not(.datePickerRemoveFromRange) {
+        background: var(--primary-color);
+        color: var(--text-color-on-primary);
+      }
+
+      &.datePickerDayRangeStart:not(.datePickerDayRangeEnd):not(.datePickerRemoveFromRange),
+      &.datePickerDayRangeEnd:not(.datePickerDayRangeStart):not(.datePickerRemoveFromRange) {
+        background: var(--primary-color);
+        width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
+      }
+
+      &.datePickerDayRangeStart.datePickerRemoveFromRange,
+      &.datePickerDayRangeEnd.datePickerRemoveFromRange {
+        background: var(--primary-color);
+        color: var(--text-color-on-primary);
+      }
+
+      &.datePickerDayRangeStart.datePickerRemoveFromRange:not(.datePickerDayRangeEnd),
+      &.datePickerDayRangeEnd.datePickerRemoveFromRange:not(.datePickerDayRangeStart) {
+        width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
+      }
+
+      &.datePickerAddToRangeStart,
+      &.datePickerDayRangeStart:not(.datePickerDayRangeEnd) {
+        margin-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &.datePickerAddToRangeEnd,
+      &.datePickerDayRangeEnd:not(.datePickerDayRangeStart) {
+        margin-left: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &.datePickerAddToRangeStart,
+      &.datePickerAddToRangeEnd,
+      &.datePickerAddToRangeMiddle {
+        margin: var(--day-picker-days-vertical-gap) 0;
+      }
+
+      &.datePickerAddToRangeStart:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeMiddle,
+      &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd) {
+        background-color: var(--primary-selected-color);
+        border: var(--day-picker-days-horizontal-gap) var(--border-style) var(--primary-selected-color);
+        border-top: none;
+        border-bottom: none;
+        width: calc(var(--day-picker-day-width) + 2 * var(--day-picker-days-horizontal-gap));
+      }
+
+      &.datePickerAddToRangeMiddle,
+      &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd) {
+        background: var(--primary-selected-color);
+        margin: var(--day-picker-days-vertical-gap) 0;
+        border-radius: 0;
+      }
+
+      &.datePickerRemoveFromRange:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeStart:not(.datePickerDayRangeMiddle):not(.datePickerDayRangeEnd),
+      &.datePickerAddToRangeEnd:not(.datePickerDayRangeMiddle):not(.datePickerDayRangeStart),
+      &.datePickerAddToRangeMiddle {
+        background: var(--day-picker-day-change-range);
+        border-color: var(--day-picker-day-change-range);
+      }
+    }
+
+    tr {
+      td:first-child .datePickerDay {
+        &.datePickerDayRangeMiddle,
+        &.datePickerAddToRangeStart:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+        &.datePickerAddToRangeMiddle,
+        &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd) {
+          border: none;
+          width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
+          margin-left: var(--day-picker-days-horizontal-gap);
+          border-right: var(--day-picker-days-horizontal-gap) solid var(--primary-selected-color);
+          border-top-left-radius: var(--border-radius-small);
+          border-bottom-left-radius: var(--border-radius-small);
+        }
+
+        &.datePickerRemoveFromRange {
+          border-color: var(--day-picker-day-change-range);
+        }
+
+        &.datePickerAddToRangeEnd,
+        &.datePickerDayRangeEnd:not(.datePickerDayRangeStart) {
+          margin-right: 0;
+        }
+      }
+
+      td:last-child .datePickerDay {
+        &.datePickerDayRangeMiddle,
+        &.datePickerAddToRangeStart:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
+        &.datePickerAddToRangeMiddle,
+        &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd) {
+          border: none;
+          width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
+          margin-right: var(--day-picker-days-horizontal-gap);
+          border-left: var(--day-picker-days-horizontal-gap) solid var(--primary-selected-color);
+          border-top-right-radius: var(--border-radius-small);
+          border-bottom-right-radius: var(--border-radius-small);
+        }
+
+        &.datePickerRemoveFromRange {
+          border-color: var(--day-picker-day-change-range);
+        }
+
+        &.datePickerAddToRangeStart,
+        &.datePickerDayRangeStart:not(.datePickerDayRangeEnd) {
+          margin-left: 0;
+        }
+      }
+
+      td:first-child .datePickerDay,
+      td:last-child .datePickerDay {
+        &.datePickerAddToRangeStart:not(.datePickerDayRangeMiddle),
+        &.datePickerAddToRangeMiddle,
+        &.datePickerAddToRangeEnd:not(.datePickerDayRangeMiddle) {
+          border-color: var(--day-picker-day-change-range);
+        }
+
+        &.datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
+          border-left-width: 0;
+        }
+        &.datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
+          border-right-width: 0;
+        }
+      }
+    }
+
+    .datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
+      border-radius: var(--border-radius-small) !important;
+      border-color: var(--primary-color) !important;
+      background-color: var(--primary-color) !important;
+
+      &:not(.datePickerHalfRangeSelected) {
+        margin-left: calc(var(--day-picker-days-horizontal-gap) * -1);
+      }
+    }
+
+    .datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
+      border-radius: var(--border-radius-small) !important;
+      border-color: var(--primary-color) !important;
+      background-color: var(--primary-color) !important;
+
+      &:not(.datePickerHalfRangeSelected) {
+        margin-right: calc(var(--day-picker-days-horizontal-gap) * -1);
       }
     }
   }

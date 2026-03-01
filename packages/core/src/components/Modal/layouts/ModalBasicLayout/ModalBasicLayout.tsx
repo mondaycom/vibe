@@ -26,7 +26,7 @@ const ModalBasicLayout = forwardRef(
           ref={ref}
           className={cx(styles.layout, className)}
           id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_BASIC_LAYOUT, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_BASIC_LAYOUT, id)}
         >
           <div className={styles.header}>{header}</div>
           <Divider className={cx(styles.divider, { [styles.showDivider]: isContentScrolled })} withoutMargin />

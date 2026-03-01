@@ -5,7 +5,7 @@ import { Icon } from "@vibe/core";
 
 export const IconDescription = () => {
   const component = useMemo(() => {
-    return <Icon icon={Bolt} iconSize={36} />;
+    return <Icon icon={Bolt} size={36} />;
   }, []);
 
   return (

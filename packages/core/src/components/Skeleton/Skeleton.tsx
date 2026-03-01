@@ -2,16 +2,10 @@ import React from "react";
 import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import {
-  SKELETON_SIZES,
-  SkeletonType as SkeletonTypeEnum,
-  SKELETON_CUSTOM_SIZE,
-  TextSkeletonSize as TextSkeletonSizeEnum
-} from "./SkeletonConstants";
-
+import { SKELETON_CUSTOM_SIZE } from "./SkeletonConstants";
 import { type SkeletonType, type SkeletonSizeType } from "./Skelton.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {
@@ -52,10 +46,10 @@ const Skeleton = ({
   id,
   "data-testid": dataTestId
 }: SkeletonProps) => {
-  const skeletonType = (Object.values(SkeletonTypeEnum) as string[]).includes(type) ? type : "rectangle";
+  const skeletonType = type || "rectangle";
 
   // Skeleton has sizes only for text type, other types support only custom size
-  const skeletonSize = (Object.values(TextSkeletonSizeEnum) as string[]).includes(size) ? size : SKELETON_CUSTOM_SIZE;
+  const skeletonSize = size || SKELETON_CUSTOM_SIZE;
 
   return (
     <div
@@ -73,12 +67,4 @@ const Skeleton = ({
   );
 };
 
-interface SkeletonStaticProps {
-  types: typeof SkeletonTypeEnum;
-  sizes: typeof SKELETON_SIZES;
-}
-
-export default withStaticPropsWithoutForwardRef<SkeletonProps, SkeletonStaticProps>(Skeleton, {
-  types: SkeletonTypeEnum,
-  sizes: SKELETON_SIZES
-});
+export default Skeleton;

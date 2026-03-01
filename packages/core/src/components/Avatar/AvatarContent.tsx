@@ -3,10 +3,9 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React from "react";
-import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import { Icon, type SubIcon } from "@vibe/icon";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {
@@ -101,12 +100,4 @@ const AvatarContent = ({
   }
 };
 
-interface AvatarContentStaticProps {
-  sizes: typeof AvatarSizeEnum;
-  types: typeof AvatarTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<AvatarContentProps, AvatarContentStaticProps>(AvatarContent, {
-  sizes: AvatarSizeEnum,
-  types: AvatarTypeEnum
-});
+export default AvatarContent;
