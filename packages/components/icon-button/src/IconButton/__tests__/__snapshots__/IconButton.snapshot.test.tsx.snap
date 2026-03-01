@@ -4,6 +4,7 @@ exports[`IconButton renders correctly > with 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="class-name button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -21,6 +22,7 @@ exports[`IconButton renders correctly > with 1`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -47,6 +49,7 @@ exports[`IconButton renders correctly > with active 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary colorPrimaryActive undefined noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -64,6 +67,7 @@ exports[`IconButton renders correctly > with active 1`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -101,6 +105,7 @@ exports[`IconButton renders correctly > with aria label 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-hidden={true}
     aria-label="My aria label"
     className="button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="icon-button"
@@ -119,6 +124,7 @@ exports[`IconButton renders correctly > with aria label 1`] = `
         "width": "40px",
       }
     }
+    tabIndex={-1}
     type="button"
   >
     <svg
@@ -146,6 +152,7 @@ exports[`IconButton renders correctly > with disabled 1`] = `
 <button
   aria-busy={false}
   aria-disabled={true}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding disabled"
   data-testid="icon-button"
   data-vibe="Button"
@@ -190,6 +197,7 @@ exports[`IconButton renders correctly > with empty props 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -207,6 +215,7 @@ exports[`IconButton renders correctly > with empty props 1`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -233,6 +242,7 @@ exports[`IconButton renders correctly > with id 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button_icon-button"
   data-vibe="Button"
@@ -251,6 +261,7 @@ exports[`IconButton renders correctly > with id 1`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -277,6 +288,7 @@ exports[`IconButton renders correctly > with size - large 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -294,6 +306,7 @@ exports[`IconButton renders correctly > with size - large 1`] = `
       "width": "48px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -320,6 +333,7 @@ exports[`IconButton renders correctly > with size - medium 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -337,6 +351,7 @@ exports[`IconButton renders correctly > with size - medium 1`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -363,6 +378,7 @@ exports[`IconButton renders correctly > with size - medium 2`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -380,6 +396,7 @@ exports[`IconButton renders correctly > with size - medium 2`] = `
       "width": "40px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -406,6 +423,7 @@ exports[`IconButton renders correctly > with size - small 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -423,6 +441,7 @@ exports[`IconButton renders correctly > with size - small 1`] = `
       "width": "32px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -449,6 +468,7 @@ exports[`IconButton renders correctly > with size - xs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -466,6 +486,7 @@ exports[`IconButton renders correctly > with size - xs 1`] = `
       "width": "24px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -492,6 +513,7 @@ exports[`IconButton renders correctly > with size - xs 2`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -509,6 +531,7 @@ exports[`IconButton renders correctly > with size - xs 2`] = `
       "width": "24px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg
@@ -535,6 +558,7 @@ exports[`IconButton renders correctly > with size - xxs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-hidden={true}
   className="button sizeMedium kindTertiary colorPrimary noSidePadding"
   data-testid="icon-button"
   data-vibe="Button"
@@ -552,6 +576,7 @@ exports[`IconButton renders correctly > with size - xxs 1`] = `
       "width": "16px",
     }
   }
+  tabIndex={-1}
   type="button"
 >
   <svg

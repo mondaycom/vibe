@@ -132,7 +132,7 @@ const IconButton = forwardRef(
       ariaExpanded,
       ariaControls,
       "aria-describedby": ariaDescribedBy,
-      "aria-hidden": ariaHidden,
+      "aria-hidden": ariaHidden = true,
       "aria-pressed": ariaPressed,
       hideTooltip = false,
       kind = "tertiary",

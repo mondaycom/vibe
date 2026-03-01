@@ -63,6 +63,10 @@ Some changes require manual attention:
 
 ### Components
 
+#### IconButton
+
+**`aria-hidden` now defaults to `true`** — IconButton is hidden from assistive technologies by default. Pass `aria-hidden={false}` if your IconButton needs to be visible to screen readers.
+
 #### Clickable
 
 **Removed string types from `ariaHasPopup` and `tabIndex`**
@@ -250,6 +254,20 @@ npm run build
 ```
 
 ## Component-Specific Migration
+
+### IconButton
+
+#### `aria-hidden` defaults to `true`
+
+`IconButton` now sets `aria-hidden={true}` by default. Previously, no `aria-hidden` attribute was set.
+
+This is correct for most use cases — icon buttons are decorative and rely on `ariaLabel` for screen reader context.
+
+**If your IconButton needs to be visible to assistive technologies**, explicitly pass `aria-hidden={false}`:
+
+```tsx
+<IconButton icon={MyIcon} ariaLabel="Settings" aria-hidden={false} />
+```
 
 ### CustomSvgIcon
 
