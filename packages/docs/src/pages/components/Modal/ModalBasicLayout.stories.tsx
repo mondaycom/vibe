@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { TransitionView, useWizard, Checkbox, IconButton, Button, Text, Link, Flex } from "@vibe/core";
-import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard } from "@vibe/core/next";
+import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard } from "@vibe/core";
 import { Menu } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";
@@ -13,7 +13,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Modal [New]/Basic modal",
+  title: "Components/Modal/Basic modal",
   component: Modal,
   subcomponents: { ModalBasicLayout, ModalHeader, ModalContent, ModalFooter, ModalFooterWizard, TransitionView },
   argTypes: metaSettings.argTypes,

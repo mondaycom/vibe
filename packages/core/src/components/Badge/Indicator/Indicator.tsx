@@ -1,10 +1,9 @@
 import React from "react";
 import cx from "classnames";
 import styles from "./Indicator.module.scss";
-import { IndicatorColor as IndicatorColorEnum } from "./IndicatorConstants";
 import { type IndicatorColor } from "./Indicator.types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 
 export interface IndicatorProps extends VibeComponentProps {
@@ -23,10 +22,4 @@ const Indicator = ({ color = "notification", className, id, "data-testid": dataT
   );
 };
 
-interface IndicatorStaticProps {
-  colors: typeof IndicatorColorEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<IndicatorProps, IndicatorStaticProps>(Indicator, {
-  colors: IndicatorColorEnum
-});
+export default Indicator;

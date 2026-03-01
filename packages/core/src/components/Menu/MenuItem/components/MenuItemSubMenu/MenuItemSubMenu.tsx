@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from "react";
 import { DialogContentContainer } from "@vibe/dialog";
-import { usePopover, DialogPlacementEnum as Placement } from "@vibe/dialog";
+import { usePopover } from "@vibe/dialog";
 import { type MenuChild } from "../../../Menu/MenuConstants";
 import { type MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
 import { useIsomorphicLayoutEffect } from "@vibe/shared";
@@ -27,7 +27,7 @@ const MenuItemSubMenu = ({
   }, [autoFocusOnMount, open]);
 
   const submenuPlacement = useMemo(
-    () => (submenuPosition === "left" ? Placement.LEFT_START : undefined),
+    () => (submenuPosition === "left" ? "left-start" : "right-start"),
     [submenuPosition]
   );
 
@@ -36,7 +36,7 @@ const MenuItemSubMenu = ({
     popperElementRef?.current,
     {
       isOpen: open,
-      placement: submenuPlacement,
+      placement: submenuPlacement as any, // TODO: fix type with DialogPlacement
       observeContentResize: autoAdjustOnSubMenuContentResize
     }
   );

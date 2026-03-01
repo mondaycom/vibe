@@ -20,7 +20,7 @@ const ModalMediaLayout = forwardRef(
         align="start"
         className={cx(styles.layout, className)}
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA_LAYOUT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_MEDIA_LAYOUT, id)}
       >
         <div className={styles.media}>{media}</div>
         <div className={styles.header}>{header}</div>

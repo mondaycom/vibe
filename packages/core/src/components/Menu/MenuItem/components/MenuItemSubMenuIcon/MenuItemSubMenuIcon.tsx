@@ -28,10 +28,10 @@ const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: Re
     ) : (
       <Icon
         icon={DropdownChevronRight}
-        iconLabel={props.label}
+        label={props.label}
         className={cx(styles.subMenuIcon, { [styles.disabled]: props.disabled })}
         ignoreFocusStyle
-        iconSize={18}
+        size={18}
       />
     )}
   </Flex>

@@ -5,12 +5,7 @@ import { Tooltip } from "@vibe/tooltip";
 import { useIsOverflowing } from "@vibe/hooks";
 import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
-import { withStaticPropsWithoutForwardRef } from "../../../../types";
-import {
-  ComboboxOptionIconType as ComboboxOptionIconTypeEnum,
-  type IComboboxOption,
-  type IComboboxOptionEvents
-} from "../ComboboxConstants";
+import { type IComboboxOption, type IComboboxOptionEvents } from "../ComboboxConstants";
 import { type ComboboxOptionIconType } from "../../Combobox.types";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
@@ -117,9 +112,9 @@ const ComboboxOption = ({
     return (
       <Icon
         className={cx(styles.optionIcon, className)}
-        iconType="font"
+        type="font"
         icon={icon as SubIcon}
-        iconSize={iconSize}
+        size={iconSize}
         ignoreFocusStyle
       />
     );
@@ -201,10 +196,4 @@ const ComboboxOption = ({
   );
 };
 
-interface ComboboxOptionStaticProps {
-  iconTypes: typeof ComboboxOptionIconTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<ComboboxOptionProps, ComboboxOptionStaticProps>(ComboboxOption, {
-  iconTypes: ComboboxOptionIconTypeEnum
-});
+export default ComboboxOption;

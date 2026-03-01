@@ -55,7 +55,7 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
     <Icon
       icon={fulfilledStepIcon}
       className={classNames(styles.numberContainerTextCheckIcon)}
-      iconType={fulfilledStepIconType}
+      type={fulfilledStepIconType}
       ignoreFocusStyle
       ariaHidden={true}
     />
@@ -203,7 +203,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   return (
     <Clickable
-      tabIndex="-1"
+      tabIndex={-1}
       elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [styles.withAnimation]: statusChangeAnimationState,

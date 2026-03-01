@@ -21,7 +21,7 @@ const ModalTopActions = ({ renderAction, theme, closeButtonAriaLabel, onClose }:
     <div className={styles.actions} data-no-autofocus={true}>
       {typeof renderAction === "function" ? renderAction(buttonColor) : renderAction}
       <IconButton
-        data-testid={ComponentDefaultTestId.MODAL_NEXT_CLOSE_BUTTON}
+        data-testid={ComponentDefaultTestId.MODAL_CLOSE_BUTTON}
         icon={CloseMedium}
         onClick={onClose}
         size="small"

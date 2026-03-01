@@ -5,8 +5,7 @@ import person1 from "../Avatar/assets/person1.png";
 import person3 from "../Avatar/assets/person3.png";
 import person2 from "../Avatar/assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
-import { Dropdown, type BaseDropdownProps, type DropdownOption } from "@vibe/core/next";
-import { Flex, Text } from "@vibe/core";
+import { Dropdown, type BaseDropdownProps, type DropdownOption, Flex, Text } from "@vibe/core";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
@@ -29,7 +28,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 const meta: Meta<typeof Dropdown> = {
-  title: "Components/Dropdown [New]/Basic dropdown",
+  title: "Components/Dropdown/Basic dropdown",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
