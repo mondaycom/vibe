@@ -444,6 +444,34 @@ import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 
 <!-- Will be populated when Dialog breaking changes are identified -->
 
+### Steps
+
+#### Finish button is now shown by default on the last step
+
+The Steps component now always displays a "Finish" button on the last step, replacing the "Next" button. Previously, the finish button only appeared when `onFinish` was provided.
+
+**Before (v3):**
+
+```jsx
+// Finish button only shown when onFinish is provided
+<Steps steps={steps} onFinish={() => handleFinish()} />
+
+// Without onFinish, last step showed "Next" button (disabled)
+<Steps steps={steps} />
+```
+
+**After (v4):**
+
+```jsx
+// Finish button always shown on last step
+<Steps steps={steps} onFinish={() => handleFinish()} />
+
+// Finish button still shown even without onFinish
+<Steps steps={steps} />
+```
+
+**Migration:** No code changes required. If you want to customize the finish button, use `finishButtonProps`.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
