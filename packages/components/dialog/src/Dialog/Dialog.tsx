@@ -90,6 +90,9 @@ function Dialog({
   const containerRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
 
+  // Check if children are valid React elements (Refable returns null for non-elements)
+  const hasValidChildren = React.Children.toArray(children).some(child => React.isValidElement(child));
+
   const { layerRef } = useContext(LayerContext);
 
   // Derived state
@@ -458,9 +461,13 @@ function Dialog({
     };
   }, [middlewareData.arrow]);
 
+  // Skip Floating UI positioning when no children (e.g. floating Tipseen) — let CSS handle it
   const finalFloatingStyles = useMemo<React.CSSProperties>(
-    () => ({ ...floatingStyles, ...(zIndex !== undefined && { zIndex }) }),
-    [floatingStyles, zIndex]
+    () =>
+      hasValidChildren
+        ? { ...floatingStyles, ...(zIndex !== undefined && { zIndex }) }
+        : { ...(zIndex !== undefined && { zIndex }) },
+    [floatingStyles, zIndex, hasValidChildren]
   );
 
   const animationTypeCalculated = preventAnimationOnMount || preventAnimation ? undefined : animationType;
@@ -506,9 +513,6 @@ function Dialog({
       )}
     </DialogContent>
   );
-
-  // Check if children are valid React elements (Refable returns null for non-elements)
-  const hasValidChildren = React.Children.toArray(children).some(child => React.isValidElement(child));
 
   return (
     <>
