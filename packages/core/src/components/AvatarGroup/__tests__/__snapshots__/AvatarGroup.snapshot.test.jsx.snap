@@ -20,7 +20,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter 1`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -110,7 +110,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter ariaLabe
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -209,7 +209,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter default-
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -307,7 +307,7 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter t
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -397,7 +397,7 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter v
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -433,7 +433,7 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter v
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -477,7 +477,7 @@ exports[`AvatarGroup renders correctly > renders correctly with dummy class name
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -521,7 +521,7 @@ exports[`AvatarGroup renders correctly > renders correctly with large size 1`] =
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -611,7 +611,7 @@ exports[`AvatarGroup renders correctly > renders correctly with xs size 1`] = `
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -701,7 +701,7 @@ exports[`AvatarGroup renders correctly > renders correctly without counter 1`] =
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
@@ -737,7 +737,7 @@ exports[`AvatarGroup renders correctly > renders correctly without counter 1`] =
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       role="button"
-      tabIndex="-1"
+      tabIndex={-1}
     >
       <div
         aria-hidden={false}
