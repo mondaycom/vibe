@@ -5,11 +5,10 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
 import { type SubIcon } from "@vibe/icon";
-import { type ButtonType as ButtonTypeEnum, type ButtonValue } from "./ButtonGroupConstants";
+import { type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import { type SIZES } from "../../constants";
-import { Button, type ButtonType, type ButtonSize } from "@vibe/button";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type ButtonType, type ButtonSize } from "@vibe/button";
+import { type VibeComponentProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
@@ -111,7 +110,7 @@ const ButtonGroup = forwardRef(
       tooltipShowDelay,
       tooltipContainerSelector,
       tooltipMoveBy,
-      blurOnMouseUp = false,
+      blurOnMouseUp = true,
       id,
       "data-testid": dataTestId,
       fullWidth = false
@@ -234,12 +233,4 @@ const ButtonGroup = forwardRef(
   }
 );
 
-interface ButtonGroupStaticProps {
-  sizes: typeof SIZES;
-  kinds: typeof ButtonTypeEnum;
-}
-
-export default withStaticProps<ButtonGroupProps, ButtonGroupStaticProps>(ButtonGroup, {
-  sizes: Button.sizes,
-  kinds: Button.kinds
-});
+export default ButtonGroup;
