@@ -306,6 +306,33 @@ The `"stretch"` value has been removed from the `FlexJustify` type. `justify-con
 npx @vibe/codemod --migration v4
 ```
 
+### LinearProgressBar (renamed to ProgressBar)
+
+#### Component renamed from `LinearProgressBar` to `ProgressBar`
+
+The `LinearProgressBar` component has been renamed to `ProgressBar` for simplicity. All associated types have been renamed accordingly. Deprecated enum exports have been removed.
+
+**Before (v3):**
+```tsx
+import { LinearProgressBar, type LinearProgressBarProps } from "@vibe/core";
+
+<LinearProgressBar value={50} barStyle="positive" size="large" />
+```
+
+**After (v4):**
+```tsx
+import { ProgressBar, type ProgressBarProps } from "@vibe/core";
+
+<ProgressBar value={50} barStyle="positive" size="large" />
+```
+
+**Type renames:**
+- `LinearProgressBarProps` → `ProgressBarProps`
+- `LinearProgressBarStyle` → `ProgressBarStyle`
+- `LinearProgressBarSize` → `ProgressBarSize`
+
+**Codemod available:** This change is handled automatically by `npx @vibe/codemod --migration v4`
+
 ### Dropdown
 
 #### Old Dropdown removed, replaced with new implementation

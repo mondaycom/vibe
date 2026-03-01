@@ -304,11 +304,11 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### LinearProgressBar
 
-- **Change**: Removed deprecated enum exports for size and color enums (`LinearProgressBarConstants.ts` file deleted)
-- **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
-- **Migration**: Replace enum usage with string literals for progress bar size and color properties
-- **Codemod**: ✅ Available (`v3-to-v4/enums`)
-- **PR**: TBD
+- **Change**: Renamed `LinearProgressBar` to `ProgressBar`. Removed deprecated enum exports (`LinearProgressBarConstants.ts` file deleted). Types renamed: `LinearProgressBarProps` → `ProgressBarProps`, `LinearProgressBarStyle` → `ProgressBarStyle`, `LinearProgressBarSize` → `ProgressBarSize`.
+- **Reason**: Simplify naming (the "Linear" prefix was redundant) and remove deprecated enums in favor of string literals
+- **Migration**: Rename component and type imports from `LinearProgressBar*` to `ProgressBar*`. Replace any enum usage with string literals.
+- **Codemod**: ✅ Available (`v3-to-v4/LinearProgressBar-component-migration` for rename, `v3-to-v4/enums` for enum removal)
+- **PR**: #3272
 
 #### TabPanels
 
