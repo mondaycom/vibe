@@ -159,7 +159,7 @@ exports[`Skeleton renders correctly > renders correctly when text > with H1 size
   data-testid="skeleton"
 >
   <div
-    className="text textCustom"
+    className="text textH1"
     style={
       {
         "height": undefined,
@@ -176,7 +176,7 @@ exports[`Skeleton renders correctly > renders correctly when text > with H2 size
   data-testid="skeleton"
 >
   <div
-    className="text textCustom"
+    className="text textH2"
     style={
       {
         "height": undefined,
@@ -193,7 +193,7 @@ exports[`Skeleton renders correctly > renders correctly when text > with H3 size
   data-testid="skeleton"
 >
   <div
-    className="text textCustom"
+    className="text textH3"
     style={
       {
         "height": undefined,
@@ -210,7 +210,7 @@ exports[`Skeleton renders correctly > renders correctly when text > with H4 size
   data-testid="skeleton"
 >
   <div
-    className="text textCustom"
+    className="text textH4"
     style={
       {
         "height": undefined,
@@ -227,7 +227,7 @@ exports[`Skeleton renders correctly > renders correctly when text > with H5 size
   data-testid="skeleton"
 >
   <div
-    className="text textCustom"
+    className="text textH5"
     style={
       {
         "height": undefined,

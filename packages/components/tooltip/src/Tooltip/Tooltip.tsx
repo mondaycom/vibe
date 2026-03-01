@@ -5,10 +5,6 @@ import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
 import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
 import {
-  DialogTriggerEventEnum as HideShowEventEnum,
-  DialogAnimationTypeEnum as AnimationTypeEnum
-} from "@vibe/dialog";
-import {
   type VibeComponentProps,
   type ElementContent,
   type MoveBy,
@@ -16,7 +12,6 @@ import {
   ComponentDefaultTestId,
   getTestId
 } from "@vibe/shared";
-import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import styles from "./Tooltip.module.scss";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Flex } from "@vibe/layout";
@@ -184,10 +179,6 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
-  static positions = TooltipPositionsEnum;
-  static hideShowTriggers = HideShowEventEnum;
-  static themes = TooltipThemeEnum;
-  static animationTypes = AnimationTypeEnum;
   static defaultProps = {
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
@@ -195,12 +186,12 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     hideDelay: 100,
     showDelay: 300,
     disableDialogSlide: true,
-    animationType: AnimationTypeEnum.EXPAND,
+    animationType: "expand",
     withoutDialog: false,
     tip: true,
     hideWhenReferenceHidden: false,
-    showTrigger: Tooltip.hideShowTriggers.MOUSE_ENTER,
-    hideTrigger: Tooltip.hideShowTriggers.MOUSE_LEAVE,
+    showTrigger: "mouseenter",
+    hideTrigger: "mouseleave",
     showOnDialogEnter: true,
     referenceWrapperClassName: "",
     addKeyboardHideShowTriggersByDefault: true,

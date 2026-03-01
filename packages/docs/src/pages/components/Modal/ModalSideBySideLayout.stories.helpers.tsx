@@ -5,7 +5,7 @@ export const SideBySideModalTip = () => (
   <div style={{ marginTop: 40 }}>
     <Tip>
       If your content is scrollable, consider using{" "}
-      <StorybookLink page="Components/Modal/Basic modal" size={StorybookLink.sizes.SMALL}>
+      <StorybookLink page="Components/Modal/Basic modal" size="small">
         Basic modal
       </StorybookLink>
       .

@@ -5,11 +5,11 @@ export const BasicModalTip = () => (
   <div style={{ marginTop: 40 }}>
     <Tip>
       If your content is not scrollable and you need to add media as supporting element, consider using{" "}
-      <StorybookLink page="Components/Modal/Side by side modal" size={StorybookLink.sizes.SMALL}>
+      <StorybookLink page="Components/Modal/Side by side modal" size="small">
         Side-by-side modal
       </StorybookLink>{" "}
       or{" "}
-      <StorybookLink page="Components/Modal/Media modal" size={StorybookLink.sizes.SMALL}>
+      <StorybookLink page="Components/Modal/Media modal" size="small">
         Media modal
       </StorybookLink>{" "}
       depends on your use case.

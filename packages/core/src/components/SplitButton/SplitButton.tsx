@@ -13,10 +13,8 @@ import {
   ENTER_KEYS,
   SECONDARY_BUTTON_ARIA_LABEL,
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
-  SplitButtonSecondaryContentPosition,
   type SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
-import { withStaticPropsWithoutForwardRef } from "../../types";
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
@@ -34,7 +32,6 @@ import {
   type DialogEvent,
   type DialogPosition
 } from "@vibe/dialog";
-import { DialogAnimationTypeEnum as AnimationType, DialogTriggerEventEnum as HideShowEvent } from "@vibe/dialog";
 import styles from "./SplitButton.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
@@ -195,14 +192,15 @@ const SplitButton = ({
   const dialogShowTrigger = useMemo(() => (disabled ? [] : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
 
   const dialogHideTrigger = useMemo(() => {
-    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, HideShowEvent.CONTENT_CLICK];
+    if (shouldCloseOnClickInsideDialog)
+      return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"] as DialogTriggerEvent[];
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
   const actionsContent = useCallback(() => {
     const content = typeof secondaryDialogContent === "function" ? secondaryDialogContent() : secondaryDialogContent;
     return (
-      <DialogContentContainer type={DialogContentContainer.types.POPOVER} size={dialogPaddingSize}>
+      <DialogContentContainer type="popover" size={dialogPaddingSize}>
         {content}
       </DialogContentContainer>
     );
@@ -257,7 +255,7 @@ const SplitButton = ({
           position={secondaryDialogPosition as DialogPosition}
           containerSelector={dialogContainerSelector}
           startingEdge={animationEdgePosition}
-          animationType={AnimationType.EXPAND}
+          animationType="expand"
           moveBy={DIALOG_MOVE_BY}
           onDialogDidShow={showDialog}
           onDialogDidHide={hideDialog}
@@ -293,22 +291,4 @@ const SplitButton = ({
   );
 };
 
-interface SplitButtonStaticProps {
-  secondaryPositions: typeof SplitButtonSecondaryContentPosition;
-  secondaryDialogPositions: typeof SplitButtonSecondaryContentPosition;
-  sizes: typeof Button.sizes;
-  colors: typeof Button.colors;
-  kinds: typeof Button.kinds;
-  inputTags: typeof Button.inputTags;
-  dialogPaddingSizes: typeof DialogContentContainer.sizes;
-}
-
-export default withStaticPropsWithoutForwardRef<SplitButtonProps, SplitButtonStaticProps>(SplitButton, {
-  secondaryPositions: SplitButtonSecondaryContentPosition,
-  secondaryDialogPositions: SplitButtonSecondaryContentPosition,
-  sizes: Button.sizes,
-  colors: Button.colors,
-  kinds: Button.kinds,
-  inputTags: Button.inputTags,
-  dialogPaddingSizes: DialogContentContainer.sizes
-});
+export default SplitButton;

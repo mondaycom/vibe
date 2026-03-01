@@ -3,7 +3,6 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { isForwardRef } from "react-is";
 import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
-import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
 import {
   type DialogOffset,
   type DialogPosition,
@@ -14,23 +13,19 @@ import {
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
-import {
-  MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
-  MenuButtonSize as MenuButtonSizeEnum
-} from "./MenuButtonConstants";
+import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type MenuButtonComponentPosition, type MenuButtonSize } from "./MenuButton.types";
+import { type MenuChild } from "../Menu/Menu/MenuConstants";
 import { NOOP } from "../../utils/function-utils";
 import { Menu } from "@vibe/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { type MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { type TooltipPositions } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
-const CLOSE_KEYS: DialogTriggerEventEnum[] = [DialogTriggerEventEnum.ESCAPE_KEY, DialogTriggerEventEnum.TAB_KEY];
+const CLOSE_KEYS: DialogTriggerEvent[] = ["esckey", "tab"];
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
@@ -187,9 +182,9 @@ const MenuButton = forwardRef(
       ariaLabel = "Menu",
       closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
-      dialogPosition = DialogPositionEnum.BOTTOM_START,
+      dialogPosition = "bottom-start",
       dialogClassName,
-      dialogPaddingSize = DialogContentContainer.sizes.SMALL,
+      dialogPaddingSize = "small",
       dialogShowTriggerIgnoreClass,
       dialogHideTriggerIgnoreClass,
       onMenuHide = NOOP,
@@ -238,7 +233,7 @@ const MenuButton = forwardRef(
     const onMenuDidClose = useCallback(
       (event: React.KeyboardEvent) => {
         // TODO: check the functionality of the isEscapeKey since the event is not an actual KeyboardEVent but an object with propagate property only
-        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEventEnum);
+        const isCloseKey = CLOSE_KEYS.includes(event.key as DialogTriggerEvent);
         if (isCloseKey || closeMenuOnItemClick) {
           // @ts-ignore
           if (event.propagate) {
@@ -251,7 +246,7 @@ const MenuButton = forwardRef(
 
     const onDialogDidHide = useCallback(
       (event: DialogEvent, hideEvent: string) => {
-        handleMenuClose(isOpen && CLOSE_KEYS.includes(hideEvent as DialogTriggerEventEnum));
+        handleMenuClose(isOpen && CLOSE_KEYS.includes(hideEvent as DialogTriggerEvent));
       },
       [handleMenuClose, isOpen]
     );
@@ -262,19 +257,15 @@ const MenuButton = forwardRef(
     }, [setIsOpen, onMenuShow]);
 
     const [clonedChildren, hideTrigger] = useMemo(() => {
-      const triggers = new Set([
-        DialogTriggerEventEnum.CLICK_OUTSIDE,
-        DialogTriggerEventEnum.TAB_KEY,
-        DialogTriggerEventEnum.ESCAPE_KEY
-      ]);
+      const triggers = new Set<DialogTriggerEvent>(["clickoutside", "tab", "esckey"]);
 
       if (closeDialogOnContentClick) {
-        triggers.add(DialogTriggerEventEnum.CONTENT_CLICK);
-        triggers.add(DialogTriggerEventEnum.ENTER);
+        triggers.add("onContentClick");
+        triggers.add("enter");
       }
 
       if (removeTabCloseTrigger) {
-        triggers.delete(DialogTriggerEventEnum.TAB_KEY);
+        triggers.delete("tab");
       }
       const childrenArr = React.Children.toArray(children) as MenuChild[];
       const cloned = childrenArr.map(child => {
@@ -283,7 +274,7 @@ const MenuButton = forwardRef(
         const newProps: { focusOnMount?: boolean; onClose?: (event: React.KeyboardEvent) => void } = {};
         if (child.type && child.type.supportFocusOnMount) {
           newProps.focusOnMount = true;
-          triggers.delete(DialogTriggerEventEnum.ESCAPE_KEY);
+          triggers.delete("esckey");
         }
 
         if (child.type && child.type.isMenu) {
@@ -298,7 +289,7 @@ const MenuButton = forwardRef(
     const content = useMemo(() => {
       if (clonedChildren.length === 0) return null;
       return (
-        <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER} role={null}>
+        <DialogContentContainer size={dialogPaddingSize} type="popover" role={null}>
           {clonedChildren}
         </DialogContentContainer>
       );
@@ -423,18 +414,4 @@ const MenuButton = forwardRef(
   }
 );
 
-interface MenuButtonStaticProps {
-  sizes: typeof MenuButtonSizeEnum;
-  paddingSizes: typeof DialogSizeEnum;
-  dialogPositions: typeof DialogPositionEnum;
-  hideTriggers: typeof DialogTriggerEventEnum;
-  componentPositions: typeof MenuButtonComponentPositionEnum;
-}
-
-export default withStaticProps<MenuButtonProps, MenuButtonStaticProps>(MenuButton, {
-  sizes: MenuButtonSizeEnum,
-  paddingSizes: DialogSizeEnum,
-  dialogPositions: DialogPositionEnum,
-  hideTriggers: DialogTriggerEventEnum,
-  componentPositions: MenuButtonComponentPositionEnum
-});
+export default MenuButton;

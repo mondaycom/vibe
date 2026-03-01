@@ -5,15 +5,15 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Text } from "@vibe/typography";
 import Leg from "./Leg";
-import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { useClickableProps } from "@vibe/clickable";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { type LabelSizes } from "./Label.types";
+import { mapSizesToTextSize } from "./LabelConstants";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface LabelProps extends VibeComponentProps {
@@ -182,12 +182,4 @@ const Label = forwardRef<HTMLElement, LabelProps>(
   }
 );
 
-interface LabelStaticProps {
-  colors: typeof LabelColorEnum;
-  kinds: typeof LabelKindEnum;
-}
-
-export default withStaticProps<LabelProps, LabelStaticProps>(Label, {
-  colors: LabelColorEnum,
-  kinds: LabelKindEnum
-});
+export default Label;

@@ -4,10 +4,9 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import { Icon, CustomSvgIcon } from "@vibe/icon";
-import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
 import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
@@ -51,10 +50,4 @@ const AvatarBadge = ({
   ) : null;
 };
 
-interface AvatarBadgeStaticProps {
-  sizes: typeof AvatarSizeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<AvatarBadgeProps, AvatarBadgeStaticProps>(AvatarBadge, {
-  sizes: AvatarSizeEnum
-});
+export default AvatarBadge;

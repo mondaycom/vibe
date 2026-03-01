@@ -7,7 +7,7 @@ export const MenuButtonDescription = () => {
   const component = useMemo(
     () => (
       <MenuButton>
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <Menu id="menu" size="medium">
           <MenuItem icon={Sun} type="svg" title="The sun" />
           <MenuItem icon={Moon} type="svg" title="The moon" />
           <MenuItem icon={Favorite} type="svg" title="And the stars" />
