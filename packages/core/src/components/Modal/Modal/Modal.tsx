@@ -152,7 +152,7 @@ const Modal = forwardRef(
                       initial="initial"
                       animate="enter"
                       exit="exit"
-                      data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
+                      data-testid={getTestId(ComponentDefaultTestId.MODAL_OVERLAY, id)}
                       className={styles.overlay}
                       onClick={onBackdropClick}
                       aria-hidden
@@ -171,7 +171,7 @@ const Modal = forwardRef(
                           className
                         )}
                         id={id}
-                        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
+                        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
                         data-vibe={ComponentVibeId.MODAL}
                         role="dialog"
                         aria-modal

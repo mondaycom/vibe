@@ -1,13 +1,8 @@
 import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { getStyle, withStaticProps } from "@vibe/shared";
-import { HeadingType as HeadingTypeEnum, HeadingWeight as HeadingWeightEnum } from "./HeadingConstants";
+import { getStyle } from "@vibe/shared";
 import Typography, { type TypographyProps } from "../Typography/Typography";
-import {
-  TypographyAlign as TypographyAlignEnum,
-  TypographyColor as TypographyColorEnum
-} from "../Typography/TypographyConstants";
 import { TypographyContext } from "../Typography/TypographyContext";
 import styles from "./Heading.module.scss";
 import { type HeadingType, type HeadingWeight } from "./Heading.types";
@@ -56,16 +51,4 @@ const Heading = forwardRef(
   }
 );
 
-interface HeadingStaticProps {
-  types: typeof HeadingTypeEnum;
-  weights: typeof HeadingWeightEnum;
-  colors: typeof TypographyColorEnum;
-  align: typeof TypographyAlignEnum;
-}
-
-export default withStaticProps<HeadingProps, HeadingStaticProps>(Heading, {
-  types: HeadingTypeEnum,
-  weights: HeadingWeightEnum,
-  align: TypographyAlignEnum,
-  colors: TypographyColorEnum
-});
+export default Heading;

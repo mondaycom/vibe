@@ -1,13 +1,9 @@
 import { difference as _difference, intersection as _intersection } from "es-toolkit";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { BaseSizes } from "../../../../constants";
-import {
-  ColorStyle as ColorStyleEnum,
-  type CONTENT_COLORS_VALUES,
-  contentColors
-} from "../../../../utils/colors-vars-map";
+import { type CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
-import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import {
   type ColorShapes,
   type ColorPickerSizes,
@@ -21,7 +17,7 @@ import {
 } from "../../../GridKeyboardNavigationContext";
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
-import { type VibeComponentProps, withStaticProps } from "../../../../types";
+import { type VibeComponentProps } from "../../../../types";
 import { type SubIcon } from "@vibe/icon";
 import useMergeRef from "../../../../hooks/useMergeRef";
 import { type ColorStyle } from "../../../../types";
@@ -200,16 +196,4 @@ const ColorPickerContent = forwardRef(
   }
 );
 
-interface ColorPickerContentStaticProps {
-  sizes: typeof BaseSizes;
-  colorStyles: typeof ColorStyleEnum;
-  colorSizes: typeof BaseSizes;
-  colorShapes: typeof ColorShapesEnum;
-}
-
-export default withStaticProps<ColorPickerContentProps, ColorPickerContentStaticProps>(ColorPickerContent, {
-  sizes: BaseSizes,
-  colorStyles: ColorStyleEnum,
-  colorSizes: BaseSizes,
-  colorShapes: ColorShapesEnum
-});
+export default ColorPickerContent;

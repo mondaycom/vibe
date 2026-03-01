@@ -15,10 +15,9 @@ import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import { withStaticProps, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { type ListItemProps } from "../ListItem/ListItem";
 import { type ListTitleProps } from "../ListTitle/ListTitle";
-import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
 import { type ListElement } from "./List.types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
@@ -74,7 +73,7 @@ const List = forwardRef(
     {
       className,
       id,
-      component = ListWrapperComponentTypeEnum.UL,
+      component = "ul",
       children,
       ariaLabel,
       ariaDescribedBy,
@@ -192,10 +191,4 @@ const List = forwardRef(
   }
 );
 
-interface ListStaticProps {
-  components: typeof ListWrapperComponentTypeEnum;
-}
-
-export default withStaticProps<ListProps, ListStaticProps>(List, {
-  components: ListWrapperComponentTypeEnum
-});
+export default List;

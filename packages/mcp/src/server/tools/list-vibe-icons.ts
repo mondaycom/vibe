@@ -62,7 +62,7 @@ export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = 
               "Import Icon Component": `import { Icon } from "@vibe/core";`,
               "Import Icon": `import { ${icon.name} } from "@vibe/icons";`,
               "Basic Usage": `<Icon icon={${icon.name}} />`,
-              "With Props": `<Icon icon={${icon.name}} iconSize={24} iconLabel="${icon.description}" />`
+              "With Props": `<Icon icon={${icon.name}} size={24} label="${icon.description}" />`
             }
           };
         }
