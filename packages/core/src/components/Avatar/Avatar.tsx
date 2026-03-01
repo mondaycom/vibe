@@ -4,15 +4,13 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "es-toolkit";
-import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
-import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { ClickableWrapper } from "@vibe/clickable";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import styles from "./Avatar.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
@@ -266,16 +264,4 @@ const Avatar = ({
   );
 };
 
-interface AvatarStaticProps {
-  types: typeof AvatarTypeEnum;
-  sizes: typeof AvatarSizeEnum;
-  colors: typeof ElementAllowedColorEnum;
-  backgroundColors: typeof ElementAllowedColorEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<AvatarProps, AvatarStaticProps>(Avatar, {
-  types: AvatarTypeEnum,
-  sizes: AvatarSizeEnum,
-  colors: ElementAllowedColorEnum,
-  backgroundColors: ElementAllowedColorEnum
-});
+export default Avatar;

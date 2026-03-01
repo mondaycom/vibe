@@ -29,18 +29,6 @@ describe("Chips tests", () => {
     fireEvent.mouseDown(screen.getByTestId(defaultTestId));
     expect(onMouseDown.mock.calls.length).toBe(1);
   });
-  it("Should call onClick callback when chips clicked with disableClickableBehavior", () => {
-    const onClick = vi.fn();
-    render(<Chips className={className} onClick={onClick} label={label} disableClickableBehavior />);
-    fireEvent.click(screen.getByTestId(defaultTestId));
-    expect(onClick.mock.calls.length).toBe(1);
-  });
-  it("Should call the onMousedown callback when mouse down with disableClickableBehavior", () => {
-    const onMouseDown = vi.fn();
-    render(<Chips className={className} onMouseDown={onMouseDown} label={label} disableClickableBehavior />);
-    fireEvent.mouseDown(screen.getByTestId(defaultTestId));
-    expect(onMouseDown.mock.calls.length).toBe(1);
-  });
   it("Should not call onClick callback when chips clicked with disabled state", () => {
     const onClick = vi.fn();
     render(<Chips className={className} onClick={onClick} label={label} disabled />);

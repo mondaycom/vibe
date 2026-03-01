@@ -254,24 +254,33 @@ export default wrap(transform);
 
 ### Phase 5: Cleanup, Validation, and PR Creation
 
-**⚠️ CRITICAL: Do NOT commit or push until all validation steps pass.**
+**⚠️ ABSOLUTE REQUIREMENT: Do NOT commit, push, or create a PR until every validation step below passes with zero errors. A PR with failing CI is not acceptable.**
 
-**Step 1: Fix and verify**
+**Step 1: Validation gate — run each command, fix failures, repeat until all pass**
+
+Run these commands **sequentially**. If ANY command fails, fix the issue and **restart from that command**. Do NOT skip ahead.
+
 ```bash
-# Fix lint issues across all packages
+# 1. Fix lint issues across all packages
 yarn lint:fix
 
-# Verify lint passes
+# 2. Verify lint passes with zero errors
 yarn lint
 
-# Build all packages
+# 3. Build all packages — must exit 0
 yarn build
 
-# Run tests
+# 4. Run full test suite — must exit 0
 yarn test
 ```
 
-If any step fails, fix the issues and re-run until all pass.
+**If a step fails:**
+1. Read the error output carefully
+2. Fix the root cause (do not suppress or skip)
+3. Re-run **from that step** through the remaining steps
+4. Repeat until all 4 steps pass cleanly in sequence
+
+**Only proceed to Step 2 when lint, build, AND tests all pass with zero errors.**
 
 **Step 2: Create branch and commit only after all checks pass**
 
@@ -284,6 +293,15 @@ The link format is: `https://monday.monday.com/boards/<BOARD_ID>/pulses/<PULSE_I
 Include this link in the PR description under the "Task Link" section.
 If no task link was provided in the original prompt, ask the user for it before creating the PR.
 
+**Commit and PR titles MUST follow [Conventional Commits](https://www.conventionalcommits.org/).**
+
+Use the appropriate type based on the nature of the change:
+- `feat:` — new feature or capability change
+- `fix:` — bug fix
+- `refactor:` — refactor without behavior change
+
+Always include a `BREAKING CHANGE:` footer in the commit body.
+
 ```bash
 # Create feature branch from vibe4
 git checkout vibe4
@@ -292,7 +310,7 @@ git checkout -b breaking-change/component-name-api-update
 
 # Commit changes (only after all checks above pass)
 git add .
-git commit -m "breaking: update ComponentName API
+git commit -m "feat(ComponentName): remove oldProp in favor of newProp
 
 - Remove deprecated oldProp in favor of newProp
 - Update all dependent components
@@ -307,7 +325,7 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 # Push and create PR
 git push -u origin breaking-change/component-name-api-update
 gh pr create \
-  --title "breaking: update ComponentName API" \
+  --title "feat(ComponentName): remove oldProp in favor of newProp" \
   --body "## Summary
 • Remove deprecated \`oldProp\` from ComponentName
 • Update all dependent components to use \`newProp\`
@@ -557,15 +575,16 @@ grep -r "iconLabel=" packages/mcp packages/docs
 
 ## Quality Gates
 
-**Before committing:**
-- [ ] All tests pass locally
-- [ ] TypeScript compiles without errors
-- [ ] Changed components render in Storybook
+**⚠️ These are hard gates, not suggestions. Do NOT proceed past a gate until every item passes.**
+
+**Before committing (all must pass with exit code 0):**
+- [ ] `yarn lint` — zero errors
+- [ ] `yarn build` — zero errors
+- [ ] `yarn test` — zero failures
 - [ ] Migration guide entry complete
 
 **Before creating PR:**
-- [ ] Full monorepo build successful
-- [ ] All linting passes
+- [ ] All of the above still pass after final commit
 - [ ] Codemod tested (if applicable)
 - [ ] Documentation updated
 

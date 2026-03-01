@@ -22,6 +22,17 @@ exports[`BreadcrumbsBar renders correctly > with bar type 2`] = `
 </nav>
 `;
 
+exports[`BreadcrumbsBar renders correctly > with bar type 3`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbsBar"
+  data-testid="breadcrumbs-bar"
+  data-vibe="BreadcrumbsBar"
+>
+  <ol />
+</nav>
+`;
+
 exports[`BreadcrumbsBar renders correctly > with breadcrumb menu 1`] = `
 <nav
   aria-label="Breadcrumb"

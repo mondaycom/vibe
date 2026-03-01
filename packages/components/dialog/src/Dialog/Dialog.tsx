@@ -16,11 +16,6 @@ import {
 } from "@vibe/shared";
 import DialogContent from "./DialogContent/DialogContent";
 import { Refable } from "../Refable/Refable";
-import {
-  AnimationType as AnimationTypeEnum,
-  HideShowEvent as DialogTriggerEventEnum,
-  DialogPosition as DialogPositionEnum
-} from "./DialogConstants";
 import type * as PopperJS from "@popperjs/core";
 import styles from "./Dialog.module.scss";
 import {
@@ -217,22 +212,19 @@ export interface DialogState {
 }
 
 export default class Dialog extends PureComponent<DialogProps, DialogState> {
-  static hideShowTriggers = DialogTriggerEventEnum;
-  static positions = DialogPositionEnum;
-  static animationTypes = AnimationTypeEnum;
   static defaultProps = {
     position: "top",
     modifiers: [] as Modifier<any>[],
     moveBy: { main: 0, secondary: 0 },
     showDelay: 100,
     hideDelay: 100,
-    showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
-    hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
+    showTrigger: "mouseenter",
+    hideTrigger: "mouseleave",
     showOnDialogEnter: false,
     shouldShowOnMount: false,
     disable: false,
     open: false,
-    animationType: Dialog.animationTypes.EXPAND,
+    animationType: "expand",
     preventAnimationOnMount: false,
     tooltip: false,
     onDialogDidShow: NOOP,
@@ -292,13 +284,13 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
     }
     switch (event.key) {
       case "Escape":
-        this.hideDialogIfNeeded(event, DialogTriggerEventEnum.ESCAPE_KEY);
+        this.hideDialogIfNeeded(event, "esckey");
         break;
       case "Tab":
-        this.handleEvent(DialogTriggerEventEnum.TAB_KEY, event.target, event);
+        this.handleEvent("tab", event.target, event);
         break;
       case "Enter":
-        this.handleEvent(DialogTriggerEventEnum.ENTER, event.target, event);
+        this.handleEvent("enter", event.target, event);
         break;
       default:
         break;

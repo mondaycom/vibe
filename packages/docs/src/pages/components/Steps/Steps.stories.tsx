@@ -48,7 +48,6 @@ const NavigableStepsTemplate = (args: StepsProps) => {
       }}
       {...args}
       onChangeActiveStep={onChangeActiveStep}
-      onFinish={() => {}}
     />
   );
 };
@@ -132,7 +131,6 @@ export const NavigableSteps = {
           nextButtonProps={{
             onClick: stepNext
           }}
-          onFinish={() => {}}
         />
       </div>
     );
@@ -185,7 +183,6 @@ export const StepsInsideATipseen = {
               size: "small",
               onClick: stepNext
             }}
-            onFinish={() => {}}
           />
         }
       >

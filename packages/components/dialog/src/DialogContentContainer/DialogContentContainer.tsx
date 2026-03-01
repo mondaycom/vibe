@@ -1,15 +1,7 @@
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
-import {
-  useMergeRef,
-  type VibeComponentProps,
-  withStaticProps,
-  ComponentDefaultTestId,
-  getTestId,
-  getStyle
-} from "@vibe/shared";
-import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
+import { useMergeRef, type VibeComponentProps, ComponentDefaultTestId, getTestId, getStyle } from "@vibe/shared";
 import { type DialogSize, type DialogType } from "../Dialog";
 import styles from "./DialogContentContainer.module.scss";
 
@@ -90,12 +82,4 @@ const DialogContentContainer = forwardRef(
   }
 );
 
-interface DialogContentContainerStaticProps {
-  types: typeof DialogTypeEnum;
-  sizes: typeof DialogSizeEnum;
-}
-
-export default withStaticProps<DialogContentContainerProps, DialogContentContainerStaticProps>(DialogContentContainer, {
-  types: DialogTypeEnum,
-  sizes: DialogSizeEnum
-});
+export default DialogContentContainer;

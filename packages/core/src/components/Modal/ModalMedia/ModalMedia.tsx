@@ -13,7 +13,7 @@ const ModalMedia = forwardRef(
     return (
       <Flex
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_MEDIA, id)}
         justify="center"
         align="stretch"
         ref={ref}
