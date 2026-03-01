@@ -1,14 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef } from "react";
-import {
-  type VibeComponentProps,
-  withStaticProps,
-  ComponentDefaultTestId,
-  getTestId,
-  ComponentVibeId,
-  useMergeRef
-} from "@vibe/shared";
-import { IconTypeEnum } from "./constants";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVibeId, useMergeRef } from "@vibe/shared";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
@@ -33,15 +25,15 @@ export interface IconProps extends VibeComponentProps {
   /**
    * The accessible label for the icon.
    */
-  iconLabel?: string;
+  label?: string;
   /**
    * The type of the icon: `svg`, `font`, or `src` (external source).
    */
-  iconType?: IconType;
+  type?: IconType;
   /**
    * The size of the icon.
    */
-  iconSize?: number | string;
+  size?: number | string;
   /**
    * If true, removes focus styles from the icon.
    */
@@ -77,9 +69,9 @@ const Icon = forwardRef(
       id,
       className,
       icon = "",
-      iconLabel,
-      iconType = "svg",
-      iconSize = 16,
+      label,
+      type = "svg",
+      size = 16,
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
       ariaHidden,
@@ -92,7 +84,7 @@ const Icon = forwardRef(
   ) => {
     const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
-      iconLabel,
+      label,
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
@@ -108,18 +100,18 @@ const Icon = forwardRef(
     const isFunctionType = typeof icon === "function";
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
 
-    if (iconType === "svg" || isFunctionType || typeof icon === "object") {
+    if (type === "svg" || isFunctionType || typeof icon === "object") {
       return renderIcon(icon as React.FC<IconSubComponentProps>, {
         id,
         ...screenReaderAccessProps,
         ref: isFunctionType ? undefined : mergedRef,
-        size: iconSize.toString(),
+        size: size.toString(),
         className: computedClassName,
         style,
         "data-testid": overrideDataTestId
       });
     }
-    if (iconType === "src") {
+    if (type === "src") {
       return (
         <CustomSvgIcon
           id={id}
@@ -147,10 +139,4 @@ const Icon = forwardRef(
   }
 );
 
-interface IconStaticProps {
-  type: typeof IconTypeEnum;
-}
-
-export default withStaticProps<IconProps, IconStaticProps>(Icon, {
-  type: IconTypeEnum
-});
+export default Icon;

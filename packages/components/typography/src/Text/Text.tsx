@@ -1,13 +1,8 @@
 import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { getStyle, withStaticProps } from "@vibe/shared";
-import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "./TextConstants";
+import { getStyle } from "@vibe/shared";
 import Typography, { type TypographyProps } from "../Typography/Typography";
-import {
-  TypographyAlign as TypographyAlignEnum,
-  TypographyColor as TypographyColorEnum
-} from "../Typography/TypographyConstants";
 import { type TextType, type TextWeight } from "./Text.types";
 import styles from "./Text.module.scss";
 
@@ -54,16 +49,4 @@ const Text = forwardRef(
   }
 );
 
-interface TextStaticProps {
-  types: typeof TextTypeEnum;
-  weights: typeof TextWeightEnum;
-  colors: typeof TypographyColorEnum;
-  align: typeof TypographyAlignEnum;
-}
-
-export default withStaticProps<TextProps, TextStaticProps>(Text, {
-  types: TextTypeEnum,
-  weights: TextWeightEnum,
-  colors: TypographyColorEnum,
-  align: TypographyAlignEnum
-});
+export default Text;

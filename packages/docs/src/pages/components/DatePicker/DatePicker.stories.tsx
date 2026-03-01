@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type DatePickerProps } from "../DatePicker.types";
 import { ja } from "date-fns/locale";
-import { DialogContentContainer } from "@vibe/core";
-import { DatePicker } from "@vibe/core/next";
+import { DialogContentContainer, DatePicker } from "@vibe/core";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,
@@ -11,7 +10,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/DatePicker [New]",
+  title: "Components/DatePicker",
   component: DatePicker,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

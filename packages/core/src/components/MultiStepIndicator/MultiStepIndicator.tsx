@@ -5,16 +5,10 @@ import { type SubIcon } from "@vibe/icon";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import {
-  MultiStepType as MultiStepTypeEnum,
-  Size as SizeEnum,
-  StepStatus as StepStatusEnum,
-  TextPlacement as TextPlacementEnum
-} from "./MultiStepConstants";
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {
@@ -168,16 +162,4 @@ const MultiStepIndicator = forwardRef(
   }
 );
 
-interface MultiStepIndicatorStaticProps {
-  types: typeof MultiStepTypeEnum;
-  stepStatuses: typeof StepStatusEnum;
-  textPlacements: typeof TextPlacementEnum;
-  sizes: typeof SizeEnum;
-}
-
-export default withStaticProps<MultiStepIndicatorProps, MultiStepIndicatorStaticProps>(MultiStepIndicator, {
-  types: MultiStepTypeEnum,
-  stepStatuses: StepStatusEnum,
-  textPlacements: TextPlacementEnum,
-  sizes: SizeEnum
-});
+export default MultiStepIndicator;

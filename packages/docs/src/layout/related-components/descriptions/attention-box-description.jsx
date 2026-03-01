@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
-import { AttentionBox } from "@vibe/core/next";
+import { AttentionBox } from "@vibe/core";
 
 export const AttentionBoxDescription = () => {
   const component = useMemo(() => {
@@ -17,7 +17,7 @@ export const AttentionBoxDescription = () => {
     <RelatedComponent
       component={component}
       title="AttentionBox"
-      href="/?path=/docs/components-attentionbox-new--docs"
+      href="/?path=/docs/components-attentionbox--docs"
       description="Displays content classification."
     />
   );

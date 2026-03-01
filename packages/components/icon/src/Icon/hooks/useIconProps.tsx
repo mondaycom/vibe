@@ -13,7 +13,7 @@ export default function useIconProps({
   clickable,
   ignoreFocusStyle,
   isDecorationOnly,
-  iconLabel,
+  label,
   externalTabIndex
 }: {
   onClick?: (event: UIEvent) => void;
@@ -21,7 +21,7 @@ export default function useIconProps({
   clickable?: boolean;
   ignoreFocusStyle?: boolean;
   isDecorationOnly?: boolean;
-  iconLabel?: string;
+  label?: string;
   externalTabIndex?: number | undefined;
 }) {
   const iconRef = useRef(null);
@@ -73,7 +73,7 @@ export default function useIconProps({
 
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
     isClickable: clickable,
-    label: iconLabel,
+    label,
     isDecorationOnly
   });
 
