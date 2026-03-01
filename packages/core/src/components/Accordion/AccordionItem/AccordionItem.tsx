@@ -42,13 +42,13 @@ export interface AccordionItemProps extends VibeComponentProps {
    */
   contentClassName?: string;
   /**
-   * If true, the click event is handled during the capture phase.
-   */
-  captureOnClick?: boolean;
-  /**
    * Class name applied to the expand/collapse component.
    */
   expandCollapseComponentClassName?: string;
+  /**
+   * If true, the click event is handled during the capture phase.
+   */
+  captureOnClick?: boolean;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = forwardRef(

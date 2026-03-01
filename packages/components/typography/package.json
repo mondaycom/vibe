@@ -1,6 +1,6 @@
 {
   "name": "@vibe/typography",
-  "version": "3.0.5",
+  "version": "3.0.4",
   "description": "Vibe sub-package for typography components (Text and Typography)",
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@vibe/hooks": "3.0.3",
     "@vibe/shared": "3.0.8",
-    "@vibe/tooltip": "3.0.5",
+    "@vibe/tooltip": "3.0.4",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "monday-ui-style": "0.26.2"

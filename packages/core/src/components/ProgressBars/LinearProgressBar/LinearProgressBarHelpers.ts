@@ -4,9 +4,9 @@ import styles from "./LinearProgressBar.module.scss";
 
 export type Size = (typeof SIZES)[keyof typeof SIZES];
 
-export const calculatePercentage = (value: number, min: number, max: number, allowExceeding?: boolean) => {
+export const calculatePercentage = (value: number, min: number, max: number) => {
   const valuePercentage = (Number(value - min) / Number(max - min)) * 100;
-  return !allowExceeding && valuePercentage > 100 ? 100 : valuePercentage;
+  return valuePercentage > 100 ? 100 : valuePercentage;
 };
 
 export const getProgressBarClassNames = (value: number) => {

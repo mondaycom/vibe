@@ -47,10 +47,6 @@ export interface BarProps extends VibeComponentProps {
    * The type of the bar.
    */
   type?: BarType;
-  /**
-   * If true, allows displaying percentage values higher than 100% when value exceeds max.
-   */
-  allowExceedingMax?: boolean;
 }
 
 const Bar: FC<BarProps> = ({
@@ -64,8 +60,7 @@ const Bar: FC<BarProps> = ({
   barLabelName,
   id,
   "data-testid": dataTestId,
-  className,
-  allowExceedingMax = false
+  className
 }) => {
   const classNames = useMemo(() => {
     return cx(styles.bar, getStyle(styles, camelCase("type__" + type + "--" + barStyle)), className, {
@@ -75,22 +70,8 @@ const Bar: FC<BarProps> = ({
 
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;
-    return calculatePercentage(value, min, max, allowExceedingMax);
-  }, [value, min, max, allowExceedingMax]);
-
-  const visualWidthPercentage = useMemo(() => {
-    // For visual purposes, cap the width at 100% to prevent overflow
-    return Math.min(valuePercentage, 100);
-  }, [valuePercentage]);
-
-  const ariaValueMax = useMemo(() => {
-    // When allowExceedingMax is true and value exceeds max,
-    // set aria-valuemax to the actual value percentage to maintain consistency
-    if (allowExceedingMax && valuePercentage > 100) {
-      return Math.max(valuePercentage, 100);
-    }
-    return 100;
-  }, [allowExceedingMax, valuePercentage]);
+    return calculatePercentage(value, min, max);
+  }, [value, min, max]);
 
   if (!value) return null;
 
@@ -100,10 +81,10 @@ const Bar: FC<BarProps> = ({
       aria-label={barLabelName}
       aria-valuenow={valuePercentage}
       aria-valuemin={0}
-      aria-valuemax={ariaValueMax}
+      aria-valuemax={100}
       className={classNames}
       style={{
-        width: `${visualWidthPercentage}%`,
+        width: `${valuePercentage}%`,
         ...(color && { backgroundColor: color })
       }}
       id={id}
