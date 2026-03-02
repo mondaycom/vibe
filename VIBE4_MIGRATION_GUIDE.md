@@ -184,7 +184,25 @@ If your tests query `[data-testid="toggle"]` and expect multiple matches, update
 
 ### CSS and Design Tokens
 
-<!-- This section will be populated as breaking changes are identified -->
+#### TableCellSkeleton — Removed `@supports` fallback for `aspect-ratio`
+
+The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` blocks have been removed from the `TableCellSkeleton` styles. The `aspect-ratio: 1 / 1` property is now applied unconditionally to `.circle` and `.rectangle` skeleton types.
+
+**Impact:** Browsers that do not support `aspect-ratio` (IE 11, Safari < 15) will no longer receive the `width: 21px` fallback for circle/rectangle skeleton cells.
+
+**Migration:** No action required for projects targeting modern browsers. If you must support older browsers without `aspect-ratio`, add your own fallback styles:
+
+```css
+/* Custom fallback for legacy browsers */
+@supports not (aspect-ratio: 1 / 1) {
+  .your-skeleton-circle,
+  .your-skeleton-rectangle {
+    width: 21px;
+  }
+}
+```
+
+**Codemod:** ❌ Not applicable — this is a CSS-only change with no automated migration path.
 
 ## Step-by-Step Migration
 
