@@ -409,6 +409,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ❌ Manual
 - **PR**: TBD
 
+#### Link
+
+- [x] **Status**: Complete
+- **Change**: Removed `@supports (margin-inline-start: initial)` CSS block and physical direction fallbacks from Link icon spacing
+- **Reason**: CSS logical properties (`margin-inline-start`, `margin-inline-end`) are supported by all modern browsers. The `@supports` progressive enhancement is no longer needed
+- **Migration**: If you override `.iconStart { margin-right: ... }` or `.iconEnd { margin-left: ... }` in custom CSS, update to use `margin-inline-end` and `margin-inline-start` respectively
+- **Codemod**: ❌ Manual (CSS-only change)
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks

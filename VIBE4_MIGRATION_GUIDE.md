@@ -632,6 +632,46 @@ import { TipseenMedia } from "@vibe/core";
 
 **Codemod:** The v4 codemod automatically transforms `TipseenImage` to `TipseenMedia` with an `<img>` child.
 
+### Link
+
+#### Removed `@supports` CSS block for icon spacing
+
+The `@supports (margin-inline-start: initial)` CSS feature detection block has been removed from the Link component's styles. CSS logical properties are now used directly since all modern browsers support them.
+
+**What changed:**
+- `.iconStart` now uses `margin-inline-end` directly instead of `margin-right` with an `@supports` override
+- `.iconEnd` now uses `margin-inline-start` directly instead of `margin-left` with an `@supports` override
+- Physical direction properties (`margin-right`, `margin-left`) are no longer set
+
+**Impact:**
+If you have custom CSS that overrides Link icon spacing using physical direction properties (`margin-right` on `.iconStart` or `margin-left` on `.iconEnd`), you need to update those overrides to use CSS logical properties.
+
+**Before (v3):**
+
+```css
+/* Custom override using physical properties */
+.iconStart {
+  margin-right: 8px;
+}
+.iconEnd {
+  margin-left: 8px;
+}
+```
+
+**After (v4):**
+
+```css
+/* Use logical properties instead */
+.iconStart {
+  margin-inline-end: 8px;
+}
+.iconEnd {
+  margin-inline-start: 8px;
+}
+```
+
+**Codemod:** ❌ Not available — this is a CSS-only change. Search your codebase for overrides targeting Link's `.iconStart` or `.iconEnd` classes and update to logical properties.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
