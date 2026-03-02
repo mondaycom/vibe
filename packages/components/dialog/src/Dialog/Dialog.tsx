@@ -532,10 +532,7 @@ function Dialog({
       </Refable>
       {isClient() &&
         isShown &&
-        createPortal(
-          <LayerProvider layerRef={containerRef}>{dialogContent}</LayerProvider>,
-          getContainer()
-        )}
+        createPortal(<LayerProvider layerRef={containerRef}>{dialogContent}</LayerProvider>, getContainer())}
     </>
   );
 }
