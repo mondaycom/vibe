@@ -101,7 +101,6 @@ exports[`exports > should export all components 1`] = `
   "ThemeProvider",
   "Tipseen",
   "TipseenContent",
-  "TipseenImage",
   "TipseenMedia",
   "TipseenWizard",
   "Toast",

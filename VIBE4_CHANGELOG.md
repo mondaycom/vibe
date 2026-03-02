@@ -366,6 +366,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available (`v3-to-v4/enums`)
 - **PR**: TBD
 
+#### TipseenImage
+
+- [x] **Status**: Complete
+- **Change**: Removed `TipseenImage` component; use `TipseenMedia` with an `<img>` child instead
+- **Reason**: `TipseenImage` was a thin wrapper around `TipseenMedia` that only rendered an `<img>` tag. Removing it simplifies the API surface and encourages direct use of the more flexible `TipseenMedia` container
+- **Migration**: Replace `<TipseenImage src={pic} alt="text" />` with `<TipseenMedia><img src={pic} alt="text" style={{ objectFit: "cover", width: "100%" }} /></TipseenMedia>`
+- **Codemod**: ✅ Available (`TipseenImage-component-migration`)
+
 #### ThemeProvider
 
 - **Change**: Removed deprecated enum exports from `ThemeProviderConstants.ts` (enum exports removed, file preserved for other constants)
