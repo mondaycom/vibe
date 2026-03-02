@@ -3,15 +3,8 @@ import { isFunction } from "es-toolkit";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
-import { Dialog, type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
-import {
-  type VibeComponentProps,
-  type ElementContent,
-  type MoveBy,
-  getStyle,
-  ComponentDefaultTestId,
-  getTestId
-} from "@vibe/shared";
+import { Dialog, type DialogProps } from "@vibe/dialog";
+import { type ElementContent, getStyle, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import styles from "./Tooltip.module.scss";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Flex } from "@vibe/layout";
@@ -41,8 +34,7 @@ interface TooltipWithChildrenProps {
   children: ReactElement | Array<ReactElement>;
 }
 
-// TODO TS-migration extend DialogProps, once Dialog is migrated to TS
-interface TooltipBaseProps extends VibeComponentProps {
+interface TooltipBaseProps extends Omit<DialogProps, "position" | "content" | "children"> {
   /**
    * The content displayed inside the tooltip.
    */
@@ -56,10 +48,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   arrowClassName?: string;
   /**
-   * Offset values for positioning adjustments.
-   */
-  moveBy?: MoveBy;
-  /**
    * The theme of the tooltip.
    */
   theme?: TooltipTheme;
@@ -68,29 +56,13 @@ interface TooltipBaseProps extends VibeComponentProps {
    */
   getContainer?: () => HTMLElement;
   /**
-   * Delay in milliseconds before hiding the tooltip.
-   */
-  hideDelay?: number;
-  /**
-   * Delay in milliseconds before showing the tooltip.
-   */
-  showDelay?: number;
-  /**
    * If true, disables the slide animation of the tooltip.
    */
   disableDialogSlide?: boolean;
   /**
-   * The animation type used for showing/hiding the tooltip.
-   */
-  animationType?: DialogAnimationType;
-  /**
    * If true, renders the tooltip without a dialog.
    */
   withoutDialog?: boolean;
-  /**
-   * The CSS selector of the container where the tooltip should be rendered.
-   */
-  containerSelector?: string;
   /**
    * Delay in milliseconds before showing the tooltip immediately.
    */
@@ -99,19 +71,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    * If false, hides the arrow of the tooltip.
    */
   tip?: boolean;
-  /**
-   * If true, the tooltip is shown when the component mounts.
-   */
-  shouldShowOnMount?: boolean;
-  /**
-   * If true, hides the tooltip when the reference element is hidden.
-   */
-  hideWhenReferenceHidden?: boolean;
-  /**
-   * Custom Floating UI middleware for positioning logic.
-   * @see https://floating-ui.com/docs/middleware
-   */
-  middleware?: DialogMiddleware[];
   /**
    * Callback fired when the tooltip is hidden.
    */
@@ -124,34 +83,6 @@ interface TooltipBaseProps extends VibeComponentProps {
    * The placement of the tooltip relative to the reference element.
    */
   position?: TooltipPositions;
-  /**
-   * Events that trigger showing the tooltip.
-   */
-  showTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
-  /**
-   * Events that trigger hiding the tooltip.
-   */
-  hideTrigger?: DialogTriggerEvent | Array<DialogTriggerEvent>;
-  /**
-   * If true, prevents closing the tooltip when the mouse enters it.
-   */
-  showOnDialogEnter?: boolean;
-  /**
-   * Class name applied to the reference wrapper element.
-   */
-  referenceWrapperClassName?: string;
-  /**
-   * If true, keyboard focus/blur events behave like mouse enter/leave.
-   */
-  addKeyboardHideShowTriggersByDefault?: boolean;
-  /**
-   * If true, controls the open state of the tooltip.
-   */
-  open?: boolean;
-  /**
-   * The z-index applied to the tooltip.
-   */
-  zIndex?: number;
   /**
    * The title of the tooltip.
    */
@@ -184,6 +115,7 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
 
 export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
+  /* eslint-disable react/default-props-match-prop-types -- props inherited from DialogProps via Omit<> */
   static defaultProps = {
     moveBy: { main: 4, secondary: 0 },
     theme: "dark",
@@ -202,6 +134,7 @@ export default class Tooltip extends PureComponent<TooltipProps> {
     addKeyboardHideShowTriggersByDefault: true,
     open: false
   };
+  /* eslint-enable react/default-props-match-prop-types */
   constructor(props: TooltipProps) {
     super(props);
     this.renderTooltipContent = this.renderTooltipContent.bind(this);

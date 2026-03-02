@@ -528,6 +528,28 @@ If you were using `usePopover` from `@vibe/dialog`, migrate to `useFloating` fro
 
 **Codemod:** ❌ Manual migration required for `modifiers` → `middleware` conversion.
 
+### Tooltip
+
+#### `TooltipProps` now extends `DialogProps`
+
+`TooltipProps` now extends `DialogProps` (with overrides for `position`, `content`, and `children`). This is a TypeScript-level breaking change that improves type safety and consistency.
+
+**What changed:**
+- `TooltipProps` now inherits all `DialogProps` (event handlers, positioning, animation, etc.)
+- Duplicate prop definitions were removed from `TooltipProps` (they come from `DialogProps` now)
+- `position` prop is still restricted to `"top" | "right" | "bottom" | "left"` (narrower than Dialog's 12 positions)
+- `content` prop remains required (unlike Dialog's optional `content`)
+- `children` prop maintains its discriminated union with `forceRenderWithoutChildren`
+
+**Impact:**
+- If you use `Partial<TooltipProps>` in your types (most common pattern), your code will accept additional Dialog props like `onBlur`, `onFocus`, `disable`, `startingEdge`, etc. This is **additive** and backward compatible.
+- If you have custom types that wrap `TooltipProps` and explicitly list its properties, you may need to update them.
+- If you spread Tooltip props into a non-Dialog element, you may get additional unexpected DOM attributes. Use destructuring to pick only the props you need.
+
+**No code changes required** for most users. This change improves type inference and allows passing Dialog-level props directly to Tooltip.
+
+**Codemod:** ❌ Not needed — this is a type-level change only. No runtime behavior changes.
+
 ### Steps
 
 #### Finish button is now shown by default on the last step
