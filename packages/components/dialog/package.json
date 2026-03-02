@@ -38,13 +38,12 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@popperjs/core": "2.11.6",
+    "@floating-ui/react-dom": "^2.1.2",
     "@vibe/hooks": "3.0.3",
     "@vibe/layer": "3.0.10",
     "@vibe/shared": "3.0.8",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
-    "react-popper": "^2.3.0",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {

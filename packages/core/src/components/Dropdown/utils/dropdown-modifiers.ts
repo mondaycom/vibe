@@ -1,15 +1,11 @@
-import { type Modifier } from "react-popper";
+import { type Middleware } from "@floating-ui/react-dom";
 
-export const matchWidthModifier: Modifier<any>[] = [
-  {
-    name: "matchWidth",
-    enabled: true,
-    phase: "beforeWrite",
-    requires: ["computeStyles"],
-    fn: ({ state }) => {
-      if (state.rects && state.rects.reference) {
-        state.styles.popper.width = `${state.rects.reference.width}px`;
-      }
-    }
+export const matchWidthMiddleware: Middleware = {
+  name: "matchWidth",
+  fn: ({ rects, elements }) => {
+    Object.assign(elements.floating.style, {
+      width: `${rects.reference.width}px`
+    });
+    return {};
   }
-];
+};
