@@ -178,6 +178,39 @@ The Toggle component previously set `data-testid="toggle"` on both the input ele
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
+### Hooks
+
+#### `useActiveDescendantListFocus` — Removed `onItemClickCallback` and `createOnItemClickCallback`
+
+The `onItemClickCallback` and `createOnItemClickCallback` properties have been removed from the hook's return value. These were backward-compatibility shims that duplicated the `onItemClick` callback you already provide to the hook.
+
+**Before (v3):**
+```typescript
+const {
+  visualFocusItemIndex,
+  visualFocusItemId,
+  focusedElementProps,
+  onItemClickCallback,        // removed
+  createOnItemClickCallback,  // removed
+  setVisualFocusItemId
+} = useActiveDescendantListFocus({ onItemClick, ... });
+```
+
+**After (v4):**
+```typescript
+const {
+  visualFocusItemIndex,
+  visualFocusItemId,
+  focusedElementProps,
+  setVisualFocusItemId
+} = useActiveDescendantListFocus({ onItemClick, ... });
+
+// Use your own onItemClick callback directly
+// Instead of createOnItemClickCallback(index), use: (event) => onItemClick(event, index)
+```
+
+**Codemod:** ❌ Not available — remove these destructured properties manually and use the `onItemClick` you already pass to the hook.
+
 ### TypeScript Types
 
 <!-- This section will be populated as breaking changes are identified -->
