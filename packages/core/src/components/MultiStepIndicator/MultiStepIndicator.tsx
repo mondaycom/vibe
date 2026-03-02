@@ -33,10 +33,6 @@ export interface MultiStepIndicatorProps extends VibeComponentProps {
    */
   fulfilledStepIcon?: SubIcon;
   /**
-   * The type of the fulfilled step icon.
-   */
-  fulfilledStepIconType?: "svg" | "font";
-  /**
    * If true, displays the step number instead of the fulfilled step icon.
    */
   isFulfilledStepDisplayNumber?: boolean;
@@ -63,7 +59,6 @@ const MultiStepIndicator = forwardRef(
       stepComponentClassName,
       dividerComponentClassName,
       fulfilledStepIcon = Check,
-      fulfilledStepIconType = "svg",
       isFulfilledStepDisplayNumber = false,
       onClick = NOOP,
       textPlacement = "horizontal",
@@ -85,7 +80,6 @@ const MultiStepIndicator = forwardRef(
               type={type}
               stepComponentClassName={stepComponentClassName}
               fulfilledStepIcon={fulfilledStepIcon}
-              fulfilledStepIconType={fulfilledStepIconType}
               onClick={onClick}
               isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
               size={finalSize}
@@ -106,7 +100,7 @@ const MultiStepIndicator = forwardRef(
         type,
         stepComponentClassName,
         fulfilledStepIcon,
-        fulfilledStepIconType,
+
         dividerComponentClassName,
         steps.length,
         finalSize
@@ -123,7 +117,6 @@ const MultiStepIndicator = forwardRef(
             type={type}
             stepComponentClassName={stepComponentClassName}
             fulfilledStepIcon={fulfilledStepIcon}
-            fulfilledStepIconType={fulfilledStepIconType}
             onClick={onClick}
             isFollowedByDivider={index !== steps.length - 1}
             stepDividerClassName={cx(styles.divider, dividerComponentClassName)}
@@ -138,7 +131,7 @@ const MultiStepIndicator = forwardRef(
         type,
         stepComponentClassName,
         fulfilledStepIcon,
-        fulfilledStepIconType,
+
         dividerComponentClassName,
         steps.length
       ]

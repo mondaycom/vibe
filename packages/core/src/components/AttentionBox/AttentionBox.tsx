@@ -15,7 +15,6 @@ const AttentionBox = forwardRef(
       title,
       animate = true,
       icon,
-      iconType = "svg",
       type = "primary",
       children,
       text,
@@ -48,7 +47,6 @@ const AttentionBox = forwardRef(
       action,
       link,
       icon: displayIcon,
-      iconType,
       content
     };
 

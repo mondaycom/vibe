@@ -1,4 +1,4 @@
-import { type IconType } from "@vibe/icon";
+import { type SubIcon } from "@vibe/icon";
 import { type ReactElement } from "react";
 import {
   type SliderSize,
@@ -62,7 +62,7 @@ export type SliderContextInfix = {
    *  - Or it can be Render Props Function witch are getting value and valueText
    */
   prefix?:
-    | { icon: IconType }
+    | { icon: SubIcon }
     | string
     | ((value: number | number[], valueText: string | string[]) => ReactElement)
     | ReactElement;
@@ -70,7 +70,7 @@ export type SliderContextInfix = {
    * Options for postfix/end/finishing element. Same as prefix element.
    */
   postfix?:
-    | { icon: IconType }
+    | { icon: SubIcon }
     | string
     | ((value: number | number[], valueText: string | string[]) => ReactElement)
     | ReactElement;

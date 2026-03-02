@@ -4,9 +4,10 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import MenuItemIcon from "../MenuItemIcon";
 import { type MenuItemIconProps } from "../MenuItemIcon.types";
+import { Activity } from "@vibe/icons";
 
 function renderMenuItemIcon(props: Partial<MenuItemIconProps> = {}) {
-  return render(<MenuItemIcon icon="test-icon" label="Test Icon" {...props} />);
+  return render(<MenuItemIcon icon={Activity} {...props} />);
 }
 
 describe("MenuItemIcon", () => {

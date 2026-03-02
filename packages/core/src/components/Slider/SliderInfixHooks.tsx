@@ -1,5 +1,5 @@
 import React, { type CSSProperties, type ReactElement } from "react";
-import { type IconType, Icon } from "@vibe/icon";
+import { type SubIcon, Icon } from "@vibe/icon";
 import { type InfixKind } from "./Slider.types";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";
@@ -19,8 +19,8 @@ export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], Re
   if (indicateSelection && (isPostfix || ranged)) {
     return [true, [], <SelectionIndicator key={kind} kind={kind} />, { width: selectionIndicatorWidth }];
   }
-  if (typeof infix === "object" && (infix as { icon: IconType }).icon) {
-    const { icon, ...restIconProps } = infix as { icon: IconType };
+  if (typeof infix === "object" && (infix as { icon: SubIcon }).icon) {
+    const { icon, ...restIconProps } = infix as { icon: SubIcon };
     const iconProps = { ...defaultIconProps, ...restIconProps };
     return [true, [], <Icon key="infix-icon" icon={icon} {...iconProps} />, {}];
   }

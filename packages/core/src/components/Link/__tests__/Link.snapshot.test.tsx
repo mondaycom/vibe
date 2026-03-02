@@ -2,15 +2,16 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Link from "../Link";
+import { Favorite } from "@vibe/icons";
 
 describe("Link renders correctly", () => {
   it("with icon", () => {
-    const tree = renderer.create(<Link icon="fa fa-star" />).toJSON();
+    const tree = renderer.create(<Link icon={Favorite} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with right icon", () => {
-    const tree = renderer.create(<Link icon="fa fa-star" iconPosition="end" />).toJSON();
+    const tree = renderer.create(<Link icon={Favorite} iconPosition="end" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

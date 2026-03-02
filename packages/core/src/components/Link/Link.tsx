@@ -88,7 +88,7 @@ const Link = forwardRef(
       ariaLabelDescription = "",
       color = "primary",
       ariaDescribedby = "",
-      icon = "",
+      icon = null,
       iconPosition = "start",
       id = "",
       ariaLabeledBy = "",
@@ -139,9 +139,9 @@ const Link = forwardRef(
   }
 );
 
-function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
+function getIcon(shouldShow: boolean, icon: SubIcon, className: string) {
   if (!shouldShow) return;
-  return <Icon className={className} icon={icon} type="font" />;
+  return <Icon className={className} icon={icon} />;
 }
 
 export default Link;

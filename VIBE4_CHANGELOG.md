@@ -72,6 +72,21 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
 - **Task**: Monday.com task #9713029042
 
+#### Icon - Type checking improvements
+
+- [x] **Status**: Implemented ✅
+- **Change**: Improved type safety for the `icon` prop and removed string-based icon support
+  - `SubIcon` type narrowed from `string | React.FC<IconSubComponentProps> | null` to `React.FC<IconSubComponentProps> | null`
+  - Removed `type` prop and `IconType` type (no longer needed since only component icons are supported)
+  - Removed `useCurrentColor` and `customColor` props (use `CustomSvgIcon` directly for SVG source URLs)
+  - Removed `iconType` prop from `AttentionBox`, `Tab`, `MenuItem`, `MultiStepIndicator`
+  - Removed `fulfilledStepIconType` prop from `MultiStepIndicator` and `StepIndicator`
+  - Fixed `Slider` prefix/postfix icon type from `IconType` to `SubIcon`
+- **Reason**: Better compile-time type checking; prevents runtime errors from passing invalid string values as icons
+- **Migration**: Import icon components from `@vibe/icons` instead of passing string values. Remove `type`, `iconType`, `useCurrentColor`, and `customColor` props.
+- **Codemod**: ✅ Available - `npx @vibe/codemod icon-type-removal`
+- **Task**: Monday.com task #9713029224
+
 #### Flex
 
 - **Change**: Removed `"stretch"` from the `justify` prop (`FlexJustify` type and `FlexJustify.STRETCH` enum value)

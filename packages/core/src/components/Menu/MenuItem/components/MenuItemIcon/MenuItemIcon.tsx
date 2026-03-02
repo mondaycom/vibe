@@ -8,7 +8,6 @@ import { type MenuItemIconProps } from "./MenuItemIcon.types";
 const MenuItemIcon = ({
   icon,
   isRightIcon = false,
-  type,
   disabled,
   selected,
   backgroundColor,
@@ -28,7 +27,6 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      type={type || (typeof icon === "function" ? "svg" : "font")}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle

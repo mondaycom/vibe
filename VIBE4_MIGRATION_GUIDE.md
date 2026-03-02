@@ -102,31 +102,60 @@ The `disableClickableBehavior` prop has been removed. Chips now always uses the 
 
 **Props Renamed - Remove "icon" Prefix**
 - ❌ **Removed**: `iconLabel`, `iconType`, `iconSize` props
-- ✅ **Added**: `label`, `type`, `size` props with same functionality
+- ✅ **Added**: `label`, `size` props with same functionality
 - **Reason**: Simplified API for better consistency and reduced verbosity
-
-**Migration:**
-```jsx
-// Before
-<Icon
-  icon={MyIcon}
-  iconLabel="Close dialog"
-  iconType="svg"
-  iconSize={24}
-/>
-
-// After
-<Icon
-  icon={MyIcon}
-  label="Close dialog"
-  type="svg"
-  size={24}
-/>
-```
 
 **Automated Migration Available:**
 ```bash
 npx @vibe/codemod icon-props-rename src/
+```
+
+**Removed `type` prop and string-based icon support**
+
+The `SubIcon` type has been narrowed to only accept React icon components (e.g., from `@vibe/icons`) or `null`. String values (CSS class names, URLs) are no longer accepted.
+
+The `type` prop (`"svg" | "font" | "src"`) has been removed from Icon. The `IconType` type is no longer exported. The `useCurrentColor` and `customColor` props have also been removed.
+
+- ❌ **Removed**: `type`, `useCurrentColor`, `customColor` props from Icon
+- ❌ **Removed**: `IconType` type export from `@vibe/icon`
+- ❌ **Removed**: `iconType` prop from `AttentionBox`, `Tab`, `MenuItem`
+- ❌ **Removed**: `fulfilledStepIconType` prop from `MultiStepIndicator`
+- 🔄 **Changed**: `SubIcon` type from `string | React.FC<IconSubComponentProps> | null` to `React.FC<IconSubComponentProps> | null`
+
+**Migration:**
+```jsx
+// Before - SVG icon (component)
+<Icon icon={MyIcon} type="svg" />
+
+// After - just pass the component
+<Icon icon={MyIcon} />
+
+// Before - Font icon (string)
+<Icon icon="fa fa-star" type="font" />
+
+// After - use a <span> or FontIcon directly
+<span className="fa fa-star" />
+
+// Before - Source URL icon
+<Icon icon="https://example.com/icon.svg" type="src" useCurrentColor />
+
+// After - use CustomSvgIcon directly
+<CustomSvgIcon src="https://example.com/icon.svg" replaceToCurrentColor />
+
+// Before - component with iconType
+<MenuItem icon={Activity} iconType="svg" title="Item" />
+<AttentionBox icon={Info} iconType="svg" />
+<Tab icon={Email} iconType="svg" />
+
+// After - remove iconType
+<MenuItem icon={Activity} title="Item" />
+<AttentionBox icon={Info} />
+<Tab icon={Email} />
+```
+
+**Automated Migration Available:**
+```bash
+npx @vibe/codemod icon-type-removal src/
 ```
 #### AttentionBox
 

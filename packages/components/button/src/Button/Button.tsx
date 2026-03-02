@@ -308,7 +308,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <>
           {leftIcon ? (
             <Icon
-              type="font"
               icon={leftIcon}
               size={iconSize(leftIcon)}
               className={cx({
@@ -320,7 +319,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {children}
           {rightIcon ? (
             <Icon
-              type="font"
               icon={rightIcon}
               size={iconSize(rightIcon)}
               className={cx({
@@ -353,7 +351,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <span className={styles.successContent}>
             {successIcon ? (
               <Icon
-                type="font"
                 icon={successIcon}
                 size={iconSize(successIcon)}
                 className={cx({
