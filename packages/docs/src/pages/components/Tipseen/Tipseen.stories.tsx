@@ -6,7 +6,6 @@ import {
   TipseenContent,
   type TipseenContentProps,
   TipseenWizard,
-  TipseenImage,
   TipseenMedia,
   Flex
 } from "@vibe/core";
@@ -23,7 +22,6 @@ export default {
   component: Tipseen,
   subcomponents: {
     TipseenMedia,
-    TipseenImage,
     TipseenContent,
     TipseenWizard
   },
@@ -197,7 +195,9 @@ export const TipseenWithImage: StoryObj<typeof Tipseen> = {
         closeButtonTheme="light"
         content={
           <>
-            <TipseenImage src={picture} />
+            <TipseenMedia>
+              <img src={picture} alt="" style={{ objectFit: "cover", width: "100%" }} />
+            </TipseenMedia>
             <TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />
           </>
         }
@@ -275,7 +275,9 @@ export const FloatingTipseen: StoryObj<typeof Tipseen> = {
         floating
         content={
           <>
-            <TipseenImage src={picture} />
+            <TipseenMedia>
+              <img src={picture} alt="" style={{ objectFit: "cover", width: "100%" }} />
+            </TipseenMedia>
             <TipseenContent title="This is a Floating Tipseen">
               Message for the user will appear here, to give more information about the feature.
             </TipseenContent>

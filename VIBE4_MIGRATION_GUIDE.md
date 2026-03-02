@@ -532,6 +532,38 @@ The deprecated `tooltipPosition` prop has been removed. Use `tooltipProps.positi
 
 **Codemod:** The v4 codemod automatically migrates `tooltipPosition` values to `tooltipProps.position`.
 
+### TipseenImage
+
+#### Removed `TipseenImage` component
+
+The `TipseenImage` component has been removed. It was a thin wrapper around `TipseenMedia` that only rendered an `<img>` tag. Use `TipseenMedia` directly with an `<img>` child instead.
+
+**Before (v3):**
+
+```tsx
+import { TipseenImage } from "@vibe/core";
+
+<TipseenImage src={picture} alt="description" className="custom" tipseenMediaClassName="mediaClass" />
+```
+
+**After (v4):**
+
+```tsx
+import { TipseenMedia } from "@vibe/core";
+
+<TipseenMedia className="mediaClass">
+  <img src={picture} alt="description" className="custom" style={{ objectFit: "cover", width: "100%" }} />
+</TipseenMedia>
+```
+
+**Prop mapping:**
+- `src` → `<img src={...}>`
+- `alt` → `<img alt={...}>`
+- `className` → `<img className={...}>`
+- `tipseenMediaClassName` → `<TipseenMedia className={...}>`
+
+**Codemod:** The v4 codemod automatically transforms `TipseenImage` to `TipseenMedia` with an `<img>` child.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
