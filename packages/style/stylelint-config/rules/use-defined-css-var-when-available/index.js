@@ -4,7 +4,7 @@ const { getPropsToAllowedCssVars } = require("./parse-monday-css");
 
 const { report, ruleMessages, validateOptions } = stylelint.utils;
 
-const RULE_NAME = "monday-ui-style/use-defined-css-var-when-available";
+const RULE_NAME = "@vibe/style/use-defined-css-var-when-available";
 const CONFIGS_THAT_MEAN_IGNORE_FILE = ["disabled", "disable", "off", "0"];
 
 const messages = ruleMessages(RULE_NAME, {

@@ -27,7 +27,7 @@
     "@vibe/shared": "3.0.8",
     "classnames": "^2.3.2",
     "es-toolkit": "^1.39.10",
-    "monday-ui-style": "0.26.2",
+    "@vibe/style": "0.26.2",
     "vibe-storybook-components": "1.0.7"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:string";
 @use "sass:list";
-@import "~monday-ui-style/dist/functions";
+@import "~@vibe/style/dist/functions";
 
 /*  stylelint-disable scss/at-if-no-null */
 $utility-spacing-vars: (

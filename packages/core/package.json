@@ -111,7 +111,7 @@
     "downshift": "^9.0.8",
     "es-toolkit": "^1.39.10",
     "framer-motion": "^6.5.1",
-    "monday-ui-style": "0.26.2",
+    "@vibe/style": "0.26.2",
     "react-day-picker": "^8.8.0",
     "react-focus-lock": "^2.13.2",
     "react-inlinesvg": "^4.1.3",

@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .labelComponentWrapper {
   @include vibe-text(text2, normal);
