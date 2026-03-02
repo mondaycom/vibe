@@ -425,6 +425,16 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### CSS and Styling
 
+#### TableCellSkeleton
+
+- [x] **Status**: Complete
+- **Change**: Removed `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` blocks from `TableCellSkeleton` styles. The `aspect-ratio: 1 / 1` rule is now applied unconditionally to `.circle` and `.rectangle` skeleton types.
+- **Reason**: `aspect-ratio` is now supported by all modern browsers. The `@supports` fallback (`width: 21px`) is no longer needed and adds unnecessary complexity.
+- **Migration**: No code changes required. If your project targets browsers that do not support `aspect-ratio` (e.g. IE 11, Safari < 15), circle/rectangle skeleton cells will no longer receive the `width: 21px` fallback.
+- **Codemod**: ❌ Not applicable (CSS-only change)
+- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029198)
+- **PR**: TBD
+
 #### Design Tokens
 
 - **Change**: TBD
