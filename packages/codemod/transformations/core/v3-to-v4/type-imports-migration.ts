@@ -1,24 +1,22 @@
-import { wrap } from "../../../src/utils";
+import { wrap, getImports, findImportsThatIncludesSpecifier, removeSpecifierFromImport } from "../../../src/utils";
+import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
 import { TransformationContext } from "../../../types";
 
 /**
  * Type import migrations for v3 to v4
  *
- * Currently no TypeScript interface or type migrations have been identified for v4.
- * This transformation is a no-op until specific type migrations are needed.
- *
- * When type migrations are identified, add them here following the pattern:
- * 1. Renaming TypeScript interfaces and types
- * 2. Moving types between packages
- * 3. Converting deprecated types to new ones
+ * 1. Remove VibeComponent type import from @vibe/core
+ *    VibeComponent has been removed in v4 as it didn't allow proper typing.
+ *    Replace with React.ForwardRefExoticComponent<T & React.RefAttributes<P>> from React.
  */
-function transform(_context: TransformationContext) {
-  // No type migrations identified for v3-to-v4 yet
-  // This is a no-op transformation to satisfy the codemod infrastructure
-  // TODO: Add specific type migrations here as they are identified:
-  // - Interface renames: { "OldInterface": "NewInterface" }
-  // - Type alias updates: { "OldType": "NewType" }
-  // - Import path changes for moved types
+function transform({ j, root }: TransformationContext) {
+  const coreImports = getImports(root, NEW_CORE_IMPORT_PATH);
+
+  // Remove VibeComponent from @vibe/core imports
+  const vibeComponentImports = findImportsThatIncludesSpecifier(j, coreImports, "VibeComponent");
+  vibeComponentImports.forEach(path => {
+    removeSpecifierFromImport(j, path, "VibeComponent");
+  });
 }
 
 export default wrap(transform);

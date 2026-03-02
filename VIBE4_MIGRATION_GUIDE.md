@@ -180,7 +180,38 @@ If your tests query `[data-testid="toggle"]` and expect multiple matches, update
 
 ### TypeScript Types
 
-<!-- This section will be populated as breaking changes are identified -->
+#### `VibeComponent` type removed
+
+The `VibeComponent<T, P>` type alias has been removed from `@vibe/core` and `@vibe/shared`. It was a thin wrapper over `React.ForwardRefExoticComponent` that didn't add value and prevented proper typing in some cases.
+
+**Before (v3):**
+```tsx
+import { type VibeComponent } from "@vibe/core";
+
+const MyComponent: VibeComponent<MyComponentProps, HTMLDivElement> = forwardRef(/* ... */);
+```
+
+**After (v4):**
+```tsx
+import { type ForwardRefExoticComponent, type RefAttributes } from "react";
+
+const MyComponent: ForwardRefExoticComponent<MyComponentProps & RefAttributes<HTMLDivElement>> = forwardRef(/* ... */);
+```
+
+Alternatively, you can remove the explicit type annotation and let TypeScript infer it from `forwardRef`:
+
+```tsx
+// TypeScript will infer the correct type
+const MyComponent = forwardRef<HTMLDivElement, MyComponentProps>(/* ... */);
+```
+
+**Codemod available**: Removes `VibeComponent` type imports from `@vibe/core` automatically.
+
+```bash
+npx @vibe/codemod --migration v4
+```
+
+> Note: The codemod removes the import. Usage sites must be updated manually using the patterns above.
 
 ### CSS and Design Tokens
 
