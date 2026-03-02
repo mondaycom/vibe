@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import TextField from "../TextField";
-import { Favorite, Search } from "@vibe/icons";
 
 describe("TextField renders correctly", () => {
   it("with placeholder", () => {
@@ -61,12 +60,12 @@ describe("TextField renders correctly", () => {
   });
 
   it("with icon", () => {
-    const tree = renderer.create(<TextField iconName={Favorite} />).toJSON();
+    const tree = renderer.create(<TextField iconName="fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with labelIconName", () => {
-    const tree = renderer.create(<TextField labelIconName={Favorite} />).toJSON();
+    const tree = renderer.create(<TextField labelIconName="fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -86,7 +85,7 @@ describe("TextField renders correctly", () => {
   });
 
   it("with secondaryIconName", () => {
-    const tree = renderer.create(<TextField secondaryIconName={Search} />).toJSON();
+    const tree = renderer.create(<TextField secondaryIconName="fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

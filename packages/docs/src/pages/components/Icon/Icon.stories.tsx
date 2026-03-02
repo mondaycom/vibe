@@ -37,7 +37,7 @@ export const Overview = {
 };
 
 export const VibeIcon = {
-  render: () => <Icon id="vibe-icon" icon={Bolt} label="my bolt svg icon" size={16} />,
+  render: () => <Icon id="vibe-icon" type="svg" icon={Bolt} label="my bolt svg icon" size={16} />,
   parameters: {
     docs: {
       liveEdit: {
@@ -47,6 +47,22 @@ export const VibeIcon = {
   }
 };
 
+export const FontIcon = {
+  render: () => <Icon id="font-icon" type="font" label="my font awesome start icon" icon="fa fa-star" />
+};
+
+export const CustomSvg = {
+  render: () => (
+    <Icon
+      id="custom-svg-icon"
+      type="src"
+      icon="https://cdn.monday.com/images/apps/custom-icons/Form.svg"
+      label="my src awesome icon"
+      useCurrentColor
+    />
+  )
+};
+
 export const Color = {
   render: () => (
     <div
@@ -54,7 +70,7 @@ export const Color = {
         color: "var(--sb-color-sofia_pink)"
       }}
     >
-      <Icon id="colored-icon" icon={Bolt} label="my bolt svg icon" size={16} />
+      <Icon id="colored-icon" type="svg" icon={Bolt} label="my bolt svg icon" size={16} />
     </div>
   ),
   parameters: {

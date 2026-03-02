@@ -1,10 +1,14 @@
-import { type SubIcon } from "@vibe/icon";
+import { type IconType, type SubIcon } from "@vibe/icon";
 
 export interface MenuItemIconProps {
   /**
-   * The icon to be displayed. Must be an icon component (e.g. from `@vibe/icons`).
+   * The icon to be displayed. Can be a string or an icon component.
    */
   icon?: SubIcon;
+  /**
+   * The type of icon to be used.
+   */
+  type?: IconType;
   /**
    * If true, the icon appears disabled.
    */

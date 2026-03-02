@@ -1,6 +1,6 @@
 import type { ReactNode, MouseEvent } from "react";
 import type { VibeComponentProps } from "../../types";
-import type { SubIcon } from "@vibe/icon";
+import type { SubIcon, IconType } from "@vibe/icon";
 import type { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
 import type { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";
 
@@ -25,7 +25,7 @@ export type AttentionBoxContentProps =
 
 // Shared props for both compact and default layouts
 export interface AttentionBoxLayoutSharedProps
-  extends Pick<AttentionBoxProps, "icon" | "onClose" | "closeButtonAriaLabel" | "action" | "link"> {
+  extends Pick<AttentionBoxProps, "icon" | "iconType" | "onClose" | "closeButtonAriaLabel" | "action" | "link"> {
   content: ReactNode;
 }
 
@@ -55,6 +55,10 @@ export type AttentionBoxProps = VibeComponentProps &
      * The variant type of the attention box
      */
     type?: AttentionBoxType;
+    /**
+     * The type of the icon
+     */
+    iconType?: IconType;
     /**
      * The icon to display. Pass `false` to hide the icon entirely, or omit to use the default icon for the type.
      */

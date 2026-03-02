@@ -27,4 +27,5 @@ export interface IconSubComponentProps {
   "data-testid"?: string;
 }
 
-export type SubIcon = React.FC<IconSubComponentProps> | null;
+export type SubIcon = string | React.FC<IconSubComponentProps> | null;
+export type IconType = "svg" | "font" | "src";

@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { type ChangeEventHandler, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import { Icon, type SubIcon } from "@vibe/icon";
+import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
 import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
@@ -78,11 +78,11 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * The primary icon displayed inside the text field.
    */
-  iconName?: SubIcon;
+  iconName?: string | React.FunctionComponent | null;
   /**
    * The secondary icon displayed inside the text field.
    */
-  secondaryIconName?: SubIcon;
+  secondaryIconName?: string | React.FunctionComponent | null;
   /**
    * The label displayed above the text field.
    */
@@ -102,7 +102,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * Callback fired when the icon inside the text field is clicked.
    */
-  onIconClick?: (icon: SubIcon) => void;
+  onIconClick?: (icon: string | React.FunctionComponent | null) => void;
   /**
    * If true, clears the input when the icon is clicked.
    */
@@ -110,7 +110,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * The icon displayed inside the label.
    */
-  labelIconName?: SubIcon;
+  labelIconName?: string | React.FunctionComponent | null;
   /**
    * If true, displays the character count.
    */
@@ -341,7 +341,7 @@ const TextField = forwardRef(
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnPrimaryIcon =
-      (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && !!iconName && isPrimary;
+      (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength ? `${id}-allow-exceeding-max-length-text` : undefined;
 
@@ -432,7 +432,12 @@ const TextField = forwardRef(
                   tabIndex={shouldFocusOnPrimaryIcon ? 0 : -1}
                   ariaLabel={primaryIconLabel}
                 >
-                  <Icon icon={iconName} className={cx(styles.icon)} size={size === "small" ? "16px" : "18px"} />
+                  <Icon
+                    icon={iconName}
+                    className={cx(styles.icon)}
+                    type="font"
+                    size={size === "small" ? "16px" : "18px"}
+                  />
                 </Clickable>
               </Tooltip>
             )}
@@ -456,6 +461,7 @@ const TextField = forwardRef(
                   <Icon
                     icon={secondaryIconName}
                     className={cx(styles.icon)}
+                    type="font"
                     size={size === "small" ? "16px" : "18px"}
                   />
                 </Clickable>

@@ -8,9 +8,9 @@ export const MenuButtonDescription = () => {
     () => (
       <MenuButton>
         <Menu id="menu" size="medium">
-          <MenuItem icon={Sun} title="The sun" />
-          <MenuItem icon={Moon} title="The moon" />
-          <MenuItem icon={Favorite} title="And the stars" />
+          <MenuItem icon={Sun} type="svg" title="The sun" />
+          <MenuItem icon={Moon} type="svg" title="The moon" />
+          <MenuItem icon={Favorite} type="svg" title="And the stars" />
         </Menu>
       </MenuButton>
     ),

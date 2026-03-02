@@ -8,7 +8,7 @@ import {
   type SliderContextSelection,
   type SliderContextUI
 } from "./SliderConstants";
-import { type SubIcon } from "@vibe/icon";
+import { type IconType } from "@vibe/icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});
@@ -34,11 +34,11 @@ export interface SliderProviderProps extends SliderProps {
      * - An object with an icon.
      * - A function that receives the value and valueText.
      */
-    prefix?: { icon: SubIcon } | string | ((value: number, valueText: string) => void) | ReactElement;
+    prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
     /**
      * Configuration for the postfix (end) element, similar to prefix.
      */
-    postfix?: { icon: SubIcon } | string | ((value: number, valueText: string) => void) | ReactElement;
+    postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
     /**
      * The width of the selection indicator.
      */

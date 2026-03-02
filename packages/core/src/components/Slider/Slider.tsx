@@ -5,7 +5,7 @@ import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
-import { type SubIcon } from "@vibe/icon";
+import { type IconType } from "@vibe/icon";
 import cx from "classnames";
 import styles from "./Slider.module.scss";
 import { type SliderColor, type SliderLabelColor, type SliderLabelPosition, type SliderSize } from "./Slider.types";
@@ -113,11 +113,11 @@ export type SliderProps = {
    *  - Or it can be an object for Label (Icon, Heading - and other components)
    *  - Or it can be Render Props Function witch are getting value and valueText
    */
-  prefix?: { icon: SubIcon } | string | ((value: number, valueText: string) => void) | ReactElement;
+  prefix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
   /**
    * Options for postfix/end/finishing element. Same as prefix element.
    */
-  postfix?: { icon: SubIcon } | string | ((value: number, valueText: string) => void) | ReactElement;
+  postfix?: { icon: IconType } | string | ((value: number, valueText: string) => void) | ReactElement;
   /**
    * Width of SelectionIndicator (i.e. TextField)
    */

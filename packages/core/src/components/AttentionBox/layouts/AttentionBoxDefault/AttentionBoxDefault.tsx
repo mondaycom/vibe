@@ -14,6 +14,7 @@ export type AttentionBoxDefaultProps = AttentionBoxLayoutSharedProps & Pick<Atte
 const AttentionBoxDefault = ({
   title,
   icon,
+  iconType,
   onClose,
   closeButtonAriaLabel = "Close",
   action,
@@ -31,7 +32,7 @@ const AttentionBoxDefault = ({
         [styles.hasCloseButton]: !!onClose
       })}
     >
-      {icon && <AttentionBoxLeadingIcon icon={icon} className={styles.icon} />}
+      {icon && <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.icon} />}
 
       {title && (
         <Text type="text1" weight="medium" className={styles.title}>

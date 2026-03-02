@@ -168,6 +168,7 @@ const Checkbox = forwardRef(
           >
             <Icon
               className={styles.icon}
+              type="svg"
               icon={indeterminate ? Remove : Check}
               ignoreFocusStyle
               ariaHidden={true}
@@ -225,6 +226,7 @@ const Checkbox = forwardRef(
         >
           <Icon
             className={styles.icon}
+            type="svg"
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
             ariaHidden={true}

@@ -3,7 +3,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { type SubIcon } from "@vibe/icon";
+import { type IconSubComponentProps } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { Loader } from "@vibe/loader";
 import { Flex } from "@vibe/layout";
@@ -39,7 +39,7 @@ export interface ToastProps extends VibeComponentProps {
   /**
    * The icon displayed in the toast.
    */
-  icon?: SubIcon;
+  icon?: string | React.FC<IconSubComponentProps> | null;
   /**
    * If true, hides the toast icon.
    */

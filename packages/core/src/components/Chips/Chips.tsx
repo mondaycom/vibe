@@ -269,6 +269,7 @@ const Chips = forwardRef(
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
+            type="font"
             icon={leftIcon}
             size={iconSize}
             ignoreFocusStyle
@@ -281,6 +282,7 @@ const Chips = forwardRef(
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
+            type="font"
             icon={rightIcon}
             size={iconSize}
             ignoreFocusStyle

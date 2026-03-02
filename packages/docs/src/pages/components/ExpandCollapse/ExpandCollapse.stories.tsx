@@ -31,7 +31,7 @@ export const Overview = {
           <Text type="text2" maxLines={2}>
             Insert here any component that you want, here is a robot for you
           </Text>
-          <Icon icon={Robot} size={40} />
+          <Icon type="svg" icon={Robot} size={40} />
         </ExpandCollapse>
       </div>
     );

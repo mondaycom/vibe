@@ -1,6 +1,6 @@
 import React from "react";
 import { Menu, MenuItem, type MenuItemProps, Flex, Text } from "@vibe/core";
-import { Activity, Favorite } from "@vibe/icons";
+import { Activity } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
 
@@ -55,14 +55,14 @@ export const Icons: Story = {
         <Text>Left icon</Text>
         <Menu>
           <MenuItem title="SVG icon" icon={Activity} />
-          <MenuItem title="Another icon" icon={Favorite} />
+          <MenuItem title="Font icon" icon="fa fa-star" type="font" />
         </Menu>
       </Flex>
       <Flex direction="column" gap="medium">
         <Text>Right icon</Text>
         <Menu>
           <MenuItem title="SVG right icon" rightIcon={Activity} />
-          <MenuItem title="Another right icon" rightIcon={Favorite} />
+          <MenuItem title="Font right icon" rightIcon="fa fa-star" rightType="font" />
         </Menu>
       </Flex>
     </Flex>
@@ -70,7 +70,7 @@ export const Icons: Story = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { Activity, Favorite }
+        scope: { Activity }
       }
     }
   }
@@ -139,6 +139,7 @@ export const TooltipStory: Story = {
         tooltipContent="Menu item with icon and tooltip"
         tooltipPosition="left"
         icon={Activity}
+        type="svg"
       />
     </Menu>
   ),

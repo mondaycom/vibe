@@ -15,8 +15,8 @@ describe("Snapshots", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with title and icon", () => {
-    const tree = renderer.create(<MenuItem title="my item" icon={Activity} />).toJSON();
+  it("renders correctly with title and font icon", () => {
+    const tree = renderer.create(<MenuItem title="my item" icon="fa fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

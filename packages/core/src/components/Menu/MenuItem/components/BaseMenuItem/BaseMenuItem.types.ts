@@ -11,6 +11,7 @@ export type LossMenuItemProps = Omit<
   | "title"
   | "label"
   | "icon"
+  | "iconType"
   | "iconBackgroundColor"
   | "disabledReason"
   | "key"

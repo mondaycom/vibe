@@ -12,6 +12,7 @@ export type AttentionBoxCompactProps = AttentionBoxLayoutSharedProps;
 
 const AttentionBoxCompact = ({
   icon,
+  iconType,
   onClose,
   closeButtonAriaLabel = "Close",
   action,
@@ -23,7 +24,7 @@ const AttentionBoxCompact = ({
   return (
     <Flex align="center" className={styles.container}>
       <Flex gap="xs" flex="1" className={styles.mainContentGroup}>
-        {icon && <AttentionBoxLeadingIcon icon={icon} className={styles.leadingIcon} />}
+        {icon && <AttentionBoxLeadingIcon icon={icon} iconType={iconType} className={styles.leadingIcon} />}
         <Text type="text2" element={typeof content === "string" ? "p" : undefined} ellipsis>
           {content}
         </Text>
