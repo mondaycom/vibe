@@ -546,6 +546,35 @@ If you were using `usePopover` from `@vibe/dialog`, migrate to `useFloating` fro
 
 **Codemod:** ❌ Manual migration required for `modifiers` → `middleware` conversion.
 
+#### `addKeyboardHideShowTriggersByDefault` default changed to `true`
+
+The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true` (was `false`). This means keyboard focus/blur events will automatically behave like mouse enter/leave events, improving accessibility for keyboard users.
+
+**Impact:** Dialogs that use `mouseenter`/`mouseleave` triggers will now also respond to keyboard `focus`/`blur` events by default.
+
+**Before (v3):**
+```tsx
+// Keyboard triggers were disabled by default — had to opt in
+<Dialog showTrigger="mouseenter" hideTrigger="mouseleave" addKeyboardHideShowTriggersByDefault>
+  <button>Hover or focus me</button>
+</Dialog>
+```
+
+**After (v4):**
+```tsx
+// Keyboard triggers are enabled by default
+<Dialog showTrigger="mouseenter" hideTrigger="mouseleave">
+  <button>Hover or focus me</button>
+</Dialog>
+
+// To restore old behavior, explicitly disable
+<Dialog showTrigger="mouseenter" hideTrigger="mouseleave" addKeyboardHideShowTriggersByDefault={false}>
+  <button>Hover only</button>
+</Dialog>
+```
+
+**Codemod:** ❌ Not needed — this is a default value change. Add `addKeyboardHideShowTriggersByDefault={false}` only if you need the old behavior.
+
 ### Tooltip
 
 #### `TooltipProps` now extends `DialogProps`
