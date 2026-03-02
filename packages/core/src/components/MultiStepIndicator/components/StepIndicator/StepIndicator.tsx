@@ -146,6 +146,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   // Refs
   const componentRef = useRef(null);
+  const nodeRef = useRef<HTMLSpanElement>(null);
   const prevStatusRef = useRef(status);
 
   // Callbacks for modifying animation state
@@ -222,21 +223,20 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           role="button"
         >
           <SwitchTransition mode="out-in">
-            <CSSTransition<undefined>
-              // CSSTransition needs to be specified with the generic parameter to decide type for addEndListener's callback
-              // otherwise, addEndListener cb has only `done` param (ts error)
+            <CSSTransition
+              key={status}
+              nodeRef={nodeRef}
               classNames={{
                 enter: styles.swapEnter,
                 enterActive: styles.swapEnterActive,
                 exit: styles.swapExit,
                 exitActive: styles.swapExitActive
               }}
-              addEndListener={(node: HTMLElement, done: () => void) => {
-                node.addEventListener("transitionend", done, false);
+              addEndListener={done => {
+                nodeRef.current?.addEventListener("transitionend", done, false);
               }}
-              key={status}
             >
-              <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
+              <span ref={nodeRef} className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
                 <StepCircleDisplay
                   fulfilledStepIcon={fulfilledStepIcon}
                   fulfilledStepIconType={fulfilledStepIconType}
