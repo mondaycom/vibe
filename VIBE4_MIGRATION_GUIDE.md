@@ -178,6 +178,29 @@ The Toggle component previously set `data-testid="toggle"` on both the input ele
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
+**Removed `noSpacing` prop — margin now automatic when labels are hidden**
+
+The `noSpacing` prop has been removed. When `areLabelsHidden={true}`, the horizontal margin around the toggle is now removed automatically. Simply remove the `noSpacing` prop from all `Toggle` usages.
+
+```tsx
+// Before (v3)
+<Toggle areLabelsHidden noSpacing ariaLabel="Toggle automation" />
+
+// After (v4)
+<Toggle areLabelsHidden ariaLabel="Toggle automation" />
+```
+
+If you were using `noSpacing` without `areLabelsHidden`, override the margin via CSS instead:
+
+```css
+/* Custom CSS override */
+.my-toggle .toggle {
+  margin: 0;
+}
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
+
 ### TypeScript Types
 
 <!-- This section will be populated as breaking changes are identified -->

@@ -50,7 +50,7 @@ exports[`Toggle renders correctly > renders correctly when labels are hidden 1`]
   />
   <div
     aria-hidden="true"
-    className="toggle medium selected"
+    className="toggle medium selected noSpacing"
   />
 </label>
 `;
