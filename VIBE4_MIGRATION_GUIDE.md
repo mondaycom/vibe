@@ -575,6 +575,27 @@ The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true` (was `fal
 
 **Codemod:** ❌ Not needed — this is a default value change. Add `addKeyboardHideShowTriggersByDefault={false}` only if you need the old behavior.
 
+#### Removed `enableNestedDialogLayer` prop
+
+The `enableNestedDialogLayer` prop has been removed. Dialog now always wraps its content with `LayerProvider`, so nested dialogs work correctly by default without any configuration.
+
+**Before (v3):**
+```tsx
+<Dialog enableNestedDialogLayer content={<NestedDropdown />}>
+  <button>Open</button>
+</Dialog>
+```
+
+**After (v4):**
+```tsx
+// Simply remove the prop — LayerProvider is always applied
+<Dialog content={<NestedDropdown />}>
+  <button>Open</button>
+</Dialog>
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
+
 ### Tooltip
 
 #### `TooltipProps` now extends `DialogProps`
