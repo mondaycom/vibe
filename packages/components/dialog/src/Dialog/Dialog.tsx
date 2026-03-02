@@ -48,7 +48,7 @@ function Dialog({
   showOnDialogEnter = false,
   showTriggerIgnoreClass,
   hideTriggerIgnoreClass,
-  addKeyboardHideShowTriggersByDefault = false,
+  addKeyboardHideShowTriggersByDefault = true,
   shouldShowOnMount = false,
   disable = false,
   open = false,
