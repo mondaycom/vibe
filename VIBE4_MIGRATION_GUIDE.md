@@ -178,6 +178,46 @@ The Toggle component previously set `data-testid="toggle"` on both the input ele
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
+### Hooks
+
+#### useListenFocusTriggers — Removed
+
+The `useListenFocusTriggers` hook has been removed from `@vibe/core`. This internal hook differentiated between keyboard-triggered and mouse-triggered focus events.
+
+**Migration:** Inline the focus-detection logic using `useEventListener`:
+
+```tsx
+// Before (v3)
+import { useListenFocusTriggers } from "@vibe/core";
+
+useListenFocusTriggers({
+  ref,
+  onFocusByKeyboard: handleKeyboardFocus,
+  onFocusByMouse: handleMouseFocus
+});
+
+// After (v4)
+import { useEventListener } from "@vibe/core";
+import { useRef, useCallback } from "react";
+
+const isMouseDown = useRef(false);
+useEventListener({ eventName: "mousedown", ref, callback: useCallback(() => { isMouseDown.current = true; }, []) });
+useEventListener({ eventName: "mouseup", ref, callback: useCallback(() => { isMouseDown.current = false; }, []) });
+useEventListener({
+  eventName: "focus",
+  ref,
+  callback: useCallback(() => {
+    if (isMouseDown.current) {
+      handleMouseFocus();
+    } else {
+      handleKeyboardFocus();
+    }
+  }, [handleKeyboardFocus, handleMouseFocus])
+});
+```
+
+**Codemod:** ❌ Not available — migration requires manual inline logic.
+
 ### TypeScript Types
 
 <!-- This section will be populated as breaking changes are identified -->

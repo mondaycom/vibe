@@ -129,7 +129,6 @@ exports[`exports > should export all hooks 1`] = `
   "useIsMouseOver",
   "useIsOverflowing",
   "useKeyEvent",
-  "useListenFocusTriggers",
   "useMediaQuery",
   "useMergeRefs",
   "usePrevious",
