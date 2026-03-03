@@ -60,6 +60,12 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
 - **Codemod**: ❌ Manual (no-op removal, no functional impact)
 
+- [x] **Status**: Done
+- **Change**: `children` prop now accepts only a single `MenuChild`, not `MenuChild[]`
+- **Reason**: Passing an array was already a runtime error — `MenuItemSubMenu` enforces a single child via `React.Children.only`. The type now matches the actual runtime constraint.
+- **Migration**: Replace any array-wrapped children with a single `Menu` element. If you were already passing a single `Menu`, no change is needed.
+- **Codemod**: ❌ Manual (array usage was a runtime error in v3, so no valid code to transform)
+
 #### Icon
 
 - [x] **Status**: Implemented ✅
