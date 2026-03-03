@@ -21,7 +21,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     getLabelProps,
     className,
     id,
-    ariaLabel,
+    "aria-label": ariaLabel,
     "data-testid": dataTestIdFromContext,
     disabled,
     readOnly,

@@ -179,7 +179,7 @@ export const Animation = {
       <Flex gap="medium">
         <Button
           id="animation-success-button"
-          ariaLabel="Trigger success toast"
+          aria-label="Trigger success toast"
           onClick={onSuccessClick}
           kind="secondary"
         >
@@ -187,7 +187,7 @@ export const Animation = {
         </Button>
         <Button
           id="animation-failure-button"
-          ariaLabel="Trigger failure toast"
+          aria-label="Trigger failure toast"
           onClick={onFailureClick}
           kind="secondary"
         >

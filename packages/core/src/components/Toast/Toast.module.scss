@@ -8,8 +8,7 @@
   position: fixed;
   left: 50%;
   top: 0;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   padding: var(--spacing-small);
   align-items: center;
   display: flex;
@@ -65,7 +64,7 @@
 
 .icon {
   display: flex;
-  margin-left: var(--spacing-small);
+  margin-inline-start: var(--spacing-small);
 }
 
 .actionButton.withTransition {
@@ -102,7 +101,7 @@
 }
 
 .closeButton {
-  margin-left: var(--spacing-small);
+  margin-inline-start: var(--spacing-small);
 }
 
 @keyframes slideIn {

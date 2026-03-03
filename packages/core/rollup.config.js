@@ -100,7 +100,7 @@ export default {
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
     next: path.join(SRC_PATH, "components/next.ts")
   },
-  external: [/node_modules\/(?!monday-ui-style)(.*)/],
+  external: [/node_modules\/(?!@vibe\/style)(.*)/],
   plugins: [
     ...(shouldMockModularClassnames
       ? [
@@ -176,7 +176,7 @@ export default {
     copy({
       targets: [
         {
-          src: "../../node_modules/monday-ui-style/dist/index.min.css",
+          src: "../../node_modules/@vibe/style/dist/index.min.css",
           dest: "dist/tokens",
           rename: () => "tokens.css"
         },

@@ -81,12 +81,12 @@ describe("AvatarGroup renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with counter ariaLabel default-tooltip", () => {
+  it("renders correctly with counter aria-label default-tooltip", () => {
     const tree = renderer
       .create(
         <AvatarGroup max={1}>
-          <Avatar text="P1" ariaLabel="Person 1" />
-          <Avatar text="P2" ariaLabel="Person 2" />
+          <Avatar text="P1" aria-label="Person 1" />
+          <Avatar text="P2" aria-label="Person 2" />
         </AvatarGroup>
       )
       .toJSON();

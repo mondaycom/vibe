@@ -23,7 +23,7 @@ export default {
 
 export const Overview: Story = {
   render: (args: MenuButtonProps) => (
-    <MenuButton id="overview-menu-button" ariaLabel="Overview menu button" {...args}>
+    <MenuButton id="overview-menu-button" aria-label="Overview menu button" {...args}>
       <Menu id="overview-menu" size="medium">
         <MenuItem id="overview-menu-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
         <MenuItem id="overview-menu-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />
@@ -43,35 +43,35 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <MenuButton id="sizes-xxs" ariaLabel="Extra extra small menu button" size="xxs">
+      <MenuButton id="sizes-xxs" aria-label="Extra extra small menu button" size="xxs">
         <Menu id="sizes-xxs-menu" size="medium">
           <MenuItem id="sizes-xxs-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
           <MenuItem id="sizes-xxs-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />
           <MenuItem id="sizes-xxs-stars" icon={Favorite} onClick={NOOP} type="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton id="sizes-xs" ariaLabel="Extra small menu button" size="xs">
+      <MenuButton id="sizes-xs" aria-label="Extra small menu button" size="xs">
         <Menu id="sizes-xs-menu" size="medium">
           <MenuItem id="sizes-xs-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
           <MenuItem id="sizes-xs-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />
           <MenuItem id="sizes-xs-stars" icon={Favorite} onClick={NOOP} type="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton id="sizes-small" ariaLabel="Small menu button" size="small">
+      <MenuButton id="sizes-small" aria-label="Small menu button" size="small">
         <Menu id="sizes-small-menu" size="medium">
           <MenuItem id="sizes-small-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
           <MenuItem id="sizes-small-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />
           <MenuItem id="sizes-small-stars" icon={Favorite} onClick={NOOP} type="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton id="sizes-medium" ariaLabel="Medium menu button" size="medium">
+      <MenuButton id="sizes-medium" aria-label="Medium menu button" size="medium">
         <Menu id="sizes-medium-menu" size="medium">
           <MenuItem id="sizes-medium-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
           <MenuItem id="sizes-medium-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />
           <MenuItem id="sizes-medium-stars" icon={Favorite} onClick={NOOP} type="svg" title="And the stars" />
         </Menu>
       </MenuButton>
-      <MenuButton id="sizes-large" ariaLabel="Large menu button" size="large">
+      <MenuButton id="sizes-large" aria-label="Large menu button" size="large">
         <Menu id="sizes-large-menu" size="medium">
           <MenuItem id="sizes-large-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
           <MenuItem id="sizes-large-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />
@@ -91,7 +91,7 @@ export const Sizes: Story = {
 
 export const DifferentIcon: Story = {
   render: () => (
-    <MenuButton id="different-icon" ariaLabel="Menu button with different icon" component={MoveArrowDown}>
+    <MenuButton id="different-icon" aria-label="Menu button with different icon" component={MoveArrowDown}>
       <Menu id="different-icon-menu" size="medium">
         <MenuItem id="different-icon-sun" icon={Sun} onClick={NOOP} type="svg" title="The sun" />
         <MenuItem id="different-icon-moon" icon={Moon} onClick={NOOP} type="svg" title="The moon" />

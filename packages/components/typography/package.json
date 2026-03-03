@@ -42,7 +42,7 @@
     "@vibe/tooltip": "3.0.5",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
-    "monday-ui-style": "0.26.2"
+    "@vibe/style": "0.26.2"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",

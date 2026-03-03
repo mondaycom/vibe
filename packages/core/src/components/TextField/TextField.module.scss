@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 @import "../../styles/typography";
 
 .textField {
@@ -23,7 +23,7 @@
 }
 
 .textField .subTextContainer .counter {
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .textField.disabled .icon {
@@ -104,8 +104,7 @@
 }
 
 .textField .inputWrapper .input.onlyUnderline {
-  border-left: none;
-  border-right: none;
+  border-inline: none;
   border-top: none;
   padding: var(--spacing-xs) var(--spacing-large) var(--spacing-xs) var(--spacing-xs);
   border-radius: 0 !important;
@@ -114,7 +113,7 @@
 .textField .inputWrapper .tooltipContainer {
   position: absolute;
   top: 50%;
-  right: 0;
+  inset-inline-end: 0;
   width: 32px;
   height: 20px;
   transform: translateY(-50%);
@@ -131,7 +130,7 @@
 .textField .inputWrapper .iconContainer {
   position: absolute;
   top: 50%;
-  right: 4px;
+  inset-inline-end: 4px;
   width: 24px;
   height: 24px;
   transform: translateY(-50%);
@@ -246,7 +245,7 @@
 }
 
 .textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {
-  padding-left: var(--spacing-xs);
+  padding-inline-start: var(--spacing-xs);
 }
 
 .textField .inputWrapper.wrapperSizeMedium {
@@ -263,7 +262,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon.onlyUnderline {
-  padding-left: 4px;
+  padding-inline-start: 4px;
 }
 
 .textField .inputWrapper.wrapperSizeMedium .iconContainer {
@@ -291,7 +290,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon.onlyUnderline {
-  padding-left: var(--spacing-xs);
+  padding-inline-start: var(--spacing-xs);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .iconContainer {
@@ -306,7 +305,7 @@
 .textField .inputWrapper .loaderContainer {
   position: absolute;
   top: 50%;
-  right: 4px;
+  inset-inline-end: 4px;
   width: 24px;
   height: 24px;
   transform: translateY(-50%);
@@ -316,7 +315,7 @@
 }
 
 .textField .inputWrapper .loaderContainer.loaderContainerHasIcon {
-  right: 32px;
+  inset-inline-end: 32px;
 }
 
 .textField .inputWrapper .loaderContainer .loader {

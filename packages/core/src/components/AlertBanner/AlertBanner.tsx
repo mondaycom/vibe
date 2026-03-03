@@ -29,7 +29,7 @@ export interface AlertBannerProps extends VibeComponentProps {
   /**
    * The ARIA label of the alert banner for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The ARIA label of the close button for accessibility.
    */
@@ -51,7 +51,7 @@ const AlertBanner = forwardRef(
       className,
       backgroundColor = "primary",
       onClose = NOOP,
-      ariaLabel = "",
+      "aria-label": ariaLabel = "",
       closeButtonAriaLabel = "Close",
       isCloseHidden = false,
       id,
@@ -144,7 +144,7 @@ const AlertBanner = forwardRef(
               size="small"
               kind="tertiary"
               color={isDarkBackground ? "on-inverted-background" : "on-primary-color"}
-              ariaLabel={closeButtonAriaLabel}
+              aria-label={closeButtonAriaLabel}
             />
           )}
         </div>

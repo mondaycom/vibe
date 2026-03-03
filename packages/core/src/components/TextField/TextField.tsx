@@ -78,7 +78,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * The primary icon displayed inside the text field.
    */
-  iconName?: string | React.FunctionComponent | null;
+  icon?: string | React.FunctionComponent | null;
   /**
    * The secondary icon displayed inside the text field.
    */
@@ -217,7 +217,7 @@ const TextField = forwardRef(
       disabled = false,
       readonly = false,
       setRef = NOOP,
-      iconName,
+      icon: iconName,
       secondaryIconName,
       id = "input",
       title = "",
@@ -430,7 +430,7 @@ const TextField = forwardRef(
                   })}
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnPrimaryIcon ? 0 : -1}
-                  ariaLabel={primaryIconLabel}
+                  aria-label={primaryIconLabel}
                 >
                   <Icon
                     icon={iconName}
@@ -456,7 +456,7 @@ const TextField = forwardRef(
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnSecondaryIcon ? 0 : -1}
                   data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
-                  ariaLabel={secondaryIconLabel}
+                  aria-label={secondaryIconLabel}
                 >
                   <Icon
                     icon={secondaryIconName}

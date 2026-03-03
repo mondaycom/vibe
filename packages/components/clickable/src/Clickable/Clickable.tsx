@@ -41,19 +41,19 @@ export interface ClickableProps extends VibeComponentProps {
   /**
    * The label of the element for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, hides the element from assistive technologies.
    */
-  ariaHidden?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * Indicates the presence of a popup associated with the element.
    */
-  ariaHasPopup?: boolean;
+  "aria-haspopup"?: boolean;
   /**
    * If true, indicates that the associated popup is open.
    */
-  ariaExpanded?: boolean;
+  "aria-expanded"?: boolean;
   /**
    * The tab order of the element.
    */
@@ -81,10 +81,10 @@ const Clickable = forwardRef(
       onMouseDown = NOOP,
       onMouseEnter = NOOP,
       onMouseLeave = NOOP,
-      ariaLabel,
-      ariaHidden,
-      ariaHasPopup,
-      ariaExpanded,
+      "aria-label": ariaLabel,
+      "aria-hidden": ariaHidden,
+      "aria-haspopup": ariaHasPopup,
+      "aria-expanded": ariaExpanded,
       tabIndex = 0,
       disabled = false,
       style,
@@ -103,10 +103,10 @@ const Clickable = forwardRef(
         "data-testid": dataTestId,
         role,
         tabIndex,
-        ariaLabel,
-        ariaHidden,
-        ariaHasPopup,
-        ariaExpanded
+        "aria-label": ariaLabel,
+        "aria-hidden": ariaHidden,
+        "aria-haspopup": ariaHasPopup,
+        "aria-expanded": ariaExpanded
       },
       ref
     );

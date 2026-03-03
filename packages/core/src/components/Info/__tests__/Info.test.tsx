@@ -79,14 +79,14 @@ describe("Info tests", () => {
       });
     });
 
-    it("should use custom ariaLabel when provided", () => {
+    it("should use custom aria-label when provided", () => {
       const customAriaLabel = "Custom info label";
       renderComponent({ "aria-label": customAriaLabel });
 
       expect(screen.getByLabelText(customAriaLabel)).toBeInTheDocument();
     });
 
-    it("should use ariaLabelledby when provided", () => {
+    it("should use aria-labelledby when provided", () => {
       const labelId = "custom-label-id";
       renderComponent({ "aria-labelledby": labelId });
 

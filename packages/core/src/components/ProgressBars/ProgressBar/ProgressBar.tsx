@@ -64,7 +64,7 @@ export interface ProgressBarProps extends VibeComponentProps {
   /**
    * The ARIA label for the progress bar.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, makes the progress bar span the full container width.
    */
@@ -89,7 +89,7 @@ const ProgressBar = forwardRef(
       indicateProgress = false,
       multi = false,
       multiValues = [],
-      ariaLabel = "",
+      "aria-label": ariaLabel = "",
       id,
       fullWidth = false,
       allowExceedingMax = false,

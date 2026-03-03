@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 @import "./AvatarConstants";
 
 .avatar {
@@ -86,8 +86,7 @@
   transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: 50% 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   height: 110%;
   width: 110%;
 }

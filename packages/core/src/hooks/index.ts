@@ -6,7 +6,6 @@ export { default as useAfterFirstRender } from "./useAfterFirstRender";
 export { default as useTimeout } from "./useTimeout";
 export { default as usePrevious } from "./usePrevious";
 export { default as useSetFocus } from "./useSetFocus";
-export { default as useMergeRefs } from "./useMergeRefs";
 export { default as useIsMouseOver } from "./useIsMouseOver";
 export { default as useHover } from "./useHover/useHover";
 export { default as useGridKeyboardNavigation } from "./useGridKeyboardNavigation/useGridKeyboardNavigation";
