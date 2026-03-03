@@ -43,6 +43,10 @@ export interface CustomSvgIconProps extends VibeComponentProps {
    */
   customColor?: string;
   /**
+   * The size (width and height) of the icon.
+   */
+  size?: number | string;
+  /**
    * Reference to the SVG element.
    */
   ref?: Ref<SVGElement>;
@@ -56,6 +60,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   "aria-hidden": ariaHidden,
   replaceToCurrentColor = false,
   customColor,
+  size,
   id,
   "data-testid": dataTestId
 }) => {
@@ -95,6 +100,8 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       src={src}
       className={className}
       preProcessor={svgProcessor}
+      width={size}
+      height={size}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
       data-vibe={ComponentVibeId.ICON}

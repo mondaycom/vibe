@@ -120,6 +120,7 @@ const Icon = forwardRef(
           className={cx(computedClassName)}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
+          size={size}
           data-testid={overrideDataTestId}
         />
       );
