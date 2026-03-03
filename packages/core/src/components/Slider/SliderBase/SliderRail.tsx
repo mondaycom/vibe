@@ -2,7 +2,6 @@ import React, { type ForwardedRef, forwardRef, type ReactElement } from "react";
 import { NOOP } from "../../../utils/function-utils";
 import { useSliderUi } from "../SliderContext";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
-import { type VibeComponent } from "../../../types";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderRail.module.scss";
@@ -23,7 +22,7 @@ export interface SliderRailProps extends VibeComponentProps {
   size: SliderSize;
 }
 
-const SliderRail: VibeComponent<SliderRailProps, unknown> = forwardRef<unknown, SliderRailProps>(
+const SliderRail = forwardRef<unknown, SliderRailProps>(
   ({ className, children, onClick = NOOP, size }: SliderRailProps, ref: ForwardedRef<HTMLDivElement>) => {
     const { shapeTestId } = useSliderUi();
     function handleClick(e: React.MouseEvent) {
