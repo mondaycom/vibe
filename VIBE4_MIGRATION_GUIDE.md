@@ -297,6 +297,62 @@ npx @vibe/codemod toggle-no-spacing
 
 ### CSS and Design Tokens
 
+#### Package Renamed: `monday-ui-style` → `@vibe/style`
+
+The `monday-ui-style` package has been renamed to `@vibe/style` to align with the Vibe Design System naming conventions.
+
+**Before:**
+```bash
+npm install monday-ui-style
+```
+```json
+{ "dependencies": { "monday-ui-style": "^0.26.2" } }
+```
+
+**After:**
+```bash
+npm install @vibe/style
+```
+```json
+{ "dependencies": { "@vibe/style": "^0.26.2" } }
+```
+
+**Import updates required:**
+```diff
+- import "monday-ui-style/dist/index.min.css";
++ import "@vibe/style/dist/index.min.css";
+```
+
+**SCSS import updates:**
+```diff
+- @import "~monday-ui-style/dist/functions";
+- @import "~monday-ui-style/dist/mixins";
++ @import "~@vibe/style/dist/functions";
++ @import "~@vibe/style/dist/mixins";
+```
+
+**Stylelint config updates:**
+```diff
+- "extends": ["monday-ui-style/stylelint-config"]
++ "extends": ["@vibe/style/stylelint-config"]
+
+- "monday-ui-style/use-defined-css-var-when-available": true
++ "@vibe/style/use-defined-css-var-when-available": true
+
+- "monday-ui-style/use-new-spacing-tokens": true
++ "@vibe/style/use-new-spacing-tokens": true
+```
+
+**Vite/webpack alias updates:**
+```diff
+- "monday-ui-style/dist": path.resolve("./node_modules/monday-ui-style/dist"),
++ "@vibe/style/dist": path.resolve("./node_modules/@vibe/style/dist"),
+```
+
+**Codemod:** ❌ Not available — rename your imports manually or use find-and-replace.
+
+---
+
 #### TableCellSkeleton — Removed `@supports` fallback for `aspect-ratio`
 
 The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` blocks have been removed from the `TableCellSkeleton` styles. The `aspect-ratio: 1 / 1` property is now applied unconditionally to `.circle` and `.rectangle` skeleton types.
