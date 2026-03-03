@@ -206,7 +206,7 @@ const Tipseen = forwardRef(
               kind="tertiary"
               // @ts-ignore
               color={closeButtonColor}
-              ariaLabel={overrideCloseAriaLabel}
+              aria-label={overrideCloseAriaLabel}
               icon={CloseSmall}
             />
           )}

@@ -52,7 +52,7 @@ export const StepsGalleryHeader: FC<StepsGalleryHeaderProps> = ({
           <StepsDot
             isActive={activeStepIndex === stepIndex}
             key={`monday-style-step-dot-${stepIndex + 1}`}
-            ariaLabel={overrideStepDescriptionFunc(stepIndex)}
+            aria-label={overrideStepDescriptionFunc(stepIndex)}
             onClick={onClickFunctions[stepIndex]}
             color={color}
             className={styles.galleryHeaderDot}

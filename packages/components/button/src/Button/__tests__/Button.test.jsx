@@ -199,7 +199,7 @@ describe("<Button />", () => {
       const ariaLabel = "Icon Name";
       const onClick = vi.fn();
       const { getByLabelText } = render(
-        <Button ariaLabel={ariaLabel} onClick={onClick}>
+        <Button aria-label={ariaLabel} onClick={onClick}>
           {text}
         </Button>
       );

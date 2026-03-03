@@ -21,13 +21,13 @@ describe("Slider renders correctly", () => {
     expect(render).toMatchSnapshot();
   });
 
-  it("02. with ariaLabel", async () => {
-    const render = await renderSliderForSnapshots({ ariaLabel: "My Slider" });
+  it("02. with aria-label", async () => {
+    const render = await renderSliderForSnapshots({ "aria-label": "My Slider" });
     expect(render).toMatchSnapshot();
   });
 
-  it("03. with ariaLabelledby", async () => {
-    const render = await renderSliderForSnapshots({ ariaLabelledby: "id-of-the-custom-label" });
+  it("03. with aria-labelledby", async () => {
+    const render = await renderSliderForSnapshots({ "aria-labelledby": "id-of-the-custom-label" });
     expect(render).toMatchSnapshot();
   });
 

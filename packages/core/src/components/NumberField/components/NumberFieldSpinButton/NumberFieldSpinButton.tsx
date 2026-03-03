@@ -27,9 +27,9 @@ const NumberFieldSpinButton = ({
   return (
     <Flex direction="column" align="stretch" justify="center" onMouseDown={handleMouseDown}>
       <IconButton
-        ariaLabel="Increase"
+        aria-label="Increase"
         hideTooltip
-        ariaControls={inputId}
+        aria-controls={inputId}
         tabIndex={-1}
         onClick={onIncrement}
         disabled={disabled || isAtMax}
@@ -39,9 +39,9 @@ const NumberFieldSpinButton = ({
         icon={DropdownChevronUp}
       />
       <IconButton
-        ariaLabel="Decrease"
+        aria-label="Decrease"
         hideTooltip
-        ariaControls={inputId}
+        aria-controls={inputId}
         tabIndex={-1}
         onClick={onDecrement}
         disabled={disabled || isAtMin}

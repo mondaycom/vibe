@@ -78,7 +78,7 @@ const ComboboxOption = ({
     iconSize = 18,
     disabled,
     selected,
-    ariaLabel,
+    "aria-label": ariaLabel,
     belongToCategory = false
   } = option;
   let { tooltipContent } = option;

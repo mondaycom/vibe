@@ -199,13 +199,13 @@ export const Positions = {
 
 export const IconTooltip = () => (
   <Tooltip id="icon-tooltip" hideWhenReferenceHidden content="Hidden columns">
-    <IconButton id="icon-tooltip-trigger" ariaLabel="Hide columns" kind="secondary" size="small" icon={Hide} />
+    <IconButton id="icon-tooltip-trigger" aria-label="Hide columns" kind="secondary" size="small" icon={Hide} />
   </Tooltip>
 );
 
 export const DefinitionTooltip = () => (
   <Tooltip id="definition-tooltip" hideWhenReferenceHidden content="Item name: Bottom sheets">
-    <Button id="definition-tooltip-trigger" ariaLabel="View subitems" kind="secondary" size="small" leftIcon={Subitems}>
+    <Button id="definition-tooltip-trigger" aria-label="View subitems" kind="secondary" size="small" leftIcon={Subitems}>
       Subitem
     </Button>
   </Tooltip>
@@ -214,13 +214,13 @@ export const DefinitionTooltip = () => (
 export const ImmediateTooltips = () => (
   <Flex gap="small">
     <Tooltip id="immediate-tooltip-1" hideWhenReferenceHidden immediateShowDelay={0} content="I'm a tooltip">
-      <IconButton id="immediate-trigger-1" ariaLabel="Menu button 1" icon={Menu} kind="secondary" size="small" />
+      <IconButton id="immediate-trigger-1" aria-label="Menu button 1" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
     <Tooltip id="immediate-tooltip-2" hideWhenReferenceHidden immediateShowDelay={0} content="I'm a tooltip">
-      <IconButton id="immediate-trigger-2" ariaLabel="Menu button 2" icon={Menu} kind="secondary" size="small" />
+      <IconButton id="immediate-trigger-2" aria-label="Menu button 2" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
     <Tooltip id="immediate-tooltip-3" hideWhenReferenceHidden content="I'm a tooltip">
-      <IconButton id="immediate-trigger-3" ariaLabel="Menu button 3" icon={Menu} kind="secondary" size="small" />
+      <IconButton id="immediate-trigger-3" aria-label="Menu button 3" icon={Menu} kind="secondary" size="small" />
     </Tooltip>
   </Flex>
 );

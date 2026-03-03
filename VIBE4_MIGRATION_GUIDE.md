@@ -67,19 +67,54 @@ Some changes require manual attention:
 
 **First menu item focused by default** — MenuButton now passes `focusItemIndexOnMount={0}` to Menu children. Pass `focusItemIndexOnMount={-1}` on your Menu to restore old behavior.
 
+#### ARIA Props (All Components)
+
+**Renamed camelCase ARIA props to standard HTML `aria-*` attributes**
+
+All custom camelCase ARIA props have been replaced with the standard HTML hyphenated form. React natively supports `aria-*` attributes in JSX, so the custom prop layer was unnecessary.
+
+| Old Prop | New Prop |
+|----------|----------|
+| `ariaLabel` | `aria-label` |
+| `ariaHidden` | `aria-hidden` |
+| `ariaExpanded` | `aria-expanded` |
+| `ariaControls` | `aria-controls` |
+| `ariaHasPopup` | `aria-haspopup` |
+| `ariaLabeledBy` / `ariaLabelledBy` | `aria-labelledby` |
+| `ariaDescribedBy` / `ariaDescribedby` | `aria-describedby` |
+| `ariaLabelDescription` (Link) | `aria-label` |
+
+**Affected components**: Avatar, Button, IconButton, Clickable, Checkbox, Chips, Counter, Dropdown, EditableTypography, Flex, Icon, Link, LinearProgressBar, List, Menu, MenuButton, RadioButton, Search, Slider, Switch, Toggle, VirtualizedList, and more.
+
+**Note**: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, `closeButtonAriaLabel` are **not affected** by this change.
+
+```tsx
+// Before (v3)
+<Button ariaLabel="Save" ariaExpanded={isOpen} ariaControls="menu-1" />
+<Avatar ariaHidden />
+<Checkbox ariaLabelledBy="label-id" />
+
+// After (v4)
+<Button aria-label="Save" aria-expanded={isOpen} aria-controls="menu-1" />
+<Avatar aria-hidden />
+<Checkbox aria-labelledby="label-id" />
+```
+
+**Codemod available**: `npx @vibe/codemod aria-props-migration`
+
 #### Clickable
 
-**Removed string types from `ariaHasPopup` and `tabIndex`**
+**Removed string types from `aria-haspopup` and `tabIndex`**
 
-- `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
+- `aria-haspopup` now accepts `boolean` only (was `boolean | string`)
 - `tabIndex` now accepts `number` only (was `string | number`)
 
 ```tsx
 // Before (v3)
-<Clickable tabIndex="-1" ariaHasPopup="true" />
+<Clickable tabIndex="-1" aria-haspopup="true" />
 
 // After (v4)
-<Clickable tabIndex={-1} ariaHasPopup={true} />
+<Clickable tabIndex={-1} aria-haspopup={true} />
 ```
 
 #### Chips
