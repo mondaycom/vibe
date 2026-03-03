@@ -134,6 +134,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### TextField
 
+- [x] **Status**: Complete
+- **Change**: Rename `iconName` prop to `icon`
+- **Reason**: Consistent naming with other components (e.g., Icon component uses `icon` prop)
+- **Migration**: `<TextField iconName={X} />` → `<TextField icon={X} />`
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
+=======
 - **Change**: Removed deprecated enum exports and static properties (`TextFieldTextType`, `TextFieldFeedbackState` enums and static properties)
 - **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
 - **Migration**: Replace enum usage with string literals (e.g., `TextField.feedbackStates.ERROR` → `"error"`)
@@ -423,6 +431,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: If you override `.iconStart { margin-right: ... }` or `.iconEnd { margin-left: ... }` in custom CSS, update to use `margin-inline-end` and `margin-inline-start` respectively
 - **Codemod**: ❌ Manual (CSS-only change)
 
+#### VirtualizedGrid
+
+- [x] **Status**: Complete
+- **Change**: Fixed `itemRenderer` return type from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`
+- **Reason**: The previous return type was incorrect — `ItemType` and `GridChildComponentProps` are plain data objects, not React elements. This caused TypeScript errors for users passing valid JSX renderers
+- **Migration**: Update any explicit type annotations on `itemRenderer` from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`. Runtime behavior is unchanged
+- **Codemod**: ❌ Manual (type-only change)
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
@@ -479,6 +496,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **PR**: TBD
 
 <!-- Add package structure changes as they are identified -->
+
+#### ARIA Props (All Components)
+
+- **Status**: ✅ Available
+- **Change**: Renamed all custom camelCase ARIA props to standard HTML hyphenated `aria-*` attributes across all components (e.g., `ariaLabel` → `aria-label`, `ariaHidden` → `aria-hidden`, `ariaExpanded` → `aria-expanded`, `ariaControls` → `aria-controls`, `ariaHasPopup` → `aria-haspopup`, `ariaLabeledBy`/`ariaLabelledBy` → `aria-labelledby`, `ariaDescribedBy`/`ariaDescribedby` → `aria-describedby`, `ariaLabelDescription` → `aria-label`)
+- **Reason**: Aligns with React's native support for `aria-*` attributes, eliminates naming inconsistencies, and reduces indirection
+- **Migration**: Replace camelCase ARIA props with their hyphenated equivalents in JSX
+- **Codemod**: ✅ `npx @vibe/codemod aria-props-migration`
 
 ## Migration Tools
 

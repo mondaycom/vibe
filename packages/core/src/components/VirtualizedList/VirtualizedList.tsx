@@ -122,7 +122,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
   /**
    * The ARIA label for the list.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * Custom inline styles applied to the list.
    */
@@ -169,7 +169,7 @@ const VirtualizedList = forwardRef(
       virtualListRef,
       scrollableClassName,
       role,
-      ariaLabel,
+      "aria-label": ariaLabel,
       style,
       "data-testid": dataTestId
     }: VirtualizedListProps,

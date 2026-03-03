@@ -31,7 +31,7 @@ export interface AvatarProps extends VibeComponentProps {
   /**
    * The ARIA label of the avatar.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, the tooltip is disabled.
    */
@@ -79,7 +79,7 @@ export interface AvatarProps extends VibeComponentProps {
   /**
    * If true, the avatar is hidden from assistive technologies.
    */
-  ariaHidden?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * If true, the avatar is disabled.
    */
@@ -125,14 +125,14 @@ const Avatar = ({
   icon,
   text,
   tooltipProps,
-  ariaLabel,
+  "aria-label": ariaLabel,
   withoutTooltip = false,
   role,
   backgroundColor = "chili-blue",
   square,
   disabled,
   tabIndex,
-  ariaHidden = false,
+  "aria-hidden": ariaHidden = false,
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
@@ -252,7 +252,7 @@ const Avatar = ({
               src={src}
               icon={icon}
               text={text}
-              ariaLabel={ariaLabel}
+              aria-label={ariaLabel}
               role={role}
               textClassName={textClassName}
             />

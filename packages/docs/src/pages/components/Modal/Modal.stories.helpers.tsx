@@ -44,7 +44,7 @@ export const OpenedModalPreview = forwardRef(
             icon={Fullscreen}
             color="primary"
             onClick={onFullPreviewClick}
-            ariaLabel="Open modal in full preview mode"
+            aria-label="Open modal in full preview mode"
           />
         )}
       </div>

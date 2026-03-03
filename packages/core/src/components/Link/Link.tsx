@@ -36,17 +36,17 @@ export interface LinkProps extends VibeComponentProps {
    */
   target?: LinkTarget;
   /**
-   * The ARIA label description for accessibility.
+   * The ARIA label for accessibility.
    */
-  ariaLabelDescription?: string;
+  "aria-label"?: string;
   /**
    * The ID of the element that describes this link.
    */
-  ariaDescribedby?: string;
+  "aria-describedby"?: string;
   /**
    * The ID of the element labeling this link.
    */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * Icon displayed next to the link text.
    */
@@ -85,13 +85,13 @@ const Link = forwardRef(
       rel = "noreferrer",
       onClick = NOOP,
       target = "_blank",
-      ariaLabelDescription = "",
+      "aria-label": ariaLabel = "",
       color = "primary",
-      ariaDescribedby = "",
+      "aria-describedby": ariaDescribedby = "",
       icon = "",
       iconPosition = "start",
       id = "",
-      ariaLabeledBy = "",
+      "aria-labelledby": ariaLabelledBy = "",
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
@@ -127,9 +127,9 @@ const Link = forwardRef(
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText
         })}
-        aria-label={ariaLabelDescription}
+        aria-label={ariaLabel}
         aria-describedby={ariaDescribedby}
-        aria-labelledby={ariaLabeledBy}
+        aria-labelledby={ariaLabelledBy}
       >
         {getIcon(isStart, icon, cx(styles.iconStart))}
         <span className={cx(styles.text, textClassName)}>{text}</span>

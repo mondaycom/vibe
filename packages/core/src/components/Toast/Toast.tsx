@@ -215,7 +215,7 @@ const Toast = ({
             size="small"
             kind="tertiary"
             color="fixed-light"
-            ariaLabel={closeButtonAriaLabel}
+            aria-label={closeButtonAriaLabel}
             data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
             icon={CloseSmall}
             hideTooltip

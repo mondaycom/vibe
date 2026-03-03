@@ -50,7 +50,7 @@ describe("Toggle renders correctly", () => {
   });
 
   it("renders correctly with aria controls", () => {
-    const tree = renderer.create(<Toggle ariaControls="aria controls" />).toJSON();
+    const tree = renderer.create(<Toggle aria-controls="aria controls" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

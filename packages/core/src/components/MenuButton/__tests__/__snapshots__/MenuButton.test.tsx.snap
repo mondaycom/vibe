@@ -83,6 +83,9 @@ exports[`MenuButton > renders correctly with Button triggerElement 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
+  aria-expanded={false}
+  aria-haspopup="true"
+  aria-label="Menu"
   className="button sizeMedium kindPrimary colorPrimary"
   data-testid="menu-button"
   data-vibe="Button"

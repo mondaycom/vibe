@@ -141,7 +141,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
                 label={`+ ${hiddenCount}`}
                 readOnly
                 noMargin
-                ariaLabel={`+${hiddenCount}. ${selectedItems.length - hiddenCount} items are visible out of ${
+                aria-label={`+${hiddenCount}. ${selectedItems.length - hiddenCount} items are visible out of ${
                   selectedItems.length
                 }`}
                 data-testid="dropdown-overflow-counter"

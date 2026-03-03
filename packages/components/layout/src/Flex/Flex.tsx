@@ -46,7 +46,7 @@ export interface FlexProps extends VibeComponentProps {
   /**
    * The label of the flex container for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The tab order of the element.
    */
@@ -62,7 +62,7 @@ export interface FlexProps extends VibeComponentProps {
   /**
    * ID of the element describing the flex container.
    */
-  ariaLabelledby?: string;
+  "aria-labelledby"?: string;
 }
 
 const Flex = forwardRef(
@@ -81,8 +81,8 @@ const Flex = forwardRef(
       onClick,
       onMouseDown,
       style,
-      ariaLabelledby,
-      ariaLabel,
+      "aria-labelledby": ariaLabelledby,
+      "aria-label": ariaLabel,
       tabIndex,
       "data-testid": dataTestId
     }: FlexProps,
@@ -121,7 +121,7 @@ const Flex = forwardRef(
 
     const overrideStyle = useMemo(() => ({ ...style, ...gapStyle, ...flexStyle }), [style, gapStyle, flexStyle]);
     const onClickProps = useMemo(() => {
-      if (onClick) return { elementType, ariaLabelledby };
+      if (onClick) return { elementType, "aria-labelledby": ariaLabelledby };
       return { "aria-labelledby": ariaLabelledby };
     }, [onClick, elementType, ariaLabelledby]);
     const Element = onClick ? Clickable : elementType;

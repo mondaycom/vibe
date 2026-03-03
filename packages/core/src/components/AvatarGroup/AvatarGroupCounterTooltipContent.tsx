@@ -35,7 +35,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
   tooltipContentContainerRef
 }) => {
   const getTooltipContent = useCallback((avatarProps: AvatarProps) => {
-    return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
+    return avatarProps?.tooltipProps?.content || avatarProps?.["aria-label"];
   }, []);
 
   const { avatarItems, displayAsGrid, tooltipContainerAriaLabel } = useMemo(() => {
@@ -70,7 +70,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
     ref: tooltipContentContainerRef,
     tabIndex: -1,
     role: "treegrid",
-    ariaLabel: tooltipContainerAriaLabel,
+    "aria-label": tooltipContainerAriaLabel,
     className: displayAsGrid
       ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
       : cx(styles.scrollableContainer, styles.tooltipContainer, className),

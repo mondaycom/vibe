@@ -16,7 +16,7 @@ export interface CounterProps extends VibeComponentProps {
   /**
    * The ID of the element describing the counter.
    */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * Class name applied to the counter element.
    */
@@ -28,7 +28,7 @@ export interface CounterProps extends VibeComponentProps {
   /**
    * The label of the counter for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The size of the counter.
    */
@@ -67,8 +67,8 @@ const Counter = ({
   kind = "fill",
   color = "primary",
   maxDigits = 3,
-  ariaLabeledBy = "",
-  ariaLabel = "",
+  "aria-labelledby": ariaLabelledBy = "",
+  "aria-label": ariaLabel = "",
   id = "",
   prefix = "",
   onMouseDown = NOOP,
@@ -133,7 +133,7 @@ const Counter = ({
     <span
       className={className}
       aria-label={`${ariaLabel} ${countText}`}
-      aria-labelledby={ariaLabeledBy}
+      aria-labelledby={ariaLabelledBy}
       onMouseDown={onMouseDown}
       data-vibe={ComponentVibeId.COUNTER}
     >

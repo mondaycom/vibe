@@ -97,7 +97,7 @@ export const Overview = {
         >
           <IconButton
             id="overview-dialog-trigger"
-            ariaLabel="Open information dialog"
+            aria-label="Open information dialog"
             icon={Info}
             active
             kind="secondary"
@@ -166,7 +166,7 @@ export const Positions = {
           >
             <Button
               id="positions-top-button"
-              ariaLabel="Toggle top dialog"
+              aria-label="Toggle top dialog"
               kind="secondary"
               onClick={onChangeTop}
               active={checkedTop}
@@ -203,7 +203,7 @@ export const Positions = {
           >
             <Button
               id="positions-bottom-button"
-              ariaLabel="Toggle bottom dialog"
+              aria-label="Toggle bottom dialog"
               kind="secondary"
               onClick={onChangeBottom}
               active={checkedBottom}
@@ -240,7 +240,7 @@ export const Positions = {
           >
             <Button
               id="positions-right-button"
-              ariaLabel="Toggle right dialog"
+              aria-label="Toggle right dialog"
               kind="secondary"
               onClick={onChangeRight}
               active={checkedRight}
@@ -277,7 +277,7 @@ export const Positions = {
           >
             <Button
               id="positions-left-button"
-              ariaLabel="Toggle left dialog"
+              aria-label="Toggle left dialog"
               kind="secondary"
               onClick={onChangeLeft}
               active={checkedLeft}
