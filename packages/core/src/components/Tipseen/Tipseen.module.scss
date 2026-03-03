@@ -14,9 +14,9 @@
   &.floating {
     position: fixed;
     bottom: 0;
-    right: 0;
+    inset-inline-end: 0;
     margin-bottom: var(--spacing-medium);
-    margin-right: var(--spacing-medium);
+    margin-inline-end: var(--spacing-medium);
   }
 
   .tipseen {
@@ -37,7 +37,7 @@
     &CloseButton {
       position: absolute;
       top: var(--spacing-small);
-      right: var(--spacing-small);
+      inset-inline-end: var(--spacing-small);
       z-index: 2;
 
       &.dark {

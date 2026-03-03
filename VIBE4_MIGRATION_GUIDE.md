@@ -204,6 +204,46 @@ The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` 
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change with no automated migration path.
 
+#### All Components — CSS physical properties replaced with logical properties
+
+All component styles now use CSS logical properties instead of physical direction properties. This enables proper RTL (right-to-left) language support automatically.
+
+**Properties replaced:**
+
+| Physical property | Logical property |
+|---|---|
+| `margin-left` | `margin-inline-start` |
+| `margin-right` | `margin-inline-end` |
+| `margin-left` + `margin-right` (both) | `margin-inline` |
+| `padding-left` | `padding-inline-start` |
+| `padding-right` | `padding-inline-end` |
+| `padding-left` + `padding-right` (both) | `padding-inline` |
+| `border-left` | `border-inline-start` |
+| `border-right` | `border-inline-end` |
+| `border-left` + `border-right` (both) | `border-inline` |
+| `left` (positioning) | `inset-inline-start` |
+| `right` (positioning) | `inset-inline-end` |
+
+**Affected components:** Accordion, AlertBanner, Avatar, AvatarGroup, Badge, Button, Checkbox, Chips, ColorPicker, Combobox, DatePicker, EditableTypography, Label, ListItemAvatar, ListItemIcon, Menu (MenuItem, MenuTitle), Modal, MultiStepIndicator, ProgressBar, Search, Slider, SplitButton, Steps, TextArea, TextField, Tipseen, Toast, Toggle, and utility classes (`mx`, `px`).
+
+**Impact:** No visual change for LTR applications. RTL layouts will now render correctly without additional CSS overrides.
+
+**Migration:** If you have custom CSS that overrides Vibe component styles using physical direction properties, update those overrides to use logical properties:
+
+```css
+/* Before (v3) */
+.my-custom-override .icon {
+  margin-right: 8px;
+}
+
+/* After (v4) */
+.my-custom-override .icon {
+  margin-inline-end: 8px;
+}
+```
+
+**Codemod:** ❌ Not available — this is a CSS-only change affecting component internals. Custom overrides targeting Vibe component internals should be updated manually.
+
 ## Step-by-Step Migration
 
 ### 1. Prepare Your Codebase

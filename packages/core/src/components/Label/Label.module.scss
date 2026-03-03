@@ -27,14 +27,17 @@
 }
 
 .withLeg {
-  border-radius: var(--border-radius-small) var(--border-radius-small) var(--border-radius-small) 0;
+  border-start-start-radius: var(--border-radius-small);
+  border-start-end-radius: var(--border-radius-small);
+  border-end-end-radius: var(--border-radius-small);
+  border-end-start-radius: 0;
 }
 
 .legWrapper {
   position: absolute;
   height: 8px;
   top: 100%;
-  left: 0;
+  inset-inline-start: 0;
   display: inline-flex;
 }
 
@@ -92,7 +95,7 @@
   padding: 1px var(--spacing-small);
 
   .legWrapper {
-    left: -1px;
+    inset-inline-start: -1px;
     top: calc(100% + 1px);
   }
 

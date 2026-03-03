@@ -16,8 +16,8 @@
   .image {
     display: block;
     position: relative;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
+    border-start-end-radius: 2px;
+    border-start-start-radius: 2px;
     padding: 2px 2px 0 2px;
     object-fit: cover;
     width: 100%;

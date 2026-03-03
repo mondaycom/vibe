@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: calc(-1 * var(--spacing-small));
+  margin-inline-start: calc(-1 * var(--spacing-small));
   z-index: 1;
   border: 1px solid var(--primary-background-color);
 
