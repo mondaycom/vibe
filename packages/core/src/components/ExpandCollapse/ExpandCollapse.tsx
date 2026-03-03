@@ -112,7 +112,6 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
           [styles.animateIconOpen]: isExpanded,
           [styles.animateIconClose]: !isExpanded
         })}
-        type="svg"
         icon={DropdownChevronDown}
         size={iconSize}
       />

@@ -28,4 +28,3 @@ export interface IconSubComponentProps {
 }
 
 export type SubIcon = string | React.FC<IconSubComponentProps> | null;
-export type IconType = "svg" | "font" | "src";

@@ -55,14 +55,14 @@ export const Icons: Story = {
         <Text>Left icon</Text>
         <Menu>
           <MenuItem title="SVG icon" icon={Activity} />
-          <MenuItem title="Font icon" icon="fa fa-star" type="font" />
+          <MenuItem title="Font icon" icon="fa fa-star" />
         </Menu>
       </Flex>
       <Flex direction="column" gap="medium">
         <Text>Right icon</Text>
         <Menu>
           <MenuItem title="SVG right icon" rightIcon={Activity} />
-          <MenuItem title="Font right icon" rightIcon="fa fa-star" rightType="font" />
+          <MenuItem title="Font right icon" rightIcon="fa fa-star" />
         </Menu>
       </Flex>
     </Flex>
@@ -139,7 +139,6 @@ export const TooltipStory: Story = {
         tooltipContent="Menu item with icon and tooltip"
         tooltipPosition="left"
         icon={Activity}
-        type="svg"
       />
     </Menu>
   ),

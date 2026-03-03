@@ -10,8 +10,8 @@ describe("Icon component migration", () => {
     transform,
     {},
     prependImport('const element = <Icon icon={Home} iconLabel="Home" iconType="svg" iconSize={24} />;'),
-    prependImport('const element = <Icon icon={Home} label="Home" type="svg" size={24} />;'),
-    "should rename iconLabel, iconType, and iconSize props"
+    prependImport('const element = <Icon icon={Home} label="Home" size={24} />;'),
+    "should rename iconLabel and iconSize, and remove iconType"
   );
 
   defineInlineTest(
@@ -26,8 +26,8 @@ describe("Icon component migration", () => {
     transform,
     {},
     prependImport('const element = <Icon icon={Close} iconType="font" iconSize="16px" />;'),
-    prependImport('const element = <Icon icon={Close} type="font" size="16px" />;'),
-    "should rename iconType and iconSize props when iconLabel is not present"
+    prependImport('const element = <Icon icon={Close} size="16px" />;'),
+    "should remove iconType and rename iconSize when iconLabel is not present"
   );
 
   defineInlineTest(
@@ -57,13 +57,11 @@ describe("Icon component migration", () => {
         <Icon
           icon={StarFilled}
           label={dynamicLabel}
-          type="svg"
           size={size === "small" ? 16 : 24}
-          className="my-icon"
-        />
+          className="my-icon" />
       );
     `),
-    "should handle complex prop expressions"
+    "should handle complex prop expressions and remove iconType"
   );
 
   defineInlineTest(
@@ -84,7 +82,7 @@ describe("Icon component migration", () => {
         return (
           (<div>
             <Icon icon={Home} label="Home" />
-            <Icon icon={Settings} type="font" size={20} />
+            <Icon icon={Settings} size={20} />
           </div>)
         );
       }
@@ -98,7 +96,7 @@ describe("Icon component migration", () => {
     `import { Icon as VibeIcon } from "@vibe/core";
      const element = <VibeIcon icon={Home} iconLabel="Home" iconType="svg" />;`,
     `import { Icon as VibeIcon } from "@vibe/core";
-     const element = <VibeIcon icon={Home} label="Home" type="svg" />;`,
+     const element = <VibeIcon icon={Home} label="Home" />;`,
     "should work with aliased imports"
   );
 
@@ -108,5 +106,13 @@ describe("Icon component migration", () => {
     'const element = <Icon icon={Home} iconLabel="Home" />;',
     'const element = <Icon icon={Home} iconLabel="Home" />;',
     "should not transform Icon without import from @vibe/core"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    prependImport('const element = <Icon icon={Home} type="svg" />;'),
+    prependImport("const element = <Icon icon={Home} />;"),
+    "should remove already-renamed type prop"
   );
 });

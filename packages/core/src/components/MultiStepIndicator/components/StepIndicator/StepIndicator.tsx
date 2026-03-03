@@ -35,10 +35,6 @@ export interface StepCircleDisplayProps {
    */
   fulfilledStepIcon: SubIcon;
   /**
-   * The type of icon used.
-   */
-  fulfilledStepIconType: "svg" | "font";
-  /**
    * The step number in the sequence.
    */
   stepNumber: number;
@@ -48,14 +44,12 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   status,
   isFulfilledStepDisplayNumber,
   fulfilledStepIcon,
-  fulfilledStepIconType,
   stepNumber
 }) => {
   return status === "fulfilled" && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
       className={classNames(styles.numberContainerTextCheckIcon)}
-      type={fulfilledStepIconType}
       ignoreFocusStyle
       ariaHidden={true}
     />
@@ -94,10 +88,6 @@ export interface StepIndicatorProps extends VibeComponentProps {
    */
   fulfilledStepIcon?: SubIcon;
   /**
-   * The type of icon used.
-   */
-  fulfilledStepIconType?: "svg" | "font";
-  /**
    * If true, displays the step number instead of the fulfilled step icon.
    */
   isFulfilledStepDisplayNumber?: boolean;
@@ -131,7 +121,6 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
   subtitleText = "Subtitle text",
   type = "primary",
   fulfilledStepIcon = Check,
-  fulfilledStepIconType = "svg",
   isFulfilledStepDisplayNumber = false,
   onClick = NOOP,
   isFollowedByDivider = false,
@@ -239,7 +228,6 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
               <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
                 <StepCircleDisplay
                   fulfilledStepIcon={fulfilledStepIcon}
-                  fulfilledStepIconType={fulfilledStepIconType}
                   isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
                   stepNumber={stepNumber}
                   status={status}

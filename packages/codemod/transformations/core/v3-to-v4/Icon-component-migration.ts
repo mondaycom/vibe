@@ -3,7 +3,8 @@ import {
   getImports,
   getComponentNameOrAliasFromImports,
   findComponentElements,
-  migratePropsNames
+  migratePropsNames,
+  removeProp
 } from "../../../src/utils";
 import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
 import { TransformationContext } from "../../../types";
@@ -11,8 +12,8 @@ import { TransformationContext } from "../../../types";
 /**
  * Icon component migration for v3 to v4:
  * 1. Rename iconLabel prop to label
- * 2. Rename iconType prop to type
- * 3. Rename iconSize prop to size
+ * 2. Rename iconSize prop to size
+ * 3. Remove iconType/type prop (icon type is now auto-detected from the value)
  */
 function transform({ j, root, filePath }: TransformationContext) {
   const imports = getImports(root, NEW_CORE_IMPORT_PATH);
@@ -25,9 +26,9 @@ function transform({ j, root, filePath }: TransformationContext) {
   elements.forEach(elementPath => {
     migratePropsNames(j, elementPath, filePath, componentName, {
       iconLabel: "label",
-      iconType: "type",
       iconSize: "size"
     });
+    removeProp(j, elementPath, "iconType", "type");
   });
 }
 

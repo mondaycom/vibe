@@ -1,6 +1,6 @@
 import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import { type IconType, type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@vibe/icon";
 import { useIsOverflowing } from "@vibe/hooks";
 import { type VibeComponentProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
@@ -26,10 +26,6 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   icon?: SubIcon;
   /**
-   * The type of icon.
-   */
-  iconType?: IconType;
-  /**
    * The background color of the icon.
    */
   iconBackgroundColor?: string;
@@ -37,10 +33,6 @@ export interface MenuItemProps extends VibeComponentProps {
    * The right icon to be displayed.
    */
   rightIcon?: SubIcon;
-  /**
-   * The type of right icon.
-   */
-  rightIconType?: IconType;
   /**
    * The background color of the right icon.
    */
@@ -183,9 +175,7 @@ const MenuItem = forwardRef(
       label = "",
       icon = "",
       rightIcon = "",
-      rightIconType,
       rightIconBackgroundColor,
-      iconType,
       iconBackgroundColor,
       disabled = false,
       disableReason,
@@ -240,7 +230,6 @@ const MenuItem = forwardRef(
           {Boolean(icon) && (
             <MenuItemIcon
               icon={icon}
-              type={iconType}
               disabled={disabled}
               selected={selected}
               backgroundColor={iconBackgroundColor}
@@ -254,7 +243,6 @@ const MenuItem = forwardRef(
             {Boolean(rightIcon) && !children && (
               <MenuItemIcon
                 icon={rightIcon}
-                type={rightIconType}
                 disabled={disabled}
                 selected={selected}
                 backgroundColor={rightIconBackgroundColor}

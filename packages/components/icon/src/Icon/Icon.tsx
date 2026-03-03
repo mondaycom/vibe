@@ -4,7 +4,7 @@ import { type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVi
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import { type SubIcon, type IconSubComponentProps, type IconType } from "./types";
+import { type SubIcon, type IconSubComponentProps } from "./types";
 
 function renderIcon(Icon: React.FC<IconSubComponentProps>, props: IconSubComponentProps) {
   const dataTestId = props["data-testid"];
@@ -17,19 +17,24 @@ function renderIcon(Icon: React.FC<IconSubComponentProps>, props: IconSubCompone
   );
 }
 
+function isSrcIcon(icon: string): boolean {
+  return icon.startsWith("http://") || icon.startsWith("https://") || icon.startsWith("data:");
+}
+
 export interface IconProps extends VibeComponentProps {
   /**
-   * The icon name, component, or source URL.
+   * The icon to render. Can be:
+   * - A React component (e.g. from `@vibe/icons`) — rendered as an SVG icon
+   * - A URL string (http/https/data) — rendered via `CustomSvgIcon`
+   * - A CSS class string (e.g. `"fa fa-star"`) — rendered via `FontIcon`
+   *
+   * The icon type is automatically detected from the value.
    */
   icon: SubIcon;
   /**
    * The accessible label for the icon.
    */
   label?: string;
-  /**
-   * The type of the icon: `svg`, `font`, or `src` (external source).
-   */
-  type?: IconType;
   /**
    * The size of the icon.
    */
@@ -51,7 +56,7 @@ export interface IconProps extends VibeComponentProps {
    */
   style?: React.CSSProperties;
   /**
-   * If true, replaces `fill` property with `currentColor` when using an `src` icon.
+   * If true, replaces `fill` property with `currentColor` when using a URL-based icon.
    */
   useCurrentColor?: boolean;
   /**
@@ -70,7 +75,6 @@ const Icon = forwardRef(
       className,
       icon = "",
       label,
-      type = "svg",
       size = 16,
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
@@ -97,21 +101,22 @@ const Icon = forwardRef(
       return null;
     }
 
-    const isFunctionType = typeof icon === "function";
     const overrideDataTestId = dataTestId || getTestId(ComponentDefaultTestId.ICON, id);
 
-    if (type === "svg" || isFunctionType || typeof icon === "object") {
+    // Auto-detect icon type from value
+    if (typeof icon === "function" || typeof icon === "object") {
       return renderIcon(icon as React.FC<IconSubComponentProps>, {
         id,
         ...screenReaderAccessProps,
-        ref: isFunctionType ? undefined : mergedRef,
+        ref: typeof icon === "function" ? undefined : mergedRef,
         size: size.toString(),
         className: computedClassName,
         style,
         "data-testid": overrideDataTestId
       });
     }
-    if (type === "src") {
+
+    if (typeof icon === "string" && isSrcIcon(icon)) {
       return (
         <CustomSvgIcon
           id={id}
@@ -124,6 +129,7 @@ const Icon = forwardRef(
         />
       );
     }
+
     return (
       <FontIcon
         id={id}

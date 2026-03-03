@@ -3,7 +3,7 @@ import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { Icon, type IconType, type SubIcon } from "@vibe/icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
@@ -40,10 +40,6 @@ export interface TabProps extends VibeComponentProps {
    * The icon displayed in the tab.
    */
   icon?: SubIcon;
-  /**
-   * The type of icon.
-   */
-  iconType?: IconType;
   /**
    * The position of the icon relative to the text.
    */
@@ -84,7 +80,6 @@ const Tab: FC<TabProps> = forwardRef(
       onClick = NOOP,
       tooltipProps = {} as TooltipProps,
       icon,
-      iconType,
       iconSide = "left",
       children,
       "data-testid": dataTestId,
@@ -102,7 +97,6 @@ const Tab: FC<TabProps> = forwardRef(
       const iconElement = (
         <Icon
           ariaHidden={true}
-          type={iconType}
           icon={icon}
           className={cx(styles.tabIcon, getStyle(styles, iconSide))}
           size={18}

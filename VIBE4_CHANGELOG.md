@@ -55,21 +55,26 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 #### MenuItem
 
 - [x] **Status**: Done
-- **Change**: Removed deprecated `label` prop from internal `MenuItemIcon` component; removed now-unused `iconLabel`/`rightIconLabel` internal variables from `MenuItem`
-- **Reason**: The prop was a no-op — accepted but never passed to the underlying `Icon` component
-- **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
-- **Codemod**: ❌ Manual (no-op removal, no functional impact)
+- **Change**:
+  - Removed deprecated `label` prop from internal `MenuItemIcon` component; removed now-unused `iconLabel`/`rightIconLabel` internal variables from `MenuItem`
+  - Removed `iconType` and `rightIconType` props — icon type is now auto-detected from the icon value
+- **Reason**: The `label` prop was a no-op. The `iconType`/`rightIconType` props are redundant since Icon now auto-detects the type.
+- **Migration**: Remove `iconType` and `rightIconType` props from MenuItem usage.
+- **Codemod**: ✅ Available (`MenuItem-component-migration`)
 
 #### Icon
 
 - [x] **Status**: Implemented ✅
-- **Change**: Renamed props to remove "icon" prefix
+- **Change**: Renamed props and removed `type` prop
   - `iconLabel` → `label`
-  - `iconType` → `type`
   - `iconSize` → `size`
-- **Reason**: Simplified API for better consistency and reduced verbosity
-- **Migration**: Replace prop names in all Icon usages
-- **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
+  - Removed `iconType`/`type` prop — icon type is now auto-detected from the value:
+    - React components (e.g. from `@vibe/icons`) → rendered as SVG
+    - URL strings (`http://`, `https://`, `data:`) → rendered via `CustomSvgIcon`
+    - CSS class strings (e.g. `"fa fa-star"`) → rendered via `FontIcon`
+- **Reason**: Simplified API — the icon type can always be inferred from the icon value, making the explicit `type` prop redundant
+- **Migration**: Rename `iconLabel` → `label`, `iconSize` → `size`. Remove `iconType`/`type` prop entirely.
+- **Codemod**: ✅ Available (`Icon-component-migration`)
 - **Task**: Monday.com task #9713029042
 
 #### Flex
@@ -89,9 +94,10 @@ Vibe 4 represents a major evolution of the design system, focusing on:
   - Removed `AttentionBoxConstants` (deprecated enums: `AttentionBoxType`, `IconTypeEnum`)
   - New component uses modern `forwardRef` pattern, new layout system (default + compact), new action/link props
   - Type values changed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
-- **Reason**: Legacy component was deprecated; new component provides better API, layouts, and accessibility
-- **Migration**: Replace `import { AttentionBox } from "@vibe/core/next"` with `import { AttentionBox } from "@vibe/core"`. For legacy users: update type values, replace `AttentionBoxLink` children with `link` prop, replace `entryAnimation` with `animate`, remove `withIconWithoutHeader`/`withoutIcon` (use `icon={false}` instead)
-- **Codemod**: ❌ Manual (significant API differences between legacy and new component)
+  - Removed `iconType` prop from new AttentionBox — icon type is now auto-detected
+- **Reason**: Legacy component was deprecated; new component provides better API, layouts, and accessibility. Icon type detection is automatic.
+- **Migration**: Replace `import { AttentionBox } from "@vibe/core/next"` with `import { AttentionBox } from "@vibe/core"`. For legacy users: update type values, replace `AttentionBoxLink` children with `link` prop, replace `entryAnimation` with `animate`, remove `withIconWithoutHeader`/`withoutIcon` (use `icon={false}` instead). Remove `iconType` prop.
+- **Codemod**: ✅ Available (`AttentionBox-component-migration`) for `iconType` removal; other changes require manual migration
 - **PR**: TBD
 
 #### Button
@@ -312,10 +318,12 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### MultiStepIndicator
 
-- **Change**: Removed deprecated enum exports for type and status enums (`MultiStepConstants.ts` file deleted)
-- **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
-- **Migration**: Replace enum usage with string literals for step type and status properties
-- **Codemod**: ✅ Available (`v3-to-v4/enums`)
+- **Change**:
+  - Removed deprecated enum exports for type and status enums (`MultiStepConstants.ts` file deleted)
+  - Removed `fulfilledStepIconType` prop — icon type is now auto-detected from the icon value
+- **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size. Icon type detection is automatic.
+- **Migration**: Replace enum usage with string literals for step type and status properties. Remove `fulfilledStepIconType` prop.
+- **Codemod**: ✅ Available (`v3-to-v4/enums` for enum removal, `MultiStepIndicator-component-migration` for `fulfilledStepIconType` removal)
 - **PR**: TBD
 
 #### LinearProgressBar

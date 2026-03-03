@@ -435,7 +435,6 @@ const TextField = forwardRef(
                   <Icon
                     icon={iconName}
                     className={cx(styles.icon)}
-                    type="font"
                     size={size === "small" ? "16px" : "18px"}
                   />
                 </Clickable>
@@ -461,7 +460,6 @@ const TextField = forwardRef(
                   <Icon
                     icon={secondaryIconName}
                     className={cx(styles.icon)}
-                    type="font"
                     size={size === "small" ? "16px" : "18px"}
                   />
                 </Clickable>
