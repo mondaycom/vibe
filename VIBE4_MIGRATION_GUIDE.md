@@ -762,6 +762,50 @@ If you have custom CSS that overrides Link icon spacing using physical direction
 
 **Codemod:** ❌ Not available — this is a CSS-only change. Search your codebase for overrides targeting Link's `.iconStart` or `.iconEnd` classes and update to logical properties.
 
+#### VirtualizedGrid
+
+**Fixed `itemRenderer` return type**
+
+The `itemRenderer` prop had an incorrect return type of `ItemType | GridChildComponentProps<ItemType>`. This caused TypeScript errors when passing valid JSX renderers. The type is now `ReactElement`.
+
+**Before (v3):**
+
+```tsx
+// TypeScript would show errors with this usage:
+<VirtualizedGrid
+  items={items}
+  itemRenderer={(item, index, style) => (
+    <div key={index} style={style}>{item.value}</div>
+  )}
+/>
+```
+
+**After (v4):**
+
+```tsx
+// Works correctly — no type changes needed at the call site:
+<VirtualizedGrid
+  items={items}
+  itemRenderer={(item, index, style) => (
+    <div key={index} style={style}>{item.value}</div>
+  )}
+/>
+```
+
+If you had explicit type annotations for `itemRenderer` referencing the old return type, update them:
+
+```typescript
+// Before (v3)
+const renderer: (item: VirtualizedGridItemType, index: number, style: CSSProperties) =>
+  VirtualizedGridItemType | GridChildComponentProps<VirtualizedGridItemType> = ...;
+
+// After (v4)
+const renderer: (item: VirtualizedGridItemType, index: number, style: CSSProperties) =>
+  ReactElement = ...;
+```
+
+**Codemod:** ❌ Not available — this is a type-only change with no runtime impact.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
