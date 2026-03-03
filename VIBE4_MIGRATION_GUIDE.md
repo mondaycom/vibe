@@ -204,6 +204,54 @@ The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` 
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change with no automated migration path.
 
+#### TextField — Reduced `padding-block` from 8px to 4px
+
+TextField's vertical (`padding-block`) padding has been reduced from `var(--spacing-small)` (8px) to `var(--spacing-xs)` (4px). This applies to all sizes (small, medium, large) and all variants (default, with icon, underline).
+
+**Impact:** TextField content will be positioned closer to the top and bottom borders. The overall component height remains the same (controlled by the wrapper), but the text inside will have less vertical padding.
+
+**Before:**
+```scss
+/* TextField internal padding was: */
+padding: var(--spacing-small) var(--spacing-medium); /* 8px 16px */
+```
+
+**After:**
+```scss
+/* TextField internal padding is now: */
+padding: var(--spacing-xs) var(--spacing-medium); /* 4px 16px */
+```
+
+**Migration:** No code changes required. If you have custom CSS that depends on the internal padding value of TextField being 8px, update your overrides to account for the new 4px vertical padding.
+
+**Codemod:** ❌ Not applicable — this is a CSS-only change.
+
+#### Input Placeholder Color — `--placeholder-color` token used across all inputs
+
+All input components now use the `--placeholder-color` design token for placeholder text color instead of `--secondary-text-color`. This affects: **TextField**, **BaseInput**, **TextArea**, **EditableTypography**, and **Dropdown** (trigger placeholder).
+
+**Impact:** In dark, black, and hacker themes, placeholder text will render with `--placeholder-color` (#c3c6d4) instead of `--secondary-text-color` (#9699a6), providing better contrast. In the light theme, both tokens resolve to the same value (#676879), so there is no visual change.
+
+**Before:**
+```scss
+/* Input placeholder color was: */
+&::placeholder {
+  color: var(--secondary-text-color);
+}
+```
+
+**After:**
+```scss
+/* Input placeholder color is now: */
+&::placeholder {
+  color: var(--placeholder-color);
+}
+```
+
+**Migration:** No code changes required. If your custom CSS overrides `--secondary-text-color` to control input placeholder appearance, override `--placeholder-color` instead. TextArea now also has explicit `::placeholder` styling (previously inherited from the browser default).
+
+**Codemod:** ❌ Not applicable — this is a CSS-only change.
+
 ## Step-by-Step Migration
 
 ### 1. Prepare Your Codebase

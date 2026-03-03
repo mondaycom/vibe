@@ -85,6 +85,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: var(--placeholder-color);
     @include smoothing-text;
 
     &.disabled {

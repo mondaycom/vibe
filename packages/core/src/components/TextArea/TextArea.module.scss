@@ -41,6 +41,11 @@
     background-color: var(--secondary-background-color);
     color: var(--primary-text-color);
 
+    &::placeholder {
+      color: var(--placeholder-color);
+      font-weight: 400;
+    }
+
     &:hover {
       border-color: var(--primary-text-color);
     }
@@ -92,6 +97,10 @@
       background-color: var(--disabled-background-color);
       border-color: transparent;
       resize: none;
+
+      &::placeholder {
+        color: var(--disabled-text-color);
+      }
     }
 
     .helpText {
