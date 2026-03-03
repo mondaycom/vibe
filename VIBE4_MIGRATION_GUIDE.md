@@ -218,6 +218,16 @@ import { AttentionBox } from "@vibe/core/next";
 import { AttentionBox } from "@vibe/core";
 ```
 
+#### MultiStepIndicator
+
+**Updated `react-transition-group` usage for React 19 compatibility**
+
+The `MultiStepIndicator` component's internal `StepIndicator` now uses `nodeRef` with `CSSTransition` instead of the deprecated `findDOMNode`-based approach. This is required for React 19 compatibility, as `findDOMNode` was removed in React 19.
+
+This is an internal implementation change. No changes to the public `MultiStepIndicator` or `StepIndicator` props are required.
+
+If you were extending or wrapping `StepIndicator` directly and overriding its `addEndListener` behavior, note that the callback signature no longer receives the DOM node as the first argument — this is handled internally via `nodeRef`.
+
 #### Toggle
 
 **Removed duplicate `data-testid` from internal element**
