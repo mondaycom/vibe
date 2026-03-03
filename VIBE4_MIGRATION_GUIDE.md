@@ -236,6 +236,46 @@ The Toggle component previously set `data-testid="toggle"` on both the input ele
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
+### Hooks
+
+#### useKeyEvent — Callback type changed to `KeyboardEventCallback`
+
+The `callback` property in `UseKeyEventArgs` has been changed from `GenericEventCallback` to `KeyboardEventCallback`:
+
+| Property | Before (v3) | After (v4) |
+|----------|-------------|------------|
+| `callback` | `GenericEventCallback` (`(ev: Event \| React.UIEvent) => unknown`) | `KeyboardEventCallback` (`(event: KeyboardEvent) => unknown`) |
+
+**Before:**
+```tsx
+import { useKeyEvent } from "@vibe/core";
+
+useKeyEvent({
+  keys: ["Enter"],
+  callback: (event: React.KeyboardEvent) => {
+    // React synthetic event type
+    console.log(event.key);
+  }
+});
+```
+
+**After:**
+```tsx
+import { useKeyEvent } from "@vibe/core";
+
+useKeyEvent({
+  keys: ["Enter"],
+  callback: (event: KeyboardEvent) => {
+    // Native DOM KeyboardEvent
+    console.log(event.key);
+  }
+});
+```
+
+**Why:** `useKeyEvent` uses native DOM `addEventListener` internally, so callbacks always receive native `KeyboardEvent` objects at runtime. The previous `GenericEventCallback` type was overly broad and did not reflect the actual event type. This change improves type safety and developer experience.
+
+**Migration:** TypeScript will flag any type mismatches automatically. Update your callback parameter type from `React.KeyboardEvent` or `GenericEventCallback` to native `KeyboardEvent`. All standard keyboard event properties (`.key`, `.code`, `.ctrlKey`, `.preventDefault()`, etc.) are available on the native type.
+
 **Removed `noSpacing` prop**
 
 The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, the toggle now automatically removes its surrounding margin, which was the primary use case for `noSpacing`.

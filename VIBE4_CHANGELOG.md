@@ -452,6 +452,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: 🔄 Planned
 - **PR**: TBD
 
+#### useKeyEvent
+
+- [x] **Status**: Done
+- **Change**: Changed `callback` type in `UseKeyEventArgs` from `GenericEventCallback` (`(ev: Event | React.UIEvent) => unknown`) to `KeyboardEventCallback` (`(event: KeyboardEvent) => unknown`)
+- **Reason**: `useKeyEvent` uses native DOM `addEventListener` internally, so callbacks always receive native `KeyboardEvent`, not React synthetic events. The type now accurately reflects runtime behavior.
+- **Migration**: Update callback functions passed to `useKeyEvent` to accept native `KeyboardEvent` instead of `GenericEventCallback`. TypeScript will flag any mismatches. If your callback uses `React.KeyboardEvent`-specific properties like `nativeEvent`, switch to the equivalent native `KeyboardEvent` properties.
+- **Codemod**: ❌ Not applicable — TypeScript compiler catches all type mismatches automatically
+- **PR**: TBD
+
 <!-- Add more hooks/APIs as breaking changes are identified -->
 
 ### CSS and Styling
