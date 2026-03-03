@@ -267,7 +267,53 @@ The Toggle component previously set `data-testid="toggle"` on both the input ele
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
+**Removed `noSpacing` prop**
+
+The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, the toggle now automatically removes its surrounding margin, which was the primary use case for `noSpacing`.
+
+- **Before:** `<Toggle areLabelsHidden noSpacing />`
+- **After:** `<Toggle areLabelsHidden />`
+
+If you used `noSpacing` without `areLabelsHidden`, wrap the toggle in a container and apply spacing/margin control there instead.
+
+A codemod is available to automatically remove the `noSpacing` prop:
+
+```bash
+npx @vibe/codemod toggle-no-spacing
+```
+
 ### Hooks
+
+#### `useActiveDescendantListFocus` — Removed `onItemClickCallback` and `createOnItemClickCallback`
+
+The `onItemClickCallback` and `createOnItemClickCallback` properties have been removed from the hook's return value. These were backward-compatibility shims that duplicated the `onItemClick` callback you already provide to the hook.
+
+**Before (v3):**
+```typescript
+const {
+  visualFocusItemIndex,
+  visualFocusItemId,
+  focusedElementProps,
+  onItemClickCallback,        // removed
+  createOnItemClickCallback,  // removed
+  setVisualFocusItemId
+} = useActiveDescendantListFocus({ onItemClick, ... });
+```
+
+**After (v4):**
+```typescript
+const {
+  visualFocusItemIndex,
+  visualFocusItemId,
+  focusedElementProps,
+  setVisualFocusItemId
+} = useActiveDescendantListFocus({ onItemClick, ... });
+
+// Use your own onItemClick callback directly
+// Instead of createOnItemClickCallback(index), use: (event) => onItemClick(event, index)
+```
+
+**Codemod:** ❌ Not available — remove these destructured properties manually and use the `onItemClick` you already pass to the hook.
 
 #### useKeyEvent — Callback type changed to `KeyboardEventCallback`
 
@@ -306,21 +352,6 @@ useKeyEvent({
 **Why:** `useKeyEvent` uses native DOM `addEventListener` internally, so callbacks always receive native `KeyboardEvent` objects at runtime. The previous `GenericEventCallback` type was overly broad and did not reflect the actual event type. This change improves type safety and developer experience.
 
 **Migration:** TypeScript will flag any type mismatches automatically. Update your callback parameter type from `React.KeyboardEvent` or `GenericEventCallback` to native `KeyboardEvent`. All standard keyboard event properties (`.key`, `.code`, `.ctrlKey`, `.preventDefault()`, etc.) are available on the native type.
-
-**Removed `noSpacing` prop**
-
-The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, the toggle now automatically removes its surrounding margin, which was the primary use case for `noSpacing`.
-
-- **Before:** `<Toggle areLabelsHidden noSpacing />`
-- **After:** `<Toggle areLabelsHidden />`
-
-If you used `noSpacing` without `areLabelsHidden`, wrap the toggle in a container and apply spacing/margin control there instead.
-
-A codemod is available to automatically remove the `noSpacing` prop:
-
-```bash
-npx @vibe/codemod toggle-no-spacing
-```
 
 ### TypeScript Types
 
