@@ -1,4 +1,4 @@
-*# Vibe Design System v4 Migration Guide
+# Vibe Design System v4 Migration Guide
 
 > **Status**: 🚧 Under Development
 >
@@ -1226,4 +1226,4 @@ If you encounter issues after migration:
 
 ---
 
-*This guide is updated regularly. Check back for the latest migration information and best practices.**
+*This guide is updated regularly. Check back for the latest migration information and best practices.*
