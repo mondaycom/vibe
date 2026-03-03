@@ -2,3 +2,31 @@
   height: 100%;
   width: 100%;
 }
+
+.slideForward {
+  animation: slideInForward 0.25s cubic-bezier(0, 0, 0.4, 1) forwards;
+}
+
+.slideBackward {
+  animation: slideInBackward 0.25s cubic-bezier(0, 0, 0.4, 1) forwards;
+}
+
+@keyframes slideInForward {
+  from {
+    transform: translateX(3%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInBackward {
+  from {
+    transform: translateX(-3%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
