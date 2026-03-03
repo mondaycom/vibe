@@ -113,7 +113,7 @@ describe("ProgressBars Tests", () => {
     it("should cap percentage at 100% by default when value exceeds max", () => {
       const { rerender } = component;
       act(() => {
-        component = rerender(<LinearProgressBar value={120} max={100} id="test" indicateProgress={true} />);
+        component = rerender(<ProgressBar value={120} max={100} id="test" indicateProgress={true} />);
       });
 
       expect(screen.getByText("100%")).toBeTruthy();
@@ -124,7 +124,7 @@ describe("ProgressBars Tests", () => {
       const { rerender } = component;
       act(() => {
         component = rerender(
-          <LinearProgressBar value={120} max={100} id="test" indicateProgress={true} allowExceedingMax={true} />
+          <ProgressBar value={120} max={100} id="test" indicateProgress={true} allowExceedingMax={true} />
         );
       });
 
@@ -136,7 +136,7 @@ describe("ProgressBars Tests", () => {
       const { rerender } = component;
       act(() => {
         component = rerender(
-          <LinearProgressBar
+          <ProgressBar
             value={150}
             valueSecondary={180}
             max={100}
@@ -155,7 +155,7 @@ describe("ProgressBars Tests", () => {
     it("should cap visual bar width at 100% even when allowExceedingMax is true", () => {
       const { rerender } = component;
       act(() => {
-        component = rerender(<LinearProgressBar value={120} max={100} id="test" allowExceedingMax={true} />);
+        component = rerender(<ProgressBar value={120} max={100} id="test" allowExceedingMax={true} />);
       });
 
       const progressBarElement = screen.getByRole("progressbar");
