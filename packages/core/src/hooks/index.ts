@@ -1,4 +1,4 @@
-export { default as useKeyEvent } from "./useKeyEvent";
+export { default as useKeyEvent, type KeyboardEventCallback } from "./useKeyEvent";
 export { default as useEventListener } from "./useEventListener";
 export { default as useDebounceEvent } from "./useDebounceEvent";
 export { useClickOutside, useIsOverflowing, useResizeObserver } from "@vibe/hooks";

@@ -14,7 +14,7 @@ import { Text } from "@vibe/typography";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
 import { type VibeComponentProps, type ElementContent } from "../../types";
-import { useKeyEvent } from "../../hooks";
+import { useKeyEvent, type KeyboardEventCallback } from "../../hooks";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
 import { type ListItemElement, type ListItemSize } from "./ListItem.types";
@@ -109,7 +109,7 @@ const ListItem = forwardRef(
     useKeyEvent({
       keys: SELECTION_KEYS,
       ref: componentRef,
-      callback: componentOnClick
+      callback: componentOnClick as unknown as KeyboardEventCallback
     });
 
     const componentOnHover = useCallback(

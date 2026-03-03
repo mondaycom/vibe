@@ -1,6 +1,7 @@
 import { type RefObject, useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
-import { type GenericEventCallback } from "../../types/events";
+import { type KeyboardEventCallback } from "../../types/events";
+export type { KeyboardEventCallback };
 import { isClient } from "../../utils/ssr-utils";
 
 const CTRL_OR_META = "ctrlOrMetaKey";
@@ -33,11 +34,10 @@ export interface UseKeyEventArgs {
    * The list of keys that should trigger the event.
    */
   keys: KeyboardEvent["key"][];
-  // TODO: [breaking] change to keyboard event
   /**
    * Callback fired when a specified key is pressed.
    */
-  callback: GenericEventCallback;
+  callback: KeyboardEventCallback;
   /**
    * Modifier key that must be pressed along with the specified key.
    */

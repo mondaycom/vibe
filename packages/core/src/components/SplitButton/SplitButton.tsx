@@ -118,7 +118,7 @@ const SplitButton = ({
   const setNotHovered = useCallback(() => setIsHover(false), [setIsHover]);
 
   const shouldSetActive = useCallback(
-    (e: React.KeyboardEvent<HTMLElement>) => {
+    (e: KeyboardEvent) => {
       if (disabled) return false;
       return !isInsideClass(e.target as HTMLElement, SECONDARY_BUTTON_WRAPPER_CLASSNAME);
     },
@@ -126,7 +126,7 @@ const SplitButton = ({
   );
 
   const setActive = useCallback(
-    (e: React.KeyboardEvent<HTMLElement>) => {
+    (e: KeyboardEvent) => {
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
@@ -134,7 +134,7 @@ const SplitButton = ({
   );
   const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
   const setActiveOnEnter = useCallback(
-    (e: React.KeyboardEvent<HTMLElement>) => {
+    (e: KeyboardEvent) => {
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },

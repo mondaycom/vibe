@@ -22,7 +22,7 @@ export default function useCloseMenuOnKeyEvent({
   useDocumentEventListeners: boolean;
 }) {
   const onKeyEvent = useCallback(
-    (event: React.KeyboardEvent) => {
+    (event: KeyboardEvent) => {
       const key = event.key;
 
       if (hasOpenSubMenu) return;

@@ -54,7 +54,7 @@ export default function useMenuKeyboardNavigation({
   }, [onArrowKeyEvent]);
 
   const onEnterClickCallback = useCallback(
-    (_event: React.KeyboardEvent) => {
+    (_event: KeyboardEvent) => {
       if (!isVisible) return;
 
       if (activeItemIndex === -1) {

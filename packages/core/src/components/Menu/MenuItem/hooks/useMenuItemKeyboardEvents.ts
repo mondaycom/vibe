@@ -1,6 +1,6 @@
 import type React from "react";
 import { useCallback } from "react";
-import useKeyEvent from "../../../../hooks/useKeyEvent";
+import useKeyEvent, { type KeyboardEventCallback } from "../../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../../constants";
 import { type CloseMenuOption } from "../../Menu/MenuConstants";
 
@@ -113,7 +113,7 @@ export default function useMenuItemKeyboardEvents({
 
   useKeyEvent({
     keys: KEYS,
-    callback: onClickCallback,
+    callback: onClickCallback as unknown as KeyboardEventCallback,
     ref: useDocumentEventListeners ? undefined : menuRef
   });
 
