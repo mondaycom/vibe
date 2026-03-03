@@ -435,6 +435,18 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: 🔄 Planned
 - **PR**: TBD
 
+#### useDebounceEvent
+
+- [x] **Status**: Done
+- **Change**: Made hook stateless — removed internal state management
+  - Removed `initialStateValue` parameter
+  - Removed `inputValue` and `updateValue` from return value
+  - Return type is now `{ onEventChanged, clearValue }` only
+- **Reason**: Separation of concerns — debounce logic should not manage input state
+- **Migration**: Add local `useState` to manage input value. Remove `initialStateValue`. Remove `inputValue`/`updateValue` from destructuring.
+- **Codemod**: ✅ Partial — removes deprecated params/returns. Adding `useState` is manual.
+- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713028951)
+
 <!-- Add more hooks/APIs as breaking changes are identified -->
 
 ### CSS and Styling

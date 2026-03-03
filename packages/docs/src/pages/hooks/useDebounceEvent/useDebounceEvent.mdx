@@ -6,7 +6,7 @@ import * as UseDebounceEventStories from "./useDebounceEvent.stories";
 
 # useDebounceEvent
 
-This hook generates an easy to use debounced value updater.
+This hook generates an easy to use debounced event handler for input changes.
 
 <Canvas of={UseDebounceEventStories.Overview} />
 
@@ -33,7 +33,6 @@ import { useDebounceEvent } from "@vibe/core";
       description="The amount of time (in ms) to delay the value's update."
       default="0"
     />
-    <FunctionArgument name="initialStateValue" type="any" description="The initial value." />
   </FunctionArgument>
 </FunctionArguments>
 
@@ -41,7 +40,6 @@ import { useDebounceEvent } from "@vibe/core";
 
 <FunctionArguments>
   <FunctionArgument name="result" type="Object">
-    <FunctionArgument name="inputValue" type="any" description="The hook's value." />
     <FunctionArgument
       name="onEventChanged"
       type="(event: Event) => void"
@@ -51,8 +49,7 @@ import { useDebounceEvent } from "@vibe/core";
         </>
       }
     />
-    <FunctionArgument name="clearValue" type="() => void" description="Clears the current value." />
-    <FunctionArgument name="updateValue" type="(value: any) => void" description="Updates the current value." />
+    <FunctionArgument name="clearValue" type="() => void" description="Calls onChange with an empty string." />
   </FunctionArgument>
 </FunctionArguments>
 

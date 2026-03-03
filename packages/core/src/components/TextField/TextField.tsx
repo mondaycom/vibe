@@ -253,9 +253,19 @@ const TextField = forwardRef(
     ref: React.ForwardedRef<unknown>
   ) => {
     const [isRequiredAndEmpty, setIsRequiredAndEmpty] = useState(false);
+    const [uncontrolledInput, setUncontrolledInput] = useState<string>(value || "");
 
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, inputRef, setRef);
+
+    const previousValue = useRef<string>(null);
+    const normalizedValue = value || "";
+    if (normalizedValue !== previousValue.current && normalizedValue !== uncontrolledInput) {
+      setUncontrolledInput(normalizedValue);
+    }
+    useEffect(() => {
+      previousValue.current = value || "";
+    });
 
     const onBlurCallback = useCallback(
       (e: React.FocusEvent<HTMLInputElement>) => {
@@ -278,16 +288,26 @@ const TextField = forwardRef(
       [onChange, isRequiredAndEmpty]
     );
 
-    const {
-      inputValue: uncontrolledInput,
-      onEventChanged,
-      clearValue
-    } = useDebounceEvent({
+    const { onEventChanged: debouncedOnChange, clearValue } = useDebounceEvent({
       delay: debounceRate,
       onChange: onChangeCallback,
-      initialStateValue: value,
       trim
     });
+
+    const onEventChanged = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        const finalValue = trim ? value.trim() : value;
+        setUncontrolledInput(finalValue);
+        debouncedOnChange(event);
+      },
+      [debouncedOnChange, trim]
+    );
+
+    const handleClearValue = useCallback(() => {
+      setUncontrolledInput("");
+      clearValue();
+    }, [clearValue]);
 
     const inputValue = useMemo(() => {
       return controlled ? value : uncontrolledInput;
@@ -318,10 +338,10 @@ const TextField = forwardRef(
         }
         // Do it cause otherwise the value is not cleared in target object
         inputRef.current.value = "";
-        controlled ? onChangeCallback("") : clearValue();
+        controlled ? onChangeCallback("") : handleClearValue();
       }
       onIconClick(currentStateIconName);
-    }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
+    }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, handleClearValue]);
 
     const validationClass = useMemo(() => {
       if (typeof maxLength === "number" && inputValue && inputValue.length > maxLength) {

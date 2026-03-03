@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { forwardRef, useCallback, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -48,15 +48,35 @@ const Search = forwardRef(
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, inputRef);
 
-    const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
-      delay: debounceRate,
-      onChange,
-      initialStateValue: value
+    const [inputValue, setInputValue] = useState<string>(value || "");
+
+    const previousValue = useRef<string>(null);
+    const normalizedValue = value || "";
+    if (normalizedValue !== previousValue.current && normalizedValue !== inputValue) {
+      setInputValue(normalizedValue);
+    }
+    useEffect(() => {
+      previousValue.current = value || "";
     });
+
+    const { onEventChanged: debouncedOnChange, clearValue } = useDebounceEvent({
+      delay: debounceRate,
+      onChange
+    });
+
+    const onEventChanged = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+        setInputValue(value);
+        debouncedOnChange(event);
+      },
+      [debouncedOnChange]
+    );
 
     const onClearButtonClick = useCallback(() => {
       if (disabled) return;
       inputRef.current?.focus?.();
+      setInputValue("");
       clearValue();
       onClear?.();
     }, [disabled, clearValue, onClear]);

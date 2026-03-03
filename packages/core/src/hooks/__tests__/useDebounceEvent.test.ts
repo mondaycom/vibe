@@ -5,7 +5,6 @@ import { type ChangeEvent } from "react";
 
 describe("useDebounceEvent", () => {
   const delay = 0;
-  const initialStateValue = "";
   let onChangeCallbackStub: Mock;
   let hookResult: RenderHookResult<unknown, UseDebounceResult>;
 
@@ -14,7 +13,6 @@ describe("useDebounceEvent", () => {
     hookResult = renderHook(() =>
       useDebounceEvent({
         delay,
-        initialStateValue,
         onChange: onChangeCallbackStub
       })
     );
@@ -32,55 +30,9 @@ describe("useDebounceEvent", () => {
     it("should give a clear function", () => {
       expect(typeof hookResult.result.current.clearValue).toEqual("function");
     });
-
-    it("should give a update function", () => {
-      expect(typeof hookResult.result.current.updateValue).toEqual("function");
-    });
-
-    it("should give the value", () => {
-      expect(typeof hookResult.result.current.inputValue).toEqual("string");
-    });
   });
-  describe("updating the value with input event", () => {
-    it("should update the value", () => {
-      const { onEventChanged } = hookResult.result.current;
-      const newInputValue = "input value";
 
-      act(() => {
-        onEventChanged(getEventObject(newInputValue));
-      });
-
-      expect(hookResult.result.current.inputValue).toEqual(newInputValue);
-    });
-
-    it("should trim the value", () => {
-      const hookRes = renderHook(() =>
-        useDebounceEvent({
-          delay: 0,
-          trim: true,
-          onChange: onChangeCallbackStub,
-          initialStateValue: ""
-        })
-      );
-
-      const { onEventChanged } = hookRes.result.current;
-      const newInputValue = "value     ";
-      act(() => {
-        onEventChanged(getEventObject(newInputValue));
-      });
-      expect(hookRes.result.current.inputValue).toEqual(newInputValue.trim());
-    });
-
-    it("should clear the value", () => {
-      const { clearValue } = hookResult.result.current;
-
-      act(() => {
-        clearValue();
-      });
-
-      expect(hookResult.result.current.inputValue).toEqual("");
-    });
-
+  describe("callback invocation", () => {
     it("should call onChange with the correct value", () => {
       const { onEventChanged } = hookResult.result.current;
       const newInputValue = "input value";
@@ -89,9 +41,37 @@ describe("useDebounceEvent", () => {
         onEventChanged(getEventObject(newInputValue));
       });
 
-      expect(onChangeCallbackStub.mock.calls[0][0]).toEqual(newInputValue);
+      expect(onChangeCallbackStub).toHaveBeenCalledWith(newInputValue);
+    });
+
+    it("should call onChange with trimmed value when trim is enabled", () => {
+      const hookRes = renderHook(() =>
+        useDebounceEvent({
+          delay: 0,
+          trim: true,
+          onChange: onChangeCallbackStub
+        })
+      );
+
+      const { onEventChanged } = hookRes.result.current;
+      const newInputValue = "value     ";
+      act(() => {
+        onEventChanged(getEventObject(newInputValue));
+      });
+      expect(onChangeCallbackStub).toHaveBeenCalledWith(newInputValue.trim());
+    });
+
+    it("should call onChange with empty string when clearValue is called", () => {
+      const { clearValue } = hookResult.result.current;
+
+      act(() => {
+        clearValue();
+      });
+
+      expect(onChangeCallbackStub).toHaveBeenCalledWith("");
     });
   });
+
   describe("debounced", () => {
     const additionalDelay = 200;
 
@@ -101,7 +81,6 @@ describe("useDebounceEvent", () => {
       hookResult = renderHook(() =>
         useDebounceEvent({
           delay: additionalDelay,
-          initialStateValue,
           onChange: onChangeCallbackStub
         })
       );

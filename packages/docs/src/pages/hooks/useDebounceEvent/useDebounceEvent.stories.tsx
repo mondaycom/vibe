@@ -7,9 +7,11 @@ export default {
 
 export const Overview = {
   render: () => {
-    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
+    const [inputValue, setInputValue] = useState("");
+
+    const { onEventChanged }: UseDebounceResult = useDebounceEvent({
       delay: 100,
-      onChange: () => {}
+      onChange: (value: string) => setInputValue(value)
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
@@ -20,9 +22,10 @@ export const Overview = {
 
 export const PassingAnInitialValue = {
   render: () => {
-    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
-      initialStateValue: "bla bla bla",
-      onChange: () => {}
+    const [inputValue, setInputValue] = useState("bla bla bla");
+
+    const { onEventChanged }: UseDebounceResult = useDebounceEvent({
+      onChange: (value: string) => setInputValue(value)
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;
@@ -33,10 +36,14 @@ export const PassingAnInitialValue = {
 
 export const PassingAnOnChangeHandler = {
   render: () => {
+    const [inputValue, setInputValue] = useState("");
     const [length, setLength] = useState(0);
 
-    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
-      onChange: (value: string) => setLength(value.length)
+    const { onEventChanged }: UseDebounceResult = useDebounceEvent({
+      onChange: (value: string) => {
+        setInputValue(value);
+        setLength(value.length);
+      }
     });
 
     return (
@@ -52,9 +59,11 @@ export const PassingAnOnChangeHandler = {
 
 export const WithTrim = {
   render: () => {
-    const { inputValue, onEventChanged }: UseDebounceResult = useDebounceEvent({
+    const [inputValue, setInputValue] = useState("");
+
+    const { onEventChanged }: UseDebounceResult = useDebounceEvent({
       trim: true,
-      onChange: () => {}
+      onChange: (value: string) => setInputValue(value)
     });
 
     return <input type="text" value={inputValue} onChange={onEventChanged} />;

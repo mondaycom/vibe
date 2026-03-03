@@ -762,6 +762,45 @@ If you have custom CSS that overrides Link icon spacing using physical direction
 
 **Codemod:** ❌ Not available — this is a CSS-only change. Search your codebase for overrides targeting Link's `.iconStart` or `.iconEnd` classes and update to logical properties.
 
+### useDebounceEvent
+
+#### Hook is now stateless — removed internal state management
+
+The `useDebounceEvent` hook no longer manages input state internally. The `initialStateValue` parameter and the `inputValue`/`updateValue` return values have been removed. The hook now only handles debouncing, and consumers must manage their own state with `useState`.
+
+**Before (v3):**
+```tsx
+const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
+  delay: 200,
+  onChange: handleChange,
+  initialStateValue: value
+});
+
+return <input value={inputValue} onChange={onEventChanged} />;
+```
+
+**After (v4):**
+```tsx
+const [inputValue, setInputValue] = useState(value || "");
+
+const { onEventChanged: debouncedOnChange, clearValue } = useDebounceEvent({
+  delay: 200,
+  onChange: handleChange
+});
+
+const onEventChanged = useCallback(
+  (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+    debouncedOnChange(event);
+  },
+  [debouncedOnChange]
+);
+
+return <input value={inputValue} onChange={onEventChanged} />;
+```
+
+**Codemod:** ✅ Partial — `npx @vibe/codemod --migration v4` removes `initialStateValue`, `inputValue`, and `updateValue` automatically. Adding local `useState` requires manual migration.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).

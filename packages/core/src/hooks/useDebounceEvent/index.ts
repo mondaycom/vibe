@@ -1,41 +1,21 @@
-import {
-  useMemo,
-  useCallback,
-  useState,
-  useRef,
-  useEffect,
-  type ChangeEvent,
-  type Dispatch,
-  type SetStateAction
-} from "react";
+import { useMemo, useCallback, type ChangeEvent } from "react";
 import { debounce } from "es-toolkit";
 import { noop } from "es-toolkit";
 
 export type UseDebounceResult = {
-  inputValue: string;
   onEventChanged: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
   clearValue: () => void;
-  updateValue: Dispatch<SetStateAction<string>>;
 };
 
 export default function useDebounceEvent({
   delay = 0,
   onChange,
-  initialStateValue = "",
   trim
 }: {
   onChange: (value: string) => void;
-  initialStateValue?: string;
   delay?: number;
   trim?: boolean;
 }) {
-  const [inputValue, setValue] = useState<string>(initialStateValue);
-  const previousValue = useRef<string>(null);
-
-  useEffect(() => {
-    previousValue.current = initialStateValue;
-  });
-
   const debounceCallback = useMemo(() => {
     if (!delay) {
       return onChange;
@@ -52,22 +32,16 @@ export default function useDebounceEvent({
     (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => {
       const { value } = event.target;
       const finalValue = trim ? value.trim() : value;
-      setValue(finalValue);
       debounceCallback(finalValue);
     },
-    [debounceCallback, setValue, trim]
+    [debounceCallback, trim]
   );
 
   const clearValue = useCallback(() => {
-    setValue("");
     if (onChange) {
       onChange("");
     }
-  }, [setValue, onChange]);
+  }, [onChange]);
 
-  if (initialStateValue !== previousValue.current && initialStateValue !== inputValue) {
-    setValue(initialStateValue);
-  }
-
-  return { inputValue, onEventChanged, clearValue, updateValue: setValue };
+  return { onEventChanged, clearValue };
 }
