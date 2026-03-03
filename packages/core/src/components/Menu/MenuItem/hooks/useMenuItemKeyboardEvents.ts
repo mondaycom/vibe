@@ -111,10 +111,7 @@ export default function useMenuItemKeyboardEvents({
     ]
   );
 
-  const onKeyboardClick = useCallback(
-    (event: React.KeyboardEvent) => onClickCallback(event),
-    [onClickCallback]
-  );
+  const onKeyboardClick = useCallback((event: React.KeyboardEvent) => onClickCallback(event), [onClickCallback]);
 
   useKeyEvent({
     keys: KEYS,

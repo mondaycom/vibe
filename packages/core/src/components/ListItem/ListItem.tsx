@@ -106,10 +106,7 @@ const ListItem = forwardRef(
       [disabled, onClick, id]
     );
 
-    const onKeyboardSelect = useCallback(
-      (event: React.KeyboardEvent) => componentOnClick(event),
-      [componentOnClick]
-    );
+    const onKeyboardSelect = useCallback((event: React.KeyboardEvent) => componentOnClick(event), [componentOnClick]);
 
     useKeyEvent({
       keys: SELECTION_KEYS,
