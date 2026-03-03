@@ -127,17 +127,17 @@ export function useSupportPressItemKeyboardNavigation({
   );
 
   const baseOnClickCallback = useCallback(
-    (event: KeyboardEvent, itemIndex: number) => {
+    (event: React.KeyboardEvent, itemIndex: number) => {
       const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
       if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
       if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
-      onItemClick(event as unknown as React.KeyboardEvent, itemIndex);
+      onItemClick(event, itemIndex);
     },
     [itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, setVisualFocusItemIndex]
   );
 
   const keyboardOnSelectCallback = useCallback(
-    (event: KeyboardEvent) => {
+    (event: React.KeyboardEvent) => {
       // we desire to change the trigger the active item on click callback only if the user pressed on the keyboard arrows keys while
       // the focusedElementRef is naturally focus
       if (focusedElementRef.current.contains(document.activeElement)) {
