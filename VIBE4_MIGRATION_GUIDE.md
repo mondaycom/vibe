@@ -205,14 +205,6 @@ Alternatively, you can remove the explicit type annotation and let TypeScript in
 const MyComponent = forwardRef<HTMLDivElement, MyComponentProps>(/* ... */);
 ```
 
-**Codemod available**: Removes `VibeComponent` type imports from `@vibe/core` automatically.
-
-```bash
-npx @vibe/codemod --migration v4
-```
-
-> Note: The codemod removes the import. Usage sites must be updated manually using the patterns above.
-
 ### CSS and Design Tokens
 
 #### TableCellSkeleton — Removed `@supports` fallback for `aspect-ratio`
