@@ -6,8 +6,7 @@ import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
 import person4 from "../Avatar/assets/person4.png";
 import { Email, Send, Mobile } from "@vibe/icons";
-import { Dropdown } from "@vibe/core/next";
-import { Flex, Text, DialogContentContainer, Button } from "@vibe/core";
+import { Dropdown, Flex, Text, DialogContentContainer, Button } from "@vibe/core";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -29,7 +28,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 const meta: Meta<typeof Dropdown> = {
-  title: "Components/Dropdown [New]/Dropdown box mode",
+  title: "Components/Dropdown/Dropdown box mode",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -53,7 +52,7 @@ const dropdownTemplate = props => {
     <div style={{ width: "300px" }}>
       <Dropdown
         id="box-mode-overview"
-        ariaLabel="Box mode overview"
+        aria-label="Box mode overview"
         options={options}
         label="Label"
         placeholder="Placeholder text here"
@@ -70,7 +69,7 @@ export const Overview: Story = {
   render: dropdownTemplate.bind({}),
   args: {
     id: "overview-dropdown",
-    ariaLabel: "Overview dropdown",
+    "aria-label": "Overview dropdown",
     placeholder: "Placeholder text here",
     clearAriaLabel: "Clear"
   },
@@ -101,7 +100,7 @@ export const DefaultState: Story = {
       <div style={{ width: "300px" }}>
         <Dropdown
           id="box-mode-default-state"
-          ariaLabel="Box mode default state"
+          aria-label="Box mode default state"
           options={options}
           label="Label"
           placeholder="Placeholder text"
@@ -134,7 +133,7 @@ export const InsideADialog: Story = {
         <DialogContentContainer>
           <Dropdown
             id="box-mode-dialog"
-            ariaLabel="Box mode inside dialog"
+            aria-label="Box mode inside dialog"
             options={options}
             placeholder="Placeholder text"
             searchable
@@ -172,7 +171,7 @@ export const MultiSelect: Story = {
           <div style={{ width: "300px" }}>
             <Dropdown
               id="box-mode-multi-single-line"
-              ariaLabel="Box mode multi select single line"
+              aria-label="Box mode multi select single line"
               options={options}
               placeholder="Placeholder text"
               searchable
@@ -190,7 +189,7 @@ export const MultiSelect: Story = {
           <div style={{ width: "300px" }}>
             <Dropdown
               id="box-mode-multi-multiline"
-              ariaLabel="Box mode multi select multiple lines"
+              aria-label="Box mode multi select multiple lines"
               options={options}
               placeholder="Placeholder text"
               searchable
@@ -246,7 +245,7 @@ export const WithIcons: Story = {
       <div style={{ width: "300px" }}>
         <Dropdown
           id="box-mode-with-icons"
-          ariaLabel="Box mode with icons"
+          aria-label="Box mode with icons"
           options={optionsWithIcons}
           label="Notify via"
           placeholder="You can choose multiple options"
@@ -310,7 +309,7 @@ export const PeoplePicker: Story = {
         <div style={{ width: "350px" }}>
           <Dropdown
             id="box-mode-people-picker"
-            ariaLabel="Box mode people picker"
+            aria-label="Box mode people picker"
             options={peopleOptions}
             label="Person"
             placeholder="Search for people"

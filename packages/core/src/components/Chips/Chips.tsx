@@ -4,15 +4,13 @@ import { Icon } from "@vibe/icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
-import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
@@ -105,15 +103,11 @@ export interface ChipsProps extends VibeComponentProps {
   /**
    * The label of the chip for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, indicates that the chip has a popup.
    */
-  ariaHasPopup?: boolean;
-  /**
-   * If true, disables all click behaviors.
-   */
-  disableClickableBehavior?: boolean;
+  "aria-haspopup"?: boolean;
   /**
    * If true, displays a border around the chip.
    */
@@ -149,10 +143,9 @@ const Chips = forwardRef(
       onMouseDown,
       onClick,
       noAnimation = true,
-      ariaLabel,
-      ariaHasPopup = false,
+      "aria-label": ariaLabel,
+      "aria-haspopup": ariaHasPopup = false,
       "data-testid": dataTestId,
-      disableClickableBehavior = false,
       leftAvatarType = "img",
       rightAvatarType = "img",
       showBorder = false,
@@ -164,7 +157,7 @@ const Chips = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
+    const hasClickableWrapper = !!onClick || !!onMouseDown;
     const hasCloseButton = !readOnly && !disabled;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
 
@@ -229,10 +222,10 @@ const Chips = forwardRef(
         disabled,
         id,
         "data-testid": componentDataTestId,
-        ariaLabel: overrideAriaLabel,
-        ariaHidden: false,
-        ariaHasPopup,
-        ariaExpanded: false
+        "aria-label": overrideAriaLabel,
+        "aria-hidden": false,
+        "aria-haspopup": ariaHasPopup,
+        "aria-expanded": false
       },
       mergedRef
     );
@@ -276,9 +269,9 @@ const Chips = forwardRef(
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType="font"
+            type="font"
             icon={leftIcon}
-            iconSize={iconSize}
+            size={iconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -289,9 +282,9 @@ const Chips = forwardRef(
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType="font"
+            type="font"
             icon={rightIcon}
-            iconSize={iconSize}
+            size={iconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -311,7 +304,7 @@ const Chips = forwardRef(
             size="xxs"
             color="on-primary-color"
             className={cx(styles.icon, styles.close)}
-            ariaLabel={closeButtonAriaLabel}
+            aria-label={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}
@@ -324,12 +317,4 @@ const Chips = forwardRef(
   }
 );
 
-interface ChipsStaticProps {
-  colors: typeof ElementAllowedColorEnum;
-  avatarTypes: typeof AvatarTypeEnum;
-}
-
-export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
-  colors: ElementAllowedColorEnum,
-  avatarTypes: AvatarTypeEnum
-});
+export default Chips;

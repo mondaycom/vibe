@@ -1,10 +1,21 @@
 name: Release new version
 
-on: workflow_dispatch
+on: []
 
 jobs:
+  validate-branch:
+    name: Validate Branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure running on master
+        if: github.ref != 'refs/heads/master'
+        run: |
+          echo "::error::Release workflow must be triggered from master branch. Current branch: ${{ github.ref }}"
+          exit 1
+
   notify-release-start:
     name: Notify Slack - Release Started
+    needs: validate-branch
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -26,6 +37,7 @@ jobs:
 
   build:
     name: Build
+    needs: validate-branch
     uses: ./.github/workflows/build-and-upload.yml
     secrets:
       npm_token: ${{ secrets.npm_token }}

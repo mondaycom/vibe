@@ -13,7 +13,7 @@ describe("BreadcrumbsBar renders correctly", () => {
   });
 
   it("with bar type", () => {
-    Object.values(BreadcrumbsBar.types).forEach(type => {
+    Object.values(["default", "divider", "hidden"]).forEach(type => {
       const tree = renderer.create(<BreadcrumbsBar type={type} />).toJSON();
       expect(tree).toMatchSnapshot();
     });

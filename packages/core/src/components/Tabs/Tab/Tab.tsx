@@ -67,7 +67,7 @@ export interface TabProps extends VibeComponentProps {
   /**
    * The id of the associated TabPanel for aria-controls attribute.
    */
-  ariaControls?: string;
+  "aria-controls"?: string;
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -89,7 +89,7 @@ const Tab: FC<TabProps> = forwardRef(
       children,
       "data-testid": dataTestId,
       tabIndex,
-      ariaControls
+      "aria-controls": ariaControls
     }: TabProps,
     ref
   ) => {
@@ -101,11 +101,11 @@ const Tab: FC<TabProps> = forwardRef(
 
       const iconElement = (
         <Icon
-          ariaHidden={true}
-          iconType={iconType}
+          aria-hidden={true}
+          type={iconType}
           icon={icon}
           className={cx(styles.tabIcon, getStyle(styles, iconSide))}
-          iconSize={18}
+          size={18}
           ignoreFocusStyle
         />
       );

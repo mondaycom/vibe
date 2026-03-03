@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 @import "../../styles/typography";
 @import "../../styles/states";
 $checkbox-size: 16px;
@@ -43,8 +43,7 @@ $checkbox-size: 16px;
   position: absolute;
   height: $checkbox-size;
   z-index: 2;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   width: 100%;
 }
 
@@ -120,7 +119,7 @@ $checkbox-size: 16px;
   transform: scaleX(0);
   transition: transform var(--motion-productive-long);
   transform-origin: right;
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .input:checked + .checkbox > .icon,

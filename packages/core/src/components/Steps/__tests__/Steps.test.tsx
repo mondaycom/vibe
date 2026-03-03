@@ -3,7 +3,7 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Steps, { type StepsProps } from "../Steps";
-import { NEXT_TEXT, BACK_TEXT } from "../StepsConstants";
+import { NEXT_TEXT, BACK_TEXT, FINISH_TEXT } from "../StepsConstants";
 
 vi.useFakeTimers();
 
@@ -64,18 +64,25 @@ describe("Steps tests", () => {
     expect(onClickMock.mock.calls.length).toBe(0);
   });
 
-  it("does not call onChangeIndexCallback when click on next button when in last page", () => {
-    const onClickMock = vi.fn();
+  it("shows finish button on last step by default", () => {
     const steps = renderComponent({
-      onChangeActiveStep: onClickMock,
       activeStepIndex: stepsContent.length - 1
     });
-    const forwardButton = steps.getByText(NEXT_TEXT);
+    expect(steps.getByText(FINISH_TEXT)).toBeTruthy();
+  });
+
+  it("calls onFinish when clicking finish button on last step", () => {
+    const onFinishMock = vi.fn();
+    const steps = renderComponent({
+      activeStepIndex: stepsContent.length - 1,
+      onFinish: onFinishMock
+    });
+    const finishButton = steps.getByText(FINISH_TEXT);
 
     act(() => {
-      fireEvent.click(forwardButton);
+      fireEvent.click(finishButton);
     });
 
-    expect(onClickMock.mock.calls.length).toBe(0);
+    expect(onFinishMock).toHaveBeenCalledTimes(1);
   });
 });

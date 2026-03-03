@@ -3,9 +3,8 @@ import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { NOOP } from "../../utils/function-utils";
 import { Icon, type SubIcon } from "@vibe/icon";
-import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
 import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.types";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
@@ -37,17 +36,17 @@ export interface LinkProps extends VibeComponentProps {
    */
   target?: LinkTarget;
   /**
-   * The ARIA label description for accessibility.
+   * The ARIA label for accessibility.
    */
-  ariaLabelDescription?: string;
+  "aria-label"?: string;
   /**
    * The ID of the element that describes this link.
    */
-  ariaDescribedby?: string;
+  "aria-describedby"?: string;
   /**
    * The ID of the element labeling this link.
    */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * Icon displayed next to the link text.
    */
@@ -86,13 +85,13 @@ const Link = forwardRef(
       rel = "noreferrer",
       onClick = NOOP,
       target = "_blank",
-      ariaLabelDescription = "",
+      "aria-label": ariaLabel = "",
       color = "primary",
-      ariaDescribedby = "",
+      "aria-describedby": ariaDescribedby = "",
       icon = "",
       iconPosition = "start",
       id = "",
-      ariaLabeledBy = "",
+      "aria-labelledby": ariaLabelledBy = "",
       disableNavigation = false,
       inheritFontSize = false,
       inlineText = false,
@@ -128,9 +127,9 @@ const Link = forwardRef(
           [styles.inheritFontSize]: inheritFontSize,
           [styles.inlineText]: inlineText
         })}
-        aria-label={ariaLabelDescription}
+        aria-label={ariaLabel}
         aria-describedby={ariaDescribedby}
-        aria-labelledby={ariaLabeledBy}
+        aria-labelledby={ariaLabelledBy}
       >
         {getIcon(isStart, icon, cx(styles.iconStart))}
         <span className={cx(styles.text, textClassName)}>{text}</span>
@@ -142,17 +141,7 @@ const Link = forwardRef(
 
 function getIcon(shouldShow: boolean, icon: string | React.FunctionComponent | null, className: string) {
   if (!shouldShow) return;
-  return <Icon className={className} icon={icon} iconType="font" />;
+  return <Icon className={className} icon={icon} type="font" />;
 }
 
-interface LinkStaticProps {
-  targets: typeof LinkTargetEnum;
-  iconPositions: typeof IconPositionEnum;
-  position: typeof IconPositionEnum;
-}
-
-export default withStaticProps<LinkProps, LinkStaticProps>(Link, {
-  position: IconPositionEnum,
-  iconPositions: IconPositionEnum,
-  targets: LinkTargetEnum
-});
+export default Link;

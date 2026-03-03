@@ -22,7 +22,7 @@ type Story = StoryObj<typeof ListItem>;
 
 export const Overview: Story = {
   render: (args: ListItemProps) => (
-    <List ariaLabel="List item overview">
+    <List aria-label="List item overview">
       <ListItem {...args} />
     </List>
   ),
@@ -42,7 +42,7 @@ export const Overview: Story = {
 
 export const States: Story = {
   render: () => (
-    <List ariaLabel="States example">
+    <List aria-label="States example">
       <ListItem label="Default state" value="default" />
       <ListItem label="Disabled state" value="disabled" disabled />
       <ListItem label="Selected state" value="selected" selected />
@@ -53,7 +53,7 @@ export const States: Story = {
 
 export const WithIcon: Story = {
   render: () => (
-    <List ariaLabel="List with icon">
+    <List aria-label="List with icon">
       <ListItem
         label="Productivity"
         value="productivity"
@@ -73,7 +73,7 @@ export const WithIcon: Story = {
 
 export const WithAvatar: Story = {
   render: () => (
-    <List ariaLabel="List with avatar">
+    <List aria-label="List with avatar">
       <ListItem
         label="Sophia Johnson"
         value="sophia"
@@ -94,7 +94,7 @@ export const WithAvatar: Story = {
 export const WithEndElement: Story = {
   render: () => (
     <div style={{ width: 250 }}>
-      <List ariaLabel="List with end elements">
+      <List aria-label="List with end elements">
         <ListItem
           label="Settings"
           value="settings"
@@ -130,7 +130,7 @@ export const WithClickHandler: Story = {
     return (
       <div>
         <p style={{ marginBottom: 16 }}>Click count: {clickCount}</p>
-        <List ariaLabel="Clickable list">
+        <List aria-label="Clickable list">
           <ListItem label="Click me!" value="clickable" onClick={handleClick} />
         </List>
       </div>
@@ -141,7 +141,7 @@ export const WithClickHandler: Story = {
 
 export const ReadOnly: Story = {
   render: () => (
-    <List ariaLabel="Read-only list">
+    <List aria-label="Read-only list">
       <ListItem label="Editable item" value="editable" />
       <ListItem label="Read-only item" value="readonly" readOnly />
     </List>

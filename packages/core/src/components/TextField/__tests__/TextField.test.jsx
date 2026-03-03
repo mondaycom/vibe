@@ -131,7 +131,7 @@ describe("TextField Tests", () => {
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
-          iconName="test"
+          icon="test"
           iconLabel="Primary Icon"
         />
       );

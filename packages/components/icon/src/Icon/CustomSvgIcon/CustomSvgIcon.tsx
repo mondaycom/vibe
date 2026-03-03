@@ -15,17 +15,13 @@ function modifySvgCode(svg: string, color = "currentColor") {
 
 export interface CustomSvgIconProps extends VibeComponentProps {
   /**
-   * Callback fired when the icon is clicked.
-   */
-  onClick?: (event: React.MouseEvent) => void;
-  /**
    * The source URL or object of the SVG icon.
    */
   src: string | object;
   /**
    * The accessible label for the icon.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The tab index of the icon for keyboard navigation.
    */
@@ -37,11 +33,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   /**
    * If true, hides the icon from screen readers.
    */
-  ariaHidden?: boolean;
-  /**
-   * If true, makes the icon clickable.
-   */
-  clickable?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * If true, replaces the `fill` attribute in the SVG with `currentColor`.
    */
@@ -60,17 +52,15 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   className,
   ref,
   src,
-  onClick,
-  clickable,
-  ariaLabel,
-  ariaHidden,
+  "aria-label": ariaLabel,
+  "aria-hidden": ariaHidden,
   replaceToCurrentColor = false,
   customColor,
   id,
   "data-testid": dataTestId
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
-    isClickable: clickable,
+    isClickable: false,
     label: ariaLabel,
     isDecorationOnly: ariaHidden
   });
@@ -101,7 +91,6 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
     <SVGComponent
       innerRef={ref}
       {...screenReaderAccessProps}
-      onClick={onClick}
       loader={PlaceHolder} // avoid flickering
       src={src}
       className={className}

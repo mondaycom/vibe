@@ -1,10 +1,10 @@
 // Constants
 import { keyCodes } from "../../constants";
-import { DialogTriggerEventEnum as HideShowEvent } from "@vibe/dialog";
+import type { DialogTriggerEvent } from "@vibe/dialog";
 
 export const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
-export const DEFAULT_DIALOG_SHOW_TRIGGER = [HideShowEvent.CLICK];
-export const DEFAULT_DIALOG_HIDE_TRIGGER = [HideShowEvent.CLICK_OUTSIDE, HideShowEvent.CLICK, HideShowEvent.ESCAPE_KEY];
+export const DEFAULT_DIALOG_SHOW_TRIGGER: DialogTriggerEvent[] = ["click"];
+export const DEFAULT_DIALOG_HIDE_TRIGGER: DialogTriggerEvent[] = ["clickoutside", "click", "esckey"];
 export const SECONDARY_BUTTON_WRAPPER_CLASSNAME = "monday-style-split-button__secondary-button-wrapper";
 export const EMPTY_ARR: string[] = [];
 

@@ -1,12 +1,11 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 @import "../../../styles/states";
 @import "../../../styles/typography";
 
 .tabWrapper {
   position: relative;
   display: inline-block;
-  padding-left: 1px;
-  padding-right: 1px;
+  padding-inline: 1px;
   border-top: 1px solid transparent;
   border-bottom: 2px solid;
   border-bottom-color: var(--ui-background-color);
@@ -23,8 +22,7 @@
 .tabWrapper:after {
   display: block;
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   content: "";
   border-bottom: solid 2px;
   border-bottom-color: var(--primary-color);
@@ -53,12 +51,12 @@
 
 .tabWrapper .tabInner .tabIcon {
   color: var(--icon-color);
-  margin-right: var(--spacing-small);
+  margin-inline-end: var(--spacing-small);
 }
 
 .tabWrapper .tabInner .tabIcon.right {
-  margin-right: 0;
-  margin-left: var(--spacing-small);
+  margin-inline-end: 0;
+  margin-inline-start: var(--spacing-small);
 }
 
 .tabWrapper.tabFocusVisibleInset {

@@ -1,34 +1,4 @@
-/**
- * System themes: dark, light, black
- */
-/**
- * @deprecated
- */
-export enum SystemTheme {
-  LIGHT = "light",
-  DARK = "dark",
-  BLACK = "black"
-}
-
-/**
- * Colors which are eligible for theming
- */
-/**
- * @deprecated
- */
-export enum ThemeColor {
-  primaryColor = "primary-color",
-  primaryHoverColor = "primary-hover-color",
-  primarySelectedColor = "primary-selected-color",
-  primarySelectedHoverColor = "primary-selected-hover-color",
-  primarySelectedOnSecondaryColor = "primary-selected-on-secondary-color",
-  textColorOnPrimary = "text-color-on-primary",
-  brandColor = "brand-color",
-  brandHoverColor = "brand-hover-color",
-  brandSelectedColor = "brand-selected-color",
-  brandSelectedHoverColor = "brand-selected-hover-color",
-  textColorOnBrand = "text-color-on-brand"
-}
+import { type SystemTheme, type ThemeColor } from "./ThemeProvider.types";
 
 export type Theme = {
   /**
@@ -53,9 +23,9 @@ type ThemeCustomClassValue = {
 };
 
 export const SystemThemeClassMap: SystemThemeClassMapType = {
-  [SystemTheme.LIGHT]: "light-app-theme",
-  [SystemTheme.DARK]: "dark-app-theme",
-  [SystemTheme.BLACK]: "black-app-theme"
+  light: "light-app-theme",
+  dark: "dark-app-theme",
+  black: "black-app-theme"
 };
 
 type SystemThemeClassMapType = {

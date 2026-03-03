@@ -14,14 +14,8 @@
 
     &.circle,
     &.rectangle {
-      @supports (aspect-ratio: 1 / 1) {
-        width: auto;
-        aspect-ratio: 1 / 1;
-      }
-
-      @supports not (aspect-ratio: 1 / 1) {
-        width: 21px;
-      }
+      width: auto;
+      aspect-ratio: 1 / 1;
     }
   }
 }

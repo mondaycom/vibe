@@ -55,7 +55,7 @@ export * from "@vibe/loader";
 export * from "./Menu";
 export * from "./MenuButton";
 export * from "./NumberField";
-export * from "./LegacyModal";
+export * from "./Modal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";
 export * from "./RadioButton";

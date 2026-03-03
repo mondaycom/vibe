@@ -1,6 +1,6 @@
 {
   "name": "@vibe/docs",
-  "version": "3.7.1",
+  "version": "3.7.3",
   "private": true,
   "description": "Vibe documentation",
   "repository": {
@@ -27,7 +27,7 @@
     "@vibe/shared": "3.0.8",
     "classnames": "^2.3.2",
     "es-toolkit": "^1.39.10",
-    "monday-ui-style": "0.26.2",
+    "@vibe/style": "0.26.2",
     "vibe-storybook-components": "1.0.7"
   },
   "devDependencies": {
@@ -79,7 +79,6 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest-axe": "^3.5.9",
     "@types/react": "^18.0.25",
-    "@types/react-dates": "^21.8.3",
     "@types/react-is": "^16.7.5",
     "@types/react-resizable": "^3.0.7",
     "@types/react-select": "^3.1.2",
