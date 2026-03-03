@@ -60,6 +60,12 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
 - **Codemod**: ❌ Manual (no-op removal, no functional impact)
 
+- [x] **Status**: Done
+- **Change**: `children` prop now accepts only a single `MenuChild`, not `MenuChild[]`
+- **Reason**: Passing an array was already a runtime error — `MenuItemSubMenu` enforces a single child via `React.Children.only`. The type now matches the actual runtime constraint.
+- **Migration**: Replace any array-wrapped children with a single `Menu` element. If you were already passing a single `Menu`, no change is needed.
+- **Codemod**: ❌ Manual (array usage was a runtime error in v3, so no valid code to transform)
+
 #### Icon
 
 - [x] **Status**: Implemented ✅
@@ -128,6 +134,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### TextField
 
+- [x] **Status**: Complete
+- **Change**: Rename `iconName` prop to `icon`
+- **Reason**: Consistent naming with other components (e.g., Icon component uses `icon` prop)
+- **Migration**: `<TextField iconName={X} />` → `<TextField icon={X} />`
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
+=======
 - **Change**: Removed deprecated enum exports and static properties (`TextFieldTextType`, `TextFieldFeedbackState` enums and static properties)
 - **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
 - **Migration**: Replace enum usage with string literals (e.g., `TextField.feedbackStates.ERROR` → `"error"`)
@@ -417,9 +431,26 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: If you override `.iconStart { margin-right: ... }` or `.iconEnd { margin-left: ... }` in custom CSS, update to use `margin-inline-end` and `margin-inline-start` respectively
 - **Codemod**: ❌ Manual (CSS-only change)
 
+#### VirtualizedGrid
+
+- [x] **Status**: Complete
+- **Change**: Fixed `itemRenderer` return type from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`
+- **Reason**: The previous return type was incorrect — `ItemType` and `GridChildComponentProps` are plain data objects, not React elements. This caused TypeScript errors for users passing valid JSX renderers
+- **Migration**: Update any explicit type annotations on `itemRenderer` from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`. Runtime behavior is unchanged
+- **Codemod**: ❌ Manual (type-only change)
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
+
+#### useMergeRefs
+
+- **Change**: Removed `useMergeRefs` hook export from `@vibe/core`. Use the internal `useMergeRef` hook (imported directly from within `@vibe/core`) or implement your own ref merging utility.
+- **Reason**: `useMergeRefs` was already marked as deprecated in favor of the internal `useMergeRef` hook which has a simpler, more idiomatic API. The hook was always intended for internal use only.
+- **Migration**: Replace usage of `useMergeRefs({ refs: [ref1, ref2] })` with your own ref merging utility or use `react-merge-refs` from npm.
+- **Codemod**: ❌ None
+- **PR**: TBD
 
 #### useClickableProps
 
@@ -427,6 +458,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: TBD
 - **Migration**: TBD
 - **Codemod**: 🔄 Planned
+- **PR**: TBD
+
+#### useKeyEvent
+
+- [x] **Status**: Done
+- **Change**: Changed `callback` type in `UseKeyEventArgs` from `GenericEventCallback` (`(ev: Event | React.UIEvent) => unknown`) to `KeyboardEventCallback` (`(event: KeyboardEvent) => unknown`)
+- **Reason**: `useKeyEvent` uses native DOM `addEventListener` internally, so callbacks always receive native `KeyboardEvent`, not React synthetic events. The type now accurately reflects runtime behavior.
+- **Migration**: Update callback functions passed to `useKeyEvent` to accept native `KeyboardEvent` instead of `GenericEventCallback`. TypeScript will flag any mismatches. If your callback uses `React.KeyboardEvent`-specific properties like `nativeEvent`, switch to the equivalent native `KeyboardEvent` properties.
+- **Codemod**: ❌ Not applicable — TypeScript compiler catches all type mismatches automatically
 - **PR**: TBD
 
 <!-- Add more hooks/APIs as breaking changes are identified -->
@@ -464,6 +504,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **PR**: TBD
 
 <!-- Add package structure changes as they are identified -->
+
+#### ARIA Props (All Components)
+
+- **Status**: ✅ Available
+- **Change**: Renamed all custom camelCase ARIA props to standard HTML hyphenated `aria-*` attributes across all components (e.g., `ariaLabel` → `aria-label`, `ariaHidden` → `aria-hidden`, `ariaExpanded` → `aria-expanded`, `ariaControls` → `aria-controls`, `ariaHasPopup` → `aria-haspopup`, `ariaLabeledBy`/`ariaLabelledBy` → `aria-labelledby`, `ariaDescribedBy`/`ariaDescribedby` → `aria-describedby`, `ariaLabelDescription` → `aria-label`)
+- **Reason**: Aligns with React's native support for `aria-*` attributes, eliminates naming inconsistencies, and reduces indirection
+- **Migration**: Replace camelCase ARIA props with their hyphenated equivalents in JSX
+- **Codemod**: ✅ `npx @vibe/codemod aria-props-migration`
 
 ## Migration Tools
 

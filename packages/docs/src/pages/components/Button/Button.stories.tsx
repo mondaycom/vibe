@@ -27,7 +27,7 @@ export const Overview: Story = {
   render: buttonTemplate.bind({}),
   args: {
     id: "overview-button",
-    ariaLabel: "Button",
+    "aria-label": "Button",
     children: "Button"
   },
   parameters: {
@@ -42,13 +42,13 @@ export const Overview: Story = {
 export const ButtonKinds: Story = {
   render: () => (
     <>
-      <Button id="button-kinds-primary" ariaLabel="Primary button">
+      <Button id="button-kinds-primary" aria-label="Primary button">
         Primary
       </Button>
-      <Button id="button-kinds-secondary" ariaLabel="Secondary button" kind="secondary">
+      <Button id="button-kinds-secondary" aria-label="Secondary button" kind="secondary">
         Secondary
       </Button>
-      <Button id="button-kinds-tertiary" ariaLabel="Tertiary button" kind="tertiary">
+      <Button id="button-kinds-tertiary" aria-label="Tertiary button" kind="tertiary">
         Tertiary
       </Button>
     </>
@@ -59,13 +59,13 @@ export const ButtonKinds: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Button id="sizes-large" ariaLabel="Large button" size="large">
+      <Button id="sizes-large" aria-label="Large button" size="large">
         Large
       </Button>
-      <Button id="sizes-medium" ariaLabel="Medium button" size="medium">
+      <Button id="sizes-medium" aria-label="Medium button" size="medium">
         Medium
       </Button>
-      <Button id="sizes-small" ariaLabel="Small button" size="small">
+      <Button id="sizes-small" aria-label="Small button" size="small">
         Small
       </Button>
     </>
@@ -75,13 +75,13 @@ export const Sizes: Story = {
 export const Disabled: Story = {
   render: () => (
     <>
-      <Button id="disabled-primary" ariaLabel="Primary button disabled" disabled>
+      <Button id="disabled-primary" aria-label="Primary button disabled" disabled>
         Primary
       </Button>
-      <Button id="disabled-secondary" ariaLabel="Secondary button disabled" kind="secondary" disabled>
+      <Button id="disabled-secondary" aria-label="Secondary button disabled" kind="secondary" disabled>
         Secondary
       </Button>
-      <Button id="disabled-tertiary" ariaLabel="Tertiary button disabled" kind="tertiary" disabled>
+      <Button id="disabled-tertiary" aria-label="Tertiary button disabled" kind="tertiary" disabled>
         Tertiary
       </Button>
     </>
@@ -91,10 +91,10 @@ export const Disabled: Story = {
 export const States: Story = {
   render: () => (
     <>
-      <Button id="state-regular" ariaLabel="Regular button">
+      <Button id="state-regular" aria-label="Regular button">
         Regular
       </Button>
-      <Button id="state-active" ariaLabel="Active button" active>
+      <Button id="state-active" aria-label="Active button" active>
         Active
       </Button>
     </>
@@ -104,10 +104,10 @@ export const States: Story = {
 export const PositiveAndNegative: Story = {
   render: () => (
     <>
-      <Button id="color-positive" ariaLabel="Positive button" color="positive">
+      <Button id="color-positive" aria-label="Positive button" color="positive">
         Positive
       </Button>
-      <Button id="color-negative" ariaLabel="Negative button" color="negative">
+      <Button id="color-negative" aria-label="Negative button" color="negative">
         Negative
       </Button>
     </>
@@ -118,10 +118,10 @@ export const PositiveAndNegative: Story = {
 export const Icons: Story = {
   render: () => (
     <>
-      <Button id="icons-right" rightIcon={Calendar} ariaLabel="Open calendar on the right icon button">
+      <Button id="icons-right" rightIcon={Calendar} aria-label="Open calendar on the right icon button">
         Right icon
       </Button>
-      <Button id="icons-left" leftIcon={Calendar} ariaLabel="Open calendar on the left icon button">
+      <Button id="icons-left" leftIcon={Calendar} aria-label="Open calendar on the left icon button">
         Left icon
       </Button>
     </>
@@ -142,7 +142,7 @@ export const LoadingState: Story = {
       setLoading(true);
     }, [setLoading]);
     return (
-      <Button id="loading-state-button" ariaLabel="Start loading" loading={loading} onClick={onClick}>
+      <Button id="loading-state-button" aria-label="Start loading" loading={loading} onClick={onClick}>
         Click here for loading
       </Button>
     );
@@ -159,7 +159,7 @@ export const SuccessState: Story = {
     return (
       <Button
         id="success-state-button"
-        ariaLabel="Trigger success"
+        aria-label="Trigger success"
         success={success}
         onClick={onClick}
         successIcon={Check}
@@ -185,19 +185,19 @@ export const OnColorStates: Story = {
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         <Text type="text1">Regular</Text>
         <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
-          <Button id="on-color-primary" ariaLabel="Primary on color" color="on-primary-color" marginRight>
+          <Button id="on-color-primary" aria-label="Primary on color" color="on-primary-color" marginRight>
             Primary on color
           </Button>
           <Button
             id="on-color-secondary"
-            ariaLabel="Secondary on color"
+            aria-label="Secondary on color"
             color="on-primary-color"
             kind="secondary"
             marginRight
           >
             Secondary on color
           </Button>
-          <Button id="on-color-tertiary" ariaLabel="Tertiary on color" color="on-primary-color" kind="tertiary">
+          <Button id="on-color-tertiary" aria-label="Tertiary on color" color="on-primary-color" kind="tertiary">
             Tertiary on color
           </Button>
         </div>
@@ -208,7 +208,7 @@ export const OnColorStates: Story = {
         <div style={{ backgroundColor: "var(--sb-primary-color)", padding: "16px" }}>
           <Button
             id="on-color-primary-disabled"
-            ariaLabel="Primary on color disabled"
+            aria-label="Primary on color disabled"
             color="on-primary-color"
             disabled
             marginRight
@@ -217,7 +217,7 @@ export const OnColorStates: Story = {
           </Button>
           <Button
             id="on-color-secondary-disabled"
-            ariaLabel="Secondary on color disabled"
+            aria-label="Secondary on color disabled"
             color="on-primary-color"
             disabled
             marginRight
@@ -227,7 +227,7 @@ export const OnColorStates: Story = {
           </Button>
           <Button
             id="on-color-tertiary-disabled"
-            ariaLabel="Tertiary on color disabled"
+            aria-label="Tertiary on color disabled"
             color="on-primary-color"
             disabled
             kind="tertiary"
@@ -244,10 +244,10 @@ export const OnColorStates: Story = {
 export const AdjacentButtons: Story = {
   render: () => (
     <div>
-      <Button id="decrease-zoom-button" kind="secondary" size="small" ariaLabel="Decrease zoom level" rightFlat>
+      <Button id="decrease-zoom-button" kind="secondary" size="small" aria-label="Decrease zoom level" rightFlat>
         <Remove />
       </Button>
-      <Button id="increase-zoom-button" kind="secondary" size="small" ariaLabel="Increase zoom level" leftFlat>
+      <Button id="increase-zoom-button" kind="secondary" size="small" aria-label="Increase zoom level" leftFlat>
         <Add />
       </Button>
     </div>

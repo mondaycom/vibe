@@ -21,7 +21,7 @@ const AttentionBoxCloseButton = ({
       size="xs"
       kind="tertiary"
       onClick={onClose}
-      ariaLabel={closeButtonAriaLabel}
+      aria-label={closeButtonAriaLabel}
       hideTooltip
       className={cx(styles.closeButton, className)}
     />

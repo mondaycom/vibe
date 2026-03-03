@@ -8,7 +8,7 @@ type Story = StoryObj<typeof TextField>;
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: TextField,
-  iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]
+  iconPropNamesArray: ["secondaryIconName", "icon", "labelIconName"]
 });
 
 export default {
@@ -27,7 +27,7 @@ export const Overview: Story = {
   args: {
     id: "overview-textfield",
     title: "Name",
-    iconName: Show,
+    icon: Show,
 
     validation: {
       text: "Helper text"
@@ -70,7 +70,7 @@ export const States: Story = {
           id="states-with-icon"
           inputAriaLabel="Text field with icon"
           placeholder="With icon"
-          iconName={Email}
+          icon={Email}
           size="medium"
         />
         <TextField
@@ -78,7 +78,7 @@ export const States: Story = {
           inputAriaLabel="Text field with clickable icon"
           placeholder="With clickable icon"
           iconTooltipContent="Copy"
-          iconName={Duplicate}
+          icon={Duplicate}
           onIconClick={() => {}}
           size="medium"
         />
@@ -92,7 +92,7 @@ export const States: Story = {
           validation={{
             status: "success"
           }}
-          iconName={Check}
+          icon={Check}
           size="medium"
         />
         <TextField
@@ -102,7 +102,7 @@ export const States: Story = {
           validation={{
             status: "error"
           }}
-          iconName={CloseSmall}
+          icon={CloseSmall}
           size="medium"
         />
       </Flex>

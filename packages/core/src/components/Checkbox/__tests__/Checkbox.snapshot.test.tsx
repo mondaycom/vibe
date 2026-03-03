@@ -51,8 +51,8 @@ describe("Checkbox renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with ariaLabelledBy", () => {
-    const tree = renderer.create(<Checkbox ariaLabelledBy="aria" />).toJSON();
+  it("with aria-labelledby", () => {
+    const tree = renderer.create(<Checkbox aria-labelledby="aria" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

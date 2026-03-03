@@ -1,4 +1,13 @@
-import React, { type CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  type CSSProperties,
+  type ReactElement,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import cx from "classnames";
 import {
   type GridChildComponentProps,
@@ -30,7 +39,7 @@ export interface VirtualizedGridProps extends VibeComponentProps {
   /**
    * Function that renders each item in the grid.
    */
-  itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ItemType | GridChildComponentProps<ItemType>;
+  itemRenderer: (item: ItemType, index: number, style: CSSProperties) => ReactElement;
   /**
    * Function that returns the row height.
    */
@@ -97,7 +106,7 @@ const VirtualizedGrid = forwardRef(
       className,
       id,
       items = [],
-      itemRenderer = (item: ItemType, _index: number, _style: CSSProperties) => item,
+      itemRenderer,
       getRowHeight = () => 50,
       getColumnWidth = () => 100,
       getItemId = (item: ItemType, _index: number) => item.id,

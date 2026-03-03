@@ -26,8 +26,8 @@ export type SliderContextSelection = {
 
 export type SliderContextUI = {
   active: number;
-  ariaLabel: string;
-  ariaLabelledby: string;
+  "aria-label": string;
+  "aria-labelledby": string;
   color: SliderColorType;
   disabled: boolean;
   dragging: number;

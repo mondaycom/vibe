@@ -77,7 +77,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
       <Flex gap="small">
         <Dropdown
           className={styles.monthButtonDropdown}
-          ariaLabel={monthSelectionAriaLabel}
+          aria-label={monthSelectionAriaLabel}
           options={months}
           value={selectedMonth}
           onChange={onMonthSelect}
@@ -90,7 +90,7 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         />
         <Dropdown
           className={styles.yearButtonDropdown}
-          ariaLabel={yearSelectionAriaLabel}
+          aria-label={yearSelectionAriaLabel}
           options={years}
           value={selectedYear}
           onChange={onYearSelect}
@@ -106,14 +106,14 @@ const DatePickerHeader: FC<DatePickerHeaderProps> = ({
         <IconButton
           kind="tertiary"
           size="small"
-          ariaLabel={prevButtonAriaLabel}
+          aria-label={prevButtonAriaLabel}
           onClick={goToPreviousMonth}
           icon={DropdownChevronLeft}
         />
         <IconButton
           kind="tertiary"
           size="small"
-          ariaLabel={nextButtonAriaLabel}
+          aria-label={nextButtonAriaLabel}
           onClick={goToNextMonth}
           icon={DropdownChevronRight}
         />

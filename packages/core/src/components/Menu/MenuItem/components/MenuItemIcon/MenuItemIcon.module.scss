@@ -1,9 +1,9 @@
 .iconWrapper {
-  margin-right: var(--spacing-small);
+  margin-inline-end: var(--spacing-small);
 
   &.rightIcon {
-    margin-right: 0;
-    margin-left: var(--spacing-small);
+    margin-inline-end: 0;
+    margin-inline-start: var(--spacing-small);
   }
 
   &.withBackgroundColor {

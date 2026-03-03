@@ -132,8 +132,8 @@ const ColorPicker = forwardRef(
       <DialogContentContainer
         ref={mergedRef}
         className={cx(styles.colorPicker, styles.colorPickerDialogContent, className)}
-        ariaLabelledby="Color Picker Dialog"
-        ariaDescribedby="Pick color"
+        aria-labelledby="Color Picker Dialog"
+        aria-describedby="Pick color"
         style={{ width }}
         data-vibe={ComponentVibeId.COLOR_PICKER}
       >

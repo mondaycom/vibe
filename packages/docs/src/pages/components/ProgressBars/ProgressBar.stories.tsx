@@ -27,7 +27,7 @@ export const Overview: Story = {
         value={20}
         size="large"
         id="overview-linear-progress-bar"
-        ariaLabel="Overview linear progress bar"
+        aria-label="Overview linear progress bar"
         {...args}
       />
     </div>
@@ -48,7 +48,7 @@ export const Regular: Story = {
       <Flex direction="column" gap="small" align="start" style={{ width: "400px" }}>
         <ProgressBar
           id="regular-linear-progress-bar"
-          ariaLabel="Regular linear progress bar"
+          aria-label="Regular linear progress bar"
           indicateProgress
           value={30}
           size="large"
@@ -68,7 +68,7 @@ export const WithSecondaryValue: Story = {
     <div style={{ width: "400px" }}>
       <ProgressBar
         id="with-secondary-value-linear-progress-bar"
-        ariaLabel="With secondary value linear progress bar"
+        aria-label="With secondary value linear progress bar"
         value={50}
         indicateProgress
         valueSecondary={65}
@@ -102,7 +102,7 @@ export const MultiProgressBar: Story = {
       <div style={{ width: "600px" }}>
         <ProgressBar
           id="multi-progress-bar"
-          ariaLabel="Multi progress bar"
+          aria-label="Multi progress bar"
           value={25}
           size="large"
           indicateProgress
@@ -131,7 +131,7 @@ export const ProgressBarAsACounter: Story = {
       </Flex>
       <ProgressBar
         id="progress-bar-as-a-counter"
-        ariaLabel="Progress bar as a counter"
+        aria-label="Progress bar as a counter"
         value={71}
         size="large"
         barStyle="positive"
@@ -161,11 +161,55 @@ export const ProgressBarAsLoadingIndicator: Story = {
       </Flex>
       <ProgressBar
         id="progress-bar-as-loading-indicator"
-        ariaLabel="Progress bar as loading indicator"
+        aria-label="Progress bar as loading indicator"
         value={71}
       />
     </Box>
   ),
 
   name: "Progress bar as loading indicator"
+};
+
+export const ExceedingMaxValue: Story = {
+  render: () => (
+    <Flex direction="column" gap="large" align="start">
+      <Flex direction="column" gap="small" style={{ width: "400px" }}>
+        <Text type="text1" weight="bold">
+          Standard behavior (capped at 100%)
+        </Text>
+        <ProgressBar
+          id="standard-progress-bar"
+          ariaLabel="Standard progress bar"
+          value={120}
+          max={100}
+          indicateProgress
+          size="large"
+        />
+        <Text type="text2" color="secondary">
+          Value: 120, Max: 100 → Shows 100%
+        </Text>
+      </Flex>
+
+      <Flex direction="column" gap="small" style={{ width: "400px" }}>
+        <Text type="text1" weight="bold">
+          Allowing exceeding max
+        </Text>
+        <ProgressBar
+          id="exceeding-progress-bar"
+          ariaLabel="Exceeding progress bar"
+          value={120}
+          max={100}
+          indicateProgress
+          allowExceedingMax
+          size="large"
+          barStyle="positive"
+        />
+        <Text type="text2" color="secondary">
+          Value: 120, Max: 100 → Shows 120%
+        </Text>
+      </Flex>
+    </Flex>
+  ),
+
+  name: "Exceeding max value"
 };

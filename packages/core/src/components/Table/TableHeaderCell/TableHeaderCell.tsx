@@ -104,7 +104,7 @@ const TableHeaderCell = forwardRef(
               icon={getSortIcon(sortState)}
               kind="tertiary"
               size="xs"
-              ariaLabel={sortButtonAriaLabel}
+              aria-label={sortButtonAriaLabel}
               aria-hidden={!shouldShowSortIcon}
               className={cx(styles.sort, getStyle(styles, sortState), {
                 [styles.show]: shouldShowSortIcon

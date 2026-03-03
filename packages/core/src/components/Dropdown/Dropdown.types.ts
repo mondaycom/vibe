@@ -177,7 +177,7 @@ export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>
     /**
      * The ARIA label for the dropdown.
      */
-    ariaLabel?: string;
+    "aria-label"?: string;
     /**
      * The ARIA label for the dropdown input.
      */

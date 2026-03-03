@@ -8,7 +8,7 @@ import { type BaseListProps } from "../BaseList.types";
 
 function renderBaseList(props?: Partial<Omit<BaseListProps, "id">> & { id?: string }) {
   return render(
-    <BaseList id="test-list" ariaLabel="Test List" {...props}>
+    <BaseList id="test-list" aria-label="Test List" {...props}>
       <BaseItem item={{ label: "Item 1", value: "1" }} />
       <BaseItem item={{ label: "Item 2", value: "2" }} />
       <BaseItem item={{ label: "Item 3", value: "3" }} />
@@ -37,7 +37,7 @@ describe("BaseList", () => {
 
     it("should render with custom element type", () => {
       render(
-        <BaseList id="ordered-list" as="ol" ariaLabel="Ordered List">
+        <BaseList id="ordered-list" as="ol" aria-label="Ordered List">
           <BaseItem item={{ label: "Item 1", value: "1" }} />
         </BaseList>
       );
@@ -48,7 +48,7 @@ describe("BaseList", () => {
 
   describe("accessibility", () => {
     it("should have correct aria-label", () => {
-      renderBaseList({ ariaLabel: "Custom Label" });
+      renderBaseList({ "aria-label": "Custom Label" });
       expect(screen.getByLabelText("Custom Label")).toBeInTheDocument();
     });
 
@@ -61,7 +61,7 @@ describe("BaseList", () => {
       render(
         <>
           <span id="description">List description</span>
-          <BaseList id="described-list" ariaLabel="Test" ariaDescribedBy="description">
+          <BaseList id="described-list" aria-label="Test" aria-describedby="description">
             <BaseItem item={{ label: "Item 1", value: "1" }} />
           </BaseList>
         </>
@@ -195,7 +195,7 @@ describe("BaseList", () => {
   describe("with selected items", () => {
     it("should focus on selected item initially", () => {
       render(
-        <BaseList id="selected-list" ariaLabel="Test List">
+        <BaseList id="selected-list" aria-label="Test List">
           <BaseItem item={{ label: "Item 1", value: "1" }} />
           <BaseItem item={{ label: "Item 2", value: "2" }} selected />
           <BaseItem item={{ label: "Item 3", value: "3" }} />
@@ -211,7 +211,7 @@ describe("BaseList", () => {
   describe("with disabled items", () => {
     it("should support disabled items", () => {
       render(
-        <BaseList id="disabled-list" ariaLabel="Test List">
+        <BaseList id="disabled-list" aria-label="Test List">
           <BaseItem item={{ label: "Item 1", value: "1" }} />
           <BaseItem item={{ label: "Disabled Item", value: "disabled", disabled: true }} />
           <BaseItem item={{ label: "Item 2", value: "2" }} />
@@ -232,7 +232,7 @@ describe("BaseList", () => {
 
     it("should assign role='menuitem' to children when list role is 'menu'", () => {
       render(
-        <BaseList id="menu-list" ariaLabel="Menu" role="menu">
+        <BaseList id="menu-list" aria-label="Menu" role="menu">
           <BaseItem item={{ label: "Action 1", value: "1" }} />
           <BaseItem item={{ label: "Action 2", value: "2" }} />
         </BaseList>
@@ -243,7 +243,7 @@ describe("BaseList", () => {
 
     it("should allow explicit role override on individual items", () => {
       render(
-        <BaseList id="override-list" ariaLabel="Test List" role="listbox">
+        <BaseList id="override-list" aria-label="Test List" role="listbox">
           <BaseItem item={{ label: "Item 1", value: "1" }} />
           <BaseItem item={{ label: "Item 2", value: "2" }} role="menuitem" />
         </BaseList>

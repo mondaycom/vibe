@@ -27,7 +27,7 @@ const ModalTopActions = ({ renderAction, theme, closeButtonAriaLabel, onClose }:
         size="small"
         kind="tertiary"
         color={buttonColor}
-        ariaLabel={closeButtonAriaLabel}
+        aria-label={closeButtonAriaLabel}
       />
     </div>
   );

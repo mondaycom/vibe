@@ -23,7 +23,7 @@ const MultiSelectTrigger = () => {
     getToggleButtonProps,
     label,
     getLabelProps,
-    ariaLabel,
+    "aria-label": ariaLabel,
     minVisibleCount
   } = useDropdownContext<BaseItemData>();
 

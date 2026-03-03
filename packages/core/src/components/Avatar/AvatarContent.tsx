@@ -28,7 +28,7 @@ export interface AvatarContentProps extends VibeComponentProps {
   /**
    * The label of the content for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The icon displayed when the type is set to `icon`.
    */
@@ -48,7 +48,7 @@ const AvatarContent = ({
   src,
   icon,
   text,
-  ariaLabel,
+  "aria-label": ariaLabel,
   role,
   size = "large",
   textClassName = "",
@@ -78,7 +78,7 @@ const AvatarContent = ({
           aria-label={ariaLabel}
           // role={role}
           className={className}
-          ariaHidden={false}
+          aria-hidden={false}
           id={id}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR_CONTENT, id)}
         />

@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .tableHeaderCell {
   height: var(--table-row-size);
@@ -16,7 +16,7 @@
   &.sticky {
     z-index: 1;
     position: sticky;
-    left: 0;
+    inset-inline-start: 0;
     box-shadow: var(--sticky-cell-box-shadow);
 
     &:hover {
