@@ -431,6 +431,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: If you override `.iconStart { margin-right: ... }` or `.iconEnd { margin-left: ... }` in custom CSS, update to use `margin-inline-end` and `margin-inline-start` respectively
 - **Codemod**: ❌ Manual (CSS-only change)
 
+#### VirtualizedGrid
+
+- [x] **Status**: Complete
+- **Change**: Fixed `itemRenderer` return type from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`
+- **Reason**: The previous return type was incorrect — `ItemType` and `GridChildComponentProps` are plain data objects, not React elements. This caused TypeScript errors for users passing valid JSX renderers
+- **Migration**: Update any explicit type annotations on `itemRenderer` from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`. Runtime behavior is unchanged
+- **Codemod**: ❌ Manual (type-only change)
+- **PR**: TBD
+
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
