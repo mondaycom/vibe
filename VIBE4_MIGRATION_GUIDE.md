@@ -63,6 +63,19 @@ Some changes require manual attention:
 
 ### Components
 
+#### TextField
+
+**Renamed `iconName` prop to `icon`**
+
+```tsx
+// Before (v3)
+<TextField iconName={Search} placeholder="Search..." />
+
+// After (v4)
+<TextField icon={Search} placeholder="Search..." />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
 #### MenuButton
 
 **First menu item focused by default** — MenuButton now passes `focusItemIndexOnMount={0}` to Menu children. Pass `focusItemIndexOnMount={-1}` on your Menu to restore old behavior.

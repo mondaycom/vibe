@@ -134,6 +134,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### TextField
 
+- [x] **Status**: Complete
+- **Change**: Rename `iconName` prop to `icon`
+- **Reason**: Consistent naming with other components (e.g., Icon component uses `icon` prop)
+- **Migration**: `<TextField iconName={X} />` → `<TextField icon={X} />`
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
+=======
 - **Change**: Removed deprecated enum exports and static properties (`TextFieldTextType`, `TextFieldFeedbackState` enums and static properties)
 - **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
 - **Migration**: Replace enum usage with string literals (e.g., `TextField.feedbackStates.ERROR` → `"error"`)
