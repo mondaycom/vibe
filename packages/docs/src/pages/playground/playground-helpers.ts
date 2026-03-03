@@ -31,7 +31,7 @@ const jsx = `() => {
       />
       <Flex direction="column" align="center" justify="center" gap="xs">
         <Flex align="center" gap="xs">
-          <Icon icon={VibeIcons.Labs} iconSize="16" />
+          <Icon icon={VibeIcons.Labs} size="16" />
           <Heading type="h3" align="center">
             Playground
           </Heading>

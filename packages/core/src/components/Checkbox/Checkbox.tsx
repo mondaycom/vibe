@@ -168,11 +168,11 @@ const Checkbox = forwardRef(
           >
             <Icon
               className={styles.icon}
-              iconType="svg"
+              type="svg"
               icon={indeterminate ? Remove : Check}
               ignoreFocusStyle
               ariaHidden={true}
-              iconSize="16"
+              size="16"
             />
           </label>
           {label === false ? null : (
@@ -226,11 +226,11 @@ const Checkbox = forwardRef(
         >
           <Icon
             className={styles.icon}
-            iconType="svg"
+            type="svg"
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
             ariaHidden={true}
-            iconSize="16"
+            size="16"
           />
         </div>
         {label === false ? null : (

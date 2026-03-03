@@ -31,7 +31,6 @@ const Info = forwardRef(
   ) => {
     const iconButtonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, iconButtonRef);
-    const dialogRef = useRef<Dialog>(null);
     const dialogContentRef = useRef<HTMLDivElement>(null);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +58,6 @@ const Info = forwardRef(
 
     return (
       <Dialog
-        ref={dialogRef}
         id={dialogId}
         disable={disabled}
         position={position}

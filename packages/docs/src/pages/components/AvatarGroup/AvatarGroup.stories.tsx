@@ -281,22 +281,22 @@ export const HoverVsClickable: Story = {
     const getDummyAvatarsProps = useCallback((numItems: number) => {
       const avatarsProps = [
         {
-          type: Avatar.types.IMG,
+          type: "img",
           src: person1,
           ariaLabel: "Julia Martinez"
         },
         {
-          type: Avatar.types.IMG,
+          type: "img",
           src: person2,
           ariaLabel: "Sophia Johnson"
         },
         {
-          type: Avatar.types.IMG,
+          type: "img",
           src: person3,
           ariaLabel: "Marco DiAngelo"
         },
         {
-          type: Avatar.types.IMG,
+          type: "img",
           src: person4,
           ariaLabel: "Liam Caldwell"
         }

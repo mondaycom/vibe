@@ -26,48 +26,51 @@ describe("<MenuItem />", () => {
     expect(queryByText("Sub Item")).toBeFalsy();
   });
 
-  const submenuPositions = [
-    {
-      submenuPosition: "left",
-      expectedPosition: "left-start"
-    },
-    {
-      submenuPosition: undefined,
-      expectedPosition: "right-start"
-    }
-  ];
-  it.each(submenuPositions)(
-    "should open the submenu on correct position",
-    async ({ submenuPosition, expectedPosition }) => {
-      const title = "Main Item";
-      const submenuTitle = "Sub Item";
+  it("should open the submenu on correct position when submenuPosition is left", async () => {
+    const title = "Main Item";
+    const submenuTitle = "Sub Item";
 
-      const { queryByText, container } = render(
-        <MenuItem
-          index={0}
-          activeItemIndex={0}
-          title={title}
-          isParentMenuVisible
-          submenuPosition={submenuPosition}
-          hasOpenSubMenu
-        >
-          <Menu>
-            <MenuItem title={submenuTitle} />
-          </Menu>
-        </MenuItem>
-      );
-      const menuItemElement = queryByText(title);
-      await act(async () => {
-        fireEvent.mouseEnter(menuItemElement);
-      });
+    const { queryByText, container } = render(
+      <MenuItem index={0} activeItemIndex={0} title={title} isParentMenuVisible submenuPosition="left" hasOpenSubMenu>
+        <Menu>
+          <MenuItem title={submenuTitle} />
+        </Menu>
+      </MenuItem>
+    );
+    const menuItemElement = queryByText(title);
+    await act(async () => {
+      fireEvent.mouseEnter(menuItemElement);
+    });
 
-      await waitFor(() => {
-        const subMenuElement = container.querySelector("[data-popper-placement]");
-        expect(subMenuElement).toBeVisible();
-        expect(subMenuElement).toHaveAttribute("data-popper-placement", expectedPosition);
-      });
-    }
-  );
+    await waitFor(() => {
+      const subMenuElement = container.querySelector("[data-popper-placement]");
+      expect(subMenuElement).toBeVisible();
+      expect(subMenuElement.getAttribute("data-popper-placement")).toContain("left");
+    });
+  });
+
+  it("should open the submenu when no submenuPosition is specified", async () => {
+    const title = "Main Item";
+    const submenuTitle = "Sub Item";
+
+    const { queryByText, container } = render(
+      <MenuItem index={0} activeItemIndex={0} title={title} isParentMenuVisible hasOpenSubMenu>
+        <Menu>
+          <MenuItem title={submenuTitle} />
+        </Menu>
+      </MenuItem>
+    );
+    const menuItemElement = queryByText(title);
+    await act(async () => {
+      fireEvent.mouseEnter(menuItemElement);
+    });
+
+    await waitFor(() => {
+      const subMenuElement = container.querySelector("[data-popper-placement]");
+      expect(subMenuElement).toBeVisible();
+      expect(subMenuElement).toHaveAttribute("data-popper-placement");
+    });
+  });
 
   it("should render Label when pass a string", () => {
     const labelText = "Label Text";

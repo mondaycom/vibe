@@ -227,7 +227,7 @@ export const IconButtonAsCloseButton: Story = {
       >
         <Flex justify="start" gap="large" style={{ height: "94px" }}>
           <Flex direction="column" justify="center" style={{ color: "var(--sb-icon-color)" }}>
-            <Icon icon={Item} iconSize={40} />
+            <Icon icon={Item} size={40} />
             <Text type="text1" id="monday-recycle-bin-title">
               Item
             </Text>

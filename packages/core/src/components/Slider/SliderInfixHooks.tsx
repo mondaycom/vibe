@@ -6,7 +6,7 @@ import SelectionIndicator from "./SelectionIndicator";
 
 const defaultIconProps = {
   clickable: false,
-  iconSize: 18,
+  size: 18,
   ignoreFocusStyle: true
 };
 

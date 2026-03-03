@@ -4,19 +4,14 @@ import { camelCase } from "es-toolkit";
 import useMergeRef from "../../hooks/useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import {
-  BadgeAlignments as BadgeAlignmentsEnum,
-  BadgeAnchor as BadgeAnchorEnum,
-  BadgeType as BadgeTypeEnum
-} from "./BadgeConstants";
 import { type BadgeAlignments, type BadgeAnchor, type BadgeType } from "./Badge.types";
 import Indicator, { type IndicatorProps } from "./Indicator/Indicator";
 import Counter, { type CounterProps } from "../Counter/Counter";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type IndicatorColor } from "./Indicator/IndicatorConstants";
-import { type CounterColor } from "../Counter/CounterConstants";
+import { type IndicatorColor } from "./Indicator/Indicator.types";
+import { type CounterColor } from "../Counter/Counter.types";
 import styles from "./Badge.module.scss";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   /**
@@ -88,14 +83,4 @@ const Badge = forwardRef(
   }
 );
 
-interface BadgeStaticProps {
-  types: typeof BadgeTypeEnum;
-  alignments: typeof BadgeAlignmentsEnum;
-  anchors: typeof BadgeAnchorEnum;
-}
-
-export default withStaticProps<BadgeProps, BadgeStaticProps>(Badge, {
-  types: BadgeTypeEnum,
-  alignments: BadgeAlignmentsEnum,
-  anchors: BadgeAnchorEnum
-});
+export default Badge;

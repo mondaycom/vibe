@@ -22,7 +22,7 @@ export interface ColorPickerClearButtonProps extends VibeComponentProps {
 }
 
 const ColorPickerClearButton = forwardRef(
-  ({ onClick, text, Icon }: ColorPickerClearButtonProps, ref: React.ForwardedRef<HTMLElement>) => {
+  ({ onClick, text, Icon }: ColorPickerClearButtonProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
     const { onSelectionAction } = useGridKeyboardNavigation({
       ref: ref as React.MutableRefObject<HTMLElement>,
       itemsCount: 1,

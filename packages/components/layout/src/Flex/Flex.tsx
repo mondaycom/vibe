@@ -1,14 +1,8 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import { Clickable } from "@vibe/clickable";
-import {
-  FlexAlign as FlexAlignEnum,
-  FlexDirection as FlexDirectionEnum,
-  FlexGap as FlexGapEnum,
-  FlexJustify as FlexJustifyEnum
-} from "./FlexConstants";
 import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, type FlexShorthand } from "./Flex.types";
-import { type ElementContent, withStaticProps, type VibeComponentProps, getStyle, useMergeRef } from "@vibe/shared";
+import { type ElementContent, type VibeComponentProps, getStyle, useMergeRef } from "@vibe/shared";
 import styles from "./Flex.module.scss";
 import { camelCase } from "es-toolkit";
 
@@ -160,16 +154,4 @@ const Flex = forwardRef(
   }
 );
 
-interface FlexStaticProps {
-  justify: typeof FlexJustifyEnum;
-  align: typeof FlexAlignEnum;
-  gaps: typeof FlexGapEnum;
-  directions: typeof FlexDirectionEnum;
-}
-
-export default withStaticProps<FlexProps, FlexStaticProps>(Flex, {
-  justify: FlexJustifyEnum,
-  align: FlexAlignEnum,
-  gaps: FlexGapEnum,
-  directions: FlexDirectionEnum
-});
+export default Flex;

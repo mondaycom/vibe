@@ -4,7 +4,6 @@ import { noop as NOOP } from "es-toolkit";
 import {
   useMergeRef,
   type VibeComponentProps,
-  withStaticProps,
   getTestId,
   ComponentDefaultTestId,
   ComponentVibeId,
@@ -235,7 +234,7 @@ const IconButton = forwardRef(
             loading={loading}
             loaderClassName={cx(styles.loader, getStyle(styles, size))}
           >
-            <Icon icon={icon} iconType="svg" iconSize={iconSize} ignoreFocusStyle className={iconClassName} />
+            <Icon icon={icon} type="svg" size={iconSize} ignoreFocusStyle className={iconClassName} />
           </Button>
         </Tooltip>
       </IconButtonWrapper>
@@ -243,14 +242,4 @@ const IconButton = forwardRef(
   }
 );
 
-interface IconButtonStaticProps {
-  sizes: typeof Button.sizes;
-  kinds: typeof Button.kinds;
-  colors: typeof Button.colors;
-}
-
-export default withStaticProps<IconButtonProps, IconButtonStaticProps>(IconButton, {
-  sizes: Button.sizes,
-  kinds: Button.kinds,
-  colors: Button.colors
-});
+export default IconButton;

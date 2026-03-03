@@ -4,15 +4,13 @@ import { Icon } from "@vibe/icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
-import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
@@ -111,10 +109,6 @@ export interface ChipsProps extends VibeComponentProps {
    */
   ariaHasPopup?: boolean;
   /**
-   * If true, disables all click behaviors.
-   */
-  disableClickableBehavior?: boolean;
-  /**
    * If true, displays a border around the chip.
    */
   showBorder?: boolean;
@@ -152,7 +146,6 @@ const Chips = forwardRef(
       ariaLabel,
       ariaHasPopup = false,
       "data-testid": dataTestId,
-      disableClickableBehavior = false,
       leftAvatarType = "img",
       rightAvatarType = "img",
       showBorder = false,
@@ -164,7 +157,7 @@ const Chips = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
+    const hasClickableWrapper = !!onClick || !!onMouseDown;
     const hasCloseButton = !readOnly && !disabled;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
 
@@ -276,9 +269,9 @@ const Chips = forwardRef(
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            iconType="font"
+            type="font"
             icon={leftIcon}
-            iconSize={iconSize}
+            size={iconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -289,9 +282,9 @@ const Chips = forwardRef(
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            iconType="font"
+            type="font"
             icon={rightIcon}
-            iconSize={iconSize}
+            size={iconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -324,12 +317,4 @@ const Chips = forwardRef(
   }
 );
 
-interface ChipsStaticProps {
-  colors: typeof ElementAllowedColorEnum;
-  avatarTypes: typeof AvatarTypeEnum;
-}
-
-export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
-  colors: ElementAllowedColorEnum,
-  avatarTypes: AvatarTypeEnum
-});
+export default Chips;

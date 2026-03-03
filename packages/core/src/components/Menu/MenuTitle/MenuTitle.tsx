@@ -4,9 +4,8 @@ import { camelCase } from "es-toolkit";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { Text } from "@vibe/typography";
-import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./MenuTitleConstants";
 import { type MenuTitleCaptionPosition } from "./MenuTitle.type";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
 export interface MenuTitleProps extends VibeComponentProps {
@@ -56,12 +55,4 @@ Object.assign(MenuTitle, {
   isMenuChild: true
 });
 
-interface MenuTitleStaticProps {
-  positions: typeof MenuTitleCaptionPositionEnum;
-  captionPositions: typeof MenuTitleCaptionPositionEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<MenuTitleProps, MenuTitleStaticProps>(MenuTitle, {
-  positions: MenuTitleCaptionPositionEnum,
-  captionPositions: MenuTitleCaptionPositionEnum
-});
+export default MenuTitle;

@@ -6,8 +6,7 @@ import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
 import person4 from "../Avatar/assets/person4.png";
 import { Email, Send, Mobile } from "@vibe/icons";
-import { Dropdown } from "@vibe/core/next";
-import { Flex, Text, DialogContentContainer, Button } from "@vibe/core";
+import { Dropdown, Flex, Text, DialogContentContainer, Button } from "@vibe/core";
 
 type Story = StoryObj<typeof Dropdown>;
 
@@ -29,7 +28,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 const meta: Meta<typeof Dropdown> = {
-  title: "Components/Dropdown [New]/Dropdown box mode",
+  title: "Components/Dropdown/Dropdown box mode",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators

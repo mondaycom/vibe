@@ -46,20 +46,18 @@ export interface ClickableProps extends VibeComponentProps {
    * If true, hides the element from assistive technologies.
    */
   ariaHidden?: boolean;
-  // TODO: [breaking] remove string type
   /**
    * Indicates the presence of a popup associated with the element.
    */
-  ariaHasPopup?: boolean | string;
+  ariaHasPopup?: boolean;
   /**
    * If true, indicates that the associated popup is open.
    */
   ariaExpanded?: boolean;
-  // TODO: [breaking] remove string type
   /**
    * The tab order of the element.
    */
-  tabIndex?: string | number;
+  tabIndex?: number;
   /**
    * If true, the element is disabled.
    */
@@ -87,7 +85,7 @@ const Clickable = forwardRef(
       ariaHidden,
       ariaHasPopup,
       ariaExpanded,
-      tabIndex = "0",
+      tabIndex = 0,
       disabled = false,
       style,
       "data-testid": dataTestId

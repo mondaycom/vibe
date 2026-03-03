@@ -9,8 +9,6 @@ const MenuItemIcon = ({
   icon,
   isRightIcon = false,
   type,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  label,
   disabled,
   selected,
   backgroundColor,
@@ -30,11 +28,11 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      iconType={type || (typeof icon === "function" ? "svg" : "font")}
+      type={type || (typeof icon === "function" ? "svg" : "font")}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
-      iconSize={18}
+      size={18}
     />
   </Flex>
 );

@@ -7,13 +7,8 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
-import {
-  CounterColor as CounterColorEnum,
-  CounterSize as CounterSizeEnum,
-  CounterType as CounterTypeEnum
-} from "./CounterConstants";
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Counter.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
@@ -175,14 +170,4 @@ const Counter = ({
   );
 };
 
-interface CounterStaticProps {
-  sizes: typeof CounterSizeEnum;
-  colors: typeof CounterColorEnum;
-  kinds: typeof CounterTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<CounterProps, CounterStaticProps>(Counter, {
-  sizes: CounterSizeEnum,
-  colors: CounterColorEnum,
-  kinds: CounterTypeEnum
-});
+export default Counter;

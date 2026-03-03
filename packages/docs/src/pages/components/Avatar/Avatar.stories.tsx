@@ -25,7 +25,7 @@ const AvatarBadgePropsType = {
   detail: `{
     src?: string;
     icon?: SubIcon;
-    tabIndex?: string | number;
+    tabIndex?: number;
     className?: string;
     size?: "xs" | "small" | "medium" | "large";
   }`

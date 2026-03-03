@@ -65,7 +65,7 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * The tab index applied to the children.
    */
-  childrenTabIndex?: string;
+  childrenTabIndex?: number;
   /**
    * If true, disables the label animation.
    */
@@ -97,7 +97,7 @@ const RadioButton = forwardRef(
       onSelect,
       checked,
       retainChildClick = true,
-      childrenTabIndex = "0",
+      childrenTabIndex = 0,
       noLabelAnimation = false,
       ariaLabel,
       ariaDescribedby,

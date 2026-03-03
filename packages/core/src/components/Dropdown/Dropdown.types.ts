@@ -1,350 +1,292 @@
-import {
-  type ActionMeta,
-  type FocusEventHandler,
-  type InputActionMeta,
-  type KeyboardEventHandler,
-  type MenuProps,
-  type OptionProps,
-  type OptionTypeBase,
-  type SingleValueProps
-} from "react-select";
-import { type UIEventHandler, type WheelEventHandler } from "react";
 import type React from "react";
+import { type DropdownListGroup } from "./components/DropdownBaseList/DropdownBaseList.types";
 import { type VibeComponentProps } from "../../types";
+import { type BaseItemData } from "../BaseItem";
+import { type TooltipProps } from "@vibe/tooltip";
 
-export type DropdownOption = any;
+export type DropdownOption<Item = Record<string, unknown>> = BaseItemData<Item>;
+export type DropdownGroupOption<Item = Record<string, unknown>> = DropdownListGroup<Item>[] | BaseItemData<Item>[];
 
-export interface CustomSingleValueProps extends SingleValueProps<DropdownOption> {
+interface MultiSelectSpecifics<Item extends BaseItemData<Record<string, unknown>>> {
   /**
-   * The component used to render the selected value.
+   * If true, the dropdown allows multiple selections.
    */
-  Renderer: React.ComponentType;
-  /**
-   * If true, the dropdown is read-only and cannot be edited.
-   */
-  readOnly: boolean;
-  /**
-   * The currently selected option.
-   */
-  selectedOption: DropdownOption;
-}
-
-export interface CustomMenuBaseProps {
-  /**
-   * Class name applied to the dropdown menu wrapper.
-   */
-  dropdownMenuWrapperClassName?: string;
-  /**
-   * The ID of the menu container.
-   */
-  menuId?: string;
-  /**
-   * The ARIA label for the menu container.
-   */
-  menuAriaLabel?: string;
-  /**
-   * The ARIA label for the dropdown input.
-   */
-  inputAriaLabel?: string;
-}
-
-export type CustomMenuProps = CustomMenuBaseProps & MenuProps<OptionTypeBase, boolean>;
-
-export interface CustomOptionBaseProps {
+  multi: true;
   /*
-   * Class name to be added to dropdown option wrapper (dropdown-wrapper__option--reset)
-   */
-  optionWrapperClassName?: string;
-}
-
-export type CustomOptionProps = CustomOptionBaseProps & OptionProps<OptionTypeBase, boolean>;
-
-export type DropdownState = {
-  isDisabled: boolean;
-  selectProps: { readOnly: boolean };
-};
-
-export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptionBaseProps, VibeComponentProps {
-  /**
-   * Class name applied to the dropdown's single value wrapper.
-   */
-  singleValueWrapperClassName?: string;
-  /**
-   * Placeholder text displayed when no value is selected.
-   */
-  placeholder?: string;
-  /**
-   * If true, the placeholder will be truncated with an ellipsis when too long.
-   */
-  allowPlaceholderEllipsis?: boolean;
-  /**
-   * If true, the dropdown is disabled.
-   */
-  disabled?: boolean;
-  /**
-   * If true, the dropdown is read-only and cannot be edited.
-   */
-  readOnly?: boolean;
-  /**
-   * Callback fired when the dropdown menu opens.
-   */
-  onMenuOpen?: () => void;
-  /**
-   * Callback fired when the dropdown menu closes.
-   */
-  onMenuClose?: () => void;
-  /**
-   * Callback fired when a key is pressed inside the dropdown.
-   */
-  onKeyDown?: KeyboardEventHandler;
-  /**
-   * Callback fired when the dropdown gains focus.
-   */
-  onFocus?: FocusEventHandler;
-  /**
-   * Callback fired when the dropdown loses focus.
-   */
-  onBlur?: FocusEventHandler;
-  /**
-   * Callback fired when scrolling inside the dropdown.
-   */
-  onScroll?: UIEventHandler<HTMLDivElement>;
-  /**
-   * Callback fired when the user scrolls to the bottom of the menu.
-   */
-  onMenuScrollToBottom?: WheelEventHandler<HTMLDivElement>;
-  /**
-   * If true, prevents scrolling beyond the menu's boundaries.
-   */
-  captureMenuScroll?: boolean;
-  /**
-   * Callback fired when the selected value changes.
-   */
-  onChange?: (
-    option: DropdownOption | DropdownOption[],
-    meta: ActionMeta<DropdownOption> | React.MouseEvent | React.KeyboardEvent
-  ) => void;
-  /**
-   * Callback fired when the dropdown input value changes.
-   */
-  onInputChange?: (newValue: string, actionMeta: InputActionMeta) => void;
-  /**
-   * If true, enables search functionality within the dropdown.
-   */
-  searchable?: boolean;
-  /**
-   * The list of options available in the dropdown.
-   */
-  options?: DropdownOption[];
-  /**
-   * Function to customize the "no options found" message.
-   */
-  noOptionsMessage?: (obj: { inputValue: string }) => string | null;
-  /**
-   * If true, the menu opens when the dropdown gains focus.
-   */
-  openMenuOnFocus?: boolean;
-  /**
-   * If true, the menu opens when the dropdown is clicked.
-   */
-  openMenuOnClick?: boolean;
-  /**
-   * If true, displays a clear button inside the dropdown's input.
-   */
-  clearable?: boolean;
-  /**
-   * Custom renderer for each option.
-   */
-  optionRenderer?: (option: DropdownOption) => JSX.Element;
-  /**
-   * Custom renderer for the selected value.
-   */
-  valueRenderer?:
-    | React.ReactNode
-    | ((props: Omit<CustomSingleValueProps, "Renderer"> & DropdownOption) => React.ReactNode);
-  /**
-   *   Custom renderer for the selected value.
-   */
-  ValueRenderer?: React.ReactNode;
-  /**
-   * Custom renderer for the dropdown menu.
-   */
-  menuRenderer?: React.ReactElement | ((props: CustomMenuProps) => React.ReactElement);
-  /**
-   * The placement of the dropdown menu relative to the input.
-   */
-  menuPlacement?: DropdownMenuPlacement;
-  /**
-   * The CSS position property of the dropdown menu.
-   */
-  menuPosition?: DropdownMenuPosition;
-  /**
-   * If true, the dropdown is displayed in right-to-left mode.
-   */
-  rtl?: boolean;
-  /**
-   * The default selected value.
-   */
-  defaultValue?: DropdownOption[];
-  /**
-   * The controlled value of the dropdown.
-   */
-  value?: DropdownOption | DropdownOption[];
-  /**
-   * The size of the dropdown.
-   */
-  size?: DropdownSize;
-  /**
-   * Enables async loading of options.
-   */
-  asyncOptions?: (inputValue: string) => Promise<DropdownOption[]>;
-  /**
-   * If true, caches async-loaded options.
-   */
-  cacheOptions?: boolean;
-  /**
-   * If true, `asyncOptions` is invoked on mount.
-   */
-  defaultOptions?: boolean | DropdownOption[];
-  /**
-   * If true, enables virtualization for improved performance.
-   */
-  isVirtualized?: boolean;
-  /**
-   * The target element for the dropdown menu portal.
-   */
-  menuPortalTarget?: HTMLElement;
-  /**
-   * Custom styles for the dropdown.
-   */
-  extraStyles?: (...args: unknown[]) => unknown;
-  /**
-   * The maximum height of the menu before scrolling.
-   */
-  maxMenuHeight?: number;
-  /**
-   * The tab index of the dropdown for keyboard navigation.
-   */
-  tabIndex?: number | string;
-  /**
-   * If true, the dropdown input is automatically focused on mount.
-   */
-  autoFocus?: boolean;
-  /**
-   * If true, enables multi-select mode.
-   * When in multi-select mode, the selected value will be an array,
-   * and it will be displayed as our [`<Chips>`](/?path=/docs/components-chips--sandbox) component.
-   */
-  multi?: boolean;
-  /**
-   * If true, expands the dropdown to multiple lines when multiple values are selected.
+   * If true, the dropdown allows multiple lines of selected items.
    */
   multiline?: boolean;
   /**
-   * If true, closes the menu when an option is selected.
+   * Callback fired when an option is removed in multi-select mode. Only available when multi is true.
    */
-  closeMenuOnSelect?: boolean;
+  onOptionRemove?: (option: Item) => void;
   /**
-   * If true, closes the menu when scrolling.
+   * The function to call to render the selected value on single select mode.
    */
-  closeMenuOnScroll?: boolean;
+  valueRenderer?: never;
   /**
-   * Callback fired when an option is removed in multi-select mode.
+   * The default selected values for multi-select.
    */
-  onOptionRemove?: (option?: DropdownOption) => void;
+  defaultValue?: Item[];
   /**
-   * If true, prevents mandatory default options from being removed.
+   * The controlled selected values for multi-select.
    */
-  withMandatoryDefaultOptions?: boolean;
+  value?: Item[];
   /**
-   * Custom function to determine if an option is selected.
+   * Callback fired when the selected values change in multi-select mode.
    */
-  isOptionSelected?: (option: DropdownOption, options: DropdownOption[]) => boolean;
+  onChange?: (options: Item[]) => void;
   /**
-   * If true, allows the dropdown menu to overflow its container.
+   * Minimum number of selected chips to always show before overflowing to the counter.
    */
-  insideOverflowContainer?: boolean;
-  /**
-   * If true, allows the dropdown menu to overflow its container even with CSS transforms.
-   */
-  insideOverflowWithTransformContainer?: boolean;
-  /**
-   * If true, renders the dropdown menu inside its parent container in case it's inside a layer provider.
-   * Use this prop when the dropdown menu is being cut off by its parent's (such as Modal, Dialog, Tooltip, etc.)overflow settings.
-   */
-  insideLayerContext?: boolean;
-  /**
-   * Tooltip content displayed when hovering over the selected value.
-   */
-  tooltipContent?: string;
-  /**
-   * If true, displays a loading state inside the dropdown.
-   */
-  isLoading?: boolean;
-  /**
-   * Function to override the default loading message.
-   */
-  loadingMessage?: (obj: { inputValue: string }) => string | null;
-  /**
-   * The ARIA label for the dropdown.
-   */
-  ariaLabel?: string;
-  /**
-   * If true, enables selecting values with the Tab key.
-   */
-  tabSelectsValue?: boolean;
-  /**
-   * Custom function to filter options based on input.
-   */
-  filterOption?: (option: DropdownOption, inputValue: string) => boolean;
-  /**
-   * The current value of the input field.
-   */
-  inputValue?: string;
-  /**
-   * If true, the input field loses focus when an option is selected.
-   */
-  blurInputOnSelect?: boolean;
-  /**
-   * Custom renderer for dropdown options.
-   */
-  OptionRenderer?: React.ReactNode;
-  /**
-   * If true, controls the menu open state.
-   */
-  menuIsOpen?: boolean;
-  /**
-   * Callback fired when an option is selected.
-   */
-  onOptionSelect?: (option: DropdownOption) => void;
-  /**
-   * Callback fired when the clear button is clicked.
-   */
-  onClear?: () => void;
-  /**
-   * CSS selector for the container where popups are rendered.
-   */
-  popupsContainerSelector?: string;
-  /**
-   * Additional properties passed to the `react-select` component.
-   */
-  selectProps?: Record<string, string>;
-  /**
-   * If true, displays dividers between grouped options.
-   */
-  withGroupDivider?: boolean;
-  /*
-   * Class name to be added to multi select dialog
-   */
-  multiValueDialogClassName?: string;
+  minVisibleCount?: number;
 }
 
-export type DropdownProps = DropdownComponentProps;
+interface SingleSelectSpecifics<Item extends BaseItemData<Record<string, unknown>>> {
+  /**
+   * If true, the dropdown allows multiple selections. Defaults to false.
+   */
+  multi?: false;
+  /**
+   * If true, the dropdown allows multiple lines of selected items. (Not available for single select)
+   */
+  multiline?: never;
+  /**
+   * Callback fired when an option is removed in multi-select mode. (Not available for single select)
+   */
+  onOptionRemove?: never;
+  /**
+   * The function to call to render the selected value on single select mode.
+   */
+  valueRenderer?: (option: Item) => React.ReactNode;
+  /**
+   * The default selected value for single-select.
+   */
+  defaultValue?: Item;
+  /**
+   * The controlled selected value for single-select.
+   */
+  value?: Item;
+  /**
+   * Callback fired when the selected value changes in single-select mode.
+   */
+  onChange?: (option: Item) => void;
+  /**
+   * Minimum number of selected chips to always show before overflowing to the counter. (Not available for single select)
+   */
+  minVisibleCount?: never;
+}
 
-export type DropdownChipColors = "primary" | "negative" | "positive";
+type BoxModeConstraint =
+  | {
+      /**
+       * If true, the dropdown is searchable.
+       */
+      searchable?: false;
+      /**
+       * If true, the dropdown menu is displayed inline without a popup/dialog.
+       */
+      boxMode?: false;
+    }
+  | {
+      /**
+       * If true, the dropdown is searchable.
+       */
+      searchable: true;
+      /**
+       * If true, the dropdown menu is displayed inline without a popup/dialog.
+       */
+      boxMode?: boolean;
+    };
 
-export type DropdownMenuPosition = "absolute" | "fixed";
+export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>> = VibeComponentProps &
+  BoxModeConstraint & {
+    /**
+     * The list of options available in the list.
+     */
+    options: DropdownGroupOption<Item>;
+    /**
+     * Props to be passed to the Tooltip component that wraps the dropdown.
+     */
+    tooltipProps?: Partial<TooltipProps>;
+    /**
+     * If true, displays dividers between grouped options.
+     */
+    withGroupDivider?: boolean;
+    /**
+     * If true, makes the group title sticky.
+     */
+    stickyGroupTitle?: boolean;
+    /**
+     * The size of the dropdown.
+     */
+    size?: DropdownSizes;
+    /**
+     * The direction of the dropdown.
+     */
+    dir?: DropdownDirection;
+    /**
+     * If true, the dropdown has no visible border by default, but shows border on hover, focus, and active states.
+     */
+    borderless?: boolean;
+    /**
+     * The function to call to render an option.
+     */
+    optionRenderer?: (option: Item) => React.ReactNode;
+    /**
+     * The function to call to render the menu.
+     */
+    menuRenderer?: (props: {
+      children: React.ReactNode;
+      filteredOptions: DropdownListGroup<Item>[];
+      selectedItems: Item[];
+      getItemProps: (options: any) => Record<string, unknown>;
+    }) => React.ReactNode;
+    /**
+     * The message to display when there are no options.
+     */
+    noOptionsMessage?: string | React.ReactNode;
+    /**
+     * The placeholder to display when the dropdown is empty.
+     */
+    placeholder?: string;
+    /**
+     * If true, the dropdown is disabled.
+     */
+    disabled?: boolean;
+    /**
+     * If true, the dropdown is read only.
+     */
+    readOnly?: boolean;
+    /**
+     * If true, the dropdown is in an error state.
+     */
+    error?: boolean;
+    /**
+     * The helper text to display below the dropdown.
+     */
+    helperText?: string;
+    /**
+     * If true, the dropdown is required.
+     */
+    required?: boolean;
+    /**
+     * The label to display above the dropdown.
+     */
+    label?: string;
+    /**
+     * The ARIA label for the dropdown.
+     */
+    ariaLabel?: string;
+    /**
+     * The ARIA label for the dropdown input.
+     */
+    inputAriaLabel?: string;
+    /**
+     * The ARIA label for the menu container.
+     */
+    menuAriaLabel?: string;
+    /**
+     * The ARIA label for the clear button.
+     */
+    clearAriaLabel?: string;
+    /**
+     * The current value of the input field.
+     */
+    inputValue?: string;
+    /**
+     * The maximum height of the dropdown menu.
+     */
+    maxMenuHeight?: number;
+    /**
+     * If true, controls the menu open state.
+     */
+    isMenuOpen?: boolean;
+    /**
+     * If true, closes the menu when an option is selected.
+     */
+    closeMenuOnSelect?: boolean;
+    /**
+     * If true, the dropdown menu will be auto focused.
+     */
+    autoFocus?: boolean;
+    /**
+     * If true, the dropdown will have a clear button.
+     */
+    clearable?: boolean;
+    /**
+     * Callback fired when the dropdown loses focus.
+     */
+    onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
+    /**
+     * Callback fired when the clear button is clicked.
+     */
+    onClear?: () => void;
+    /**
+     * Callback fired when the dropdown gains focus.
+     */
+    onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void;
+    /**
+     * Callback fired when the dropdown input value changes.
+     */
+    onInputChange?: (input: string | null) => void;
+    /**
+     * Callback fired when a key is pressed inside the dropdown.
+     */
+    onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+    /**
+     * Callback fired when the dropdown menu opens.
+     */
+    onMenuOpen?: () => void;
+    /**
+     * Callback fired when the dropdown menu closes.
+     */
+    onMenuClose?: () => void;
+    /**
+     * Callback fired when an option is selected.
+     */
+    onOptionSelect?: (option: Item) => void;
+    /**
+     * Callback fired when scrolling inside the dropdown.
+     */
+    onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * A function to customize the filtering of options.
+     * It receives an option and the current input value, and should return true if the option should be included, false otherwise.
+     */
+    filterOption?: (option: Item, inputValue: string) => boolean;
+    /**
+     * If false, selected options will be hidden from the list. Defaults to true.
+     */
+    showSelectedOptions?: boolean;
+    /**
+     * The class name to be applied to the menu wrapper.
+     */
+    menuWrapperClassName?: string;
+    /**
+     * If true, displays a loading indicator in the dropdown controls.
+     */
+    loading?: boolean;
+  } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
-export type DropdownMenuPlacement = "top" | "bottom" | "auto";
+export type DropdownSizes = "small" | "medium" | "large";
 
-export type DropdownSize = "small" | "medium" | "large";
+export type DropdownDirection = "ltr" | "rtl" | "auto";
+
+export type DropdownMultiControllerProps<Item extends BaseItemData<Record<string, unknown>>> = Omit<
+  BaseDropdownProps<Item>,
+  keyof MultiSelectSpecifics<Item> | keyof BoxModeConstraint
+> &
+  BoxModeConstraint &
+  MultiSelectSpecifics<Item> & {
+    dropdownRef: React.Ref<HTMLDivElement>;
+  };
+
+export type DropdownSingleControllerProps<Item extends BaseItemData<Record<string, unknown>>> = Omit<
+  BaseDropdownProps<Item>,
+  keyof SingleSelectSpecifics<Item> | keyof BoxModeConstraint
+> &
+  BoxModeConstraint &
+  SingleSelectSpecifics<Item> & {
+    dropdownRef: React.Ref<HTMLDivElement>;
+  };

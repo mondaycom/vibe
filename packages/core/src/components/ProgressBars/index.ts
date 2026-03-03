@@ -1,3 +1,3 @@
-export { default as LinearProgressBar, type LinearProgressBarProps } from "./LinearProgressBar/LinearProgressBar";
+export { default as ProgressBar, type ProgressBarProps } from "./ProgressBar/ProgressBar";
 
-export * from "./LinearProgressBar/LinearProgressBar.types";
+export * from "./ProgressBar/ProgressBar.types";

@@ -3,7 +3,6 @@ import cx from "classnames";
 import React, { type ForwardedRef, forwardRef, type ReactElement, useMemo } from "react";
 import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
-import { AlertBannerBackgroundColor as AlertBannerBackgroundColorEnum } from "./AlertBannerConstants";
 import { type AlertBannerBackgroundColor } from "./AlertBanner.types";
 import { NOOP } from "../../utils/function-utils";
 import { type AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
@@ -11,7 +10,7 @@ import { type AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButt
 import { type AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 import { Text } from "@vibe/typography";
 import { AlertBannerContext } from "./AlertBannerContext";
@@ -154,10 +153,4 @@ const AlertBanner = forwardRef(
   }
 );
 
-interface AlertBannerStaticProps {
-  backgroundColors: typeof AlertBannerBackgroundColorEnum;
-}
-
-export default withStaticProps<AlertBannerProps, AlertBannerStaticProps>(AlertBanner, {
-  backgroundColors: AlertBannerBackgroundColorEnum
-});
+export default AlertBanner;

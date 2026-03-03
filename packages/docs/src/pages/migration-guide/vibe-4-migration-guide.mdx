@@ -1,0 +1,149 @@
+import { Meta } from "@storybook/blocks";
+import { DiffCodeBlock } from "./DiffCodeBlock";
+
+<Meta title="Vibe 4 Migration Guide" />
+
+# Vibe 4 Migration Guide
+
+<div style={{ lineHeight: "1.8" }}>
+
+- [Intro](#intro)
+- [Migration Steps](#migration-steps-)
+- [Breaking Changes](#breaking-changes-)
+  - [Components](#components)
+
+## Intro
+
+Vibe 4 is the next major version of the Vibe design system. This guide will help you migrate from Vibe 3 to Vibe 4.
+
+## Migration Steps 🚀
+
+1. Update `@vibe/core` to the latest version:
+
+   ```bash
+   yarn add @vibe/core@^4.0.0
+   ```
+
+2. Follow the changes in the [Breaking Changes](#breaking-changes-) section below and apply any manual changes required.
+
+3. **Review the changes and test your application thoroughly.**
+
+## Breaking Changes 🚨
+
+### Components
+
+**DatePicker**
+
+The legacy `DatePicker` component (which relied on `moment.js` and `react-dates`) has been **replaced** with the modern DatePicker that uses native `Date` objects and `date-fns`. The import path remains `@vibe/core`.
+
+As a result, `moment` is no longer a peer dependency of `@vibe/core`.
+
+**Migration:**
+
+1. Replace `moment` objects with native `Date` objects:
+
+<ul>
+  <DiffCodeBlock
+    code={`- import moment from "moment";
+- const [date, setDate] = useState(moment("2023-05-01"));
++ const [date, setDate] = useState(new Date("2023-05-01"));`}
+  />
+</ul>
+
+2. Update the component props:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <DatePicker date={date} onPickDate={(d) => setDate(d)} />
++ <DatePicker date={date} onDateChange={(d) => setDate(d)} />`}
+  />
+</ul>
+
+3. For range mode, update the API:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <DatePicker range date={startDate} endDate={endDate} onPickDate={({ startDate, endDate }) => { ... }} />
++ <DatePicker mode="range" date={startDate} endDate={endDate} onDateChange={({ date, endDate }) => { ... }} />`}
+  />
+</ul>
+
+4. Remove `moment` from your dependencies if it was only used for the DatePicker:
+
+   ```bash
+   yarn remove moment
+   ```
+
+**Key API changes:**
+
+| Legacy (v3) | New (v4) |
+|---|---|
+| `date: moment.Moment` | `date: Date` |
+| `onPickDate` | `onDateChange` |
+| `range: boolean` | `mode: "single" \| "range"` |
+| `startDate` / `endDate` (Moment) | `date` / `endDate` (Date) |
+| `moment` peer dependency | No `moment` dependency |
+
+---
+
+**AttentionBox**
+
+The deprecated legacy `AttentionBox` has been removed and replaced with the new implementation that was previously available at `@vibe/core/next`. The `AttentionBoxLink` standalone export has also been removed.
+
+**Migration for `@vibe/core/next` users:**
+
+<ul>
+  <DiffCodeBlock
+    code={`- import { AttentionBox } from "@vibe/core/next";
++ import { AttentionBox } from "@vibe/core";`}
+  />
+</ul>
+
+**Migration for legacy `AttentionBox` users:**
+
+1. Update type values:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <AttentionBox type="danger" ... />
++ <AttentionBox type="negative" ... />
+- <AttentionBox type="success" ... />
++ <AttentionBox type="positive" ... />
+- <AttentionBox type="dark" ... />
++ <AttentionBox type="neutral" ... />`}
+  />
+</ul>
+
+2. Replace `AttentionBoxLink` children with `link` prop:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <AttentionBox compact>
+-   <AttentionBoxLink href="/docs" text="Learn more" />
+- </AttentionBox>
++ <AttentionBox compact text="Your message" link={{ href: "/docs", text: "Learn more" }} />`}
+  />
+</ul>
+
+3. Replace deprecated props:
+
+<ul>
+  <DiffCodeBlock
+    code={`- <AttentionBox entryAnimation withoutIcon withIconWithoutHeader ... />
++ <AttentionBox animate icon={false} ... />`}
+  />
+</ul>
+
+**Key API changes:**
+
+| Legacy (v3) | New (v4) |
+|---|---|
+| `type="danger"` | `type="negative"` |
+| `type="success"` | `type="positive"` |
+| `type="dark"` | `type="neutral"` |
+| `entryAnimation` | `animate` |
+| `withoutIcon` / `withIconWithoutHeader` | `icon={false}` |
+| `AttentionBoxLink` (standalone) | `link` prop |
+| — | `action` prop (new) |
+
+</div>

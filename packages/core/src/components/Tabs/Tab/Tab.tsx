@@ -102,10 +102,10 @@ const Tab: FC<TabProps> = forwardRef(
       const iconElement = (
         <Icon
           ariaHidden={true}
-          iconType={iconType}
+          type={iconType}
           icon={icon}
           className={cx(styles.tabIcon, getStyle(styles, iconSide))}
-          iconSize={18}
+          size={18}
           ignoreFocusStyle
         />
       );

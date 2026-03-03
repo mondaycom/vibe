@@ -1,12 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { BaseSizes } from "../../constants";
+import { type BaseSizes } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import { DialogContentContainer } from "@vibe/dialog";
-import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
 import { NoColor } from "@vibe/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
-import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import {
   type ColorShapes,
   type ColorPickerSizes,
@@ -14,7 +13,7 @@ import {
   type ColorPickerArrayValueOnly
 } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -164,16 +163,4 @@ const ColorPicker = forwardRef(
   }
 );
 
-interface ColorPickerStaticProps {
-  sizes: typeof BaseSizes;
-  colorStyles: typeof ColorStyleEnum;
-  colorSizes: typeof BaseSizes;
-  colorShapes: typeof ColorShapesEnum;
-}
-
-export default withStaticProps<ColorPickerProps, ColorPickerStaticProps>(ColorPicker, {
-  sizes: BaseSizes,
-  colorStyles: ColorStyleEnum,
-  colorSizes: BaseSizes,
-  colorShapes: ColorShapesEnum
-});
+export default ColorPicker;
