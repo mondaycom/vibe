@@ -65,6 +65,20 @@ Some changes require manual attention:
 
 #### TextField
 
+**`iconsNames` prop replaced with flat props**
+
+The `iconsNames` object prop has been replaced with two separate string props for better API consistency.
+
+```tsx
+// Before (v3)
+<TextField iconsNames={{ primary: "Search", secondary: "Clear" }} />
+
+// After (v4)
+<TextField iconLabel="Search" secondaryIconLabel="Clear" />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
+
 **Renamed `iconName` prop to `icon`**
 
 ```tsx
@@ -176,6 +190,23 @@ The `disableClickableBehavior` prop has been removed. Chips now always uses the 
 ```bash
 npx @vibe/codemod icon-props-rename src/
 ```
+
+**`size` prop now applies to `type="src"` icons**
+
+Previously, `size` (formerly `iconSize`) only affected SVG component icons. Icons loaded via URL (`type="src"`) rendered at their intrinsic SVG dimensions, ignoring the `size` prop. Now `size` sets `width` and `height` on URL-based SVG icons as well (default: `16`).
+
+```jsx
+// Before — size had no effect on src icons
+<Icon icon="https://example.com/icon.svg" type="src" size={24} />
+// SVG rendered at intrinsic dimensions (e.g. 100×100)
+
+// After — size is applied
+<Icon icon="https://example.com/icon.svg" type="src" size={24} />
+// SVG renders at 24×24
+```
+
+If you relied on intrinsic SVG dimensions for `type="src"` icons, set `size` to match the SVG's original dimensions.
+
 #### AttentionBox
 
 **Replaced legacy AttentionBox with new implementation**

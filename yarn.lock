@@ -15894,7 +15894,7 @@ moment@>=1.6.0:
 
 monday-ui-style@0.26.2:
   version "0.26.2"
-  resolved "https://registry.npmjs.org/monday-ui-style/-/monday-ui-style-0.26.2.tgz#2335dbf63fa988c841e55519eaf7d260c5d822e1"
+  resolved "https://registry.yarnpkg.com/monday-ui-style/-/monday-ui-style-0.26.2.tgz#2335dbf63fa988c841e55519eaf7d260c5d822e1"
   integrity sha512-LZxjT+eqppL/m/hvxPfGdiFZ5xbv31rFkwItfuVHup8Xw3axTNgsvewDJg/Ahs0G7qcO9T7ucMIk7B440HtUJg==
   dependencies:
     postcss "8.4.31"

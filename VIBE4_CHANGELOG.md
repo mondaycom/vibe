@@ -78,6 +78,13 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
 - **Task**: Monday.com task #9713029042
 
+- [x] **Status**: Implemented ✅
+- **Change**: `size` prop now applies to `type="src"` icons (CustomSvgIcon)
+- **Reason**: Previously, the `size` prop was only passed to SVG component icons (`type="svg"`). Icons loaded via URL (`type="src"`) ignored `size` and rendered at their intrinsic SVG dimensions. Now `size` controls `width` and `height` for all icon types.
+- **Migration**: If you have `type="src"` icons that relied on intrinsic SVG dimensions, they will now render at the `size` value (default `16`). To preserve the previous behavior, set `size` to match the SVG's original dimensions.
+- **Codemod**: ❌ Manual (behavioral change — review `type="src"` icon usages)
+- **Task**: [Monday.com task](https://monday.monday.com/boards/10027056258/pulses/9713029058)
+
 #### Flex
 
 - **Change**: Removed `"stretch"` from the `justify` prop (`FlexJustify` type and `FlexJustify.STRETCH` enum value)
@@ -135,13 +142,19 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 #### TextField
 
 - [x] **Status**: Complete
+- **Change**: Replace `iconsNames` object prop with flat `iconLabel` and `secondaryIconLabel` string props
+- **Reason**: API consistency — flat props are clearer and simpler than nested object props
+- **Migration**: `<TextField iconsNames={{ primary: "Search", secondary: "Clear" }} />` → `<TextField iconLabel="Search" secondaryIconLabel="Clear" />`
+- **Codemod**: ✅ Available
+- **PR**: TBD
+
+- [x] **Status**: Complete
 - **Change**: Rename `iconName` prop to `icon`
 - **Reason**: Consistent naming with other components (e.g., Icon component uses `icon` prop)
 - **Migration**: `<TextField iconName={X} />` → `<TextField icon={X} />`
 - **Codemod**: ✅ Available
 - **PR**: TBD
 
-=======
 - **Change**: Removed deprecated enum exports and static properties (`TextFieldTextType`, `TextFieldFeedbackState` enums and static properties)
 - **Reason**: Simplify API by removing dual ways to specify values, reduce bundle size
 - **Migration**: Replace enum usage with string literals (e.g., `TextField.feedbackStates.ERROR` → `"error"`)
@@ -438,6 +451,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Reason**: The previous return type was incorrect — `ItemType` and `GridChildComponentProps` are plain data objects, not React elements. This caused TypeScript errors for users passing valid JSX renderers
 - **Migration**: Update any explicit type annotations on `itemRenderer` from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`. Runtime behavior is unchanged
 - **Codemod**: ❌ Manual (type-only change)
+- **PR**: TBD
+
+#### TextField
+
+- [x] **Status**: Complete
+- **Change**: Replace `iconsNames` object prop with flat `iconLabel` and `secondaryIconLabel` props
+- **Reason**: API consistency — other TextField icon-related props (`iconName`/`secondaryIconName`, `iconTooltipContent`/`secondaryTooltipContent`) are flat string props
+- **Migration**: `<TextField iconsNames={{ primary: "X", secondary: "Y" }} />` → `<TextField iconLabel="X" secondaryIconLabel="Y" />`
+- **Codemod**: ✅ Available
 - **PR**: TBD
 
 <!-- Add more components as breaking changes are identified -->
