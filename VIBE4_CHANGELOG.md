@@ -134,7 +134,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### TextField
 
-<<<<<<< breaking-change/textfield-rename-iconname-to-icon
 - [x] **Status**: Complete
 - **Change**: Rename `iconName` prop to `icon`
 - **Reason**: Consistent naming with other components (e.g., Icon component uses `icon` prop)
@@ -432,7 +431,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: If you override `.iconStart { margin-right: ... }` or `.iconEnd { margin-left: ... }` in custom CSS, update to use `margin-inline-end` and `margin-inline-start` respectively
 - **Codemod**: ❌ Manual (CSS-only change)
 
->>>>>>> vibe4
 <!-- Add more components as breaking changes are identified -->
 
 ### APIs and Hooks
