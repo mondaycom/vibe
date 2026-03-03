@@ -444,6 +444,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### APIs and Hooks
 
+#### useMergeRefs
+
+- **Change**: Removed `useMergeRefs` hook export from `@vibe/core`. Use the internal `useMergeRef` hook (imported directly from within `@vibe/core`) or implement your own ref merging utility.
+- **Reason**: `useMergeRefs` was already marked as deprecated in favor of the internal `useMergeRef` hook which has a simpler, more idiomatic API. The hook was always intended for internal use only.
+- **Migration**: Replace usage of `useMergeRefs({ refs: [ref1, ref2] })` with your own ref merging utility or use `react-merge-refs` from npm.
+- **Codemod**: ❌ None
+- **PR**: TBD
+
 #### useClickableProps
 
 - **Change**: TBD
