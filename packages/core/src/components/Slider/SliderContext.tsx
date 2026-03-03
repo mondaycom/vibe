@@ -48,8 +48,8 @@ export interface SliderProviderProps extends SliderProps {
 
 export function SliderProvider({
   children,
-  ariaLabel,
-  ariaLabelledby,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledby,
   color,
   "data-testid": dataTestId,
   defaultValue,
@@ -83,8 +83,8 @@ export function SliderProvider({
   const uiContextValue: SliderContextUI = useMemo(
     () => ({
       active,
-      ariaLabel,
-      ariaLabelledby,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
       color,
       disabled,
       dragging,

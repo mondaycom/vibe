@@ -13,11 +13,11 @@ export interface DialogContentContainerProps extends VibeComponentProps {
   /**
    * The ID of the element that labels this dialog.
    */
-  ariaLabelledby?: string;
+  "aria-labelledby"?: string;
   /**
    * The ID of the element that describes this dialog.
    */
-  ariaDescribedby?: string;
+  "aria-describedby"?: string;
   /**
    * The type of dialog.
    */
@@ -42,8 +42,8 @@ const DialogContentContainer = forwardRef(
     {
       id,
       className = "",
-      ariaLabelledby = "",
-      ariaDescribedby = "",
+      "aria-labelledby": ariaLabelledby = "",
+      "aria-describedby": ariaDescribedby = "",
       type = "popover",
       size = "small",
       children,

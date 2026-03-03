@@ -17,10 +17,10 @@ export default function useClickableProps(
     "data-testid": dataTestId,
     role = "button",
     tabIndex = 0,
-    ariaLabel,
-    ariaHidden,
-    ariaHasPopup,
-    ariaExpanded
+    "aria-label": ariaLabel,
+    "aria-hidden": ariaHidden,
+    "aria-haspopup": ariaHasPopup,
+    "aria-expanded": ariaExpanded
   }: ClickableProps,
   ref: React.ForwardedRef<HTMLElement>
 ) {

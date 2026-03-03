@@ -22,7 +22,7 @@ const SingleSelectTrigger = () => {
     error,
     label,
     getLabelProps,
-    ariaLabel
+    "aria-label": ariaLabel
   } = useDropdownContext<BaseItemData>();
 
   return (

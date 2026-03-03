@@ -39,8 +39,8 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
   const {
     active,
-    ariaLabel,
-    ariaLabelledby,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledby,
     disabled,
     dragging,
     focused,

@@ -59,7 +59,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   /**
    * The label of the button for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * Class name applied to the menu dialog wrapper.
    */
@@ -163,7 +163,7 @@ export interface MenuButtonProps extends VibeComponentProps {
   /**
    * The ARIA control of the menu button for accessibility.
    */
-  ariaControls?: string;
+  "aria-controls"?: string;
 }
 
 const MenuButton = forwardRef(
@@ -179,7 +179,7 @@ const MenuButton = forwardRef(
       open = false,
       onClick = NOOP,
       zIndex = null,
-      ariaLabel = "Menu",
+      "aria-label": ariaLabel = "Menu",
       closeMenuOnItemClick,
       dialogOffset = MOVE_BY,
       dialogPosition = "bottom-start",
@@ -205,7 +205,7 @@ const MenuButton = forwardRef(
       showTooltipOnlyOnTriggerElement,
       "data-testid": dataTestId,
       closeDialogOnContentClick = false,
-      ariaControls
+      "aria-controls": ariaControls
     }: MenuButtonProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {

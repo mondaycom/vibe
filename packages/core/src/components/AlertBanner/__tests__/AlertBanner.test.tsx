@@ -39,7 +39,7 @@ describe("<AlertBanner />", () => {
     describe("a11y", () => {
       it("should add the label", () => {
         const ariaLabel = "Lable Name";
-        const { getByLabelText } = render(<AlertBanner ariaLabel={ariaLabel} />);
+        const { getByLabelText } = render(<AlertBanner aria-label={ariaLabel} />);
         const alertBannerComponentLabel = getByLabelText(ariaLabel);
         expect(alertBannerComponentLabel).toBeTruthy();
       });

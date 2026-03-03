@@ -21,13 +21,13 @@ export interface BaseListProps extends Omit<React.HTMLAttributes<HTMLElement>, "
    */
   children?: ReactElement | ReactElement[];
   /**
-   * The ARIA label describing the list. Required for accessibility when ariaDescribedBy is not provided.
+   * The ARIA label describing the list. Required for accessibility when aria-describedby is not provided.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The ID of an element that describes the list.
    */
-  ariaDescribedBy?: string;
+  "aria-describedby"?: string;
   /**
    * The ID of an element controlled by the list.
    */

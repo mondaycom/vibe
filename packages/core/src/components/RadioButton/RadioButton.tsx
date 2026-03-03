@@ -73,11 +73,11 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * ARIA label for accessibility when no text is provided.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * ID of element that describe this radio button.
    */
-  ariaDescribedby?: string;
+  "aria-describedby"?: string;
 }
 
 const RadioButton = forwardRef(
@@ -99,8 +99,8 @@ const RadioButton = forwardRef(
       retainChildClick = true,
       childrenTabIndex = 0,
       noLabelAnimation = false,
-      ariaLabel,
-      ariaDescribedby,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedby,
       id,
       "data-testid": dataTestId
     }: RadioButtonProps,

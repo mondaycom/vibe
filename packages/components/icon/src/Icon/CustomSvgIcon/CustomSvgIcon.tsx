@@ -21,7 +21,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   /**
    * The accessible label for the icon.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The tab index of the icon for keyboard navigation.
    */
@@ -33,7 +33,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   /**
    * If true, hides the icon from screen readers.
    */
-  ariaHidden?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * If true, replaces the `fill` attribute in the SVG with `currentColor`.
    */
@@ -52,8 +52,8 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   className,
   ref,
   src,
-  ariaLabel,
-  ariaHidden,
+  "aria-label": ariaLabel,
+  "aria-hidden": ariaHidden,
   replaceToCurrentColor = false,
   customColor,
   id,

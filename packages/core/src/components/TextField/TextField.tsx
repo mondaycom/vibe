@@ -430,7 +430,7 @@ const TextField = forwardRef(
                   })}
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnPrimaryIcon ? 0 : -1}
-                  ariaLabel={primaryIconLabel}
+                  aria-label={primaryIconLabel}
                 >
                   <Icon
                     icon={iconName}
@@ -456,7 +456,7 @@ const TextField = forwardRef(
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnSecondaryIcon ? 0 : -1}
                   data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
-                  ariaLabel={secondaryIconLabel}
+                  aria-label={secondaryIconLabel}
                 >
                   <Icon
                     icon={secondaryIconName}

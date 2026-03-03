@@ -30,7 +30,7 @@ export default {
 
 export const Overview = {
   render: (args: SplitButtonProps) => (
-    <SplitButton id="overview-split-button" ariaLabel="Overview split button" {...args}>
+    <SplitButton id="overview-split-button" aria-label="Overview split button" {...args}>
       Button
     </SplitButton>
   ),
@@ -54,7 +54,7 @@ export const Types = {
     <>
       <SplitButton
         id="types-primary"
-        ariaLabel="Primary split button"
+        aria-label="Primary split button"
         secondaryDialogContent={
           <SplitButtonMenu id="types-primary-menu">
             <MenuItem id="types-primary-check" icon={Check} title="Hey" />
@@ -66,7 +66,7 @@ export const Types = {
       </SplitButton>
       <SplitButton
         id="types-secondary"
-        ariaLabel="Secondary split button"
+        aria-label="Secondary split button"
         kind="secondary"
         secondaryDialogContent={
           <SplitButtonMenu id="types-secondary-menu">
@@ -79,7 +79,7 @@ export const Types = {
       </SplitButton>
       <SplitButton
         id="types-tertiary"
-        ariaLabel="Tertiary split button"
+        aria-label="Tertiary split button"
         kind="tertiary"
         secondaryDialogContent={
           <SplitButtonMenu id="types-tertiary-menu">
@@ -99,7 +99,7 @@ export const Sizes = {
     <>
       <SplitButton
         id="sizes-small"
-        ariaLabel="Small split button"
+        aria-label="Small split button"
         size="small"
         secondaryDialogContent={
           <SplitButtonMenu id="sizes-small-menu">
@@ -112,7 +112,7 @@ export const Sizes = {
       </SplitButton>
       <SplitButton
         id="sizes-medium"
-        ariaLabel="Medium split button"
+        aria-label="Medium split button"
         size="medium"
         secondaryDialogContent={
           <SplitButtonMenu id="sizes-medium-menu">
@@ -125,7 +125,7 @@ export const Sizes = {
       </SplitButton>
       <SplitButton
         id="sizes-large"
-        ariaLabel="Large split button"
+        aria-label="Large split button"
         size="large"
         secondaryDialogContent={
           <SplitButtonMenu id="sizes-large-menu">
@@ -145,7 +145,7 @@ export const SplitButtonWithIcons = {
     <>
       <SplitButton
         id="icons-left"
-        ariaLabel="Split button with left icon"
+        aria-label="Split button with left icon"
         leftIcon={Add}
         secondaryDialogContent={
           <SplitButtonMenu id="icons-left-menu">
@@ -158,7 +158,7 @@ export const SplitButtonWithIcons = {
       </SplitButton>
       <SplitButton
         id="icons-right"
-        ariaLabel="Split button with right icon"
+        aria-label="Split button with right icon"
         rightIcon={Add}
         secondaryDialogContent={
           <SplitButtonMenu id="icons-right-menu">
@@ -178,7 +178,7 @@ export const SplitButtonAsThePrimaryAction = {
   render: () => (
     <SplitButton
       id="primary-action"
-      ariaLabel="Use template split button"
+      aria-label="Use template split button"
       secondaryDialogPosition="bottom-start"
       secondaryDialogContent={
         <SplitButtonMenu id="primary-action-menu">
@@ -198,7 +198,7 @@ export const SecondarySplitButton = {
     <>
       <SplitButton
         id="secondary-export"
-        ariaLabel="Export options split button"
+        aria-label="Export options split button"
         kind="secondary"
         secondaryDialogPosition="bottom-start"
         secondaryDialogContent={
@@ -211,7 +211,7 @@ export const SecondarySplitButton = {
       >
         Export to CSV
       </SplitButton>
-      <Button id="new-item-button" ariaLabel="Create new item">
+      <Button id="new-item-button" aria-label="Create new item">
         New item
       </Button>
     </>
@@ -223,7 +223,7 @@ export const CustomMenu = {
   render: () => (
     <SplitButton
       id="custom-menu"
-      ariaLabel="Custom menu split button"
+      aria-label="Custom menu split button"
       secondaryDialogContent={
         <Menu focusItemIndexOnMount={2} id="custom-menu-content" size="medium">
           <MenuTitle caption="Look up, you might see" captionPosition="top" />
