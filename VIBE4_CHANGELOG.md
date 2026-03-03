@@ -78,6 +78,13 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available - `npx @vibe/codemod icon-props-rename`
 - **Task**: Monday.com task #9713029042
 
+- [x] **Status**: Implemented ✅
+- **Change**: `size` prop now applies to `type="src"` icons (CustomSvgIcon)
+- **Reason**: Previously, the `size` prop was only passed to SVG component icons (`type="svg"`). Icons loaded via URL (`type="src"`) ignored `size` and rendered at their intrinsic SVG dimensions. Now `size` controls `width` and `height` for all icon types.
+- **Migration**: If you have `type="src"` icons that relied on intrinsic SVG dimensions, they will now render at the `size` value (default `16`). To preserve the previous behavior, set `size` to match the SVG's original dimensions.
+- **Codemod**: ❌ Manual (behavioral change — review `type="src"` icon usages)
+- **Task**: [Monday.com task](https://monday.monday.com/boards/10027056258/pulses/9713029058)
+
 #### Flex
 
 - **Change**: Removed `"stretch"` from the `justify` prop (`FlexJustify` type and `FlexJustify.STRETCH` enum value)
