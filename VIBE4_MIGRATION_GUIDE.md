@@ -236,6 +236,21 @@ The Toggle component previously set `data-testid="toggle"` on both the input ele
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
 
+**Removed `noSpacing` prop**
+
+The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, the toggle now automatically removes its surrounding margin, which was the primary use case for `noSpacing`.
+
+- **Before:** `<Toggle areLabelsHidden noSpacing />`
+- **After:** `<Toggle areLabelsHidden />`
+
+If you used `noSpacing` without `areLabelsHidden`, wrap the toggle in a container and apply spacing/margin control there instead.
+
+A codemod is available to automatically remove the `noSpacing` prop:
+
+```bash
+npx @vibe/codemod toggle-no-spacing
+```
+
 ### TypeScript Types
 
 <!-- This section will be populated as breaking changes are identified -->
