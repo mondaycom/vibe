@@ -63,23 +63,71 @@ Some changes require manual attention:
 
 ### Components
 
+#### TextField
+
+**Renamed `iconName` prop to `icon`**
+
+```tsx
+// Before (v3)
+<TextField iconName={Search} placeholder="Search..." />
+
+// After (v4)
+<TextField icon={Search} placeholder="Search..." />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
 #### MenuButton
 
 **First menu item focused by default** — MenuButton now passes `focusItemIndexOnMount={0}` to Menu children. Pass `focusItemIndexOnMount={-1}` on your Menu to restore old behavior.
 
+#### ARIA Props (All Components)
+
+**Renamed camelCase ARIA props to standard HTML `aria-*` attributes**
+
+All custom camelCase ARIA props have been replaced with the standard HTML hyphenated form. React natively supports `aria-*` attributes in JSX, so the custom prop layer was unnecessary.
+
+| Old Prop | New Prop |
+|----------|----------|
+| `ariaLabel` | `aria-label` |
+| `ariaHidden` | `aria-hidden` |
+| `ariaExpanded` | `aria-expanded` |
+| `ariaControls` | `aria-controls` |
+| `ariaHasPopup` | `aria-haspopup` |
+| `ariaLabeledBy` / `ariaLabelledBy` | `aria-labelledby` |
+| `ariaDescribedBy` / `ariaDescribedby` | `aria-describedby` |
+| `ariaLabelDescription` (Link) | `aria-label` |
+
+**Affected components**: Avatar, Button, IconButton, Clickable, Checkbox, Chips, Counter, Dropdown, EditableTypography, Flex, Icon, Link, LinearProgressBar, List, Menu, MenuButton, RadioButton, Search, Slider, Switch, Toggle, VirtualizedList, and more.
+
+**Note**: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, `closeButtonAriaLabel` are **not affected** by this change.
+
+```tsx
+// Before (v3)
+<Button ariaLabel="Save" ariaExpanded={isOpen} ariaControls="menu-1" />
+<Avatar ariaHidden />
+<Checkbox ariaLabelledBy="label-id" />
+
+// After (v4)
+<Button aria-label="Save" aria-expanded={isOpen} aria-controls="menu-1" />
+<Avatar aria-hidden />
+<Checkbox aria-labelledby="label-id" />
+```
+
+**Codemod available**: `npx @vibe/codemod aria-props-migration`
+
 #### Clickable
 
-**Removed string types from `ariaHasPopup` and `tabIndex`**
+**Removed string types from `aria-haspopup` and `tabIndex`**
 
-- `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
+- `aria-haspopup` now accepts `boolean` only (was `boolean | string`)
 - `tabIndex` now accepts `number` only (was `string | number`)
 
 ```tsx
 // Before (v3)
-<Clickable tabIndex="-1" ariaHasPopup="true" />
+<Clickable tabIndex="-1" aria-haspopup="true" />
 
 // After (v4)
-<Clickable tabIndex={-1} ariaHasPopup={true} />
+<Clickable tabIndex={-1} aria-haspopup={true} />
 ```
 
 #### Chips
@@ -170,6 +218,16 @@ import { AttentionBox } from "@vibe/core/next";
 import { AttentionBox } from "@vibe/core";
 ```
 
+#### MultiStepIndicator
+
+**Updated `react-transition-group` usage for React 19 compatibility**
+
+The `MultiStepIndicator` component's internal `StepIndicator` now uses `nodeRef` with `CSSTransition` instead of the deprecated `findDOMNode`-based approach. This is required for React 19 compatibility, as `findDOMNode` was removed in React 19.
+
+This is an internal implementation change. No changes to the public `MultiStepIndicator` or `StepIndicator` props are required.
+
+If you were extending or wrapping `StepIndicator` directly and overriding its `addEndListener` behavior, note that the callback signature no longer receives the DOM node as the first argument — this is handled internally via `nodeRef`.
+
 #### Toggle
 
 **Removed duplicate `data-testid` from internal element**
@@ -177,6 +235,21 @@ import { AttentionBox } from "@vibe/core";
 The Toggle component previously set `data-testid="toggle"` on both the input element and the internal visual div. The internal div's `data-testid` has been removed, so only the interactive input element carries the test ID.
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
+
+**Removed `noSpacing` prop**
+
+The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, the toggle now automatically removes its surrounding margin, which was the primary use case for `noSpacing`.
+
+- **Before:** `<Toggle areLabelsHidden noSpacing />`
+- **After:** `<Toggle areLabelsHidden />`
+
+If you used `noSpacing` without `areLabelsHidden`, wrap the toggle in a container and apply spacing/margin control there instead.
+
+A codemod is available to automatically remove the `noSpacing` prop:
+
+```bash
+npx @vibe/codemod toggle-no-spacing
+```
 
 ### Hooks
 
@@ -217,6 +290,44 @@ useEventListener({
 ```
 
 **Codemod:** ❌ Not available — migration requires manual inline logic.
+
+#### useKeyEvent — Callback type changed to `KeyboardEventCallback`
+
+The `callback` property in `UseKeyEventArgs` has been changed from `GenericEventCallback` to `KeyboardEventCallback`:
+
+| Property | Before (v3) | After (v4) |
+|----------|-------------|------------|
+| `callback` | `GenericEventCallback` (`(ev: Event \| React.UIEvent) => unknown`) | `KeyboardEventCallback` (`(event: KeyboardEvent) => unknown`) |
+
+**Before:**
+```tsx
+import { useKeyEvent } from "@vibe/core";
+
+useKeyEvent({
+  keys: ["Enter"],
+  callback: (event: React.KeyboardEvent) => {
+    // React synthetic event type
+    console.log(event.key);
+  }
+});
+```
+
+**After:**
+```tsx
+import { useKeyEvent } from "@vibe/core";
+
+useKeyEvent({
+  keys: ["Enter"],
+  callback: (event: KeyboardEvent) => {
+    // Native DOM KeyboardEvent
+    console.log(event.key);
+  }
+});
+```
+
+**Why:** `useKeyEvent` uses native DOM `addEventListener` internally, so callbacks always receive native `KeyboardEvent` objects at runtime. The previous `GenericEventCallback` type was overly broad and did not reflect the actual event type. This change improves type safety and developer experience.
+
+**Migration:** TypeScript will flag any type mismatches automatically. Update your callback parameter type from `React.KeyboardEvent` or `GenericEventCallback` to native `KeyboardEvent`. All standard keyboard event properties (`.key`, `.code`, `.ctrlKey`, `.preventDefault()`, etc.) are available on the native type.
 
 ### TypeScript Types
 
@@ -361,6 +472,28 @@ The internal `MenuItemIcon` component's `label` prop has been removed. This prop
 > **Note:** The `MenuItem.label` prop (visual badge like "New" or "Beta") is **not affected**.
 
 **Migration:** No action required for users of `MenuItem`. If you used `MenuItemIcon` directly, remove any `label` prop passed to it.
+
+#### `children` prop now accepts only a single `MenuChild` (not an array)
+
+The `children` prop of `MenuItem` previously accepted `MenuChild | MenuChild[]`, but passing an array was never valid at runtime — `MenuItem` always required exactly one `Menu` element as its child (enforced by `React.Children.only`). The type has been narrowed to `MenuChild` to match the actual runtime constraint.
+
+**Before (v3):**
+```tsx
+<MenuItem title="Has submenu">
+  {[<Menu key="sub">...</Menu>]}
+</MenuItem>
+```
+
+**After (v4):**
+```tsx
+<MenuItem title="Has submenu">
+  <Menu>...</Menu>
+</MenuItem>
+```
+
+**Migration:** Replace any array-wrapped `children` with a single `Menu` element. If your code already passes a single `Menu` as `children`, no change is needed.
+
+> **No codemod available.** This is a type-only narrowing — passing an array was a runtime error in v3 as well.
 
 ### Flex
 
@@ -779,6 +912,50 @@ If you have custom CSS that overrides Link icon spacing using physical direction
 ```
 
 **Codemod:** ❌ Not available — this is a CSS-only change. Search your codebase for overrides targeting Link's `.iconStart` or `.iconEnd` classes and update to logical properties.
+
+#### VirtualizedGrid
+
+**Fixed `itemRenderer` return type**
+
+The `itemRenderer` prop had an incorrect return type of `ItemType | GridChildComponentProps<ItemType>`. This caused TypeScript errors when passing valid JSX renderers. The type is now `ReactElement`.
+
+**Before (v3):**
+
+```tsx
+// TypeScript would show errors with this usage:
+<VirtualizedGrid
+  items={items}
+  itemRenderer={(item, index, style) => (
+    <div key={index} style={style}>{item.value}</div>
+  )}
+/>
+```
+
+**After (v4):**
+
+```tsx
+// Works correctly — no type changes needed at the call site:
+<VirtualizedGrid
+  items={items}
+  itemRenderer={(item, index, style) => (
+    <div key={index} style={style}>{item.value}</div>
+  )}
+/>
+```
+
+If you had explicit type annotations for `itemRenderer` referencing the old return type, update them:
+
+```typescript
+// Before (v3)
+const renderer: (item: VirtualizedGridItemType, index: number, style: CSSProperties) =>
+  VirtualizedGridItemType | GridChildComponentProps<VirtualizedGridItemType> = ...;
+
+// After (v4)
+const renderer: (item: VirtualizedGridItemType, index: number, style: CSSProperties) =>
+  ReactElement = ...;
+```
+
+**Codemod:** ❌ Not available — this is a type-only change with no runtime impact.
 
 ### Other Components
 

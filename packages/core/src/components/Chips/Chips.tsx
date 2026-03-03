@@ -103,11 +103,11 @@ export interface ChipsProps extends VibeComponentProps {
   /**
    * The label of the chip for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, indicates that the chip has a popup.
    */
-  ariaHasPopup?: boolean;
+  "aria-haspopup"?: boolean;
   /**
    * If true, displays a border around the chip.
    */
@@ -143,8 +143,8 @@ const Chips = forwardRef(
       onMouseDown,
       onClick,
       noAnimation = true,
-      ariaLabel,
-      ariaHasPopup = false,
+      "aria-label": ariaLabel,
+      "aria-haspopup": ariaHasPopup = false,
       "data-testid": dataTestId,
       leftAvatarType = "img",
       rightAvatarType = "img",
@@ -222,10 +222,10 @@ const Chips = forwardRef(
         disabled,
         id,
         "data-testid": componentDataTestId,
-        ariaLabel: overrideAriaLabel,
-        ariaHidden: false,
-        ariaHasPopup,
-        ariaExpanded: false
+        "aria-label": overrideAriaLabel,
+        "aria-hidden": false,
+        "aria-haspopup": ariaHasPopup,
+        "aria-expanded": false
       },
       mergedRef
     );
@@ -304,7 +304,7 @@ const Chips = forwardRef(
             size="xxs"
             color="on-primary-color"
             className={cx(styles.icon, styles.close)}
-            ariaLabel={closeButtonAriaLabel}
+            aria-label={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}

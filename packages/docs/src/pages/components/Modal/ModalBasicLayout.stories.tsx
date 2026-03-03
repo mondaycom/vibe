@@ -327,7 +327,7 @@ export const HeaderWithIconButton: Story = {
       <Modal
         id="modal-basic"
         show={show}
-        renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
+        renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" aria-label="Open Menu" />}
         size="medium"
         onClose={() => setShow(false)}
         container={container}

@@ -113,9 +113,9 @@ const Label = forwardRef<HTMLElement, LabelProps>(
       {
         onClick: onClickCallback,
         id,
-        ariaHidden: false,
-        ariaHasPopup: false,
-        ariaExpanded: false
+        "aria-hidden": false,
+        "aria-haspopup": false,
+        "aria-expanded": false
       },
       labelRef
     );

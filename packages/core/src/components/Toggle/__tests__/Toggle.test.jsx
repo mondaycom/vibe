@@ -16,7 +16,7 @@ describe("Toggle tests", () => {
     it("should change state to off when is default selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isDefaultSelected ariaLabel="My Toggle" />
+          <Toggle isDefaultSelected aria-label="My Toggle" />
         </form>
       );
 
@@ -28,7 +28,7 @@ describe("Toggle tests", () => {
     it("should change state to on when is default not selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isDefaultSelected={false} ariaLabel="My Toggle" />
+          <Toggle isDefaultSelected={false} aria-label="My Toggle" />
         </form>
       );
       const toggle = getByRole(toggleRole);
@@ -39,7 +39,7 @@ describe("Toggle tests", () => {
     it("should not change state when disabled, default selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle disabled isDefaultSelected ariaLabel="My Toggle" />
+          <Toggle disabled isDefaultSelected aria-label="My Toggle" />
         </form>
       );
 
@@ -78,7 +78,7 @@ describe("Toggle tests", () => {
   describe("a11y", () => {
     it("should add the aria label", () => {
       const ariaLabel = "Lable Name";
-      const { getByLabelText } = render(<Toggle ariaLabel={ariaLabel} />);
+      const { getByLabelText } = render(<Toggle aria-label={ariaLabel} />);
       const toggleComponent = getByLabelText(ariaLabel);
       expect(toggleComponent).toBeTruthy();
     });
@@ -92,7 +92,7 @@ describe("Toggle tests", () => {
     it("should not change state to off when is selected, clicked and prop does not changed", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isSelected ariaLabel="My Toggle" />
+          <Toggle isSelected aria-label="My Toggle" />
         </form>
       );
 
@@ -104,7 +104,7 @@ describe("Toggle tests", () => {
     it("should not change state to on when is not selected, clicked and prop does not changed", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isSelected={false} ariaLabel="My Toggle" />
+          <Toggle isSelected={false} aria-label="My Toggle" />
         </form>
       );
 

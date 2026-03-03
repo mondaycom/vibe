@@ -133,8 +133,8 @@ describe("Search", () => {
       expect(getByRole("combobox")).toBeInTheDocument();
     });
 
-    it("should set aria-controls when searchResultsContainerId is provided and ariaExpanded is true", () => {
-      const { getByRole } = renderSearch({ searchResultsContainerId: "search-results", ariaExpanded: true });
+    it("should set aria-controls when searchResultsContainerId is provided and aria-expanded is true", () => {
+      const { getByRole } = renderSearch({ searchResultsContainerId: "search-results", "aria-expanded": true });
       expect(getByRole("combobox")).toHaveAttribute("aria-controls", "search-results");
     });
 

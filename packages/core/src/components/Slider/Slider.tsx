@@ -16,11 +16,11 @@ export type SliderProps = {
   /**
    * Define a string that labels the current element (Slider)
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * ElementId of Node that have the text needed for labeling the current element (Slider)
    */
-  ariaLabelledby?: string;
+  "aria-labelledby"?: string;
   /**
    * Custom `class name` to be added to the component-root-node
    */
@@ -127,8 +127,8 @@ export type SliderProps = {
 const Slider = forwardRef(
   (
     {
-      ariaLabel,
-      ariaLabelledby,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
       className,
       color,
       "data-testid": dataTestId = "monday-slider",
@@ -162,8 +162,8 @@ const Slider = forwardRef(
     );
     return (
       <SliderProvider
-        ariaLabel={ariaLabel}
-        ariaLabelledby={ariaLabelledby}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
         color={color}
         data-testid={dataTestId}
         disabled={disabled}

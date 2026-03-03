@@ -64,7 +64,7 @@ const TriggerActions = () => {
             icon={CloseSmall}
             onClick={handleClear}
             size={iconButtonSize}
-            ariaLabel={clearAriaLabel}
+            aria-label={clearAriaLabel}
             hideTooltip
           />
         )}
@@ -73,9 +73,9 @@ const TriggerActions = () => {
             icon={isOpen ? DropdownChevronUp : DropdownChevronDown}
             size={iconButtonSize}
             disabled={disabled}
-            ariaControls={getMenuProps().id}
-            ariaExpanded={isOpen}
-            ariaLabeledBy={getMenuProps().id}
+            aria-controls={getMenuProps().id}
+            aria-expanded={isOpen}
+            aria-labelledby={getMenuProps().id}
             tabIndex={-1}
             onClick={() => {
               toggleMenu();

@@ -64,11 +64,15 @@ export interface ProgressBarProps extends VibeComponentProps {
   /**
    * The ARIA label for the progress bar.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, makes the progress bar span the full container width.
    */
   fullWidth?: boolean;
+  /**
+   * If true, allows displaying percentage values higher than 100% when value exceeds max.
+   */
+  allowExceedingMax?: boolean;
 }
 
 const ProgressBar = forwardRef(
@@ -85,9 +89,10 @@ const ProgressBar = forwardRef(
       indicateProgress = false,
       multi = false,
       multiValues = [],
-      ariaLabel = "",
+      "aria-label": ariaLabel = "",
       id,
       fullWidth = false,
+      allowExceedingMax = false,
       "data-testid": dataTestId
     }: ProgressBarProps,
     ref: React.ForwardedRef<HTMLDivElement>
@@ -107,11 +112,11 @@ const ProgressBar = forwardRef(
       if (multi) {
         const firstValue = multiValues && multiValues.length && multiValues[0].value;
         if (firstValue === null || firstValue === undefined) return 0;
-        return calculatePercentage(firstValue, min, max);
+        return calculatePercentage(firstValue, min, max, allowExceedingMax);
       }
       if (value === null || value === undefined) return 0;
-      return calculatePercentage(value, min, max);
-    }, [value, min, max, multi, multiValues]);
+      return calculatePercentage(value, min, max, allowExceedingMax);
+    }, [value, min, max, multi, multiValues, allowExceedingMax]);
 
     const renderMultiBars = useMemo(() => {
       if (!multi) return null;
@@ -127,13 +132,14 @@ const ProgressBar = forwardRef(
               color={color}
               min={min}
               max={max}
+              allowExceedingMax={allowExceedingMax}
               id={`bar_${color}_${i}`}
               key={`bar_${color}_${i}`}
             />
           ))}
         </>
       );
-    }, [min, max, animated, multiValues, multi]);
+    }, [min, max, animated, multiValues, multi, allowExceedingMax]);
 
     const renderPercentage = indicateProgress ? (
       <PercentageLabel forElement="linear-progress-bar" value={valuePercentage} />
@@ -150,6 +156,7 @@ const ProgressBar = forwardRef(
           type="secondary"
           min={min}
           max={max}
+          allowExceedingMax={allowExceedingMax}
           data-testid={ComponentDefaultTestId.BAR_SECONDARY}
         />
         <Bar
@@ -160,6 +167,7 @@ const ProgressBar = forwardRef(
           type="primary"
           min={min}
           max={max}
+          allowExceedingMax={allowExceedingMax}
           data-testid={ComponentDefaultTestId.BAR_PRIMARY}
         />
       </>
