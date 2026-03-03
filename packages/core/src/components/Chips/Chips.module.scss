@@ -40,13 +40,13 @@
   .customRenderer {
     min-width: 18px;
     &.left {
-      margin-right: var(--spacing-xs);
+      margin-inline-end: var(--spacing-xs);
     }
     &.right {
-      margin-left: var(--spacing-xs);
+      margin-inline-start: var(--spacing-xs);
     }
     &.close {
-      margin-left: var(--spacing-xs);
+      margin-inline-start: var(--spacing-xs);
       color: var(--primary-text-color);
     }
   }

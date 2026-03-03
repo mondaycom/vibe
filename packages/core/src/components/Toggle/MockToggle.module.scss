@@ -18,20 +18,20 @@
     height: var(--circle-size);
     border-radius: 50%;
     top: calc(50% - 18px / 2);
-    transition: left var(--motion-productive-medium) var(--motion-timing-transition);
+    transition: inset-inline-start var(--motion-productive-medium) var(--motion-timing-transition);
   }
 
   &.selected {
     background-color: var(--primary-color);
     &::after {
-      left: 20px;
+      inset-inline-start: 20px;
     }
   }
 
   &.notSelected {
     background-color: var(--ui-border-color);
     &::after {
-      left: 3px;
+      inset-inline-start: 3px;
     }
   }
 
@@ -54,11 +54,11 @@
     &::after {
       --circle-size: 12px;
       top: calc(50% - 6px);
-      left: 14px;
+      inset-inline-start: 14px;
     }
     &.notSelected {
       &::after {
-        left: 2px;
+        inset-inline-start: 2px;
       }
     }
   }

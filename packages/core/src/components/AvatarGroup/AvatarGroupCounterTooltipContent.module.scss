@@ -10,7 +10,7 @@
 
 .tooltipContainer {
   max-height: 300px;
-  padding-right: var(--spacing-medium);
+  padding-inline-end: var(--spacing-medium);
   align-items: flex-start !important;
   overflow-x: visible;
   overflow-y: auto;
@@ -24,7 +24,7 @@
 
 .tooltipGridContainer {
   max-width: 160px;
-  padding-right: 0;
+  padding-inline-end: 0;
 }
 .scrollableContainer {
   @include scroller();

@@ -84,7 +84,7 @@ $utilities-modules: (
       )
   ),
   "marginX": (
-    property: margin-right margin-left,
+    property: margin-inline,
     class: mx,
     values:
       map.merge(
@@ -155,7 +155,7 @@ $utilities-modules: (
     values: $utility-spacing-vars
   ),
   "paddingX": (
-    property: padding-right padding-left,
+    property: padding-inline,
     class: px,
     values: $utility-spacing-vars
   ),
