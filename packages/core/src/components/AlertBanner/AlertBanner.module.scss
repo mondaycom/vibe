@@ -38,7 +38,7 @@
   min-width: 0;
   align-items: center;
   justify-content: center;
-  padding-left: var(--spacing-medium);
+  padding-inline-start: var(--spacing-medium);
 }
 
 .closeButtonWrapper {
@@ -50,7 +50,7 @@
 
 .closeBtn {
   position: absolute;
-  right: 4px;
+  inset-inline-end: 4px;
   top: 4px;
 }
 

@@ -32,7 +32,7 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponent, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
 import {
   type VirtualizedListItem,
@@ -420,7 +420,7 @@ const VirtualizedList = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {rowRenderer as VibeComponent<ListChildComponentProps>}
+                {rowRenderer as React.ComponentType<ListChildComponentProps>}
               </List>
             );
           }}

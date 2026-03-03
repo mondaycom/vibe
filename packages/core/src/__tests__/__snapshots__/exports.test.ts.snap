@@ -130,7 +130,6 @@ exports[`exports > should export all hooks 1`] = `
   "useIsOverflowing",
   "useKeyEvent",
   "useMediaQuery",
-  "useMergeRefs",
   "usePrevious",
   "useResizeObserver",
   "useSetFocus",
