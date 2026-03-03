@@ -177,7 +177,7 @@ export const ExceedingMaxValue: Story = {
         <Text type="text1" weight="bold">
           Standard behavior (capped at 100%)
         </Text>
-        <LinearProgressBar
+        <ProgressBar
           id="standard-progress-bar"
           ariaLabel="Standard progress bar"
           value={120}
@@ -194,7 +194,7 @@ export const ExceedingMaxValue: Story = {
         <Text type="text1" weight="bold">
           Allowing exceeding max
         </Text>
-        <LinearProgressBar
+        <ProgressBar
           id="exceeding-progress-bar"
           ariaLabel="Exceeding progress bar"
           value={120}
