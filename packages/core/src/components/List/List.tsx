@@ -41,11 +41,11 @@ export interface ListProps extends VibeComponentProps {
   /**
    * The ARIA label describing the list.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The ID of an element that describes the list.
    */
-  ariaDescribedBy?: string;
+  "aria-describedby"?: string;
   /**
    * The ID of an element controlled by the list.
    */
@@ -75,8 +75,8 @@ const List = forwardRef(
       id,
       component = "ul",
       children,
-      ariaLabel,
-      ariaDescribedBy,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
       renderOnlyVisibleItems = false,
       style,

@@ -32,7 +32,7 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponent, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
 import {
   type VirtualizedListItem,
@@ -122,7 +122,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
   /**
    * The ARIA label for the list.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * Custom inline styles applied to the list.
    */
@@ -169,7 +169,7 @@ const VirtualizedList = forwardRef(
       virtualListRef,
       scrollableClassName,
       role,
-      ariaLabel,
+      "aria-label": ariaLabel,
       style,
       "data-testid": dataTestId
     }: VirtualizedListProps,
@@ -420,7 +420,7 @@ const VirtualizedList = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {rowRenderer as VibeComponent<ListChildComponentProps>}
+                {rowRenderer as React.ComponentType<ListChildComponentProps>}
               </List>
             );
           }}

@@ -13,7 +13,7 @@ type InheritedDropdownProps<Item extends BaseItemData<Record<string, unknown>>> 
     | "required"
     | "className"
     | "id"
-    | "ariaLabel"
+    | "aria-label"
     | "data-testid"
     | "error"
     | "helperText"

@@ -146,9 +146,9 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   menuRef?: React.RefObject<HTMLElement>;
   /**
-   * The submenu items, if applicable.
+   * The submenu, if applicable. Must be a single `Menu` element.
    */
-  children?: MenuChild | MenuChild[];
+  children?: MenuChild;
   /**
    * If true, enables a split menu item interaction where the main area triggers an action,
    * while the icon button opens the submenu.

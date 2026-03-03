@@ -34,11 +34,11 @@ export interface MenuProps extends VibeComponentProps {
   /**
    * ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * ARIA description ID.
    */
-  ariaDescribedBy?: string;
+  "aria-describedby"?: string;
   /**
    * If true, the menu will automatically focus on mount.
    */
@@ -88,8 +88,8 @@ const Menu = forwardRef(
       className,
       size = SIZES.MEDIUM,
       tabIndex = 0,
-      ariaLabel = "Menu",
-      ariaDescribedBy,
+      "aria-label": ariaLabel = "Menu",
+      "aria-describedby": ariaDescribedBy,
       children: originalChildren,
       isVisible = true,
       onClose,

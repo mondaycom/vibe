@@ -37,7 +37,7 @@ exports[`Slider renders correctly > 01. with empty props 1`] = `
 </div>
 `;
 
-exports[`Slider renders correctly > 02. with ariaLabel 1`] = `
+exports[`Slider renders correctly > 02. with aria-label 1`] = `
 <div
   class="slider positionTop"
   data-testid="monday-slider"
@@ -75,7 +75,7 @@ exports[`Slider renders correctly > 02. with ariaLabel 1`] = `
 </div>
 `;
 
-exports[`Slider renders correctly > 03. with ariaLabelledby 1`] = `
+exports[`Slider renders correctly > 03. with aria-labelledby 1`] = `
 <div
   class="slider positionTop"
   data-testid="monday-slider"

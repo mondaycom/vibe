@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link renders correctly > with ariaDescribedby 1`] = `
+exports[`Link renders correctly > with aria-describedby 1`] = `
 <a
   aria-describedby="aria described by"
   aria-label=""
@@ -22,7 +22,7 @@ exports[`Link renders correctly > with ariaDescribedby 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly > with ariaLabelDescription 1`] = `
+exports[`Link renders correctly > with aria-label 1`] = `
 <a
   aria-describedby=""
   aria-label="arialabel link"
@@ -44,7 +44,7 @@ exports[`Link renders correctly > with ariaLabelDescription 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly > with ariaLabeledBy 1`] = `
+exports[`Link renders correctly > with aria-labelledby 1`] = `
 <a
   aria-describedby=""
   aria-label=""

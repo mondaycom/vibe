@@ -277,9 +277,9 @@ const SplitButton = ({
             onFocus={setHovered}
             onBlur={setNotHovered}
             disabled={disabled}
-            ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
-            ariaHasPopup
-            ariaExpanded={isDialogOpen}
+            aria-label={SECONDARY_BUTTON_ARIA_LABEL}
+            aria-haspopup
+            aria-expanded={isDialogOpen}
             data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON, id)}
           >
             <div className={styles.secondaryButtonIconWrapper}>

@@ -1,4 +1,4 @@
-# Vibe Design System v4 Migration Guide
+*# Vibe Design System v4 Migration Guide
 
 > **Status**: 🚧 Under Development
 >
@@ -63,23 +63,85 @@ Some changes require manual attention:
 
 ### Components
 
+#### TextField
+
+**`iconsNames` prop replaced with flat props**
+
+The `iconsNames` object prop has been replaced with two separate string props for better API consistency.
+
+```tsx
+// Before (v3)
+<TextField iconsNames={{ primary: "Search", secondary: "Clear" }} />
+
+// After (v4)
+<TextField iconLabel="Search" secondaryIconLabel="Clear" />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
+
+**Renamed `iconName` prop to `icon`**
+
+```tsx
+// Before (v3)
+<TextField iconName={Search} placeholder="Search..." />
+
+// After (v4)
+<TextField icon={Search} placeholder="Search..." />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
 #### MenuButton
 
 **First menu item focused by default** — MenuButton now passes `focusItemIndexOnMount={0}` to Menu children. Pass `focusItemIndexOnMount={-1}` on your Menu to restore old behavior.
 
+#### ARIA Props (All Components)
+
+**Renamed camelCase ARIA props to standard HTML `aria-*` attributes**
+
+All custom camelCase ARIA props have been replaced with the standard HTML hyphenated form. React natively supports `aria-*` attributes in JSX, so the custom prop layer was unnecessary.
+
+| Old Prop | New Prop |
+|----------|----------|
+| `ariaLabel` | `aria-label` |
+| `ariaHidden` | `aria-hidden` |
+| `ariaExpanded` | `aria-expanded` |
+| `ariaControls` | `aria-controls` |
+| `ariaHasPopup` | `aria-haspopup` |
+| `ariaLabeledBy` / `ariaLabelledBy` | `aria-labelledby` |
+| `ariaDescribedBy` / `ariaDescribedby` | `aria-describedby` |
+| `ariaLabelDescription` (Link) | `aria-label` |
+
+**Affected components**: Avatar, Button, IconButton, Clickable, Checkbox, Chips, Counter, Dropdown, EditableTypography, Flex, Icon, Link, LinearProgressBar, List, Menu, MenuButton, RadioButton, Search, Slider, Switch, Toggle, VirtualizedList, and more.
+
+**Note**: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, `closeButtonAriaLabel` are **not affected** by this change.
+
+```tsx
+// Before (v3)
+<Button ariaLabel="Save" ariaExpanded={isOpen} ariaControls="menu-1" />
+<Avatar ariaHidden />
+<Checkbox ariaLabelledBy="label-id" />
+
+// After (v4)
+<Button aria-label="Save" aria-expanded={isOpen} aria-controls="menu-1" />
+<Avatar aria-hidden />
+<Checkbox aria-labelledby="label-id" />
+```
+
+**Codemod available**: `npx @vibe/codemod aria-props-migration`
+
 #### Clickable
 
-**Removed string types from `ariaHasPopup` and `tabIndex`**
+**Removed string types from `aria-haspopup` and `tabIndex`**
 
-- `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
+- `aria-haspopup` now accepts `boolean` only (was `boolean | string`)
 - `tabIndex` now accepts `number` only (was `string | number`)
 
 ```tsx
 // Before (v3)
-<Clickable tabIndex="-1" ariaHasPopup="true" />
+<Clickable tabIndex="-1" aria-haspopup="true" />
 
 // After (v4)
-<Clickable tabIndex={-1} ariaHasPopup={true} />
+<Clickable tabIndex={-1} aria-haspopup={true} />
 ```
 
 #### Chips
@@ -128,6 +190,23 @@ The `disableClickableBehavior` prop has been removed. Chips now always uses the 
 ```bash
 npx @vibe/codemod icon-props-rename src/
 ```
+
+**`size` prop now applies to `type="src"` icons**
+
+Previously, `size` (formerly `iconSize`) only affected SVG component icons. Icons loaded via URL (`type="src"`) rendered at their intrinsic SVG dimensions, ignoring the `size` prop. Now `size` sets `width` and `height` on URL-based SVG icons as well (default: `16`).
+
+```jsx
+// Before — size had no effect on src icons
+<Icon icon="https://example.com/icon.svg" type="src" size={24} />
+// SVG rendered at intrinsic dimensions (e.g. 100×100)
+
+// After — size is applied
+<Icon icon="https://example.com/icon.svg" type="src" size={24} />
+// SVG renders at 24×24
+```
+
+If you relied on intrinsic SVG dimensions for `type="src"` icons, set `size` to match the SVG's original dimensions.
+
 #### AttentionBox
 
 **Replaced legacy AttentionBox with new implementation**
@@ -170,6 +249,16 @@ import { AttentionBox } from "@vibe/core/next";
 import { AttentionBox } from "@vibe/core";
 ```
 
+#### MultiStepIndicator
+
+**Updated `react-transition-group` usage for React 19 compatibility**
+
+The `MultiStepIndicator` component's internal `StepIndicator` now uses `nodeRef` with `CSSTransition` instead of the deprecated `findDOMNode`-based approach. This is required for React 19 compatibility, as `findDOMNode` was removed in React 19.
+
+This is an internal implementation change. No changes to the public `MultiStepIndicator` or `StepIndicator` props are required.
+
+If you were extending or wrapping `StepIndicator` directly and overriding its `addEndListener` behavior, note that the callback signature no longer receives the DOM node as the first argument — this is handled internally via `nodeRef`.
+
 #### Toggle
 
 **Removed duplicate `data-testid` from internal element**
@@ -177,6 +266,21 @@ import { AttentionBox } from "@vibe/core";
 The Toggle component previously set `data-testid="toggle"` on both the input element and the internal visual div. The internal div's `data-testid` has been removed, so only the interactive input element carries the test ID.
 
 If your tests query `[data-testid="toggle"]` and expect multiple matches, update them to expect a single match.
+
+**Removed `noSpacing` prop**
+
+The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, the toggle now automatically removes its surrounding margin, which was the primary use case for `noSpacing`.
+
+- **Before:** `<Toggle areLabelsHidden noSpacing />`
+- **After:** `<Toggle areLabelsHidden />`
+
+If you used `noSpacing` without `areLabelsHidden`, wrap the toggle in a container and apply spacing/margin control there instead.
+
+A codemod is available to automatically remove the `noSpacing` prop:
+
+```bash
+npx @vibe/codemod toggle-no-spacing
+```
 
 ### Hooks
 
@@ -211,11 +315,128 @@ const {
 
 **Codemod:** ❌ Not available — remove these destructured properties manually and use the `onItemClick` you already pass to the hook.
 
+#### useKeyEvent — Callback type changed to `KeyboardEventCallback`
+
+The `callback` property in `UseKeyEventArgs` has been changed from `GenericEventCallback` to `KeyboardEventCallback`:
+
+| Property | Before (v3) | After (v4) |
+|----------|-------------|------------|
+| `callback` | `GenericEventCallback` (`(ev: Event \| React.UIEvent) => unknown`) | `KeyboardEventCallback` (`(event: KeyboardEvent) => unknown`) |
+
+**Before:**
+```tsx
+import { useKeyEvent } from "@vibe/core";
+
+useKeyEvent({
+  keys: ["Enter"],
+  callback: (event: React.KeyboardEvent) => {
+    // React synthetic event type
+    console.log(event.key);
+  }
+});
+```
+
+**After:**
+```tsx
+import { useKeyEvent } from "@vibe/core";
+
+useKeyEvent({
+  keys: ["Enter"],
+  callback: (event: KeyboardEvent) => {
+    // Native DOM KeyboardEvent
+    console.log(event.key);
+  }
+});
+```
+
+**Why:** `useKeyEvent` uses native DOM `addEventListener` internally, so callbacks always receive native `KeyboardEvent` objects at runtime. The previous `GenericEventCallback` type was overly broad and did not reflect the actual event type. This change improves type safety and developer experience.
+
+**Migration:** TypeScript will flag any type mismatches automatically. Update your callback parameter type from `React.KeyboardEvent` or `GenericEventCallback` to native `KeyboardEvent`. All standard keyboard event properties (`.key`, `.code`, `.ctrlKey`, `.preventDefault()`, etc.) are available on the native type.
+
 ### TypeScript Types
 
-<!-- This section will be populated as breaking changes are identified -->
+#### `VibeComponent` type removed
+
+The `VibeComponent<T, P>` type alias has been removed from `@vibe/core` and `@vibe/shared`. It was a thin wrapper over `React.ForwardRefExoticComponent` that didn't add value and prevented proper typing in some cases.
+
+**Before (v3):**
+```tsx
+import { type VibeComponent } from "@vibe/core";
+
+const MyComponent: VibeComponent<MyComponentProps, HTMLDivElement> = forwardRef(/* ... */);
+```
+
+**After (v4):**
+```tsx
+import { type ForwardRefExoticComponent, type RefAttributes } from "react";
+
+const MyComponent: ForwardRefExoticComponent<MyComponentProps & RefAttributes<HTMLDivElement>> = forwardRef(/* ... */);
+```
+
+Alternatively, you can remove the explicit type annotation and let TypeScript infer it from `forwardRef`:
+
+```tsx
+// TypeScript will infer the correct type
+const MyComponent = forwardRef<HTMLDivElement, MyComponentProps>(/* ... */);
+```
 
 ### CSS and Design Tokens
+
+#### Package Renamed: `monday-ui-style` → `@vibe/style`
+
+The `monday-ui-style` package has been renamed to `@vibe/style` to align with the Vibe Design System naming conventions.
+
+**Before:**
+```bash
+npm install monday-ui-style
+```
+```json
+{ "dependencies": { "monday-ui-style": "^0.26.2" } }
+```
+
+**After:**
+```bash
+npm install @vibe/style
+```
+```json
+{ "dependencies": { "@vibe/style": "^0.26.2" } }
+```
+
+**Import updates required:**
+```diff
+- import "monday-ui-style/dist/index.min.css";
++ import "@vibe/style/dist/index.min.css";
+```
+
+**SCSS import updates:**
+```diff
+- @import "~monday-ui-style/dist/functions";
+- @import "~monday-ui-style/dist/mixins";
++ @import "~@vibe/style/dist/functions";
++ @import "~@vibe/style/dist/mixins";
+```
+
+**Stylelint config updates:**
+```diff
+- "extends": ["monday-ui-style/stylelint-config"]
++ "extends": ["@vibe/style/stylelint-config"]
+
+- "monday-ui-style/use-defined-css-var-when-available": true
++ "@vibe/style/use-defined-css-var-when-available": true
+
+- "monday-ui-style/use-new-spacing-tokens": true
++ "@vibe/style/use-new-spacing-tokens": true
+```
+
+**Vite/webpack alias updates:**
+```diff
+- "monday-ui-style/dist": path.resolve("./node_modules/monday-ui-style/dist"),
++ "@vibe/style/dist": path.resolve("./node_modules/@vibe/style/dist"),
+```
+
+**Codemod:** ❌ Not available — rename your imports manually or use find-and-replace.
+
+---
 
 #### TableCellSkeleton — Removed `@supports` fallback for `aspect-ratio`
 
@@ -236,6 +457,46 @@ The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` 
 ```
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change with no automated migration path.
+
+#### All Components — CSS physical properties replaced with logical properties
+
+All component styles now use CSS logical properties instead of physical direction properties. This enables proper RTL (right-to-left) language support automatically.
+
+**Properties replaced:**
+
+| Physical property | Logical property |
+|---|---|
+| `margin-left` | `margin-inline-start` |
+| `margin-right` | `margin-inline-end` |
+| `margin-left` + `margin-right` (both) | `margin-inline` |
+| `padding-left` | `padding-inline-start` |
+| `padding-right` | `padding-inline-end` |
+| `padding-left` + `padding-right` (both) | `padding-inline` |
+| `border-left` | `border-inline-start` |
+| `border-right` | `border-inline-end` |
+| `border-left` + `border-right` (both) | `border-inline` |
+| `left` (positioning) | `inset-inline-start` |
+| `right` (positioning) | `inset-inline-end` |
+
+**Affected components:** Accordion, AlertBanner, Avatar, AvatarGroup, Badge, Button, Checkbox, Chips, ColorPicker, Combobox, DatePicker, EditableTypography, Label, ListItemAvatar, ListItemIcon, Menu (MenuItem, MenuTitle), Modal, MultiStepIndicator, ProgressBar, Search, Slider, SplitButton, Steps, TextArea, TextField, Tipseen, Toast, Toggle, and utility classes (`mx`, `px`).
+
+**Impact:** No visual change for LTR applications. RTL layouts will now render correctly without additional CSS overrides.
+
+**Migration:** If you have custom CSS that overrides Vibe component styles using physical direction properties, update those overrides to use logical properties:
+
+```css
+/* Before (v3) */
+.my-custom-override .icon {
+  margin-right: 8px;
+}
+
+/* After (v4) */
+.my-custom-override .icon {
+  margin-inline-end: 8px;
+}
+```
+
+**Codemod:** ❌ Not available — this is a CSS-only change affecting component internals. Custom overrides targeting Vibe component internals should be updated manually.
 
 ## Step-by-Step Migration
 
@@ -354,6 +615,28 @@ The internal `MenuItemIcon` component's `label` prop has been removed. This prop
 > **Note:** The `MenuItem.label` prop (visual badge like "New" or "Beta") is **not affected**.
 
 **Migration:** No action required for users of `MenuItem`. If you used `MenuItemIcon` directly, remove any `label` prop passed to it.
+
+#### `children` prop now accepts only a single `MenuChild` (not an array)
+
+The `children` prop of `MenuItem` previously accepted `MenuChild | MenuChild[]`, but passing an array was never valid at runtime — `MenuItem` always required exactly one `Menu` element as its child (enforced by `React.Children.only`). The type has been narrowed to `MenuChild` to match the actual runtime constraint.
+
+**Before (v3):**
+```tsx
+<MenuItem title="Has submenu">
+  {[<Menu key="sub">...</Menu>]}
+</MenuItem>
+```
+
+**After (v4):**
+```tsx
+<MenuItem title="Has submenu">
+  <Menu>...</Menu>
+</MenuItem>
+```
+
+**Migration:** Replace any array-wrapped `children` with a single `Menu` element. If your code already passes a single `Menu` as `children`, no change is needed.
+
+> **No codemod available.** This is a type-only narrowing — passing an array was a runtime error in v3 as well.
 
 ### Flex
 
@@ -773,6 +1056,50 @@ If you have custom CSS that overrides Link icon spacing using physical direction
 
 **Codemod:** ❌ Not available — this is a CSS-only change. Search your codebase for overrides targeting Link's `.iconStart` or `.iconEnd` classes and update to logical properties.
 
+#### VirtualizedGrid
+
+**Fixed `itemRenderer` return type**
+
+The `itemRenderer` prop had an incorrect return type of `ItemType | GridChildComponentProps<ItemType>`. This caused TypeScript errors when passing valid JSX renderers. The type is now `ReactElement`.
+
+**Before (v3):**
+
+```tsx
+// TypeScript would show errors with this usage:
+<VirtualizedGrid
+  items={items}
+  itemRenderer={(item, index, style) => (
+    <div key={index} style={style}>{item.value}</div>
+  )}
+/>
+```
+
+**After (v4):**
+
+```tsx
+// Works correctly — no type changes needed at the call site:
+<VirtualizedGrid
+  items={items}
+  itemRenderer={(item, index, style) => (
+    <div key={index} style={style}>{item.value}</div>
+  )}
+/>
+```
+
+If you had explicit type annotations for `itemRenderer` referencing the old return type, update them:
+
+```typescript
+// Before (v3)
+const renderer: (item: VirtualizedGridItemType, index: number, style: CSSProperties) =>
+  VirtualizedGridItemType | GridChildComponentProps<VirtualizedGridItemType> = ...;
+
+// After (v4)
+const renderer: (item: VirtualizedGridItemType, index: number, style: CSSProperties) =>
+  ReactElement = ...;
+```
+
+**Codemod:** ❌ Not available — this is a type-only change with no runtime impact.
+
 ### Other Components
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
@@ -899,4 +1226,4 @@ If you encounter issues after migration:
 
 ---
 
-*This guide is updated regularly. Check back for the latest migration information and best practices.*
+*This guide is updated regularly. Check back for the latest migration information and best practices.**

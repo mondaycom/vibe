@@ -21,7 +21,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   /**
    * The accessible label for the icon.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The tab index of the icon for keyboard navigation.
    */
@@ -33,7 +33,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   /**
    * If true, hides the icon from screen readers.
    */
-  ariaHidden?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * If true, replaces the `fill` attribute in the SVG with `currentColor`.
    */
@@ -42,6 +42,10 @@ export interface CustomSvgIconProps extends VibeComponentProps {
    * Overrides the default color of the icon.
    */
   customColor?: string;
+  /**
+   * The size (width and height) of the icon.
+   */
+  size?: number | string;
   /**
    * Reference to the SVG element.
    */
@@ -52,10 +56,11 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   className,
   ref,
   src,
-  ariaLabel,
-  ariaHidden,
+  "aria-label": ariaLabel,
+  "aria-hidden": ariaHidden,
   replaceToCurrentColor = false,
   customColor,
+  size,
   id,
   "data-testid": dataTestId
 }) => {
@@ -95,6 +100,8 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       src={src}
       className={className}
       preProcessor={svgProcessor}
+      width={size}
+      height={size}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
       data-vibe={ComponentVibeId.ICON}

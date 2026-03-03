@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Counter renders correctly > with ariaLabeledBy 1`] = `
+exports[`Counter renders correctly > with aria-labelledby 1`] = `
 <span
   aria-label=" 0"
   aria-labelledby="aria label"

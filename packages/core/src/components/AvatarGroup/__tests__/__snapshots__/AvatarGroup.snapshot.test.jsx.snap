@@ -90,7 +90,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counter 1`] = `
 </div>
 `;
 
-exports[`AvatarGroup renders correctly > renders correctly with counter ariaLabel default-tooltip 1`] = `
+exports[`AvatarGroup renders correctly > renders correctly with counter aria-label default-tooltip 1`] = `
 <div
   className="avatarGroupContainer"
   data-vibe="AvatarGroup"

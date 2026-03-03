@@ -18,7 +18,7 @@ import { type TooltipPositions } from "@vibe/tooltip";
 type ButtonGroupOption = {
   icon?: SubIcon;
   leftIcon?: SubIcon;
-  ariaLabel?: string;
+  "aria-label"?: string;
   subText?: string;
   value: ButtonValue;
   text: string;
@@ -161,7 +161,7 @@ const ButtonGroup = forwardRef(
             leftFlat={index !== 0}
             kind="tertiary"
             preventClickAnimation
-            ariaLabel={option.ariaLabel}
+            aria-label={option["aria-label"]}
             tooltipContent={option.tooltipContent}
             tooltipPosition={tooltipPosition}
             tooltipHideDelay={tooltipHideDelay}

@@ -28,7 +28,7 @@ export const Overview = {
 
   args: {
     id: "overview-chip",
-    ariaLabel: "Overview chip",
+    "aria-label": "Overview chip",
     label: "This is a chip",
     onMouseDown: () => {},
     onClick: () => {}
@@ -43,17 +43,17 @@ export const Overview = {
 };
 
 export const ChipsWithReadOnlyState = {
-  render: () => <Chips id="readonly-chip" ariaLabel="Read only chip" label="Read only chip" readOnly />,
+  render: () => <Chips id="readonly-chip" aria-label="Read only chip" label="Read only chip" readOnly />,
   name: "Chips with read only state"
 };
 
 export const ChipsWithIcons = {
   render: () => (
     <Flex gap="medium">
-      <Chips id="chip-left-icon" ariaLabel="Chip with left email icon" label="Chip with left icon" leftIcon={Email} />
+      <Chips id="chip-left-icon" aria-label="Chip with left email icon" label="Chip with left icon" leftIcon={Email} />
       <Chips
         id="chip-right-icon"
-        ariaLabel="Chip with right email icon"
+        aria-label="Chip with right email icon"
         label="Chip with right icon"
         rightIcon={Email}
       />
@@ -74,13 +74,13 @@ export const ChipsWithAvatars = {
     <Flex gap="medium">
       <Chips
         id="chip-left-avatar"
-        ariaLabel="Chip with left avatar"
+        aria-label="Chip with left avatar"
         label="Chip with left avatar"
         leftAvatar={person1}
       />
       <Chips
         id="chip-right-avatar"
-        ariaLabel="Chip with right avatar"
+        aria-label="Chip with right avatar"
         label="Chip with right avatar"
         rightAvatar={person1}
       />
@@ -99,12 +99,12 @@ export const ChipsWithAvatars = {
 export const Themes = {
   render: () => (
     <>
-      <Chips id="theme-long" ariaLabel="Long chip" label="This is a long chip" />
-      <Chips id="theme-positive" ariaLabel="Positive chip" label="Chip positive" color="positive" />
-      <Chips id="theme-negative" ariaLabel="Negative chip" label="Chip negative" color="negative" />
-      <Chips id="theme-warning" ariaLabel="Warning chip" label="Chip warning" color="warning" />
-      <Chips id="theme-neutral" ariaLabel="Neutral chip" label="Chip neutral" color="neutral" />
-      <Chips id="theme-disabled" ariaLabel="Disabled chip" label="Disabled" disabled />
+      <Chips id="theme-long" aria-label="Long chip" label="This is a long chip" />
+      <Chips id="theme-positive" aria-label="Positive chip" label="Chip positive" color="positive" />
+      <Chips id="theme-negative" aria-label="Negative chip" label="Chip negative" color="negative" />
+      <Chips id="theme-warning" aria-label="Warning chip" label="Chip warning" color="warning" />
+      <Chips id="theme-neutral" aria-label="Neutral chip" label="Chip neutral" color="neutral" />
+      <Chips id="theme-disabled" aria-label="Disabled chip" label="Disabled" disabled />
     </>
   ),
   name: "Themes"
@@ -116,14 +116,14 @@ export const Clickable = {
       <Flex direction="row" gap="medium" align="start">
         <Chips
           id="clickable-default"
-          ariaLabel="Clickable default chip"
+          aria-label="Clickable default chip"
           label="Clickable default chip"
           readOnly
           onClick={() => {}}
         />
         <Chips
           id="clickable-removable"
-          ariaLabel="Clickable removable chip"
+          aria-label="Clickable removable chip"
           label="Clickable removable chip"
           onClick={() => {}}
         />

@@ -58,15 +58,15 @@ export interface ButtonProps extends VibeComponentProps {
   /** adds 8px margin to the left */
   marginLeft?: boolean;
   /** element id to describe the button accordingly */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /** aria label to provide important when providing only Icon */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /** aria for a button popup */
-  ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
+  "aria-haspopup"?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /** aria to be set if the popup is open */
-  ariaExpanded?: boolean;
+  "aria-expanded"?: boolean;
   /** aria controls - receives id for the controlled region */
-  ariaControls?: string;
+  "aria-controls"?: string;
   "aria-describedby"?: AriaAttributes["aria-describedby"];
   /**
    * aria to be used for screen reader to know if the button is hidden
@@ -119,18 +119,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       marginLeft = false,
       type = "button",
       onMouseDown = NOOP,
-      ariaLabel,
+      "aria-label": ariaLabel,
       rightFlat = false,
       leftFlat = false,
       preventClickAnimation = false,
       noSidePadding = false,
       onFocus = NOOP,
       onBlur = NOOP,
-      ariaLabeledBy,
+      "aria-labelledby": ariaLabelledBy,
       defaultTextColorOnPrimaryColor = TRANSPARENT_COLOR,
-      ariaExpanded,
-      ariaHasPopup,
-      ariaControls,
+      "aria-expanded": ariaExpanded,
+      "aria-haspopup": ariaHasPopup,
+      "aria-controls": ariaControls,
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       "aria-pressed": ariaPressed,
@@ -251,7 +251,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
-        "aria-labelledby": ariaLabeledBy,
+        "aria-labelledby": ariaLabelledBy,
         "aria-label": ariaLabel,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
@@ -277,7 +277,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onMouseDownClicked,
       disabled,
       loading,
-      ariaLabeledBy,
+      ariaLabelledBy,
       ariaLabel,
       ariaHasPopup,
       ariaExpanded,

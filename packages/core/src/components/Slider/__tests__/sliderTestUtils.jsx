@@ -5,7 +5,7 @@ import Slider from "../Slider";
 export const SLIDER_LABEL = "my-slider";
 
 export async function renderSliderInNonRangeMode(props = {}) {
-  const renderResult = render(<Slider ariaLabel={SLIDER_LABEL} defaultValue={20} {...props} />);
+  const renderResult = render(<Slider aria-label={SLIDER_LABEL} defaultValue={20} {...props} />);
   // noinspection JSCheckFunctionSignatures
   const elThumb = await screen.findByLabelText(SLIDER_LABEL);
   return { ...renderResult, elThumb };

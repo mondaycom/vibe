@@ -45,7 +45,7 @@ export interface IconProps extends VibeComponentProps {
   /**
    * If true, hides the icon from screen readers.
    */
-  ariaHidden?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * Inline styles applied to the icon.
    */
@@ -74,7 +74,7 @@ const Icon = forwardRef(
       size = 16,
       ignoreFocusStyle = false,
       tabindex: externalTabIndex,
-      ariaHidden,
+      "aria-hidden": ariaHidden,
       style,
       useCurrentColor = false,
       customColor,
@@ -120,6 +120,7 @@ const Icon = forwardRef(
           className={cx(computedClassName)}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
+          size={size}
           data-testid={overrideDataTestId}
         />
       );

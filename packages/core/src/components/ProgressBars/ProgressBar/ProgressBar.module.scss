@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .wrapper {
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 .label {
-  padding-left: var(--spacing-xs);
+  padding-inline-start: var(--spacing-xs);
 }
 
 .large {

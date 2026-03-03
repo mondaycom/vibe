@@ -1,11 +1,11 @@
 ---
-description: "Comprehensive guide for adding, modifying, and managing color tokens in the monday-ui-style package (@style). Covers SCSS theme files, build process, naming conventions, and special handling for hacker theme."
+description: "Comprehensive guide for adding, modifying, and managing color tokens in the @vibe/style package. Covers SCSS theme files, build process, naming conventions, and special handling for hacker theme."
 globs: "packages/style/**/*"
 ---
 
-# Color Token Management for monday-ui-style (@style)
+# Color Token Management for @vibe/style
 
-This rule provides a complete guide for managing color tokens in the `@style` package, which publishes as `monday-ui-style`.
+This rule provides a complete guide for managing color tokens in the `@style` package, which publishes as `@vibe/style`.
 
 ## Package Structure Overview
 

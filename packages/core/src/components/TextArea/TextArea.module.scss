@@ -1,5 +1,5 @@
 @import "../../styles/typography";
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .textAreaWrapper {
   display: flex;
@@ -28,7 +28,7 @@
     }
 
     .limitText {
-      margin-left: auto;
+      margin-inline-start: auto;
     }
   }
 
