@@ -152,7 +152,7 @@ const Modal = forwardRef(
           <ModalProvider value={contextValue}>
             {createPortal(
               <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
-                <div ref={containerRef} className={styles.container} style={zIndexStyle}>
+                <div ref={containerRef} className={styles.container} style={zIndexStyle} onKeyDown={onModalKeyDown}>
                   <div
                     data-testid={getTestId(ComponentDefaultTestId.MODAL_OVERLAY, id)}
                     className={styles.overlay}
@@ -176,7 +176,6 @@ const Modal = forwardRef(
                       aria-labelledby={ariaLabelledby || titleId}
                       aria-describedby={ariaDescribedby || descriptionId}
                       style={{ ...style, ...anchorVars }}
-                      onKeyDown={onModalKeyDown}
                       tabIndex={-1}
                     >
                       {children}
