@@ -1,3 +1,7 @@
 :root {
   --disabled-component-opacity: 0.38;
 }
+
+[data-vibe] {
+  box-sizing: border-box;
+}

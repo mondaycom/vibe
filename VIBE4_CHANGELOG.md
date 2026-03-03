@@ -439,6 +439,15 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### CSS and Styling
 
+#### Box Sizing
+
+- [x] **Status**: Done
+- **Change**: All Vibe component root elements now use `box-sizing: border-box` via a global `[data-vibe]` CSS selector
+- **Reason**: Ensures consistent, predictable sizing across all components — padding and borders are included within the declared width/height
+- **Migration**: If your layout relies on `content-box` sizing of Vibe component roots (padding/border additive to width/height), override with `[data-vibe] { box-sizing: content-box; }` for specific components or globally
+- **Codemod**: ❌ Not applicable (CSS-only change)
+- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029168)
+
 #### TableCellSkeleton
 
 - [x] **Status**: Complete

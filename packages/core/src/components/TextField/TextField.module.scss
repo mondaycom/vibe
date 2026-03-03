@@ -3,7 +3,6 @@
 
 .textField {
   position: relative;
-  box-sizing: border-box;
   @include font-input;
   width: 100%;
 }

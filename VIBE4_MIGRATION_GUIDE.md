@@ -184,6 +184,41 @@ If your tests query `[data-testid="toggle"]` and expect multiple matches, update
 
 ### CSS and Design Tokens
 
+#### Global `box-sizing: border-box` for all components
+
+All Vibe component root elements now use `box-sizing: border-box`. Previously, most components used the browser default `content-box`, meaning padding and borders were additive to the element's declared width/height. With `border-box`, padding and borders are included within the declared dimensions.
+
+This is applied via a single global CSS rule targeting the `[data-vibe]` attribute that every Vibe component places on its root element.
+
+**Impact:** If your layout relies on Vibe components using `content-box` sizing (where padding and borders add to the element's width/height), elements may now render smaller by the amount of their padding and border.
+
+**Before (v3):**
+```css
+/* Vibe components used the browser default content-box */
+/* A component with width: 200px and padding: 16px rendered at 232px total */
+```
+
+**After (v4):**
+```css
+/* All Vibe component roots use border-box */
+/* A component with width: 200px and padding: 16px renders at 200px total */
+```
+
+**To restore old behavior** for a specific component or globally:
+```css
+/* Override for a specific component */
+[data-vibe="MyComponent"] {
+  box-sizing: content-box;
+}
+
+/* Override globally (not recommended) */
+[data-vibe] {
+  box-sizing: content-box;
+}
+```
+
+**Codemod:** Not applicable — this is a CSS-only change.
+
 #### TableCellSkeleton — Removed `@supports` fallback for `aspect-ratio`
 
 The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` blocks have been removed from the `TableCellSkeleton` styles. The `aspect-ratio: 1 / 1` property is now applied unconditionally to `.circle` and `.rectangle` skeleton types.
