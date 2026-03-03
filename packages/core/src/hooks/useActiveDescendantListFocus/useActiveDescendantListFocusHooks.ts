@@ -1,7 +1,7 @@
 import { type MutableRefObject } from "react";
 import type React from "react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import useKeyEvent, { type UseKeyEventArgs, type KeyboardEventCallback } from "../useKeyEvent";
+import useKeyEvent, { type UseKeyEventArgs } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
@@ -127,17 +127,17 @@ export function useSupportPressItemKeyboardNavigation({
   );
 
   const baseOnClickCallback = useCallback(
-    (event: React.KeyboardEvent, itemIndex: number) => {
+    (event: KeyboardEvent, itemIndex: number) => {
       const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
       if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
       if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
-      onItemClick(event, itemIndex);
+      onItemClick(event as unknown as React.KeyboardEvent, itemIndex);
     },
     [itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, setVisualFocusItemIndex]
   );
 
   const keyboardOnSelectCallback = useCallback(
-    (event: React.KeyboardEvent) => {
+    (event: KeyboardEvent) => {
       // we desire to change the trigger the active item on click callback only if the user pressed on the keyboard arrows keys while
       // the focusedElementRef is naturally focus
       if (focusedElementRef.current.contains(document.activeElement)) {
@@ -149,7 +149,7 @@ export function useSupportPressItemKeyboardNavigation({
 
   useKeyEvent({
     keys: pressKeys,
-    callback: keyboardOnSelectCallback as unknown as KeyboardEventCallback,
+    callback: keyboardOnSelectCallback,
     ...listenerOptions
   });
 }
