@@ -322,6 +322,28 @@ The internal `MenuItemIcon` component's `label` prop has been removed. This prop
 
 **Migration:** No action required for users of `MenuItem`. If you used `MenuItemIcon` directly, remove any `label` prop passed to it.
 
+#### `children` prop now accepts only a single `MenuChild` (not an array)
+
+The `children` prop of `MenuItem` previously accepted `MenuChild | MenuChild[]`, but passing an array was never valid at runtime — `MenuItem` always required exactly one `Menu` element as its child (enforced by `React.Children.only`). The type has been narrowed to `MenuChild` to match the actual runtime constraint.
+
+**Before (v3):**
+```tsx
+<MenuItem title="Has submenu">
+  {[<Menu key="sub">...</Menu>]}
+</MenuItem>
+```
+
+**After (v4):**
+```tsx
+<MenuItem title="Has submenu">
+  <Menu>...</Menu>
+</MenuItem>
+```
+
+**Migration:** Replace any array-wrapped `children` with a single `Menu` element. If your code already passes a single `Menu` as `children`, no change is needed.
+
+> **No codemod available.** This is a type-only narrowing — passing an array was a runtime error in v3 as well.
+
 ### Flex
 
 #### Removed `"stretch"` from `justify` prop
