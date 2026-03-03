@@ -65,6 +65,20 @@ Some changes require manual attention:
 
 #### TextField
 
+**`iconsNames` prop replaced with flat props**
+
+The `iconsNames` object prop has been replaced with two separate string props for better API consistency.
+
+```tsx
+// Before (v3)
+<TextField iconsNames={{ primary: "Search", secondary: "Clear" }} />
+
+// After (v4)
+<TextField iconLabel="Search" secondaryIconLabel="Clear" />
+```
+
+**Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
+
 **Renamed `iconName` prop to `icon`**
 
 ```tsx
