@@ -404,26 +404,48 @@ The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` 
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change with no automated migration path.
 
-<<<<<<< breaking-change/input-placeholder-color-and-textfield-padding
-#### TextField — Reduced `padding-block` from 8px to 4px
+#### Input Padding — Reduced block and inline padding
 
-TextField's vertical (`padding-block`) padding has been reduced from `var(--spacing-small)` (8px) to `var(--spacing-xs)` (4px). This applies to all sizes (small, medium, large) and all variants (default, with icon, underline).
+Input padding has been tightened across all input components:
 
-**Impact:** TextField content will be positioned closer to the top and bottom borders. The overall component height remains the same (controlled by the wrapper), but the text inside will have less vertical padding.
+1. **TextField `padding-block`**: Reduced from `var(--spacing-small)` (8px) to `var(--spacing-xs)` (4px) across all sizes and variants.
+2. **`padding-inline-start`**: Reduced from `var(--spacing-medium)` (16px) to `var(--spacing-small)` (8px) in TextField, BaseInput, TextArea, and Dropdown Trigger. Where both inline-start and inline-end were identical (`--spacing-medium`), both were reduced to `--spacing-small`.
+
+**Impact:** Input content will be positioned closer to borders. Component heights remain the same (controlled by wrappers), but text will have less padding.
+
+**Affected components:** TextField, BaseInput, TextArea, Dropdown Trigger
 
 **Before:**
 ```scss
-/* TextField internal padding was: */
+/* TextField */
 padding: var(--spacing-small) var(--spacing-medium); /* 8px 16px */
+
+/* BaseInput */
+padding-inline: var(--spacing-medium) var(--spacing-xs); /* start: 16px, end: 4px */
+
+/* TextArea */
+padding: var(--spacing-small) var(--spacing-medium); /* 8px 16px */
+
+/* Dropdown Trigger placeholder */
+padding-inline-start: var(--spacing-medium); /* 16px */
 ```
 
 **After:**
 ```scss
-/* TextField internal padding is now: */
-padding: var(--spacing-xs) var(--spacing-medium); /* 4px 16px */
+/* TextField */
+padding: var(--spacing-xs) var(--spacing-small); /* 4px 8px */
+
+/* BaseInput */
+padding-inline: var(--spacing-small) var(--spacing-xs); /* start: 8px, end: 4px */
+
+/* TextArea */
+padding: var(--spacing-small) var(--spacing-small); /* 8px 8px */
+
+/* Dropdown Trigger placeholder */
+padding-inline-start: var(--spacing-small); /* 8px */
 ```
 
-**Migration:** No code changes required. If you have custom CSS that depends on the internal padding value of TextField being 8px, update your overrides to account for the new 4px vertical padding.
+**Migration:** No code changes required. If you have custom CSS that depends on internal input padding values, update your overrides.
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change.
 
@@ -452,7 +474,7 @@ All input components now use the `--placeholder-color` design token for placehol
 **Migration:** No code changes required. If your custom CSS overrides `--secondary-text-color` to control input placeholder appearance, override `--placeholder-color` instead. TextArea now also has explicit `::placeholder` styling (previously inherited from the browser default).
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change.
-=======
+
 #### All Components — CSS physical properties replaced with logical properties
 
 All component styles now use CSS logical properties instead of physical direction properties. This enables proper RTL (right-to-left) language support automatically.
@@ -492,7 +514,6 @@ All component styles now use CSS logical properties instead of physical directio
 ```
 
 **Codemod:** ❌ Not available — this is a CSS-only change affecting component internals. Custom overrides targeting Vibe component internals should be updated manually.
->>>>>>> vibe4
 
 ## Step-by-Step Migration
 

@@ -7,7 +7,7 @@
   align-items: center;
   gap: var(--spacing-small);
   padding-block: var(--spacing-xs);
-  padding-inline: var(--spacing-medium) var(--spacing-xs);
+  padding-inline: var(--spacing-small) var(--spacing-xs);
 
   @include vibe-text(text1, normal);
   @include smoothing-text;

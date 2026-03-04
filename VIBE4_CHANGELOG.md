@@ -505,12 +505,12 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029198)
 - **PR**: TBD
 
-#### TextField Padding
+#### Input Padding
 
 - [x] **Status**: Complete
-- **Change**: Reduced TextField `padding-block` from `var(--spacing-small)` (8px) to `var(--spacing-xs)` (4px) across all sizes and variants
-- **Reason**: Aligns TextField vertical padding with BaseInput for consistent input height and content spacing across all input components
-- **Migration**: No code changes required. If your custom CSS depends on the TextField internal padding being 8px, update accordingly
+- **Change**: Reduced TextField `padding-block` from `var(--spacing-small)` (8px) to `var(--spacing-xs)` (4px). Reduced `padding-inline-start` from `var(--spacing-medium)` (16px) to `var(--spacing-small)` (8px) across TextField, BaseInput, TextArea, and Dropdown Trigger. Where both inline-start and inline-end were identical (`--spacing-medium`), both were reduced to `--spacing-small`
+- **Reason**: Aligns input padding for consistent, tighter content spacing across all input components
+- **Migration**: No code changes required. If your custom CSS depends on internal input padding values, update accordingly
 - **Codemod**: ❌ Not applicable (CSS-only change)
 - **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029006)
 - **PR**: TBD
