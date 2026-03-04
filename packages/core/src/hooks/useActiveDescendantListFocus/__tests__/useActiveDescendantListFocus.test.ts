@@ -169,7 +169,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
       userEvent.keyboard(oppositeMoveForwardKey);
     });
 
-    let before = result.current.visualFocusItemIndex;
+    const before = result.current.visualFocusItemIndex;
     act(() => {
       // move visual focus to first item
       userEvent.keyboard(oppositeMoveForwardKey);
@@ -200,14 +200,14 @@ const combineFeatures = features => {
   const combinations = [];
   // all closed
   const allClosedComb = {};
-  for (let feature of features) {
+  for (const feature of features) {
     allClosedComb[feature] = false;
   }
   combinations.push(allClosedComb);
 
   // all open
   const allOpenComb = {};
-  for (let feature of features) {
+  for (const feature of features) {
     allOpenComb[feature] = true;
   }
   combinations.push(allOpenComb);

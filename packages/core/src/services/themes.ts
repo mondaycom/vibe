@@ -8,16 +8,17 @@ function isThemesSupported() {
   }
 }
 
-export function getCSSVar(varName, fallback) {
+export function getCSSVar(varName: string, fallback?: string) {
   const fb = fallback ? `, ${fallback}` : "";
   if (isThemesSupported()) {
     return `var(--${varName}${fb})`;
   }
 }
 
-export const getComputedVarColor = (elem, cssVar) => getComputedStyle(elem).getPropertyValue(`--${cssVar}`);
+export const getComputedVarColor = (elem: Element, cssVar: string) =>
+  getComputedStyle(elem).getPropertyValue(`--${cssVar}`);
 
-export function hexToRgb(hex) {
+export function hexToRgb(hex: string) {
   if (hex.startsWith("#")) {
     hex = hex.substring(1);
   }

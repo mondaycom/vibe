@@ -1,7 +1,21 @@
 const LAST_ITEM_ID = "~~~lastItem~~~";
-const EMPTY_OBJECT = {};
-export const getNormalizedItems = (items, idGetter, sizeGetter) => {
-  const normalizedItems = {};
+const EMPTY_OBJECT: Record<string, never> = {};
+
+type NormalizedItem<T> = {
+  item: T;
+  index: number;
+  height: number;
+  size: number;
+  offsetTop: number;
+  offset: number;
+};
+
+type NormalizedItems<T> = Record<string, NormalizedItem<T>>;
+type IdGetter<T> = (item: T, index: number) => string;
+type SizeGetter<T> = (item: T, index: number) => number;
+
+export const getNormalizedItems = <T>(items: T[], idGetter: IdGetter<T>, sizeGetter: SizeGetter<T>) => {
+  const normalizedItems: NormalizedItems<T> = {};
   let offset = 0;
 
   const lastIndex = items.length - 1;
@@ -19,26 +33,32 @@ export const getNormalizedItems = (items, idGetter, sizeGetter) => {
   return normalizedItems;
 };
 
-export const isItemInView = (item, scrollTop, offsetHeight) => {
+export const isItemInView = (item: { offsetTop: number }, scrollTop: number, offsetHeight: number) => {
   const isItemUnderTheViewableArea = item.offsetTop > scrollTop + offsetHeight;
   const isItemAboveTheViewableArea = item.offsetTop < scrollTop;
 
   return !isItemUnderTheViewableArea && !isItemAboveTheViewableArea;
 };
 
-export const getMaxOffset = (offsetSize, normalizedItems) => {
+export const getMaxOffset = <T>(offsetSize: number, normalizedItems: NormalizedItems<T>) => {
   const lastItem = normalizedItems[LAST_ITEM_ID];
   if (!lastItem) return 0;
   const { size, offset } = lastItem;
   return offset + size - offsetSize; // max offset
 };
 
-export const easeInOutQuint = time => {
+export const easeInOutQuint = (time: number) => {
   let t = time;
   return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
 };
 
-function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
+function findItemAtOffset<T>(
+  items: T[],
+  normalizedItems: NormalizedItems<T>,
+  idGetter: IdGetter<T>,
+  fromIndex: number,
+  offset: number
+) {
   for (let i = fromIndex; i < items.length; i++) {
     const itemId = idGetter(items[i], i);
     const normalizedItem = normalizedItems[itemId];
@@ -52,10 +72,15 @@ function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
 
 // for vertical layout - this returns true when vertical scrollbar visible
 // for horizontal layout - this returns true when horizontal scrollbar visible
-export const isLayoutDirectionScrollbarVisible = (items, normalizedItems, idGetter, componentSize) => {
+export const isLayoutDirectionScrollbarVisible = <T>(
+  items: T[],
+  normalizedItems: NormalizedItems<T>,
+  idGetter: IdGetter<T>,
+  componentSize: number
+) => {
   if (!componentSize) return false;
   const lastExistingItem = items[items.length - 1] || EMPTY_OBJECT;
-  const lastExistingItemId = idGetter(lastExistingItem, items.length - 1);
+  const lastExistingItemId = idGetter(lastExistingItem as T, items.length - 1);
   const normalizedItem = normalizedItems[lastExistingItemId];
   if (!normalizedItem) return false;
   const { offset: lastExistingItemIdOffset, size: lastExistingItemSize } = normalizedItems[lastExistingItemId];
@@ -64,29 +89,29 @@ export const isLayoutDirectionScrollbarVisible = (items, normalizedItems, idGett
   return isVisible;
 };
 
-function isEmptyObject(obj) {
+function isEmptyObject(obj: unknown) {
   return obj === EMPTY_OBJECT;
 }
 
-export const getOnItemsRenderedData = (
-  items,
-  normalizedItems,
-  idGetter,
-  visibleStartIndex,
-  visibleStopIndex,
-  listSize,
-  currentOffsetTop
+export const getOnItemsRenderedData = <T>(
+  items: T[],
+  normalizedItems: NormalizedItems<T>,
+  idGetter: IdGetter<T>,
+  visibleStartIndex: number,
+  visibleStopIndex: number,
+  listSize: number,
+  currentOffsetTop: number
 ) => {
   const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
   const secondVisibleItem = items[visibleStartIndex + 1] || EMPTY_OBJECT;
   const lastVisibleItem = items[visibleStopIndex] || EMPTY_OBJECT;
-  const firstItemId = isEmptyObject(firstVisibleItem) ? undefined : idGetter(firstVisibleItem, visibleStartIndex);
+  const firstItemId = isEmptyObject(firstVisibleItem) ? undefined : idGetter(firstVisibleItem as T, visibleStartIndex);
   const secondItemId = isEmptyObject(secondVisibleItem)
     ? undefined
-    : idGetter(secondVisibleItem, visibleStartIndex + 1);
-  const lastItemId = isEmptyObject(lastVisibleItem) ? undefined : idGetter(lastVisibleItem, visibleStopIndex);
+    : idGetter(secondVisibleItem as T, visibleStartIndex + 1);
+  const lastItemId = isEmptyObject(lastVisibleItem) ? undefined : idGetter(lastVisibleItem as T, visibleStopIndex);
   const centerOffset = currentOffsetTop + listSize / 2;
-  const { offsetTop: firstItemOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId] || EMPTY_OBJECT;
+  const { offsetTop: firstItemOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId!] || EMPTY_OBJECT;
   const firstItemOffsetEnd = firstItemOffsetTop + firstItemHeight;
   const centerItemId = findItemAtOffset(items, normalizedItems, idGetter, visibleStartIndex, centerOffset);
 
