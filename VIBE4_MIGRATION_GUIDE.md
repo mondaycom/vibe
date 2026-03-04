@@ -23,6 +23,7 @@ npx @vibe/codemod --migration v4
 ```
 
 The codemod will handle most of the migration automatically, including:
+
 - Component prop renames and updates
 - Import path changes
 - TypeScript type updates
@@ -31,6 +32,7 @@ The codemod will handle most of the migration automatically, including:
 ### Manual Review Required
 
 Some changes require manual attention:
+
 - Custom CSS that uses Vibe design tokens
 - Components that extend or wrap Vibe components
 - Complex TypeScript type usage
@@ -38,21 +40,25 @@ Some changes require manual attention:
 ## What's New in v4
 
 ### 🎯 Performance Improvements
+
 - Reduced bundle size through tree shaking optimizations
 - Lazy loading for non-critical components
 - Improved rendering performance
 
 ### 🔧 Developer Experience
+
 - Better TypeScript support with stricter types
 - Simplified component APIs
 - Enhanced error messages and warnings
 
 ### ♿ Accessibility Enhancements
+
 - WCAG 2.2 compliance improvements
 - Better screen reader support
 - Enhanced keyboard navigation
 
 ### 🎨 Design System Evolution
+
 - Updated design tokens
 - Consistent spacing and typography
 - Refined color palette
@@ -90,6 +96,7 @@ The `iconsNames` object prop has been replaced with two separate string props fo
 ```
 
 **Codemod available**: This change is handled automatically by `npx @vibe/codemod --migration v4`
+
 #### MenuButton
 
 **First menu item focused by default** — MenuButton now passes `focusItemIndexOnMount={0}` to Menu children. Pass `focusItemIndexOnMount={-1}` on your Menu to restore old behavior.
@@ -100,16 +107,16 @@ The `iconsNames` object prop has been replaced with two separate string props fo
 
 All custom camelCase ARIA props have been replaced with the standard HTML hyphenated form. React natively supports `aria-*` attributes in JSX, so the custom prop layer was unnecessary.
 
-| Old Prop | New Prop |
-|----------|----------|
-| `ariaLabel` | `aria-label` |
-| `ariaHidden` | `aria-hidden` |
-| `ariaExpanded` | `aria-expanded` |
-| `ariaControls` | `aria-controls` |
-| `ariaHasPopup` | `aria-haspopup` |
-| `ariaLabeledBy` / `ariaLabelledBy` | `aria-labelledby` |
+| Old Prop                              | New Prop           |
+| ------------------------------------- | ------------------ |
+| `ariaLabel`                           | `aria-label`       |
+| `ariaHidden`                          | `aria-hidden`      |
+| `ariaExpanded`                        | `aria-expanded`    |
+| `ariaControls`                        | `aria-controls`    |
+| `ariaHasPopup`                        | `aria-haspopup`    |
+| `ariaLabeledBy` / `ariaLabelledBy`    | `aria-labelledby`  |
 | `ariaDescribedBy` / `ariaDescribedby` | `aria-describedby` |
-| `ariaLabelDescription` (Link) | `aria-label` |
+| `ariaLabelDescription` (Link)         | `aria-label`       |
 
 **Affected components**: Avatar, Button, IconButton, Clickable, Checkbox, Chips, Counter, Dropdown, EditableTypography, Flex, Icon, Link, LinearProgressBar, List, Menu, MenuButton, RadioButton, Search, Slider, Switch, Toggle, VirtualizedList, and more.
 
@@ -163,11 +170,13 @@ The `disableClickableBehavior` prop has been removed. Chips now always uses the 
 #### Icon Component API Changes
 
 **Props Renamed - Remove "icon" Prefix**
+
 - ❌ **Removed**: `iconLabel`, `iconType`, `iconSize` props
 - ✅ **Added**: `label`, `type`, `size` props with same functionality
 - **Reason**: Simplified API for better consistency and reduced verbosity
 
 **Migration:**
+
 ```jsx
 // Before
 <Icon
@@ -187,6 +196,7 @@ The `disableClickableBehavior` prop has been removed. Chips now always uses the 
 ```
 
 **Automated Migration Available:**
+
 ```bash
 npx @vibe/codemod icon-props-rename src/
 ```
@@ -214,6 +224,7 @@ If you relied on intrinsic SVG dimensions for `type="src"` icons, set `size` to 
 The deprecated `AttentionBox` has been removed. The new `AttentionBox` (previously available at `@vibe/core/next`) is now the default export from `@vibe/core`.
 
 **Key changes:**
+
 - `AttentionBoxLink` is no longer a public export - use the `link` prop instead
 - Type values renamed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
 - `entryAnimation` prop → `animate` prop
@@ -228,7 +239,7 @@ The deprecated `AttentionBox` has been removed. The new `AttentionBox` (previous
 import { AttentionBox, AttentionBoxLink } from "@vibe/core";
 <AttentionBox type="danger" title="Warning" text="Something went wrong" entryAnimation>
   <AttentionBoxLink href="/docs" text="Learn more" />
-</AttentionBox>
+</AttentionBox>;
 
 // After (new)
 import { AttentionBox } from "@vibe/core";
@@ -238,7 +249,7 @@ import { AttentionBox } from "@vibe/core";
   text="Something went wrong"
   animate
   link={{ href: "/docs", text: "Learn more" }}
-/>
+/>;
 ```
 
 ```jsx
@@ -284,11 +295,62 @@ npx @vibe/codemod toggle-no-spacing
 
 ### Hooks
 
+#### useListenFocusTriggers — Removed
+
+The `useListenFocusTriggers` hook has been removed from `@vibe/core`. This internal hook differentiated between keyboard-triggered and mouse-triggered focus events.
+
+**Migration:** Inline the focus-detection logic using `useEventListener`:
+
+```tsx
+// Before (v3)
+import { useListenFocusTriggers } from "@vibe/core";
+
+useListenFocusTriggers({
+  ref,
+  onFocusByKeyboard: handleKeyboardFocus,
+  onFocusByMouse: handleMouseFocus
+});
+
+// After (v4)
+import { useEventListener } from "@vibe/core";
+import { useRef, useCallback } from "react";
+
+const isMouseDown = useRef(false);
+useEventListener({
+  eventName: "mousedown",
+  ref,
+  callback: useCallback(() => {
+    isMouseDown.current = true;
+  }, [])
+});
+useEventListener({
+  eventName: "mouseup",
+  ref,
+  callback: useCallback(() => {
+    isMouseDown.current = false;
+  }, [])
+});
+useEventListener({
+  eventName: "focus",
+  ref,
+  callback: useCallback(() => {
+    if (isMouseDown.current) {
+      handleMouseFocus();
+    } else {
+      handleKeyboardFocus();
+    }
+  }, [handleKeyboardFocus, handleMouseFocus])
+});
+```
+
+**Codemod:** ❌ Not available — migration requires manual inline logic.
+
 #### `useActiveDescendantListFocus` — Removed `onItemClickCallback` and `createOnItemClickCallback`
 
 The `onItemClickCallback` and `createOnItemClickCallback` properties have been removed from the hook's return value. These were backward-compatibility shims that duplicated the `onItemClick` callback you already provide to the hook.
 
 **Before (v3):**
+
 ```typescript
 const {
   visualFocusItemIndex,
@@ -301,6 +363,7 @@ const {
 ```
 
 **After (v4):**
+
 ```typescript
 const {
   visualFocusItemIndex,
@@ -319,11 +382,12 @@ const {
 
 The `callback` property in `UseKeyEventArgs` has been changed from `GenericEventCallback` to `KeyboardEventCallback`:
 
-| Property | Before (v3) | After (v4) |
-|----------|-------------|------------|
+| Property   | Before (v3)                                                        | After (v4)                                                    |
+| ---------- | ------------------------------------------------------------------ | ------------------------------------------------------------- |
 | `callback` | `GenericEventCallback` (`(ev: Event \| React.UIEvent) => unknown`) | `KeyboardEventCallback` (`(event: KeyboardEvent) => unknown`) |
 
 **Before:**
+
 ```tsx
 import { useKeyEvent } from "@vibe/core";
 
@@ -337,6 +401,7 @@ useKeyEvent({
 ```
 
 **After:**
+
 ```tsx
 import { useKeyEvent } from "@vibe/core";
 
@@ -360,6 +425,7 @@ useKeyEvent({
 The `VibeComponent<T, P>` type alias has been removed from `@vibe/core` and `@vibe/shared`. It was a thin wrapper over `React.ForwardRefExoticComponent` that didn't add value and prevented proper typing in some cases.
 
 **Before (v3):**
+
 ```tsx
 import { type VibeComponent } from "@vibe/core";
 
@@ -367,6 +433,7 @@ const MyComponent: VibeComponent<MyComponentProps, HTMLDivElement> = forwardRef(
 ```
 
 **After (v4):**
+
 ```tsx
 import { type ForwardRefExoticComponent, type RefAttributes } from "react";
 
@@ -387,28 +454,34 @@ const MyComponent = forwardRef<HTMLDivElement, MyComponentProps>(/* ... */);
 The `monday-ui-style` package has been renamed to `@vibe/style` to align with the Vibe Design System naming conventions.
 
 **Before:**
+
 ```bash
 npm install monday-ui-style
 ```
+
 ```json
 { "dependencies": { "monday-ui-style": "^0.26.2" } }
 ```
 
 **After:**
+
 ```bash
 npm install @vibe/style
 ```
+
 ```json
 { "dependencies": { "@vibe/style": "^0.26.2" } }
 ```
 
 **Import updates required:**
+
 ```diff
 - import "monday-ui-style/dist/index.min.css";
 + import "@vibe/style/dist/index.min.css";
 ```
 
 **SCSS import updates:**
+
 ```diff
 - @import "~monday-ui-style/dist/functions";
 - @import "~monday-ui-style/dist/mixins";
@@ -417,6 +490,7 @@ npm install @vibe/style
 ```
 
 **Stylelint config updates:**
+
 ```diff
 - "extends": ["monday-ui-style/stylelint-config"]
 + "extends": ["@vibe/style/stylelint-config"]
@@ -429,6 +503,7 @@ npm install @vibe/style
 ```
 
 **Vite/webpack alias updates:**
+
 ```diff
 - "monday-ui-style/dist": path.resolve("./node_modules/monday-ui-style/dist"),
 + "@vibe/style/dist": path.resolve("./node_modules/@vibe/style/dist"),
@@ -464,19 +539,19 @@ All component styles now use CSS logical properties instead of physical directio
 
 **Properties replaced:**
 
-| Physical property | Logical property |
-|---|---|
-| `margin-left` | `margin-inline-start` |
-| `margin-right` | `margin-inline-end` |
-| `margin-left` + `margin-right` (both) | `margin-inline` |
-| `padding-left` | `padding-inline-start` |
-| `padding-right` | `padding-inline-end` |
-| `padding-left` + `padding-right` (both) | `padding-inline` |
-| `border-left` | `border-inline-start` |
-| `border-right` | `border-inline-end` |
-| `border-left` + `border-right` (both) | `border-inline` |
-| `left` (positioning) | `inset-inline-start` |
-| `right` (positioning) | `inset-inline-end` |
+| Physical property                       | Logical property       |
+| --------------------------------------- | ---------------------- |
+| `margin-left`                           | `margin-inline-start`  |
+| `margin-right`                          | `margin-inline-end`    |
+| `margin-left` + `margin-right` (both)   | `margin-inline`        |
+| `padding-left`                          | `padding-inline-start` |
+| `padding-right`                         | `padding-inline-end`   |
+| `padding-left` + `padding-right` (both) | `padding-inline`       |
+| `border-left`                           | `border-inline-start`  |
+| `border-right`                          | `border-inline-end`    |
+| `border-left` + `border-right` (both)   | `border-inline`        |
+| `left` (positioning)                    | `inset-inline-start`   |
+| `right` (positioning)                   | `inset-inline-end`     |
 
 **Affected components:** Accordion, AlertBanner, Avatar, AvatarGroup, Badge, Button, Checkbox, Chips, ColorPicker, Combobox, DatePicker, EditableTypography, Label, ListItemAvatar, ListItemIcon, Menu (MenuItem, MenuTitle), Modal, MultiStepIndicator, ProgressBar, Search, Slider, SplitButton, Steps, TextArea, TextField, Tipseen, Toast, Toggle, and utility classes (`mx`, `px`).
 
@@ -536,6 +611,7 @@ npx @vibe/codemod --migration v4 --verbose
 ```
 
 Options:
+
 - `--verbose`: Shows detailed transformation logs
 - `--target /path/to/code`: Specify target directory
 - `--extensions tsx,ts,jsx,js`: File extensions to process
@@ -593,11 +669,13 @@ This improves keyboard accessibility — users can immediately navigate menu ite
 The `onClick` and `clickable` props have been removed from `CustomSvgIcon`. SVG icons should be purely decorative; use an accessible wrapper (e.g. a `<button>`) for clickable icon patterns.
 
 **Before (v3):**
+
 ```tsx
 <CustomSvgIcon src="/icon.svg" onClick={handleClick} clickable />
 ```
 
 **After (v4):**
+
 ```tsx
 <button onClick={handleClick}>
   <CustomSvgIcon src="/icon.svg" />
@@ -621,13 +699,13 @@ The internal `MenuItemIcon` component's `label` prop has been removed. This prop
 The `children` prop of `MenuItem` previously accepted `MenuChild | MenuChild[]`, but passing an array was never valid at runtime — `MenuItem` always required exactly one `Menu` element as its child (enforced by `React.Children.only`). The type has been narrowed to `MenuChild` to match the actual runtime constraint.
 
 **Before (v3):**
+
 ```tsx
-<MenuItem title="Has submenu">
-  {[<Menu key="sub">...</Menu>]}
-</MenuItem>
+<MenuItem title="Has submenu">{[<Menu key="sub">...</Menu>]}</MenuItem>
 ```
 
 **After (v4):**
+
 ```tsx
 <MenuItem title="Has submenu">
   <Menu>...</Menu>
@@ -645,6 +723,7 @@ The `children` prop of `MenuItem` previously accepted `MenuChild | MenuChild[]`,
 The `"stretch"` value has been removed from the `FlexJustify` type. `justify-content: stretch` is not valid CSS in flexbox contexts, so this value had no effect.
 
 **Before (v3):**
+
 ```tsx
 <Flex justify="stretch" />
 // or using the deprecated enum:
@@ -652,6 +731,7 @@ The `"stretch"` value has been removed from the `FlexJustify` type. `justify-con
 ```
 
 **After (v4):**
+
 ```tsx
 // Remove the prop entirely (stretch had no visual effect)
 <Flex />
@@ -670,6 +750,7 @@ npx @vibe/codemod --migration v4
 The old `Dropdown` component (based on `react-select`) has been completely removed and replaced with a new custom implementation. The new Dropdown was previously available as an alpha component via `@vibe/core/next` and is now the default export from `@vibe/core`.
 
 **Key changes:**
+
 - Completely new API (not backward compatible)
 - No longer depends on `react-select`
 - Built-in form field support (`label`, `helperText`, `error`, `required`)
@@ -690,12 +771,7 @@ const options = [
   { id: "2", label: "Option 2" }
 ];
 
-<Dropdown
-  placeholder="Select..."
-  options={options}
-  size={Dropdown.sizes.MEDIUM}
-  searchable
-/>
+<Dropdown placeholder="Select..." options={options} size={Dropdown.sizes.MEDIUM} searchable />;
 
 // After (v4)
 import { Dropdown } from "@vibe/core";
@@ -712,7 +788,7 @@ const options = [
   searchable
   label="Select an option"
   clearAriaLabel="Clear"
-/>
+/>;
 ```
 
 **If you were using the new Dropdown from `@vibe/core/next`:**
@@ -734,6 +810,7 @@ import { Dropdown } from "@vibe/core";
 The legacy `Modal` component and its sub-components (`ModalHeader`, `ModalContent`, `ModalFooter`, `ModalFooterButtons`) have been completely removed. The new Modal (previously available via `@vibe/core/next`) is now the default export from `@vibe/core`.
 
 **Removed components:**
+
 - `Modal` (legacy) - replaced by new `Modal`
 - `ModalHeader` (legacy) - replaced by new `ModalHeader`
 - `ModalContent` (legacy) - replaced by new `ModalContent`
@@ -741,15 +818,18 @@ The legacy `Modal` component and its sub-components (`ModalHeader`, `ModalConten
 - `ModalFooterButtons` - removed entirely (use `ModalFooter` with `primaryButton`/`secondaryButton` props)
 
 **New components available from `@vibe/core`:**
+
 - `Modal`, `ModalHeader`, `ModalContent`, `ModalMedia`
 - `ModalFooter`, `ModalFooterWizard`
 - `ModalBasicLayout`, `ModalMediaLayout`, `ModalSideBySideLayout`
 
 **Removed types:**
+
 - `ModalWidth` type
 - `LegacyModalProps`, `LegacyModalHeaderProps`, `LegacyModalContentProps`, `LegacyModalFooterProps`, `LegacyModalFooterButtonsProps`
 
 **Removed dependencies:**
+
 - `a11y-dialog` - no longer used
 - `body-scroll-lock` - replaced by `react-remove-scroll`
 
@@ -775,17 +855,12 @@ import { Modal, ModalContent, ModalFooterButtons } from "@vibe/core";
     onPrimaryButtonClick={closeModal}
     onSecondaryButtonClick={closeModal}
   />
-</Modal>
+</Modal>;
 
 // After (v4) - New Modal
 import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 
-<Modal
-  id="my-modal"
-  show={show}
-  size="medium"
-  onClose={closeModal}
->
+<Modal id="my-modal" show={show} size="medium" onClose={closeModal}>
   <ModalBasicLayout>
     <ModalHeader title="Modal title" description="Subtitle" />
     <ModalContent>Content here</ModalContent>
@@ -794,7 +869,7 @@ import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter } from 
     primaryButton={{ text: "Confirm", onClick: closeModal }}
     secondaryButton={{ text: "Cancel", onClick: closeModal }}
   />
-</Modal>
+</Modal>;
 ```
 
 **If you were using the new Modal from `@vibe/core/next`:**
@@ -808,6 +883,7 @@ import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 ```
 
 **Codemod:** ❌ Manual migration required due to complete API change.
+
 ### Button
 
 <!-- Will be populated when Button breaking changes are identified -->
@@ -819,6 +895,7 @@ import { Modal, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
 The legacy class-based `Dialog` component (using `react-popper` / Popper.js) has been replaced with a new functional implementation using `@floating-ui/react-dom`.
 
 **Key changes:**
+
 - `modifiers` prop removed - use `middleware` prop instead (Floating UI middleware)
 - `usePopover` hook removed from `@vibe/dialog`
 - Component is now a functional component (was class-based `PureComponent`)
@@ -831,29 +908,24 @@ The legacy class-based `Dialog` component (using `react-popper` / Popper.js) has
 import { Dialog } from "@vibe/core";
 
 <Dialog
-  modifiers={[
-    { name: "preventOverflow", options: { mainAxis: false } }
-  ]}
+  modifiers={[{ name: "preventOverflow", options: { mainAxis: false } }]}
   position="bottom"
   content={<div>Content</div>}
 >
   <button>Reference</button>
-</Dialog>
+</Dialog>;
 
 // After (v4) - Floating UI middleware
 import { Dialog } from "@vibe/core";
 import { shift } from "@floating-ui/react-dom";
 
-<Dialog
-  middleware={[shift({ mainAxis: false })]}
-  position="bottom"
-  content={<div>Content</div>}
->
+<Dialog middleware={[shift({ mainAxis: false })]} position="bottom" content={<div>Content</div>}>
   <button>Reference</button>
-</Dialog>
+</Dialog>;
 ```
 
 **Tooltip / Tipseen changes:**
+
 - `modifiers` prop removed from `Tooltip` and `Tipseen` components
 - Most users don't need modifiers — the new Dialog handles positioning automatically
 
@@ -869,6 +941,7 @@ The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true` (was `fal
 **Impact:** Dialogs that use `mouseenter`/`mouseleave` triggers will now also respond to keyboard `focus`/`blur` events by default.
 
 **Before (v3):**
+
 ```tsx
 // Keyboard triggers were disabled by default — had to opt in
 <Dialog showTrigger="mouseenter" hideTrigger="mouseleave" addKeyboardHideShowTriggersByDefault>
@@ -877,6 +950,7 @@ The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true` (was `fal
 ```
 
 **After (v4):**
+
 ```tsx
 // Keyboard triggers are enabled by default
 <Dialog showTrigger="mouseenter" hideTrigger="mouseleave">
@@ -896,6 +970,7 @@ The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true` (was `fal
 The `enableNestedDialogLayer` prop has been removed. Dialog now always wraps its content with `LayerProvider`, so nested dialogs work correctly by default without any configuration.
 
 **Before (v3):**
+
 ```tsx
 <Dialog enableNestedDialogLayer content={<NestedDropdown />}>
   <button>Open</button>
@@ -903,6 +978,7 @@ The `enableNestedDialogLayer` prop has been removed. Dialog now always wraps its
 ```
 
 **After (v4):**
+
 ```tsx
 // Simply remove the prop — LayerProvider is always applied
 <Dialog content={<NestedDropdown />}>
@@ -919,6 +995,7 @@ The `enableNestedDialogLayer` prop has been removed. Dialog now always wraps its
 `TooltipProps` now extends `DialogProps` (with overrides for `position`, `content`, and `children`). This is a TypeScript-level breaking change that improves type safety and consistency.
 
 **What changed:**
+
 - `TooltipProps` now inherits all `DialogProps` (event handlers, positioning, animation, etc.)
 - Duplicate prop definitions were removed from `TooltipProps` (they come from `DialogProps` now)
 - `position` prop is still restricted to `"top" | "right" | "bottom" | "left"` (narrower than Dialog's 12 positions)
@@ -926,6 +1003,7 @@ The `enableNestedDialogLayer` prop has been removed. Dialog now always wraps its
 - `children` prop maintains its discriminated union with `forceRenderWithoutChildren`
 
 **Impact:**
+
 - If you use `Partial<TooltipProps>` in your types (most common pattern), your code will accept additional Dialog props like `onBlur`, `onFocus`, `disable`, `startingEdge`, etc. This is **additive** and backward compatible.
 - If you have custom types that wrap `TooltipProps` and explicitly list its properties, you may need to update them.
 - If you spread Tooltip props into a non-Dialog element, you may get additional unexpected DOM attributes. Use destructuring to pick only the props you need.
@@ -995,7 +1073,7 @@ The `TipseenImage` component has been removed. It was a thin wrapper around `Tip
 ```tsx
 import { TipseenImage } from "@vibe/core";
 
-<TipseenImage src={picture} alt="description" className="custom" tipseenMediaClassName="mediaClass" />
+<TipseenImage src={picture} alt="description" className="custom" tipseenMediaClassName="mediaClass" />;
 ```
 
 **After (v4):**
@@ -1005,10 +1083,11 @@ import { TipseenMedia } from "@vibe/core";
 
 <TipseenMedia className="mediaClass">
   <img src={picture} alt="description" className="custom" style={{ objectFit: "cover", width: "100%" }} />
-</TipseenMedia>
+</TipseenMedia>;
 ```
 
 **Prop mapping:**
+
 - `src` → `<img src={...}>`
 - `alt` → `<img alt={...}>`
 - `className` → `<img className={...}>`
@@ -1023,6 +1102,7 @@ import { TipseenMedia } from "@vibe/core";
 The `@supports (margin-inline-start: initial)` CSS feature detection block has been removed from the Link component's styles. CSS logical properties are now used directly since all modern browsers support them.
 
 **What changed:**
+
 - `.iconStart` now uses `margin-inline-end` directly instead of `margin-right` with an `@supports` override
 - `.iconEnd` now uses `margin-inline-start` directly instead of `margin-left` with an `@supports` override
 - Physical direction properties (`margin-right`, `margin-left`) are no longer set
@@ -1069,7 +1149,9 @@ The `itemRenderer` prop had an incorrect return type of `ItemType | GridChildCom
 <VirtualizedGrid
   items={items}
   itemRenderer={(item, index, style) => (
-    <div key={index} style={style}>{item.value}</div>
+    <div key={index} style={style}>
+      {item.value}
+    </div>
   )}
 />
 ```
@@ -1081,7 +1163,9 @@ The `itemRenderer` prop had an incorrect return type of `ItemType | GridChildCom
 <VirtualizedGrid
   items={items}
   itemRenderer={(item, index, style) => (
-    <div key={index} style={style}>{item.value}</div>
+    <div key={index} style={style}>
+      {item.value}
+    </div>
   )}
 />
 ```
@@ -1174,21 +1258,24 @@ If you encounter TypeScript errors:
 ### Adding a New Breaking Change
 
 1. **Plan the Change**
+
    - Document in [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md)
    - Create GitHub issue for tracking
    - Get team approval
 
 2. **Create Migration**
+
    - Create a new migration file in `packages/codemod/transformations/core/v3-to-v4/`
    - Add comprehensive tests
    - Test on real codebases
 
-4. **Update Documentation**
+3. **Update Documentation**
+
    - Update this migration guide
    - Update component documentation
    - Add examples and common patterns
 
-5. **Create PR**
+4. **Create PR**
    - Include breaking change implementation
    - Include migration codemod
    - Include documentation updates
@@ -1211,12 +1298,14 @@ npx @vibe/codemod --migration v4 --target /path/to/test/project
 If you encounter issues after migration:
 
 1. **Revert to v3**
+
    ```bash
    git checkout -- .
    npm install @vibe/core@^3.0.0
    ```
 
 2. **Report Issues**
+
    - Create a GitHub issue with details
    - Include error messages and code examples
    - Specify your environment and setup
@@ -1226,4 +1315,4 @@ If you encounter issues after migration:
 
 ---
 
-*This guide is updated regularly. Check back for the latest migration information and best practices.*
+_This guide is updated regularly. Check back for the latest migration information and best practices._
