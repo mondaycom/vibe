@@ -1136,6 +1136,64 @@ If you have custom CSS that overrides Link icon spacing using physical direction
 
 **Codemod:** ❌ Not available — this is a CSS-only change. Search your codebase for overrides targeting Link's `.iconStart` or `.iconEnd` classes and update to logical properties.
 
+#### VirtualizedList
+
+**Removed `getItemHeight` prop**
+
+The deprecated `getItemHeight` prop has been removed. Use `getItemSize` instead.
+
+**Before (v3):**
+
+```tsx
+<VirtualizedList
+  items={items}
+  itemRenderer={renderer}
+  getItemHeight={item => item.height}
+/>
+```
+
+**After (v4):**
+
+```tsx
+<VirtualizedList
+  items={items}
+  itemRenderer={renderer}
+  getItemSize={item => item.height}
+/>
+```
+
+**Removed `onVerticalScrollbarVisiblityChange` prop**
+
+The deprecated (and misspelled) `onVerticalScrollbarVisiblityChange` prop has been removed. Use `onLayoutDirectionScrollbarVisibilityChange` instead.
+
+**Before (v3):**
+
+```tsx
+<VirtualizedList
+  items={items}
+  itemRenderer={renderer}
+  getItemSize={item => item.height}
+  onVerticalScrollbarVisiblityChange={isVisible => setScrollbarVisible(isVisible)}
+/>
+```
+
+**After (v4):**
+
+```tsx
+<VirtualizedList
+  items={items}
+  itemRenderer={renderer}
+  getItemSize={item => item.height}
+  onLayoutDirectionScrollbarVisibilityChange={isVisible => setScrollbarVisible(isVisible)}
+/>
+```
+
+**Codemod:** ✅ Available
+
+```bash
+npx @vibe/codemod --transform v3-to-v4/VirtualizedList-component-migration src/
+```
+
 #### VirtualizedGrid
 
 **Fixed `itemRenderer` return type**
