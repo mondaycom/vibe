@@ -13,6 +13,16 @@ $full-view-margin: 40px;
   background-color: var(--backdrop-color);
 }
 
+// Resting centering transform for non-fullView modals.
+// Matches the framer-motion x:"-50%", y:"-50%" that was previously applied inline.
+.centerPop {
+  transform: translate(-50%, -50%);
+}
+
+.anchorPop {
+  transform: translate(-50%, -50%);
+}
+
 .modal {
   --top-actions-margin-inline: var(--space-24);
   --top-actions-margin-block: var(--space-24);
@@ -100,5 +110,145 @@ $full-view-margin: 40px;
     &.sizeFullView {
       margin-inline: $full-view-margin;
     }
+  }
+}
+
+// FROM state — must match 0% keyframes exactly to prevent flash on mount.
+.containerEnter {
+  .overlay {
+    opacity: 0;
+  }
+
+  .centerPop {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .anchorPop {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px))) scale(0.8);
+  }
+
+  .fullView {
+    opacity: 0.3;
+    transform: translateY(30px);
+  }
+}
+
+.containerEnterActive {
+  .overlay {
+    opacity: 1;
+    transition: opacity 100ms cubic-bezier(0, 0, 0.4, 1);
+  }
+
+  .centerPop {
+    animation: centerPopIn 150ms cubic-bezier(0, 0, 0.4, 1) forwards;
+  }
+
+  .anchorPop {
+    animation: anchorPopIn 200ms cubic-bezier(0, 0, 0.4, 1) forwards;
+  }
+
+  .fullView {
+    animation: fullViewIn 250ms cubic-bezier(0, 0, 0.4, 1) forwards;
+  }
+}
+
+.containerExitActive {
+  .overlay {
+    opacity: 0;
+    transition: opacity 100ms cubic-bezier(0.6, 0, 1, 1);
+  }
+
+  .centerPop {
+    animation: centerPopOut 100ms cubic-bezier(0.6, 0, 1, 1) forwards;
+  }
+
+  .anchorPop {
+    animation: anchorPopOut 150ms cubic-bezier(0.6, 0, 1, 1) forwards;
+  }
+
+  .fullView {
+    animation: fullViewOut 100ms cubic-bezier(0.6, 0, 1, 1) forwards;
+  }
+}
+
+@keyframes centerPopIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes centerPopOut {
+  0%,
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes anchorPopIn {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px))) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes anchorPopOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px))) scale(0.8);
+  }
+}
+
+@keyframes fullViewIn {
+  0% {
+    opacity: 0.3;
+    transform: translateY(30px);
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fullViewOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(30px);
   }
 }
