@@ -404,14 +404,11 @@ The `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` 
 
 **Codemod:** ❌ Not applicable — this is a CSS-only change with no automated migration path.
 
-#### Input Padding — Reduced block and inline padding
+#### Input Padding — Reduced inline padding
 
-Input padding has been tightened across all input components:
+`padding-inline-start` has been reduced from `var(--spacing-medium)` (16px) to `var(--spacing-small)` (8px) across all input components. Where both inline-start and inline-end were identical (`--spacing-medium`), both were reduced to `--spacing-small`.
 
-1. **TextField `padding-block`**: Reduced from `var(--spacing-small)` (8px) to `var(--spacing-xs)` (4px) across all sizes and variants.
-2. **`padding-inline-start`**: Reduced from `var(--spacing-medium)` (16px) to `var(--spacing-small)` (8px) in TextField, BaseInput, TextArea, and Dropdown Trigger. Where both inline-start and inline-end were identical (`--spacing-medium`), both were reduced to `--spacing-small`.
-
-**Impact:** Input content will be positioned closer to borders. Component heights remain the same (controlled by wrappers), but text will have less padding.
+**Impact:** Input content will be positioned closer to the inline borders. Component heights and vertical padding remain unchanged.
 
 **Affected components:** TextField, BaseInput, TextArea, Dropdown Trigger
 
@@ -433,7 +430,7 @@ padding-inline-start: var(--spacing-medium); /* 16px */
 **After:**
 ```scss
 /* TextField */
-padding: var(--spacing-xs) var(--spacing-small); /* 4px 8px */
+padding: var(--spacing-small) var(--spacing-small); /* 8px 8px */
 
 /* BaseInput */
 padding-inline: var(--spacing-small) var(--spacing-xs); /* start: 8px, end: 4px */
