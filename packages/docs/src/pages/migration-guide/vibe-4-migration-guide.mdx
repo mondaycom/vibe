@@ -29,7 +29,7 @@ import { DiffCodeBlock } from "./DiffCodeBlock";
 
 ## Intro
 
-Vibe 4 is a major update to the Vibe design system, focusing on a leaner bundle, modern APIs, and stronger type safety. Legacy components, deprecated enums, and outdated dependencies have been removed in favor of simpler, more consistent alternatives.
+Vibe 4 is a major update to the Vibe design system, built for **React 19 compatibility**. It also delivers a leaner bundle, modern APIs, and stronger type safety. Legacy components, deprecated enums, and outdated dependencies have been removed in favor of simpler, more consistent alternatives.
 
 <Tip title="Migration from v2 to v3" emoji={false}>
   To migrate from v2 to v3, please refer to the [Vibe 3 migration
@@ -37,6 +37,16 @@ Vibe 4 is a major update to the Vibe design system, focusing on a leaner bundle,
 </Tip>
 
 ## What's New ✨
+
+### React 19 support
+
+Vibe 4 is fully compatible with React 19. All deprecated APIs that were removed in React 19 have been eliminated:
+- `findDOMNode` usage replaced with `nodeRef` in `react-transition-group` components
+- `framer-motion` (which relies on deprecated React internals) replaced with `react-transition-group` + CSS animations
+- Legacy class-based components (Dialog, Modal) rewritten as functional components
+- `forwardRef` patterns updated for React 19 compatibility
+
+If your app is upgrading to React 19, you **must** upgrade to Vibe 4 — Vibe 3 is not compatible with React 19.
 
 ### ~170 KB smaller bundle (min+gzip)
 
@@ -686,9 +696,13 @@ Yes. All custom camelCase ARIA props (`ariaLabel`, `ariaHidden`, etc.) have been
 
 Some changes require manual migration (Dialog `modifiers` → `middleware`, Dropdown API changes, DatePicker moment-to-Date). These are documented in the [Breaking Changes](#breaking-changes-) section with before/after examples.
 
+**Is Vibe 3 compatible with React 19?**
+
+No. Vibe 3 relies on APIs that were removed in React 19 (`findDOMNode`, `framer-motion` internals, class-based components). If you are upgrading to React 19, you must upgrade to Vibe 4.
+
 **What if I don't want to migrate to Vibe 4?**
 
-You can continue using Vibe 3, but it will only receive critical bug fixes. New features and improvements will only be available in Vibe 4.
+You can continue using Vibe 3 with React 16–18, but it will only receive critical bug fixes. New features, improvements, and React 19 support are only available in Vibe 4.
 
 **The migration script failed — what should I do?**
 
