@@ -58,7 +58,7 @@
     @include smoothing-text;
 
     &.small {
-      padding-inline-start: var(--spacing-small);
+      padding-inline-start: 0;
       min-height: 32px;
       height: 32px;
     }
