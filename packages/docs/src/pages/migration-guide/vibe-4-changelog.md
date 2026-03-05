@@ -6,7 +6,7 @@ For the complete migration guide see the [Vibe 4 Migration Guide](https://vibe.m
 
 ## General
 
-- React 19 support — all deprecated React APIs (`findDOMNode`, class components) have been removed
+- React 19 support — all deprecated React APIs (`findDOMNode`, class components) removed; `framer-motion` replaced with `react-transition-group` + CSS animations; `react-transition-group` components updated to use `nodeRef` instead of `findDOMNode`
 - Package rename — `monday-ui-style` renamed to `@vibe/style` 🔀
 - `moment` removed as a peer dependency
 - `@vibe/core/next` consolidation — AttentionBox, Dropdown, DatePicker, Dialog, and Modal promoted to `@vibe/core`. Only `List` remains in `@vibe/core/next`
@@ -117,6 +117,11 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - `iconSize` prop renamed to `size` 🔀
 - `size` prop now applies to `type="src"` icons (previously only affected `type="svg"`)
 
+### Link
+
+- `@supports (margin-inline-start: initial)` CSS block and physical direction fallbacks removed from icon spacing
+- If you override `.iconStart { margin-right }` or `.iconEnd { margin-left }` in custom CSS, update to `margin-inline-end` / `margin-inline-start`
+
 ### LinearProgressBar (ProgressBar)
 
 - `LinearProgressBar` renamed to `ProgressBar` — update imports accordingly
@@ -141,6 +146,15 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 ### Steps
 
 - Finish button now renders by default on the last step
+
+### MultiStepIndicator
+
+- Internal `StepIndicator` updated to use `nodeRef` with `CSSTransition` instead of deprecated `findDOMNode` (React 19 compatibility)
+- No public API changes — if you extended `StepIndicator` directly and overrode `addEndListener`, note the callback signature change
+
+### Tipseen
+
+- `modifiers` prop removed — use `middleware` instead (same as Dialog/Tooltip)
 
 ### TextField
 

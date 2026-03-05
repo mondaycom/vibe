@@ -397,6 +397,12 @@ Additionally, the `size` prop now applies to `type="src"` icons. Previously, URL
 
 ---
 
+**Link**
+
+The `@supports` CSS fallback block for logical properties has been removed from Link icon spacing. If you override `.iconStart { margin-right }` or `.iconEnd { margin-left }` in custom CSS, update to `margin-inline-end` / `margin-inline-start`.
+
+---
+
 **LinearProgressBar → ProgressBar**
 
 The `LinearProgressBar` component has been renamed to `ProgressBar`:
@@ -525,6 +531,12 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
 </ul>
 
 2. Duplicate `data-testid="toggle"` removed from the internal visual div. Only the input element now carries the test ID.
+
+---
+
+**Tipseen**
+
+- The `modifiers` prop (Popper.js) has been removed — use `middleware` instead (same as Dialog)
 
 ---
 
