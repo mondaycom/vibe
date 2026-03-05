@@ -430,13 +430,13 @@ padding-inline-start: var(--spacing-medium); /* 16px */
 **After:**
 ```scss
 /* TextField */
-padding: var(--spacing-small) var(--spacing-small); /* 8px 8px */
+padding: var(--spacing-small); /* 8px */
 
 /* BaseInput */
 padding-inline: var(--spacing-small) var(--spacing-xs); /* start: 8px, end: 4px */
 
 /* TextArea */
-padding: var(--spacing-small) var(--spacing-small); /* 8px 8px */
+padding: var(--spacing-small); /* 8px */
 
 /* Dropdown Trigger placeholder */
 padding-inline-start: var(--spacing-small); /* 8px */
