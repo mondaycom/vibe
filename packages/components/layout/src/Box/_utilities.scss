@@ -6,13 +6,13 @@
 /*  stylelint-disable scss/at-if-no-null */
 $utility-spacing-vars: (
   0: 0,
-  xs: var(--spacing-xs),
-  small: var(--spacing-small),
-  medium: var(--spacing-medium),
-  large: var(--spacing-large),
-  xl: var(--spacing-xl),
-  xxl: var(--spacing-xxl),
-  xxxl: var(--spacing-xxxl)
+  xs: var(--space-4),
+  small: var(--space-8),
+  medium: var(--space-16),
+  large: var(--space-24),
+  xl: var(--space-32),
+  xxl: var(--space-48),
+  xxxl: var(--space-64)
 );
 
 $utility-border-colors-vars: (

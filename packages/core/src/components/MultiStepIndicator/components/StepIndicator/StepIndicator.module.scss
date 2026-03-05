@@ -20,14 +20,14 @@
 }
 
 .sizeCompactTextContainer {
-  margin-inline-start: var(--spacing-small);
+  margin-inline-start: var(--space-8);
   justify-content: center;
   align-content: center;
 }
 
 .textContainerTitle {
   width: 100%;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--space-4);
 }
 
 .textContainerTitle .visuallyHidden {
@@ -57,7 +57,7 @@
 
 .textPlacementVertical .textContainer {
   margin-inline-start: 0;
-  margin-top: var(--spacing-medium);
+  margin-top: var(--space-16);
 }
 
 .textPlacementVertical .numberDividerContainer {

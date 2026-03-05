@@ -51,12 +51,12 @@
 
 .tabWrapper .tabInner .tabIcon {
   color: var(--icon-color);
-  margin-inline-end: var(--spacing-small);
+  margin-inline-end: var(--space-8);
 }
 
 .tabWrapper .tabInner .tabIcon.right {
   margin-inline-end: 0;
-  margin-inline-start: var(--spacing-small);
+  margin-inline-start: var(--space-8);
 }
 
 .tabWrapper.tabFocusVisibleInset {

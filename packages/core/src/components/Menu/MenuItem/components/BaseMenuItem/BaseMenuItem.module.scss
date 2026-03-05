@@ -7,7 +7,7 @@
   margin: unset;
   display: flex;
   flex-direction: row;
-  padding: var(--spacing-xs) var(--spacing-small);
+  padding: var(--space-4) var(--space-8);
   cursor: pointer;
   user-select: none;
   align-items: center;
@@ -15,7 +15,7 @@
   outline: none;
 
   &.splitMenuItem {
-    padding: 0 0 0 var(--spacing-small);
+    padding: 0 0 0 var(--space-8);
   }
 
   &.disabled {

@@ -243,7 +243,7 @@ export const ColorfulChipsForDifferentContent = {
   render: () => (
     <Flex>
       <DialogContentContainer>
-        <Flex direction="column" align="start" gap="medium" style={{ padding: "var(--spacing-small)" }}>
+        <Flex direction="column" align="start" gap="medium" style={{ padding: "var(--space-8)" }}>
           <div>
             <Chips label="January" color="positive" />
           </div>
@@ -268,13 +268,13 @@ export const ChipsInAPersonPickerComboBox = {
   render: () => (
     <Flex>
       <DialogContentContainer>
-        <Flex direction="column" align="start" gap="medium" style={{ padding: "var(--spacing-small)" }}>
+        <Flex direction="column" align="start" gap="medium" style={{ padding: "var(--space-8)" }}>
           <Search placeholder="Search names, positions, or a team" />
           <Flex align="center" justify="center">
             <Chips label="Julia Martinez" leftAvatar={person1} />
             <Chips label="Juan Rodriguez" leftAvatar={person3} />
           </Flex>
-          <Text style={{ paddingInlineStart: "var(--spacing-xs)", marginTop: "var(--spacing-xs)" }}>
+          <Text style={{ paddingInlineStart: "var(--space-4)", marginTop: "var(--space-4)" }}>
             Suggested people
           </Text>
           <Flex direction="column" align="start" gap="medium">

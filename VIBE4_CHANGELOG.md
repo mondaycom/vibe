@@ -505,12 +505,13 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029198)
 - **PR**: TBD
 
-#### Design Tokens
+#### Design Tokens — Spacing
 
-- **Change**: TBD
-- **Reason**: TBD
-- **Migration**: TBD
-- **Codemod**: ❌ Manual
+- [x] **Status**: Complete
+- **Change**: Removed deprecated semantic spacing CSS custom properties (`--spacing-xs`, `--spacing-small`, `--spacing-medium`, `--spacing-large`, `--spacing-xl`, `--spacing-xxl`, `--spacing-xxxl`) from `@vibe/style`. All internal usages replaced with numeric spacing tokens (`--space-4`, `--space-8`, `--space-16`, `--space-24`, `--space-32`, `--space-48`, `--space-64`).
+- **Reason**: The numeric naming convention is more scalable, unambiguous, and consistent with modern design token practices. The semantic names (`small`, `medium`, `large`) don't scale beyond `xxxl` and create ambiguity about exact values.
+- **Migration**: Replace all usages of old spacing tokens with their numeric equivalents. Run `npx stylelint --fix "**/*.scss"` with `@vibe/style/use-new-spacing-tokens` rule enabled to auto-fix.
+- **Codemod**: ✅ Stylelint auto-fix via `@vibe/style/use-new-spacing-tokens` rule
 - **PR**: TBD
 
 <!-- Add styling changes as they are identified -->

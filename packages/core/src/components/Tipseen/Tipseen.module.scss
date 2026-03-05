@@ -15,8 +15,8 @@
     position: fixed;
     bottom: 0;
     inset-inline-end: 0;
-    margin-bottom: var(--spacing-medium);
-    margin-inline-end: var(--spacing-medium);
+    margin-bottom: var(--space-16);
+    margin-inline-end: var(--space-16);
   }
 
   .tipseen {
@@ -26,7 +26,7 @@
     }
 
     &Title {
-      padding: var(--spacing-medium) var(--spacing-xl) 0 var(--spacing-medium);
+      padding: var(--space-16) var(--space-32) 0 var(--space-16);
     }
 
     &Content {
@@ -36,8 +36,8 @@
 
     &CloseButton {
       position: absolute;
-      top: var(--spacing-small);
-      inset-inline-end: var(--spacing-small);
+      top: var(--space-8);
+      inset-inline-end: var(--space-8);
       z-index: 2;
 
       &.dark {

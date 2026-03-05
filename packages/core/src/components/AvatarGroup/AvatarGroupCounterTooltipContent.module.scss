@@ -10,11 +10,11 @@
 
 .tooltipContainer {
   max-height: 300px;
-  padding-inline-end: var(--spacing-medium);
+  padding-inline-end: var(--space-16);
   align-items: flex-start !important;
   overflow-x: visible;
   overflow-y: auto;
-  margin-top: var(--spacing-small);
+  margin-top: var(--space-8);
   &:focus,
   &:focus-visible,
   &.focus-visible { /* stylelint-disable-line selector-class-pattern */

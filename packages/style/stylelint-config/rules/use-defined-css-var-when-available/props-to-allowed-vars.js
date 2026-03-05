@@ -10,14 +10,7 @@ const SPACINGS = [
   "--space-40",
   "--space-48",
   "--space-64",
-  "--space-80",
-  "--spacing-xs",
-  "--spacing-small",
-  "--spacing-medium",
-  "--spacing-large",
-  "--spacing-xl",
-  "--spacing-xxl",
-  "--spacing-xxxl"
+  "--space-80"
 ];
 
 const BORDER_RADIUSES = ["--border-radius-small", "--border-radius-medium", "--border-radius-big"];

@@ -2,11 +2,11 @@
   height: 100%;
 
   &.longText {
-    padding-inline-end: var(--spacing-large);
+    padding-inline-end: var(--space-24);
   }
 
   &.mediumText {
-    padding-inline-end: var(--spacing-xxxl);
+    padding-inline-end: var(--space-64);
   }
 
   .tableCellSkeleton {

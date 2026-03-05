@@ -61,9 +61,8 @@ describe("@vibe/style/use-defined-css-var-when-available", () => {
     const [firstWarning, secondWarning] = warnings;
 
     expect(firstWarning.text).toBe(
-      `Expected \"16px\" to be one of vars: 
+      `Expected \"16px\" to be one of vars:
 --space-16
---spacing-medium
  (@vibe/style/use-defined-css-var-when-available)`
     );
     expect(firstWarning.line).toBe(3);

@@ -17,11 +17,11 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-small);
-  padding: 2px var(--spacing-small);
+  padding: 2px var(--space-8);
   position: relative;
 
   &.small {
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--space-4);
     border-radius: 2px;
   }
 }
@@ -92,7 +92,7 @@
 
 .kindLine {
   border: 1px solid currentColor;
-  padding: 1px var(--spacing-small);
+  padding: 1px var(--space-8);
 
   .legWrapper {
     inset-inline-start: -1px;

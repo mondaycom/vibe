@@ -1,13 +1,13 @@
 .iconWrapper {
-  margin-inline-end: var(--spacing-small);
+  margin-inline-end: var(--space-8);
 
   &.rightIcon {
     margin-inline-end: 0;
-    margin-inline-start: var(--spacing-small);
+    margin-inline-start: var(--space-8);
   }
 
   &.withBackgroundColor {
-    border-radius: var(--spacing-xs);
+    border-radius: var(--space-4);
 
     &.disabled {
       opacity: 0.4;
