@@ -121,7 +121,7 @@ exports[`Flex renders correctly > Horizontal display > with gap 1`] = `
   className="container directionRow justifyStart alignCenter"
   style={
     {
-      "gap": "var(--spacing-large)",
+      "gap": "var(--space-24)",
     }
   }
 >
