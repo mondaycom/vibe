@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-small);
-  padding-block: var(--spacing-xs);
-  padding-inline: var(--spacing-small) var(--spacing-xs);
+  padding-block: var(--spacing-small);
+  padding-inline: var(--space-12) var(--spacing-xs);
 
   @include vibe-text(text1, normal);
   @include smoothing-text;
@@ -22,6 +22,8 @@
   &.small {
     min-height: 32px;
     height: 32px;
+    padding-inline-start: var(--spacing-small);
+    gap: var(--spacing-xs);
     @include vibe-text(text2, normal);
   }
 

@@ -61,6 +61,7 @@
     }
 
     &.large {
+      padding: var(--space-12);
       @include vibe-text(text1, normal);
     }
 
