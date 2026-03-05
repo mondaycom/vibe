@@ -36,10 +36,15 @@
     resize: vertical;
     border: 1px solid var(--ui-border-color);
     border-radius: var(--border-radius-small);
-    padding: var(--space-8) var(--space-16);
+    padding: var(--space-8);
     outline: none;
     background-color: var(--secondary-background-color);
     color: var(--primary-text-color);
+
+    &::placeholder {
+      color: var(--placeholder-color);
+      font-weight: 400;
+    }
 
     &:hover {
       border-color: var(--primary-text-color);
@@ -56,6 +61,7 @@
     }
 
     &.large {
+      padding: var(--space-12);
       @include vibe-text(text1, normal);
     }
 
@@ -92,6 +98,10 @@
       background-color: var(--disabled-background-color);
       border-color: transparent;
       resize: none;
+
+      &::placeholder {
+        color: var(--disabled-text-color);
+      }
     }
 
     .helpText {

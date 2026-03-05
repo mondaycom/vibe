@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-8);
-  padding-block: var(--space-4);
-  padding-inline: var(--space-16) var(--space-4);
+  padding-block: var(--space-8);
+  padding-inline: var(--space-12) var(--space-4);
 
   @include vibe-text(text1, normal);
   @include smoothing-text;
@@ -22,6 +22,8 @@
   &.small {
     min-height: 32px;
     height: 32px;
+    padding-inline-start: var(--space-8);
+    gap: var(--space-4);
     @include vibe-text(text2, normal);
   }
 
@@ -160,7 +162,7 @@
     outline: none;
 
     &::placeholder {
-      color: var(--secondary-text-color);
+      color: var(--placeholder-color);
       font-weight: 400;
     }
 

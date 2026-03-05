@@ -505,6 +505,26 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029198)
 - **PR**: TBD
 
+#### Input Padding
+
+- [x] **Status**: Complete
+- **Change**: Reduced `padding-inline-start` from `var(--spacing-medium)` (16px) to `var(--spacing-small)` (8px) across TextField, BaseInput, TextArea, and Dropdown Trigger. Where both inline-start and inline-end were identical (`--spacing-medium`), both were reduced to `--spacing-small`
+- **Reason**: Aligns input padding for consistent, tighter content spacing across all input components
+- **Migration**: No code changes required. If your custom CSS depends on internal input padding values, update accordingly
+- **Codemod**: ❌ Not applicable (CSS-only change)
+- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029006)
+- **PR**: TBD
+
+#### Input Placeholder Color
+
+- [x] **Status**: Complete
+- **Change**: All input components now use `var(--placeholder-color)` instead of `var(--secondary-text-color)` for placeholder text color. Affected components: TextField, BaseInput, TextArea, EditableTypography, Dropdown Trigger
+- **Reason**: The `--placeholder-color` design token was defined but unused by input components. In dark/black/hacker themes, `--placeholder-color` (#c3c6d4) provides better contrast than `--secondary-text-color` (#9699a6) for placeholder text
+- **Migration**: No code changes required. If you override `--secondary-text-color` expecting it to affect input placeholders, use `--placeholder-color` instead. Placeholder text color will change in dark/black/hacker themes
+- **Codemod**: ❌ Not applicable (CSS-only change)
+- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029006)
+- **PR**: TBD
+
 #### Design Tokens — Spacing
 
 - [x] **Status**: Complete

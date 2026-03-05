@@ -11,6 +11,10 @@
 
   &.small {
     min-height: 32px;
+
+    .placeholderText {
+      padding-inline-start: var(--space-8);
+    }
   }
 
   &.medium {
@@ -53,12 +57,11 @@
     position: relative;
     pointer-events: none;
     inset: 0;
-    padding-inline-start: var(--space-4);
+    padding-inline-start: 0;
     width: 100%;
     @include smoothing-text;
 
     &.small {
-      padding-inline-start: var(--space-8);
       min-height: 32px;
       height: 32px;
     }
@@ -79,12 +82,13 @@
   }
 
   .placeholderText {
-    padding-inline-start: var(--space-16);
+    padding-inline-start: var(--space-12);
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: var(--placeholder-color);
     @include smoothing-text;
 
     &.disabled {
