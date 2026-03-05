@@ -63,7 +63,7 @@ const css = `.playground {
 
 .vibe-logo {
   width: 150px;
-  margin-block-end: var(--spacing-large);
+  margin-block-end: var(--space-24);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -73,7 +73,7 @@ const css = `.playground {
 }
 
 .count-button {
-  margin-block: var(--spacing-medium);
+  margin-block: var(--space-16);
 }
 `;
 

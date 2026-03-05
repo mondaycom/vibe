@@ -98,7 +98,13 @@ const Flex = forwardRef(
       if (typeof gap === "number") {
         return { gap: `${gap}px` };
       }
-      return { gap: `var(--spacing-${gap})` };
+      const gapTokenMap: Record<string, string> = {
+        xs: "var(--space-4)",
+        small: "var(--space-8)",
+        medium: "var(--space-16)",
+        large: "var(--space-24)"
+      };
+      return { gap: gapTokenMap[gap] };
     }, [gap]);
 
     const flexStyle = useMemo(() => {

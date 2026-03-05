@@ -13,7 +13,7 @@
 
 .header {
   @include reset-button();
-  padding: var(--spacing-medium);
+  padding: var(--space-16);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +37,7 @@
 }
 
 .content {
-  padding: var(--spacing-medium);
+  padding: var(--space-16);
 }
 
 .section {
@@ -72,5 +72,5 @@
 
 .header.leftIcon {
   justify-content: flex-start;
-  gap: var(--spacing-small);
+  gap: var(--space-8);
 }

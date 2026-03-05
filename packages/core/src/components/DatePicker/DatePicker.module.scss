@@ -12,7 +12,7 @@
   .datePickerMonths {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-medium);
+    gap: var(--space-16);
     align-items: flex-start;
   }
 
@@ -51,7 +51,7 @@
   }
 
   .datePickerTable {
-    margin-top: var(--spacing-small);
+    margin-top: var(--space-8);
     border-collapse: collapse;
     height: var(--day-picker-content-height);
   }

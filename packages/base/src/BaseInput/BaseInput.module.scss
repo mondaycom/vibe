@@ -5,9 +5,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--spacing-small);
-  padding-block: var(--spacing-small);
-  padding-inline: var(--space-12) var(--spacing-xs);
+  gap: var(--space-8);
+  padding-block: var(--space-8);
+  padding-inline: var(--space-12) var(--space-4);
 
   @include vibe-text(text1, normal);
   @include smoothing-text;
@@ -22,8 +22,8 @@
   &.small {
     min-height: 32px;
     height: 32px;
-    padding-inline-start: var(--spacing-small);
-    gap: var(--spacing-xs);
+    padding-inline-start: var(--space-8);
+    gap: var(--space-4);
     @include vibe-text(text2, normal);
   }
 
@@ -35,11 +35,11 @@
   &.large {
     min-height: 48px;
     height: 48px;
-    padding-block: var(--spacing-small);
+    padding-block: var(--space-8);
   }
 
   &.rightThinnerPadding {
-    padding-inline-end: var(--spacing-medium);
+    padding-inline-end: var(--space-16);
   }
 
   &:hover {

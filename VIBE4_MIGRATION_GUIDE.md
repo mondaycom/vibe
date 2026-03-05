@@ -1314,6 +1314,54 @@ const renderer: (item: VirtualizedGridItemType, index: number, style: CSSPropert
 
 For component-specific migration details, see [VIBE4_CHANGELOG.md](./VIBE4_CHANGELOG.md).
 
+---
+
+## CSS Design Tokens
+
+### Spacing Tokens
+
+The deprecated semantic spacing CSS custom properties have been removed. Replace them with the numeric spacing tokens:
+
+| Removed Token | Replacement |
+|---|---|
+| `--spacing-xs` | `--space-4` |
+| `--spacing-small` | `--space-8` |
+| `--spacing-medium` | `--space-16` |
+| `--spacing-large` | `--space-24` |
+| `--spacing-xl` | `--space-32` |
+| `--spacing-xxl` | `--space-48` |
+| `--spacing-xxxl` | `--space-64` |
+
+**Before (v3)**
+
+```scss
+.my-component {
+  padding: var(--spacing-small) var(--spacing-medium);
+  margin-block-end: var(--spacing-large);
+  gap: var(--spacing-xs);
+}
+```
+
+**After (v4)**
+
+```scss
+.my-component {
+  padding: var(--space-8) var(--space-16);
+  margin-block-end: var(--space-24);
+  gap: var(--space-4);
+}
+```
+
+**Automated fix:** If you have the `@vibe/style` stylelint plugin configured, run:
+
+```bash
+npx stylelint --fix "**/*.scss"
+```
+
+The `@vibe/style/use-new-spacing-tokens` rule will automatically replace all legacy token references.
+
+---
+
 ## Common Migration Patterns
 
 ### Prop Renames

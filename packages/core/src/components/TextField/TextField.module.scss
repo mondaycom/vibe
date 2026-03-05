@@ -64,7 +64,7 @@
   border-color: var(--ui-border-color);
   border-radius: var(--border-radius-small);
   transition: border-color var(--motion-productive-medium) ease-in;
-  padding: var(--spacing-small) var(--spacing-xs) var(--spacing-small) var(--space-12);
+  padding: var(--space-8) var(--space-4) var(--space-8) var(--space-12);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -92,7 +92,7 @@
 }
 
 .textField .inputWrapper .input.inputHasIcon {
-  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-small);
+  padding: var(--space-8) var(--space-24) var(--space-8) var(--space-8);
 }
 
 .textField .inputWrapper .input.round {
@@ -106,7 +106,7 @@
 .textField .inputWrapper .input.onlyUnderline {
   border-inline: none;
   border-top: none;
-  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-xs);
+  padding: var(--space-8) var(--space-24) var(--space-8) var(--space-4);
   border-radius: 0 !important;
 }
 
@@ -240,13 +240,13 @@
 }
 
 .textField .inputWrapper.wrapperSizeSmall .input {
-  padding-inline-start: var(--spacing-small);
+  padding-inline-start: var(--space-8);
   @include vibe-text(text2, normal);
   @include smoothing-text;
 }
 
 .textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {
-  padding-inline-start: var(--spacing-xs);
+  padding-inline-start: var(--space-4);
 }
 
 .textField .inputWrapper.wrapperSizeMedium {
@@ -259,7 +259,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon {
-  padding: var(--spacing-small) var(--spacing-xl) var(--spacing-small) var(--space-12);
+  padding: var(--space-8) var(--space-32) var(--space-8) var(--space-12);
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon.onlyUnderline {
@@ -287,11 +287,11 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon {
-  padding: var(--spacing-small) var(--spacing-xl) var(--spacing-small) var(--space-12);
+  padding: var(--space-8) var(--space-32) var(--space-8) var(--space-12);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon.onlyUnderline {
-  padding-inline-start: var(--spacing-xs);
+  padding-inline-start: var(--space-4);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .iconContainer {

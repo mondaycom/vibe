@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-inline-start: calc(-1 * var(--spacing-small));
+  margin-inline-start: calc(-1 * var(--space-8));
   z-index: 1;
   border: 1px solid var(--primary-background-color);
 
@@ -36,7 +36,7 @@
   }
   &.large {
     @include counterSize($avatar-size-large);
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--space-4);
   }
 
   &.primary {

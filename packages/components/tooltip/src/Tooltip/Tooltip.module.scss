@@ -33,13 +33,13 @@
   .content {
     word-break: break-word;
     display: inline-block;
-    padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
+    padding: var(--tooltip-padding, #{var(--space-8) var(--space-16)});
   }
 }
 
 .tooltip.paddingSizeMd {
   border-radius: var(--border-radius-medium);
-  padding: var(--spacing-medium);
+  padding: var(--space-16);
   @include vibe-text(text2, normal);
 }
 
