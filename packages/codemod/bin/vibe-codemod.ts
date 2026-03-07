@@ -265,7 +265,6 @@ async function main() {
         ]
       : migrationType === "v4"
         ? [
-            resolve(transformationsDir, "next-imports-migration.js"),
             resolve(transformationsDir, "type-imports-migration.js"),
             resolve(transformationsDir, "packages-rename-migration.js")
           ]
