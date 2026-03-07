@@ -53,4 +53,29 @@ describe("Next imports migration", () => {
      import { SomeOther } from "another-library";`,
     "should rename '@vibe/core/next' and leave other imports unchanged"
   );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { List } from "@vibe/core/next";`,
+    `import { List } from "@vibe/core/next";`,
+    "should not move List — it remains in @vibe/core/next"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { AttentionBox, List } from "@vibe/core/next";`,
+    `import { AttentionBox } from "@vibe/core";
+import { List } from "@vibe/core/next";`,
+    "should split mixed imports — move promoted components, keep List in /next"
+  );
+
+  defineInlineTest(
+    transform,
+    {},
+    `import { Dropdown, Modal, DatePicker } from "@vibe/core/next";`,
+    `import { Dropdown, Modal, DatePicker } from "@vibe/core";`,
+    "should move multiple promoted components together"
+  );
 });
