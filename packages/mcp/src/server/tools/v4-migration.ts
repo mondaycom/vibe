@@ -10,7 +10,7 @@ const migrationGuideSchema = z.object({
 export const v4MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
   name: "v4-migration",
   description:
-    "Analyzes a project for Vibe 3 to Vibe 4 migration requirements. Scans for deprecated APIs, removed props, renamed components, and generates migration commands.",
+    "Analyzes a project for Vibe 3 to Vibe 4 migration requirements. Scans for deprecated APIs, removed props, renamed components, and generates migration commands with file-level before/after replacements.",
   inputSchema: migrationGuideSchema.shape,
   execute: async input => {
     try {
@@ -29,7 +29,10 @@ export const v4MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
         };
       }
 
-      const projectInfo = { targetDirectory: resolvedPath };
+      const projectInfo = {
+        targetDirectory: resolvedPath
+      };
+
       const migrationData = getMigrationInstructions(projectInfo);
       const analysis = await analyzeProject(resolvedPath);
 
@@ -41,16 +44,29 @@ export const v4MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
       };
 
       return {
-        content: [{ type: "text", text: JSON.stringify(result, null, 2) }]
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2)
+          }
+        ]
       };
     } catch (e) {
+      const errorMessage = getErrorMessage(e);
       return {
-        content: [{ type: "text", text: `Error in v4-migration-tool: ${getErrorMessage(e)}` }],
+        content: [
+          {
+            type: "text",
+            text: `Error in vibe-migration-tool: ${errorMessage}`
+          }
+        ],
         isError: true
       };
     }
   }
 };
+
+// ── Migration Instructions ───────────────────────────────────────────
 
 function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
   return {
@@ -67,42 +83,37 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
       ]
     },
     packageChanges: {
-      install: ["@vibe/core@^4"],
-      remove: ["moment"],
-      stylePackage: {
+      upgrade: ["@vibe/core@^4"],
+      remove: ["moment", "react-select", "react-windowed-select", "framer-motion", "@popperjs/core", "react-popper", "react-dates", "a11y-dialog", "body-scroll-lock"],
+      replace: [{ from: "monday-ui-style", to: "@vibe/style" }],
+      description: "Upgrade @vibe/core, remove replaced dependencies, rename style package"
+    },
+    importChanges: {
+      styleImports: {
         from: "monday-ui-style",
         to: "@vibe/style"
+      },
+      nextComponents: {
+        from: "@vibe/core/next",
+        to: "@vibe/core",
+        components: ["AttentionBox", "Dropdown", "DatePicker", "Dialog", "Modal"],
+        exception: "List remains in @vibe/core/next"
       }
     },
-    removedDependencies: [
-      { removed: "@popperjs/core + react-popper", replacement: "@floating-ui/react-dom" },
-      { removed: "react-dates + moment", replacement: "react-day-picker + date-fns" },
-      { removed: "react-select + react-windowed-select", replacement: "New custom Dropdown" },
-      { removed: "framer-motion", replacement: "react-transition-group + CSS animations" },
-      { removed: "a11y-dialog + body-scroll-lock", replacement: "New functional Modal" }
+    removedComponents: [
+      { name: "TipseenImage", replacement: "TipseenMedia with <img> child" },
+      { name: "AttentionBoxLink", replacement: "AttentionBox link prop" },
+      { name: "DropdownMenu", replacement: "New Dropdown API" },
+      { name: "DropdownOption", replacement: "New Dropdown API" },
+      { name: "DropdownSingleValue", replacement: "New Dropdown API" }
     ],
-    ariaPropsChanges: {
-      description: "All custom camelCase ARIA props renamed to standard HTML aria-* attributes",
-      mapping: {
-        ariaLabel: "aria-label",
-        ariaHidden: "aria-hidden",
-        ariaExpanded: "aria-expanded",
-        ariaControls: "aria-controls",
-        ariaHasPopup: "aria-haspopup",
-        "ariaLabeledBy / ariaLabelledBy": "aria-labelledby",
-        "ariaDescribedBy / ariaDescribedby": "aria-describedby",
-        "ariaLabelDescription (Link)": "aria-label"
-      },
-      note: "Component-specific compound props like inputAriaLabel, menuAriaLabel, closeButtonAriaLabel are NOT affected"
-    },
     breakingChanges: {
       AttentionBox: {
         changes: [
-          "Legacy AttentionBox removed — new implementation promoted from @vibe/core/next",
-          "AttentionBoxLink removed as public export — use link prop",
           'type values: "success" → "positive", "danger" → "negative", "dark" → "neutral"',
           "entryAnimation → animate",
-          "withoutIcon / withIconWithoutHeader → icon={false}"
+          "withoutIcon / withIconWithoutHeader → icon={false}",
+          "AttentionBoxLink removed — use link prop"
         ]
       },
       Chips: {
@@ -115,72 +126,59 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
         ]
       },
       CustomSvgIcon: {
-        changes: ["onClick and clickable props removed — wrap with a clickable element instead"]
+        changes: ["onClick and clickable props removed — wrap with a clickable element"]
       },
       DatePicker: {
         changes: [
-          "date prop type changed from moment.Moment to Date",
-          "onPickDate renamed to onDateChange",
-          'range boolean prop replaced with mode: "single" | "range"',
+          "date prop: moment.Moment → Date",
+          "onPickDate → onDateChange",
+          'range boolean → mode: "single" | "range"',
           "moment no longer required as peer dependency"
         ]
       },
       Dialog: {
         changes: [
-          "Legacy class-based Dialog (Popper.js) replaced with functional Dialog (Floating UI)",
-          "modifiers prop removed — use middleware",
-          "enableNestedDialogLayer prop removed — LayerProvider always used",
+          "modifiers prop removed — use middleware (Floating UI)",
+          "enableNestedDialogLayer removed — LayerProvider always used",
           "addKeyboardHideShowTriggersByDefault default changed to true",
           "Refable component removed from public exports"
         ]
       },
       Dropdown: {
         changes: [
-          "Old react-select Dropdown removed — new custom Dropdown promoted from @vibe/core/next",
-          "Options structure: { id, text } → { value, label }",
+          "Options: { id, text } → { value, label }",
           "Sub-components removed: DropdownMenu, DropdownOption, DropdownSingleValue"
         ]
       },
       Flex: {
-        changes: ['"stretch" value removed from justify prop (not valid CSS for flexbox)']
+        changes: ['"stretch" value removed from justify prop']
       },
       Icon: {
-        changes: [
-          "iconLabel → label",
-          "iconType → type",
-          "iconSize → size",
-          'size prop now applies to type="src" icons (previously only svg)'
-        ]
+        changes: ["iconLabel → label", "iconType → type", "iconSize → size", 'size prop now applies to type="src" icons']
       },
       LinearProgressBar: {
-        changes: ["Renamed to ProgressBar", "LinearProgressBarProps renamed to ProgressBarProps"]
+        changes: ["Renamed to ProgressBar", "LinearProgressBarProps → ProgressBarProps"]
       },
       Link: {
-        changes: [
-          "@supports CSS fallback removed for logical properties",
-          "Override .iconStart margin-right → margin-inline-end, .iconEnd margin-left → margin-inline-start"
-        ]
+        changes: ["@supports CSS fallback removed for logical properties"]
       },
       MenuButton: {
-        changes: ["focusItemIndexOnMount now defaults to 0 for Menu children"]
+        changes: ["focusItemIndexOnMount now defaults to 0"]
       },
       MenuItem: {
-        changes: ["children accepts only single MenuChild, not MenuChild[]", "Internal MenuItemIcon label prop removed"]
+        changes: ["children accepts only single MenuChild, not array"]
       },
       Modal: {
-        changes: [
-          "Legacy class-based Modal removed — new functional Modal promoted from @vibe/core/next",
-          "Sub-components (ModalHeader, ModalContent, ModalFooter) have updated APIs"
-        ]
+        changes: ["Legacy Modal removed — new functional Modal promoted from @vibe/core/next"]
       },
       Steps: {
-        changes: ["Finish button renders by default on the last step"]
+        changes: ["Finish button renders by default on last step"]
       },
       TextField: {
-        changes: ["iconName → icon", "iconsNames object → flat iconLabel and secondaryIconLabel props"]
+        changes: ["iconName → icon", "iconsNames → flat iconLabel and secondaryIconLabel props"]
       },
       TextWithHighlight: {
-        changes: ['tooltipPosition prop removed — use tooltipProps={{ position: "value" }}']
+        changes: ['tooltipPosition removed — use tooltipProps={{ position }}']
       },
       Tipseen: {
         changes: ["modifiers prop removed — use middleware"]
@@ -189,10 +187,10 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
         changes: ["Removed — use TipseenMedia with <img> child"]
       },
       Toggle: {
-        changes: ["noSpacing prop removed — margin auto-removed when areLabelsHidden is true"]
+        changes: ["noSpacing prop removed — auto-removed when areLabelsHidden is true"]
       },
       Tooltip: {
-        changes: ["TooltipProps now extends DialogProps", "modifiers prop removed — use middleware"]
+        changes: ["TooltipProps extends DialogProps", "modifiers removed — use middleware"]
       },
       VirtualizedList: {
         changes: ["getItemHeight prop removed", "onVerticalScrollbarVisiblityChange prop removed"]
@@ -206,119 +204,142 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
       useListenFocusTriggers: { status: "removed", replacement: "Inline the logic using useEventListener" },
       useActiveDescendantListFocus: {
         status: "changed",
-        changes: ["onItemClickCallback and createOnItemClickCallback return values removed — use onItemClick directly"]
+        changes: ["onItemClickCallback and createOnItemClickCallback removed — use onItemClick directly"]
       },
       useKeyEvent: {
         status: "changed",
-        changes: ["callback type changed from GenericEventCallback to KeyboardEventCallback (native KeyboardEvent)"]
+        changes: ["callback type: GenericEventCallback → KeyboardEventCallback (native KeyboardEvent)"]
       }
     },
     typeChanges: {
       VibeComponent: { status: "removed", replacement: "Use forwardRef<P, T> and let TypeScript infer" },
-      withStaticProps: { status: "removed", replacement: "No replacement — static properties are removed in v4" },
+      withStaticProps: { status: "removed", replacement: "No replacement — static properties removed in v4" },
       withStaticPropsWithoutForwardRef: { status: "removed", replacement: "No replacement" }
     },
     cssChanges: {
       spacingTokens: {
-        description: "Deprecated semantic spacing tokens removed",
-        mapping: {
-          "--spacing-xs": "--space-4",
-          "--spacing-small": "--space-8",
-          "--spacing-medium": "--space-16",
-          "--spacing-large": "--space-24",
-          "--spacing-xl": "--space-32",
-          "--spacing-xxl": "--space-48",
-          "--spacing-xxxl": "--space-64"
-        }
+        "--spacing-xs": "--space-4",
+        "--spacing-small": "--space-8",
+        "--spacing-medium": "--space-16",
+        "--spacing-large": "--space-24",
+        "--spacing-xl": "--space-32",
+        "--spacing-xxl": "--space-48",
+        "--spacing-xxxl": "--space-64"
       },
-      inputPadding: "padding-inline-start reduced from 16px to 8px in TextField, BaseInput, TextArea, Dropdown Trigger",
-      placeholderColor: "All inputs now use var(--placeholder-color) instead of var(--secondary-text-color)",
-      logicalProperties: "Physical CSS properties replaced with logical properties throughout"
+      inputPadding: "padding-inline-start reduced from 16px to 8px",
+      placeholderColor: "Inputs use var(--placeholder-color) instead of var(--secondary-text-color)"
     },
     migrationSteps: {
-      note: "Follow these steps sequentially. Complete each step fully before proceeding.",
+      note: "⚠️ IMPORTANT: Follow these steps sequentially. Complete each step fully before proceeding to the next.",
       steps: [
         {
           step: 1,
           title: "Analyze Project",
-          action: "Run this tool to understand the scope of changes needed",
+          action: "Run detailed analysis to understand what needs to be migrated",
+          description: "Use this migration tool to understand the scope of changes needed",
           details: [
-            "Review package.json dependencies",
-            "Scan for deprecated APIs and removed props",
+            "Check package.json dependencies",
+            "Scan for deprecated APIs, removed props, and enum usage",
             "Identify components with breaking changes",
-            "Check for ARIA prop usage that needs updating"
-          ]
+            "Check for ARIA prop usage and CSS token changes"
+          ],
+          note: "This analysis is already being performed by this tool - review the results carefully"
         },
         {
           step: 2,
           title: "Update Package Dependencies",
-          action: "Upgrade @vibe/core to v4 and handle dependency changes",
-          command: "yarn add @vibe/core@^4",
-          additionalCommands: [
-            "yarn remove moment  # if only used for DatePicker",
-            "yarn add @vibe/style  # if using monday-ui-style"
-          ]
+          action: "Upgrade @vibe/core, replace monday-ui-style, remove unused dependencies",
+          command: "yarn add @vibe/core@^4 && yarn remove moment react-select",
+          description: "Update package.json and install new Vibe 4 packages",
+          important: "Do NOT proceed to step 3 until this completes successfully"
         },
         {
           step: 3,
           title: "Run Automated Migration",
-          action: `Run migration codemods`,
+          action: `Run migration script: npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
           command: `npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
-          description: "Handles enum-to-string-literal, ARIA props, import path changes, and component prop renames",
+          description: "Handles enum→string, ARIA props, import renames, and component prop changes automatically.",
+          important: "Let this script complete fully before making any manual changes",
           codemods: [
-            "Enums → string literals",
+            "Enums → string literals (Button.sizes.LARGE → \"large\")",
             "ARIA camelCase → aria-* attributes",
             "Icon prop renames (iconLabel → label, iconType → type, iconSize → size)",
             "TextField prop renames (iconName → icon, iconsNames → flat props)",
             "LinearProgressBar → ProgressBar rename",
-            "@vibe/core/next → @vibe/core import rewrite",
+            "@vibe/core/next → @vibe/core import rewrite (List stays in /next)",
             "monday-ui-style → @vibe/style import rewrite",
-            "Various component prop removals (Chips, Dialog, Toggle, etc.)"
+            "Flex stretch removal, Toggle noSpacing removal, Chips disableClickableBehavior removal",
+            "Dialog enableNestedDialogLayer removal",
+            "TipseenImage → TipseenMedia, TextWithHighlight tooltipPosition → tooltipProps"
           ]
         },
         {
           step: 4,
           title: "Manual Review and Fixes",
-          action: "Address changes that require manual intervention",
+          action: "Apply changes that codemods cannot handle",
+          description: "Use the projectAnalysis.manualChanges results to find and fix these issues",
           details: [
-            "DatePicker: Replace moment objects with native Date, update prop names",
+            "DatePicker: Replace moment objects with native Date, onPickDate → onDateChange, range → mode",
             "Dropdown: Update options from { id, text } to { value, label }",
-            "Dialog/Tooltip/Tipseen: Replace modifiers with middleware (Floating UI)",
-            "CustomSvgIcon: Wrap with clickable element if onClick was used",
-            "Modal: Review sub-component API changes",
-            "VibeComponent type: Remove type annotations or use React.ForwardRefExoticComponent",
-            "withStaticProps: Remove calls, static properties no longer needed",
-            "CSS spacing tokens: Update --spacing-* to --space-* in stylesheets"
-          ]
+            "Dialog/Tooltip/Tipseen: Replace modifiers with middleware (@floating-ui/react-dom)",
+            "CustomSvgIcon: Wrap with <button> or <Clickable> if onClick was used",
+            "AttentionBox: Update type values (success→positive, danger→negative, dark→neutral)",
+            "Modal: Review sub-component API changes (ModalHeader, ModalContent, ModalFooter)",
+            "useMergeRefs: Replace with react-merge-refs package",
+            "useListenFocusTriggers: Inline with useEventListener",
+            "VibeComponent type: Remove and use forwardRef directly",
+            "withStaticProps: Remove — static properties no longer used",
+            "CSS spacing tokens: Replace --spacing-* with --space-* in stylesheets"
+          ],
+          important: "Use the file:line references from projectAnalysis to locate each issue"
         },
         {
           step: 5,
           title: "Testing",
-          action: "Verify all functionality works correctly",
-          details: [
-            "Test all components with breaking changes",
-            "Verify DatePicker works with native Date objects",
-            "Check Dialog/Tooltip/Tipseen positioning with new Floating UI middleware",
-            "Verify Dropdown options render correctly with new structure",
-            "Test keyboard navigation and accessibility",
-            "Check CSS spacing and layout"
-          ]
+          action: "Test application",
+          description: "Run tests and verify all functionality",
+          important: "Do not consider migration complete until all features work correctly"
+        },
+        {
+          step: 6,
+          title: "Migration Summary & Next Steps",
+          action: "Review migration completion",
+          description: "Congratulations! You've successfully migrated to Vibe 4.",
+          nextSteps: [
+            {
+              title: "Code Formatting (Optional)",
+              description: "Format your code according to your project's settings",
+              note: "Check your package.json scripts for available formatting commands"
+            },
+            {
+              title: "Show Your Support ⭐",
+              description: "If this migration helped you, consider giving the Vibe Design System a star!",
+              action: "Visit https://github.com/mondaycom/vibe and click the ⭐ Star button"
+            }
+          ],
+          important: "🎉 Migration to Vibe 4 is now complete!"
         }
       ]
     }
   };
 }
 
+// ── Project Analysis ─────────────────────────────────────────────────
+
+interface FileIssue {
+  file: string;
+  line: number;
+  match: string;
+  before: string;
+  after: string;
+}
+
 async function analyzeProject(projectPath: string) {
-  const analysis: {
-    packageJsonAnalysis: ReturnType<typeof analyzePackageJson> | null;
-    importAnalysis: Awaited<ReturnType<typeof analyzeImports>> | null;
-    componentUsage: Awaited<ReturnType<typeof analyzeComponentUsage>> | null;
-    potentialIssues: string[];
-  } = {
+  const analysis: any = {
     packageJsonAnalysis: null,
     importAnalysis: null,
     componentUsage: null,
+    manualChanges: null,
     potentialIssues: []
   };
 
@@ -332,25 +353,22 @@ async function analyzeProject(projectPath: string) {
     }
   }
 
-  analysis.importAnalysis = await analyzeImports(projectPath);
-  analysis.componentUsage = await analyzeComponentUsage(projectPath);
+  const files = getAllSourceFiles(projectPath);
+  const scanResult = scanAllFiles(files);
+  analysis.importAnalysis = scanResult.importAnalysis;
+  analysis.componentUsage = scanResult.componentUsage;
+  analysis.manualChanges = scanResult.manualChanges;
 
   return analysis;
 }
 
-function analyzePackageJson(packageJson: { dependencies?: Record<string, string>; devDependencies?: Record<string, string> }) {
+function analyzePackageJson(packageJson: any) {
   const dependencies = { ...packageJson.dependencies, ...packageJson.devDependencies };
   const hasVibeCore = !!dependencies["@vibe/core"];
-  const vibeCoreVersion = dependencies["@vibe/core"] || "not installed";
+  const vibeCoreVersion = dependencies["@vibe/core"] || "not found";
   const hasMoment = !!dependencies["moment"];
   const hasMondayUIStyle = !!dependencies["monday-ui-style"];
   const hasVibeStyle = !!dependencies["@vibe/style"];
-  const hasReactSelect = !!dependencies["react-select"];
-  const hasFramerMotion = !!dependencies["framer-motion"];
-  const hasPopperJs = !!dependencies["@popperjs/core"];
-
-  const isV3 = hasVibeCore && !vibeCoreVersion.startsWith("4");
-  const isV4 = hasVibeCore && vibeCoreVersion.startsWith("4");
 
   return {
     hasVibeCore,
@@ -358,247 +376,400 @@ function analyzePackageJson(packageJson: { dependencies?: Record<string, string>
     hasMoment,
     hasMondayUIStyle,
     hasVibeStyle,
-    hasReactSelect,
-    hasFramerMotion,
-    hasPopperJs,
-    migrationStatus: isV4 ? "already-v4" : isV3 ? "needs-migration" : hasVibeCore ? "check-version" : "not-using-vibe",
-    removableDependencies: [
-      hasMoment && "moment (if only used for DatePicker)",
-      hasMondayUIStyle && "monday-ui-style (replace with @vibe/style)",
-      hasReactSelect && "react-select (no longer used by Dropdown)",
-      hasFramerMotion && "framer-motion (replaced with react-transition-group + CSS)",
-      hasPopperJs && "@popperjs/core (replaced with @floating-ui/react-dom)"
+    migrationStatus: hasVibeCore ? "needs-migration" : "not-using-vibe",
+    dependencyActions: [
+      hasVibeCore && { action: "upgrade", package: "@vibe/core", from: vibeCoreVersion, to: "^4", command: "yarn add @vibe/core@^4" },
+      hasMoment && { action: "remove", package: "moment", reason: "DatePicker now uses native Date + date-fns", command: "yarn remove moment" },
+      hasMondayUIStyle && { action: "replace", package: "monday-ui-style", with: "@vibe/style", command: "yarn add @vibe/style && yarn remove monday-ui-style" },
+      dependencies["react-select"] && { action: "remove", package: "react-select", reason: "Dropdown no longer uses react-select", command: "yarn remove react-select" },
+      dependencies["react-windowed-select"] && { action: "remove", package: "react-windowed-select", reason: "No longer needed", command: "yarn remove react-windowed-select" },
+      dependencies["framer-motion"] && { action: "remove", package: "framer-motion", reason: "Replaced with react-transition-group + CSS", command: "yarn remove framer-motion" },
+      dependencies["@popperjs/core"] && { action: "remove", package: "@popperjs/core", reason: "Replaced with @floating-ui/react-dom", command: "yarn remove @popperjs/core" },
+      dependencies["react-popper"] && { action: "remove", package: "react-popper", reason: "Replaced with @floating-ui/react-dom", command: "yarn remove react-popper" },
+      dependencies["react-dates"] && { action: "remove", package: "react-dates", reason: "DatePicker uses react-day-picker", command: "yarn remove react-dates" },
+      dependencies["a11y-dialog"] && { action: "remove", package: "a11y-dialog", reason: "Modal rewritten", command: "yarn remove a11y-dialog" },
+      dependencies["body-scroll-lock"] && { action: "remove", package: "body-scroll-lock", reason: "Modal rewritten", command: "yarn remove body-scroll-lock" }
     ].filter(Boolean)
   };
 }
 
-async function analyzeImports(projectPath: string) {
-  const importIssues = {
+function scanAllFiles(files: string[]) {
+  const importAnalysis: any = {
     mondayUIStyleImports: [] as string[],
     nextImports: [] as string[],
-    momentImports: [] as string[],
-    reactSelectImports: [] as string[],
-    ariaPropsUsage: [] as string[],
     enumUsage: [] as string[],
-    filesScanned: 0
+    ariaPropsUsage: [] as string[],
+    filesScanned: files.length
   };
 
-  try {
-    const files = await getAllSourceFiles(projectPath);
-    importIssues.filesScanned = files.length;
-
-    for (const file of files) {
-      try {
-        const content = readFileSync(file, "utf-8");
-
-        if (content.includes("monday-ui-style")) {
-          importIssues.mondayUIStyleImports.push(file);
-        }
-        if (content.includes("@vibe/core/next")) {
-          importIssues.nextImports.push(file);
-        }
-        if (content.includes("from \"moment\"") || content.includes("from 'moment'")) {
-          importIssues.momentImports.push(file);
-        }
-        if (content.includes("react-select")) {
-          importIssues.reactSelectImports.push(file);
-        }
-        if (/\bariaLabel\b|\bariaHidden\b|\bariaExpanded\b|\bariaControls\b|\bariaHasPopup\b|\bariaLabeledBy\b|\bariaLabelledBy\b|\bariaDescribedBy\b/.test(content)) {
-          importIssues.ariaPropsUsage.push(file);
-        }
-        if (/\.\b(sizes|kinds|types|positions|colors|feedbacks)\b\.\b[A-Z_]+\b/.test(content)) {
-          importIssues.enumUsage.push(file);
-        }
-      } catch {
-        // Skip files that can't be read
-      }
-    }
-  } catch (e) {
-    (importIssues as any).error = `Error scanning files: ${getErrorMessage(e)}`;
-  }
-
-  return importIssues;
-}
-
-async function analyzeComponentUsage(projectPath: string) {
-  const componentUsage: {
-    renamedComponents: Record<string, string[]>;
-    removedProps: Record<string, string[]>;
-    removedComponents: Record<string, string[]>;
-    removedHooks: Record<string, string[]>;
-    removedTypes: Record<string, string[]>;
-    filesScanned: number;
-  } = {
-    renamedComponents: {},
-    removedProps: {},
-    removedComponents: {},
-    removedHooks: {},
-    removedTypes: {},
-    filesScanned: 0
+  const componentUsage: any = {
+    renamedComponents: {} as Record<string, string[]>,
+    removedComponents: {} as Record<string, string[]>,
+    breakingChangeComponents: {} as Record<string, string[]>,
+    filesScanned: files.length
   };
 
-  const renamedComponents = [{ old: "LinearProgressBar", new: "ProgressBar" }];
+  const manualChanges: Record<string, FileIssue[]> = {
+    datePickerMoment: [],
+    datePickerOnPickDate: [],
+    datePickerRange: [],
+    dropdownOldOptions: [],
+    dropdownSubComponents: [],
+    dialogModifiers: [],
+    tooltipModifiers: [],
+    tipseenModifiers: [],
+    customSvgIconOnClick: [],
+    attentionBoxTypeValues: [],
+    attentionBoxProps: [],
+    attentionBoxLink: [],
+    modalFromNext: [],
+    useMergeRefs: [],
+    useListenFocusTriggers: [],
+    vibeComponentType: [],
+    withStaticPropsUsage: [],
+    useActiveDescendantCallbacks: [],
+    useKeyEventCallback: [],
+    spacingTokens: []
+  };
 
-  const removedComponentExports = ["TipseenImage", "AttentionBoxLink", "DropdownMenu", "DropdownOption", "DropdownSingleValue"];
-
-  const propsToCheck = [
-    { component: "CustomSvgIcon", props: ["onClick", "clickable"] },
-    { component: "Dialog", props: ["modifiers", "enableNestedDialogLayer"] },
-    { component: "Tooltip", props: ["modifiers"] },
-    { component: "Tipseen", props: ["modifiers"] },
-    { component: "DatePicker", props: ["onPickDate"] },
-    { component: "TextField", props: ["iconName", "iconsNames"] },
-    { component: "Toggle", props: ["noSpacing"] },
-    { component: "Chips", props: ["disableClickableBehavior"] },
-    { component: "Icon", props: ["iconLabel", "iconType", "iconSize"] },
-    { component: "TextWithHighlight", props: ["tooltipPosition"] },
-    { component: "VirtualizedList", props: ["getItemHeight", "onVerticalScrollbarVisiblityChange"] },
-    { component: "AttentionBox", props: ["entryAnimation", "withoutIcon", "withIconWithoutHeader"] }
+  const removedComponents = ["TipseenImage", "AttentionBoxLink", "DropdownMenu", "DropdownOption", "DropdownSingleValue"];
+  const breakingChangeComponents = [
+    "AttentionBox", "Chips", "CustomSvgIcon", "DatePicker", "Dialog", "Dropdown", "Flex",
+    "Icon", "LinearProgressBar", "MenuButton", "MenuItem", "Modal", "Steps",
+    "TextField", "TextWithHighlight", "Tipseen", "Toggle", "Tooltip",
+    "VirtualizedList", "VirtualizedGrid"
   ];
 
-  const removedHooks = ["useMergeRefs", "useListenFocusTriggers"];
-  const removedTypes = ["VibeComponent", "withStaticProps", "withStaticPropsWithoutForwardRef"];
+  for (const file of files) {
+    try {
+      const content = readFileSync(file, "utf-8");
+      const lines = content.split("\n");
+      const ext = extname(file);
+      const isStyleFile = ext === ".css" || ext === ".scss";
 
-  try {
-    const files = await getAllSourceFiles(projectPath);
-    componentUsage.filesScanned = files.length;
-
-    for (const file of files) {
-      try {
-        const content = readFileSync(file, "utf-8");
-
-        for (const { old: oldName } of renamedComponents) {
-          if (content.includes(`<${oldName}`) || content.includes(`${oldName}Props`)) {
-            if (!componentUsage.renamedComponents[oldName]) componentUsage.renamedComponents[oldName] = [];
-            componentUsage.renamedComponents[oldName].push(file);
-          }
-        }
-
-        for (const comp of removedComponentExports) {
-          if (content.includes(comp)) {
-            if (!componentUsage.removedComponents[comp]) componentUsage.removedComponents[comp] = [];
-            componentUsage.removedComponents[comp].push(file);
-          }
-        }
-
-        for (const { component, props } of propsToCheck) {
-          if (content.includes(`<${component}`) || content.includes(`<${component} `)) {
-            for (const prop of props) {
-              const propRegex = new RegExp(`\\b${prop}\\b`);
-              if (propRegex.test(content)) {
-                const key = `${component}.${prop}`;
-                if (!componentUsage.removedProps[key]) componentUsage.removedProps[key] = [];
-                componentUsage.removedProps[key].push(file);
-              }
-            }
-          }
-        }
-
-        for (const hook of removedHooks) {
-          if (content.includes(hook)) {
-            if (!componentUsage.removedHooks[hook]) componentUsage.removedHooks[hook] = [];
-            componentUsage.removedHooks[hook].push(file);
-          }
-        }
-
-        for (const typeName of removedTypes) {
-          if (content.includes(typeName)) {
-            if (!componentUsage.removedTypes[typeName]) componentUsage.removedTypes[typeName] = [];
-            componentUsage.removedTypes[typeName].push(file);
-          }
-        }
-      } catch {
-        // Skip files that can't be read
+      if (isStyleFile) {
+        scanStyleFile(file, lines, importAnalysis, manualChanges);
+        continue;
       }
+
+      // Import analysis
+      if (content.includes("monday-ui-style")) {
+        importAnalysis.mondayUIStyleImports.push(file);
+      }
+      if (content.includes("@vibe/core/next")) {
+        importAnalysis.nextImports.push(file);
+      }
+      if (/\.\b(sizes|kinds|types|positions|colors|feedbacks)\b\.\b[A-Z_]+\b/.test(content)) {
+        importAnalysis.enumUsage.push(file);
+      }
+      if (/\bariaLabel\b|\bariaHidden\b|\bariaExpanded\b|\bariaControls\b|\bariaHasPopup\b|\bariaLabelledBy\b|\bariaLabeledBy\b|\bariaDescribedBy\b/.test(content)) {
+        importAnalysis.ariaPropsUsage.push(file);
+      }
+
+      // Component usage
+      if (content.includes("LinearProgressBar")) {
+        if (!componentUsage.renamedComponents["LinearProgressBar"]) componentUsage.renamedComponents["LinearProgressBar"] = [];
+        componentUsage.renamedComponents["LinearProgressBar"].push(file);
+      }
+
+      for (const comp of removedComponents) {
+        if (content.includes(comp)) {
+          if (!componentUsage.removedComponents[comp]) componentUsage.removedComponents[comp] = [];
+          componentUsage.removedComponents[comp].push(file);
+        }
+      }
+
+      for (const comp of breakingChangeComponents) {
+        if (content.includes(`<${comp}`) || content.includes(`${comp}.`)) {
+          if (!componentUsage.breakingChangeComponents[comp]) componentUsage.breakingChangeComponents[comp] = [];
+          componentUsage.breakingChangeComponents[comp].push(file);
+        }
+      }
+
+      // Manual changes — file:line level detection
+      scanManualChanges(file, lines, content, manualChanges);
+    } catch {
+      // Skip unreadable files
     }
-  } catch (e) {
-    (componentUsage as any).error = `Error scanning files: ${getErrorMessage(e)}`;
   }
 
-  return componentUsage;
+  return { importAnalysis, componentUsage, manualChanges };
 }
 
-async function getAllSourceFiles(dir: string): Promise<string[]> {
+function scanStyleFile(file: string, lines: string[], importAnalysis: any, manualChanges: Record<string, FileIssue[]>) {
+  const spacingMap: Record<string, string> = {
+    "--spacing-xs": "--space-4",
+    "--spacing-small": "--space-8",
+    "--spacing-medium": "--space-16",
+    "--spacing-large": "--space-24",
+    "--spacing-xl": "--space-32",
+    "--spacing-xxl": "--space-48",
+    "--spacing-xxxl": "--space-64"
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    for (const [oldToken, newToken] of Object.entries(spacingMap)) {
+      if (lines[i].includes(oldToken)) {
+        manualChanges.spacingTokens.push({
+          file, line: i + 1, match: lines[i].trim(),
+          before: `var(${oldToken})`,
+          after: `var(${newToken})`
+        });
+      }
+    }
+    if (lines[i].includes("monday-ui-style")) {
+      importAnalysis.mondayUIStyleImports.push(file);
+    }
+  }
+}
+
+function scanManualChanges(file: string, lines: string[], content: string, manualChanges: Record<string, FileIssue[]>) {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // DatePicker: moment → Date
+    if (content.includes("DatePicker") && /\bmoment\b/.test(line) && !line.trimStart().startsWith("//")) {
+      manualChanges.datePickerMoment.push({
+        file, line: i + 1, match: line.trim(),
+        before: 'moment("2023-05-01")',
+        after: 'new Date("2023-05-01")'
+      });
+    }
+
+    // DatePicker: onPickDate → onDateChange
+    if (line.includes("onPickDate")) {
+      manualChanges.datePickerOnPickDate.push({
+        file, line: i + 1, match: line.trim(),
+        before: "onPickDate={(d) => setDate(d)}",
+        after: "onDateChange={(d) => setDate(d)}"
+      });
+    }
+
+    // DatePicker: range → mode
+    if (content.includes("DatePicker") && /\brange\b/.test(line) && !line.includes("mode")) {
+      manualChanges.datePickerRange.push({
+        file, line: i + 1, match: line.trim(),
+        before: "<DatePicker range />",
+        after: '<DatePicker mode="range" />'
+      });
+    }
+
+    // Dropdown: { id, text } → { value, label }
+    if (content.includes("Dropdown") && (/\{\s*id\s*:.*text\s*:/.test(line) || /\{\s*text\s*:.*id\s*:/.test(line))) {
+      manualChanges.dropdownOldOptions.push({
+        file, line: i + 1, match: line.trim(),
+        before: '{ id: "1", text: "Option 1" }',
+        after: '{ value: "1", label: "Option 1" }'
+      });
+    }
+
+    // Dropdown sub-components
+    for (const subComp of ["DropdownMenu", "DropdownOption", "DropdownSingleValue"]) {
+      if (line.includes(subComp)) {
+        manualChanges.dropdownSubComponents.push({
+          file, line: i + 1, match: line.trim(),
+          before: subComp,
+          after: "// removed — use new Dropdown API. See: https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs"
+        });
+      }
+    }
+
+    // Dialog/Tooltip/Tipseen: modifiers → middleware
+    if (/\bmodifiers\b/.test(line)) {
+      if (content.includes("<Dialog")) {
+        manualChanges.dialogModifiers.push({
+          file, line: i + 1, match: line.trim(),
+          before: 'modifiers={[{ name: "offset", options: { offset: [0, 8] } }]}',
+          after: 'middleware={[offset(8)]}  // import { offset } from "@floating-ui/react-dom"'
+        });
+      }
+      if (content.includes("<Tooltip")) {
+        manualChanges.tooltipModifiers.push({
+          file, line: i + 1, match: line.trim(),
+          before: "modifiers={...}",
+          after: "middleware={...}  // use @floating-ui/react-dom middleware"
+        });
+      }
+      if (content.includes("<Tipseen")) {
+        manualChanges.tipseenModifiers.push({
+          file, line: i + 1, match: line.trim(),
+          before: "modifiers={...}",
+          after: "middleware={...}  // use @floating-ui/react-dom middleware"
+        });
+      }
+    }
+
+    // CustomSvgIcon: onClick removed
+    if (content.includes("CustomSvgIcon") && /\bonClick\b/.test(line)) {
+      manualChanges.customSvgIconOnClick.push({
+        file, line: i + 1, match: line.trim(),
+        before: "<CustomSvgIcon onClick={handleClick} clickable />",
+        after: '<button onClick={handleClick}><CustomSvgIcon /></button>  // or use <Clickable>'
+      });
+    }
+
+    // AttentionBox: type value changes
+    if (content.includes("AttentionBox")) {
+      const typeMatch = line.match(/type\s*=\s*["'](success|danger|dark)["']/);
+      if (typeMatch) {
+        const oldType = typeMatch[1];
+        const newType = oldType === "success" ? "positive" : oldType === "danger" ? "negative" : "neutral";
+        manualChanges.attentionBoxTypeValues.push({
+          file, line: i + 1, match: line.trim(),
+          before: `type="${oldType}"`,
+          after: `type="${newType}"`
+        });
+      }
+      if (line.includes("entryAnimation")) {
+        manualChanges.attentionBoxProps.push({
+          file, line: i + 1, match: line.trim(), before: "entryAnimation", after: "animate"
+        });
+      }
+      if (line.includes("withoutIcon") || line.includes("withIconWithoutHeader")) {
+        manualChanges.attentionBoxProps.push({
+          file, line: i + 1, match: line.trim(), before: "withoutIcon", after: "icon={false}"
+        });
+      }
+    }
+
+    // AttentionBoxLink
+    if (line.includes("AttentionBoxLink")) {
+      manualChanges.attentionBoxLink.push({
+        file, line: i + 1, match: line.trim(),
+        before: '<AttentionBoxLink href="/docs" text="Learn more" />',
+        after: '// use AttentionBox link prop: link={{ href: "/docs", text: "Learn more" }}'
+      });
+    }
+
+    // Modal from @vibe/core/next
+    if (line.includes("Modal") && line.includes("@vibe/core/next")) {
+      manualChanges.modalFromNext.push({
+        file, line: i + 1, match: line.trim(),
+        before: 'import { Modal } from "@vibe/core/next"',
+        after: 'import { Modal } from "@vibe/core"  // review ModalHeader/ModalContent/ModalFooter API changes'
+      });
+    }
+
+    // useMergeRefs
+    if (line.includes("useMergeRefs")) {
+      manualChanges.useMergeRefs.push({
+        file, line: i + 1, match: line.trim(),
+        before: 'import { useMergeRefs } from "@vibe/core";\nconst ref = useMergeRefs({ refs: [ref1, ref2] });',
+        after: 'import { mergeRefs } from "react-merge-refs";\nconst ref = mergeRefs([ref1, ref2]);'
+      });
+    }
+
+    // useListenFocusTriggers
+    if (line.includes("useListenFocusTriggers")) {
+      manualChanges.useListenFocusTriggers.push({
+        file, line: i + 1, match: line.trim(),
+        before: "useListenFocusTriggers({ ref, onFocusByKeyboard, onFocusByMouse })",
+        after: 'Inline using useEventListener:\nuseEventListener({ eventName: "focusin", callback: ..., ref });\nuseEventListener({ eventName: "mousedown", callback: ..., ref });'
+      });
+    }
+
+    // VibeComponent type
+    if (/\bVibeComponent\b/.test(line) && !line.includes("VibeComponentProps")) {
+      manualChanges.vibeComponentType.push({
+        file, line: i + 1, match: line.trim(),
+        before: "const MyComp: VibeComponent<MyProps, HTMLDivElement> = forwardRef(...)",
+        after: "const MyComp = forwardRef<HTMLDivElement, MyProps>(...)  // let TS infer"
+      });
+    }
+
+    // withStaticProps
+    if (line.includes("withStaticProps")) {
+      manualChanges.withStaticPropsUsage.push({
+        file, line: i + 1, match: line.trim(),
+        before: "export default withStaticProps(MyComponent, { sizes: MySizes })",
+        after: "export default MyComponent  // static properties removed in v4"
+      });
+    }
+
+    // useActiveDescendantListFocus removed callbacks
+    if (line.includes("onItemClickCallback") || line.includes("createOnItemClickCallback")) {
+      manualChanges.useActiveDescendantCallbacks.push({
+        file, line: i + 1, match: line.trim(),
+        before: "const { onItemClickCallback } = useActiveDescendantListFocus(...)",
+        after: "// use onItemClick directly instead"
+      });
+    }
+
+    // useKeyEvent callback type
+    if (line.includes("GenericEventCallback") && content.includes("useKeyEvent")) {
+      manualChanges.useKeyEventCallback.push({
+        file, line: i + 1, match: line.trim(),
+        before: "callback: GenericEventCallback",
+        after: "callback: KeyboardEventCallback  // native KeyboardEvent"
+      });
+    }
+  }
+}
+
+// ── File Discovery ───────────────────────────────────────────────────
+
+function getAllSourceFiles(dir: string): string[] {
   const files: string[] = [];
   const validExtensions = [".ts", ".tsx", ".js", ".jsx", ".css", ".scss"];
 
   function scanDirectory(currentDir: string, depth = 0) {
     if (depth > 5) return;
-
     try {
       const entries = readdirSync(currentDir);
-
       for (const entry of entries) {
-        if (entry.startsWith(".") || entry === "node_modules" || entry === "dist" || entry === "build") {
-          continue;
-        }
-
+        if (entry.startsWith(".") || entry === "node_modules" || entry === "dist" || entry === "build") continue;
         const fullPath = join(currentDir, entry);
         try {
           const stat = statSync(fullPath);
-
           if (stat.isDirectory()) {
             scanDirectory(fullPath, depth + 1);
           } else if (stat.isFile() && validExtensions.includes(extname(entry))) {
             files.push(fullPath);
           }
-        } catch {
-          // Skip if can't stat
-        }
+        } catch { /* skip */ }
       }
-    } catch {
-      // Skip if can't read directory
-    }
+    } catch { /* skip */ }
   }
 
   scanDirectory(dir);
   return files;
 }
 
+// ── Recommendations ──────────────────────────────────────────────────
+
 function generateRecommendations(analysis: any, projectInfo: { targetDirectory: string }) {
   const recommendations = [];
 
+  // Package recommendations
   if (analysis.packageJsonAnalysis) {
     const pkg = analysis.packageJsonAnalysis;
 
-    if (pkg.migrationStatus === "already-v4") {
-      recommendations.push({
-        type: "already-migrated",
-        priority: "info",
-        message: "Package dependencies appear to be already on Vibe 4"
-      });
-    } else if (pkg.migrationStatus === "needs-migration") {
+    if (pkg.migrationStatus === "needs-migration") {
       recommendations.push({
         type: "package-upgrade",
         priority: "high",
         action: "Upgrade @vibe/core to v4",
-        command: "yarn add @vibe/core@^4"
+        command: "yarn add @vibe/core@^4",
+        details: "This is the first step in the migration process"
       });
     }
 
-    if (pkg.removableDependencies.length > 0) {
+    if (pkg.dependencyActions.length > 0) {
       recommendations.push({
-        type: "removable-dependencies",
-        priority: "medium",
-        action: "Remove dependencies that are no longer needed",
-        dependencies: pkg.removableDependencies
-      });
-    }
-
-    if (pkg.hasMondayUIStyle && !pkg.hasVibeStyle) {
-      recommendations.push({
-        type: "style-package",
+        type: "dependency-cleanup",
         priority: "high",
-        action: "Replace monday-ui-style with @vibe/style",
-        command: "yarn add @vibe/style && yarn remove monday-ui-style"
+        action: "Remove/replace deprecated dependencies",
+        details: `${pkg.dependencyActions.length} dependency changes needed`,
+        commands: pkg.dependencyActions.map((d: any) => d.command)
       });
     }
   }
 
+  // Import recommendations
   if (analysis.importAnalysis) {
     const imports = analysis.importAnalysis;
 
-    if (imports.mondayUIStyleImports.length > 0) {
+    if (imports.mondayUIStyleImports?.length > 0) {
       recommendations.push({
         type: "style-imports",
         priority: "high",
@@ -609,7 +780,7 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
       });
     }
 
-    if (imports.nextImports.length > 0) {
+    if (imports.nextImports?.length > 0) {
       recommendations.push({
         type: "next-imports",
         priority: "high",
@@ -620,40 +791,30 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
       });
     }
 
-    if (imports.ariaPropsUsage.length > 0) {
+    if (imports.ariaPropsUsage?.length > 0) {
       recommendations.push({
         type: "aria-props",
         priority: "high",
         action: "Update camelCase ARIA props to standard aria-* attributes",
-        details: `Found ${imports.ariaPropsUsage.length} files with camelCase ARIA props`,
+        details: `Found ${imports.ariaPropsUsage.length} files`,
         files: imports.ariaPropsUsage.slice(0, 5),
-        fix: "Handled by codemod: aria-props-migration"
+        fix: "Handled by codemod: Aria-props-migration"
       });
     }
 
-    if (imports.enumUsage.length > 0) {
+    if (imports.enumUsage?.length > 0) {
       recommendations.push({
         type: "enum-usage",
         priority: "high",
         action: "Replace enum static properties with string literals",
-        details: `Found ${imports.enumUsage.length} files with enum-style usage (e.g. Button.sizes.LARGE)`,
+        details: `Found ${imports.enumUsage.length} files`,
         files: imports.enumUsage.slice(0, 5),
         fix: "Handled by codemod: Enums-migration"
       });
     }
-
-    if (imports.momentImports.length > 0) {
-      recommendations.push({
-        type: "moment-usage",
-        priority: "medium",
-        action: "Replace moment.js with native Date objects for DatePicker",
-        details: `Found ${imports.momentImports.length} files importing moment`,
-        files: imports.momentImports.slice(0, 5),
-        fix: "Manual: Replace moment() with new Date(), update DatePicker props"
-      });
-    }
   }
 
+  // Component usage recommendations
   if (analysis.componentUsage) {
     const usage = analysis.componentUsage;
 
@@ -661,10 +822,10 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
       recommendations.push({
         type: "renamed-component",
         priority: "high",
-        action: `Rename ${component} → ProgressBar`,
+        action: `Rename ${component} → ${getComponentReplacement(component)}`,
         details: `Found ${files.length} files`,
         files: files.slice(0, 5),
-        fix: "Handled by codemod: LinearProgressBar-component-migration"
+        fix: "Handled by codemod"
       });
     });
 
@@ -675,59 +836,68 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
         action: `Replace removed component: ${component}`,
         details: `Found ${files.length} files`,
         files: files.slice(0, 5),
-        fix: getComponentReplacement(component)
+        fix: getComponentReplacementDetails(component)
       });
     });
 
-    Object.entries(usage.removedProps || {}).forEach(([key, files]: [string, any]) => {
+    Object.entries(usage.breakingChangeComponents || {}).forEach(([component, files]: [string, any]) => {
       recommendations.push({
-        type: "removed-prop",
+        type: "breaking-change",
         priority: "medium",
-        action: `Update deprecated prop: ${key}`,
-        details: `Found ${files.length} files`,
+        action: `Review ${component} usage`,
+        details: `Found ${files.length} files using ${component} - check for breaking changes`,
         files: files.slice(0, 5),
-        fix: getPropReplacement(key)
-      });
-    });
-
-    Object.entries(usage.removedHooks || {}).forEach(([hook, files]: [string, any]) => {
-      recommendations.push({
-        type: "removed-hook",
-        priority: "high",
-        action: `Replace removed hook: ${hook}`,
-        details: `Found ${files.length} files`,
-        files: files.slice(0, 5),
-        fix: getHookReplacement(hook)
-      });
-    });
-
-    Object.entries(usage.removedTypes || {}).forEach(([typeName, files]: [string, any]) => {
-      recommendations.push({
-        type: "removed-type",
-        priority: "medium",
-        action: `Remove usage of ${typeName}`,
-        details: `Found ${files.length} files`,
-        files: files.slice(0, 5),
-        fix: getTypeReplacement(typeName)
+        fix: getBreakingChangeDetails(component)
       });
     });
   }
 
+  // Manual changes recommendations
+  if (analysis.manualChanges) {
+    const manual = analysis.manualChanges;
+    const manualIssueCount = Object.values(manual).reduce((sum: number, arr: any) => sum + arr.length, 0);
+
+    if (manualIssueCount > 0) {
+      recommendations.push({
+        type: "manual-changes",
+        priority: "high",
+        action: "Apply manual changes that codemods cannot handle",
+        details: `${manualIssueCount} issues found across ${Object.entries(manual).filter(([, arr]: [string, any]) => arr.length > 0).length} categories`,
+        categories: Object.entries(manual)
+          .filter(([, arr]: [string, any]) => arr.length > 0)
+          .map(([key, arr]: [string, any]) => `${key}: ${arr.length} issues`),
+        important: "Review the manualChanges section for file:line locations and before/after replacements"
+      });
+    }
+  }
+
+  // Migration script
   recommendations.push({
     type: "migration-script",
     priority: "high",
-    action: "Run automated migration codemods",
+    action: "Run automated migration script",
     command: `npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
-    description: "Handles enums, ARIA props, import renames, and component prop migrations automatically",
-    warning: "Run AFTER updating package dependencies"
+    details: "Handles enums, ARIA props, import renames, and component prop migrations automatically",
+    warning: "⚠️ ONLY run this AFTER completing package dependency updates (step 2)"
   });
 
+  // CSS tokens
+  if (analysis.manualChanges?.spacingTokens?.length > 0) {
+    recommendations.push({
+      type: "css-tokens",
+      priority: "medium",
+      action: "Update deprecated CSS spacing tokens",
+      details: `Found ${analysis.manualChanges.spacingTokens.length} uses of deprecated --spacing-* tokens`,
+      fix: "Replace --spacing-xs/small/medium/large/xl/xxl/xxxl with --space-4/8/16/24/32/48/64"
+    });
+  }
+
   recommendations.push({
-    type: "css-tokens",
+    type: "manual-review",
     priority: "medium",
-    action: "Update deprecated CSS spacing tokens in stylesheets",
-    details: "Replace --spacing-xs/small/medium/large/xl/xxl/xxxl with --space-4/8/16/24/32/48/64",
-    fix: "Use stylelint with @vibe/style/use-new-spacing-tokens for auto-fix"
+    action: "Manual review and fixes",
+    details: "Review breaking changes and apply manual fixes",
+    warning: "⚠️ ONLY do manual changes AFTER the automated migration script completes (step 3)"
   });
 
   recommendations.push({
@@ -739,16 +909,46 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
       "Verify Dialog/Tooltip/Tipseen positioning (Floating UI)",
       "Check Dropdown options with new { value, label } structure",
       "Test Modal behavior and sub-component APIs",
-      "Verify accessibility — ARIA attributes render correctly",
-      "Check CSS layout with logical properties"
+      "Verify ARIA attributes render correctly",
+      "Check CSS spacing and layout"
     ],
-    warning: "Test AFTER completing all manual fixes"
+    warning: "⚠️ ONLY test AFTER completing manual fixes (step 4)"
+  });
+
+  recommendations.push({
+    type: "sequential-steps",
+    priority: "critical",
+    action: "Follow migration steps in order",
+    details: "Use the migrationSteps guide to follow the process sequentially",
+    warning: "🚨 DO NOT skip steps or work on multiple steps simultaneously"
+  });
+
+  recommendations.push({
+    type: "formatting",
+    priority: "info",
+    action: "Format code according to your project settings",
+    details: "Run your project's formatting commands after migration is complete"
+  });
+
+  recommendations.push({
+    type: "github-star",
+    priority: "info",
+    action: "Show your support with a GitHub star ⭐",
+    details: "If this migration tool helped you, consider starring the Vibe repository",
+    link: "https://github.com/mondaycom/vibe"
   });
 
   return recommendations;
 }
 
 function getComponentReplacement(component: string): string {
+  const replacements: Record<string, string> = {
+    LinearProgressBar: "ProgressBar"
+  };
+  return replacements[component] || component;
+}
+
+function getComponentReplacementDetails(component: string): string {
   const replacements: Record<string, string> = {
     TipseenImage: "Use TipseenMedia with an <img> child",
     AttentionBoxLink: "Use the AttentionBox link prop instead",
@@ -759,45 +959,28 @@ function getComponentReplacement(component: string): string {
   return replacements[component] || "Check migration guide for replacement";
 }
 
-function getPropReplacement(key: string): string {
-  const replacements: Record<string, string> = {
-    "CustomSvgIcon.onClick": "Manual: Wrap with <button> or <Clickable>",
-    "CustomSvgIcon.clickable": "Manual: Wrap with <button> or <Clickable>",
-    "Dialog.modifiers": "Manual: Replace with middleware prop (Floating UI)",
-    "Dialog.enableNestedDialogLayer": "Remove — LayerProvider is always used",
-    "Tooltip.modifiers": "Manual: Replace with middleware prop (Floating UI)",
-    "Tipseen.modifiers": "Manual: Replace with middleware prop (Floating UI)",
-    "DatePicker.onPickDate": "Rename to onDateChange",
-    "TextField.iconName": "Handled by codemod: rename to icon",
-    "TextField.iconsNames": "Handled by codemod: replace with iconLabel + secondaryIconLabel",
-    "Toggle.noSpacing": "Handled by codemod: remove prop",
-    "Chips.disableClickableBehavior": "Handled by codemod: remove prop",
-    "Icon.iconLabel": "Handled by codemod: rename to label",
-    "Icon.iconType": "Handled by codemod: rename to type",
-    "Icon.iconSize": "Handled by codemod: rename to size",
-    "TextWithHighlight.tooltipPosition": 'Handled by codemod: use tooltipProps={{ position }}',
-    "VirtualizedList.getItemHeight": "Remove — no longer supported",
-    "VirtualizedList.onVerticalScrollbarVisiblityChange": "Remove — no longer supported",
-    "AttentionBox.entryAnimation": "Rename to animate",
-    "AttentionBox.withoutIcon": "Replace with icon={false}",
-    "AttentionBox.withIconWithoutHeader": "Replace with icon={false}"
+function getBreakingChangeDetails(component: string): string {
+  const details: Record<string, string> = {
+    AttentionBox: 'Type values changed (success→positive, danger→negative, dark→neutral). entryAnimation→animate. withoutIcon→icon={false}',
+    Chips: "disableClickableBehavior prop removed",
+    CustomSvgIcon: "onClick and clickable props removed — wrap with clickable element",
+    DatePicker: "moment→Date, onPickDate→onDateChange, range→mode. Requires manual migration.",
+    Dialog: "modifiers→middleware (Floating UI). enableNestedDialogLayer removed.",
+    Dropdown: "Options: { id, text } → { value, label }. Sub-components removed. Requires manual migration.",
+    Flex: '"stretch" value removed from justify prop',
+    Icon: "iconLabel→label, iconType→type, iconSize→size",
+    LinearProgressBar: "Renamed to ProgressBar",
+    MenuButton: "focusItemIndexOnMount now defaults to 0",
+    MenuItem: "children accepts only single MenuChild",
+    Modal: "Legacy Modal removed — review new API",
+    Steps: "Finish button renders by default on last step",
+    TextField: "iconName→icon, iconsNames→flat iconLabel/secondaryIconLabel props",
+    TextWithHighlight: "tooltipPosition→tooltipProps",
+    Tipseen: "modifiers→middleware",
+    Toggle: "noSpacing prop removed",
+    Tooltip: "modifiers→middleware",
+    VirtualizedList: "getItemHeight and onVerticalScrollbarVisiblityChange props removed",
+    VirtualizedGrid: "itemRenderer return type corrected to ReactElement"
   };
-  return replacements[key] || "Check migration guide";
-}
-
-function getHookReplacement(hook: string): string {
-  const replacements: Record<string, string> = {
-    useMergeRefs: "Use react-merge-refs package or implement your own ref merging",
-    useListenFocusTriggers: "Inline the logic using useEventListener"
-  };
-  return replacements[hook] || "Check migration guide";
-}
-
-function getTypeReplacement(typeName: string): string {
-  const replacements: Record<string, string> = {
-    VibeComponent: "Remove — use forwardRef<P, T> and let TypeScript infer the type",
-    withStaticProps: "Remove — static properties are no longer used in v4",
-    withStaticPropsWithoutForwardRef: "Remove — static properties are no longer used in v4"
-  };
-  return replacements[typeName] || "Check migration guide";
+  return details[component] || "Check migration guide for specific changes";
 }
