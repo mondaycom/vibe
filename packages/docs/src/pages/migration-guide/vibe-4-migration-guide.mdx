@@ -8,18 +8,8 @@ import { DiffCodeBlock } from "./DiffCodeBlock";
 
 <br />
 
-<Tip type="success" title="NEW! AI-powered migration available!" emoji={false}>
-  **Skip the manual work and let AI handle your entire Vibe 4 migration!** With the [Vibe MCP
-  server](?path=/docs/mcp-new--docs), simply ask your AI assistant: *"Help me migrate this
-  project from Vibe 3 to Vibe 4"* and it will automatically scan your codebase, identify all breaking changes, and run
-  the exact codemods you need.
-  <br /> <br /> **[Install the MCP →](?path=/docs/mcp-new--docs) and turn your migration into
-  minutes!**
-</Tip>
-
 <div style={{ lineHeight: "1.8" }}>
 
-- [Intro](#intro)
 - [What's New](#whats-new-)
 - [Migration Steps](#migration-steps-)
 - [Breaking Changes](#breaking-changes-)
@@ -29,8 +19,6 @@ import { DiffCodeBlock } from "./DiffCodeBlock";
   - [CSS and Design Tokens](#css-and-design-tokens)
 - [FAQ](#faq-)
 - [Help](#help-)
-
-## Intro
 
 Vibe 4 is a major update to the Vibe design system, built for **React 19 compatibility**. It also delivers a leaner bundle, modern APIs, and stronger type safety. Legacy components, deprecated enums, and outdated dependencies have been removed in favor of simpler, more consistent alternatives.
 
@@ -47,6 +35,17 @@ Vibe 4 is fully compatible with React 19.
 
 If your app is upgrading to React 19, you **must** upgrade to Vibe 4 — Vibe 3 is not compatible with React 19.
 
+### New component implementations
+
+Several components have been completely rewritten with new APIs:
+- **Dropdown** — New custom implementation replacing the old `react-select`-based Dropdown
+- **Modal** — New component with layout-based API (`ModalBasicLayout`, `ModalMediaLayout`, etc.)
+- **AttentionBox** — New implementation with simplified props (`link`, `animate`, `icon`)
+- **DatePicker** — New implementation using native `Date` objects and `date-fns` instead of `moment`
+- **Dialog/Tooltip/Tipseen** — Now powered by Floating UI (replacing Popper.js), with `middleware` replacing `modifiers`
+
+If you were already using these from `@vibe/core/next`, just update the import path to `@vibe/core`.
+
 ### ~170 KB smaller bundle (min+gzip)
 
 Several internal runtime dependencies have been removed, including `framer-motion`, `moment`, `react-dates`, `react-select`, and `@popperjs/core`, resulting in a significantly smaller bundle.
@@ -59,22 +58,22 @@ All deprecated enum exports (e.g. `ButtonType`, `DialogPositionEnum`) and static
 
 Custom camelCase ARIA props (`ariaLabel`, `ariaHidden`, etc.) have been replaced with the standard HTML `aria-*` attributes that React natively supports, eliminating an unnecessary abstraction layer.
 
-### New component implementations
-
-Several components have been completely rewritten with new APIs:
-- **Dropdown** — New custom implementation replacing the old `react-select`-based Dropdown
-- **Modal** — New component with layout-based API (`ModalBasicLayout`, `ModalMediaLayout`, etc.)
-- **AttentionBox** — New implementation with simplified props (`link`, `animate`, `icon`)
-- **DatePicker** — New implementation using native `Date` objects and `date-fns` instead of `moment`
-- **Dialog/Tooltip/Tipseen** — Now powered by Floating UI (replacing Popper.js), with `middleware` replacing `modifiers`
-
-If you were already using these from `@vibe/core/next`, just update the import path to `@vibe/core`.
-
 ### Updated input styling
 
 Input components (TextField, TextArea, Dropdown) now have reduced inline padding (`16px` → `8px`) and use a dedicated `--placeholder-color` token for placeholder text, providing a cleaner and more consistent look.
 
 ## Migration Steps 🚀
+
+<Tip type="success" title="AI-powered migration available!" emoji={false}>
+  **Skip the manual work and let AI handle your entire Vibe 4 migration!** With the [Vibe MCP
+  server](?path=/docs/mcp-new--docs), simply ask your AI assistant: *"Help me migrate this
+  project from Vibe 3 to Vibe 4"* and it will automatically scan your codebase, identify all breaking changes, and run
+  the exact codemods you need.
+  <br /> <br /> **[Install the MCP →](?path=/docs/mcp-new--docs) and turn your migration into
+  minutes!**
+</Tip>
+
+### Manual migration
 
 1. Update `@vibe/core`:
 
