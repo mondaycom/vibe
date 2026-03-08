@@ -100,6 +100,8 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - Sub-components removed: `DropdownMenu`, `DropdownOption`, `DropdownSingleValue`
 - If importing from `@vibe/core/next`, change to `@vibe/core`
 - See the [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs)
+- `padding-inline-start` reduced from `16px` to `8px` on Dropdown Trigger
+- Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
 
 ### Flex
 
@@ -149,6 +151,13 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 - `iconName` prop renamed to `icon` 🔀
 - `iconsNames` object prop replaced with flat `iconLabel` and `secondaryIconLabel` props 🔀
+- `padding-inline-start` reduced from `16px` to `8px`
+- Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
+
+### TextArea
+
+- `padding-inline-start` reduced from `16px` to `8px`
+- Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
 
 ### TextWithHighlight
 
@@ -213,11 +222,4 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
   - `--spacing-xxl` → `--space-48`
   - `--spacing-xxxl` → `--space-64`
 
-### Input Padding
-
-- `padding-inline-start` reduced from `16px` to `8px` across TextField, BaseInput, TextArea, and Dropdown Trigger
-
-### Input Placeholder Color
-
-- All inputs now use `var(--placeholder-color)` instead of `var(--secondary-text-color)` for placeholder text
 
