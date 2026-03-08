@@ -2,7 +2,7 @@
 
 This is the complete list of changes in the Vibe 4 release. Changes that are marked with a 🔀 are covered by a migration script (codemod).
 
-For the complete migration guide see the [Vibe 4 Migration Guide](https://vibe.monday.com/?path=/docs/vibe-4-migration-guide).
+For the complete migration guide see the [Vibe 4 Migration Guide](https://vibe.monday.com/?path=/docs/vibe-4-migration-guide--docs).
 
 ## General
 
@@ -63,20 +63,16 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### Chips
 
-- The `disableClickableBehavior` prop has been removed 🔀
+- The `disableClickableBehavior` prop has been removed — Chips now always uses the clickable wrapper when click handlers are provided 🔀
 
 ### Clickable
 
 - `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
 - `tabIndex` now accepts `number` only (was `string | number`)
 
-### CustomSvgIcon
-
-- The `onClick` and `clickable` props have been removed — wrap with a clickable element instead
-
 ### DatePicker
 
-- Legacy DatePicker (`react-dates` + `moment`) replaced with new implementation (`react-day-picker` + `date-fns`)
+- Legacy DatePicker (`react-dates` + `moment`) replaced with new implementation (`react-day-picker` + `date-fns`) with an updated visual design
 - `date` prop type changed from `moment.Moment` to `Date`
 - `onPickDate` renamed to `onDateChange`
 - `range` boolean prop replaced with `mode: "single" | "range"`
@@ -88,8 +84,6 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - `modifiers` prop removed — use `middleware` prop instead
 - `enableNestedDialogLayer` prop removed — `LayerProvider` is always used
 - `addKeyboardHideShowTriggersByDefault` default changed to `true`
-- `usePopover` hook removed from `@vibe/dialog`
-- `Refable` component removed from public exports
 - Removed dependencies: `react-popper`, `@popperjs/core`
 - Added dependency: `@floating-ui/react-dom`
 
@@ -117,6 +111,7 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - `iconType` prop renamed to `type` 🔀
 - `iconSize` prop renamed to `size` 🔀
 - `size` prop now applies to `type="src"` icons (previously only affected `type="svg"`)
+- `onClick` and `clickable` props removed from internal `CustomSvgIcon` — wrap with a clickable element (e.g. `<IconButton>`) instead
 
 ### LinearProgressBar (ProgressBar)
 
