@@ -6671,6 +6671,34 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
+"@vibe/base@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@vibe/base/-/base-3.0.5.tgz#d15de26ea7399251a047947bd2c5cdc3cd932b32"
+  integrity sha512-e0JQWygbbRj6q85XlovXAOgkxZtoTR7I9K+OMoMvFc09xnQ1evZr8G2HF6Il8ENT/23s5O8hLJ1Ef/OzdBbp2w==
+  dependencies:
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+
+"@vibe/button@3.0.16":
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/@vibe/button/-/button-3.0.16.tgz#6612892a8a338b603b77e2fa310df7b342ba3f45"
+  integrity sha512-fjFb7Khv86P/tk6rO8Mdg2+fwBLen98i+E6YXC2gkWcFJAvNfjkH8kZN4m0HhmaQDBQb+ESmXZdq9vZIllS3Dw==
+  dependencies:
+    "@vibe/icon" "3.0.11"
+    "@vibe/loader" "3.0.11"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/clickable@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@vibe/clickable/-/clickable-3.0.3.tgz#e5c0ad7e739f350326eddfa7447acf0458b363e0"
+  integrity sha512-xsMt0TpUj8Wdv62kADvq//BhXlU3YVBix4WJdcyRPBp5NRPMksIbbOiMc35WIZznO/lA9IwoE1ktFOjwx28hfw==
+  dependencies:
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
 "@vibe/core@3.85.1":
   version "3.85.1"
   resolved "https://registry.yarnpkg.com/@vibe/core/-/core-3.85.1.tgz#ba541d5c3798e44810cb76e12720d690d86a04a0"
@@ -6714,6 +6742,50 @@
     react-windowed-select "^2.0.4"
     style-inject "^0.3.0"
 
+"@vibe/core@^3.59.0":
+  version "3.87.0"
+  resolved "https://registry.yarnpkg.com/@vibe/core/-/core-3.87.0.tgz#ef2e6d2a03bdc59aa792451ea16557f980dbe5b5"
+  integrity sha512-3IVFH6o0/AbrpyF/hfEzwTbJ1UdubURugTUiam1ElhzXFJAE83tpEkvTSmml34jMojBifEpV3QiIVJZXc+taxA==
+  dependencies:
+    "@floating-ui/react-dom" "^2.1.2"
+    "@popperjs/core" "2.11.6"
+    "@vibe/base" "3.0.5"
+    "@vibe/button" "3.0.16"
+    "@vibe/clickable" "3.0.3"
+    "@vibe/dialog" "3.0.12"
+    "@vibe/hooks" "3.0.3"
+    "@vibe/icon" "3.0.11"
+    "@vibe/icon-button" "3.0.5"
+    "@vibe/icons" "1.16.0"
+    "@vibe/layer" "3.0.10"
+    "@vibe/layout" "3.0.3"
+    "@vibe/loader" "3.0.11"
+    "@vibe/shared" "3.0.8"
+    "@vibe/tooltip" "3.0.5"
+    "@vibe/typography" "3.0.5"
+    a11y-dialog "^7.5.2"
+    body-scroll-lock "^4.0.0-beta.0"
+    browserslist-config-monday "1.0.6"
+    classnames "^2.3.2"
+    date-fns "^2.30.0"
+    downshift "^9.0.8"
+    es-toolkit "^1.39.10"
+    framer-motion "^6.5.1"
+    monday-ui-style "0.26.2"
+    react-dates "21.8.0"
+    react-day-picker "^8.8.0"
+    react-focus-lock "^2.13.2"
+    react-inlinesvg "^4.1.3"
+    react-is "^16.9.0"
+    react-popper "^2.3.0"
+    react-remove-scroll "^2.6.0"
+    react-select "npm:react-select-module@3.4.0"
+    react-transition-group "^4.4.5"
+    react-virtualized-auto-sizer "^1.0.7"
+    react-window "^1.8.7"
+    react-windowed-select "^2.0.4"
+    style-inject "^0.3.0"
+
 "@vibe/dialog@3.0.11":
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/@vibe/dialog/-/dialog-3.0.11.tgz#a7be64b673bb7443325b39f38582758b077c6331"
@@ -6728,6 +6800,29 @@
     react-popper "^2.3.0"
     react-transition-group "^4.4.5"
 
+"@vibe/dialog@3.0.12":
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/@vibe/dialog/-/dialog-3.0.12.tgz#f417c21fd15fdbe0c10552e2ccf768125542c1f6"
+  integrity sha512-XOM7VuSRkDsdOcwtx2Xfx4WfaXeBmW9I1IwkM6nThTZzFv6QlePw9RacIUj/xYwale/IfjlzrpA0Hx5jMq68XA==
+  dependencies:
+    "@popperjs/core" "2.11.6"
+    "@vibe/hooks" "3.0.3"
+    "@vibe/layer" "3.0.10"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+    react-popper "^2.3.0"
+    react-transition-group "^4.4.5"
+
+"@vibe/hooks@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@vibe/hooks/-/hooks-3.0.3.tgz#048284a79c75a9aaddbd730dc5fdb49851a2ecf9"
+  integrity sha512-74iEe2qLdjm3enpstGtewFkrKxNACvPMtIAxgUiBZ9T28cYu5mjbtH+Lp2Gv/kNMMv3x/V3RWcn7uqjLjyKBbQ==
+  dependencies:
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
 "@vibe/icon-button@3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vibe/icon-button/-/icon-button-3.0.4.tgz#cd11ca357a16415174bf866ba3124d708ec6ebfc"
@@ -6739,6 +6834,70 @@
     "@vibe/shared" "3.0.8"
     "@vibe/tooltip" "3.0.4"
     classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/icon-button@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@vibe/icon-button/-/icon-button-3.0.5.tgz#3bbb1db95a3c2af1737acfbcef54a38867ba8191"
+  integrity sha512-GS31OUHgoElhRYUerqALRK8kB3czIXyHVONRhzVtKTGdoKLYaJP3bvIcqpnfzWaYjMMuKjgwp//JlUh2JHUI/g==
+  dependencies:
+    "@vibe/button" "3.0.16"
+    "@vibe/icon" "3.0.11"
+    "@vibe/icons" "1.16.0"
+    "@vibe/shared" "3.0.8"
+    "@vibe/tooltip" "3.0.5"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/icon@3.0.11":
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/@vibe/icon/-/icon-3.0.11.tgz#bb3159ec302a389d6f3e20edc36723d068f2efa5"
+  integrity sha512-4xdj++K+2e7Wy7mSeTS6aLK0rjZpwIuZZoFv6X/lE5PxR7JkA1IRiaHUyCSE9CS9W0TDGEAzN923YuFjU0ghsA==
+  dependencies:
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+    react-inlinesvg "^4.1.3"
+
+"@vibe/icons@1.16.0", "@vibe/icons@^1.9.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@vibe/icons/-/icons-1.16.0.tgz#89f51b2308b5f4c053f6a1e9e6fad2adca2ab1d3"
+  integrity sha512-/ljaos2zNr4NfZKLoAjOfEilWUlmvBwqh9fFN+Z1BdYW84oGZQGRdj4TJW5jyirZyJ/H6jTcutKUbJaD3Om7+w==
+
+"@vibe/layer@3.0.10":
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/@vibe/layer/-/layer-3.0.10.tgz#656e9c33c9511d621199ad12c989bc9c8370ccb0"
+  integrity sha512-UChefl8dxp4SLadYcItRMc49AS8PEakDv05KBNxzej2vybignt0sqI98+CurC6lr+0dNRlf8x58+Gae9wy5ybQ==
+  dependencies:
+    "@vibe/icon" "3.0.11"
+    "@vibe/loader" "3.0.11"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/layout@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@vibe/layout/-/layout-3.0.3.tgz#0cb8f057844fc624696e5e1e13f244088e6ea354"
+  integrity sha512-9SGVKKl4IJqsqg7Yuy9aQHtqGG/wPs/7ZCK2g3Fp8ot0/yc3EjWgBQh0uP+wOVHyRaRUPfI4CdkCsVmdGJ4YFQ==
+  dependencies:
+    "@vibe/clickable" "3.0.3"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/loader@3.0.11":
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/@vibe/loader/-/loader-3.0.11.tgz#f73390703330369cb5886bc4d42c1df120da8556"
+  integrity sha512-F1Yn9ti0yaD08VYt0pfubfyE1yRsG8GZA41TR+0erVr/XnVlf6NA8+07pU85N06rQnp89slxlMy8Yf4AevkWDQ==
+  dependencies:
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+
+"@vibe/shared@3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@vibe/shared/-/shared-3.0.8.tgz#fddb789695ee5f62a894a1930674466b210819d2"
+  integrity sha512-qjWaNylbVKbdaDi75jFpp+LmF3y74JYdaLNWf6noiMkhq0fhcPTietVrHBxYO2b0cBvm1sQbrytX5YiBk3ii2w==
+  dependencies:
     es-toolkit "^1.39.10"
 
 "@vibe/tooltip@3.0.4":
@@ -6753,6 +6912,18 @@
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
+"@vibe/tooltip@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@vibe/tooltip/-/tooltip-3.0.5.tgz#7e793b7086eec6951e892dfdc52a1375e787248b"
+  integrity sha512-+PYHdWDw/5ua1qj2RHRC0R1pmzpjd3wnUOpkq9+l7wJvqVmb66SFMhq2O7u4RxpKTvxjj41eS6jcAyHgWiaYvw==
+  dependencies:
+    "@vibe/dialog" "3.0.12"
+    "@vibe/icon" "3.0.11"
+    "@vibe/layout" "3.0.3"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
 "@vibe/typography@3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@vibe/typography/-/typography-3.0.4.tgz#c19140765431c2f9ae23bfb0e9a69c37dcff7784"
@@ -6761,6 +6932,18 @@
     "@vibe/hooks" "3.0.3"
     "@vibe/shared" "3.0.8"
     "@vibe/tooltip" "3.0.4"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+    monday-ui-style "0.26.2"
+
+"@vibe/typography@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@vibe/typography/-/typography-3.0.5.tgz#d6cc582f24b15ea4bd5181b90f1a3f616f55292b"
+  integrity sha512-SRLWcFymgsdjagstUXWyUb8nYaQCKiaHi6/488MyjP5ssSXzP0/uJcQkd7c29fmZXxh5lg53xTEebPZrR7bmLA==
+  dependencies:
+    "@vibe/hooks" "3.0.3"
+    "@vibe/shared" "3.0.8"
+    "@vibe/tooltip" "3.0.5"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
     monday-ui-style "0.26.2"
