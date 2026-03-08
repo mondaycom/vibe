@@ -99,28 +99,6 @@ Input components (TextField, TextArea, Dropdown) now have reduced inline padding
 
 The following changes are **complementary to the migration codemod** and may require manual intervention. If you prefer to migrate entirely by hand (without `@vibe/codemod`), refer to the [Complete Vibe 4 changelog](https://github.com/mondaycom/vibe/blob/master/packages/docs/src/pages/migration-guide/vibe-4-changelog.md).
 
-### General
-
-- **`monday-ui-style` renamed to `@vibe/style`** — Only relevant if you use this internal styling package directly. Update all import paths and stylelint config references:
-
-<ul>
-  <DiffCodeBlock
-    code={`- import "monday-ui-style/dist/index.min.css";
-+ import "@vibe/style/dist/index.min.css";
-- @import "~monday-ui-style/dist/mixins";
-+ @import "~@vibe/style/dist/mixins";`}
-  />
-</ul>
-
-  Stylelint config:
-
-<ul>
-  <DiffCodeBlock
-    code={`- "extends": ["monday-ui-style/stylelint-config"]
-+ "extends": ["@vibe/style/stylelint-config"]`}
-  />
-</ul>
-
 ### Components
 
 **AttentionBox**
@@ -153,18 +131,6 @@ The legacy `AttentionBox` has been removed. The new implementation (previously a
 | `AttentionBoxLink` children | `link` prop |
 
 
-**Chips**
-
-The `disableClickableBehavior` prop has been removed. Chips always uses the clickable wrapper when click handlers are provided.
-
-<ul>
-  <DiffCodeBlock
-    code={`- <Chips label="Tag" disableClickableBehavior onMouseDown={handler} />
-+ <Chips label="Tag" onMouseDown={handler} />`}
-  />
-</ul>
-
-
 **Clickable**
 
 - `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
@@ -180,51 +146,14 @@ The `disableClickableBehavior` prop has been removed. Chips always uses the clic
 
 **DatePicker**
 
-The legacy DatePicker (based on `react-dates` and `moment.js`) has been replaced with a new implementation with a different visual design and API, using native `Date` objects and `date-fns`.
-
-1. Replace `moment` objects with native `Date`:
-
-<ul>
-  <DiffCodeBlock
-    code={`- import moment from "moment";
-- const [date, setDate] = useState(moment("2023-05-01"));
-+ const [date, setDate] = useState(new Date("2023-05-01"));`}
-  />
-</ul>
-
-2. Update component props:
-
-<ul>
-  <DiffCodeBlock
-    code={`- <DatePicker date={date} onPickDate={(d) => setDate(d)} />
-+ <DatePicker date={date} onDateChange={(d) => setDate(d)} />`}
-  />
-</ul>
-
-3. For range mode:
-
-<ul>
-  <DiffCodeBlock
-    code={`- <DatePicker range date={startDate} endDate={endDate} onPickDate={({ startDate, endDate }) => { ... }} />
-+ <DatePicker mode="range" date={startDate} endDate={endDate} onDateChange={({ date, endDate }) => { ... }} />`}
-  />
-</ul>
-
-| Legacy (v3) | New (v4) |
-|---|---|
-| `date: moment.Moment` | `date: Date` |
-| `onPickDate` | `onDateChange` |
-| `range: boolean` | `mode: "single" \| "range"` |
-| `moment` peer dependency | No `moment` dependency |
+The legacy DatePicker (based on `react-dates` and `moment.js`) has been replaced with a completely new component with a different visual design and API, using native `Date` objects and `date-fns`. As a result, `moment` is no longer a peer dependency of `@vibe/core`. Refer to the new DatePicker documentation for the full API.
 
 
 **Dialog**
 
 The legacy class-based Dialog (Popper.js) has been replaced with a new functional Dialog (Floating UI).
 
-- The `modifiers` prop (Popper.js) has been removed — use `middleware` prop (Floating UI) instead
-- The `enableNestedDialogLayer` prop has been removed — `LayerProvider` is always used
-- The `addKeyboardHideShowTriggersByDefault` prop now defaults to `true`
+- The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) prop (Floating UI) instead
 
 <ul>
   <DiffCodeBlock
@@ -241,40 +170,14 @@ The legacy class-based Dialog (Popper.js) has been replaced with a new functiona
 
 **Dropdown**
 
-The old `react-select`-based Dropdown has been removed. The new custom Dropdown (previously at `@vibe/core/next`) is now the default export.
-
-This is a complete API change. Key differences:
-- Options structure changed from `{ id, text }` to `{ value, label }`
-- Removed sub-components: `DropdownMenu`, `DropdownOption`, `DropdownSingleValue`
-- If importing from `@vibe/core/next`, change to `@vibe/core`
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { Dropdown } from "@vibe/core";
-- <Dropdown options={[{ id: "1", text: "Option 1" }]} />
-+ import { Dropdown } from "@vibe/core";
-+ <Dropdown options={[{ value: "1", label: "Option 1" }]} />`}
-  />
-</ul>
+The old `react-select`-based Dropdown has been removed. The new custom Dropdown (previously at `@vibe/core/next`) is now the default export with a completely different API.
 
 See the [Dropdown Migration Guide](?path=/docs/components-dropdown-migration-guide--docs) for full details.
 
 
 **Combobox — Deprecated**
 
-The `Combobox` component is deprecated and will be removed in a future version. Use `Dropdown` with box mode instead.
-
-
-**Flex**
-
-The `"stretch"` value has been removed from the `justify` prop:
-
-<ul>
-  <DiffCodeBlock
-    code={`- <Flex justify="stretch">
-+ <Flex>`}
-  />
-</ul>
+The `Combobox` component is deprecated and will be removed in a future version. Use [Dropdown with box mode](?path=/docs/components-dropdown--docs) instead.
 
 
 **Icon**
@@ -301,31 +204,9 @@ Additionally, the `size` prop now applies to `type="src"` icons. Previously, URL
 **`onClick` and `clickable` removed from internal `CustomSvgIcon`** — If you were using `CustomSvgIcon` directly, wrap the icon with an accessible clickable element (e.g. `<button>`, `<Clickable>`, `<IconButton>`) and move the `onClick` handler to the wrapper.
 
 
-**LinearProgressBar → ProgressBar**
-
-The `LinearProgressBar` component has been renamed to `ProgressBar`:
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { LinearProgressBar } from "@vibe/core";
-- <LinearProgressBar value={50} />
-+ import { ProgressBar } from "@vibe/core";
-+ <ProgressBar value={50} />`}
-  />
-</ul>
-
-
 **MenuButton**
 
 MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by default, so the first menu item is focused when the menu opens.
-
-<ul>
-  <DiffCodeBlock
-    code={`  // To restore v3 behavior (no item focused on open):
-- <MenuButton><Menu>...</Menu></MenuButton>
-+ <MenuButton><Menu focusItemIndexOnMount={-1}>...</Menu></MenuButton>`}
-  />
-</ul>
 
 
 **MenuItem**
@@ -335,56 +216,14 @@ MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by defaul
 
 **Modal**
 
-The legacy Modal has been removed and replaced with a completely new Modal component with a different API. The new Modal was previously available via `@vibe/core/next`.
+The legacy Modal has been removed and replaced with a completely new Modal component with a different API.
 
-Removed: `ModalFooterButtons`, `ModalWidth` type, legacy sub-component props.
-New: `ModalBasicLayout`, `ModalMediaLayout`, `ModalSideBySideLayout`, `ModalFooterWizard`.
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { Modal, ModalContent, ModalFooterButtons } from "@vibe/core";
-- <Modal id="my-modal" title="Title" show={show} onClose={close}>
--   <ModalContent>Content</ModalContent>
--   <ModalFooterButtons primaryButtonText="OK" onPrimaryButtonClick={close} />
-- </Modal>
-+ import { Modal, ModalBasicLayout, ModalHeader, ModalContent, ModalFooter } from "@vibe/core";
-+ <Modal id="my-modal" show={show} size="medium" onClose={close}>
-+   <ModalBasicLayout>
-+     <ModalHeader title="Title" />
-+     <ModalContent>Content</ModalContent>
-+   </ModalBasicLayout>
-+   <ModalFooter primaryButton={{ text: "OK", onClick: close }} />
-+ </Modal>`}
-  />
-</ul>
-
-If you were using the new Modal from `@vibe/core/next`, just update the import path (handled by codemod).
+See the [Modal documentation](?path=/docs/components-modal--docs) for the full API.
 
 
 **Steps**
 
-The finish button now renders by default on the last step. To hide it, explicitly pass `hideFinishButton`.
-
-
-**TextField**
-
-1. The `iconName` prop has been renamed to `icon`:
-
-<ul>
-  <DiffCodeBlock
-    code={`- <TextField iconName={Search} />
-+ <TextField icon={Search} />`}
-  />
-</ul>
-
-2. The `iconsNames` object prop has been replaced with flat props:
-
-<ul>
-  <DiffCodeBlock
-    code={`- <TextField iconsNames={{ primary: "Search", secondary: "Clear" }} />
-+ <TextField iconLabel="Search" secondaryIconLabel="Clear" />`}
-  />
-</ul>
+The finish button now renders by default on the last step.
 
 
 **TextWithHighlight**
@@ -417,35 +256,14 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
 </ul>
 
 
-**Toggle**
-
-1. The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, margin is removed automatically:
-
-   **Handled by codemod** (`npx @vibe/codemod -m v4`)
-
-<ul>
-  <DiffCodeBlock
-    code={`- <Toggle areLabelsHidden noSpacing />
-+ <Toggle areLabelsHidden />`}
-  />
-</ul>
-
-2. Duplicate `data-testid="toggle"` removed from the internal visual div. Only the input element now carries the test ID.
-
-
 **Tipseen**
 
-- The `modifiers` prop (Popper.js) has been removed — use `middleware` instead (same as Dialog)
+- The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) instead (same as Dialog)
 
 
 **Tooltip**
 
-- The `modifiers` prop (Popper.js) has been removed — use `middleware` instead (same as Dialog)
-
-
-**VirtualizedList**
-
-The deprecated `getItemHeight` and `onVerticalScrollbarVisiblityChange` props have been removed. Use `itemHeight` and `onScrollbarVisibilityChange` instead.
+- The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) instead (same as Dialog)
 
 
 **VirtualizedGrid**
@@ -453,48 +271,6 @@ The deprecated `getItemHeight` and `onVerticalScrollbarVisiblityChange` props ha
 The `itemRenderer` return type has been corrected from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`. Update any explicit type annotations.
 
 ### Hooks and Utilities
-
-**useMergeRefs — Removed**
-
-Replace with your own ref merging utility or a third-party package:
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { useMergeRefs } from "@vibe/core";
-- const mergedRef = useMergeRefs({ refs: [ref1, ref2] });
-+ import mergeRefs from "react-merge-refs";
-+ const mergedRef = mergeRefs([ref1, ref2]);`}
-  />
-</ul>
-
-
-**useListenFocusTriggers — Removed**
-
-This internal hook for differentiating keyboard vs mouse focus has been removed. Inline the logic using `useEventListener`:
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { useListenFocusTriggers } from "@vibe/core";
-- useListenFocusTriggers({ ref, onFocusByKeyboard, onFocusByMouse });
-+ // Inline using useEventListener — see VIBE4_CHANGELOG.md for full example`}
-  />
-</ul>
-
-
-**useActiveDescendantListFocus — Removed backward-compat callbacks**
-
-The `onItemClickCallback` and `createOnItemClickCallback` return values have been removed. Use the `onItemClick` callback you already pass to the hook directly.
-
-<ul>
-  <DiffCodeBlock
-    code={`- const { onItemClickCallback, createOnItemClickCallback, ...rest } =
--   useActiveDescendantListFocus({ onItemClick, ... });
-+ const { visualFocusItemIndex, visualFocusItemId, ...rest } =
-+   useActiveDescendantListFocus({ onItemClick, ... });
-+ // Use onItemClick directly instead of createOnItemClickCallback`}
-  />
-</ul>
-
 
 **useKeyEvent — Callback type narrowed**
 
@@ -523,20 +299,11 @@ The deprecated semantic spacing CSS custom properties have been removed. Replace
 | `--spacing-xxl` | `--space-48` |
 | `--spacing-xxxl` | `--space-64` |
 
-<ul>
-  <DiffCodeBlock
-    code={`- padding: var(--spacing-small) var(--spacing-medium);
-- gap: var(--spacing-xs);
-+ padding: var(--space-8) var(--space-16);
-+ gap: var(--space-4);`}
-  />
-</ul>
-
 **Auto-fix available**: Run `npx stylelint --fix "**/*.scss"` with the `@vibe/style/use-new-spacing-tokens` rule enabled.
 
 **Input Padding**
 
-`padding-inline-start` reduced from `16px` to `8px` across TextField, BaseInput, TextArea, and Dropdown Trigger. No code changes needed, but check custom CSS overrides.
+`padding-inline-start` reduced from `16px` to `8px` across TextField, BaseInput, TextArea, and Dropdown Trigger.
 
 
 **Input Placeholder Color**
@@ -548,7 +315,7 @@ Inputs now use `var(--placeholder-color)` instead of `var(--secondary-text-color
 
 **What is the best way to migrate to Vibe 4?**
 
-Follow the [Migration Steps](#migration-steps-) above. Run the codemod first to handle automated changes, then review the breaking changes list for anything that requires manual attention.
+Follow the [Migration Steps](#migration-steps-) above. Use the Vibe MCP or run the codemod to handle automated changes, then review the breaking changes list for anything that requires manual attention.
 
 **How much smaller is the bundle?**
 
@@ -570,9 +337,9 @@ Yes. All custom camelCase ARIA props (`ariaLabel`, `ariaHidden`, etc.) have been
 
 Some changes require manual migration (Dialog `modifiers` → `middleware`, Dropdown API changes, DatePicker moment-to-Date). These are documented in the [Breaking Changes](#breaking-changes-) section with before/after examples.
 
-**Is Vibe 3 compatible with React 19?**
+**Is Vibe 4 compatible with React 19?**
 
-No. Vibe 3 relies on APIs that were removed in React 19 (`findDOMNode`, `framer-motion` internals, class-based components). If you are upgrading to React 19, you must upgrade to Vibe 4.
+Yes. Vibe 4 is fully compatible with React 19. Note that Vibe 3 is **not** compatible with React 19, so if you are upgrading to React 19, you must upgrade to Vibe 4.
 
 **What if I don't want to migrate to Vibe 4?**
 
