@@ -13,9 +13,7 @@ import { DiffCodeBlock } from "./DiffCodeBlock";
 - [What's New](#whats-new-)
 - [Migration Steps](#migration-steps-)
 - [Breaking Changes](#breaking-changes-)
-  - [General](#general)
   - [Components](#components)
-  - [Hooks and Utilities](#hooks-and-utilities)
   - [CSS and Design Tokens](#css-and-design-tokens)
 - [FAQ](#faq-)
 - [Help](#help-)
@@ -131,19 +129,6 @@ The legacy `AttentionBox` has been removed. The new implementation (previously a
 | `AttentionBoxLink` children | `link` prop |
 
 
-**Clickable**
-
-- `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
-- `tabIndex` now accepts `number` only (was `string | number`)
-
-<ul>
-  <DiffCodeBlock
-    code={`- <Clickable tabIndex="-1" ariaHasPopup="true" />
-+ <Clickable tabIndex={-1} aria-haspopup={true} />`}
-  />
-</ul>
-
-
 **DatePicker**
 
 The legacy DatePicker (based on `react-dates` and `moment.js`) has been replaced with a completely new component with a different visual design and API, using native `Date` objects and `date-fns`. As a result, `moment` is no longer a peer dependency of `@vibe/core`. Refer to the new DatePicker documentation for the full API.
@@ -180,30 +165,6 @@ See the [Dropdown Migration Guide](?path=/docs/components-dropdown-migration-gui
 The `Combobox` component is deprecated and will be removed in a future version. Use [Dropdown with box mode](?path=/docs/components-dropdown--docs) instead.
 
 
-**Icon**
-
-Props have been renamed to remove the redundant "icon" prefix:
-
-**Handled by codemod** (`npx @vibe/codemod -m v4`)
-
-<ul>
-  <DiffCodeBlock
-    code={`- <Icon icon={MyIcon} iconLabel="Close" iconType="svg" iconSize={24} />
-+ <Icon icon={MyIcon} label="Close" type="svg" size={24} />`}
-  />
-</ul>
-
-| Old Prop | New Prop |
-|---|---|
-| `iconLabel` | `label` |
-| `iconType` | `type` |
-| `iconSize` | `size` |
-
-Additionally, the `size` prop now applies to `type="src"` icons. Previously, URL-based icons ignored `size` and rendered at their intrinsic SVG dimensions. Now `size` sets `width` and `height` (default: `16`). If you relied on intrinsic dimensions, set `size` to match the SVG's original size.
-
-**`onClick` and `clickable` removed from internal `CustomSvgIcon`** — If you were using `CustomSvgIcon` directly, wrap the icon with an accessible clickable element (e.g. `<button>`, `<Clickable>`, `<IconButton>`) and move the `onClick` handler to the wrapper.
-
-
 **MenuButton**
 
 MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by default, so the first menu item is focused when the menu opens.
@@ -226,36 +187,6 @@ See the [Modal documentation](?path=/docs/components-modal--docs) for the full A
 The finish button now renders by default on the last step.
 
 
-**TextWithHighlight**
-
-The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
-
-**Handled by codemod** (`npx @vibe/codemod -m v4`)
-
-<ul>
-  <DiffCodeBlock
-    code={`- <TextWithHighlight tooltipPosition="top" />
-+ <TextWithHighlight tooltipProps={{ position: "top" }} />`}
-  />
-</ul>
-
-
-**TipseenImage**
-
-`TipseenImage` has been removed. Use `TipseenMedia` with an `<img>` child:
-
-**Handled by codemod** (`npx @vibe/codemod -m v4`)
-
-<ul>
-  <DiffCodeBlock
-    code={`- <TipseenImage src={pic} alt="Onboarding" />
-+ <TipseenMedia>
-+   <img src={pic} alt="Onboarding" style={{ objectFit: "cover", width: "100%" }} />
-+ </TipseenMedia>`}
-  />
-</ul>
-
-
 **Tipseen**
 
 - The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) instead (same as Dialog)
@@ -265,23 +196,6 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
 
 - The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) instead (same as Dialog)
 
-
-**VirtualizedGrid**
-
-The `itemRenderer` return type has been corrected from `ItemType | GridChildComponentProps<ItemType>` to `ReactElement`. Update any explicit type annotations.
-
-### Hooks and Utilities
-
-**useKeyEvent — Callback type narrowed**
-
-The `callback` type changed from `GenericEventCallback` to `KeyboardEventCallback` (native `KeyboardEvent`). TypeScript will flag mismatches automatically.
-
-<ul>
-  <DiffCodeBlock
-    code={`- callback: (event: React.KeyboardEvent) => { ... }
-+ callback: (event: KeyboardEvent) => { ... }`}
-  />
-</ul>
 
 ### CSS and Design Tokens
 
