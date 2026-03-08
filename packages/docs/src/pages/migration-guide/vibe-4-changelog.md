@@ -154,7 +154,22 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - `padding-inline-start` reduced from `16px` to `8px`
 - Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
 
+### Search
+
+- `padding-inline-start` reduced from `16px` to `8px`
+- Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
+
 ### TextArea
+
+- `padding-inline-start` reduced from `16px` to `8px`
+- Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
+
+### NumberField
+
+- `padding-inline-start` reduced from `16px` to `8px`
+- Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
+
+### Combobox
 
 - `padding-inline-start` reduced from `16px` to `8px`
 - Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
