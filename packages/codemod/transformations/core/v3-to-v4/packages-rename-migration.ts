@@ -8,7 +8,7 @@ const NEW_STYLE_IMPORT_PATH = "@vibe/style";
 /**
  * Changes imports from 'monday-ui-style' (and subpaths) to '@vibe/style'
  */
-function transform({ j, root }: TransformationContext) {
+function transform({ root }: TransformationContext) {
   root
     .find(ImportDeclaration)
     .filter(path => {
