@@ -84,9 +84,8 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
     },
     packageChanges: {
       upgrade: ["@vibe/core@^4"],
-      remove: ["moment", "react-select", "react-windowed-select", "framer-motion", "@popperjs/core", "react-popper", "react-dates", "a11y-dialog", "body-scroll-lock"],
-      replace: [{ from: "monday-ui-style", to: "@vibe/style" }],
-      description: "Upgrade @vibe/core, remove replaced dependencies, rename style package"
+      replace: [{ from: "monday-ui-style", to: "@vibe/style", note: "Uncommon — only a few consumers use this directly" }],
+      description: "Upgrade @vibe/core. The project analysis below will detect any dependencies that need to be removed or replaced."
     },
     importChanges: {
       styleImports: {
@@ -105,7 +104,8 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
       { name: "AttentionBoxLink", replacement: "AttentionBox link prop" },
       { name: "DropdownMenu", replacement: "New Dropdown API" },
       { name: "DropdownOption", replacement: "New Dropdown API" },
-      { name: "DropdownSingleValue", replacement: "New Dropdown API" }
+      { name: "DropdownSingleValue", replacement: "New Dropdown API" },
+      { name: "Combobox", replacement: "Dropdown with box mode (from @vibe/core)" }
     ],
     breakingChanges: {
       AttentionBox: {
@@ -296,9 +296,14 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
         {
           step: 5,
           title: "Testing",
-          action: "Test application",
-          description: "Run tests and verify all functionality",
-          important: "Do not consider migration complete until all features work correctly"
+          action: "Build and test application",
+          description: "Run build and tests to verify all functionality",
+          details: [
+            "Verify the project builds successfully (e.g., yarn build / npm run build)",
+            "Run all unit and integration tests",
+            "Verify the application works correctly in the browser"
+          ],
+          important: "Do not consider migration complete until build passes and all features work correctly"
         },
         {
           step: 6,
@@ -366,29 +371,16 @@ function analyzePackageJson(packageJson: any) {
   const dependencies = { ...packageJson.dependencies, ...packageJson.devDependencies };
   const hasVibeCore = !!dependencies["@vibe/core"];
   const vibeCoreVersion = dependencies["@vibe/core"] || "not found";
-  const hasMoment = !!dependencies["moment"];
   const hasMondayUIStyle = !!dependencies["monday-ui-style"];
-  const hasVibeStyle = !!dependencies["@vibe/style"];
 
   return {
     hasVibeCore,
     vibeCoreVersion,
-    hasMoment,
     hasMondayUIStyle,
-    hasVibeStyle,
     migrationStatus: hasVibeCore ? "needs-migration" : "not-using-vibe",
     dependencyActions: [
       hasVibeCore && { action: "upgrade", package: "@vibe/core", from: vibeCoreVersion, to: "^4", command: "yarn add @vibe/core@^4" },
-      hasMoment && { action: "remove", package: "moment", reason: "DatePicker now uses native Date + date-fns", command: "yarn remove moment" },
-      hasMondayUIStyle && { action: "replace", package: "monday-ui-style", with: "@vibe/style", command: "yarn add @vibe/style && yarn remove monday-ui-style" },
-      dependencies["react-select"] && { action: "remove", package: "react-select", reason: "Dropdown no longer uses react-select", command: "yarn remove react-select" },
-      dependencies["react-windowed-select"] && { action: "remove", package: "react-windowed-select", reason: "No longer needed", command: "yarn remove react-windowed-select" },
-      dependencies["framer-motion"] && { action: "remove", package: "framer-motion", reason: "Replaced with react-transition-group + CSS", command: "yarn remove framer-motion" },
-      dependencies["@popperjs/core"] && { action: "remove", package: "@popperjs/core", reason: "Replaced with @floating-ui/react-dom", command: "yarn remove @popperjs/core" },
-      dependencies["react-popper"] && { action: "remove", package: "react-popper", reason: "Replaced with @floating-ui/react-dom", command: "yarn remove react-popper" },
-      dependencies["react-dates"] && { action: "remove", package: "react-dates", reason: "DatePicker uses react-day-picker", command: "yarn remove react-dates" },
-      dependencies["a11y-dialog"] && { action: "remove", package: "a11y-dialog", reason: "Modal rewritten", command: "yarn remove a11y-dialog" },
-      dependencies["body-scroll-lock"] && { action: "remove", package: "body-scroll-lock", reason: "Modal rewritten", command: "yarn remove body-scroll-lock" }
+      hasMondayUIStyle && { action: "replace", package: "monday-ui-style", with: "@vibe/style", command: "yarn add @vibe/style && yarn remove monday-ui-style" }
     ].filter(Boolean)
   };
 }
@@ -432,7 +424,7 @@ function scanAllFiles(files: string[]) {
     spacingTokens: []
   };
 
-  const removedComponents = ["TipseenImage", "AttentionBoxLink", "DropdownMenu", "DropdownOption", "DropdownSingleValue"];
+  const removedComponents = ["TipseenImage", "AttentionBoxLink", "DropdownMenu", "DropdownOption", "DropdownSingleValue", "Combobox"];
   const breakingChangeComponents = [
     "AttentionBox", "Chips", "CustomSvgIcon", "DatePicker", "Dialog", "Dropdown", "Flex",
     "Icon", "LinearProgressBar", "MenuButton", "MenuItem", "Modal", "Steps",
@@ -772,9 +764,9 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
     if (imports.mondayUIStyleImports?.length > 0) {
       recommendations.push({
         type: "style-imports",
-        priority: "high",
+        priority: "medium",
         action: "Update monday-ui-style imports to @vibe/style",
-        details: `Found ${imports.mondayUIStyleImports.length} files`,
+        details: `Found ${imports.mondayUIStyleImports.length} files. Note: most consumers don't use monday-ui-style directly.`,
         files: imports.mondayUIStyleImports.slice(0, 5),
         fix: "Handled by codemod: packages-rename-migration"
       });
@@ -954,7 +946,8 @@ function getComponentReplacementDetails(component: string): string {
     AttentionBoxLink: "Use the AttentionBox link prop instead",
     DropdownMenu: "Removed — use new Dropdown API",
     DropdownOption: "Removed — use new Dropdown API",
-    DropdownSingleValue: "Removed — use new Dropdown API"
+    DropdownSingleValue: "Removed — use new Dropdown API",
+    Combobox: "Deprecated — use Dropdown with box mode from @vibe/core"
   };
   return replacements[component] || "Check migration guide for replacement";
 }
