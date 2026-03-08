@@ -1,9 +1,4 @@
-import {
-  wrap,
-  getImports,
-  getComponentNameOrAliasFromImports,
-  findComponentElements
-} from "../../../src/utils";
+import { wrap, getImports } from "../../../src/utils";
 import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
 import { TransformationContext } from "../../../types";
 
@@ -40,9 +35,6 @@ function transform({ j, root }: TransformationContext) {
       }
     }
   });
-
-  // Rename JSX elements from LinearProgressBar to ProgressBar
-  const componentName = getComponentNameOrAliasFromImports(j, imports, "ProgressBar") || "LinearProgressBar";
 
   // Find all JSX elements named LinearProgressBar and rename them
   root.find(j.JSXIdentifier, { name: "LinearProgressBar" }).forEach(path => {
