@@ -153,7 +153,6 @@ The legacy `AttentionBox` has been removed. The new implementation (previously a
 | `withoutIcon` / `withIconWithoutHeader` | `icon={false}` |
 | `AttentionBoxLink` children | `link` prop |
 
----
 
 **Chips**
 
@@ -166,7 +165,6 @@ The `disableClickableBehavior` prop has been removed. Chips always uses the clic
   />
 </ul>
 
----
 
 **Clickable**
 
@@ -180,7 +178,6 @@ The `disableClickableBehavior` prop has been removed. Chips always uses the clic
   />
 </ul>
 
----
 
 **DatePicker**
 
@@ -221,7 +218,6 @@ The legacy DatePicker (based on `react-dates` and `moment.js`) has been replaced
 | `range: boolean` | `mode: "single" \| "range"` |
 | `moment` peer dependency | No `moment` dependency |
 
----
 
 **Dialog**
 
@@ -243,7 +239,6 @@ The legacy class-based Dialog (Popper.js) has been replaced with a new functiona
   />
 </ul>
 
----
 
 **Dropdown**
 
@@ -265,13 +260,11 @@ This is a complete API change. Key differences:
 
 See the [Dropdown Migration Guide](?path=/docs/components-dropdown-migration-guide--docs) for full details.
 
----
 
 **Combobox — Deprecated**
 
 The `Combobox` component is deprecated and will be removed in a future version. Use `Dropdown` with box mode instead.
 
----
 
 **Flex**
 
@@ -284,7 +277,6 @@ The `"stretch"` value has been removed from the `justify` prop:
   />
 </ul>
 
----
 
 **Icon**
 
@@ -309,7 +301,6 @@ Additionally, the `size` prop now applies to `type="src"` icons. Previously, URL
 
 **`onClick` and `clickable` removed from internal `CustomSvgIcon`** — If you were using `CustomSvgIcon` directly, wrap the icon with an accessible clickable element (e.g. `<button>`, `<Clickable>`, `<IconButton>`) and move the `onClick` handler to the wrapper.
 
----
 
 **LinearProgressBar → ProgressBar**
 
@@ -324,7 +315,6 @@ The `LinearProgressBar` component has been renamed to `ProgressBar`:
   />
 </ul>
 
----
 
 **MenuButton**
 
@@ -338,13 +328,11 @@ MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by defaul
   />
 </ul>
 
----
 
 **MenuItem**
 
 - The `children` prop now accepts only a single `MenuChild`, not `MenuChild[]` (passing an array was already a runtime error in v3)
 
----
 
 **Modal**
 
@@ -373,13 +361,11 @@ New: `ModalBasicLayout`, `ModalMediaLayout`, `ModalSideBySideLayout`, `ModalFoot
 
 If you were using the new Modal from `@vibe/core/next`, just update the import path (handled by codemod).
 
----
 
 **Steps**
 
 The finish button now renders by default on the last step. To hide it, explicitly pass `hideFinishButton`.
 
----
 
 **TextField**
 
@@ -401,7 +387,6 @@ The finish button now renders by default on the last step. To hide it, explicitl
   />
 </ul>
 
----
 
 **TextWithHighlight**
 
@@ -416,7 +401,6 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
   />
 </ul>
 
----
 
 **TipseenImage**
 
@@ -433,7 +417,6 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
   />
 </ul>
 
----
 
 **Toggle**
 
@@ -450,25 +433,21 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
 
 2. Duplicate `data-testid="toggle"` removed from the internal visual div. Only the input element now carries the test ID.
 
----
 
 **Tipseen**
 
 - The `modifiers` prop (Popper.js) has been removed — use `middleware` instead (same as Dialog)
 
----
 
 **Tooltip**
 
 - The `modifiers` prop (Popper.js) has been removed — use `middleware` instead (same as Dialog)
 
----
 
 **VirtualizedList**
 
 The deprecated `getItemHeight` and `onVerticalScrollbarVisiblityChange` props have been removed. Use `itemHeight` and `onScrollbarVisibilityChange` instead.
 
----
 
 **VirtualizedGrid**
 
@@ -489,7 +468,6 @@ Replace with your own ref merging utility or a third-party package:
   />
 </ul>
 
----
 
 **useListenFocusTriggers — Removed**
 
@@ -503,7 +481,6 @@ This internal hook for differentiating keyboard vs mouse focus has been removed.
   />
 </ul>
 
----
 
 **useActiveDescendantListFocus — Removed backward-compat callbacks**
 
@@ -519,7 +496,6 @@ The `onItemClickCallback` and `createOnItemClickCallback` return values have bee
   />
 </ul>
 
----
 
 **useKeyEvent — Callback type narrowed**
 
@@ -563,7 +539,6 @@ The deprecated semantic spacing CSS custom properties have been removed. Replace
 
 `padding-inline-start` reduced from `16px` to `8px` across TextField, BaseInput, TextArea, and Dropdown Trigger. No code changes needed, but check custom CSS overrides.
 
----
 
 **Input Placeholder Color**
 
