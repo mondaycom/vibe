@@ -10,7 +10,6 @@ For the complete migration guide see the [Vibe 4 Migration Guide](https://vibe.m
 - Package rename — `monday-ui-style` renamed to `@vibe/style` 🔀
 - `moment` removed as a peer dependency
 - `@vibe/core/next` consolidation — AttentionBox, Dropdown, DatePicker, Dialog, and Modal promoted to `@vibe/core`. Only `List` remains in `@vibe/core/next`
-- `box-sizing: border-box` is now expected globally
 - All deprecated enum exports and static properties removed across all components 🔀 (see [Enums](#enums) section)
 - ARIA props renamed from camelCase to standard `aria-*` attributes across all components 🔀 (see [ARIA Props](#aria-props) section)
 
@@ -106,7 +105,7 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 > codemod: `Flex-component-migration`
 
-- The `"stretch"` value removed from `justify` prop (`justify-content: stretch` is not valid CSS) 🔀
+- The `"stretch"` value removed from `justify` prop 🔀
 
 ### Icon
 
@@ -117,16 +116,10 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - `iconSize` prop renamed to `size` 🔀
 - `size` prop now applies to `type="src"` icons (previously only affected `type="svg"`)
 
-### Link
-
-- `@supports (margin-inline-start: initial)` CSS block and physical direction fallbacks removed from icon spacing
-- If you override `.iconStart { margin-right }` or `.iconEnd { margin-left }` in custom CSS, update to `margin-inline-end` / `margin-inline-start`
-
 ### LinearProgressBar (ProgressBar)
 
 - `LinearProgressBar` renamed to `ProgressBar` — update imports accordingly
 - `LinearProgressBarProps` renamed to `ProgressBarProps`
-- `allowExceedingMax` prop added to support values exceeding `max`
 
 ### MenuButton
 
@@ -135,22 +128,16 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 ### MenuItem
 
 - `children` prop now accepts only a single `MenuChild`, not `MenuChild[]`
-- Internal `MenuItemIcon` `label` prop removed (was a no-op)
 
 ### Modal
 
-- Legacy class-based Modal (`a11y-dialog`, `body-scroll-lock`) removed, new functional Modal promoted as default export
-- If importing from `@vibe/core/next`, change to `@vibe/core`
-- Sub-components (`ModalHeader`, `ModalContent`, `ModalFooter`) have updated APIs
+- Legacy Modal removed and replaced with a completely new Modal component with a different API (previously available via `@vibe/core/next`)
+- Removed: `ModalFooterButtons`, `ModalWidth` type, legacy sub-component props
+- New: `ModalBasicLayout`, `ModalMediaLayout`, `ModalSideBySideLayout`, `ModalFooterWizard`
 
 ### Steps
 
 - Finish button now renders by default on the last step
-
-### MultiStepIndicator
-
-- Internal `StepIndicator` updated to use `nodeRef` with `CSSTransition` instead of deprecated `findDOMNode` (React 19 compatibility)
-- No public API changes — if you extended `StepIndicator` directly and overrode `addEndListener`, note the callback signature change
 
 ### Tipseen
 
@@ -177,14 +164,13 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### Toggle
 
-> codemod: `toggle-no-spacing`
+> codemod: `Toggle-component-migration`
 
 - The `noSpacing` prop has been removed — margin is auto-removed when `areLabelsHidden` is `true` 🔀
-- Duplicate `data-testid="toggle"` removed from internal visual div
+- Duplicate `data-testid="toggle"` removed from internal visual div — the test ID is now only on the input element
 
 ### Tooltip
 
-- `TooltipProps` now extends `DialogProps`
 - `modifiers` prop removed — use `middleware` instead (same as Dialog)
 
 ### VirtualizedGrid
@@ -193,8 +179,8 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### VirtualizedList
 
-- Deprecated `getItemHeight` prop removed
-- Deprecated `onVerticalScrollbarVisiblityChange` prop removed
+- Deprecated `getItemHeight` prop removed — use `itemHeight` instead
+- Deprecated `onVerticalScrollbarVisiblityChange` prop removed — use `onScrollbarVisibilityChange` instead
 
 ## Hooks
 
@@ -213,16 +199,6 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 ### useKeyEvent
 
 - `callback` type changed from `GenericEventCallback` to `KeyboardEventCallback` (native `KeyboardEvent`)
-
-## TypeScript Types
-
-### VibeComponent
-
-- `VibeComponent<T, P>` type alias removed from `@vibe/core` and `@vibe/shared` — use `forwardRef<P, T>` and let TypeScript infer
-
-### withStaticProps
-
-- `withStaticProps` and `withStaticPropsWithoutForwardRef` utilities removed from `@vibe/core` and `@vibe/shared`
 
 ## CSS and Design Tokens
 
@@ -245,7 +221,3 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 - All inputs now use `var(--placeholder-color)` instead of `var(--secondary-text-color)` for placeholder text
 
-### CSS Logical Properties
-
-- Physical CSS properties replaced with logical properties throughout
-- `@supports` fallback blocks removed from Link and TableCellSkeleton (logical properties and `aspect-ratio` are supported by all modern browsers)

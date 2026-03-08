@@ -70,6 +70,10 @@ Several components have been completely rewritten with new APIs:
 
 If you were already using these from `@vibe/core/next`, just update the import path to `@vibe/core`.
 
+### Updated input styling
+
+Input components (TextField, TextArea, Dropdown) now have reduced inline padding (`16px` → `8px`) and use a dedicated `--placeholder-color` token for placeholder text, providing a cleaner and more consistent look.
+
 ## Migration Steps 🚀
 
 1. Update `@vibe/core`:
@@ -435,7 +439,7 @@ The `tooltipPosition` prop has been removed. Use `tooltipProps` instead:
 
 1. The `noSpacing` prop has been removed. When `areLabelsHidden` is `true`, margin is removed automatically:
 
-   **Codemod available**: `npx @vibe/codemod toggle-no-spacing`
+   **Codemod available**: `npx @vibe/codemod Toggle-component-migration`
 
 <ul>
   <DiffCodeBlock
