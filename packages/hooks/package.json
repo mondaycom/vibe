@@ -1,6 +1,6 @@
 {
   "name": "@vibe/hooks",
-  "version": "3.0.3",
+  "version": "4.0.0-alpha.0",
   "description": "Vibe sub-package for React hooks",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.8",
+    "@vibe/shared": "^4.0.0-alpha.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
@@ -41,7 +41,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
-    "@vibe/config": "3.0.5",
+    "@vibe/config": "^4.0.0-alpha.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
