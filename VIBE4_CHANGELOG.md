@@ -55,12 +55,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 #### MenuItem
 
 - [x] **Status**: Done
-- **Change**: Removed deprecated `label` prop from internal `MenuItemIcon` component; removed now-unused `iconLabel`/`rightIconLabel` internal variables from `MenuItem`
-- **Reason**: The prop was a no-op — accepted but never passed to the underlying `Icon` component
-- **Migration**: No action required for `MenuItem` users. If using `MenuItemIcon` directly, remove any `label` prop.
-- **Codemod**: ❌ Manual (no-op removal, no functional impact)
-
-- [x] **Status**: Done
 - **Change**: `children` prop now accepts only a single `MenuChild`, not `MenuChild[]`
 - **Reason**: Passing an array was already a runtime error — `MenuItemSubMenu` enforces a single child via `React.Children.only`. The type now matches the actual runtime constraint.
 - **Migration**: Replace any array-wrapped children with a single `Menu` element. If you were already passing a single `Menu`, no change is needed.
@@ -88,7 +82,7 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 #### Flex
 
 - **Change**: Removed `"stretch"` from the `justify` prop (`FlexJustify` type and `FlexJustify.STRETCH` enum value)
-- **Reason**: `justify-content: stretch` is not valid CSS in flexbox, so the value had no effect and no CSS implementation
+- **Reason**: The value had no effect
 - **Migration**: Remove `justify="stretch"` or `justify={FlexJustify.STRETCH}` from `<Flex>` usage
 - **Codemod**: ✅ Available (`Flex-component-migration`)
 - **PR**: TBD
@@ -161,6 +155,9 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ✅ Available (`v3-to-v4/enums`)
 - **PR**: TBD
 
+- **Change**: Reduced `padding-inline-start` from 16px to 8px
+- **Change**: Placeholder text now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
+
 #### Dropdown
 
 - **Change**: Removed deprecated enum exports (`DROPDOWN_CHIP_COLORS`, `DROPDOWN_MENU_POSITION`, `DROPDOWN_MENU_PLACEMENT` enums)
@@ -168,6 +165,9 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: Replace enum usage with string literals
 - **Codemod**: ✅ Available (`v3-to-v4/enums`)
 - **PR**: TBD
+
+- **Change**: Reduced trigger `padding-inline-start` from 16px to 8px
+- **Change**: Placeholder text now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
 
 #### Avatar
 
@@ -235,9 +235,9 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 #### Toggle
 
-- **Change**: Remove duplicate `data-testid` from internal MockToggle div element
+- **Change**: Remove duplicate `data-testid` from internal MockToggle div element. `data-testid="toggle"` is now only on the Switch input element.
 - **Reason**: `data-testid="toggle"` was set on both the Switch input and the internal visual div, causing ambiguous test queries
-- **Migration**: If tests query `[data-testid="toggle"]` and rely on multiple matches, update to expect a single match
+- **Migration**: If tests query `[data-testid="toggle"]` and rely on multiple matches, update to expect a single match (the input element)
 - **Codemod**: ❌ Manual (DOM structure change, not a prop API change)
 - **PR**: TBD
 
@@ -436,13 +436,14 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Codemod**: ❌ Manual
 - **PR**: TBD
 
-#### Link
+#### VirtualizedList
 
 - [x] **Status**: Complete
-- **Change**: Removed `@supports (margin-inline-start: initial)` CSS block and physical direction fallbacks from Link icon spacing
-- **Reason**: CSS logical properties (`margin-inline-start`, `margin-inline-end`) are supported by all modern browsers. The `@supports` progressive enhancement is no longer needed
-- **Migration**: If you override `.iconStart { margin-right: ... }` or `.iconEnd { margin-left: ... }` in custom CSS, update to use `margin-inline-end` and `margin-inline-start` respectively
-- **Codemod**: ❌ Manual (CSS-only change)
+- **Change**: Removed deprecated `getItemHeight` prop (use `getItemSize` instead) and deprecated `onVerticalScrollbarVisiblityChange` prop (use `onLayoutDirectionScrollbarVisibilityChange` instead)
+- **Reason**: `getItemHeight` was renamed to `getItemSize` for consistency. `onVerticalScrollbarVisiblityChange` was misspelled and renamed.
+- **Migration**: Replace `getItemHeight` with `getItemSize`. Replace `onVerticalScrollbarVisiblityChange` with `onLayoutDirectionScrollbarVisibilityChange`.
+- **Codemod**: ✅ Available (`VirtualizedList-component-migration`)
+- **PR**: [#3319](https://github.com/mondaycom/vibe/pull/3319)
 
 #### VirtualizedGrid
 
@@ -461,6 +462,11 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 - **Migration**: `<TextField iconsNames={{ primary: "X", secondary: "Y" }} />` → `<TextField iconLabel="X" secondaryIconLabel="Y" />`
 - **Codemod**: ✅ Available
 - **PR**: TBD
+
+#### TextArea
+
+- **Change**: Reduced padding from 16px to 8px
+- **Change**: Placeholder text now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
 
 <!-- Add more components as breaking changes are identified -->
 
@@ -495,35 +501,6 @@ Vibe 4 represents a major evolution of the design system, focusing on:
 
 ### CSS and Styling
 
-#### TableCellSkeleton
-
-- [x] **Status**: Complete
-- **Change**: Removed `@supports (aspect-ratio: 1 / 1)` and `@supports not (aspect-ratio: 1 / 1)` blocks from `TableCellSkeleton` styles. The `aspect-ratio: 1 / 1` rule is now applied unconditionally to `.circle` and `.rectangle` skeleton types.
-- **Reason**: `aspect-ratio` is now supported by all modern browsers. The `@supports` fallback (`width: 21px`) is no longer needed and adds unnecessary complexity.
-- **Migration**: No code changes required. If your project targets browsers that do not support `aspect-ratio` (e.g. IE 11, Safari < 15), circle/rectangle skeleton cells will no longer receive the `width: 21px` fallback.
-- **Codemod**: ❌ Not applicable (CSS-only change)
-- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029198)
-- **PR**: TBD
-
-#### Input Padding
-
-- [x] **Status**: Complete
-- **Change**: Reduced `padding-inline-start` from `var(--spacing-medium)` (16px) to `var(--spacing-small)` (8px) across TextField, BaseInput, TextArea, and Dropdown Trigger. Where both inline-start and inline-end were identical (`--spacing-medium`), both were reduced to `--spacing-small`
-- **Reason**: Aligns input padding for consistent, tighter content spacing across all input components
-- **Migration**: No code changes required. If your custom CSS depends on internal input padding values, update accordingly
-- **Codemod**: ❌ Not applicable (CSS-only change)
-- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029006)
-- **PR**: TBD
-
-#### Input Placeholder Color
-
-- [x] **Status**: Complete
-- **Change**: All input components now use `var(--placeholder-color)` instead of `var(--secondary-text-color)` for placeholder text color. Affected components: TextField, BaseInput, TextArea, EditableTypography, Dropdown Trigger
-- **Reason**: The `--placeholder-color` design token was defined but unused by input components. In dark/black/hacker themes, `--placeholder-color` (#c3c6d4) provides better contrast than `--secondary-text-color` (#9699a6) for placeholder text
-- **Migration**: No code changes required. If you override `--secondary-text-color` expecting it to affect input placeholders, use `--placeholder-color` instead. Placeholder text color will change in dark/black/hacker themes
-- **Codemod**: ❌ Not applicable (CSS-only change)
-- **Task**: [Monday.com Task](https://monday.monday.com/boards/10027056258/pulses/9713029006)
-- **PR**: TBD
 
 #### Design Tokens — Spacing
 
