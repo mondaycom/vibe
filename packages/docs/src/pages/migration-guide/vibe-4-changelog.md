@@ -8,7 +8,7 @@ For the complete migration guide see the [Vibe 4 Migration Guide](https://vibe.m
 
 - React 19 support — all deprecated React APIs removed, including dependencies
 - `moment` removed as a peer dependency
-- `@vibe/core/next` consolidation — AttentionBox, Dropdown, DatePicker, Dialog, and Modal promoted to `@vibe/core`. Only `List` remains in `@vibe/core/next` 🔀
+- `@vibe/core/next` consolidation — AttentionBox, Dropdown, DatePicker, and Modal promoted to `@vibe/core`. Only `List` remains in `@vibe/core/next` 🔀
 - All deprecated enum exports and static properties removed across all components 🔀 (see [Enums](#enums) section)
 - ARIA props renamed from camelCase to standard `aria-*` attributes across all components 🔀 (see [ARIA Props](#aria-props) section)
 - Internal Package rename — `monday-ui-style` renamed to `@vibe/style` (the package is included in @vibe/core) 🔀
