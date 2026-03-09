@@ -5,16 +5,18 @@ import {
   findComponentElements,
   isPropExists,
   findProps,
-  removeProp
+  removeProp,
+  migratePropsNames
 } from "../../../src/utils";
 import { NEW_CORE_IMPORT_PATH } from "../../../src/consts";
 import { TransformationContext } from "../../../types";
 
 /**
  * TextField migration for v3 to v4:
- * Replace object prop `iconsNames={{ primary, secondary }}` with flat props `iconLabel` and `secondaryIconLabel`
+ * - Replace object prop `iconsNames={{ primary, secondary }}` with flat props `iconLabel` and `secondaryIconLabel`
+ * - Rename `iconName` prop to `icon`
  */
-function transform({ j, root }: TransformationContext) {
+function transform({ j, root, filePath }: TransformationContext) {
   const imports = getImports(root, NEW_CORE_IMPORT_PATH);
   const componentName = getComponentNameOrAliasFromImports(j, imports, "TextField");
   if (!componentName) return;
@@ -23,6 +25,9 @@ function transform({ j, root }: TransformationContext) {
   if (!elements.length) return;
 
   elements.forEach(elementPath => {
+    // Rename `iconName` prop to `icon`
+    migratePropsNames(j, elementPath, filePath, componentName, { iconName: "icon" });
+
     if (!isPropExists(j, elementPath, "iconsNames")) return;
 
     const iconsNamesProp = findProps(j, elementPath, "iconsNames");

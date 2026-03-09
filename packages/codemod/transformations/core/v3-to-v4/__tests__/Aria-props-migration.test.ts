@@ -1,4 +1,4 @@
-import transform from "../Aria-props-migration";
+import transform from "../aria-props-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

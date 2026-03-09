@@ -1,4 +1,4 @@
-import transform from "../Enums-migration";
+import transform from "../enums-migration";
 import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {

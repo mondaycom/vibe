@@ -6,26 +6,16 @@ For the complete migration guide see the [Vibe 4 Migration Guide](https://vibe.m
 
 ## General
 
-- React 19 support — all deprecated React APIs (`findDOMNode`, class components) removed; `framer-motion` replaced with `react-transition-group` + CSS animations; `react-transition-group` components updated to use `nodeRef` instead of `findDOMNode`
-- Package rename — `monday-ui-style` renamed to `@vibe/style` 🔀
+- React 19 support — all deprecated React APIs removed, including dependencies
 - `moment` removed as a peer dependency
-- `@vibe/core/next` consolidation — AttentionBox, Dropdown, DatePicker, Dialog, and Modal promoted to `@vibe/core`. Only `List` remains in `@vibe/core/next`
+- `@vibe/core/next` consolidation — AttentionBox, Dropdown, DatePicker, Dialog, and Modal promoted to `@vibe/core`. Only `List` remains in `@vibe/core/next` 🔀
 - All deprecated enum exports and static properties removed across all components 🔀 (see [Enums](#enums) section)
 - ARIA props renamed from camelCase to standard `aria-*` attributes across all components 🔀 (see [ARIA Props](#aria-props) section)
-
-### Removed dependencies
-
-| Removed | Replacement |
-|---|---|
-| `@popperjs/core`, `react-popper` | `@floating-ui/react-dom` |
-| `react-dates`, `moment` | `react-day-picker`, `date-fns` |
-| `react-select`, `react-windowed-select` | New custom Dropdown |
-| `framer-motion` | `react-transition-group` + CSS animations |
-| `a11y-dialog`, `body-scroll-lock` | New functional Modal |
+- Internal Package rename — `monday-ui-style` renamed to `@vibe/style` (the package is included in @vibe/core) 🔀
 
 ## Enums
 
-> codemod: `v3-to-v4/enums`
+> codemod: `enums-migration`
 
 All deprecated enum exports and static property accessors have been removed. Use string literals instead. 🔀
 
@@ -54,7 +44,7 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### AttentionBox
 
-- Legacy `AttentionBox` removed, new implementation (from `@vibe/core/next`) promoted to `@vibe/core`
+- Legacy `AttentionBox` removed, new implementation (from `@vibe/core/next`) promoted to `@vibe/core` 🔀
 - `AttentionBoxLink` removed as a public export — use the `link` prop instead
 - `AttentionBoxConstants` removed (deprecated enums: `AttentionBoxType`, `IconTypeEnum`) 🔀
 - Type values changed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
@@ -62,6 +52,8 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 - `withoutIcon` / `withIconWithoutHeader` props removed — use `icon={false}`
 
 ### Chips
+
+> codemod: `Chips-component-migration`
 
 - The `disableClickableBehavior` prop has been removed — Chips now always uses the clickable wrapper when click handlers are provided 🔀
 
@@ -80,22 +72,22 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### Dialog
 
+> codemod: `Dialog-component-migration`
+
 - Legacy class-based Dialog (Popper.js) replaced with new functional Dialog (Floating UI)
 - `modifiers` prop removed — use `middleware` prop instead
-- `enableNestedDialogLayer` prop removed — `LayerProvider` is always used
+- `enableNestedDialogLayer` prop removed — layer handling is always used internally 🔀
 - `addKeyboardHideShowTriggersByDefault` default changed to `true`
-- Removed dependencies: `react-popper`, `@popperjs/core`
-- Added dependency: `@floating-ui/react-dom`
 
 ### Dropdown
 
-- Old `react-select`-based Dropdown removed, new custom Dropdown promoted as default export
+- Old `react-select`-based Dropdown removed, in favor of a new improved and customizable Dropdown
+- Import changed from `@vibe/core/next` to `@vibe/core` 🔀
 - Options structure changed from `{ id, text }` to `{ value, label }`
 - Sub-components removed: `DropdownMenu`, `DropdownOption`, `DropdownSingleValue`
-- If importing from `@vibe/core/next`, change to `@vibe/core`
-- See the [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs)
 - `padding-inline-start` reduced from `16px` to `8px` on Dropdown Trigger
 - Placeholder now uses `var(--placeholder-color)` instead of `var(--secondary-text-color)`
+- See the [Dropdown Migration Guide](https://vibe.monday.com/?path=/docs/components-dropdown-migration-guide--docs)
 
 ### Flex
 
@@ -105,7 +97,7 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### Icon
 
-> codemod: `icon-props-rename`
+> codemod: `Icon-component-migration`
 
 - `iconLabel` prop renamed to `label` 🔀
 - `iconType` prop renamed to `type` 🔀
@@ -115,8 +107,10 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### LinearProgressBar (ProgressBar)
 
-- `LinearProgressBar` renamed to `ProgressBar` — update imports accordingly
-- `LinearProgressBarProps` renamed to `ProgressBarProps`
+> codemod: `LinearProgressBar-component-migration`
+
+- `LinearProgressBar` renamed to `ProgressBar` 🔀
+- `LinearProgressBarProps` renamed to `ProgressBarProps` 🔀
 
 ### MenuButton
 
@@ -128,9 +122,10 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### Modal
 
-- Legacy Modal removed and replaced with a completely new Modal component with a different API (previously available via `@vibe/core/next`)
+- Legacy Modal removed and replaced with a completely new Modal component with a different API (previously available via `@vibe/core/next`) 🔀
 - Removed: `ModalFooterButtons`, `ModalWidth` type, legacy sub-component props
 - New: `ModalBasicLayout`, `ModalMediaLayout`, `ModalSideBySideLayout`, `ModalFooterWizard`
+- For more info see [Modal docs](https://vibe.monday.com/?path=/docs/components-modal-new--docs)
 
 ### Steps
 
@@ -138,7 +133,7 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### Tipseen
 
-- `modifiers` prop removed — use `middleware` instead (same as Dialog/Tooltip)
+- `modifiers` prop removed — use `middleware` instead (same as Dialog/Tooltip). For more info see [Floating UI docs](https://floating-ui.com/docs/middleware).
 
 ### TextField
 
@@ -198,8 +193,10 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
 
 ### VirtualizedList
 
-- Deprecated `getItemHeight` prop removed — use `itemHeight` instead
-- Deprecated `onVerticalScrollbarVisiblityChange` prop removed — use `onScrollbarVisibilityChange` instead
+> codemod: `VirtualizedList-component-migration`
+
+- `getItemHeight` prop renamed to `getItemSize` 🔀
+- `onVerticalScrollbarVisiblityChange` prop renamed to `onLayoutDirectionScrollbarVisibilityChange` 🔀
 
 ## Hooks
 
@@ -232,4 +229,4 @@ Note: Component-specific compound props like `inputAriaLabel`, `menuAriaLabel`, 
   - `--spacing-xxl` → `--space-48`
   - `--spacing-xxxl` → `--space-64`
 
-
+For more info see the [Spacing page](https://vibe.monday.com/?path=/docs/foundations-spacing--spacing)
