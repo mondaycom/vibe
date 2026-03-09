@@ -2,7 +2,7 @@ import { Meta } from "@storybook/blocks";
 import { Link, Tip } from "vibe-storybook-components";
 import { DiffCodeBlock } from "./DiffCodeBlock";
 
-<Meta title="Vibe 4 Migration Guide" />
+<Meta title="Migration Guide" />
 
 # Vibe 4 Migration Guide
 
@@ -10,19 +10,22 @@ import { DiffCodeBlock } from "./DiffCodeBlock";
 
 <div style={{ lineHeight: "1.8" }}>
 
-- [What's New](#whats-new-)
-- [Migration Steps](#migration-steps-)
-- [Breaking Changes](#breaking-changes-)
+- [What's New ✨](#whats-new-)
+- [Migration Steps 🚀](#migration-steps-)
+- [Breaking Changes 🚨](#breaking-changes-)
   - [Components](#components)
+  - [Hooks](#hooks)
   - [CSS and Design Tokens](#css-and-design-tokens)
-- [FAQ](#faq-)
-- [Help](#help-)
+- [FAQ ❓](#faq-)
+- [Help 🙏](#help-)
 
 Vibe 4 is a major update to the Vibe design system, built for **React 19 compatibility**. It also delivers a leaner bundle, modern APIs, and stronger type safety. Legacy components, deprecated enums, and outdated dependencies have been removed in favor of simpler, more consistent alternatives.
 
-<Tip title="Migration from v2 to v3" emoji={false}>
-  To migrate from v2 to v3, please refer to the [Vibe 3 migration
-  guide](?path=/docs/migration-guide--docs)
+<Tip title="Older versions migrations" emoji={false}>
+
+- From v2 to v3 see [Vibe 3 migration guide](https://vibe.monday.com/v3/?path=/docs/migration-guide--docs)
+- From v1 to v2 see [Vibe 2 migration guide](https://github.com/mondaycom/vibe/tree/master/packages/docs/src/pages/migration-guide/vibe2-migration-guide.md)
+
 </Tip>
 
 ## What's New ✨
@@ -36,42 +39,48 @@ If your app is upgrading to React 19, you **must** upgrade to Vibe 4 — Vibe 3 
 ### New component implementations
 
 Several components have been completely rewritten with new APIs:
-- **Dropdown** — New custom implementation replacing the old `react-select`-based Dropdown
-- **Modal** — New component with layout-based API (`ModalBasicLayout`, `ModalMediaLayout`, etc.)
-- **AttentionBox** — New implementation with simplified props (`link`, `animate`, `icon`)
-- **DatePicker** — New implementation using native `Date` objects and `date-fns` instead of `moment`
-- **Dialog/Tooltip/Tipseen** — Now powered by Floating UI (replacing Popper.js), with `middleware` replacing `modifiers`
 
-If you were already using these from `@vibe/core/next`, just update the import path to `@vibe/core`.
+- **Dropdown** - New custom implementation replacing the old `react-select`-based Dropdown
+- **Modal** - New component with layout-based API (`ModalBasicLayout`, `ModalMediaLayout`, etc.)
+- **AttentionBox** - New implementation with simplified props
+- **DatePicker** - New implementation using native `Date` objects and `date-fns` instead of `moment`
+- **Dialog/Tooltip/Tipseen** - Now powered by Floating UI (replacing Popper.js)
 
-### ~170 KB smaller bundle (min+gzip)
+### Smaller bundle
 
-Several internal runtime dependencies have been removed, including `framer-motion`, `moment`, `react-dates`, `react-select`, and `@popperjs/core`, resulting in a significantly smaller bundle.
+Several internal runtime dependencies have been removed resulting in a significantly smaller bundle.
 
 ### No more enums or static properties
 
-All deprecated enum exports (e.g. `ButtonType`, `DialogPositionEnum`) and static property accessors (e.g. `Button.sizes.LARGE`) have been removed. Use string literals instead — they are type-safe, tree-shakeable, and provide the same IntelliSense experience.
+All deprecated enum exports (e.g. `ButtonType`, `DialogPositionEnum`) and static property accessors (e.g. `Button.sizes.LARGE`) have been removed in favor of string literals, which are type-safe, tree-shakeable, and provide the same IntelliSense experience.
 
 ### Standard ARIA props
 
 Custom camelCase ARIA props (`ariaLabel`, `ariaHidden`, etc.) have been replaced with the standard HTML `aria-*` attributes that React natively supports, eliminating an unnecessary abstraction layer.
 
-### Updated input styling
-
-Input components (TextField, TextArea, Dropdown) now have reduced inline padding (`16px` → `8px`) and use a dedicated `--placeholder-color` token for placeholder text, providing a cleaner and more consistent look.
-
 ## Migration Steps 🚀
 
-<Tip type="success" title="AI-powered migration available!" emoji={false}>
-  **Skip the manual work and let AI handle your entire Vibe 4 migration!** With the [Vibe MCP
-  server](?path=/docs/mcp-new--docs), simply ask your AI assistant: *"Help me migrate this
-  project from Vibe 3 to Vibe 4"* and it will automatically scan your codebase, identify all breaking changes, and run
-  the exact codemods you need.
-  <br /> <br /> **[Install the MCP →](?path=/docs/mcp-new--docs) and turn your migration into
-  minutes!**
+### With AI (recommended)
+
+<Tip emoji={false} type="success" title="Install the Vibe MCP">
+  To migrate faster and easier using AI, make sure you have the [Vibe MCP server](?path=/docs/mcp-new--docs) installed.
 </Tip>
 
-### Manual migration
+1. Ask your AI assistant:
+
+   ```
+   Help me migrate this project from Vibe 3 to Vibe 4 using the Vibe MCP v4 migration tool
+   ```
+
+2. This will scan your codebase, identify the breaking changes, run the codemods automatically, and will fix all the issues.
+
+3. **Review the changes and test your application thoroughly.**
+
+4. Run your code formatter to clean up any formatting changes from the codemod (optional).
+
+### Manually
+
+If you prefer to migrate manually, follow these steps:
 
 1. Update `@vibe/core`:
 
@@ -95,107 +104,88 @@ Input components (TextField, TextArea, Dropdown) now have reduced inline padding
 
 ## Breaking Changes 🚨
 
-The following changes are **complementary to the migration codemod** and may require manual intervention. If you prefer to migrate entirely by hand (without `@vibe/codemod`), refer to the [Complete Vibe 4 changelog](https://github.com/mondaycom/vibe/blob/master/packages/docs/src/pages/migration-guide/vibe-4-changelog.md).
+The following changes are **complementary to the migration codemod** and may require manual intervention. If you prefer to migrate entirely by hand (without `@vibe/codemod`), refer to the [Complete Vibe 4 changelog](https://github.com/mondaycom/vibe/blob/master/packages/docs/src/pages/migration-guide/v4-changelog.md).
 
 ### Components
 
 **AttentionBox**
 
-The legacy `AttentionBox` has been removed. The new implementation (previously at `@vibe/core/next`) is now the default. `AttentionBoxLink` is no longer a public export.
+- The component has been completely rewritten with a new API. Legacy `AttentionBox` removed, new implementation (previously at `@vibe/core/next`) promoted to `@vibe/core`
+- `AttentionBoxLink` component removed, use the `link` prop instead
+- Type values changed: `"success"` → `"positive"`, `"danger"` → `"negative"`, `"dark"` → `"neutral"`
+- `entryAnimation` prop → `animate`
+- `withoutIcon` / `withIconWithoutHeader` props removed — use `icon={false}`
 
-<ul>
-  <DiffCodeBlock
-    code={`- import { AttentionBox, AttentionBoxLink } from "@vibe/core";
-- <AttentionBox type="danger" entryAnimation withoutIcon>
--   <AttentionBoxLink href="/docs" text="Learn more" />
-- </AttentionBox>
-+ import { AttentionBox } from "@vibe/core";
-+ <AttentionBox
-+   type="negative"
-+   animate
-+   icon={false}
-+   link={{ href: "/docs", text: "Learn more" }}
-+ />`}
-  />
-</ul>
+**Clickable**
 
-| Legacy (v3) | New (v4) |
-|---|---|
-| `type="danger"` | `type="negative"` |
-| `type="success"` | `type="positive"` |
-| `type="dark"` | `type="neutral"` |
-| `entryAnimation` | `animate` |
-| `withoutIcon` / `withIconWithoutHeader` | `icon={false}` |
-| `AttentionBoxLink` children | `link` prop |
-
+- `ariaHasPopup` now accepts `boolean` only (was `boolean | string`)
+- `tabIndex` now accepts `number` only (was `string | number`)
 
 **DatePicker**
 
-The legacy DatePicker (based on `react-dates` and `moment.js`) has been replaced with a completely new component with a different visual design and API, using native `Date` objects and `date-fns`. As a result, `moment` is no longer a peer dependency of `@vibe/core`. Refer to the new DatePicker documentation for the full API.
-
+- The legacy DatePicker (based on `react-dates` and `moment.js`) has been replaced with a completely new component (previously at `@vibe/core/next`) with a different visual design, and promoted to `@vibe/core`
+- `date` prop now uses native `Date` objects instead of `moment.Moment`
+- `onPickDate` prop renamed to `onDateChange`
+- `range` boolean prop replaced with `mode: "single" | "range"`
+- `moment` no longer required as a peer dependency
 
 **Dialog**
 
-The legacy class-based Dialog (Popper.js) has been replaced with a new functional Dialog (Floating UI).
-
-- The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) prop (Floating UI) instead
-
-<ul>
-  <DiffCodeBlock
-    code={`- import { Dialog } from "@vibe/core";
-- // Popper.js modifiers
-- <Dialog modifiers={[{ name: "offset", options: { offset: [0, 8] } }]} />
-+ import { Dialog } from "@vibe/core";
-+ // Floating UI middleware
-+ import { offset } from "@floating-ui/react-dom";
-+ <Dialog middleware={[offset(8)]} />`}
-  />
-</ul>
-
+- The legacy class-based Dialog (Popper.js) has been replaced with a new functional Dialog (Floating UI)
+- The `modifiers` prop (Popper.js) has been removed — use [middleware](https://floating-ui.com/docs/middleware) prop (Floating UI) instead
+- `addKeyboardHideShowTriggersByDefault` now defaults to `true` — set it explicitly to `false` if you relied on the previous default
 
 **Dropdown**
 
-The old `react-select`-based Dropdown has been removed. The new custom Dropdown (previously at `@vibe/core/next`) is now the default export with a completely different API.
+- The old `react-select`-based Dropdown has been removed. The new custom Dropdown (previously at `@vibe/core/next`) is now the default with a completely different API. See the [Dropdown Migration Guide](?path=/docs/components-dropdown-migration-guide--docs) for full details
 
-See the [Dropdown Migration Guide](?path=/docs/components-dropdown-migration-guide--docs) for full details.
+**Combobox**
 
+- The `Combobox` component is marked as **deprecated** and will be removed in a future version. Use [Dropdown with box mode](?path=/docs/components-dropdown--docs) instead
 
-**Combobox — Deprecated**
+**Icon**
 
-The `Combobox` component is deprecated and will be removed in a future version. Use [Dropdown with box mode](?path=/docs/components-dropdown--docs) instead.
-
+- `size` prop now applies to `type="src"` icons (previously only affected `type="svg"`)
 
 **MenuButton**
 
-MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by default, so the first menu item is focused when the menu opens.
-
+- MenuButton now passes `focusItemIndexOnMount={0}` to its Menu children by default, so the first menu item is focused when the menu opens
 
 **MenuItem**
 
 - The `children` prop now accepts only a single `MenuChild`, not `MenuChild[]` (passing an array was already a runtime error in v3)
 
-
 **Modal**
 
-The legacy Modal has been removed and replaced with a completely new Modal component with a different API.
-
-See the [Modal documentation](?path=/docs/components-modal--docs) for the full API.
-
+- The legacy Modal has been removed and replaced with a completely new Modal component with a different API (previously at `@vibe/core/next`) and promoted to `@vibe/core`
+  See the [Modal documentation](?path=/docs/components-modal--docs) for the full API
 
 **Steps**
 
-The finish button now renders by default on the last step.
-
+- The finish button now renders by default on the last step
 
 **Tipseen**
 
 - The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) instead (same as Dialog)
 
-
 **Tooltip**
 
 - The `modifiers` prop (Popper.js) has been removed — use [`middleware`](https://floating-ui.com/docs/middleware) instead (same as Dialog)
 
+**Toggle**
+
+- The duplicate `data-testid="toggle"` has been removed from the internal visual `div` — the test ID is now only on the `<input>` element. Update any test selectors that targeted the visual div.
+
+**VirtualizedGrid**
+
+- `itemRenderer` return type corrected to `ReactElement` — if TypeScript reports errors, ensure your renderer explicitly returns `ReactElement`
+
+### Hooks
+
+- **`useMergeRefs`** removed from `@vibe/core` — use the [`react-merge-refs`](https://www.npmjs.com/package/react-merge-refs) package instead
+- **`useListenFocusTriggers`** removed from `@vibe/core` — inline the logic using `useEventListener`
+- **`useActiveDescendantListFocus`** — `onItemClickCallback` and `createOnItemClickCallback` return values removed, use `onItemClick` directly
+- **`useKeyEvent`** — `callback` type changed from `GenericEventCallback` to `KeyboardEventCallback` (native `KeyboardEvent`)
 
 ### CSS and Design Tokens
 
@@ -203,15 +193,15 @@ The finish button now renders by default on the last step.
 
 The deprecated semantic spacing CSS custom properties have been removed. Replace with numeric tokens:
 
-| Removed Token | Replacement |
-|---|---|
-| `--spacing-xs` | `--space-4` |
-| `--spacing-small` | `--space-8` |
+| Removed Token      | Replacement  |
+| ------------------ | ------------ |
+| `--spacing-xs`     | `--space-4`  |
+| `--spacing-small`  | `--space-8`  |
 | `--spacing-medium` | `--space-16` |
-| `--spacing-large` | `--space-24` |
-| `--spacing-xl` | `--space-32` |
-| `--spacing-xxl` | `--space-48` |
-| `--spacing-xxxl` | `--space-64` |
+| `--spacing-large`  | `--space-24` |
+| `--spacing-xl`     | `--space-32` |
+| `--spacing-xxl`    | `--space-48` |
+| `--spacing-xxxl`   | `--space-64` |
 
 **Auto-fix available**: Run `npx stylelint --fix "**/*.scss"` with the `@vibe/style/use-new-spacing-tokens` rule enabled.
 
@@ -219,21 +209,15 @@ The deprecated semantic spacing CSS custom properties have been removed. Replace
 
 `padding-inline-start` reduced from `16px` to `8px` across TextField, BaseInput, TextArea, and Dropdown Trigger.
 
-
 **Input Placeholder Color**
 
-Inputs now use `var(--placeholder-color)` instead of `var(--secondary-text-color)`. If you override placeholder appearance via `--secondary-text-color`, use `--placeholder-color` instead.
-
+Inputs now use `var(--placeholder-color)` instead of `var(--secondary-text-color)`.
 
 ## FAQ ❓
 
 **What is the best way to migrate to Vibe 4?**
 
-Follow the [Migration Steps](#migration-steps-) above. Use the Vibe MCP or run the codemod to handle automated changes, then review the breaking changes list for anything that requires manual attention.
-
-**How much smaller is the bundle?**
-
-Approximately **170 KB (min+gzip)** smaller. The biggest savings come from removing `moment.js` (~72 KB), `framer-motion` (~26 KB), `react-dates` (~52 KB), and `react-select` (~12 KB).
+Follow the [Migration Steps](#migration-steps-) above. It is highly recommended to use the Vibe MCP to handle all the changes.
 
 **I was using enums like `Button.sizes.LARGE` — what do I use now?**
 
@@ -241,15 +225,7 @@ Use string literals: `"large"`. They are fully type-safe and provide the same In
 
 **I was importing components from `@vibe/core/next` — what changed?**
 
-Most components from `@vibe/core/next` (AttentionBox, Dropdown, DatePicker, Dialog, Modal) have been promoted to `@vibe/core`. Update your imports to use `@vibe/core` directly.
-
-**Do I need to update my ARIA props?**
-
-Yes. All custom camelCase ARIA props (`ariaLabel`, `ariaHidden`, etc.) have been replaced with standard `aria-*` attributes. Run `npx @vibe/codemod -m v4` to migrate automatically.
-
-**What if the codemod doesn't cover my use case?**
-
-Some changes require manual migration (Dialog `modifiers` → `middleware`, Dropdown API changes, DatePicker moment-to-Date). These are documented in the [Breaking Changes](#breaking-changes-) section with before/after examples.
+Most components from `@vibe/core/next` (AttentionBox, Dropdown, DatePicker, Dialog, Modal) have been promoted to `@vibe/core`. Update your imports to use `@vibe/core` directly and follow the API changes (if any).
 
 **Is Vibe 4 compatible with React 19?**
 

@@ -11,7 +11,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/NumberField [New]",
+  title: "Components/NumberField",
   component: NumberField,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
