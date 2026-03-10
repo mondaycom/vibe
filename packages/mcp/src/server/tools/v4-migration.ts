@@ -740,6 +740,46 @@ function scanManualChanges(file: string, lines: string[], content: string, manua
 
 // ── Promoted Component Detection ─────────────────────────────────────
 
+/**
+ * Collapses multi-line imports into single logical lines, preserving the
+ * start line number of the `import` keyword.
+ *
+ * e.g.
+ *   import {         <- line 3
+ *     Dropdown,
+ *     Button
+ *   } from "@vibe/core";
+ *
+ * becomes: { text: 'import { Dropdown, Button } from "@vibe/core";', line: 3 }
+ */
+function collapseImportLines(lines: string[]): Array<{ text: string; line: number }> {
+  const result: Array<{ text: string; line: number }> = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    if (/^\s*import\s+\{/.test(line)) {
+      const startLine = i + 1; // 1-based
+      let accumulated = line;
+
+      // If the closing brace and `from` are not on this line, keep accumulating
+      while (!/\}\s*from\s+["']/.test(accumulated) && i + 1 < lines.length) {
+        i++;
+        accumulated = accumulated.trimEnd() + " " + lines[i].trim();
+      }
+
+      result.push({ text: accumulated, line: startLine });
+    } else {
+      result.push({ text: line, line: i + 1 });
+    }
+
+    i++;
+  }
+
+  return result;
+}
+
 function detectPromotedComponentImports(files: string[]): PromotedComponentAnalysis {
   const oldApiUsage: OldComponentDetection[] = [];
   const newApiUsage: OldComponentDetection[] = [];
@@ -750,45 +790,43 @@ function detectPromotedComponentImports(files: string[]): PromotedComponentAnaly
   }
 
   // Match import statements from @vibe/core or @vibe/core/next (both quote styles)
-  const importRegex = /import\s+\{([^}]+)\}\s+from\s+["'](@vibe\/core(?:\/next)?)["']/g;
+  const importRegex = /import\s+\{([^}]+)\}\s+from\s+["'](@vibe\/core(?:\/next)?)["']/;
 
   for (const file of files) {
     try {
       const content = readFileSync(file, "utf-8");
       const lines = content.split("\n");
+      const logicalLines = collapseImportLines(lines);
 
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        importRegex.lastIndex = 0;
-        let match;
+      for (const { text, line } of logicalLines) {
+        const match = importRegex.exec(text);
+        if (!match) continue;
 
-        while ((match = importRegex.exec(line)) !== null) {
-          const importedNames = match[1].split(",").map(s => s.trim().split(/\s+as\s+/)[0].trim());
-          const source = match[2];
-          const isNext = source === "@vibe/core/next";
+        const importedNames = match[1].split(",").map(s => s.trim().split(/\s+as\s+/)[0].trim()).filter(Boolean);
+        const source = match[2];
+        const isNext = source === "@vibe/core/next";
 
-          for (const name of importedNames) {
-            if ((PROMOTED_COMPONENTS as readonly string[]).includes(name)) {
-              const detection: OldComponentDetection = {
-                component: name,
-                file,
-                line: i + 1,
-                importSource: isNext ? "new" : "old",
-                importStatement: line.trim()
-              };
+        for (const name of importedNames) {
+          if ((PROMOTED_COMPONENTS as readonly string[]).includes(name)) {
+            const detection: OldComponentDetection = {
+              component: name,
+              file,
+              line,
+              importSource: isNext ? "new" : "old",
+              importStatement: text.trim()
+            };
 
-              if (isNext) {
-                newApiUsage.push(detection);
-                summary[name].newCount++;
-                if (!summary[name].newFiles.includes(file)) {
-                  summary[name].newFiles.push(file);
-                }
-              } else {
-                oldApiUsage.push(detection);
-                summary[name].oldCount++;
-                if (!summary[name].oldFiles.includes(file)) {
-                  summary[name].oldFiles.push(file);
-                }
+            if (isNext) {
+              newApiUsage.push(detection);
+              summary[name].newCount++;
+              if (!summary[name].newFiles.includes(file)) {
+                summary[name].newFiles.push(file);
+              }
+            } else {
+              oldApiUsage.push(detection);
+              summary[name].oldCount++;
+              if (!summary[name].oldFiles.includes(file)) {
+                summary[name].oldFiles.push(file);
               }
             }
           }
