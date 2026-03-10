@@ -1,12 +1,12 @@
 import * as EZDSComponents from "@ezds/core";
-import * as VibeIcons from "@ezds/icons";
+import * as EZDSIcons from "@ezds/icons";
 import * as EZDSComponentsNext from "@ezds/core/next";
 import React from "react";
 
-const VibeLegacy = Object.fromEntries(Object.entries(EZDSComponents).filter(([key]) => key in EZDSComponentsNext));
+const EZDSLegacy = Object.fromEntries(Object.entries(EZDSComponents).filter(([key]) => key in EZDSComponentsNext));
 const combinedComponents = { ...EZDSComponents, ...EZDSComponentsNext };
 
-export const playgroundEZDSComponents = { ...combinedComponents, VibeLegacy, VibeIcons };
+export const playgroundEZDSComponents = { ...combinedComponents, EZDSLegacy, EZDSIcons };
 export const playgroundReactCommonHooks = {
   useState: React.useState,
   useEffect: React.useEffect,
@@ -26,18 +26,18 @@ const jsx = `() => {
     <Flex direction="column" className="playground">
       <img
         src="https://design.ezcorp.com/logo.svg"
-        alt="Vibe Logo"
-        className="vibe-logo"
+        alt="EZDS Logo"
+        className="ezds-logo"
       />
       <Flex direction="column" align="center" justify="center" gap="xs">
         <Flex align="center" gap="xs">
-          <Icon icon={VibeIcons.Labs} iconSize="16" />
+          <Icon icon={EZDSIcons.Labs} iconSize="16" />
           <Heading type="h3" align="center">
             Playground
           </Heading>
         </Flex>
         <Text type="text2" ellipsis={false}>
-          Craft, Experiment, and Innovate with Vibe.
+          Craft, Experiment, and Innovate with EZDS.
         </Text>
       </Flex>
       <Button
@@ -61,13 +61,13 @@ const css = `.playground {
   width: 100vw;
 }
 
-.vibe-logo {
+.ezds-logo {
   width: 150px;
   margin-block-end: var(--spacing-large);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.vibe-logo:hover {
+.ezds-logo:hover {
   transform: scale(1.02);
   filter: drop-shadow(0 0 32px rgba(80, 52, 255, 0.3));
 }
