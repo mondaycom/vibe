@@ -811,15 +811,8 @@ function getPromotedComponentMigrationGuide() {
     components: {
       Dropdown: {
         severity: "critical" as const,
-        apiChanges: [
-          "Option shape: { id, text } → { value, label }",
-          "Sub-components removed: DropdownMenu, DropdownOption, DropdownSingleValue",
-          "searchable now defaults to true",
-          "Combobox replaced by Dropdown with box mode"
-        ],
-        before: `import { Dropdown } from "@vibe/core";\n<Dropdown options={[{ id: "1", text: "Option" }]} />`,
-        after: `import { Dropdown } from "@vibe/core";\n<Dropdown options={[{ value: "1", label: "Option" }]} />`,
-        toolReference: "Use the 'dropdown-migration' tool for detailed Dropdown migration assistance"
+        migrateTool: "dropdown-migration",
+        note: "Use the 'dropdown-migration' tool for complete Dropdown migration guidance including API changes, before/after examples, and step-by-step instructions."
       },
       AttentionBox: {
         severity: "high" as const,
@@ -1045,20 +1038,27 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
       if (!componentGuide) continue;
 
       if (counts.oldCount > 0) {
-        recommendations.push({
+        const recommendation: any = {
           type: "promoted-component-old-api",
           priority: componentGuide.severity,
           action: `Migrate ${component} from old API to new API`,
           details:
             `Found ${counts.oldCount} import(s) of ${component} from @vibe/core (old API) across ${counts.oldFiles.length} file(s). ` +
             `After upgrading to Vibe 4, these imports will silently point to the NEW ${component} which has a different API.`,
-          apiChanges: componentGuide.apiChanges,
-          before: componentGuide.before,
-          after: componentGuide.after,
           files: counts.oldFiles.slice(0, 10),
-          ...("toolReference" in componentGuide ? { toolReference: componentGuide.toolReference } : {}),
           important: "⚠️ Must be resolved BEFORE running codemods (step 3 must be done before step 4)"
-        });
+        };
+
+        if ("migrateTool" in componentGuide) {
+          recommendation.migrateTool = componentGuide.migrateTool;
+          recommendation.note = componentGuide.note;
+        } else {
+          recommendation.apiChanges = componentGuide.apiChanges;
+          recommendation.before = componentGuide.before;
+          recommendation.after = componentGuide.after;
+        }
+
+        recommendations.push(recommendation);
       }
 
       if (counts.newCount > 0) {
