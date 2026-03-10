@@ -6,10 +6,10 @@ $indicator-size: 8px;
   border-radius: 50%;
 
   &.primary {
-    background-color: var(--primary-color);
+    background-color: var(--ezds-color-background-accent-default);
   }
 
   &.notification {
-    background-color: var(--negative-color);
+    background-color: var(--ezds-color-background-danger-default);
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useCallback, useRef, useState } from "react";
-import { useEventListener, Box } from "@vibe/core";
+import { useEventListener, Box } from "@ezds/core";
 
 export default {
   title: "Hooks/useEventListener"

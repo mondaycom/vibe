@@ -1,10 +1,10 @@
 @import "../../styles/typography";
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .link {
   display: flex;
   align-items: center;
-  color: var(--link-color);
+  color: var(--ezds-color-link-default);
   @include vibe-text(text2, normal);
   @include smoothing-text;
   text-decoration: none;
@@ -12,11 +12,11 @@
   @include focus-style();
 
   &.colorOnPrimary {
-    color: var(--text-color-on-primary);
+    color: var(--ezds-color-text-default-inverted);
   }
 
   &.colorOnInverted {
-    color: var(--text-color-on-inverted);
+    color: var(--ezds-color-text-default-inverted);
   }
 }
 
@@ -37,23 +37,23 @@
 
 .iconStart {
   line-height: 24px;
-  margin-right: var(--spacing-small);
+  margin-right: var(--ezds-space-0100);
 }
 
 .iconEnd {
   line-height: 24px;
-  margin-left: var(--spacing-small);
+  margin-left: var(--ezds-space-0100);
 }
 
 @supports (margin-inline-start: initial) {
   .iconStart {
     line-height: 24px;
     margin-right: 0;
-    margin-inline-end: var(--spacing-xs);
+    margin-inline-end: var(--ezds-space-0050);
   }
   .iconEnd {
     line-height: 24px;
     margin-left: 0;
-    margin-inline-start: var(--spacing-xs);
+    margin-inline-start: var(--ezds-space-0050);
   }
 }

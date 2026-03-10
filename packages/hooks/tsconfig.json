@@ -1,5 +1,5 @@
 {
-  "extends": "@vibe/config/tsconfig",
+  "extends": "@ezds/config/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src"

@@ -1,0 +1,8 @@
+/* DEPRECATED: alias bridge only — do not add new vars here.
+   All radius tokens are now sourced from @ezds/tokens → --ezds-radius-* CSS vars in theme files.
+   These aliases exist only for backwards compat with forked component SCSS. */
+:root {
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-big: 16px;
+}

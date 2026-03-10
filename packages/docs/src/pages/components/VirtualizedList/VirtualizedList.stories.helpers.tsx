@@ -1,5 +1,5 @@
 import React from "react";
-import { Tip } from "vibe-storybook-components";
+import { Tip } from "@ezds/storybook-blocks";
 import { type VirtualizedListItem } from "../VirtualizedList.types";
 
 export const generateItems = (defaultItemSize = 30, itemsCount: number, layout: string) => {

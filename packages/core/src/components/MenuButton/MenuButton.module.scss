@@ -1,23 +1,23 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../styles/typography";
 @import "../../styles/states";
 
 .wrapper {
   @include reset-button();
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform var(--motion-productive-short) var(--motion-timing-transition);
-  color: var(--primary-text-color);
+  transition: transform var(--ezds-motion-productive-short) var(--ezds-motion-timing-transition);
+  color: var(--ezds-color-text-default);
   @include focus-style();
 }
 
 .wrapper:focus,
 .wrapper:hover {
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--ezds-color-background-transparent-inverted);
 }
 
 .wrapper:active {
@@ -25,15 +25,15 @@
 }
 
 .active {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .active:focus {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .active:hover {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .sizeXxs {
@@ -70,8 +70,8 @@
 }
 
 .disabled {
-  border-color: var(--disabled-background-color);
-  color: var(--disabled-text-color);
+  border-color: var(--ezds-color-background-disabled);
+  color: var(--ezds-color-text-default-disabled);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -85,5 +85,5 @@
 }
 
 .innerText {
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--ezds-space-0100);
 }

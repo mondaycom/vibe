@@ -1,16 +1,16 @@
 import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
-import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import { type IconType, Icon, type SubIcon } from "@vibe/icon";
-import { useIsOverflowing } from "@vibe/hooks";
+import { Tooltip, type TooltipProps } from "@ezds/tooltip";
+import { type IconType, Icon, type SubIcon } from "@ezds/icon";
+import { useIsOverflowing } from "@ezds/hooks";
 import { type VibeComponentProps, withStaticProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { type TooltipPositions, TooltipPositionsEnum } from "@vibe/tooltip";
+import { type TooltipPositions, TooltipPositionsEnum } from "@ezds/tooltip";
 import { type SubmenuPosition } from "./MenuItem.types";
-import { Flex } from "@vibe/layout";
+import { Flex } from "@ezds/layout";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**

@@ -1,9 +1,9 @@
 import React from "react";
 import { chunk as _chunk } from "es-toolkit";
-import { Chips, Text, Avatar, DialogContentContainer, Flex, Search } from "@vibe/core";
+import { Chips, Text, Avatar, DialogContentContainer, Flex, Search } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { Email } from "@vibe/icons";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { Email } from "@ezds/icons";
 import person1 from "../Avatar/assets/person1.png";
 import person3 from "../Avatar/assets/person3.png";
 

@@ -90,7 +90,7 @@ After:
 
 ### Replace main.css import with tokens import
 
-Previously `main.css` contained all the style definitions + `monday-ui-style` tokens and was required to import, now instead of this you should just load `monday-ui-style` tokens via separate endpoint.
+Previously `main.css` contained all the style definitions + `@ezds/web` tokens and was required to import, now instead of this you should just load `@ezds/web` tokens via separate endpoint.
 
 Before:
 

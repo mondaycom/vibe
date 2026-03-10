@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { type AriaRole, forwardRef } from "react";
 import { noop as NOOP } from "es-toolkit";
-import { type VibeComponentProps } from "@vibe/shared";
+import { type VibeComponentProps } from "@ezds/shared";
 import useClickableProps from "../useClickableProps/useClickableProps";
 import styles from "./Clickable.module.scss";
 

@@ -119,12 +119,12 @@ async function main() {
     }
   }
 
-  const isVibeCoreInstalled = checkIfPackageExists("@vibe/core");
+  const isVibeCoreInstalled = checkIfPackageExists("@ezds/core");
   if (migrationType === "v3" && !isVibeCoreInstalled) {
-    console.log(chalk.yellow("Warning: You need to install @vibe/core package to fully apply the v3 migration."));
+    console.log(chalk.yellow("Warning: You need to install @ezds/core package to fully apply the v3 migration."));
   }
   if (migrationType === "enums" && !isVibeCoreInstalled) {
-    console.log(chalk.red("Error: Please install @vibe/core to run the enum migration."));
+    console.log(chalk.red("Error: Please install @ezds/core to run the enum migration."));
     process.exit(1);
   }
 

@@ -75,8 +75,11 @@ describe("DatePicker", () => {
 
     const today = moment();
     const tomorrow = moment().add(1, "days");
+    const allDayCells = Array.from(container.querySelectorAll("td.CalendarDay"));
     const todayElement = container.querySelector(".CalendarDay__today") as HTMLElement;
-    const tomorrowElement = todayElement.nextElementSibling;
+    const todayIdx = allDayCells.indexOf(todayElement);
+    // Use the next cell in the full cell list to avoid row-boundary null issues.
+    const tomorrowElement = allDayCells[todayIdx + 1] as HTMLElement;
 
     fireEvent.click(todayElement);
     fireEvent.click(tomorrowElement);

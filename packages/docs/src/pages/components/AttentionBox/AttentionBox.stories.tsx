@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Info, Invite } from "@vibe/icons";
-import { AttentionBox } from "@vibe/core/next";
+import { Info, Invite } from "@ezds/icons";
+import { AttentionBox } from "@ezds/core/next";
 import {
   Button,
   Flex,
@@ -14,7 +14,7 @@ import {
   Box,
   Skeleton,
   type AttentionBoxProps
-} from "@vibe/core";
+} from "@ezds/core";
 import person from "./assets/person.png";
 import contentImage from "./assets/content-image.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";

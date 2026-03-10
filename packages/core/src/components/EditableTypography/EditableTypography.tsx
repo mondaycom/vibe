@@ -4,11 +4,11 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
-import { useKeyboardButtonPressedFunc } from "@vibe/shared";
-import { type TooltipProps } from "@vibe/tooltip";
+import { useKeyboardButtonPressedFunc } from "@ezds/shared";
+import { type TooltipProps } from "@ezds/tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { type TextType, type TextWeight } from "@vibe/typography";
-import { type HeadingType, type HeadingWeight } from "@vibe/typography";
+import { type TextType, type TextWeight } from "@ezds/typography";
+import { type HeadingType, type HeadingWeight } from "@ezds/typography";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {

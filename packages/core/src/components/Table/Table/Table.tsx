@@ -22,7 +22,7 @@ import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMen
 import useMergeRef from "../../../hooks/useMergeRef";
 import { type TableProviderValue } from "../context/TableContext/TableContext.types";
 import { type TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 
 export type TableLoadingStateType = "long-text" | "medium-text" | "circle" | "rectangle";
 

@@ -7,7 +7,7 @@ import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";
-import { Text, TextTypeEnum, TextWeightEnum, type TextType, type TextWeight } from "@vibe/typography";
+import { Text, TextTypeEnum, TextWeightEnum, type TextType, type TextWeight } from "@ezds/typography";
 import cx from "classnames";
 
 export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {

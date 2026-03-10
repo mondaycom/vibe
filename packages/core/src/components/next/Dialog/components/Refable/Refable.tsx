@@ -1,5 +1,5 @@
 import React, { type HTMLProps, type ReactElement } from "react";
-import { chainFunctions, chainRefFunctions, type VibeComponentProps } from "@vibe/shared";
+import { chainFunctions, chainRefFunctions, type VibeComponentProps } from "@ezds/shared";
 
 export interface RefableProps extends React.PropsWithChildren<HTMLProps<HTMLElement> & VibeComponentProps> {
   children: ReactElement | ReactElement[] | string;

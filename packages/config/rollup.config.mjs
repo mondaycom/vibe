@@ -64,8 +64,8 @@ export default {
   },
   input: path.join(SRC_PATH, "index.ts"),
   external: [
-    /node_modules\/(?!monday-ui-style)(.*)/,
-    /@vibe\/.*/ // Externalize all @vibe packages
+    /node_modules\/(?!@ezds\/web)(.*)/,
+    /@ezds\/.*/ // Externalize all @ezds packages
   ],
   plugins: [
     commonjs(),

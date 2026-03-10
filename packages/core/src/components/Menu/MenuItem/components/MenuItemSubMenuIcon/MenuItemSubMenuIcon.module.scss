@@ -1,5 +1,5 @@
 .subMenuIconWrapper {
-  margin-left: var(--spacing-xs);
+  margin-left: var(--ezds-space-0050);
 
   .divider {
     height: 19px;
@@ -12,11 +12,11 @@
 
   .subMenuIcon,
   .splitSubMenuIcon {
-    color: var(--icon-color);
+    color: var(--ezds-color-icon-subtle);
 
     &.disabled {
       cursor: not-allowed;
-      color: var(--disabled-text-color);
+      color: var(--ezds-color-text-default-disabled);
     }
   }
 

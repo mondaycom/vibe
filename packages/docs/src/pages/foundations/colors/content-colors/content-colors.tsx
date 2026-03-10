@@ -1,10 +1,10 @@
 import React from "react";
 import { useMemo } from "react";
 import { ContentColorRow } from "../content-color-row/content-color-row";
-import { ContentColorByName } from "@vibe/shared";
+import { ContentColorByName } from "@ezds/shared";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
 import classes from "./content-colors.module.scss";
-import { Text } from "@vibe/core";
+import { Text } from "@ezds/core";
 
 export const ContentColors = () => {
   const colorsCells = useMemo(

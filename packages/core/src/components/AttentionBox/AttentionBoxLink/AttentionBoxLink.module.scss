@@ -2,6 +2,6 @@
 // Using [href] to increase specificity and override `Typography a` styles
 a[href].attentionBoxLink,
 a[href].attentionBoxLink:hover {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   text-decoration: underline;
 }

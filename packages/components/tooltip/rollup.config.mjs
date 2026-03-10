@@ -1,3 +1,3 @@
-import config from "@vibe/config/rollup.config";
+import config from "@ezds/config/rollup.config";
 
 export default config;

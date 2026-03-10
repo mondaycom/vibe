@@ -1,11 +1,11 @@
 import React, { type FC, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { useDayPicker, useNavigation } from "react-day-picker";
-import { Button } from "@vibe/button";
-import { IconButton } from "@vibe/icon-button";
-import { Flex } from "@vibe/layout";
+import { Button } from "@ezds/button";
+import { IconButton } from "@ezds/icon-button";
+import { Flex } from "@ezds/layout";
 import Dropdown from "../../next/Dropdown/Dropdown";
-import { DropdownChevronRight, DropdownChevronLeft } from "@vibe/icons";
+import { DropdownChevronRight, DropdownChevronLeft } from "@ezds/icons";
 import styles from "./DatePickerHeader.module.scss";
 import { useMonthsOptionItems, useYearsOptionItems, type DatePickerDropdownItem } from "./datePickerHooks";
 import { format, type Locale } from "date-fns";

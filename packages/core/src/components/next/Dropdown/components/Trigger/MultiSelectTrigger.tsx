@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "@vibe/layout";
+import { Flex } from "@ezds/layout";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import DropdownInput from "./DropdownInput";
 import { useDropdownContext } from "../../context/DropdownContext";

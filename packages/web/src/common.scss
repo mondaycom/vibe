@@ -1,0 +1,6 @@
+/* DEPRECATED: alias bridge only — do not add new vars here.
+   All tokens are now sourced from @ezds/tokens → --ezds-* CSS vars in theme files.
+   These aliases exist only for backwards compat with forked component SCSS. */
+:root {
+  --disabled-component-opacity: 0.38;
+}

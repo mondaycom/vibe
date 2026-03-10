@@ -1,5 +1,5 @@
 import React, { type CSSProperties, type ReactElement } from "react";
-import { type IconType, Icon } from "@vibe/icon";
+import { type IconType, Icon } from "@ezds/icon";
 import { type InfixKind } from "./Slider.types";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";

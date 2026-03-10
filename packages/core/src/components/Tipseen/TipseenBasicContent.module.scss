@@ -1,5 +1,5 @@
 @mixin tipseen-content-padding {
-  padding: var(--spacing-medium) 20px var(--spacing-large) 20px;
+  padding: var(--ezds-space-0200) 20px var(--ezds-space-0400) 20px;
 
   // this is because the designer wanted the padding top
   // to be 12px in case the tipseen have both content and image

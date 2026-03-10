@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useEffect, useRef } from "react";
-import { Text } from "@vibe/typography";
+import { Text } from "@ezds/typography";
 import { ComponentDefaultTestId, getTestId } from "../../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY } from "../../MenuItemConstants";

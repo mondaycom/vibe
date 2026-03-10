@@ -1,8 +1,8 @@
 import React from "react";
 import { useMemo } from "react";
-import { ColorUtils } from "@vibe/shared";
+import { ColorUtils } from "@ezds/shared";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
-import { Text } from "@vibe/core";
+import { Text } from "@ezds/core";
 
 interface ContentColorRowProps {
   colorName: string;

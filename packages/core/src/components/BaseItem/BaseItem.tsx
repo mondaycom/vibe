@@ -2,10 +2,10 @@ import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { Text, type TextType } from "@vibe/typography";
+import { Text, type TextType } from "@ezds/typography";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { useListItemProps } from "./hooks/useListItemProps";
-import { Tooltip } from "@vibe/tooltip";
+import { Tooltip } from "@ezds/tooltip";
 import { renderSideElement } from "./utils";
 import styles from "./BaseItem.module.scss";
 

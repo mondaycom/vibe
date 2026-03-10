@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, type IconSubComponentProps } from "@vibe/icon";
+import { Icon, type IconSubComponentProps } from "@ezds/icon";
 import { defaultIconMap } from "./ToastConstants";
 import { type ToastType } from "./Toast.types";
 

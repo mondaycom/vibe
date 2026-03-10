@@ -1,5 +1,5 @@
-import { createComponentTemplate } from "vibe-storybook-components";
-import { BaseInput } from "@vibe/base";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { BaseInput } from "@ezds/base";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof BaseInput>;

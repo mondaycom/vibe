@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Tip } from "vibe-storybook-components";
+import { Tip } from "@ezds/storybook-blocks";
 export const EmptyStateTip = () => {
   return (
     <div>

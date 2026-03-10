@@ -4,9 +4,9 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./ModalHeader.module.scss";
 import { type ModalHeaderProps } from "./ModalHeader.types";
-import { Flex } from "@vibe/layout";
-import { Heading, Text } from "@vibe/typography";
-import { Icon } from "@vibe/icon";
+import { Flex } from "@ezds/layout";
+import { Heading, Text } from "@ezds/typography";
+import { Icon } from "@ezds/icon";
 import { useModal } from "../context/ModalContext";
 
 const ModalHeader = forwardRef(

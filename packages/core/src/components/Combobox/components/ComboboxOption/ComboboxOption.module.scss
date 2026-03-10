@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../../../styles/states";
 $icon-margin: 4px;
 
@@ -19,19 +19,19 @@ $icon-margin: 4px;
 }
 
 .comboboxOption.selected {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .comboboxOption:hover:not(.disabled):not(.selected),
 .comboboxOption.active {
-  color: var(--primary-text-color);
-  background-color: var(--primary-background-hover-color);
+  color: var(--ezds-color-text-default);
+  background-color: var(--ezds-color-background-transparent-inverted);
   position: relative;
 }
 
 .comboboxOption.activeOutline {
   @include focus-style-css-inset();
-  background-color: var(--secondary-background-color);
+  background-color: var(--ezds-color-background-primary);
 }
 
 .comboboxOption .optionLabel {

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
-import { Robot } from "@vibe/icons";
+import { Robot } from "@ezds/icons";
 import AttentionBox from "../AttentionBox";
 import userEvent from "@testing-library/user-event";
 import type { AttentionBoxType } from "../AttentionBox.types";

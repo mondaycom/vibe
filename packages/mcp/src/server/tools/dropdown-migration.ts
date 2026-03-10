@@ -71,7 +71,7 @@ function getDropdownMigrationInstructions(projectInfo: any) {
     overview: {
       description: "Migration from old Dropdown to new Dropdown (Alpha) component",
       keyChanges: [
-        "Import path change: '@vibe/core' → '@vibe/core/next'",
+        "Import path change: '@ezds/core' → '@ezds/core/next'",
         "Option data structure: { id, text } → { value, label }",
         "Built-in form field support (label, helperText, error, required)",
         "Enhanced accessibility with ARIA attributes",
@@ -79,7 +79,7 @@ function getDropdownMigrationInstructions(projectInfo: any) {
         "Improved tooltip integration",
         "Breaking changes in default behavior"
       ],
-      status: "Alpha - Available under @vibe/core/next"
+      status: "Alpha - Available under @ezds/core/next"
     },
     benefits: {
       accessibility: [
@@ -121,10 +121,10 @@ function getDropdownMigrationInstructions(projectInfo: any) {
         {
           step: 2,
           title: "Update Import Statements",
-          action: "Change import path from '@vibe/core' to '@vibe/core/next'",
-          example: "import { Dropdown } from '@vibe/core/next';",
+          action: "Change import path from '@ezds/core' to '@ezds/core/next'",
+          example: "import { Dropdown } from '@ezds/core/next';",
           description: "Update all Dropdown imports to use the new Alpha version",
-          command: "Find and replace: 'from \"@vibe/core\"' → 'from \"@vibe/core/next\"' (for Dropdown imports only)"
+          command: "Find and replace: 'from \"@ezds/core\"' → 'from \"@ezds/core/next\"' (for Dropdown imports only)"
         },
         {
           step: 3,
@@ -165,8 +165,8 @@ function getDropdownMigrationInstructions(projectInfo: any) {
     },
     breakingChanges: {
       importPath: {
-        old: "import { Dropdown } from '@vibe/core';",
-        new: "import { Dropdown } from '@vibe/core/next';",
+        old: "import { Dropdown } from '@ezds/core';",
+        new: "import { Dropdown } from '@ezds/core/next';",
         reason: "New Dropdown is available in Alpha under /next path"
       },
       optionStructure: {
@@ -272,8 +272,8 @@ async function analyzeDropdownImports(projectPath: string): Promise<any> {
       try {
         const content = readFileSync(file, "utf-8");
 
-        const hasOldImport = content.includes("from '@vibe/core'") && content.includes("Dropdown");
-        const hasNewImport = content.includes("from '@vibe/core/next'") && content.includes("Dropdown");
+        const hasOldImport = content.includes("from '@ezds/core'") && content.includes("Dropdown");
+        const hasNewImport = content.includes("from '@ezds/core/next'") && content.includes("Dropdown");
 
         if (hasOldImport && hasNewImport) {
           importAnalysis.mixedImports.push(file);
@@ -481,9 +481,9 @@ function generateRecommendations(analysis: any, projectInfo: any) {
         type: "import-migration",
         priority: "high",
         action: "Update Dropdown imports to use Alpha version",
-        details: `Found ${imports.oldDropdownImports.length} files importing Dropdown from '@vibe/core'`,
+        details: `Found ${imports.oldDropdownImports.length} files importing Dropdown from '@ezds/core'`,
         files: imports.oldDropdownImports.slice(0, 10),
-        fix: "Change 'from \"@vibe/core\"' to 'from \"@vibe/core/next\"' for Dropdown imports",
+        fix: "Change 'from \"@ezds/core\"' to 'from \"@ezds/core/next\"' for Dropdown imports",
         command: "Find and replace in files with Dropdown imports"
       });
     }
@@ -495,7 +495,7 @@ function generateRecommendations(analysis: any, projectInfo: any) {
         action: "Resolve mixed import patterns",
         details: `Found ${imports.mixedImports.length} files with both old and new Dropdown imports`,
         files: imports.mixedImports,
-        fix: "Consolidate to use only '@vibe/core/next' imports"
+        fix: "Consolidate to use only '@ezds/core/next' imports"
       });
     }
 

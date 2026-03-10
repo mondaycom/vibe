@@ -1,5 +1,5 @@
 import { type AriaRole, type InputHTMLAttributes, type ReactNode } from "react";
-import { type VibeComponentProps, type BASE_SIZES } from "@vibe/shared";
+import { type VibeComponentProps, type BASE_SIZES } from "@ezds/shared";
 
 export type InputSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
 type BaseInputNativeInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "role">;

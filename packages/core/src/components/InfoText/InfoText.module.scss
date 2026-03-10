@@ -1,19 +1,19 @@
 .infoText {
-  color: var(--secondary-text-color);
+  color: var(--ezds-color-text-subtle);
 
   &.error {
-    color: var(--negative-color);
+    color: var(--ezds-color-background-danger-default);
   }
 
   &.success {
-    color: var(--positive-color);
+    color: var(--ezds-color-background-success-default);
   }
 
   &.disabled {
-    color: var(--disabled-text-color);
+    color: var(--ezds-color-text-default-disabled);
   }
 
   &.readOnly {
-    color: var(--secondary-text-color);
+    color: var(--ezds-color-text-subtle);
   }
 }

@@ -1,8 +1,8 @@
 .accordion {
   height: fit-content;
-  border: 1px solid var(--ui-border-color);
+  border: 1px solid var(--ezds-color-border-strong);
   box-sizing: border-box;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
 }
 
 .accordion .accordionItemExpandCollapse {
@@ -10,7 +10,7 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-color: var(--ui-border-color);
+  border-color: var(--ezds-color-border-strong);
 }
 
 .accordion .accordionItemExpandCollapseLast {

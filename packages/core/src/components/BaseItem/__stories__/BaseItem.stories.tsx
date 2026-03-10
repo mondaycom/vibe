@@ -1,7 +1,7 @@
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import BaseItem from "../BaseItem";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { Email } from "@vibe/icons";
+import { Email } from "@ezds/icons";
 import person1 from "./person1.png";
 
 type Story = StoryObj<typeof BaseItem>;

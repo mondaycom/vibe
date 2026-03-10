@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { DialogContentContainer, Menu, MenuItem } from "@vibe/core";
-import { Email, Delete, Info } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { DialogContentContainer, Menu, MenuItem } from "@ezds/core";
+import { Email, Delete, Info } from "@ezds/icons";
 
 export const MenuDescription = () => {
   const component = useMemo(() => {

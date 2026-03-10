@@ -3,11 +3,11 @@ import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { Icon, type IconType, type SubIcon } from "@vibe/icon";
+import { Icon, type IconType, type SubIcon } from "@ezds/icon";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import { Tooltip, type TooltipProps } from "@vibe/tooltip";
+import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
 import { keyCodes } from "../../../constants";
 

@@ -34,7 +34,7 @@
   .pickerOptions {
     text-align: center;
     background-color: #fff;
-    background-color: var(--secondary-background-color);
+    background-color: var(--ezds-color-background-primary);
     position: absolute;
     top: 55px;
     pointer-events: all;
@@ -45,7 +45,7 @@
   }
 
   :global(.CalendarYear--blocked) { /* stylelint-disable-line selector-class-pattern */
-    color: var(--disabled-text-color);
+    color: var(--ezds-color-text-default-disabled);
     cursor: default;
   }
 }

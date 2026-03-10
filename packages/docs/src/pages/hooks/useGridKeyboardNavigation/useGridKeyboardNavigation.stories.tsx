@@ -2,7 +2,7 @@ import React, { useRef, useCallback, useState, useMemo } from "react";
 import { action } from "@storybook/addon-actions";
 import cx from "classnames";
 import { range } from "es-toolkit";
-import { useGridKeyboardNavigation, Button } from "@vibe/core";
+import { useGridKeyboardNavigation, Button } from "@ezds/core";
 import "./useGridKeyboardNavigation.stories.scss";
 
 const ELEMENT_WIDTH_PX = 72;

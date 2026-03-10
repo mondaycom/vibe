@@ -4,11 +4,11 @@ import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import React, { type CSSProperties, isValidElement, PureComponent, type ReactElement } from "react";
 import { type Modifier } from "react-popper";
-import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@vibe/dialog";
+import { Dialog, type DialogAnimationType, type DialogTriggerEvent } from "@ezds/dialog";
 import {
   DialogTriggerEventEnum as HideShowEventEnum,
   DialogAnimationTypeEnum as AnimationTypeEnum
-} from "@vibe/dialog";
+} from "@ezds/dialog";
 import {
   type VibeComponentProps,
   type ElementContent,
@@ -16,11 +16,11 @@ import {
   getStyle,
   ComponentDefaultTestId,
   getTestId
-} from "@vibe/shared";
+} from "@ezds/shared";
 import { TooltipTheme as TooltipThemeEnum, TooltipPositions as TooltipPositionsEnum } from "./TooltipConstants";
 import styles from "./Tooltip.module.scss";
-import { Icon, type SubIcon } from "@vibe/icon";
-import { Flex } from "@vibe/layout";
+import { Icon, type SubIcon } from "@ezds/icon";
+import { Flex } from "@ezds/layout";
 import { type TooltipPositions, type TooltipTheme } from "./Tooltip.types";
 
 export type TooltipProps = TooltipBaseProps & (TooltipWithChildrenProps | TooltipWithoutChildrenProps);

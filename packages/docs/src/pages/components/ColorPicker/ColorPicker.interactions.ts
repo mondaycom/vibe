@@ -1,7 +1,7 @@
 import { userEvent, within } from "@storybook/test";
-import { typeMultipleTimes, interactionSuite, resetFocus } from "@vibe/core/interactionsTests";
+import { typeMultipleTimes, interactionSuite, resetFocus } from "@ezds/core/interactionsTests";
 import { expect } from "@storybook/jest";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { ComponentDefaultTestId, getTestId } from "@ezds/shared";
 
 // Color names used in tests
 const ContentColorByName = {

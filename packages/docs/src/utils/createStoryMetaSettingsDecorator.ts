@@ -1,10 +1,10 @@
-import iconsMetaData from "@vibe/icons/meta";
-import { createStoryMetaSettings } from "vibe-storybook-components";
-import { type CreateStoryMetaSettingsArgs } from "vibe-storybook-components/types";
-import * as AllIcons from "@vibe/icons";
+import iconsMetaData from "@ezds/icons/meta";
+import { createStoryMetaSettings } from "@ezds/storybook-blocks";
+import { type CreateStoryMetaSettingsArgs } from "@ezds/storybook-blocks/types";
+import * as AllIcons from "@ezds/icons";
 
 /**
- * Decorator on createStoryMetaSettings from vibe-storybook-components - adds icons metadata and icons components to function arguments
+ * Decorator on createStoryMetaSettings from @ezds/storybook-blocks - adds icons metadata and icons components to function arguments
  */
 export function createStoryMetaSettingsDecorator({
   component,

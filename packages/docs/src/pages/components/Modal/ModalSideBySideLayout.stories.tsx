@@ -8,7 +8,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalFooterWizard
-} from "@vibe/core/next";
+} from "@ezds/core/next";
 import {
   TransitionView,
   useWizard,
@@ -20,11 +20,11 @@ import {
   Dropdown,
   Label,
   TextField
-} from "@vibe/core";
+} from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";
 import mediaImage from "./assets/sbs-media-image.png";
-import { Menu } from "@vibe/icons";
+import { Menu } from "@ezds/icons";
 
 type Story = StoryObj<typeof Modal>;
 

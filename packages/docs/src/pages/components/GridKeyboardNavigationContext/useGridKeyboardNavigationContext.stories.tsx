@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "@vibe/core";
+import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import {
   DummyNavigableGrid,
   LayoutWithInnerKeyboardNavigation
 } from "./useGridKeyboardNavigationContext.stories.helpers";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import { useGridContextMultipleDepthsPlaySuite } from "./useGridKeyboardNavigationContext.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({

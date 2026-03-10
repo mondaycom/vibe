@@ -1,4 +1,4 @@
-import { type IconType, type SubIcon } from "@vibe/icon";
+import { type IconType, type SubIcon } from "@ezds/icon";
 
 export interface MenuItemIconProps {
   /**

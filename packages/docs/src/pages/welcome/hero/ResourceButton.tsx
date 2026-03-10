@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ResourceButton.module.scss";
-import { Tooltip } from "@vibe/core";
+import { Tooltip } from "@ezds/core";
 
 export default function ResourceButton({
   text,

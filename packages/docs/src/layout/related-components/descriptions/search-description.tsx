@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Search } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Search } from "@ezds/core";
 
 export const SearchDescription = () => {
   const component = useMemo(() => {

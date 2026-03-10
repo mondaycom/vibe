@@ -22,12 +22,12 @@ import {
   ComponentDefaultTestId,
   getTestId,
   isClient
-} from "@vibe/shared";
+} from "@ezds/shared";
 import DialogContent from "./components/DialogContent/DialogContent";
 import { Refable } from "./components/Refable/Refable";
 import styles from "./Dialog.module.scss";
 import { type DialogTriggerEvent, type DialogEvent, type DialogProps } from "./Dialog.types";
-import { LayerContext, LayerProvider } from "@vibe/layer";
+import { LayerContext, LayerProvider } from "@ezds/layer";
 
 function Dialog({
   // Core props

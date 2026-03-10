@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import styles from "./TeamMember.module.scss";
-import { Text, Flex } from "@vibe/core";
+import { Text, Flex } from "@ezds/core";
 
 export interface TeamMemberProps {
   image: string;

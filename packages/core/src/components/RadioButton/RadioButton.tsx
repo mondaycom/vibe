@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import { Clickable } from "@vibe/clickable";
-import { Text } from "@vibe/typography";
+import { Clickable } from "@ezds/clickable";
+import { Text } from "@ezds/typography";
 import { type VibeComponentProps } from "../../types";
-import { Tooltip } from "@vibe/tooltip";
+import { Tooltip } from "@ezds/tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
 import { ComponentVibeId } from "../../tests/constants";

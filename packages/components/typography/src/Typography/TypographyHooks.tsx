@@ -1,7 +1,7 @@
 import { type MutableRefObject, useMemo } from "react";
-import { type ElementContent } from "@vibe/shared";
-import { useIsOverflowing } from "@vibe/hooks";
-import { type TooltipProps } from "@vibe/tooltip";
+import { type ElementContent } from "@ezds/shared";
+import { useIsOverflowing } from "@ezds/hooks";
+import { type TooltipProps } from "@ezds/tooltip";
 import styles from "./Typography.module.scss";
 
 export function useEllipsisClass(ellipsis: boolean, maxLines = 1) {

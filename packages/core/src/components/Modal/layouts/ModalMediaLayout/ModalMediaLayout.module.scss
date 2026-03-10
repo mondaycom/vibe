@@ -16,7 +16,7 @@
   .header {
     width: 100%;
     text-align: center;
-    margin-block: var(--spacing-xl) var(--spacing-small);
+    margin-block: var(--ezds-space-0500) var(--ezds-space-0100);
     padding-inline: var(--modal-inline-padding);
   }
 
@@ -26,7 +26,7 @@
     flex: 1;
     align-self: flex-start;
     padding-inline: var(--modal-inline-padding);
-    padding-block-end: var(--spacing-large);
+    padding-block-end: var(--ezds-space-0400);
     text-align: center;
     overflow: hidden;
   }

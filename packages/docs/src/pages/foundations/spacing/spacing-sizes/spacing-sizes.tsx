@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, Flex } from "@vibe/core";
+import { Table, TableHeader, TableHeaderCell, TableBody, TableRow, TableCell, Flex } from "@ezds/core";
 import { TokenName } from "../spacing-token-name/spacing-token-name";
 
 const spacingData = [

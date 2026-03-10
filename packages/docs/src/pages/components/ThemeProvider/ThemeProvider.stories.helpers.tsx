@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { ThemeProvider, type ThemeProviderProps, Button, Dropdown, Flex } from "@vibe/core";
+import { ThemeProvider, type ThemeProviderProps, Button, Dropdown, Flex } from "@ezds/core";
 import { productTheme1, productTheme2, productTheme3, productTheme4 } from "./product-themes";
 import { ColorsDescription } from "../../foundations/colors/colors-description/colors-description";
-import { Link, Tip, UsageGuidelines } from "vibe-storybook-components";
+import { Link, Tip, UsageGuidelines } from "@ezds/storybook-blocks";
 
 enum ThemeColor {
   primaryColor = "primary-color",
@@ -226,7 +226,7 @@ export const DescriptionWithLinkMondaySdkIntegration = () => (
 );
 
 export const MondaySdkIntegrationSourceCode = `
-import { ThemeProvider } from "@vibe/core";
+import { ThemeProvider } from "@ezds/core";
 import mondaySdk from "monday-sdk-js";
 
 const monday = mondaySdk();

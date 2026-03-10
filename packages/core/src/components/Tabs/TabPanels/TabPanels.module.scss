@@ -14,7 +14,7 @@
 
 .tabPanelsWrapper .tabPanel.active {
   display: block;
-  animation: panelSlideIn var(--motion-productive-long) forwards var(--motion-timing-enter);
+  animation: panelSlideIn var(--ezds-motion-productive-long) forwards var(--ezds-motion-timing-enter);
 }
 
 @keyframes panelSlideIn {

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Update, Locked, Lines } from "@vibe/icons";
-import { Icon } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Update, Locked, Lines } from "@ezds/icons";
+import { Icon } from "@ezds/core";
 
 export const IconsDescription = () => {
   const component = useMemo(() => {

@@ -3,14 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-inline: var(--spacing-small);
+  padding-inline: var(--ezds-space-0100);
 
   &.small {
-    padding-block: var(--spacing-xs);
+    padding-block: var(--ezds-space-0050);
   }
 
   &.medium {
-    padding-block: var(--spacing-small);
+    padding-block: var(--ezds-space-0100);
   }
 
   &.large {

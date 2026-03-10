@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { AccordionItem, Accordion } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { AccordionItem, Accordion } from "@ezds/core";
 import styles from "./accordion-description.module.scss";
 
 export const AccordionDescription = () => {

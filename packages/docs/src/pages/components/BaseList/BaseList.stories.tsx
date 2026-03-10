@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { BaseList } from "../../../../../core/src/components/BaseList";
 import BaseItem from "../../../../../core/src/components/BaseItem/BaseItem";
-import { Email, Favorite, Settings, Person, Search } from "@vibe/icons";
+import { Email, Favorite, Settings, Person, Search } from "@ezds/icons";
 
 type Story = StoryObj<typeof BaseList>;
 

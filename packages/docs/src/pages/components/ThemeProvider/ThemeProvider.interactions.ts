@@ -1,10 +1,10 @@
 import { type Screen } from "@testing-library/react";
 import { userEvent } from "@storybook/test";
 import { expect } from "@storybook/jest";
-import { interactionSuite } from "@vibe/core/interactionsTests";
-import { type SystemTheme } from "@vibe/core";
+import { interactionSuite } from "@ezds/core/interactionsTests";
+import { type SystemTheme } from "@ezds/core";
 
-// TODO: move to @vibe/shared
+// TODO: move to @ezds/shared
 const APP_THEME_SUFFIX = "-app-theme";
 
 const isAppThemeClassName = (className: string) => {

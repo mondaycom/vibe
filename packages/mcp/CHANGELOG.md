@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.8.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.1...@vibe/mcp@0.8.2) (2026-02-09)
+## [0.8.2](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.8.1...@ezds/mcp@0.8.2) (2026-02-09)
 
 
 ### Bug Fixes
@@ -14,15 +14,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.8.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.0...@vibe/mcp@0.8.1) (2026-01-18)
+## [0.8.1](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.8.0...@ezds/mcp@0.8.1) (2026-01-18)
 
-**Note:** Version bump only for package @vibe/mcp
-
-
+**Note:** Version bump only for package @ezds/mcp
 
 
 
-# [0.8.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.7.0...@vibe/mcp@0.8.0) (2025-09-21)
+
+
+# [0.8.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.7.0...@ezds/mcp@0.8.0) (2025-09-21)
 
 
 ### Features
@@ -33,7 +33,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.7.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.6.0...@vibe/mcp@0.7.0) (2025-09-08)
+# [0.7.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.6.0...@ezds/mcp@0.7.0) (2025-09-08)
 
 
 ### Features
@@ -44,7 +44,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.6.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.2...@vibe/mcp@0.6.0) (2025-09-04)
+# [0.6.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.5.2...@ezds/mcp@0.6.0) (2025-09-04)
 
 
 ### Features
@@ -55,15 +55,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.5.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.1...@vibe/mcp@0.5.2) (2025-08-14)
+## [0.5.2](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.5.1...@ezds/mcp@0.5.2) (2025-08-14)
 
-**Note:** Version bump only for package @vibe/mcp
-
-
+**Note:** Version bump only for package @ezds/mcp
 
 
 
-## [0.5.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.5.0...@vibe/mcp@0.5.1) (2025-08-12)
+
+
+## [0.5.1](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.5.0...@ezds/mcp@0.5.1) (2025-08-12)
 
 
 ### Bug Fixes
@@ -74,7 +74,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.5.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.4.0...@vibe/mcp@0.5.0) (2025-08-05)
+# [0.5.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.4.0...@ezds/mcp@0.5.0) (2025-08-05)
 
 
 ### Features
@@ -85,7 +85,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.4.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.1...@vibe/mcp@0.4.0) (2025-08-04)
+# [0.4.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.3.1...@ezds/mcp@0.4.0) (2025-08-04)
 
 
 ### Features
@@ -96,15 +96,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.3.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.3.0...@vibe/mcp@0.3.1) (2025-08-03)
+## [0.3.1](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.3.0...@ezds/mcp@0.3.1) (2025-08-03)
 
-**Note:** Version bump only for package @vibe/mcp
-
-
+**Note:** Version bump only for package @ezds/mcp
 
 
 
-# [0.3.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.2...@vibe/mcp@0.3.0) (2025-06-08)
+
+
+# [0.3.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.2.2...@ezds/mcp@0.3.0) (2025-06-08)
 
 
 ### Features
@@ -115,7 +115,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.2.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.1...@vibe/mcp@0.2.2) (2025-06-02)
+## [0.2.2](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.2.1...@ezds/mcp@0.2.2) (2025-06-02)
 
 
 ### Bug Fixes
@@ -126,7 +126,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.2.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.2.0...@vibe/mcp@0.2.1) (2025-06-01)
+## [0.2.1](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.2.0...@ezds/mcp@0.2.1) (2025-06-01)
 
 
 ### Bug Fixes
@@ -137,7 +137,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.2.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.1.3...@vibe/mcp@0.2.0) (2025-05-29)
+# [0.2.0](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.1.3...@ezds/mcp@0.2.0) (2025-05-29)
 
 
 ### Features
@@ -149,29 +149,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.1.3](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.1.2...@vibe/mcp@0.1.3) (2025-05-25)
+## [0.1.3](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.1.2...@ezds/mcp@0.1.3) (2025-05-25)
 
 
 ### Bug Fixes
 
-* **mcp:** integrate metadata fetching from unpkg (with cache) instead of consuming @vibe/core ([#2905](https://github.com/mondaycom/vibe/issues/2905)) ([ef1dcd5](https://github.com/mondaycom/vibe/commit/ef1dcd59a8d0f3fff327658a8323ee92a2099312))
+* **mcp:** integrate metadata fetching from unpkg (with cache) instead of consuming @ezds/core ([#2905](https://github.com/mondaycom/vibe/issues/2905)) ([ef1dcd5](https://github.com/mondaycom/vibe/commit/ef1dcd59a8d0f3fff327658a8323ee92a2099312))
 
 
 
 
 
-## [0.1.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.1.1...@vibe/mcp@0.1.2) (2025-05-21)
+## [0.1.2](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.1.1...@ezds/mcp@0.1.2) (2025-05-21)
 
 
 ### Bug Fixes
 
-* **mcp:** handle metadata inside mcp instead of consuming @vibe/core as dep ([#2898](https://github.com/mondaycom/vibe/issues/2898)) ([9920a86](https://github.com/mondaycom/vibe/commit/9920a869204a077ef9924ed6c011f9b48417d8ce))
+* **mcp:** handle metadata inside mcp instead of consuming @ezds/core as dep ([#2898](https://github.com/mondaycom/vibe/issues/2898)) ([9920a86](https://github.com/mondaycom/vibe/commit/9920a869204a077ef9924ed6c011f9b48417d8ce))
 
 
 
 
 
-## [0.1.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.1.0...@vibe/mcp@0.1.1) (2025-05-21)
+## [0.1.1](https://github.com/mondaycom/vibe/compare/@ezds/mcp@0.1.0...@ezds/mcp@0.1.1) (2025-05-21)
 
 
 ### Bug Fixes

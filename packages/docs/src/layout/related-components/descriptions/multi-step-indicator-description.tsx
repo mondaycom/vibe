@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { MultiStepIndicator, type Step } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { MultiStepIndicator, type Step } from "@ezds/core";
 
 export const MultiStepIndicatorDescription = () => {
   const component = useMemo(() => {

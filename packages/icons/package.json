@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/icons",
+  "name": "@ezds/icons",
   "version": "1.16.0",
   "description": "Vibe's Icon Library",
   "repository": {
@@ -92,5 +92,9 @@
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
 }

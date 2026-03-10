@@ -9,7 +9,7 @@ import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext,
   type VibeComponent
-} from "@vibe/core";
+} from "@ezds/core";
 import "./useGridKeyboardNavigationContext.stories.scss";
 const ELEMENT_WIDTH_PX = 72;
 const PADDING_PX = 24;

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./spacing-usage-examples.module.scss";
-import { Flex, Text } from "@vibe/core";
+import { Flex, Text } from "@ezds/core";
 import SpacingWithinComponents from "../assets/SpacingWithinComponents.png";
 import SpacingWithinPatterns from "../assets/SpacingWithinPatterns.png";
 import SpacingWithinLayouts from "../assets/SpacingWithinLayouts.png";

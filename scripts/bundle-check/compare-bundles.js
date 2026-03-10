@@ -46,7 +46,7 @@ Array.from(allComponents)
     let displayName;
     if (componentName.startsWith("packages/components/")) {
       const packageName = componentName.split("/")[2];
-      displayName = `@vibe/${packageName}`;
+      displayName = `@ezds/${packageName}`;
     } else if (componentName.includes("/next/")) {
       const baseName = path.basename(componentName, path.extname(componentName));
       displayName = `${baseName} (Next)`;

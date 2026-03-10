@@ -6,8 +6,8 @@
 }
 
 .titleCaption {
-  color: var(--icon-color);
-  margin: var(--spacing-small) 0;
+  color: var(--ezds-color-icon-subtle);
+  margin: var(--ezds-space-0100) 0;
 }
 
 .titleCaptionCenter {
@@ -18,20 +18,20 @@
 
 .titleCaptionBottom,
 .titleCaptionTop {
-  padding-left: var(--spacing-small);
+  padding-left: var(--ezds-space-0100);
 }
 
 .titleCaptionBottom {
-  padding-bottom: var(--spacing-small);
+  padding-bottom: var(--ezds-space-0100);
 }
 
 .titleCaptionCenter::before,
 .titleCaptionCenter::after {
   content: "";
   flex-grow: 1;
-  background-color: var(--ui-border-color);
+  background-color: var(--ezds-color-border-strong);
   height: 1px;
   font-size: 0;
   line-height: 0;
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--ezds-space-0100);
 }

@@ -5,8 +5,8 @@ import {
   type ModalTopActionsTheme,
   type ModalTopActionsProps
 } from "./ModalTopActions.types";
-import { IconButton } from "@vibe/icon-button";
-import { CloseMedium } from "@vibe/icons";
+import { IconButton } from "@ezds/icon-button";
+import { CloseMedium } from "@ezds/icons";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
 const colorToButtonColor: Record<ModalTopActionsTheme, ModalTopActionsButtonColor> = {

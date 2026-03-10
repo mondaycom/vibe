@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { ExpandCollapse, type ExpandCollapseProps, Icon, Text, Heading } from "@vibe/core";
+import { ExpandCollapse, type ExpandCollapseProps, Icon, Text, Heading } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Robot } from "@vibe/icons";
+import { Robot } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ExpandCollapse,

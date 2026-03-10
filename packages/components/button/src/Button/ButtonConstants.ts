@@ -1,4 +1,4 @@
-import { type SIZES } from "@vibe/shared";
+import { type SIZES } from "@ezds/shared";
 
 /**
  * @deprecated

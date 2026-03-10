@@ -1,9 +1,9 @@
 import React from "react";
 import { useCallback, useState } from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { Add, Calendar, Check, Remove } from "@vibe/icons";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { Add, Calendar, Check, Remove } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Button, Text } from "@vibe/core";
+import { Button, Text } from "@ezds/core";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof Button>;

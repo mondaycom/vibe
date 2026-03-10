@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/typography",
+  "name": "@ezds/typography",
   "version": "3.0.5",
   "description": "Vibe sub-package for typography components (Text and Typography)",
   "repository": {
@@ -37,16 +37,16 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "3.0.3",
-    "@vibe/shared": "3.0.8",
-    "@vibe/tooltip": "3.0.5",
+    "@ezds/hooks": "*",
+    "@ezds/shared": "*",
+    "@ezds/tooltip": "*",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
-    "monday-ui-style": "0.26.2"
+    "@ezds/web": "*"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.5",
+    "@ezds/config": "*",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -65,7 +65,11 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@ezds/config/.eslintrc.cjs"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }

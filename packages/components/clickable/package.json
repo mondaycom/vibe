@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/clickable",
+  "name": "@ezds/clickable",
   "version": "3.0.3",
   "description": "Vibe sub-package for Clickable component",
   "repository": {
@@ -38,14 +38,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.8",
+    "@ezds/shared": "*",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "@vibe/config": "3.0.5",
+    "@ezds/config": "*",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -64,7 +64,11 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@ezds/config/.eslintrc.cjs"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }

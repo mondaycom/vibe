@@ -3,23 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.7.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.1...@vibe/docs@3.7.3) (2026-02-27)
+## [3.7.3](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.7.1...@ezds/docs@3.7.3) (2026-02-27)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.7.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.0...@vibe/docs@3.7.1) (2026-02-12)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-# [3.7.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.6.0...@vibe/docs@3.7.0) (2026-02-09)
+## [3.7.1](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.7.0...@ezds/docs@3.7.1) (2026-02-12)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+# [3.7.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.6.0...@ezds/docs@3.7.0) (2026-02-09)
 
 
 ### Features
@@ -30,7 +30,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.6.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.9...@vibe/docs@3.6.0) (2026-02-04)
+# [3.6.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.9...@ezds/docs@3.6.0) (2026-02-04)
 
 
 ### Features
@@ -41,79 +41,79 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.5.9](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.8...@vibe/docs@3.5.9) (2026-01-28)
+## [3.5.9](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.8...@ezds/docs@3.5.9) (2026-01-28)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.5.8](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.7...@vibe/docs@3.5.8) (2026-01-25)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-## [3.5.7](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.6...@vibe/docs@3.5.7) (2026-01-18)
+## [3.5.8](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.7...@ezds/docs@3.5.8) (2026-01-25)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.5.6](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.5...@vibe/docs@3.5.6) (2026-01-04)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-## [3.5.5](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.4...@vibe/docs@3.5.5) (2026-01-04)
+## [3.5.7](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.6...@ezds/docs@3.5.7) (2026-01-18)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.5.4](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.3...@vibe/docs@3.5.4) (2025-12-28)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-## [3.5.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.2...@vibe/docs@3.5.3) (2025-12-25)
+## [3.5.6](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.5...@ezds/docs@3.5.6) (2026-01-04)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.5.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.1...@vibe/docs@3.5.2) (2025-12-22)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-## [3.5.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.0...@vibe/docs@3.5.1) (2025-12-17)
+## [3.5.5](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.4...@ezds/docs@3.5.5) (2026-01-04)
 
-**Note:** Version bump only for package @vibe/docs
-
-
+**Note:** Version bump only for package @ezds/docs
 
 
 
-# [3.5.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.4.2...@vibe/docs@3.5.0) (2025-12-17)
+
+
+## [3.5.4](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.3...@ezds/docs@3.5.4) (2025-12-28)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+## [3.5.3](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.2...@ezds/docs@3.5.3) (2025-12-25)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+## [3.5.2](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.1...@ezds/docs@3.5.2) (2025-12-22)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+## [3.5.1](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.5.0...@ezds/docs@3.5.1) (2025-12-17)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+# [3.5.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.4.2...@ezds/docs@3.5.0) (2025-12-17)
 
 
 ### Features
@@ -125,23 +125,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.4.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.4.1...@vibe/docs@3.4.2) (2025-12-04)
+## [3.4.2](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.4.1...@ezds/docs@3.4.2) (2025-12-04)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.4.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.4.0...@vibe/docs@3.4.1) (2025-11-27)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-# [3.4.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.3.0...@vibe/docs@3.4.0) (2025-11-27)
+## [3.4.1](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.4.0...@ezds/docs@3.4.1) (2025-11-27)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+# [3.4.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.3.0...@ezds/docs@3.4.0) (2025-11-27)
 
 
 ### Features
@@ -152,7 +152,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.3.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.2.1...@vibe/docs@3.3.0) (2025-11-26)
+# [3.3.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.2.1...@ezds/docs@3.3.0) (2025-11-26)
 
 
 ### Features
@@ -163,15 +163,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.2.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.2.0...@vibe/docs@3.2.1) (2025-11-25)
+## [3.2.1](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.2.0...@ezds/docs@3.2.1) (2025-11-25)
 
-**Note:** Version bump only for package @vibe/docs
-
-
+**Note:** Version bump only for package @ezds/docs
 
 
 
-# [3.2.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.1.4...@vibe/docs@3.2.0) (2025-11-19)
+
+
+# [3.2.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.1.4...@ezds/docs@3.2.0) (2025-11-19)
 
 
 ### Features
@@ -182,39 +182,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.1.4](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.1.3...@vibe/docs@3.1.4) (2025-11-19)
+## [3.1.4](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.1.3...@ezds/docs@3.1.4) (2025-11-19)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.1.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.1.2...@vibe/docs@3.1.3) (2025-11-11)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-## [3.1.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.1.1...@vibe/docs@3.1.2) (2025-11-10)
+## [3.1.3](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.1.2...@ezds/docs@3.1.3) (2025-11-11)
 
-**Note:** Version bump only for package @vibe/docs
-
-
-
-
-
-## [3.1.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.1.0...@vibe/docs@3.1.1) (2025-11-06)
-
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
 
 
-# [3.1.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.0.2...@vibe/docs@3.1.0) (2025-11-03)
+## [3.1.2](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.1.1...@ezds/docs@3.1.2) (2025-11-10)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+## [3.1.1](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.1.0...@ezds/docs@3.1.1) (2025-11-06)
+
+**Note:** Version bump only for package @ezds/docs
+
+
+
+
+
+# [3.1.0](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.0.2...@ezds/docs@3.1.0) (2025-11-03)
 
 
 ### Features
@@ -225,9 +225,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.0.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.0.1...@vibe/docs@3.0.2) (2025-10-30)
+## [3.0.2](https://github.com/mondaycom/vibe/compare/@ezds/docs@3.0.1...@ezds/docs@3.0.2) (2025-10-30)
 
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs
 
 
 
@@ -235,4 +235,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 3.0.1 (2025-10-30)
 
-**Note:** Version bump only for package @vibe/docs
+**Note:** Version bump only for package @ezds/docs

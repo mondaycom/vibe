@@ -1,10 +1,10 @@
 .dropdownMenuWrapper {
-  animation: fadeIn var(--motion-productive-medium) var(--motion-timing-enter);
+  animation: fadeIn var(--ezds-motion-productive-medium) var(--ezds-motion-timing-enter);
 
   :global(.dark-app-theme) &,
   :global(.black-app-theme) &,
   :global(.hacker-app-theme) & {
-    box-shadow: 0 0 0 1px var(--layout-border-color), var(--box-shadow-small);
+    box-shadow: 0 0 0 1px var(--ezds-color-border-default), var(--ezds-shadow-small);
   }
 
   &.withoutAnimation {

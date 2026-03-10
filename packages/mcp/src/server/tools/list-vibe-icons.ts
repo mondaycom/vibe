@@ -12,7 +12,7 @@ const SearchIconsParamsSchema = z.object({
 export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = {
   name: "list-vibe-icons",
   description:
-    "Get a list of all available Vibe icons from the @vibe/icons package. Supports optional filtering by text query, category, or tags. Returns icon names, descriptions, categories, and tags, with optional usage examples.",
+    "Get a list of all available Vibe icons from the @ezds/icons package. Supports optional filtering by text query, category, or tags. Returns icon names, descriptions, categories, and tags, with optional usage examples.",
   inputSchema: SearchIconsParamsSchema.shape,
   execute: async (input: z.infer<typeof SearchIconsParamsSchema>): Promise<any> => {
     const { query, category, limit, includeUsageExamples = false } = input;
@@ -57,10 +57,10 @@ export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = 
         if (includeUsageExamples) {
           return {
             ...baseResult,
-            importPath: "@vibe/icons",
+            importPath: "@ezds/icons",
             usageExamples: {
-              "Import Icon Component": `import { Icon } from "@vibe/core";`,
-              "Import Icon": `import { ${icon.name} } from "@vibe/icons";`,
+              "Import Icon Component": `import { Icon } from "@ezds/core";`,
+              "Import Icon": `import { ${icon.name} } from "@ezds/icons";`,
               "Basic Usage": `<Icon icon={${icon.name}} />`,
               "With Props": `<Icon icon={${icon.name}} iconSize={24} iconLabel="${icon.description}" />`
             }

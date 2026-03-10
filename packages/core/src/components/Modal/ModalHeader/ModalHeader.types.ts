@@ -1,6 +1,6 @@
 import type React from "react";
 import { type VibeComponentProps } from "../../../types";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 
 interface WithoutDescription {
   description?: never;

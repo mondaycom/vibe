@@ -1,15 +1,15 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
+import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@ezds/icons";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
-import { BaseInput } from "@vibe/base";
+import { BaseInput } from "@ezds/base";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import { IconButton } from "@vibe/icon-button";
-import { Icon } from "@vibe/icon";
+import { IconButton } from "@ezds/icon-button";
+import { Icon } from "@ezds/icon";
 import { type SearchProps } from "./Search.types";
-import { Loader } from "@vibe/loader";
+import { Loader } from "@ezds/loader";
 import { ComponentVibeId } from "../../tests/constants";
 
 const Search = forwardRef(

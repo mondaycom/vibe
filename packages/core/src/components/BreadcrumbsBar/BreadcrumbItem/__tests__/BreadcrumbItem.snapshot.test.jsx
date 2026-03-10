@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
-import { Board } from "@vibe/icons";
+import { Board } from "@ezds/icons";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem";
 

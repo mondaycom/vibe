@@ -71,7 +71,7 @@ function getMigrationInstructions(projectInfo: any) {
     overview: {
       description: "Vibe 3 is a major update introducing new features, enhancements, and breaking changes",
       keyChanges: [
-        "Package rename: monday-ui-react-core → @vibe/core + @vibe/icons",
+        "Package rename: monday-ui-react-core → @ezds/core + @ezds/icons",
         "Enhanced TypeScript support",
         "Improved prop type-checking with string literals",
         "Better layering of floating components in modals"
@@ -79,26 +79,26 @@ function getMigrationInstructions(projectInfo: any) {
     },
     packageChanges: {
       remove: ["monday-ui-react-core"],
-      add: ["@vibe/core", "@vibe/icons@^1.7.2"],
-      description: "Main package rename from monday-ui-react-core to @vibe/core and @vibe/icons"
+      add: ["@ezds/core", "@ezds/icons@^1.7.2"],
+      description: "Main package rename from monday-ui-react-core to @ezds/core and @ezds/icons"
     },
     importChanges: {
       cssImports: {
         from: "monday-ui-react-core/dist/main.css",
-        to: "@vibe/core/tokens"
+        to: "@ezds/core/tokens"
       },
       iconImports: {
-        from: "monday-ui-style/src/Icons",
-        to: "@vibe/icons/raw"
+        from: "@ezds/web/src/Icons",
+        to: "@ezds/icons/raw"
       },
       nextComponents: {
         from: "monday-ui-react-core/next",
-        to: "@vibe/core",
+        to: "@ezds/core",
         components: ["Heading", "EditableHeading", "Search"]
       },
       storybookComponents: {
         from: "monday-ui-react-core/storybookComponents",
-        to: "vibe-storybook-components"
+        to: "@ezds/storybook-blocks"
       }
     },
     removedComponents: [
@@ -159,7 +159,7 @@ function getMigrationInstructions(projectInfo: any) {
           showClearIcon: "Control clear button visibility (defaults to true)"
         },
         behaviorChanges: ["debounceRate default changed from 200 to 400"],
-        note: "Import from @vibe/core instead of monday-ui-react-core/next"
+        note: "Import from @ezds/core instead of monday-ui-react-core/next"
       },
       TextField: {
         changes: ["requiredAsterisk prop removed", "sm/md/lg sizes renamed", "readonly style updated"],
@@ -225,8 +225,8 @@ function getMigrationInstructions(projectInfo: any) {
         {
           step: 2,
           title: "Update Package Dependencies",
-          action: "Install @vibe/core and @vibe/icons, remove monday-ui-react-core",
-          command: "yarn add @vibe/core @vibe/icons && yarn remove monday-ui-react-core",
+          action: "Install @ezds/core and @ezds/icons, remove monday-ui-react-core",
+          command: "yarn add @ezds/core @ezds/icons && yarn remove monday-ui-react-core",
           description: "This step updates your package.json and installs the new Vibe 3 packages",
           important:
             "Do NOT proceed to step 3 until this completes successfully and you verify the packages are installed"
@@ -234,8 +234,8 @@ function getMigrationInstructions(projectInfo: any) {
         {
           step: 3,
           title: "Run Automated Migration",
-          action: `Run migration script: npx @vibe/codemod -m v3 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
-          command: `npx @vibe/codemod -m v3 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
+          action: `Run migration script: npx @ezds/codemod -m v3 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
+          command: `npx @ezds/codemod -m v3 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
           description:
             "This automated script will handle most import and component transformations. The -y flag skips git confirmation since this tool already manages the process.",
           important: "Let this script complete fully before making any manual changes",
@@ -312,9 +312,9 @@ async function analyzeProject(projectPath: string) {
 function analyzePackageJson(packageJson: any) {
   const dependencies = { ...packageJson.dependencies, ...packageJson.devDependencies };
   const hasOldPackage = !!dependencies["monday-ui-react-core"];
-  const hasNewPackage = !!dependencies["@vibe/core"];
-  const hasMondayUIStyle = !!dependencies["monday-ui-style"];
-  const hasVibeIcons = !!dependencies["@vibe/icons"];
+  const hasNewPackage = !!dependencies["@ezds/core"];
+  const hasMondayUIStyle = !!dependencies["@ezds/web"];
+  const hasVibeIcons = !!dependencies["@ezds/icons"];
 
   return {
     hasOldPackage,
@@ -322,8 +322,8 @@ function analyzePackageJson(packageJson: any) {
     hasMondayUIStyle,
     hasVibeIcons,
     currentVersion: dependencies["monday-ui-react-core"] || "not found",
-    newVersion: dependencies["@vibe/core"] || "not installed",
-    iconsVersion: dependencies["@vibe/icons"] || "not installed",
+    newVersion: dependencies["@ezds/core"] || "not installed",
+    iconsVersion: dependencies["@ezds/icons"] || "not installed",
     migrationStatus: hasNewPackage ? "migrated" : hasOldPackage ? "needs-migration" : "not-using-vibe"
   };
 }
@@ -351,7 +351,7 @@ async function analyzeImports(projectPath: string): Promise<any> {
         }
 
         // Check for old icon imports
-        if (content.includes("monday-ui-style/src/Icons")) {
+        if (content.includes("@ezds/web/src/Icons")) {
           importIssues.oldIconImports.push(file);
         }
 
@@ -494,7 +494,7 @@ function generateRecommendations(analysis: any, projectInfo: any) {
         type: "package-migration",
         priority: "high",
         action: "Update package.json dependencies",
-        command: "yarn add @vibe/core @vibe/icons && yarn remove monday-ui-react-core",
+        command: "yarn add @ezds/core @ezds/icons && yarn remove monday-ui-react-core",
         details: "This is the first and most important step in the migration process"
       });
     }
@@ -511,8 +511,8 @@ function generateRecommendations(analysis: any, projectInfo: any) {
       recommendations.push({
         type: "missing-icons",
         priority: "medium",
-        action: "Install @vibe/icons package",
-        command: "yarn add @vibe/icons",
+        action: "Install @ezds/icons package",
+        command: "yarn add @ezds/icons",
         details: "Icons have been moved to a separate package"
       });
     }
@@ -528,7 +528,7 @@ function generateRecommendations(analysis: any, projectInfo: any) {
         action: "Update CSS imports",
         details: `Found ${imports.oldCSSImports.length} files with old CSS imports`,
         files: imports.oldCSSImports.slice(0, 5),
-        fix: "Replace 'monday-ui-react-core/dist/main.css' with '@vibe/core/tokens'"
+        fix: "Replace 'monday-ui-react-core/dist/main.css' with '@ezds/core/tokens'"
       });
     }
 
@@ -539,7 +539,7 @@ function generateRecommendations(analysis: any, projectInfo: any) {
         action: "Update icon imports",
         details: `Found ${imports.oldIconImports.length} files with old icon imports`,
         files: imports.oldIconImports.slice(0, 5),
-        fix: "Replace 'monday-ui-style/src/Icons' with '@vibe/icons/raw'"
+        fix: "Replace '@ezds/web/src/Icons' with '@ezds/icons/raw'"
       });
     }
   }
@@ -575,7 +575,7 @@ function generateRecommendations(analysis: any, projectInfo: any) {
     type: "migration-script",
     priority: "high",
     action: "Run automated migration script",
-    command: `npx @vibe/codemod -m v3 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
+    command: `npx @ezds/codemod -m v3 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
     details:
       "This will handle most of the automated transformations. The -y flag auto-confirms to proceed with git changes.",
     warning: "⚠️ ONLY run this AFTER completing package dependency updates (step 2)",

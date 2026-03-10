@@ -1,4 +1,4 @@
-# @vibe/mcp
+# @ezds/mcp
 
 A Model Context Protocol (MCP) server for the Vibe Design System, enabling LLMs and other MCP clients to interact with Vibe component metadata, icon information, and perform migration analysis.
 
@@ -19,7 +19,7 @@ Or manually update your Cursor MCP configuration file at `~/.cursor/mcp.json` (c
   "mcpServers": {
     "vibe": {
       "command": "npx",
-      "args": ["@vibe/mcp"]
+      "args": ["@ezds/mcp"]
     }
   }
 }
@@ -40,7 +40,7 @@ or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (cre
   "servers": {
     "vibe": {
       "command": "npx",
-      "args": ["@vibe/mcp"]
+      "args": ["@ezds/mcp"]
     }
   }
 }
@@ -51,17 +51,17 @@ or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (cre
 #### Component Tools
 
 - `get-vibe-component-metadata`: Returns metadata for a specific Vibe component (or all components if no name is provided).
-- `list-vibe-public-components`: Get a list of all public @vibe/core & @vibe/core/next components names.
+- `list-vibe-public-components`: Get a list of all public @ezds/core & @ezds/core/next components names.
 - `get-vibe-component-examples`: Get React usage examples for Vibe components. Returns implementation examples and patterns for specific components or all components if none specified.
 - `get-vibe-component-accessibility`: Get accessibility requirements and guidelines for Vibe components. Returns structured accessibility information extracted from component documentation.
 
 #### Icon Tool
 
-- `list-vibe-icons`: Get a list of all available Vibe icons from the @vibe/icons package with their descriptions, categories, and tags. Supports optional filtering by text query, category, or tags, limiting results, and including React usage examples.
+- `list-vibe-icons`: Get a list of all available Vibe icons from the @ezds/icons package with their descriptions, categories, and tags. Supports optional filtering by text query, category, or tags, limiting results, and including React usage examples.
 
 #### Token Tool
 
-- `list-vibe-tokens`: Get a list of all available Vibe design tokens from the `monday-ui-style` package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.
+- `list-vibe-tokens`: Get a list of all available Vibe design tokens from the `@ezds/web` package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.
 
 #### Migration Tool
 

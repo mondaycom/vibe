@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/testkit",
+  "name": "@ezds/testkit",
   "version": "1.16.0",
   "description": "Vibe e2e testing toolkit",
   "keywords": [
@@ -30,7 +30,7 @@
     "build:cjs": "tsc",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build": "yarn build:cjs && yarn build:esm",
-    "start-server": "yarn lerna run storybook --scope=@vibe/docs",
+    "start-server": "yarn lerna run storybook --scope=@ezds/docs",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "yarn lint -- --fix"
   },
@@ -49,5 +49,9 @@
   },
   "peerDependencies": {
     "@playwright/test": "*"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }

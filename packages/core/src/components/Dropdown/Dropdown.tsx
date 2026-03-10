@@ -26,7 +26,7 @@ import {
 } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import Control from "./components/Control/Control";
-import { Text } from "@vibe/typography";
+import { Text } from "@ezds/typography";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import menuStyles from "./components/menu/menu.module.scss";
 import styles from "./Dropdown.module.scss";
@@ -40,7 +40,7 @@ import {
 } from "./Dropdown.types";
 import { withStaticProps } from "../../types";
 import { ComponentVibeId } from "../../tests/constants";
-import { LayerContext } from "@vibe/layer";
+import { LayerContext } from "@ezds/layer";
 
 const Dropdown = forwardRef(
   (
@@ -124,7 +124,7 @@ const Dropdown = forwardRef(
     useWarnDeprecated({
       component: "Dropdown",
       message:
-        "This component is deprecated and will be removed in the next major version. Please use Dropdown from @vibe/core/next instead."
+        "This component is deprecated and will be removed in the next major version. Please use Dropdown from @ezds/core/next instead."
     });
 
     const controlRef = useRef();

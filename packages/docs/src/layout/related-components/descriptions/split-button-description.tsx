@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { SplitButton, SplitButtonMenu, MenuItem } from "@vibe/core";
-import { Check, Announcement } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { SplitButton, SplitButtonMenu, MenuItem } from "@ezds/core";
+import { Check, Announcement } from "@ezds/icons";
 
 export const SplitButtonDescription = () => {
   const component = useMemo(

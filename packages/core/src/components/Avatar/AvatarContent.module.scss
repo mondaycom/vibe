@@ -11,7 +11,7 @@ $font-size-avatar-small: 12px;
 }
 
 .contentText {
-  font-family: var(--font-family);
+  font-family: var(--ezds-font-family-body);
   font-weight: 400;
   line-height: 21px;
   letter-spacing: -0.5px;
@@ -24,7 +24,7 @@ $font-size-avatar-small: 12px;
 
 .contentTextLarge {
   @include vibe-heading("h3", "normal");
-  font-family: var(--font-family) !important;
+  font-family: var(--ezds-font-family-body) !important;
 }
 
 .contentTextMedium {

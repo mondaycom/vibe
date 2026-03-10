@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { clickElement, delay, getByRole, getByText, interactionSuite } from "@vibe/core/interactionsTests";
+import { clickElement, delay, getByRole, getByText, interactionSuite } from "@ezds/core/interactionsTests";
 
 const CHANGES_DELAY = 100;
 

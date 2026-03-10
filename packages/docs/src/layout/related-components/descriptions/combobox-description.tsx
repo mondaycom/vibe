@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { DialogContentContainer, Combobox } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { DialogContentContainer, Combobox } from "@ezds/core";
 
 export const ComboboxDescription = () => {
   const component = useMemo(() => {

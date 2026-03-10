@@ -1,7 +1,7 @@
-import { MenuButton, type MenuButtonProps, Button, Menu, MenuItem } from "@vibe/core";
+import { MenuButton, type MenuButtonProps, Button, Menu, MenuItem } from "@ezds/core";
 import { noop as NOOP } from "es-toolkit";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@vibe/icons";
+import { DropdownChevronDown, Favorite, Moon, Sun, MoveArrowDown } from "@ezds/icons";
 import React, { useRef } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
 

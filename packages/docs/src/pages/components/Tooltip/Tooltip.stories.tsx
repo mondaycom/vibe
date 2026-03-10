@@ -1,6 +1,6 @@
 import React from "react";
-import { Tooltip, type TooltipProps, Button, Flex, IconButton } from "@vibe/core";
-import { Hide, Menu, Subitems } from "@vibe/icons";
+import { Tooltip, type TooltipProps, Button, Flex, IconButton } from "@ezds/core";
+import { Hide, Menu, Subitems } from "@ezds/icons";
 import { modifiers } from "./Tooltip.stories.helpers";
 import image from "./assets/tooltip-image.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";

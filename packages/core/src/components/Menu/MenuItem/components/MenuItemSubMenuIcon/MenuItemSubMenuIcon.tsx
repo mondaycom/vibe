@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import Divider from "../../../../Divider/Divider";
-import { Icon } from "@vibe/icon";
-import { Flex } from "@vibe/layout";
-import { IconButton } from "@vibe/icon-button";
-import { DropdownChevronRight } from "@vibe/icons";
+import { Icon } from "@ezds/icon";
+import { Flex } from "@ezds/layout";
+import { IconButton } from "@ezds/icon-button";
+import { DropdownChevronRight } from "@ezds/icons";
 import styles from "./MenuItemSubMenuIcon.module.scss";
 import { type MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
 

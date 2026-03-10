@@ -5,9 +5,9 @@ import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
 import person4 from "../Avatar/assets/person4.png";
-import { Email, Send, Mobile } from "@vibe/icons";
-import { Dropdown } from "@vibe/core/next";
-import { Flex, Text, DialogContentContainer, Button } from "@vibe/core";
+import { Email, Send, Mobile } from "@ezds/icons";
+import { Dropdown } from "@ezds/core/next";
+import { Flex, Text, DialogContentContainer, Button } from "@ezds/core";
 
 type Story = StoryObj<typeof Dropdown>;
 

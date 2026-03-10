@@ -9,7 +9,7 @@ import {
   TipseenImage,
   TipseenMedia,
   Flex
-} from "@vibe/core";
+} from "@ezds/core";
 import picture from "./assets/picture.svg";
 import video from "./assets/video.mp4";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";

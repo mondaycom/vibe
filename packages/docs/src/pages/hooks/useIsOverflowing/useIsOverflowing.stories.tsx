@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useIsOverflowing, Flex, TextField, Tooltip } from "@vibe/core";
+import { useIsOverflowing, Flex, TextField, Tooltip } from "@ezds/core";
 import styles from "./useIsOverflowing.stories.module.scss";
 
 export default {

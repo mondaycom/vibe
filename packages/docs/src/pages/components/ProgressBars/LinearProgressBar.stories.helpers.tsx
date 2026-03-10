@@ -1,6 +1,6 @@
 import React from "react";
-import { StorybookLink, Tip } from "vibe-storybook-components";
-import { DialogContentContainer, Text, Flex, LinearProgressBar } from "@vibe/core";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
+import { DialogContentContainer, Text, Flex, LinearProgressBar } from "@ezds/core";
 
 export const TipMultiStepIndicator = () => (
   <Tip>

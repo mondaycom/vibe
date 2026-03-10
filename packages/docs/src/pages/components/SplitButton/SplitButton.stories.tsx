@@ -1,6 +1,6 @@
 import React from "react";
-import { SplitButton, SplitButtonMenu, MenuItem, Menu, MenuTitle, Button, type SplitButtonProps } from "@vibe/core";
-import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "@vibe/icons";
+import { SplitButton, SplitButtonMenu, MenuItem, Menu, MenuTitle, Button, type SplitButtonProps } from "@ezds/core";
+import { Add, Announcement, Check, Download, Favorite, Moon, Sun, Upload } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({

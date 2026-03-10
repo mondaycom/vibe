@@ -1,7 +1,7 @@
 import React from "react";
-import { TextField, type TextFieldProps, Heading, Flex } from "@vibe/core";
+import { TextField, type TextFieldProps, Heading, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Check, CloseSmall, Email, Show, Duplicate } from "@vibe/icons";
+import { Check, CloseSmall, Email, Show, Duplicate } from "@ezds/icons";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof TextField>;

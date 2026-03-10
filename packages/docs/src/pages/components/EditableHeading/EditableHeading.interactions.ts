@@ -9,8 +9,8 @@ import {
   typeText,
   delay,
   resetFocus
-} from "@vibe/core/interactionsTests";
-import { ComponentDefaultTestId } from "@vibe/shared";
+} from "@ezds/core/interactionsTests";
+import { ComponentDefaultTestId } from "@ezds/shared";
 
 const CHANGES_DELAY = 200;
 const text = "This heading is an editable heading";

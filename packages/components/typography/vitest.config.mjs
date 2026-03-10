@@ -1,4 +1,4 @@
-import config from "@vibe/config/vitest.config";
+import config from "@ezds/config/vitest.config";
 import { defineConfig } from "vite";
 
 export default defineConfig({

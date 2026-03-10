@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
-import { StoryDescription } from "vibe-storybook-components";
+import { StoryDescription } from "@ezds/storybook-blocks";
 import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";
 import person3 from "../Avatar/assets/person3.png";
 import { defaultPlaySuite } from "./Combobox.interactions";
-import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@vibe/icons";
+import { Edit, Person, ThumbsUp, Time, Update, Upgrade, Wand } from "@ezds/icons";
 import {
   Avatar,
   Flex,
@@ -15,7 +15,7 @@ import {
   DialogContentContainer,
   type ComboboxProps,
   Combobox
-} from "@vibe/core";
+} from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({

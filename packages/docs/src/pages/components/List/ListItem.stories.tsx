@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { List, ListItem, type ListItemProps } from "@vibe/core/next";
-import { Board, Favorite, Person, Settings, Team, ThumbsUp, Search, Send } from "@vibe/icons";
+import { List, ListItem, type ListItemProps } from "@ezds/core/next";
+import { Board, Favorite, Person, Settings, Team, ThumbsUp, Search, Send } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Flex } from "@vibe/core";
-import { StoryDescription } from "vibe-storybook-components";
+import { Flex } from "@ezds/core";
+import { StoryDescription } from "@ezds/storybook-blocks";
 import person1 from "../Avatar/assets/person1.png";
 
 const metaSettings = createStoryMetaSettingsDecorator({

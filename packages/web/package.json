@@ -1,0 +1,69 @@
+{
+  "name": "@ezds/web",
+  "version": "0.1.0",
+  "description": "EZDS CSS Foundations \u2014 design tokens, themes, SCSS mixins",
+  "keywords": [
+    "CSS",
+    "THEMES",
+    "DESIGN-TOKENS"
+  ],
+  "author": "EZCORP",
+  "license": "MIT",
+  "main": "dist/index.css",
+  "files": [
+    "src/",
+    "dist/",
+    "stylelint-config/"
+  ],
+  "exports": {
+    ".": "./dist/index.css",
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*",
+    "./themes/light": "./src/themes/light.css",
+    "./themes/dark": "./src/themes/dark.css",
+    "./themes/black": "./src/themes/black.css",
+    "./tailwind": "./src/tailwind-preset.js",
+    "./mixins": "./dist/mixins/",
+    "./functions": "./dist/functions/"
+  },
+  "scripts": {
+    "test": "yarn build && yarn test:without-build",
+    "test:without-build": "jest",
+    "generate-tokens": "node scripts/generate-css-vars.mjs",
+    "compile-styles": "sass --style=expanded ./src/index.scss dist/index.css",
+    "copy-files": "cp -r src/functions/ dist/functions/ && cp -r src/mixins/ dist/mixins/ && cp -r src/files/ dist/ && cp -r src/themes/ dist/themes/",
+    "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
+    "generate-colors": "ts-node scripts/generate-colors.ts",
+    "build": "yarn generate-tokens && yarn compile-styles && yarn css-minify && yarn generate-colors && yarn copy-files",
+    "stylelint": "stylelint \"**/*.scss\"",
+    "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
+  },
+  "dependencies": {
+    "postcss": "8.4.31",
+    "postcss-scss": "^4.0.9",
+    "postcss-value-parser": "4.2.0",
+    "stylelint": "^14.16.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/jest": "^27.4.1",
+    "clean-css-cli": "^4.3.0",
+    "execa": "^5.1.1",
+    "jest": "^27.5.1",
+    "postcss-custom-properties": "^14.0.6",
+    "prettier": "^2.0.5",
+    "sass": "^1.70.0",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "ts-node": "^10.9.2",
+    "typescript-plugin-css-modules": "^5.0.1"
+  },
+  "peerDependencies": {
+    "stylelint": "^14.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
+}

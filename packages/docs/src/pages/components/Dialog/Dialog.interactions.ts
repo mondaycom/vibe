@@ -1,6 +1,6 @@
 import { expect } from "@storybook/jest";
 import { type Screen } from "@testing-library/react";
-import { type Canvas, getByTestId, interactionSuite } from "@vibe/core/interactionsTests";
+import { type Canvas, getByTestId, interactionSuite } from "@ezds/core/interactionsTests";
 import { userEvent, fireEvent, waitFor } from "@storybook/test";
 
 // Test data IDs

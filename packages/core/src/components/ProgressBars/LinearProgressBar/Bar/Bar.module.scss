@@ -2,49 +2,49 @@
   left: 0;
   height: 100%;
   position: absolute;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
 }
 
 .typePrimaryPrimary {
-  background-color: var(--primary-color);
+  background-color: var(--ezds-color-background-accent-default);
 }
 
 .typePrimarySecondary {
-  background-color: var(--inverted-color-background);
+  background-color: var(--ezds-color-background-primary-inverted);
 }
 
 .typePrimaryPositive {
-  background-color: var(--positive-color);
+  background-color: var(--ezds-color-background-success-default);
 }
 
 .typePrimaryNegative {
-  background-color: var(--negative-color);
+  background-color: var(--ezds-color-background-danger-default);
 }
 
 .typePrimaryWarning {
-  background-color: var(--warning-color);
+  background-color: var(--ezds-color-background-warning-default);
 }
 
 .typeSecondaryPrimary {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .typeSecondarySecondary {
-  background-color: var(--ui-border-color);
+  background-color: var(--ezds-color-border-strong);
 }
 
 .typeSecondaryPositive {
-  background-color: var(--positive-color-selected);
+  background-color: var(--ezds-color-background-success-subtle);
 }
 
 .typeSecondaryNegative {
-  background-color: var(--negative-color-selected);
+  background-color: var(--ezds-color-background-danger-subtle);
 }
 
 .typeSecondaryWarning {
-  background-color: var(--warning-color-selected);
+  background-color: var(--ezds-color-background-warning-subtle);
 }
 
 .animate {
-  transition: width 300ms var(--motion-timing-transition);
+  transition: width 300ms var(--ezds-motion-timing-transition);
 }

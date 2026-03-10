@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, type VirtualizedGridItemType } from "@vibe/core";
+import { Text, type VirtualizedGridItemType } from "@ezds/core";
 
 export const generateItems = (height = 30, width: number, itemsCount: number): VirtualizedGridItemType[] => {
   const items: VirtualizedGridItemType[] = [];

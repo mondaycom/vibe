@@ -18,8 +18,8 @@
   }
 }
 
-@mixin skeleton($radius: var(--border-radius-small)) {
-  background: var(--ui-background-color);
+@mixin skeleton($radius: var(--ezds-radius-0100)) {
+  background: var(--ezds-color-background-secondary);
   border-radius: $radius;
   @include shine-animation;
 }

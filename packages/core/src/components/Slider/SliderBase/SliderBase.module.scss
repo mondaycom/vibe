@@ -10,11 +10,11 @@
     pointer-events: none;
   }
   cursor: not-allowed !important;
-  opacity: var(--disabled-component-opacity);
+  opacity: var(--ezds-disabled-opacity);
 }
 
 .small {
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--ezds-space-0100);
 }
 
 .medium {

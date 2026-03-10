@@ -6,7 +6,7 @@ import {
   AlertBannerLink,
   AlertBannerButton,
   Flex
-} from "@vibe/core";
+} from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
 

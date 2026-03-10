@@ -1,9 +1,9 @@
 import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { ListItem, ListItemIcon, ListItemAvatar, Flex } from "@vibe/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { ListItem, ListItemIcon, ListItemAvatar, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../../utils/createStoryMetaSettingsDecorator";
 import person1 from "../../Avatar/assets/person1.png";
-import { Send } from "@vibe/icons";
+import { Send } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ListItem

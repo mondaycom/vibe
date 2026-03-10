@@ -2,7 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z, ZodRawShape, ZodObject } from "zod";
 
 export const server = new McpServer({
-  name: "@vibe/mcp",
+  name: "@ezds/mcp",
   version: "0.0.1",
   capabilities: {
     resources: {},

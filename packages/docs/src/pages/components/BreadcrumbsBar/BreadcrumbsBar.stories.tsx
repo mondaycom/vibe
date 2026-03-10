@@ -9,8 +9,8 @@ import {
   BreadcrumbMenuItem,
   BreadcrumbItem,
   type BreadcrumbItemProps
-} from "@vibe/core";
-import { Board, Folder, Group, Workspace, Item } from "@vibe/icons";
+} from "@ezds/core";
+import { Board, Folder, Group, Workspace, Item } from "@ezds/icons";
 import person3 from "./assets/person3.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import styles from "./BreadcrumbsBar.stories.module.scss";

@@ -1,8 +1,8 @@
 import React from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { Link, type LinkProps } from "@vibe/core";
+import { Link, type LinkProps } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { ExternalPage, Info, Link as IconLink } from "@vibe/icons";
+import { ExternalPage, Info, Link as IconLink } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Link,

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Combobox from "../Combobox";
-import { NewTab } from "@vibe/icons";
+import { NewTab } from "@ezds/icons";
 
 describe("Combobox renders correctly", () => {
   it("with empty props", () => {

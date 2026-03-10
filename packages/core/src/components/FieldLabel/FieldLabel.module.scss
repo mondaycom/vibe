@@ -1,23 +1,23 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .labelComponentWrapper {
   @include vibe-text(text2, normal);
   display: flex;
-  padding-bottom: var(--spacing-xs);
+  padding-bottom: var(--ezds-space-0050);
   align-items: center;
 }
 
 .labelComponentIcon {
-  margin: 0 var(--spacing-small) 0 var(--spacing-xs);
+  margin: 0 var(--ezds-space-0100) 0 var(--ezds-space-0050);
   line-height: 24px;
-  color: var(--secondary-text-color);
+  color: var(--ezds-color-text-subtle);
 }
 
 .labelComponentText {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   padding-block: 2px;
 }
 
 .required {
-  color: var(--negative-color);
+  color: var(--ezds-color-background-danger-default);
 }

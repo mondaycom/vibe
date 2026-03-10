@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from "react";
-import { Button, Dialog, DialogContentContainer, Heading, Flex, Modal, ModalFooterButtons } from "@vibe/core";
+import { Button, Dialog, DialogContentContainer, Heading, Flex, Modal, ModalFooterButtons } from "@ezds/core";
 import styles from "./LegacyModal.stories.module.scss";
 import cx from "classnames";
-import { StorybookLink, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
 
 // internal custom hook to help with writing tests and stories.
 export const useHelperOpenModalButton = ({

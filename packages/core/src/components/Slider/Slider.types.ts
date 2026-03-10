@@ -1,6 +1,6 @@
 import { type BASE_SIZES } from "../../constants";
-import { type DialogPosition } from "@vibe/dialog";
-import { type TypographyColor } from "@vibe/typography";
+import { type DialogPosition } from "@ezds/dialog";
+import { type TypographyColor } from "@ezds/typography";
 
 export type SliderColor = "primary" | "negative" | "positive";
 

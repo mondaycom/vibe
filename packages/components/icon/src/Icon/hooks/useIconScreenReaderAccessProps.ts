@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { getClickableIconScreenReaderAccessProps } from "@vibe/shared";
+import { getClickableIconScreenReaderAccessProps } from "@ezds/shared";
 
 export function getIconScreenReaderAccessProps({
   isClickable,

@@ -1,6 +1,6 @@
-import { StorybookLink, Tip } from "vibe-storybook-components";
-import { Announcement, Check } from "@vibe/icons";
-import { SplitButtonMenu, MenuItem } from "@vibe/core";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
+import { Announcement, Check } from "@ezds/icons";
+import { SplitButtonMenu, MenuItem } from "@ezds/core";
 import React from "react";
 
 export const TipMenu = () => (

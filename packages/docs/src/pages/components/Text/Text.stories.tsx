@@ -1,7 +1,7 @@
 import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Text, Link, Heading, Box, Flex } from "@vibe/core";
-import { createComponentTemplate, StorybookLink } from "vibe-storybook-components";
+import { Text, Link, Heading, Box, Flex } from "@ezds/core";
+import { createComponentTemplate, StorybookLink } from "@ezds/storybook-blocks";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TEXT_CONTAINER_ID, textOverflowSuite } from "./Text.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({

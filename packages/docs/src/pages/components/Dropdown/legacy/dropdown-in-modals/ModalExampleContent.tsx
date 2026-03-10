@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { Flex, Skeleton } from "@vibe/core";
+import { Flex, Skeleton } from "@ezds/core";
 
 const ModalExampleContent: FC = () => {
   const children = Array.from({ length: 2 }, (_value, index: number) => (

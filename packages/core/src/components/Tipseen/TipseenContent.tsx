@@ -8,8 +8,8 @@ import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { TipseenContext } from "./Tipseen";
-import { Button } from "@vibe/button";
-import { type SubIcon } from "@vibe/icon";
+import { Button } from "@ezds/button";
+import { type SubIcon } from "@ezds/icon";
 
 export interface TipseenContentProps extends VibeComponentProps {
   /**

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Steps, type StepsProps, Tipseen, TipseenWizard, Flex } from "@vibe/core";
+import { Steps, type StepsProps, Tipseen, TipseenWizard, Flex } from "@ezds/core";
 import { modifiers } from "./Steps.stories.helpers";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 

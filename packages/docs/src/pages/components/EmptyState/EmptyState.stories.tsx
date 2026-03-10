@@ -1,9 +1,9 @@
 import React from "react";
 import { type Meta } from "@storybook/react";
-import { EmptyState, Flex, Button, Link } from "@vibe/core";
+import { EmptyState, Flex, Button, Link } from "@ezds/core";
 import { type EmptyStateProps } from "../EmptyState.types";
 import emptyStateImage from "./assets/image.png";
-import { Download, Update } from "@vibe/icons";
+import { Download, Update } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({

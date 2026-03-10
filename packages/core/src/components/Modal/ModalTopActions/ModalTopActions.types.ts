@@ -1,7 +1,7 @@
 import type React from "react";
 import type MenuButton from "../../MenuButton/MenuButton";
-import type { IconButton } from "@vibe/icon-button";
-import { type ButtonColor } from "@vibe/button";
+import type { IconButton } from "@ezds/icon-button";
+import { type ButtonColor } from "@ezds/button";
 
 export type ModalTopActionsTheme = "light" | "dark";
 export type ModalTopActionsButtonColor = Extract<ButtonColor, "primary" | "fixed-light" | "fixed-dark">;

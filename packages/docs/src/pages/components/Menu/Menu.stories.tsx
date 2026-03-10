@@ -1,9 +1,9 @@
 import React from "react";
-import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite, Settings } from "@vibe/icons";
-import { DialogContentContainer, Flex, Menu, MenuDivider, MenuGridItem, MenuItem, MenuTitle } from "@vibe/core";
+import { Activity, Code, Delete, Email, Emoji, Favorite, Feedback, Info, Invite, Settings } from "@ezds/icons";
+import { DialogContentContainer, Flex, Menu, MenuDivider, MenuGridItem, MenuItem, MenuTitle } from "@ezds/core";
 import { DummyNavigableGrid } from "../GridKeyboardNavigationContext/useGridKeyboardNavigationContext.stories.helpers";
 import { menuWithTwoDepthsSuite } from "./Menu.interactions";
-import { type MenuProps } from "@vibe/core";
+import { type MenuProps } from "@ezds/core";
 
 export default {
   title: "Components/Menu/Menu",

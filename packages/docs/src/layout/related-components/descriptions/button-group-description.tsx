@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { ButtonGroup } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { ButtonGroup } from "@ezds/core";
 
 export const ButtonGroupDescription = () => {
   const component = useMemo(

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, useHover } from "@vibe/core";
+import { Box, useHover } from "@ezds/core";
 
 export default {
   title: "Hooks/useHover"

@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .triggerWrapper {
   flex-grow: 1;
@@ -34,7 +34,7 @@
     &.multiSelected {
       width: 48px;
       flex-shrink: 0;
-      padding: 0 var(--spacing-xs);
+      padding: 0 var(--ezds-space-0050);
 
       &.fullWidth {
         width: 100%;
@@ -53,12 +53,12 @@
     position: relative;
     pointer-events: none;
     inset: 0;
-    padding-inline-start: var(--spacing-xs);
+    padding-inline-start: var(--ezds-space-0050);
     width: 100%;
     @include smoothing-text;
 
     &.small {
-      padding-inline-start: var(--spacing-small);
+      padding-inline-start: var(--ezds-space-0100);
       min-height: 32px;
       height: 32px;
     }
@@ -79,7 +79,7 @@
   }
 
   .placeholderText {
-    padding-inline-start: var(--spacing-medium);
+    padding-inline-start: var(--ezds-space-0200);
     width: 100%;
     height: 100%;
     display: flex;
@@ -88,16 +88,16 @@
     @include smoothing-text;
 
     &.disabled {
-      color: var(--disabled-text-color);
+      color: var(--ezds-color-text-default-disabled);
     }
   }
 }
 
 .multiWrapper {
-  padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-small);
+  padding: var(--ezds-space-0050) 0 var(--ezds-space-0050) var(--ezds-space-0100);
   width: 100%;
 }
 
 .actionsWrapper {
-  padding: 0 var(--spacing-xs);
+  padding: 0 var(--ezds-space-0050);
 }

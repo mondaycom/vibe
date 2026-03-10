@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/dialog",
+  "name": "@ezds/dialog",
   "version": "3.0.12",
   "description": "Vibe sub-package for dialog components",
   "repository": {
@@ -39,9 +39,9 @@
   },
   "dependencies": {
     "@popperjs/core": "2.11.6",
-    "@vibe/hooks": "3.0.3",
-    "@vibe/layer": "3.0.10",
-    "@vibe/shared": "3.0.8",
+    "@ezds/hooks": "*",
+    "@ezds/layer": "*",
+    "@ezds/shared": "*",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-popper": "^2.3.0",
@@ -52,7 +52,7 @@
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/react-transition-group": "^4.4.5",
-    "@vibe/config": "3.0.5",
+    "@ezds/config": "*",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -71,7 +71,11 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@ezds/config/.eslintrc.cjs"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }

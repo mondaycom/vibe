@@ -1,4 +1,4 @@
-import { SIZES } from "@vibe/shared";
+import { SIZES } from "@ezds/shared";
 
 const sizesMap = {
   [SIZES.XXS]: 16,

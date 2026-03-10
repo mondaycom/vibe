@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
-import { Filter, Work, Pin } from "@vibe/icons";
+import { Filter, Work, Pin } from "@ezds/icons";
 
 describe("BreadcrumbMenu", () => {
   beforeEach(() => {

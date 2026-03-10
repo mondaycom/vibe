@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useCallback, useRef } from "react";
 import cx from "classnames";
-import { Flex, Search, useActiveDescendantListFocus } from "@vibe/core";
+import { Flex, Search, useActiveDescendantListFocus } from "@ezds/core";
 import { overviewInteractionSuite } from "./useActiveDescendantListFocus.interactions";
 import { type Meta, type StoryObj } from "@storybook/react";
 import styles from "./useActiveDescendantListFocus.module.scss";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Clickable, type ClickableProps, Flex, Box } from "@vibe/core";
+import { Clickable, type ClickableProps, Flex, Box } from "@ezds/core";
 import { statesPlaySuite } from "./Clickable.interactions";
 
 export default {

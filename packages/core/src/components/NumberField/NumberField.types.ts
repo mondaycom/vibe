@@ -1,5 +1,5 @@
 import { type InputHTMLAttributes } from "react";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import { type FormElementProps } from "../../types/FormElement";
 

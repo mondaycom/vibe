@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { ExpandCollapse, Text, Icon } from "@vibe/core";
-import { Robot } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { ExpandCollapse, Text, Icon } from "@ezds/core";
+import { Robot } from "@ezds/icons";
 import styles from "./expand-collapse-description.module.scss";
 
 export const ExpandCollapseDescription = () => {

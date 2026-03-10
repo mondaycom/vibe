@@ -1,0 +1,10 @@
+{
+  "extends": "@ezds/config/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist",
+    "jsx": "react-native"
+  },
+  "include": ["src/**/*"]
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Tip } from "vibe-storybook-components";
+import { Link, Tip } from "@ezds/storybook-blocks";
 import { accessibilityCheckList } from "./assets";
 
 export const TipChecklistLink = () => (

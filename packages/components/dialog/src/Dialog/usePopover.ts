@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { usePopper } from "react-popper";
 import { DialogPlacement as Placement } from "./DialogConstants";
-import { useIsomorphicLayoutEffect } from "@vibe/shared";
+import { useIsomorphicLayoutEffect } from "@ezds/shared";
 import useForceUpdate from "./useForceUpdate";
 import type { Options, State } from "@popperjs/core";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";

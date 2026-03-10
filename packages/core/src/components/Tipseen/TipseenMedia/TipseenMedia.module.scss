@@ -2,12 +2,12 @@
   width: 100%;
   overflow: hidden;
   display: flex;
-  border: 2px solid var(--primary-color);
-  border-radius: var(--border-radius-medium);
+  border: 2px solid var(--ezds-color-background-accent-default);
+  border-radius: var(--ezds-radius-0200);
   position: relative;
   z-index: 1;
 }
 
 .colorInverted {
-  border-color: var(--inverted-color-background);
+  border-color: var(--ezds-color-background-primary-inverted);
 }

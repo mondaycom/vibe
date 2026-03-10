@@ -1,6 +1,6 @@
 import React from "react";
 import { TokenInformationBox } from "../token-Information-box/token-information-box";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import styles from "./easing-overview.module.scss";
 
 interface EasingOverviewProps {

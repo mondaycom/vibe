@@ -9,7 +9,7 @@
 Install the component library
 
 ```
-$ npm install vibe-storybook-components
+$ npm install @ezds/storybook-blocks
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ $ npm install vibe-storybook-components
 **Styles**: Import the library's styles in your storybook `preview.js` file:
 
 ```javascript
-import 'vibe-storybook-components/index.css';
+import '@ezds/storybook-blocks/index.css';
 ```
 
 **Components**:
@@ -26,7 +26,7 @@ There are 2 ways to use the components:
 1. Import the components from the library's main entry, like this:
 
 ```javascript
-import { ComponentName } from 'vibe-storybook-components';
+import { ComponentName } from '@ezds/storybook-blocks';
 ```
 
 and then use in a story like this:
@@ -38,11 +38,11 @@ and then use in a story like this:
 2. Import and map the components once in the storybook's `preview.js` file, like this:
 
 ```javascript
-import { ComponentName } from 'vibe-storybook-components';
+import { ComponentName } from '@ezds/storybook-blocks';
 ```
 
 ```javascript
-import { ComponentName } from 'vibe-storybook-components';
+import { ComponentName } from '@ezds/storybook-blocks';
 ...
 addParameters({
   docs: {

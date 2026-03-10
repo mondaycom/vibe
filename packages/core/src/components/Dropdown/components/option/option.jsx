@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { useEffect } from "react";
 import { components } from "react-select";
-import { Tooltip } from "@vibe/tooltip";
+import { Tooltip } from "@ezds/tooltip";
 import { ChildrenContent } from "../ChildrenContent/ChildrenContent";
 import styles from "./option.module.scss";
 

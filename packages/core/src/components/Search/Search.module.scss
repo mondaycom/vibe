@@ -9,13 +9,13 @@
   }
 
   .loader {
-    margin-right: var(--spacing-xs);
+    margin-right: var(--ezds-space-0050);
   }
 
   .icon {
     opacity: 1;
-    color: var(--icon-color);
-    transition: opacity var(--motion-productive-short);
+    color: var(--ezds-color-icon-subtle);
+    transition: opacity var(--ezds-motion-productive-short);
 
     &.empty {
       opacity: 0;

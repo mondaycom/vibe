@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Tab, TabList } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Tab, TabList } from "@ezds/core";
 
 export const TabsDescription = () => {
   const component = useMemo(() => {

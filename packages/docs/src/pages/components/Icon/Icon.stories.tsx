@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Icon, SubIcon, Search, Flex } from "@vibe/core";
-import { Bolt } from "@vibe/icons";
+import { Icon, SubIcon, Search, Flex } from "@ezds/core";
+import { Bolt } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
-import * as allIcons from "@vibe/icons";
-import iconsMetaData from "@vibe/icons/meta";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import * as allIcons from "@ezds/icons";
+import iconsMetaData from "@ezds/icons/meta";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Icon,

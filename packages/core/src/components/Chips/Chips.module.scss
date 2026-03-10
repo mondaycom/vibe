@@ -1,7 +1,7 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
-@import "~monday-ui-style/dist/mixins/states";
+@import "~@ezds/web/dist/mixins/states";
 
 .chips {
   display: inline-flex;
@@ -11,13 +11,13 @@
   padding: 0 8px;
   align-items: center;
   justify-content: center;
-  margin: var(--chips-margin, #{0 var(--spacing-xs)});
+  margin: var(--chips-margin, #{0 var(--ezds-space-0050)});
   user-select: none;
   @include smoothing-text;
-  color: var(--primary-text-color);
-  animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
+  color: var(--ezds-color-text-default);
+  animation: chips-pop-in-emphasized var(--ezds-motion-productive-medium) var(--ezds-motion-timing-emphasize);
   &.border {
-    border: 1px solid var(--primary-background-color);
+    border: 1px solid var(--ezds-color-background-primary);
   }
   &.withUserSelect {
     user-select: text;
@@ -40,23 +40,23 @@
   .customRenderer {
     min-width: 18px;
     &.left {
-      margin-right: var(--spacing-xs);
+      margin-right: var(--ezds-space-0050);
     }
     &.right {
-      margin-left: var(--spacing-xs);
+      margin-left: var(--ezds-space-0050);
     }
     &.close {
-      margin-left: var(--spacing-xs);
-      color: var(--primary-text-color);
+      margin-left: var(--ezds-space-0050);
+      color: var(--ezds-color-text-default);
     }
   }
 
   &.disabled {
     .icon {
-      color: var(--disabled-text-color);
+      color: var(--ezds-color-text-default-disabled);
     }
     .label {
-      color: var(--disabled-text-color);
+      color: var(--ezds-color-text-default-disabled);
     }
   }
 

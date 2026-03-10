@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Loader, type LoaderProps, Button, DialogContentContainer, Flex, Search, Text } from "@vibe/core";
+import { Loader, type LoaderProps, Button, DialogContentContainer, Flex, Search, Text } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
 

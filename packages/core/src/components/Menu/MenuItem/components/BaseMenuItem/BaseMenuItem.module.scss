@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../../../../styles/typography";
 @import "../../../../../styles/states";
 
@@ -7,7 +7,7 @@
   margin: unset;
   display: flex;
   flex-direction: row;
-  padding: var(--spacing-xs) var(--spacing-small);
+  padding: var(--ezds-space-0050) var(--ezds-space-0100);
   cursor: pointer;
   user-select: none;
   align-items: center;
@@ -15,18 +15,18 @@
   outline: none;
 
   &.splitMenuItem {
-    padding: 0 0 0 var(--spacing-small);
+    padding: 0 0 0 var(--ezds-space-0100);
   }
 
   &.disabled {
     cursor: not-allowed;
-    color: var(--disabled-text-color);
+    color: var(--ezds-color-text-default-disabled);
   }
 
   &.focused {
     &:not(.disabled) {
-      background-color: var(--primary-background-hover-color);
-      border-radius: var(--border-radius-small);
+      background-color: var(--ezds-color-background-transparent-inverted);
+      border-radius: var(--ezds-radius-0100);
 
       &:not(:hover):not(.initialSelected) {
         @include focus-style-css();
@@ -35,7 +35,7 @@
   }
 
   &.selected:not(.disabled) {
-    background-color: var(--primary-selected-color);
-    border-radius: var(--border-radius-small);
+    background-color: var(--ezds-color-background-accent-subtle);
+    border-radius: var(--ezds-radius-0100);
   }
 }

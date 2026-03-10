@@ -1,34 +1,25 @@
 {
-  "name": "@vibe/docs",
-  "version": "3.7.3",
+  "name": "@ezds/docs",
+  "version": "0.1.0",
   "private": true,
-  "description": "Vibe documentation",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "packages/docs"
-  },
-  "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
-  },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
-  "author": "monday.com",
+  "description": "EZDS Design System documentation (Storybook)",
+  "author": "EZCORP",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 7008",
     "build-storybook": "storybook build -o static_storybook && node .storybook/storybook-title-fix.js static_storybook",
-    "deploy-storybook": "storybook-to-ghpages",
-    "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN"
+    "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN",
+    "chromatic:ci": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "@vibe/core": "3.85.1",
-    "@vibe/icons": "1.16.0",
-    "@vibe/shared": "3.0.8",
+    "@ezds/core": "*",
+    "@ezds/icons": "*",
+    "@ezds/shared": "*",
     "classnames": "^2.3.2",
     "es-toolkit": "^1.39.10",
-    "monday-ui-style": "0.26.2",
-    "vibe-storybook-components": "1.0.7"
+    "@ezds/web": "*",
+    "@ezds/storybook-blocks": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

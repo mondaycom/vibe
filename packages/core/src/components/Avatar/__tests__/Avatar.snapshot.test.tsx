@@ -2,9 +2,9 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
-import { WhatsNew } from "@vibe/icons";
+import { WhatsNew } from "@ezds/icons";
 
-vi.mock("@vibe/icon", () => ({
+vi.mock("@ezds/icon", () => ({
   Icon: ({ icon }: { icon: string | null }) => <div data-testid="icon-mock">{icon}</div>,
   CustomSvgIcon: ({ icon }: { icon: string | null }) => <div data-testid="custom-icon-mock">{icon}</div>
 }));

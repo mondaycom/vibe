@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styles from "./TableOfContents.module.scss";
-import { Flex, IconButton } from "@vibe/core";
-import { Timeline } from "@vibe/icons";
+import { Flex, IconButton } from "@ezds/core";
+import { Timeline } from "@ezds/icons";
 import cx from "classnames";
 
 export default function TableOfContents() {

@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import { useListenFocusTriggers, Button, Flex } from "@vibe/core";
+import { useListenFocusTriggers, Button, Flex } from "@ezds/core";
 
 export default {
   title: "Hooks/useListenFocusTriggers"

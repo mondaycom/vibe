@@ -5,22 +5,22 @@ $arrow-size: 12px;
   height: $arrow-size;
   position: absolute;
   border-radius: 2px;
-  background-color: var(--secondary-background-color);
+  background-color: var(--ezds-color-background-primary);
 
   :global(.dark-app-theme) &,
   :global(.black-app-theme) &,
   :global(.hacker-app-theme) & {
     &[data-placement*="right"] {
-      box-shadow: -1px 1px 0px 0px var(--layout-border-color);
+      box-shadow: -1px 1px 0px 0px var(--ezds-color-border-default);
     }
     &[data-placement*="left"] {
-      box-shadow: 1px -1px 0px 0px var(--layout-border-color);
+      box-shadow: 1px -1px 0px 0px var(--ezds-color-border-default);
     }
     &[data-placement*="bottom"] {
-      box-shadow: -1px -1px 0px 0px var(--layout-border-color);
+      box-shadow: -1px -1px 0px 0px var(--ezds-color-border-default);
     }
     &[data-placement*="top"] {
-      box-shadow: 1px 1px 0px 0px var(--layout-border-color);
+      box-shadow: 1px 1px 0px 0px var(--ezds-color-border-default);
     }
   }
 }

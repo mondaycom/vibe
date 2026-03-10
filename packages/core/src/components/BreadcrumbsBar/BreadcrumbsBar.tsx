@@ -1,7 +1,7 @@
 import React, { type ReactElement } from "react";
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { NavigationChevronRight } from "@vibe/icons";
+import { NavigationChevronRight } from "@ezds/icons";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
 import { type BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { type BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";

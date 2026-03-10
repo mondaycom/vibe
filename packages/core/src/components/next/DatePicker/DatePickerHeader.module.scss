@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .monthButtonDropdown {
   min-width: 70px;
@@ -12,7 +12,7 @@
 .datePickerHeader {
   @include vibe-text(text2, normal);
   height: var(--day-picker-header-height);
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,8 +21,8 @@
   button {
     &:focus:not(:active),
     &:focus-visible {
-      box-shadow: 0 0 0 2px var(--primary-color);
-      background: var(--primary-background-color) !important;
+      box-shadow: 0 0 0 2px var(--ezds-color-background-accent-default);
+      background: var(--ezds-color-background-primary) !important;
     }
   }
 }

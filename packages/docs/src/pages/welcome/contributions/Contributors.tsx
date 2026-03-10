@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Contributors.module.scss";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import Founders from "./Founders";
 import ContributorsList from "./ContributorsList";
 import Section from "../Section";

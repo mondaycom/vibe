@@ -17,24 +17,24 @@
 
   .overlay {
     background-color: transparent;
-    animation: overlay-fade-out 70ms var(--motion-timing-enter);
+    animation: overlay-fade-out 70ms var(--ezds-motion-timing-enter);
   }
 }
 
 .overlay {
   background-color: rgba(41, 47, 76, 0.7);
-  animation: overlay-fade-in 70ms var(--motion-timing-enter);
+  animation: overlay-fade-in 70ms var(--ezds-motion-timing-enter);
 }
 
 .dialog {
   display: flex;
   position: relative;
   flex-direction: column;
-  padding-block: var(--spacing-large);
-  padding-inline: var(--spacing-xl);
-  border-radius: var(--border-radius-big);
-  box-shadow: var(--box-shadow-large);
-  background-color: var(--secondary-background-color);
+  padding-block: var(--ezds-space-0400);
+  padding-inline: var(--ezds-space-0500);
+  border-radius: var(--ezds-radius-0400);
+  box-shadow: var(--ezds-shadow-large);
+  background-color: var(--ezds-color-background-primary);
   max-height: 90vh;
   max-width: 90vw;
 
@@ -47,7 +47,7 @@
   }
 
   &.spacing {
-    gap: var(--spacing-medium);
+    gap: var(--ezds-space-0200);
   }
 }
 

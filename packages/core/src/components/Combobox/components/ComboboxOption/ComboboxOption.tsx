@@ -1,8 +1,8 @@
 import cx from "classnames";
 import React, { type RefObject, useCallback, useEffect, useMemo, useRef } from "react";
-import { Icon, type SubIcon } from "@vibe/icon";
-import { Tooltip } from "@vibe/tooltip";
-import { useIsOverflowing } from "@vibe/hooks";
+import { Icon, type SubIcon } from "@ezds/icon";
+import { Tooltip } from "@ezds/tooltip";
+import { useIsOverflowing } from "@ezds/hooks";
 import { keyCodes } from "../../../../constants";
 import { getOptionId } from "../../helpers";
 import { withStaticPropsWithoutForwardRef } from "../../../../types";

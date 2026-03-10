@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/{{PACKAGE_NAME}}",
+  "name": "@ezds/{{PACKAGE_NAME}}",
   "version": "3.0.0",
   "description": "Vibe sub-package for {{COMPONENT_NAME}} component",
   "repository": {
@@ -37,14 +37,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.8",
+    "@ezds/shared": "3.0.8",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.5",
-    "@vibe/icons": "1.15.0",
+    "@ezds/config": "3.0.5",
+    "@ezds/icons": "1.15.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -63,7 +63,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@ezds/config/.eslintrc.cjs"
     ]
   }
 }

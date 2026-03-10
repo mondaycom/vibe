@@ -1,6 +1,6 @@
-import { StorybookLink, Tip } from "vibe-storybook-components";
-import { DialogContentContainer, Menu, MenuItem, Search } from "@vibe/core";
-import { Calendar, Filter, Wand } from "@vibe/icons";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
+import { DialogContentContainer, Menu, MenuItem, Search } from "@ezds/core";
+import { Calendar, Filter, Wand } from "@ezds/icons";
 import React from "react";
 
 export const TipCombobox = () => (

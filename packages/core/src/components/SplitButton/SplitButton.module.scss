@@ -1,8 +1,8 @@
 .button {
   display: inline-flex;
-  border-radius: var(--border-radius-small);
-  transition: var(--motion-productive-short) transform,
-    var(--motion-productive-medium) var(--motion-timing-transition) min-width;
+  border-radius: var(--ezds-radius-0100);
+  transition: var(--ezds-motion-productive-short) transform,
+    var(--ezds-motion-productive-medium) var(--ezds-motion-timing-transition) min-width;
 }
 
 .button .mainButton {
@@ -28,67 +28,67 @@
 }
 
 .kindTertiary.colorPrimary.mainActive .mainButton {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindTertiary.colorPrimary.mainActive .mainButton:hover {
-  background-color: var(--primary-selected-hover-color);
+  background-color: var(--ezds-color-background-accent-subtle--hover);
 }
 
 .kindTertiary.colorPrimary.mainActive .secondaryButton {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindTertiary.colorPrimary.mainActive .secondaryButton:hover {
-  background-color: var(--primary-selected-hover-color);
+  background-color: var(--ezds-color-background-accent-subtle--hover);
 }
 
 .kindTertiary.colorPrimary.mainActive.splitContentOpen.splitContentOpen .secondaryButton,
 .kindTertiary.colorPrimary.mainActive.splitContentOpen.splitContentOpen .secondaryButton:hover,
 .kindTertiary.colorPrimary.mainActive.hovered.splitContentOpen .secondaryButton,
 .kindTertiary.colorPrimary.mainActive.hovered.splitContentOpen .secondaryButton:hover {
-  color: var(--primary-color);
+  color: var(--ezds-color-background-accent-default);
 }
 
 .kindTertiary.colorBrand.mainActive .mainButton {
-  background-color: var(--brand-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindTertiary.colorBrand.mainActive .secondaryButton {
-  background-color: var(--brand-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindTertiary.colorBrand.mainActive.splitContentOpen.splitContentOpen .secondaryButton,
 .kindTertiary.colorBrand.mainActive.splitContentOpen.splitContentOpen .secondaryButton:hover,
 .kindTertiary.colorBrand.mainActive.hovered.splitContentOpen .secondaryButton,
 .kindTertiary.colorBrand.mainActive.hovered.splitContentOpen .secondaryButton:hover {
-  color: var(--brand-color);
+  color: var(--ezds-color-background-accent-default);
 }
 
 .kindTertiary.colorPositive.splitContentOpen .secondaryButton,
 .kindTertiary.colorPositive:hover .secondaryButton,
 .kindTertiary.colorPositive:focus .secondaryButton {
   border-color: transparent;
-  background-color: var(--positive-color-selected);
+  background-color: var(--ezds-color-background-success-subtle);
 }
 
 .kindTertiary.colorPositive.splitContentOpen .mainButton,
 .kindTertiary.colorPositive:hover .mainButton,
 .kindTertiary.colorPositive:focus .mainButton {
-  background-color: var(--positive-color-selected);
+  background-color: var(--ezds-color-background-success-subtle);
 }
 
 .kindTertiary.colorNegative.splitContentOpen .secondaryButton,
 .kindTertiary.colorNegative:hover .secondaryButton,
 .kindTertiary.colorNegative:focus .secondaryButton {
   border-color: transparent;
-  background-color: var(--negative-color-selected);
+  background-color: var(--ezds-color-background-danger-subtle);
 }
 
 .kindTertiary.colorNegative.splitContentOpen .mainButton,
 .kindTertiary.colorNegative:hover .mainButton,
 .kindTertiary.colorNegative:focus .mainButton {
-  background-color: var(--negative-color-selected);
+  background-color: var(--ezds-color-background-danger-subtle);
 }
 
 .kindTertiary .secondaryButton {
@@ -98,42 +98,42 @@
 
 .kindPrimary.disabled .secondaryButton {
   border-left: 1px solid;
-  border-color: var(--ui-border-color);
+  border-color: var(--ezds-color-border-strong);
 }
 
 .kindPrimary:not(.disabled).colorPrimary.mainActive .secondaryButton {
-  background-color: var(--primary-hover-color);
-  border-color: var(--text-color-on-primary);
+  background-color: var(--ezds-color-background-accent-default--hover);
+  border-color: var(--ezds-color-text-default-inverted);
 }
 
 .kindPrimary:not(.disabled).colorPrimary .secondaryButton {
   border-left: 1px solid;
-  border-color: var(--primary-hover-color);
+  border-color: var(--ezds-color-background-accent-default--hover);
 }
 
 .kindPrimary:not(.disabled).colorBrand.mainActive .secondaryButton {
-  background-color: var(--brand-hover-color);
-  border-color: var(--text-color-on-primary);
+  background-color: var(--ezds-color-background-accent-default--hover);
+  border-color: var(--ezds-color-text-default-inverted);
 }
 
 .kindPrimary:not(.disabled).colorBrand .secondaryButton {
   border-left: 1px solid;
-  border-color: var(--brand-hover-color);
+  border-color: var(--ezds-color-background-accent-default--hover);
 }
 
 .kindPrimary:not(.disabled).colorPositive .secondaryButton {
   border-left: 1px solid;
-  border-color: var(--positive-color-hover);
+  border-color: var(--ezds-color-background-success-default--hover);
 }
 
 .kindPrimary:not(.disabled).colorNegative .secondaryButton {
   border-left: 1px solid;
-  border-color: var(--negative-color-hover);
+  border-color: var(--ezds-color-background-danger-default--hover);
 }
 
 .kindPrimary:not(.disabled).colorOnPrimaryColor .secondaryButton {
   border-left: 1px solid;
-  border-color: var(--color-ui_grey);
+  border-color: var(--ezds-color-background-neutral-default);
 }
 
 .kindSecondary .mainButton {
@@ -141,40 +141,40 @@
 }
 
 .kindSecondary.colorPrimary.mainActive .mainButton {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindSecondary.colorPrimary.mainActive .mainButton:hover {
-  background-color: var(--primary-selected-hover-color);
+  background-color: var(--ezds-color-background-accent-subtle--hover);
 }
 
 .kindSecondary.colorPrimary.mainActive .secondaryButton {
-  background-color: var(--primary-selected-color);
-  border-color: var(--primary-color);
+  background-color: var(--ezds-color-background-accent-subtle);
+  border-color: var(--ezds-color-background-accent-default);
 }
 
 .kindSecondary.colorPrimary.splitContentOpen .secondaryButton {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-  background-color: var(--primary-selected-color);
+  color: var(--ezds-color-background-accent-default);
+  border-color: var(--ezds-color-background-accent-default);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindSecondary.colorPrimary.splitContentOpen .secondaryButton:hover {
-  background-color: var(--primary-selected-hover-color);
+  background-color: var(--ezds-color-background-accent-subtle--hover);
 }
 
 .kindSecondary.colorBrand.mainActive .mainButton {
-  background-color: var(--brand-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .kindSecondary.colorBrand.mainActive .secondaryButton {
-  background-color: var(--brand-selected-color);
-  border-color: var(--brand-color);
+  background-color: var(--ezds-color-background-accent-subtle);
+  border-color: var(--ezds-color-background-accent-default);
 }
 
 .kindSecondary.colorBrand.splitContentOpen .secondaryButton,
 .kindSecondary.colorBrand.splitContentOpen .secondaryButton:hover {
-  color: var(--brand-color);
-  border-color: var(--brand-color);
-  background-color: var(--brand-selected-color);
+  color: var(--ezds-color-background-accent-default);
+  border-color: var(--ezds-color-background-accent-default);
+  background-color: var(--ezds-color-background-accent-subtle);
 }

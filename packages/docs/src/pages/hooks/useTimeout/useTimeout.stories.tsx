@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useTimeout } from "@vibe/core";
+import { useTimeout } from "@ezds/core";
 
 export default {
   title: "Hooks/useTimeout"

@@ -1,9 +1,9 @@
 import React from "react";
 import cx from "classnames";
 import { type NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
-import { IconButton } from "@vibe/icon-button";
-import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
-import { Flex } from "@vibe/layout";
+import { IconButton } from "@ezds/icon-button";
+import { DropdownChevronUp, DropdownChevronDown } from "@ezds/icons";
+import { Flex } from "@ezds/layout";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import styles from "./NumberFieldSpinButton.module.scss";
 

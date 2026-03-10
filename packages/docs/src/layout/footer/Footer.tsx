@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.scss";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import FooterCard from "./FooterCard";
 import Title from "../../pages/welcome/Title";
 

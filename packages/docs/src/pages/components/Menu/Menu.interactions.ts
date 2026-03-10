@@ -9,7 +9,7 @@ import {
   pressNavigationKey,
   NavigationCommand,
   resetFocus
-} from "@vibe/core/interactionsTests";
+} from "@ezds/core/interactionsTests";
 import { expect } from "@storybook/jest";
 
 const TWO_DEPTHS_MENU_TEXTS = {

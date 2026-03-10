@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAfterFirstRender, Button, Flex, Heading } from "@vibe/core";
+import { useAfterFirstRender, Button, Flex, Heading } from "@ezds/core";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof useAfterFirstRender>;

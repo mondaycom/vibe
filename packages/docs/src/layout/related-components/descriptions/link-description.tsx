@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Link } from "@vibe/core";
-import { ExternalPage } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Link } from "@ezds/core";
+import { ExternalPage } from "@ezds/icons";
 
 export const LinkDescription = () => {
   const component = useMemo(() => <Link text="Read more" icon={ExternalPage} iconPosition="start" />, []);

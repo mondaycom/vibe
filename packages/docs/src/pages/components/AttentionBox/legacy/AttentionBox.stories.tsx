@@ -10,10 +10,10 @@ import {
   Search,
   Avatar,
   AttentionBoxLink
-} from "@vibe/core";
+} from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
-import { Info, Invite, ThumbsUp, Favorite } from "@vibe/icons";
+import { createComponentTemplate, StoryDescription } from "@ezds/storybook-blocks";
+import { Info, Invite, ThumbsUp, Favorite } from "@ezds/icons";
 import person from "./assets/person.png";
 
 const metaSettings = createStoryMetaSettingsDecorator({

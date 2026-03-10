@@ -1,5 +1,5 @@
 .text {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -7,5 +7,5 @@
 }
 
 .disabled {
-  color: var(--disabled-text-color);
+  color: var(--ezds-color-text-default-disabled);
 }

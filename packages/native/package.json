@@ -1,0 +1,37 @@
+{
+  "name": "@ezds/native",
+  "version": "0.1.0",
+  "description": "EZDS React Native theme objects",
+  "author": "EZCORP",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@ezds/tokens": "*"
+  },
+  "devDependencies": {
+    "@ezds/config": "*",
+    "typescript": "^4.7.3"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
+}

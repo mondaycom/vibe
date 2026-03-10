@@ -1,5 +1,5 @@
 import React from "react";
-import { InformationBox } from "vibe-storybook-components";
+import { InformationBox } from "@ezds/storybook-blocks";
 import styles from "./animation-information-box.module.scss";
 
 interface AnimationInformationBoxProps {

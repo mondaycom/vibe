@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Slider } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Slider } from "@ezds/core";
 
 export const SliderDescription = () => {
   const component = useMemo(() => <Slider />, []);

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Calendar, Doc, Status } from "@vibe/icons";
-import { Label, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Calendar, Doc, Status } from "@ezds/icons";
+import { Label, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "@ezds/core";
 import {
   statusColumnToLabelColor,
   TableEmptyState,

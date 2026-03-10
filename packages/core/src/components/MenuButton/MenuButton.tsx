@@ -2,10 +2,10 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { isForwardRef } from "react-is";
-import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
-import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
-import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent } from "@vibe/dialog";
-import { Tooltip, type TooltipProps } from "@vibe/tooltip";
+import { Dialog, type DialogEvent, DialogContentContainer } from "@ezds/dialog";
+import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@ezds/dialog";
+import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTriggerEvent } from "@ezds/dialog";
+import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
@@ -15,12 +15,12 @@ import {
 } from "./MenuButtonConstants";
 import { type MenuButtonComponentPosition, type MenuButtonSize } from "./MenuButton.types";
 import { NOOP } from "../../utils/function-utils";
-import { Menu } from "@vibe/icons";
+import { Menu } from "@ezds/icons";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
-import { type TooltipPositions } from "@vibe/tooltip";
+import { type TooltipPositions } from "@ezds/tooltip";
 import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };

@@ -1,1 +1,1 @@
-declare module "@vibe/core/tokens";
+declare module "@ezds/core/tokens";

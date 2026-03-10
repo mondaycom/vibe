@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDebounceEvent, type UseDebounceResult } from "@vibe/core";
+import { useDebounceEvent, type UseDebounceResult } from "@ezds/core";
 
 export default {
   title: "Hooks/useDebounceEvent"

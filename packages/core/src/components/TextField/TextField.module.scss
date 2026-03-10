@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../styles/typography";
 
 .textField {
@@ -38,12 +38,12 @@
   user-select: none;
   border: none;
   pointer-events: none;
-  background-color: var(--disabled-background-color);
+  background-color: var(--ezds-color-background-disabled);
   cursor: not-allowed;
 }
 
 .textField.disabled .inputWrapper .input::placeholder {
-  color: var(--disabled-text-color);
+  color: var(--ezds-color-text-default-disabled);
 }
 
 .textField.disabled .inputWrapper .iconContainer.iconContainerHasIcon:hover {
@@ -59,40 +59,40 @@
   width: 100%;
   height: 100%;
   outline: 0;
-  background-color: var(--secondary-background-color);
+  background-color: var(--ezds-color-background-primary);
   border: 1px solid;
-  border-color: var(--ui-border-color);
-  border-radius: var(--border-radius-small);
-  transition: border-color var(--motion-productive-medium) ease-in;
-  padding: var(--spacing-small) var(--spacing-medium);
+  border-color: var(--ezds-color-border-strong);
+  border-radius: var(--ezds-radius-0100);
+  transition: border-color var(--ezds-motion-productive-medium) ease-in;
+  padding: var(--ezds-space-0100) var(--ezds-space-0200);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 
   &.readOnly {
-    background-color: var(--allgrey-background-color);
+    background-color: var(--ezds-color-background-quaternary);
     border: none;
   }
 }
 
 .textField .inputWrapper .input.inputHover {
-  border-color: var(--primary-text-color);
+  border-color: var(--ezds-color-text-default);
 }
 
 .textField .inputWrapper .input:focus,
 .textField .inputWrapper .input:active,
 .textField .inputWrapper .input.inputActive {
-  border-color: var(--primary-color);
+  border-color: var(--ezds-color-background-accent-default);
 }
 
 .textField .inputWrapper .input::placeholder {
-  color: var(--secondary-text-color);
+  color: var(--ezds-color-text-subtle);
   font-weight: 400;
 }
 
 .textField .inputWrapper .input.inputHasIcon {
-  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-medium);
+  padding: var(--ezds-space-0100) var(--ezds-space-0400) var(--ezds-space-0100) var(--ezds-space-0200);
 }
 
 .textField .inputWrapper .input.round {
@@ -107,7 +107,7 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  padding: var(--spacing-small) var(--spacing-large) var(--spacing-small) var(--spacing-xs);
+  padding: var(--ezds-space-0100) var(--ezds-space-0400) var(--ezds-space-0100) var(--ezds-space-0050);
   border-radius: 0 !important;
 }
 
@@ -138,7 +138,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
   opacity: 0;
   pointer-events: none;
   -webkit-appearance: none;
@@ -165,7 +165,7 @@
 }
 
 .textField .inputWrapper .iconContainer.iconContainerHasIcon.iconContainerClickable:hover {
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--ezds-color-background-transparent-inverted);
 }
 
 .textField .inputWrapper .iconContainer.iconContainerHasIcon.iconContainerClickable:active {
@@ -174,66 +174,66 @@
 
 .textField .inputWrapper .iconContainer .icon {
   transform: rotate(90deg) scale(0.8);
-  color: var(--icon-color);
+  color: var(--ezds-color-icon-subtle);
   will-change: transform;
   pointer-events: none;
-  transition: color var(--motion-productive-short) var(--motion-timing-enter),
-    transform var(--motion-productive-short) var(--motion-timing-enter);
+  transition: color var(--ezds-motion-productive-short) var(--ezds-motion-timing-enter),
+    transform var(--ezds-motion-productive-short) var(--ezds-motion-timing-enter);
   font-size: 14px;
-  font-family: var(--font-family);
+  font-family: var(--ezds-font-family-body);
 }
 
 .textField .inputWrapper.inputErrorValidation:hover .input {
-  border-color: var(--negative-color);
+  border-color: var(--ezds-color-background-danger-default);
 }
 
 .textField .inputWrapper.inputErrorValidation .input {
-  border-color: var(--negative-color);
+  border-color: var(--ezds-color-background-danger-default);
 }
 
 .textField .inputWrapper.inputErrorValidation .input:focus,
 .textField .inputWrapper.inputErrorValidation .input:active {
-  border-color: var(--negative-color);
+  border-color: var(--ezds-color-background-danger-default);
 }
 
 .textField .inputWrapper.inputErrorValidation .iconContainer .icon {
-  color: var(--negative-color);
+  color: var(--ezds-color-background-danger-default);
 }
 
 .textField .inputWrapper.inputErrorValidation .iconContainer .icon:hover {
-  color: var(--negative-color);
+  color: var(--ezds-color-background-danger-default);
 }
 
 .textField .inputWrapper.inputErrorValidation + .subTextContainer {
   .subTextContainerStatus,
   .counter {
-    color: var(--negative-color);
+    color: var(--ezds-color-background-danger-default);
   }
 }
 
 .textField .inputWrapper.inputSuccessValidation:hover .input {
-  border-color: var(--positive-color);
+  border-color: var(--ezds-color-background-success-default);
 }
 
 .textField .inputWrapper.inputSuccessValidation .input {
-  border-color: var(--positive-color);
+  border-color: var(--ezds-color-background-success-default);
 }
 
 .textField .inputWrapper.inputSuccessValidation .input:focus,
 .textField .inputWrapper.inputSuccessValidation .input:active {
-  border-color: var(--positive-color);
+  border-color: var(--ezds-color-background-success-default);
 }
 
 .textField .inputWrapper.inputSuccessValidation .iconContainer .icon {
-  color: var(--positive-color);
+  color: var(--ezds-color-background-success-default);
 }
 
 .textField .inputWrapper.inputSuccessValidation .iconContainer .icon:hover {
-  color: var(--positive-color);
+  color: var(--ezds-color-background-success-default);
 }
 
 .textField .inputWrapper.inputSuccessValidation + .subTextContainer .subTextContainerStatus {
-  color: var(--positive-color);
+  color: var(--ezds-color-background-success-default);
 }
 
 .textField .inputWrapper.wrapperSizeSmall {
@@ -246,7 +246,7 @@
 }
 
 .textField .inputWrapper.inputWrapperSizeSmall .input.inputHasIcon.onlyUnderline {
-  padding-left: var(--spacing-xs);
+  padding-left: var(--ezds-space-0050);
 }
 
 .textField .inputWrapper.wrapperSizeMedium {
@@ -259,7 +259,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon {
-  padding: var(--spacing-small) var(--spacing-xl) var(--spacing-small) var(--spacing-medium);
+  padding: var(--ezds-space-0100) var(--ezds-space-0500) var(--ezds-space-0100) var(--ezds-space-0200);
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input.inputHasIcon.onlyUnderline {
@@ -274,7 +274,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
-  border-color: var(--primary-text-color);
+  border-color: var(--ezds-color-text-default);
 }
 
 .textField .inputWrapper.wrapperSizeLarge {
@@ -287,11 +287,11 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon {
-  padding: var(--spacing-small) var(--spacing-xl) var(--spacing-small) var(--spacing-medium);
+  padding: var(--ezds-space-0100) var(--ezds-space-0500) var(--ezds-space-0100) var(--ezds-space-0200);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input.inputHasIcon.onlyUnderline {
-  padding-left: var(--spacing-xs);
+  padding-left: var(--ezds-space-0050);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .iconContainer {
@@ -300,7 +300,7 @@
 }
 
 .textField .inputWrapper:hover .input {
-  border-color: var(--primary-text-color);
+  border-color: var(--ezds-color-text-default);
 }
 
 .textField .inputWrapper .loaderContainer {
@@ -325,17 +325,17 @@
 }
 
 .textField .inputWrapper .loaderContainer .loader .loaderSvg {
-  color: var(--secondary-text-color);
+  color: var(--ezds-color-text-subtle);
 }
 
 .textField .inputWrapper.wrapperSizeMedium .iconContainer .icon {
   font-size: 16px;
-  font-family: var(--font-family);
+  font-family: var(--ezds-font-family-body);
 }
 
 .textField .inputWrapper.wrapperSizeLarge .iconContainer .icon {
   font-size: 16px;
-  font-family: var(--font-family);
+  font-family: var(--ezds-font-family-body);
 }
 
 // TODO url is not resolving correctly in the rollup build + theming approach isn't the best, as the component ideally shoudn't know about the theme

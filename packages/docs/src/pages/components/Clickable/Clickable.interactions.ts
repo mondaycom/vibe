@@ -5,7 +5,7 @@ import {
   interactionSuite,
   NavigationCommand,
   resetFocus
-} from "@vibe/core/interactionsTests";
+} from "@ezds/core/interactionsTests";
 
 async function states_onClickTabFocusElementTest(canvas) {
   const CLICKABLE_LABEL = "clickable button";

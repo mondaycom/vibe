@@ -1,9 +1,9 @@
 import React from "react";
-import { LinearProgressBar, type LinearProgressBarProps, Flex, Text, Box } from "@vibe/core";
+import { LinearProgressBar, type LinearProgressBarProps, Flex, Text, Box } from "@ezds/core";
 import { useMemo } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Info } from "@vibe/icons";
-import { Icon } from "@vibe/icon";
+import { Info } from "@ezds/icons";
+import { Icon } from "@ezds/icon";
 import Logo from "./assets/Logo.png";
 import { type Meta, type StoryObj } from "@storybook/react";
 

@@ -1,9 +1,9 @@
 import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
-import { type TooltipProps } from "@vibe/tooltip";
+import { type TooltipProps } from "@ezds/tooltip";
 import { type ChipsProps } from "../Chips";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 
 export type BaseItemSizes = "small" | "medium" | "large";
 export type BaseItemDirection = "ltr" | "rtl" | "auto";

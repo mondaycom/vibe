@@ -1,6 +1,6 @@
 import React from "react";
-import { MenuDivider, Menu, MenuItem } from "@vibe/core";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { MenuDivider, Menu, MenuItem } from "@ezds/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 
 export default {
   title: "Components/Menu/MenuDivider",

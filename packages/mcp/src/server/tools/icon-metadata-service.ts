@@ -14,7 +14,7 @@ interface IconMetadata {
 }
 
 export class IconMetadataService {
-  private static readonly UNPKG_URL = "https://unpkg.com/@vibe/icons@latest/dist/iconsMetaData.js";
+  private static readonly UNPKG_URL = "https://unpkg.com/@ezds/icons@latest/dist/iconsMetaData.js";
   private static cachedIconMetadata: IconMetadata[] | null = null;
 
   static async getIconMetadata(): Promise<IconMetadata[]> {

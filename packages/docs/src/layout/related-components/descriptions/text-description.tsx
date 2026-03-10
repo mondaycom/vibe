@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Text } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Text } from "@ezds/core";
 
 export const TextDescription = () => {
   const component = useMemo(() => {

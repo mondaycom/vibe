@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { ColorDescription } from "vibe-storybook-components";
-import { colorsHashMap } from "@vibe/shared";
+import { ColorDescription } from "@ezds/storybook-blocks";
+import { colorsHashMap } from "@ezds/shared";
 
 const colorsWithBorder = new Set([
   "text-color-on-inverted",

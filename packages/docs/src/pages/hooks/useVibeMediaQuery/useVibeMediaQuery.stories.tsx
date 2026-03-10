@@ -1,5 +1,5 @@
 import React from "react";
-import { useVibeMediaQuery, Box } from "@vibe/core";
+import { useVibeMediaQuery, Box } from "@ezds/core";
 
 export default {
   title: "Hooks/useVibeMediaQuery"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { usePrevious, Button, Counter, Flex } from "@vibe/core";
+import { usePrevious, Button, Counter, Flex } from "@ezds/core";
 import styles from "./usePrevious.stories.module.scss";
 
 export default {

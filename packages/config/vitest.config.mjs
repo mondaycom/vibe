@@ -19,17 +19,17 @@ function generateVibeComponentAliases() {
       const srcPath = path.join(componentFolderPath, "src");
 
       if (fs.statSync(componentFolderPath).isDirectory() && fs.existsSync(srcPath)) {
-        vibeComponents[`@vibe/${component}`] = srcPath;
+        vibeComponents[`@ezds/${component}`] = srcPath;
       }
     });
   }
 
-  // Add @vibe/base package alias
+  // Add @ezds/base package alias
   const baseFolder = path.resolve(__dirname, "../../packages/base");
   const baseSrcPath = path.join(baseFolder, "src");
 
   if (fs.existsSync(baseSrcPath)) {
-    vibeComponents["@vibe/base"] = baseSrcPath;
+    vibeComponents["@ezds/base"] = baseSrcPath;
   }
 
   return vibeComponents;

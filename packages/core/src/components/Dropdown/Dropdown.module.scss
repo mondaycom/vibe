@@ -3,40 +3,40 @@
 .dropdown :global(.fast-option) {
   display: flex;
   align-content: center;
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   cursor: pointer;
-  border-radius: var(--border-radius-small);
-  margin: 0 var(--spacing-small);
-  padding: 0 var(--spacing-small);
-  transition: all var(--motion-productive-medium) var(--motion-timing-enter);
+  border-radius: var(--ezds-radius-0100);
+  margin: 0 var(--ezds-space-0100);
+  padding: 0 var(--ezds-space-0100);
+  transition: all var(--ezds-motion-productive-medium) var(--ezds-motion-timing-enter);
 }
 
 .dropdown :global(.fast-option):disabled {
   background-color: transparent;
-  color: var(--disabled-text-color);
+  color: var(--ezds-color-text-default-disabled);
   cursor: not-allowed;
 }
 
 .dropdown :global(.fast-option-disabled) {
   background-color: transparent;
-  color: var(--disabled-text-color);
+  color: var(--ezds-color-text-default-disabled);
   cursor: not-allowed;
 }
 
 .dropdown :global(.fast-option-focused) {
-  color: var(--primary-text-color);
-  background-color: var(--primary-selected-color);
+  color: var(--ezds-color-text-default);
+  background-color: var(--ezds-color-background-accent-subtle);
   user-select: none;
   box-sizing: border-box;
 }
 
 .dropdown :global(.fast-option-focused):hover {
-  color: var(--primary-text-color);
-  background-color: var(--primary-background-hover-color);
+  color: var(--ezds-color-text-default);
+  background-color: var(--ezds-color-background-transparent-inverted);
 }
 
 .dropdown :global(.fast-option-selected) {
-  color: var(--primary-color);
-  background-color: var(--primary-selected-color);
+  color: var(--ezds-color-background-accent-default);
+  background-color: var(--ezds-color-background-accent-subtle);
   cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { HiddenText, type HiddenTextProps } from "@vibe/core";
+import { HiddenText, type HiddenTextProps } from "@ezds/core";
 
 export default {
   title: "Accessibility/HiddenText",

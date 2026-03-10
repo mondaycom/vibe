@@ -1,7 +1,7 @@
-# @vibe/core
+# @ezds/core
 
-<a href="https://bundlephobia.com/package/@vibe/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@vibe/core"></a>
-<a href="https://www.npmjs.com/package/@vibe/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@vibe/core?label=@vibe/core"></a>
+<a href="https://bundlephobia.com/package/@ezds/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@ezds/core"></a>
+<a href="https://www.npmjs.com/package/@ezds/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@ezds/core?label=@ezds/core"></a>
 
 > Vibe Design System's Core Component Library in React
 
@@ -10,7 +10,7 @@
 Components are imported from the library's root entry:
 
 ```javascript
-import { Button } from "@vibe/core";
+import { Button } from "@ezds/core";
 ```
 
 ### Font installation
@@ -48,7 +48,7 @@ Then you can join all the values into one string and add it under a `<style>` el
 You can access component metadata (props, descriptions, etc.) via the `/meta` export path:
 
 ```javascript
-import metadata from "@vibe/core/meta";
+import metadata from "@ezds/core/meta";
 ```
 
 **Note:** This feature is experimental and currently intended for internal Vibe LLM efforts. The structure and content of the metadata object are subject to change without notice in future versions. We cannot guarantee stability for this feature, yet.

@@ -3,7 +3,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { noop as NOOP } from "es-toolkit";
 import Button from "../Button";
-import { WhatsNew } from "@vibe/icons";
+import { WhatsNew } from "@ezds/icons";
 import { type ButtonSize } from "../Button.types";
 
 vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({

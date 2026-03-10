@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Flex } from "@vibe/layout";
+import { Flex } from "@ezds/layout";
 import { type ModalMediaProps } from "./ModalMedia.types";
 import styles from "./ModalMedia.module.scss";
 import cx from "classnames";

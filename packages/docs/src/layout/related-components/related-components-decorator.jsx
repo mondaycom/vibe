@@ -1,5 +1,5 @@
 import React from "react";
-import { RelatedComponents } from "vibe-storybook-components";
+import { RelatedComponents } from "@ezds/storybook-blocks";
 import { DESCRIPTION_COMPONENTS_MAP } from "./component-description-map";
 
 export const RelatedComponentsDecorator = ({ componentsNames = [], linkTarget }) => {

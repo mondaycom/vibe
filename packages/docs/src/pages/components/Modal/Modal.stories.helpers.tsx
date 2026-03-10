@@ -1,10 +1,10 @@
 import React, { forwardRef, useEffect, useState } from "react";
-import { Button, IconButton } from "@vibe/core";
-import { Fullscreen } from "@vibe/icons";
-import { StorybookLink, Tip } from "vibe-storybook-components";
+import { Button, IconButton } from "@ezds/core";
+import { Fullscreen } from "@ezds/icons";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
 import cx from "classnames";
 import styles from "./Modal.stories.module.scss";
-import { getStyle } from "@vibe/shared";
+import { getStyle } from "@ezds/shared";
 
 export const OpenedModalPreview = forwardRef(
   (

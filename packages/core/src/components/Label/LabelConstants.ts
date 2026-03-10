@@ -1,4 +1,4 @@
-import { Text, type TextType } from "@vibe/typography";
+import { Text, type TextType } from "@ezds/typography";
 import { type LabelSizes } from "./Label.types";
 import { ContentColorByName } from "../../utils/colors-vars-map";
 

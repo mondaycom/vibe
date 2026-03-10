@@ -8,10 +8,10 @@ import {
   Flex,
   ListTitle,
   DialogContentContainer
-} from "@vibe/core";
-import { Board, Team, ThumbsUp } from "@vibe/icons";
+} from "@ezds/core";
+import { Board, Team, ThumbsUp } from "@ezds/icons";
 import { useCallback } from "react";
-import { StoryDescription } from "vibe-storybook-components";
+import { StoryDescription } from "@ezds/storybook-blocks";
 import { createStoryMetaSettingsDecorator } from "../../../../utils/createStoryMetaSettingsDecorator";
 import person1 from "../../Avatar/assets/person1.png";
 import person2 from "../../Avatar/assets/person2.png";

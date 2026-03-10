@@ -21,7 +21,7 @@
       align-items: center;
       font-size: 14px;
       transition: all 0.1s ease;
-      color: var(--primary-text-on-secondary-color, true);
+      color: var(--ezds-color-text-on-secondary, true);
       &:hover {
         background-color: var(--primary-background-hover-on-secondary-color);
         text-decoration: none;

@@ -1,7 +1,7 @@
 import React from "react";
-import { DialogContentContainer, Box } from "@vibe/core";
+import { DialogContentContainer, Box } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DialogContentContainer,
