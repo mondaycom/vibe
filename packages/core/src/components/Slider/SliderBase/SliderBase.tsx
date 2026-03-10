@@ -16,12 +16,12 @@ import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderBase.module.scss";
 
-export type SliderBaseProps = VibeComponentProps;
+export type SliderBaseProps = EZDSComponentProps;
 
 const SliderBase: FC<SliderBaseProps> = forwardRef(({ className }, _ref) => {
   const { color, disabled, size, shapeTestId } = useSliderUi();

@@ -1,5 +1,5 @@
 import type { ReactNode, MouseEvent } from "react";
-import type { VibeComponentProps } from "../../../types";
+import type { EZDSComponentProps } from "../../../types";
 import type { SubIcon, IconType } from "@ezds/icon";
 import type { AttentionBoxButtonProps } from "./components/AttentionBoxButton/AttentionBoxButton";
 import type { AttentionBoxLinkProps } from "./components/AttentionBoxLink/AttentionBoxLink";
@@ -48,7 +48,7 @@ export type AttentionBoxCompactTitleProps =
 
 export type AttentionBoxRole = "alert" | "status";
 
-export type AttentionBoxProps = VibeComponentProps &
+export type AttentionBoxProps = EZDSComponentProps &
   AttentionBoxContentProps &
   AttentionBoxCompactTitleProps & {
     /**

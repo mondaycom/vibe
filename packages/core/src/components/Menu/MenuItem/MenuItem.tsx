@@ -2,7 +2,7 @@ import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwa
 import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { type IconType, Icon, type SubIcon } from "@ezds/icon";
 import { useIsOverflowing } from "@ezds/hooks";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
@@ -12,7 +12,7 @@ import { type TooltipPositions, TooltipPositionsEnum } from "@ezds/tooltip";
 import { type SubmenuPosition } from "./MenuItem.types";
 import { Flex } from "@ezds/layout";
 
-export interface MenuItemProps extends VibeComponentProps {
+export interface MenuItemProps extends EZDSComponentProps {
   /**
    * The title of the menu item.
    */

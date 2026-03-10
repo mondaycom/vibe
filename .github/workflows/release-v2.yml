@@ -53,11 +53,12 @@ jobs:
         run: |
           npm version patch -m "chore(release): bump core package version to %s"
       - run: yarn config set registry https://registry.npmjs.org/
-      - name: Setup .npmrc for publish
-        id: setup-npmrc
-        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          # TOKEN is injected via NODE_AUTH_TOKEN env var — no .npmrc written to disk
       - name: Publish core to npm
         run: npm publish --dry-run
-      - name: Remove .npmrc
-        if: steps.setup-npmrc.outcome == 'success'
-        run: rm .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

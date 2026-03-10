@@ -3,7 +3,7 @@ import cx from "classnames";
 import { IconButton } from "@ezds/icon-button";
 import { CloseSmall } from "@ezds/icons";
 import { Icon, type SubIcon } from "@ezds/icon";
-import { type ElementContent, type VibeComponentProps } from "../../../types";
+import { type ElementContent, type EZDSComponentProps } from "../../../types";
 import { NOOP } from "../../../utils/function-utils";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
@@ -11,7 +11,7 @@ import { Text, Heading } from "@ezds/typography";
 import { Flex } from "@ezds/layout";
 import styles from "./LegacyModalHeader.module.scss";
 
-interface BaseLegacyModalHeaderProps extends VibeComponentProps {
+interface BaseLegacyModalHeaderProps extends EZDSComponentProps {
   /**
    * Description of the modal - pure string description is a recommended standard, use JSX ability only if there is a need to add links
    */

@@ -11,11 +11,11 @@ import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { type VibeComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
+import { type EZDSComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
 import { type SubIcon } from "@ezds/icon";
 import styles from "./ColorPickerItemComponent.module.scss";
 
-export interface ColorPickerItemComponentProps extends VibeComponentProps {
+export interface ColorPickerItemComponentProps extends EZDSComponentProps {
   /**
    * The color value of the item.
    */
@@ -81,7 +81,7 @@ const ColorPickerItemComponent = forwardRef(
     _ref: React.ForwardedRef<HTMLElement>
   ) => {
     const isMondayColor = useMemo(() => (contentColors as readonly string[]).includes(color), [color]); // casting to any since color can be one of the system content colors but can also be a custom one
-    const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
+    const colorAsStyle = isMondayColor ? ColorUtils.getEZDSColorAsStyle(color, colorStyle) : color;
     const itemRef = useRef<HTMLDivElement>(null);
 
     const onClick = useCallback(() => onColorClicked(color), [onColorClicked, color]);
@@ -91,9 +91,9 @@ const ColorPickerItemComponent = forwardRef(
       const item = itemRef.current;
       const setHoverColor = (e: MouseEvent) => {
         if (colorStyle === "selected") {
-          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, "regular");
+          (e.target as HTMLDivElement).style.background = ColorUtils.getEZDSColorAsStyle(color, "regular");
         } else {
-          (e.target as HTMLDivElement).style.background = ColorUtils.getMondayColorAsStyle(color, "hover");
+          (e.target as HTMLDivElement).style.background = ColorUtils.getEZDSColorAsStyle(color, "hover");
         }
       };
       const restoreToOriginalColor = (e: MouseEvent) => {

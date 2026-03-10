@@ -11,10 +11,10 @@ import {
 
 import { type SkeletonType, type SkeletonSizeType } from "./Skelton.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Skeleton.module.scss";
 
-export interface SkeletonProps extends VibeComponentProps {
+export interface SkeletonProps extends EZDSComponentProps {
   /**
    * The type of skeleton.
    */

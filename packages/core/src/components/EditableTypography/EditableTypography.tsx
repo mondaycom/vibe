@@ -1,7 +1,7 @@
 import React, { type ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
 import { useKeyboardButtonPressedFunc } from "@ezds/shared";
@@ -58,7 +58,7 @@ export interface EditableTypographyImplementationProps {
   tooltipProps?: Partial<TooltipProps>;
 }
 
-export interface EditableTypographyProps extends VibeComponentProps, EditableTypographyImplementationProps {
+export interface EditableTypographyProps extends EZDSComponentProps, EditableTypographyImplementationProps {
   /**
    * The typography component used in view mode.
    */

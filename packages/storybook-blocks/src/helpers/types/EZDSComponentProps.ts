@@ -1,4 +1,4 @@
-export interface VibeComponentProps {
+export interface EZDSComponentProps {
   className?: string;
   'data-testid'?: string;
   id?: string;

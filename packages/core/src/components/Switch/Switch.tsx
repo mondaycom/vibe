@@ -1,12 +1,12 @@
 import React, { type ChangeEvent, forwardRef, type ReactElement, useMemo } from "react";
 import cx from "classnames";
 import useSwitch from "../../hooks/useSwitch";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { type MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface SwitchProps extends VibeComponentProps {
+export interface SwitchProps extends EZDSComponentProps {
   /**
    * The name of the switch input.
    */
@@ -100,7 +100,7 @@ const Switch = forwardRef(
     );
 
     return (
-      <label htmlFor={id} className={wrapperClassName} data-vibe={ComponentVibeId.TOGGLE}>
+      <label htmlFor={id} className={wrapperClassName} data-ezds={ComponentEZDSId.TOGGLE}>
         <input
           ref={ref}
           id={id}

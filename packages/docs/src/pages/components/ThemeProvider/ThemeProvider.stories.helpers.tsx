@@ -210,36 +210,36 @@ export const UsageGuidelinesThemeProvider = () => (
   />
 );
 
-export const DescriptionWithLinkMondaySdkIntegration = () => (
+export const DescriptionWithLinkEZCORPSdkIntegration = () => (
   <>
-    When developing an external application for monday.com (iframe). You can use <code>ThemeProvider</code> in
+    When developing an external application for EZCORP (iframe). You can use <code>ThemeProvider</code> in
     combination with the{" "}
     <Link
-      href="https://developer.monday.com/apps/docs/mondayget#sample-context-objects-for-each-feature-type"
+      href="https://developer.ezcorp.com/apps/docs/mondayget#sample-context-objects-for-each-feature-type"
       withoutSpacing
     >
-      monday.com SDK
+      EZCORP SDK
     </Link>
-    , to apply monday.com <b>system</b> and <b>product</b> themes to your application. This will allow your application
-    to be consistent with the monday.com UI.
+    , to apply EZCORP <b>system</b> and <b>product</b> themes to your application. This will allow your application
+    to be consistent with the EZCORP UI.
   </>
 );
 
-export const MondaySdkIntegrationSourceCode = `
+export const EZCORPSdkIntegrationSourceCode = `
 import { ThemeProvider } from "@ezds/core";
-import mondaySdk from "monday-sdk-js";
+import ezcorpSdk from "monday-sdk-js";
 
-const monday = mondaySdk();
+const sdk = ezcorpSdk();
 
 const useGetContext = () => {
   const [context, setContext] = useState({});
-  
+
   useEffect(() => {
-    monday.listen("context", (res) => {
+    sdk.listen("context", (res) => {
       setContext(res.data);
     });
   }, []);
-  
+
   return context;
 };
 

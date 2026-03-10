@@ -130,7 +130,7 @@ export const Overflow = {
       <Text maxLines={1}>
         {[
           "This is an example of array of texts and ",
-          <Link text="Other elements" href="https://www.monday.com" inheritFontSize inlineText />,
+          <Link text="Other elements" href="https://www.ezcorp.com" inheritFontSize inlineText />,
           " that are overflowing and create a tooltip with the correct information"
         ]}
       </Text>

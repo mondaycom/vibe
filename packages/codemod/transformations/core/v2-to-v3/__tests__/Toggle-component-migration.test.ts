@@ -161,12 +161,12 @@ describe("Toggle component migration", () => {
     transform,
     {},
     `
-      import { Toggle as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent componentClassName="old-class" isDisabled/>
+      import { Toggle as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent componentClassName="old-class" isDisabled/>
     `,
     `
-      import { Toggle as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" disabled/>
+      import { Toggle as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" disabled/>
     `,
     "should change when 'Toggle' is imported with alias from vibe"
   );

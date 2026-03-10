@@ -8,11 +8,11 @@ import {
   FlexJustify as FlexJustifyEnum
 } from "./FlexConstants";
 import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, type FlexShorthand } from "./Flex.types";
-import { type ElementContent, withStaticProps, type VibeComponentProps, getStyle, useMergeRef } from "@ezds/shared";
+import { type ElementContent, withStaticProps, type EZDSComponentProps, getStyle, useMergeRef } from "@ezds/shared";
 import styles from "./Flex.module.scss";
 import { camelCase } from "es-toolkit";
 
-export interface FlexProps extends VibeComponentProps {
+export interface FlexProps extends EZDSComponentProps {
   /**
    * Inline styles applied to the flex container.
    */

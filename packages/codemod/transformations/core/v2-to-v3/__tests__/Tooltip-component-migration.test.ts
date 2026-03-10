@@ -105,12 +105,12 @@ describe("Tooltip component migration", () => {
     transform,
     {},
     `
-      import { Tooltip as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent withMaxWidth />
+      import { Tooltip as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent withMaxWidth />
     `,
     `
-      import { Tooltip as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent />
+      import { Tooltip as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent />
     `,
     "should change when 'Tooltip' is imported with alias from vibe"
   );

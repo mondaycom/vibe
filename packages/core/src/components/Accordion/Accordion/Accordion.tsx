@@ -1,9 +1,9 @@
 import cx from "classnames";
 import React, { forwardRef, type ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
-import { ComponentVibeId } from "../../../tests/constants";
+import { ComponentEZDSId } from "../../../tests/constants";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -17,7 +17,7 @@ function defineChildId(index: number, props: { id: string }, accordionId: string
   return `${COMPONENT_ID}--item-${index}`;
 }
 
-export interface AccordionProps extends VibeComponentProps {
+export interface AccordionProps extends EZDSComponentProps {
   /**
    * The content of the accordion (`AccordionItem` components).
    */
@@ -106,7 +106,7 @@ const Accordion = forwardRef(
         ref={mergedRef}
         className={cx(styles.accordion, className)}
         data-testid={dataTestId}
-        data-vibe={ComponentVibeId.ACCORDION}
+        data-ezds={ComponentEZDSId.ACCORDION}
         id={id}
       >
         {children && renderChildElements}

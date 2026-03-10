@@ -1,6 +1,6 @@
 # Package Separation Guide
 
-This rule provides a systematic approach for separating components from the `@vibe/core` package into standalone packages in the monorepo (e.g., `@vibe/tooltip`, `@vibe/dialog`). Following this pattern ensures consistency, proper enum handling, and maintainability.
+This rule provides a systematic approach for separating components from the `@ezds/core` package into standalone packages in the monorepo (e.g., `@ezds/tooltip`, `@ezds/dialog`). Following this pattern ensures consistency, proper enum handling, and maintainability.
 
 ## When to Use This Rule
 
@@ -135,7 +135,7 @@ Follow the pattern from existing separated packages. Key fields:
 
 ```json
 {
-  "name": "@vibe/[component-name]",
+  "name": "@ezds/[component-name]",
   "version": "3.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -153,7 +153,7 @@ Follow the pattern from existing separated packages. Key fields:
 
 #### tsconfig.json, rollup.config.mjs, vitest.config.mjs
 
-Copy these from an existing separated package (e.g., `@vibe/tooltip` or `@vibe/dialog`) and adjust as needed.
+Copy these from an existing separated package (e.g., `@ezds/tooltip` or `@ezds/dialog`) and adjust as needed.
 
 ### 4. Configure Exports (CRITICAL)
 
@@ -219,7 +219,7 @@ export {
   type TypeName1,
   type TypeName2
   // ... other types, but NOT enums
-} from "@vibe/component-name";
+} from "@ezds/component-name";
 ```
 
 **Why:** This prevents deprecated enums from being exposed in the core package's public API while still exporting the types that consumers need.
@@ -240,7 +240,7 @@ export {
   type DialogAnimationType,
   type DialogOffset,
   type DialogEvent
-} from "@vibe/dialog";
+} from "@ezds/dialog";
 ```
 
 ### 6. Update Consumer Imports in Core Package
@@ -258,7 +258,7 @@ import ComponentName from "../ComponentName/ComponentName";
 **After:**
 
 ```typescript
-import { ComponentName } from "@vibe/component-name";
+import { ComponentName } from "@ezds/component-name";
 ```
 
 #### Enum Import
@@ -268,19 +268,19 @@ import { ComponentName } from "@vibe/component-name";
 **Wrong ❌:**
 
 ```typescript
-import { EnumName as EnumNameEnum } from "@vibe/component-name";
+import { EnumName as EnumNameEnum } from "@ezds/component-name";
 ```
 
 **Correct ✅:**
 
 ```typescript
-import { EnumNameEnum } from "@vibe/component-name";
+import { EnumNameEnum } from "@ezds/component-name";
 ```
 
 **Real Example (Dialog):**
 
 ```typescript
-import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@vibe/dialog";
+import { DialogPositionEnum, DialogTriggerEventEnum, DialogSizeEnum } from "@ezds/dialog";
 ```
 
 ### 7. Link Workspace Packages
@@ -293,10 +293,10 @@ cd $(git rev-parse --show-toplevel)
 yarn install
 ```
 
-This will automatically create symlinks in `node_modules/@vibe/` for all packages defined in the `workspaces` field of the root `package.json`. You'll see:
+This will automatically create symlinks in `node_modules/@ezds/` for all packages defined in the `workspaces` field of the root `package.json`. You'll see:
 
 ```
-node_modules/@vibe/component-name -> ../../packages/components/component-name
+node_modules/@ezds/component-name -> ../../packages/components/component-name
 ```
 
 **Note:** The monorepo uses Yarn Workspaces, which automatically links all packages in `packages/*` and `packages/components/*`. Manual symlink creation with `ln -s` is NOT needed.
@@ -305,13 +305,13 @@ node_modules/@vibe/component-name -> ../../packages/components/component-name
 
 #### In the new package's package.json
 
-Add dependencies for any Vibe packages it uses:
+Add dependencies for any EZDS packages it uses:
 
 ```json
 {
   "dependencies": {
-    "@vibe/shared": "3.0.x",
-    "@vibe/icon": "3.0.x"
+    "@ezds/shared": "3.0.x",
+    "@ezds/icon": "3.0.x"
     // ... other dependencies
   }
 }
@@ -324,7 +324,7 @@ Add the new package as a dependency:
 ```json
 {
   "dependencies": {
-    "@vibe/component-name": "3.0.0"
+    "@ezds/component-name": "3.0.0"
   }
 }
 ```
@@ -378,7 +378,7 @@ When you have a type and enum with the same name (e.g., `DialogSize` type and `D
 
 4. **In Consumer code:** Import both explicitly
    ```typescript
-   import { type DialogSize, DialogSizeEnum } from "@vibe/dialog";
+   import { type DialogSize, DialogSizeEnum } from "@ezds/dialog";
    ```
 
 ### Gotcha: Default vs Named Exports
@@ -406,11 +406,11 @@ If TypeScript can't find the new package, check:
 
 1. Is the package built? (`dist/` folder exists)
 2. Did you run `yarn install` at the root? (creates workspace symlinks)
-3. Is the symlink created? Check with `ls -la node_modules/@vibe/component-name`
+3. Is the symlink created? Check with `ls -la node_modules/@ezds/component-name`
 4. Is `package.json` configured with correct `main` and `types` fields?
 5. Did you clear the TypeScript cache?
 
-**Why symlinks are needed:** Yarn Workspaces creates symlinks so that `import { Component } from "@vibe/component-name"` resolves to `packages/components/component-name/dist/` instead of looking for a published npm package.
+**Why symlinks are needed:** Yarn Workspaces creates symlinks so that `import { Component } from "@ezds/component-name"` resolves to `packages/components/component-name/dist/` instead of looking for a published npm package.
 
 ## Checklist for Package Separation
 

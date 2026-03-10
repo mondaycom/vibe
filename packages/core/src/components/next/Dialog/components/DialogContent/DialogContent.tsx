@@ -17,7 +17,7 @@ import {
   chainFunctions,
   NOOP,
   useKeyEvent,
-  type VibeComponentProps,
+  type EZDSComponentProps,
   keyCodes,
   getStyle,
   useMergeRef
@@ -34,7 +34,7 @@ import useDisableScroll from "../../hooks/useDisableScroll";
 const EMPTY_OBJECT: CSSProperties = {};
 const ESCAPE_KEYS = [keyCodes.ESCAPE];
 
-export interface DialogContentProps extends VibeComponentProps {
+export interface DialogContentProps extends EZDSComponentProps {
   /**
    * The content inside the dialog.
    */

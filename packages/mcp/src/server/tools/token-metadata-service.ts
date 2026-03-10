@@ -24,15 +24,15 @@ export class TokenMetadataService {
     }
 
     try {
-      console.error("[Vibe MCP] Fetching tokens from unpkg...");
+      console.error("[EZDS MCP] Fetching tokens from unpkg...");
       const cssContent = await this.fetchWithRetry();
       const tokens = this.parseTokensFromContent(cssContent);
-      console.error(`[Vibe MCP] Parsed ${tokens.length} tokens, caching for session`);
+      console.error(`[EZDS MCP] Parsed ${tokens.length} tokens, caching for session`);
       this.tokenCache = tokens;
       return tokens;
     } catch (error) {
-      console.error("[Vibe MCP] Failed to fetch tokens:", error);
-      console.error("[Vibe MCP] Returning empty array as fallback");
+      console.error("[EZDS MCP] Failed to fetch tokens:", error);
+      console.error("[EZDS MCP] Returning empty array as fallback");
       return [];
     }
   }
@@ -51,14 +51,14 @@ export class TokenMetadataService {
 
       return await response.text();
     } catch (fetchError) {
-      console.error("[Vibe MCP] Fetch failed (likely corporate proxy/SSL), trying curl fallback...");
+      console.error("[EZDS MCP] Fetch failed (likely corporate proxy/SSL), trying curl fallback...");
 
       // Fallback to curl for corporate networks
       try {
         const { stdout } = await execAsync(`curl -s -L "${this.TOKENS_URL}"`);
         return stdout;
       } catch (curlError) {
-        console.error("[Vibe MCP] Curl fallback also failed:", curlError);
+        console.error("[EZDS MCP] Curl fallback also failed:", curlError);
         throw fetchError; // Re-throw original fetch error
       }
     }

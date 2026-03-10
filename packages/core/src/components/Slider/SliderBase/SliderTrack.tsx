@@ -1,11 +1,11 @@
 import React, { type FC } from "react";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderTrack.module.scss";
 import { type SliderColor } from "../Slider.types";
 
-export interface SliderTrackProps extends VibeComponentProps {
+export interface SliderTrackProps extends EZDSComponentProps {
   /**
    * The color of the slider track.
    */

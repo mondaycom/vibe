@@ -1,4 +1,4 @@
-const { parseMondayUiCss, getPropsToAllowedCssVars } = require("../parse-monday-css");
+const { parseEZDSCss, getPropsToAllowedCssVars } = require("../parse-ezds-css");
 const { PROPS_TO_ALLOWED_VARS } = require("../props-to-allowed-vars");
 
 const ALLOWED_CSS_VARS_PREFIX_WITHOUT_MAPPING = [
@@ -14,7 +14,7 @@ const ALLOWED_CSS_VARS_PREFIX_WITHOUT_MAPPING = [
 ];
 
 describe("props-to-allowed-vars", () => {
-  const { allVarsToCanonicalValue } = parseMondayUiCss();
+  const { allVarsToCanonicalValue } = parseEZDSCss();
   const propsToAllowedCssVars = getPropsToAllowedCssVars();
 
   describe("PROPS_TO_ALLOWED_VARS", () => {

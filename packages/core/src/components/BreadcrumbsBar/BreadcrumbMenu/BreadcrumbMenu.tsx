@@ -1,12 +1,12 @@
 import React, { forwardRef } from "react";
 import MenuButton from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import styles from "./BreadcrumbsMenu.module.scss";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 
-export interface BreadcrumbMenuProps extends VibeComponentProps {
+export interface BreadcrumbMenuProps extends EZDSComponentProps {
   children: React.ReactNode;
 }
 const BreadcrumbMenu = forwardRef(

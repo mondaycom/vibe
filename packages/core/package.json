@@ -1,17 +1,17 @@
 {
   "name": "@ezds/core",
   "version": "3.87.0",
-  "description": "Official monday.com UI resources for application development in React.js",
+  "description": "Official ezcorp.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/core"
   },
   "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
+    "url": "https://github.com/ezcorp/ezds/issues"
   },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
-  "author": "monday.com",
+  "homepage": "https://github.com/ezcorp/ezds#readme",
+  "author": "ezcorp.com",
   "license": "MIT",
   "type": "module",
   "main": "dist/src/index.js",

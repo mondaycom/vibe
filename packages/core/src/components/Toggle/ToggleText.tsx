@@ -1,10 +1,10 @@
 import React, { type FC } from "react";
 import cx from "classnames";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import styles from "./ToggleText.module.scss";
 import { Text } from "@ezds/typography";
 
-export interface ToggleTextProps extends VibeComponentProps {
+export interface ToggleTextProps extends EZDSComponentProps {
   /**
    * The text content inside the toggle.
    */

@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-function generateVibeComponentAliases() {
+function generateEZDSComponentAliases() {
   const componentsFolder = path.resolve(__dirname, "../../packages/components");
   const vibeComponents = {};
 
@@ -43,7 +43,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      ...generateVibeComponentAliases()
+      ...generateEZDSComponentAliases()
     }
   },
   define: {

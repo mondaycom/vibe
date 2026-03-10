@@ -34,7 +34,7 @@ export default function Letter() {
           </Flex>
 
           <AnimatedText
-            text="We want to thank everyone who contributes daily to monday.com Design Foundations. As an open-source design platform, Vibe's greatest asset is the dialogue we share with our users—who are really the builders of our design platform."
+            text="We want to thank everyone who contributes daily to EZCORP Design Foundations. As an open-source design platform, EZDS's greatest asset is the dialogue we share with our users—who are really the builders of our design platform."
             className={styles.content}
             scrollYProgress={fasterScrollYProgress}
           />

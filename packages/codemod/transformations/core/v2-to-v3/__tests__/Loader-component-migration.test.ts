@@ -161,12 +161,12 @@ describe("Loader component migration", () => {
     transform,
     {},
     `
-      import { Loader as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent svgClassName="old-class" />
+      import { Loader as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent svgClassName="old-class" />
     `,
     `
-      import { Loader as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { Loader as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'Loader' is imported with alias from vibe"
   );

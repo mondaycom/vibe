@@ -1,6 +1,6 @@
 # @ezds/icons
 
-This package includes all of the icons of monday.com's [Vibe Design System](https://vibe.monday.com/?path=/story/media-icon--icons-list-story), available as React components and raw SVGs and with lazy loading support for optimized performance and flexible usage in your projects.
+This package includes all of the icons of EZCORP's [EZDS Design System](https://design.ezcorp.com/?path=/story/media-icon--icons-list-story), available as React components and raw SVGs and with lazy loading support for optimized performance and flexible usage in your projects.
 
 
 ## Installation

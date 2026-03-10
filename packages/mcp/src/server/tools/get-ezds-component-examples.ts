@@ -16,10 +16,10 @@ const ComponentNameParamsSchema = z.object({
     )
 });
 
-export const getVibeComponentExamples: MCPTool<typeof ComponentNameParamsSchema.shape> = {
-  name: "get-vibe-component-examples",
+export const getEZDSComponentExamples: MCPTool<typeof ComponentNameParamsSchema.shape> = {
+  name: "get-ezds-component-examples",
   description:
-    "Get React usage examples for Vibe components. Returns implementation examples and patterns for specific components or all components if none specified.",
+    "Get React usage examples for EZDS components. Returns implementation examples and patterns for specific components or all components if none specified.",
   inputSchema: ComponentNameParamsSchema.shape,
   execute: async (input: z.infer<typeof ComponentNameParamsSchema>) => {
     const { componentName } = input;

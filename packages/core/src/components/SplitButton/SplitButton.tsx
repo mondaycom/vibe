@@ -36,7 +36,7 @@ import {
 } from "@ezds/dialog";
 import { DialogAnimationTypeEnum as AnimationType, DialogTriggerEventEnum as HideShowEvent } from "@ezds/dialog";
 import styles from "./SplitButton.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
   /**
@@ -225,7 +225,7 @@ const SplitButton = ({
       ref={ref}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
-      data-vibe={ComponentVibeId.SPLIT_BUTTON}
+      data-ezds={ComponentEZDSId.SPLIT_BUTTON}
     >
       <Button
         {

@@ -1,7 +1,7 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 
-export interface TableContainerProps extends VibeComponentProps {
+export interface TableContainerProps extends EZDSComponentProps {
   /**
    * Custom styles for the table container.
    */

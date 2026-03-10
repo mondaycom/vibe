@@ -8,7 +8,7 @@ import { type DialogOffset, type DialogPosition, type DialogSize, type DialogTri
 import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type EZDSComponentProps, withStaticProps } from "../../types";
 import {
   MenuButtonComponentPosition as MenuButtonComponentPositionEnum,
   MenuButtonSize as MenuButtonSizeEnum
@@ -21,12 +21,12 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type MenuChild } from "../Menu/Menu/MenuConstants";
 import styles from "./MenuButton.module.scss";
 import { type TooltipPositions } from "@ezds/tooltip";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
 const CLOSE_KEYS: DialogTriggerEventEnum[] = [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY];
 
-export interface MenuButtonProps extends VibeComponentProps {
+export interface MenuButtonProps extends EZDSComponentProps {
   /**
    * If true, the button is in an active state.
    */
@@ -350,7 +350,7 @@ const MenuButton = forwardRef(
       <TriggerElement
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_BUTTON, id)}
-        data-vibe={ComponentVibeId.MENU_BUTTON}
+        data-ezds={ComponentEZDSId.MENU_BUTTON}
         type="button"
         className={cx(styles.wrapper, className, getStyle(styles, camelCase(`size-${size}`)), {
           [styles.active]: isActive,

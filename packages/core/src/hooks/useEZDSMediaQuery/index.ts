@@ -2,7 +2,7 @@ import { useState } from "react";
 import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
 import useMediaQuery from "../useMediaQuery";
 import {
-  VIBE_MEDIA_QUERIES,
+  EZDS_MEDIA_QUERIES,
   LARGE,
   SMALL1,
   XLARGE,
@@ -12,9 +12,9 @@ import {
   MEDIA_QUERY_SIZES
 } from "../../utils/media-query-utils";
 
-export default function useVibeMediaQuery() {
+export default function useEZDSMediaQuery() {
   const [mediaSize, setMediaSize] = useState(SMALL1);
-  const [isSmall1, isSmall2, isMedium1, isMedium2, isLarge, isXLarge] = useMediaQuery(VIBE_MEDIA_QUERIES);
+  const [isSmall1, isSmall2, isMedium1, isMedium2, isLarge, isXLarge] = useMediaQuery(EZDS_MEDIA_QUERIES);
 
   useIsomorphicLayoutEffect(() => {
     if (isSmall1) setMediaSize(SMALL1);
@@ -28,4 +28,4 @@ export default function useVibeMediaQuery() {
   return mediaSize;
 }
 
-useVibeMediaQuery.sizes = MEDIA_QUERY_SIZES;
+useEZDSMediaQuery.sizes = MEDIA_QUERY_SIZES;

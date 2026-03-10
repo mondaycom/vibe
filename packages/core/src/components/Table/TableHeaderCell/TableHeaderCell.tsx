@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import cx from "classnames";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import { Icon, type SubIcon } from "@ezds/icon";
 import { IconButton } from "@ezds/icon-button";
@@ -13,7 +13,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 
-export interface TableHeaderCellProps extends VibeComponentProps {
+export interface TableHeaderCellProps extends EZDSComponentProps {
   /**
    * The title of the column, displayed inside the header cell.
    */

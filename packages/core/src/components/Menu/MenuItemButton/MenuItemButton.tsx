@@ -6,13 +6,13 @@ import { Tooltip } from "@ezds/tooltip";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type EZDSComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
 import { type SubIcon } from "@ezds/icon";
 import { Text } from "@ezds/typography";
 import styles from "./MenuItemButton.module.scss";
 import { type TooltipPositions, TooltipPositionsEnum } from "@ezds/tooltip";
 
-export interface MenuItemButtonProps extends VibeComponentProps {
+export interface MenuItemButtonProps extends EZDSComponentProps {
   /**
    * The style variant of the button.
    */

@@ -1,5 +1,3 @@
-import type { ColorToken } from "@ezds/tokens";
-
 /** Color key with Figma path slashes replaced by underscores for RN usage. */
 export type NativeColorKey = string;
 

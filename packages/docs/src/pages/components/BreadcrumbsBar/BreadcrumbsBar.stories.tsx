@@ -158,8 +158,8 @@ export const WithBreadcrumbMenu = {
       <BreadcrumbItem text="Group" icon={Group} />
       <BreadcrumbMenu>
         <BreadcrumbMenuItem title="Item 1" onClick={() => alert("Item 1 clicked")} />
-        <BreadcrumbMenuItem title="Item 2" link="https://www.monday.com" />
-        <BreadcrumbMenuItem title="Item 3" link="https://www.monday.com" />
+        <BreadcrumbMenuItem title="Item 2" link="https://www.ezcorp.com" />
+        <BreadcrumbMenuItem title="Item 3" link="https://www.ezcorp.com" />
       </BreadcrumbMenu>
       <BreadcrumbItem text="My Item" icon={Item} isCurrent />
     </BreadcrumbsBar>

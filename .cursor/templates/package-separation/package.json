@@ -1,17 +1,17 @@
 {
   "name": "@ezds/{{PACKAGE_NAME}}",
   "version": "3.0.0",
-  "description": "Vibe sub-package for {{COMPONENT_NAME}} component",
+  "description": "EZDS sub-package for {{COMPONENT_NAME}} component",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/components/{{PACKAGE_NAME}}"
   },
   "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
+    "url": "https://github.com/ezcorp/ezds/issues"
   },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
-  "author": "monday.com",
+  "homepage": "https://github.com/ezcorp/ezds#readme",
+  "author": "ezcorp.com",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

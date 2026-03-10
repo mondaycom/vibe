@@ -3,13 +3,13 @@ import cx from "classnames";
 import { noop as NOOP } from "es-toolkit";
 import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import styles from "./Toggle.module.scss";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type ToggleSize } from "./Toggle.types";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface ToggleProps extends VibeComponentProps {
+export interface ToggleProps extends EZDSComponentProps {
   /**
    * Class name applied when the toggle is selected.
    */
@@ -109,7 +109,7 @@ const Toggle = forwardRef(
         inputClassName={inputClassName}
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE)}
-        data-vibe={ComponentVibeId.TOGGLE}
+        data-ezds={ComponentEZDSId.TOGGLE}
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}

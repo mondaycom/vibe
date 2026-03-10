@@ -11,7 +11,7 @@ import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFiel
 import styles from "./NumberField.module.scss";
 import { Flex } from "@ezds/layout";
 import useMergeRef from "../../hooks/useMergeRef";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
 const NumberField = forwardRef(
   (
@@ -107,7 +107,7 @@ const NumberField = forwardRef(
         align="stretch"
         gap="xs"
         className={cx(styles.numberField, className)}
-        data-vibe={ComponentVibeId.NUMBER_FIELD}
+        data-ezds={ComponentEZDSId.NUMBER_FIELD}
       >
         <FieldLabel id={labelId} className={styles.label} labelText={label} required={required} labelFor={id} />
         <BaseInput

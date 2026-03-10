@@ -1,13 +1,13 @@
 import { type AriaAttributes, type AriaRole, type ReactElement } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { type BaseItemSizes } from "../BaseItem";
 
 export type BaseListElement = "div" | "nav" | "ul" | "ol";
 
 export type BaseListSizes = BaseItemSizes;
 
-export interface BaseListProps extends Omit<React.HTMLAttributes<HTMLElement>, "id">, VibeComponentProps {
+export interface BaseListProps extends Omit<React.HTMLAttributes<HTMLElement>, "id">, EZDSComponentProps {
   /**
    * A unique identifier for the list. Required to ensure unique IDs across micro-frontends.
    */

@@ -1,11 +1,11 @@
 import type React from "react";
 import { type LinkProps } from "../Link/Link";
-import { type VibeComponentProps } from "src/types";
+import { type EZDSComponentProps } from "src/types";
 import { type ButtonProps, type ButtonType } from "@ezds/button";
 
 export type EmptyStateLayout = "default" | "compact";
 
-export interface EmptyStateProps extends VibeComponentProps {
+export interface EmptyStateProps extends EZDSComponentProps {
   /** Optional title for the empty state */
   title?: string;
   /** Required description text explaining the empty state */

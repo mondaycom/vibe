@@ -4,13 +4,13 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { Icon } from "@ezds/icon";
 import { Text } from "@ezds/typography";
 import { DropdownChevronDown } from "@ezds/icons";
-import { type VibeComponentProps, type ElementContent } from "../../types";
+import { type EZDSComponentProps, type ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
 import { type ExpandCollapseIconPosition } from "./ExpandCollapse.types";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface ExpandCollapseProps extends VibeComponentProps {
+export interface ExpandCollapseProps extends EZDSComponentProps {
   /**
    * Custom renderer for the header component.
    */
@@ -124,7 +124,7 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
         className={className}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EXPAND_COLLAPSE, id)}
-        data-vibe={ComponentVibeId.EXPAND_COLLAPSE}
+        data-ezds={ComponentEZDSId.EXPAND_COLLAPSE}
       >
         <div
           className={cx(

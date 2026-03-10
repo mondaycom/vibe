@@ -113,12 +113,12 @@ describe("ColorPickerContent component migration", () => {
     transform,
     {},
     `
-      import { ColorPickerContent as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent colorStyle={ColorPickerContent.COLOR_STYLES.MEDIUM} />
+      import { ColorPickerContent as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent colorStyle={ColorPickerContent.COLOR_STYLES.MEDIUM} />
     `,
     `
-      import { ColorPickerContent as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent colorStyle={ColorPickerContent.colorStyles.MEDIUM} />
+      import { ColorPickerContent as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent colorStyle={ColorPickerContent.colorStyles.MEDIUM} />
     `,
     "should change when 'ColorPickerContent' is imported with alias from vibe"
   );

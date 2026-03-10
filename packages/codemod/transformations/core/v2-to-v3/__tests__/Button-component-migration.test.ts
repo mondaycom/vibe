@@ -145,12 +145,12 @@ describe("Button component migration", () => {
     transform,
     {},
     `
-      import { Button as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent dataTestId="unique-id">test</VibeComponent>
+      import { Button as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent dataTestId="unique-id">test</EZDSComponent>
     `,
     `
-      import { Button as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent data-testid="unique-id">test</VibeComponent>
+      import { Button as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent data-testid="unique-id">test</EZDSComponent>
     `,
     "should change when 'Button' is imported with alias from vibe"
   );

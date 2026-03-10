@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { Text } from "@ezds/typography";
 import styles from "./ListTitle.module.scss";
 
-export interface ListTitleProps extends VibeComponentProps {
+export interface ListTitleProps extends EZDSComponentProps {
   /**
    * The tab index for keyboard navigation.
    */

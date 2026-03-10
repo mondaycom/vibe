@@ -4,11 +4,11 @@ import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationConte
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { type CloseMenuOption } from "../Menu/MenuConstants";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
-export interface MenuGridItemProps extends VibeComponentProps {
+export interface MenuGridItemProps extends EZDSComponentProps {
   /**
    * The content of the menu grid item.
    */

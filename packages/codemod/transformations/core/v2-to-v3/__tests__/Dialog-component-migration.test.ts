@@ -113,12 +113,12 @@ describe("Dialog component migration", () => {
     transform,
     {},
     `
-      import { Dialog as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent shoudlCallbackOnMount  />
+      import { Dialog as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent shoudlCallbackOnMount  />
     `,
     `
-      import { Dialog as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent shouldCallbackOnMount  />
+      import { Dialog as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent shouldCallbackOnMount  />
     `,
     "should change when 'Dialog' is imported with alias from vibe"
   );

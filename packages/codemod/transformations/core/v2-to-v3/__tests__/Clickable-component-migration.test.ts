@@ -145,12 +145,12 @@ describe("Clickable component migration", () => {
     transform,
     {},
     `
-      import { Clickable as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent dataTestId="unique-id" />
+      import { Clickable as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent dataTestId="unique-id" />
     `,
     `
-      import { Clickable as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent data-testid="unique-id" />
+      import { Clickable as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent data-testid="unique-id" />
     `,
     "should change when 'Clickable' is imported with alias from vibe"
   );

@@ -1,5 +1,5 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { type SubIcon } from "@ezds/icon";
 
 interface WithoutDescription {
@@ -44,4 +44,4 @@ export type ModalHeaderProps = {
    */
   title: string | React.ReactNode;
 } & (WithDescription | WithoutDescription) &
-  VibeComponentProps;
+  EZDSComponentProps;

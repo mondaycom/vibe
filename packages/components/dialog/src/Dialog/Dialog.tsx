@@ -9,7 +9,7 @@ import {
   convertToArray,
   NOOP,
   isInsideClass,
-  type VibeComponentProps,
+  type EZDSComponentProps,
   ComponentDefaultTestId,
   getTestId,
   isClient
@@ -32,7 +32,7 @@ import {
 import { LayerContext, LayerProvider } from "@ezds/layer";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
-export interface DialogProps extends VibeComponentProps {
+export interface DialogProps extends EZDSComponentProps {
   /**
    * Class name applied to the reference wrapper element.
    */

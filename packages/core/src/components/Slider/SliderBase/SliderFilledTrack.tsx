@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import cx from "classnames";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./SliderFilledTrack.module.scss";
@@ -18,7 +18,7 @@ function defineFilledTrackProps(dimension: number, offset: number, reverse: bool
   };
 }
 
-export interface SliderFilledTrackProps extends VibeComponentProps {
+export interface SliderFilledTrackProps extends EZDSComponentProps {
   /**
    * The size of the filled track, based on the selected value.
    */

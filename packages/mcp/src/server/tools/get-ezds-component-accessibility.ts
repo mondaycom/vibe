@@ -13,10 +13,10 @@ const ComponentNameParamsSchema = z.object({
     .describe("The name of the component to get accessibility requirements for (e.g., Button, Checkbox, TextField)")
 });
 
-export const getVibeComponentAccessibility: MCPTool<typeof ComponentNameParamsSchema.shape> = {
-  name: "get-vibe-component-accessibility",
+export const getEZDSComponentAccessibility: MCPTool<typeof ComponentNameParamsSchema.shape> = {
+  name: "get-ezds-component-accessibility",
   description:
-    "Get accessibility requirements and guidelines for Vibe components. Returns structured accessibility information extracted from component documentation.",
+    "Get accessibility requirements and guidelines for EZDS components. Returns structured accessibility information extracted from component documentation.",
   inputSchema: ComponentNameParamsSchema.shape,
   execute: async (input: z.infer<typeof ComponentNameParamsSchema>) => {
     const { componentName } = input;

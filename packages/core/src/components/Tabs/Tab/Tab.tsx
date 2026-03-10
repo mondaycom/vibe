@@ -4,14 +4,14 @@ import { noop as NOOP } from "es-toolkit";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { Icon, type IconType, type SubIcon } from "@ezds/icon";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
 import { Tooltip, type TooltipProps } from "@ezds/tooltip";
-import { ComponentVibeId } from "../../../tests/constants";
+import { ComponentEZDSId } from "../../../tests/constants";
 import { keyCodes } from "../../../constants";
 
-export interface TabProps extends VibeComponentProps {
+export interface TabProps extends EZDSComponentProps {
   /**
    * Class name applied to the inner tab content.
    */
@@ -144,7 +144,7 @@ const Tab: FC<TabProps> = forwardRef(
           aria-controls={ariaControls || undefined}
           tabIndex={tabIndex}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
-          data-vibe={ComponentVibeId.TAB}
+          data-ezds={ComponentEZDSId.TAB}
           onClick={() => !disabled && onClick(value)}
           onKeyDown={handleKeyDown}
         >

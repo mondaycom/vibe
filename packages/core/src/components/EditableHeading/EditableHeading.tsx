@@ -1,16 +1,16 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
 import { Heading, HeadingTypeEnum, HeadingWeightEnum, type HeadingType, type HeadingWeight } from "@ezds/typography";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
+export interface EditableHeadingProps extends EZDSComponentProps, EditableTypographyImplementationProps {
   /**
    * The type of the heading element.
    */
@@ -30,7 +30,7 @@ const EditableHeading = forwardRef(
       <EditableTypography
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.EDITABLE_HEADING, id)}
-        data-vibe={ComponentVibeId.EDITABLE_HEADING}
+        data-ezds={ComponentEZDSId.EDITABLE_HEADING}
         component={Heading}
         typographyClassName={getStyle(styles, camelCase(type + "-" + weight))}
         type={type}

@@ -57,7 +57,7 @@ describe("Toast renders correctly", () => {
       .create(
         <Toast
           open
-          actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 1 }]}
+          actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://ezcorp.com", key: 1 }]}
         >
           Something Happened
         </Toast>
@@ -73,7 +73,7 @@ describe("Toast renders correctly", () => {
           open
           actions={[
             { type: "button", content: "Undo 5", key: 1 },
-            { type: "link", text: "Lorem ipsum", href: "https://monday.com", key: 2 }
+            { type: "link", text: "Lorem ipsum", href: "https://ezcorp.com", key: 2 }
           ]}
         >
           Something Happened

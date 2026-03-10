@@ -11,19 +11,19 @@ interface ContentColorRowProps {
 export const ContentColorRow: React.FC<ContentColorRowProps> = ({ colorName }) => {
   const regularStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, "regular")
+      backgroundColor: ColorUtils.getEZDSColorAsStyle(colorName, "regular")
     }),
     [colorName]
   );
   const hoverStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, "hover")
+      backgroundColor: ColorUtils.getEZDSColorAsStyle(colorName, "hover")
     }),
     [colorName]
   );
   const selectedStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, "selected")
+      backgroundColor: ColorUtils.getEZDSColorAsStyle(colorName, "selected")
     }),
     [colorName]
   );

@@ -1,5 +1,5 @@
 ---
-description: Use when creating interactive examples for Vibe's Storybook Playground (vibe.monday.com/playground) - including bug reproductions, component demonstrations, feasibility testing, or consumer examples. Triggered by keywords like "playground", "reproduce bug", "interactive example", "user reported an issue" or "demonstrate".
+description: Use when creating interactive examples for EZDS's Storybook Playground (design.ezcorp.com/playground) - including bug reproductions, component demonstrations, feasibility testing, or consumer examples. Triggered by keywords like "playground", "reproduce bug", "interactive example", "user reported an issue" or "demonstrate".
 alwaysApply: false
 ---
 
@@ -7,7 +7,7 @@ alwaysApply: false
 
 ## Overview
 
-Vibe supports a Playground in its Storybook, accessible at `vibe.monday.com/playground`.
+EZDS supports a Playground in its Storybook, accessible at `design.ezcorp.com/playground`.
 
 Your goal is to output a working playground code *directly in the chat* (do not write it to a file).
 
@@ -90,9 +90,9 @@ For multi-component bugs (e.g., re-render issues), define child components INSID
 
 ## Available Components
 
-### Default Components (Vibe 3.0 / Next)
+### Default Components (EZDS 3.0 / Next)
 
-All Vibe components are available by their standard names and default to the "next" versions:
+All EZDS components are available by their standard names and default to the "next" versions:
 
 ```javascript
 <Button />
@@ -103,21 +103,21 @@ All Vibe components are available by their standard names and default to the "ne
 
 ### Icons
 
-Access all Vibe icons via the `VibeIcons` prefix:
+Access all EZDS icons via the `EZDSIcons` prefix:
 
 ```javascript
-<VibeIcons.RemoveRound />
-<VibeIcons.Check />
-<VibeIcons.Close />
+<EZDSIcons.RemoveRound />
+<EZDSIcons.Check />
+<EZDSIcons.Close />
 ```
 
-### Legacy Components (Vibe 2.0)
+### Legacy Components (EZDS 2.0)
 
-To use older versions of components, use the `VibeLegacy` prefix:
+To use older versions of components, use the `EZDSLegacy` prefix:
 
 ```javascript
-<VibeLegacy.Modal />
-<VibeLegacy.Dropdown />
+<EZDSLegacy.Modal />
+<EZDSLegacy.Dropdown />
 ```
 
 ### React Hooks
@@ -162,8 +162,8 @@ Focus ONLY on reproducing the specific issue. Don't add unrelated complexity.
 () => {
   return (
     <Menu>
-      <MenuItem icon={<VibeIcons.Check />}>Item with icon</MenuItem>
-      <MenuItem icon={<VibeIcons.Star />}>Another with icon</MenuItem>
+      <MenuItem icon={<EZDSIcons.Check />}>Item with icon</MenuItem>
+      <MenuItem icon={<EZDSIcons.Star />}>Another with icon</MenuItem>
     </Menu>
   );
 };
@@ -224,7 +224,7 @@ Strip away everything not essential to demonstrating the issue:
 
 ## Accessing the Playground
 
-Users can access the playground directly at: **vibe.monday.com/playground**
+Users can access the playground directly at: **design.ezcorp.com/playground**
 
 Or navigate through Storybook UI to the "Playground" story.
 

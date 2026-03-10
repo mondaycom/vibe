@@ -10,7 +10,7 @@ import {
 } from "react-select";
 import { type UIEventHandler, type WheelEventHandler } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 
 export type DropdownOption = any;
 
@@ -64,7 +64,7 @@ export type DropdownState = {
   selectProps: { readOnly: boolean };
 };
 
-export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptionBaseProps, VibeComponentProps {
+export interface DropdownComponentProps extends CustomMenuBaseProps, CustomOptionBaseProps, EZDSComponentProps {
   /**
    * Class name applied to the dropdown's single value wrapper.
    */

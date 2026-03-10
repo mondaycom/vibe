@@ -6,7 +6,7 @@ import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
@@ -15,7 +15,7 @@ import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
 
-export interface AvatarGroupCounterProps extends VibeComponentProps {
+export interface AvatarGroupCounterProps extends EZDSComponentProps {
   /**
    * The list of avatars hidden behind the counter.
    */

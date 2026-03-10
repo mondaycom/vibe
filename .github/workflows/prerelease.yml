@@ -45,15 +45,18 @@ jobs:
           echo 'new_versions<<EOF' >> $GITHUB_OUTPUT
           echo "$json_output" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
-      - run: yarn config set registry https://registry.npmjs.org/
-      - name: Setup .npmrc for publish
-        run: npm set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Set up Node.js with GitHub Packages registry
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: "@ezds"
       - name: Publish new versions
         run: yarn lerna publish from-package --dist-tag prerelease -y
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Get current PR id
-        uses: 8BitJonny/gh-get-current-pr@3.0.0
+        uses: 8BitJonny/gh-get-current-pr@08e737c57a3a4eb24cec6487664b243b77eb5e36  # 3.0.0
         id: PR
       - name: Prepare PR comment
         if: steps.PR.outputs.pr_found == 'true'
@@ -71,7 +74,7 @@ jobs:
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: Create comment with prerelease version details
         if: steps.PR.outputs.pr_found == 'true'
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043  # v4
         with:
           issue-number: ${{ steps.PR.outputs.number }}
           body: ${{ steps.prepare-comment.outputs.comment_body }}

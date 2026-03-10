@@ -7,10 +7,10 @@ import { type TabPanelsAnimationDirection } from "./TabPanels.types";
 import { type TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
-export interface TabPanelsProps extends VibeComponentProps {
+export interface TabPanelsProps extends EZDSComponentProps {
   /**
    * The index of the currently active tab panel.
    */

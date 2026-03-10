@@ -56,7 +56,7 @@ export const CustomSvg = {
     <Icon
       id="custom-svg-icon"
       iconType="src"
-      icon="https://cdn.monday.com/images/apps/custom-icons/Form.svg"
+      icon="https://cdn.ezcorp.com/images/apps/custom-icons/Form.svg"
       iconLabel="my src awesome icon"
       useCurrentColor
     />

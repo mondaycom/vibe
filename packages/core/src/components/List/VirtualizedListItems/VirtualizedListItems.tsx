@@ -3,7 +3,7 @@ import cx from "classnames";
 import ListItem, { type ListItemProps } from "../../../components/ListItem/ListItem";
 import ListTitle, { type ListTitleProps } from "../../ListTitle/ListTitle";
 import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import { type ListItemIconProps } from "../../ListItemIcon/ListItemIcon";
 import styles from "./VirtualizedListItems.module.scss";
 
@@ -15,7 +15,7 @@ const ITEM_CHILDREN_TYPES = {
 const LIST_TITLE_HEIGHT = 48;
 const LIST_ITEM_HEIGHT = 32;
 
-export interface VirtualizedListItemsProps extends VibeComponentProps {
+export interface VirtualizedListItemsProps extends EZDSComponentProps {
   /**
    * The list of children.
    */

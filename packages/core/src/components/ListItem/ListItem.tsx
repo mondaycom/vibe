@@ -13,7 +13,7 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { Text } from "@ezds/typography";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticProps, type VibeComponentProps, type ElementContent } from "../../types";
+import { withStaticProps, type EZDSComponentProps, type ElementContent } from "../../types";
 import { useKeyEvent } from "../../hooks";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
@@ -22,7 +22,7 @@ import { type ListItemElement, type ListItemSize } from "./ListItem.types";
 import { type TooltipProps } from "@ezds/tooltip";
 import styles from "./ListItem.module.scss";
 
-export interface ListItemProps extends VibeComponentProps {
+export interface ListItemProps extends EZDSComponentProps {
   /**
    * The HTML element used for the list item.
    */

@@ -15,13 +15,13 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "author": "monday.com",
-  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "author": "ezcorp.com",
+  "homepage": "https://github.com/ezcorp/ezds#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/testkit"
   },
   "scripts": {
@@ -35,7 +35,7 @@
     "lint:fix": "yarn lint -- --fix"
   },
   "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
+    "url": "https://github.com/ezcorp/ezds/issues"
   },
   "devDependencies": {
     "@playwright/test": "1.49.1",

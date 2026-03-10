@@ -6,10 +6,10 @@ import React from "react";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import { Icon, type SubIcon } from "@ezds/icon";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./AvatarContent.module.scss";
 
-export interface AvatarContentProps extends VibeComponentProps {
+export interface AvatarContentProps extends EZDSComponentProps {
   /**
    * The image source when the type is set to `img`.
    */

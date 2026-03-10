@@ -16,7 +16,7 @@ import {
   TipseenColor as TipseenColorEnum
 } from "./TipseenConstants";
 import { type TipseenCloseButtonTheme, type TipseenColor } from "./Tipseen.types";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type EZDSComponentProps, withStaticProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
 import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -26,7 +26,7 @@ import styles from "./Tipseen.module.scss";
 import React from "react";
 import { type TooltipPositions, TooltipPositionsEnum } from "@ezds/tooltip";
 
-export interface TipseenProps extends VibeComponentProps {
+export interface TipseenProps extends EZDSComponentProps {
   /**
    * Class name applied to the Tipseen title.
    */

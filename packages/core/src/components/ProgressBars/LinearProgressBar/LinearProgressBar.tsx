@@ -10,12 +10,12 @@ import {
 import { type LinearProgressBarSize, type LinearProgressBarStyle } from "./LinearProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
+import { type EZDSComponentProps, withStaticProps } from "../../../types";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./LinearProgressBar.module.scss";
 
-export interface LinearProgressBarProps extends VibeComponentProps {
+export interface LinearProgressBarProps extends EZDSComponentProps {
   /**
    * Determines the visual style of the progress bar.
    */
@@ -184,7 +184,7 @@ const LinearProgressBar = forwardRef(
         ref={ref}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINEAR_PROGRESS_BAR, id)}
-        data-vibe={ComponentVibeId.LINEAR_PROGRESS_BAR}
+        data-ezds={ComponentEZDSId.LINEAR_PROGRESS_BAR}
       >
         <div className={styles.container}>
           {renderBaseBars}

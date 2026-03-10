@@ -10,12 +10,12 @@ body:
 
         Thank you for taking the time to report a bug!
         Please make sure to fill as much details as possible to help us better understand the bug.
-        If you have a question, suggestion, feature request, or need for help, please ask on [GitHub Discussions](https://github.com/mondaycom/vibe/discussions).
+        If you have a question, suggestion, feature request, or need for help, please ask on [GitHub Discussions](https://github.com/ezcorp/ezds/discussions).
         Thanks!
   - type: input
     id: version
     attributes:
-      label: Vibe version
+      label: EZDS version
       placeholder: e.g. 2.84.0
     validations:
       required: true
@@ -50,12 +50,12 @@ body:
     attributes:
       label: Reproduction example link
       description: |
-        Please provide a simple minimal example that reproduces the bug. Use this [StackBlitz](https://stackblitz.com/edit/vibe-bug-report) or anything similar
+        Please provide a simple minimal example that reproduces the bug. Use this [StackBlitz](https://stackblitz.com/edit/ezds-bug-report) or anything similar
   - type: textarea
     id: system-info
     attributes:
       label: System Info
-      description: Please run and copy the output of `npx envinfo --system --npmPackages monday-ui-react-core,@vibe/core,react --binaries --browsers`
+      description: Please run and copy the output of `npx envinfo --system --npmPackages monday-ui-react-core,@ezds/core,react --binaries --browsers`
       render: shell
       placeholder: Operating System, Browsers, React version
   - type: textarea

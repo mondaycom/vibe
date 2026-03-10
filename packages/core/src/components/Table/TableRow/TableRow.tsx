@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { type TableCellProps } from "../TableCell/TableCell";
 import useMergeRef from "../../../hooks/useMergeRef";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -8,7 +8,7 @@ import cx from "classnames";
 import styles from "./TableRow.module.scss";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 
-export interface TableRowProps extends VibeComponentProps {
+export interface TableRowProps extends EZDSComponentProps {
   /**
    * If true, applies a highlighted style to the row.
    */

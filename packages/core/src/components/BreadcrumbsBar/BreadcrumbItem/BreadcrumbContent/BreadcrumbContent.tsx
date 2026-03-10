@@ -1,11 +1,11 @@
 import React, { type ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 import { keyCodes } from "../../../../constants";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type SubIcon } from "@ezds/icon";
 import cx from "classnames";
 import styles from "./BreadcrumbContent.module.scss";
 
-export interface BreadcrumbContentProps extends VibeComponentProps {
+export interface BreadcrumbContentProps extends EZDSComponentProps {
   /**
    * If true, the breadcrumb is clickable.
    */

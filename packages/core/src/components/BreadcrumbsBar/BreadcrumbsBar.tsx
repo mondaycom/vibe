@@ -5,12 +5,12 @@ import { NavigationChevronRight } from "@ezds/icons";
 import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
 import { type BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { type BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 import { type BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface BreadcrumbBarProps extends VibeComponentProps {
+export interface BreadcrumbBarProps extends EZDSComponentProps {
   /**
    * The type of the breadcrumb bar, determining if it is navigational or for indication only.
    */
@@ -35,7 +35,7 @@ const BreadcrumbsBar = ({
     className={cx(styles.breadcrumbsBar, className)}
     id={id}
     data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMBS_BAR, id)}
-    data-vibe={ComponentVibeId.BREADCRUMBS_BAR}
+    data-ezds={ComponentEZDSId.BREADCRUMBS_BAR}
   >
     <ol>
       {children &&

@@ -161,12 +161,12 @@ describe("MenuItem component migration", () => {
     transform,
     {},
     `
-      import { MenuItem as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent classname="old-class" />
+      import { MenuItem as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent classname="old-class" />
     `,
     `
-      import { MenuItem as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { MenuItem as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'MenuItem' is imported with alias from vibe"
   );

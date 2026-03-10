@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React, { type FC, useMemo } from "react";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { Text } from "@ezds/typography";
 import styles from "./StepsNumbersHeader.module.scss";
 import { type StepsColor } from "./Steps.types";
 
-export interface StepsNumbersHeaderProps extends VibeComponentProps {
+export interface StepsNumbersHeaderProps extends EZDSComponentProps {
   /**
    * The index of the currently active step.
    */

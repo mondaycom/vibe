@@ -1,9 +1,9 @@
 import { type ModalFooterBaseProps } from "../ModalFooterBase/ModalFooterBase.types";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 
 export interface ModalFooterWizardProps
   extends Required<Pick<ModalFooterBaseProps, "primaryButton" | "secondaryButton">>,
-    VibeComponentProps {
+    EZDSComponentProps {
   /**
    * The total number of steps in the wizard.
    * Renders the corresponding number of step indicators ("dots") in the footer.

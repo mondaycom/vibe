@@ -1,7 +1,7 @@
 import React, { forwardRef, type PropsWithChildren, type ReactNode, useContext, useMemo, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TipseenMedia.module.scss";
@@ -9,7 +9,7 @@ import { TipseenContext } from "../Tipseen";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
 
-export interface TipseenMediaProps extends PropsWithChildren<VibeComponentProps> {
+export interface TipseenMediaProps extends PropsWithChildren<EZDSComponentProps> {
   /**
    * The media content displayed inside the Tipseen.
    */

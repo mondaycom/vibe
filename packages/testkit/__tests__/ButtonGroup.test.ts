@@ -72,7 +72,7 @@ test.describe("Testkit - Unit Tests - ButtonGroup", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await buttonGroup.getAttributeValue("data-vibe");
+    const attributeValue = await buttonGroup.getAttributeValue("data-ezds");
     expect(attributeValue).toContain("ButtonGroup");
   });
 });

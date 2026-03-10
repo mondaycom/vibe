@@ -167,7 +167,7 @@ export const Wizard: Story = {
         <ModalContent>
           <Flex direction="column" gap="medium">
             <TextField title="Full name" placeholder="John Dow" />
-            <TextField title="Email" placeholder="Email@monday.com" />
+            <TextField title="Email" placeholder="Email@ezcorp.com" />
           </Flex>
         </ModalContent>
         <ModalMedia>

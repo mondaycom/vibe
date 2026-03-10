@@ -1,12 +1,12 @@
 ---
-description: "Comprehensive guide for base components in `@vibe/core` library (BaseInput, BaseList, BaseListItem, InfoText, FieldLabel). Documents their usage patterns, accessibility requirements, form integration patterns, and what consumers need to provide for optimal accessibility and UX. These components serve as foundational building blocks for complex UI components like dropdowns, text fields, and other form controls. Those components are internal, for developing components in Vibe, and are not intended to be exported from the `@vibe/core` library."
+description: "Comprehensive guide for base components in `@ezds/core` library (BaseInput, BaseList, BaseListItem, InfoText, FieldLabel). Documents their usage patterns, accessibility requirements, form integration patterns, and what consumers need to provide for optimal accessibility and UX. These components serve as foundational building blocks for complex UI components like dropdowns, text fields, and other form controls. Those components are internal, for developing components in EZDS, and are not intended to be exported from the `@ezds/core` library."
 globs:
 alwaysApply: false
 ---
 
 # Base Components Guide
 
-This document outlines the usage patterns, accessibility requirements, and integration guidelines for the foundational base components in the `@vibe/core` library: `BaseInput`, `BaseList`, `BaseListItem`, `InfoText`, and `FieldLabel`.
+This document outlines the usage patterns, accessibility requirements, and integration guidelines for the foundational base components in the `@ezds/core` library: `BaseInput`, `BaseList`, `BaseListItem`, `InfoText`, and `FieldLabel`.
 
 ## Component Overview
 
@@ -234,7 +234,7 @@ Components support various size variants.
 
 Components use CSS custom properties for theming:
 
-- Design tokens from Vibe's styling library (`@ezds/web`)
+- Design tokens from EZDS's styling library (`@ezds/web`)
 - Automatic dark/light mode support
 - Consistent spacing and typography scales
 
@@ -242,7 +242,7 @@ Components use CSS custom properties for theming:
 
 ### 1. Use className Prop for Styling Base Components
 
-When styling base components from other components, always use their `className` prop instead of targeting them with CSS selectors like `[data-vibe]` or `[data-testid]`, element selectors, or other attribute selectors. This maintains clear component boundaries and prevents styling conflicts.
+When styling base components from other components, always use their `className` prop instead of targeting them with CSS selectors like `[data-ezds]` or `[data-testid]`, element selectors, or other attribute selectors. This maintains clear component boundaries and prevents styling conflicts.
 
 ```typescript
 // ✅ Good - Use className prop

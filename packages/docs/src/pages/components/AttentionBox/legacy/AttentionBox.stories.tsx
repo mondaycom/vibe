@@ -139,7 +139,7 @@ export const AttentionBoxWithLink = {
   render: () => (
     <AttentionBox id="with-link-attention-box" aria-label="Notification settings reminder" compact>
       <Flex justify="space-between" gap="xs" style={{ minWidth: "320px" }}>
-        Get your monday.com notifications
+        Get your ezcorp.com notifications
         <AttentionBoxLink id="learn-more-link" href="" text="Learn more" />
       </Flex>
     </AttentionBox>

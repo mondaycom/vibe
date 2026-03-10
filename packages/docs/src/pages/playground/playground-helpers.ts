@@ -1,12 +1,12 @@
-import * as VibeComponents from "@ezds/core";
+import * as EZDSComponents from "@ezds/core";
 import * as VibeIcons from "@ezds/icons";
-import * as VibeComponentsNext from "@ezds/core/next";
+import * as EZDSComponentsNext from "@ezds/core/next";
 import React from "react";
 
-const VibeLegacy = Object.fromEntries(Object.entries(VibeComponents).filter(([key]) => key in VibeComponentsNext));
-const combinedComponents = { ...VibeComponents, ...VibeComponentsNext };
+const VibeLegacy = Object.fromEntries(Object.entries(EZDSComponents).filter(([key]) => key in EZDSComponentsNext));
+const combinedComponents = { ...EZDSComponents, ...EZDSComponentsNext };
 
-export const playgroundVibeComponents = { ...combinedComponents, VibeLegacy, VibeIcons };
+export const playgroundEZDSComponents = { ...combinedComponents, VibeLegacy, VibeIcons };
 export const playgroundReactCommonHooks = {
   useState: React.useState,
   useEffect: React.useEffect,
@@ -25,7 +25,7 @@ const jsx = `() => {
   return (
     <Flex direction="column" className="playground">
       <img
-        src="https://vibe.monday.com/logo.svg"
+        src="https://design.ezcorp.com/logo.svg"
         alt="Vibe Logo"
         className="vibe-logo"
       />

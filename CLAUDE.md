@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-The **Vibe Design System** is monday.com's official React component library, managed as a Lerna monorepo with Yarn Workspaces. The main package `@ezds/core` provides the primary component library, while specialized packages handle icons, testing utilities, codemods, and more.
+The **EZDS Design System** is EZCORP's official React component library, managed as a Lerna monorepo with Yarn Workspaces. The main package `@ezds/core` provides the primary component library, while specialized packages handle icons, testing utilities, codemods, and more.
 
 ## Development Commands
 
@@ -96,16 +96,16 @@ Components are extracted from `@ezds/core` into standalone packages under `packa
 ## Development Patterns
 
 ### Component Creation Process
-1. **Types first** - Define interfaces in `*.types.ts` extending `VibeComponentProps`
-2. **Core component** - Use `forwardRef` pattern, mandatory `[data-vibe]` attribute
+1. **Types first** - Define interfaces in `*.types.ts` extending `EZDSComponentProps`
+2. **Core component** - Use `forwardRef` pattern, mandatory `[data-ezds]` attribute
 3. **Styles** - CSS Modules, use design tokens, no imports in SCSS files
 4. **Tests** - Test actual behavior, verify accessibility attributes
 5. **Stories** - Comprehensive Storybook examples
-6. **Integration** - Add to global exports and `ComponentVibeId` enum
+6. **Integration** - Add to global exports and `ComponentEZDSId` enum
 
 ### Critical Requirements
-- **`[data-vibe]` attribute**: Every component must include this on the root element
-- **ComponentVibeId enum**: Add entry to `packages/core/src/tests/constants.ts`
+- **`[data-ezds]` attribute**: Every component must include this on the root element
+- **ComponentEZDSId enum**: Add entry to `packages/core/src/tests/constants.ts`
 - **No static properties**: Use string literals for prop values, not static properties
 - **CSS Modules**: No imports allowed in `.module.scss` files
 
@@ -126,11 +126,11 @@ When extracting components from `@ezds/core`:
 - Clear TypeScript cache (`rm -rf .rpt2_cache`)
 
 ### MCP Integration
-The repository includes an MCP (Model Context Protocol) server (`@ezds/mcp`) that provides intelligent assistance for working with Vibe components. Reference the MCP documentation for API discovery and usage examples.
+The repository includes an MCP (Model Context Protocol) server (`@ezds/mcp`) that provides intelligent assistance for working with EZDS components. Reference the MCP documentation for API discovery and usage examples.
 
 ### Build System
 - **Rollup** for bundling with TypeScript support
-- **Independent versioning** via Lerna
+- **Fixed versioning** via Lerna (all packages share one version number)
 - **Metadata generation** for component documentation
 - **CSS token handling** via `@ezds/web` package
 
@@ -144,7 +144,7 @@ The repository includes an MCP (Model Context Protocol) server (`@ezds/mcp`) tha
 ### Key Source Locations
 - **`packages/core/src/components/index.ts`** - Main component exports
 - **`packages/core/src/tests/constants.ts`** - Test IDs and component identifiers
-- **`packages/core/src/types/VibeComponentProps.ts`** - Base component props interface
+- **`packages/core/src/types/EZDSComponentProps.ts`** - Base component props interface
 
 ## Migration and Legacy
 - **Vibe 2 → 3**: Migration guide available in documentation

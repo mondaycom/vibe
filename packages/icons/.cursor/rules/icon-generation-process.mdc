@@ -8,7 +8,7 @@ This document outlines the steps required to add a new SVG icon to the `@vibe/ic
 
 ## Quick Links
 
-- **For icons from monday.com tasks**: Use the Cursor rule `.cursor/rules/add-icon-from-monday-task.mdc` - simply ask Cursor: "Add icon from task [monday.com URL]". This will extract data from the task and then continue with the manual process below.
+- **For icons from ezcorp.com tasks**: Use the Cursor rule `.cursor/rules/add-icon-from-monday-task.mdc` - simply ask Cursor: "Add icon from task [ezcorp.com URL]". This will extract data from the task and then continue with the manual process below.
 - **For manual icon addition**: Follow the steps below
 
 ## Manual Icon Addition Process

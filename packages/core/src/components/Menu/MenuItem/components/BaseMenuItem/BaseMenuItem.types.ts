@@ -1,7 +1,7 @@
 import { type MenuItemProps } from "../../MenuItem";
 import { type MenuChild } from "../../../Menu/MenuConstants";
 import type React from "react";
-import { type VibeComponentProps } from "../../../../../types";
+import { type EZDSComponentProps } from "../../../../../types";
 
 export type LossMenuItemProps = Omit<
   MenuItemProps,
@@ -23,7 +23,7 @@ export type LossMenuItemProps = Omit<
   | "children"
 >;
 
-export interface BaseMenuItemProps extends LossMenuItemProps, VibeComponentProps {
+export interface BaseMenuItemProps extends LossMenuItemProps, EZDSComponentProps {
   // TODO: [breaking] MenuItem can accept only Menu element as first level, it accepts MenuChild[] as subMenu even though it is not valid.
   /**
    * The submenu items associated with this menu item.

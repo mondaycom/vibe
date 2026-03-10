@@ -32,7 +32,7 @@ import "@ezds/web/dist/index.min.css";
 import "@ezds/storybook-blocks/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
 import {
-  playgroundVibeComponents,
+  playgroundEZDSComponents,
   playgroundReactCommonHooks,
   introCode
 } from "../src/pages/playground/playground-helpers";
@@ -132,7 +132,7 @@ const preview: Preview = {
     playground: {
       storyId: "playground",
       components: {
-        ...playgroundVibeComponents,
+        ...playgroundEZDSComponents,
         ...playgroundReactCommonHooks
       },
       introCode,

@@ -16,7 +16,7 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type EZDSComponentProps, withStaticProps } from "../../types";
 import {
   type IComboboxCategoryMap,
   type IComboboxItem,
@@ -28,10 +28,10 @@ import styles from "./Combobox.module.scss";
 import { type ComboboxSizes } from "./Combobox.types";
 import type { IconButton } from "@ezds/icon-button";
 import type MenuButton from "../MenuButton/MenuButton";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 import { type SubIcon } from "@ezds/icon";
 
-export interface ComboboxProps extends VibeComponentProps {
+export interface ComboboxProps extends EZDSComponentProps {
   /**
    * Class name applied to each option item.
    */
@@ -376,7 +376,7 @@ const Combobox = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.COMBOBOX, id)}
         ellipsis={false}
-        data-vibe={ComponentVibeId.COMBOBOX}
+        data-ezds={ComponentEZDSId.COMBOBOX}
       >
         <div className={styles.comboboxList} style={{ maxHeight: optionsListHeight }}>
           <Search

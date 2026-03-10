@@ -1,12 +1,12 @@
 import React, { type FC } from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { Text } from "@ezds/typography";
 import cx from "classnames";
 import styles from "./TipseenTitle.module.scss";
 
-export interface TipseenTitleProps extends VibeComponentProps {
+export interface TipseenTitleProps extends EZDSComponentProps {
   /**
    * The title text displayed in the Tipseen.
    */

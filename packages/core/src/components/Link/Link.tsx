@@ -5,13 +5,13 @@ import { NOOP } from "../../utils/function-utils";
 import { Icon, type SubIcon } from "@ezds/icon";
 import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
 import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.types";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import styles from "./Link.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface LinkProps extends VibeComponentProps {
+export interface LinkProps extends EZDSComponentProps {
   /**
    * Class name applied to the link text.
    */
@@ -116,7 +116,7 @@ const Link = forwardRef(
     return (
       <a
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.LINK, id)}
-        data-vibe={ComponentVibeId.LINK}
+        data-ezds={ComponentEZDSId.LINK}
         id={id}
         href={href}
         rel={rel}

@@ -1,5 +1,5 @@
 ---
-description: "This rule defines conventions for the internal structure of React components within the `@vibe/core` library (located in "packages/core" directory). Adhering to these conventions ensures consistency, readability, and maintainability across the codebase."
+description: "This rule defines conventions for the internal structure of React components within the `@ezds/core` library (located in "packages/core" directory). Adhering to these conventions ensures consistency, readability, and maintainability across the codebase."
 globs:
     - packages/core/src/components/**/*.tsx
 alwaysApply: false
@@ -23,7 +23,7 @@ Imports should be ordered as follows:
 
 1. **React Import**: `import React, { ... } from "react";`.
 2. **Third-party Libraries**: e.g., `import cx from "classnames";`.
-3. **Vibe Libraries (@vibe)**: e.g., `import { MyIcon } from "@vibe/icons";`.
+3. **EZDS Libraries (@ezds)**: e.g., `import { MyIcon } from "@ezds/icons";`.
 4. **Internal Components/Hooks/Utils from the library**: e.g., `import useMergeRef from "../../hooks/useMergeRef";`.
 5. **Type Imports**: e.g., `import { MyComponentProps } from "./MyComponent.types";`.
 6. **Rest of the imports**: e.g., everything other than styles should be here.

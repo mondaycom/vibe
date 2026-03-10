@@ -1,14 +1,14 @@
 import ToggleText from "./ToggleText";
 import cx from "classnames";
 import React, { type FC } from "react";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import styles from "./MockToggle.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { type ToggleSize } from "./Toggle.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
-export interface MockToggleProps extends VibeComponentProps {
+export interface MockToggleProps extends EZDSComponentProps {
   /**
    * If true, hides the on/off labels.
    */

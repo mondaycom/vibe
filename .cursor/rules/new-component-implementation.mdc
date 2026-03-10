@@ -1,12 +1,12 @@
 ---
-description: "Provides a systematic, research-driven workflow for implementing new Vibe components - for the @vibe/core library (located in "packages/core") - from initial research through final validation. Emphasizes studying existing patterns, following established conventions, and systematic progression through types, component implementation, styling, testing, and documentation to ensure consistency and quality."
+description: "Provides a systematic, research-driven workflow for implementing new EZDS components - for the @ezds/core library (located in "packages/core") - from initial research through final validation. Emphasizes studying existing patterns, following established conventions, and systematic progression through types, component implementation, styling, testing, and documentation to ensure consistency and quality."
 globs:
 alwaysApply: false
 ---
 
 # New Component Implementation Workflow
 
-**Purpose**: Provides a systematic approach to implementing new Vibe components, ensuring consistency, efficiency, and adherence to project standards.
+**Purpose**: Provides a systematic approach to implementing new EZDS components, ensuring consistency, efficiency, and adherence to project standards.
 
 ## Pre-Implementation Research Phase
 
@@ -22,7 +22,7 @@ Before writing any code, examine 2-3 existing components that share similar func
 
 ### Identify Dependencies
 
-Research the exact APIs of Vibe components you'll integrate with:
+Research the exact APIs of EZDS components you'll integrate with:
 
 - **Typography**: [Text.tsx](mdc:packages/core/src/components/Text/Text.tsx), [Heading.tsx](mdc:packages/core/src/components/Heading/Heading.tsx)
 - **Actions**: [Button.tsx](mdc:packages/core/src/components/Button/Button.tsx), [Link.tsx](mdc:packages/core/src/components/Link/Link.tsx)
@@ -33,7 +33,7 @@ Research the exact APIs of Vibe components you'll integrate with:
 
 ### Understand Project Structure
 
-- Base types: [VibeComponentProps.ts](mdc:packages/core/src/types/VibeComponentProps.ts)
+- Base types: [EZDSComponentProps.ts](mdc:packages/core/src/types/EZDSComponentProps.ts)
 - Test utilities: [test-ids-utils.ts](mdc:packages/core/src/tests/test-ids-utils.ts)
 - Constants: [constants.ts](mdc:packages/core/src/tests/constants.ts)
 - Design tokens: Check existing SCSS files for available CSS custom properties
@@ -44,7 +44,7 @@ Research the exact APIs of Vibe components you'll integrate with:
 
 ### 1. Types First (`ComponentName.types.ts`)
 
-- Extend [VibeComponentProps.ts](mdc:packages/core/src/types/VibeComponentProps.ts)
+- Extend [EZDSComponentProps.ts](mdc:packages/core/src/types/EZDSComponentProps.ts)
 - Define clear interfaces before implementation
 - Use `ReactNode` for flexible content props
 - Follow existing patterns from similar components
@@ -54,37 +54,37 @@ Research the exact APIs of Vibe components you'll integrate with:
 ### 2. Core Component (`ComponentName.tsx`)
 
 - Use `forwardRef` pattern. For example following [Button.tsx](mdc:packages/core/src/components/Button/Button.tsx)
-- Import from established Vibe components
+- Import from established EZDS components
 - Follow existing test ID patterns from [constants.ts](mdc:packages/core/src/tests/constants.ts)
 - Use CSS Modules for styling
-- **MANDATORY**: Add `[data-vibe]` attribute for component identification
+- **MANDATORY**: Add `[data-ezds]` attribute for component identification
 
-#### Essential `[data-vibe]` Attribute Implementation
+#### Essential `[data-ezds]` Attribute Implementation
 
-**CRITICAL**: Every new component MUST include the `[data-vibe]` attribute on its root element for component identification in the DOM.
+**CRITICAL**: Every new component MUST include the `[data-ezds]` attribute on its root element for component identification in the DOM.
 
 **Import Pattern**:
 
 ```tsx
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 ```
 
 **Usage Pattern**:
 Add to the root element's props:
 
 ```tsx
-data-vibe={ComponentVibeId.ATTENTION_BOX}
+data-ezds={ComponentEZDSId.ATTENTION_BOX}
 ```
 
 **Implementation Examples**:
 
 **Enum Naming Pattern**:
-The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
+The `ComponentEZDSId` enum follows SCREAMING_SNAKE_CASE format. For example:
 
-- `Button` → `ComponentVibeId.BUTTON`
-- `AttentionBox` → `ComponentVibeId.ATTENTION_BOX`
-- `MenuButton` → `ComponentVibeId.MENU_BUTTON`
-- `LinearProgressBar` → `ComponentVibeId.LINEAR_PROGRESS_BAR`
+- `Button` → `ComponentEZDSId.BUTTON`
+- `AttentionBox` → `ComponentEZDSId.ATTENTION_BOX`
+- `MenuButton` → `ComponentEZDSId.MENU_BUTTON`
+- `LinearProgressBar` → `ComponentEZDSId.LINEAR_PROGRESS_BAR`
 
 **References**:
 
@@ -124,15 +124,15 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 
 - Update [components/index.ts](mdc:packages/core/src/components/index.ts) in alphabetical order
 - Add test IDs to [constants.ts](mdc:packages/core/src/tests/constants.ts) enum
-- **MANDATORY**: Add your component to the `ComponentVibeId` enum in [constants.ts](mdc:packages/core/src/tests/constants.ts)
+- **MANDATORY**: Add your component to the `ComponentEZDSId` enum in [constants.ts](mdc:packages/core/src/tests/constants.ts)
 
-#### Adding ComponentVibeId Enum Value
+#### Adding ComponentEZDSId Enum Value
 
-**CRITICAL**: Every new component MUST have a corresponding entry in the `ComponentVibeId` enum.
+**CRITICAL**: Every new component MUST have a corresponding entry in the `ComponentEZDSId` enum.
 
 **Steps**:
 
-1. Find the `ComponentVibeId` enum
+1. Find the `ComponentEZDSId` enum
 2. Add your component in alphabetical order using SCREAMING_SNAKE_CASE format
 
 **Naming Convention**: Use the exact component name as the enum value, but the key should be in SCREAMING_SNAKE_CASE:
@@ -176,7 +176,7 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 
 - Verify component exports work by importing in test file
 - Check that all test IDs are properly defined in [constants.ts](mdc:packages/core/src/tests/constants.ts)
-- Ensure component follows established Vibe patterns
+- Ensure component follows established EZDS patterns
 
 ## Key Principles
 
@@ -203,7 +203,7 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 
 - **Test Real Behavior**: Verify actual DOM output and accessibility attributes
 - **Follow Conventions**: Use established patterns for file structure and naming
-- **Integrate Properly**: Ensure component works within the existing Vibe ecosystem
+- **Integrate Properly**: Ensure component works within the existing EZDS ecosystem
 
 ## Common Pitfalls to Avoid
 
@@ -212,6 +212,6 @@ The `ComponentVibeId` enum follows SCREAMING_SNAKE_CASE format. For example:
 3. **Test Assumptions**: Test actual behavior (disabled buttons may use `aria-disabled` vs `disabled`)
 4. **Missing Integration**: Forgetting to add exports to main index files or test constants
 5. **Design Token Guessing**: Check existing SCSS files for available CSS custom properties
-6. **Missing `[data-vibe]` Attribute**: Forgetting to add the mandatory `[data-vibe]` attribute or missing the corresponding `ComponentVibeId` enum entry
+6. **Missing `[data-ezds]` Attribute**: Forgetting to add the mandatory `[data-ezds]` attribute or missing the corresponding `ComponentEZDSId` enum entry
 
-This workflow ensures consistent, high-quality component implementation that integrates seamlessly with the Vibe design system.
+This workflow ensures consistent, high-quality component implementation that integrates seamlessly with the EZDS design system.

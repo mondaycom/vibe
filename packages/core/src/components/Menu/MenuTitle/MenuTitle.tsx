@@ -6,10 +6,10 @@ import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils
 import { Text } from "@ezds/typography";
 import { MenuTitleCaptionPosition as MenuTitleCaptionPositionEnum } from "./MenuTitleConstants";
 import { type MenuTitleCaptionPosition } from "./MenuTitle.type";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import styles from "./MenuTitle.module.scss";
 
-export interface MenuTitleProps extends VibeComponentProps {
+export interface MenuTitleProps extends EZDSComponentProps {
   /**
    * The caption text displayed alongside the title.
    */

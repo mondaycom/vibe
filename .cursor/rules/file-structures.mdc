@@ -1,10 +1,10 @@
 ---
-description: "Outlines file and directory structure conventions within the `@vibe/core` package (located in `packages/core/`), including top-level "src/" and component-specific organization (tests, stories, sub-components, hooks)."
+description: "Outlines file and directory structure conventions within the `@ezds/core` package (located in `packages/core/`), including top-level "src/" and component-specific organization (tests, stories, sub-components, hooks)."
 globs: 
 alwaysApply: false
 ---
 
-# File Structure Conventions for @vibe/core
+# File Structure Conventions for @ezds/core
 
 This document outlines the typical file and directory structure within the `packages/core` library. Adhering to these conventions helps maintain consistency and predictability across the codebase.
 
@@ -15,10 +15,10 @@ The `packages/core/src` directory generally contains the following:
 - **`components/`**: Houses all UI components. Each component resides in its own subdirectory.
 - **`hooks/`**: Contains custom React hooks that are reusable across multiple components.
 - **`utils/`**: Includes utility functions that are not specific to any single component or hook.
-- **`types/`**: Defines shared TypeScript types and interfaces used throughout the `@vibe/core` library.
+- **`types/`**: Defines shared TypeScript types and interfaces used throughout the `@ezds/core` library.
 - **`constants/`**: Stores constant values used across the library.
 - **`styles/`**: Can include global styles or theme-related style files, although most component-specific styling is co-located with the component. It is preferred to not add new code to this directory.
-- **`index.ts`**: The main export file for the `@vibe/core` library, re-exporting key modules and components.
+- **`index.ts`**: The main export file for the `@ezds/core` library, re-exporting key modules and components.
 
 ## Component-Specific Structure (`packages/core/src/components/ComponentName/`)
 

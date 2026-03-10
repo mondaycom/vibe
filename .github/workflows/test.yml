@@ -70,7 +70,7 @@ jobs:
           CI: true
           WORKERS: "50%"
         shell: bash
-        run: yarn lerna run test:changed $SINCE_FLAG --scope "@vibe/testkit"
+        run: yarn lerna run test:changed $SINCE_FLAG --scope "@ezds/testkit"
       - uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:

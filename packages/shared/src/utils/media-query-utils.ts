@@ -14,7 +14,7 @@ export const MEDIA_QUERY_QUERIES = {
   [XLARGE]: "screen and (min-width: 1920px)"
 };
 
-export const VIBE_MEDIA_QUERIES = [
+export const EZDS_MEDIA_QUERIES = [
   MEDIA_QUERY_QUERIES[SMALL1],
   MEDIA_QUERY_QUERIES[SMALL2],
   MEDIA_QUERY_QUERIES[MEDIUM1],

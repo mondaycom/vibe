@@ -163,12 +163,12 @@ describe("ThemeProvider component migration", () => {
     transform,
     {},
     `
-      import { ThemeProvider as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent theme={context.themeConfig} />
+      import { ThemeProvider as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent theme={context.themeConfig} />
     `,
     `
-      import { ThemeProvider as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent themeConfig={context.themeConfig} />
+      import { ThemeProvider as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent themeConfig={context.themeConfig} />
     `,
     "should change when 'ThemeProvider' is imported with alias from vibe"
   );

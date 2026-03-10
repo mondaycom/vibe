@@ -79,7 +79,7 @@ test.describe("Testkit - Unit Tests - TextArea", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await textArea.getAttributeValue("data-vibe");
+    const attributeValue = await textArea.getAttributeValue("data-ezds");
     expect(attributeValue).toContain("TextArea");
   });
 

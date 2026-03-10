@@ -1,8 +1,8 @@
-# Vibe Storybook Components
+# EZDS Storybook Components
 
 ![image](https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png)
 
-[monday.com](https://www.monday.com) Collection of Storybook components, with which [Vibe](https://github.com/mondaycom/vibe) storybook is built - [vibe.monday.com](https://vibe.monday.com).
+[ezcorp.com](https://www.ezcorp.com) Collection of Storybook components, with which [EZDS](https://github.com/ezcorp/ezds) storybook is built - [design.ezcorp.com](https://design.ezcorp.com).
 
 ## Installation
 

@@ -1,6 +1,6 @@
 import type React from "react";
 import { type DropdownListGroup } from "./components/DropdownBaseList/DropdownBaseList.types";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { type BaseItemData } from "../../BaseItem";
 import { type TooltipProps } from "@ezds/tooltip";
 
@@ -99,7 +99,7 @@ type BoxModeConstraint =
       boxMode?: boolean;
     };
 
-export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>> = VibeComponentProps &
+export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>> = EZDSComponentProps &
   BoxModeConstraint & {
     /**
      * The list of options available in the list.

@@ -20,3 +20,25 @@ scripts/performance/reports/*.json
 scripts/performance/reports/*.md
 .size-limit.js
 .worktrees
+
+# Build caches
+.rpt2_cache
+.rollup.cache
+.turbo
+*.tsbuildinfo
+
+# Logs
+yarn-error.log
+*.log
+!build-storybook.log
+!chromatic.log
+
+# Local env files
+.env.local
+.env.*.local
+
+# Playwright
+packages/testkit/playwright-report
+
+# Generated docs
+docs/

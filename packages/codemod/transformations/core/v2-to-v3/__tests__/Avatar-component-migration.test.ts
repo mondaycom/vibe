@@ -147,12 +147,12 @@ describe("Avatar component migration", () => {
     transform,
     {},
     `
-      import { Avatar as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent isSquare />
+      import { Avatar as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent isSquare />
     `,
     `
-      import { Avatar as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent square />
+      import { Avatar as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent square />
     `,
     "should change when 'Avatar' is imported with alias from vibe"
   );

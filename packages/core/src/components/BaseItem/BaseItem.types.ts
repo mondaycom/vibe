@@ -1,6 +1,6 @@
 import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { type TooltipProps } from "@ezds/tooltip";
 import { type ChipsProps } from "../Chips";
 import { type SubIcon } from "@ezds/icon";
@@ -10,7 +10,7 @@ export type BaseItemDirection = "ltr" | "rtl" | "auto";
 
 export interface BaseItemProps<Item extends Record<string, unknown>>
   extends Omit<React.HTMLAttributes<HTMLElement>, "role">,
-    VibeComponentProps {
+    EZDSComponentProps {
   /**
    * The HTML element to render. Defaults to "li".
    */

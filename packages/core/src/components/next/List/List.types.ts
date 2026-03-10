@@ -1,11 +1,11 @@
 import { type ReactElement, type AriaRole } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { type BaseListSizes, type BaseListElement } from "../../BaseList";
 
 export type ListSize = BaseListSizes;
 export type ListElement = BaseListElement;
 
-export interface ListProps extends VibeComponentProps {
+export interface ListProps extends EZDSComponentProps {
   /**
    * The HTML element to render as. Defaults to "ul".
    */

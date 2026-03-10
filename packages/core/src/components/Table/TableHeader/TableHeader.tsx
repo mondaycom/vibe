@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import styles from "./TableHeader.module.scss";
 import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import cx from "classnames";
@@ -8,7 +8,7 @@ import { ComponentDefaultTestId } from "../../../tests/constants";
 import { useTable } from "../context/TableContext/TableContext";
 import useMergeRef from "../../../hooks/useMergeRef";
 
-export interface TableHeaderProps extends VibeComponentProps {
+export interface TableHeaderProps extends EZDSComponentProps {
   /**
    * The child elements inside the table header, typically `<TableHeaderCell />` components.
    */

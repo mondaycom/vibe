@@ -67,7 +67,7 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
       checkbox.getPage(),
       checkbox.getLocator().locator("div"),
       "Checkbox"
-    ).getAttributeValue("data-vibe");
+    ).getAttributeValue("data-ezds");
     expect(attributeValue).toContain("Checkbox");
   });
 });

@@ -1,17 +1,17 @@
 {
   "name": "@ezds/mcp",
   "version": "0.8.2",
-  "description": "Vibe's MCP server to interact with the Vibe ecosystem",
+  "description": "EZDS MCP server to interact with the EZDS ecosystem",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/mcp"
   },
   "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
+    "url": "https://github.com/ezcorp/ezds/issues"
   },
-  "homepage": "https://github.com/mondaycom/vibe/tree/main/packages/mcp#readme",
-  "author": "monday.com",
+  "homepage": "https://github.com/ezcorp/ezds/tree/main/packages/mcp#readme",
+  "author": "ezcorp.com",
   "license": "MIT",
   "type": "module",
   "bin": "./dist/index.js",

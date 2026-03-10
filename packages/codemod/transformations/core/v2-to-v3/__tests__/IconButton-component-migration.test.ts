@@ -145,12 +145,12 @@ describe("IconButton component migration", () => {
     transform,
     {},
     `
-      import { IconButton as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent dataTestId="unique-id" />
+      import { IconButton as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent dataTestId="unique-id" />
     `,
     `
-      import { IconButton as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent data-testid="unique-id" />
+      import { IconButton as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent data-testid="unique-id" />
     `,
     "should change when 'IconButton' is imported with alias from vibe"
   );

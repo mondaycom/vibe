@@ -1,4 +1,4 @@
-export default interface VibeComponentProps {
+export default interface EZDSComponentProps {
   /**
    * A CSS class name to apply to the component.
    */

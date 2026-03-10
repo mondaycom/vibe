@@ -16,13 +16,13 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponent, type VibeComponentProps } from "../../types";
+import { type EZDSComponent, type EZDSComponentProps } from "../../types";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
 import { type VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
 
-export interface VirtualizedGridProps extends VibeComponentProps {
+export interface VirtualizedGridProps extends EZDSComponentProps {
   /**
    * The list of items to be rendered in the grid.
    */
@@ -285,7 +285,7 @@ const VirtualizedGrid = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {cellRenderer as unknown as VibeComponent<GridChildComponentProps>}
+                {cellRenderer as unknown as EZDSComponent<GridChildComponentProps>}
               </Grid>
             );
           }}

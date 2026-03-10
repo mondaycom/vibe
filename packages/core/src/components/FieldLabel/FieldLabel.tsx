@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, { type FC, type ForwardedRef, forwardRef } from "react";
 import { Icon } from "@ezds/icon";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import styles from "./FieldLabel.module.scss";
 
-export interface FieldLabelProps extends VibeComponentProps {
+export interface FieldLabelProps extends EZDSComponentProps {
   /**
    * The icon displayed next to the label.
    */

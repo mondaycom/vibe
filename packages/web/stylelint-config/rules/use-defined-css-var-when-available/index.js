@@ -1,6 +1,6 @@
 const stylelint = require("stylelint");
 const valueParser = require("postcss-value-parser");
-const { getPropsToAllowedCssVars } = require("./parse-monday-css");
+const { getPropsToAllowedCssVars } = require("./parse-ezds-css");
 
 const { report, ruleMessages, validateOptions } = stylelint.utils;
 

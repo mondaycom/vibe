@@ -4,13 +4,13 @@ import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { calculatePercentage } from "../LinearProgressBarHelpers";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type LinearProgressBarStyle } from "../LinearProgressBar.types";
 import styles from "./Bar.module.scss";
 
 export type BarType = "primary" | "secondary";
 
-export interface BarProps extends VibeComponentProps {
+export interface BarProps extends EZDSComponentProps {
   /**
    * Determines the visual style of the progress bar.
    */

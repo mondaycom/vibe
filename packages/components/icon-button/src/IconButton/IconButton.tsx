@@ -3,11 +3,11 @@ import cx from "classnames";
 import { noop as NOOP } from "es-toolkit";
 import {
   useMergeRef,
-  type VibeComponentProps,
+  type EZDSComponentProps,
   withStaticProps,
   getTestId,
   ComponentDefaultTestId,
-  ComponentVibeId,
+  ComponentEZDSId,
   getStyle
 } from "@ezds/shared";
 import { Tooltip, type TooltipProps } from "@ezds/tooltip";
@@ -17,7 +17,7 @@ import { getWidthHeight, type Size } from "./services/IconButton-helpers";
 import { Button, type ButtonColor, type ButtonType } from "@ezds/button";
 import styles from "./IconButton.module.scss";
 
-export interface IconButtonProps extends VibeComponentProps {
+export interface IconButtonProps extends EZDSComponentProps {
   /**
    * Callback fired when the button is clicked.
    */
@@ -225,7 +225,7 @@ const IconButton = forwardRef(
             ref={mergedRef}
             id={id}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
-            data-vibe={ComponentVibeId.ICON_BUTTON}
+            data-ezds={ComponentEZDSId.ICON_BUTTON}
             noSidePadding
             active={active}
             className={className}

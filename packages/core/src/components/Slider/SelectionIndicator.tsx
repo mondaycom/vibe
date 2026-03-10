@@ -3,7 +3,7 @@ import { debounce } from "es-toolkit";
 import TextField from "../TextField/TextField";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { type InfixKind } from "./Slider.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import styles from "./SelectionIndicator.module.scss";
 
 const VALUE_UPDATE_DELAY = 300;
@@ -22,7 +22,7 @@ function parseValue(valueText: string) {
   return valueText.replace(/\D/g, "");
 }
 
-export interface SelectionIndicatorProps extends VibeComponentProps {
+export interface SelectionIndicatorProps extends EZDSComponentProps {
   /**
    * Determines whether the selection indicator is a prefix or postfix.
    */

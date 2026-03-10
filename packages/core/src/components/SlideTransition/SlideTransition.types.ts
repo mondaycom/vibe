@@ -1,7 +1,7 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 
-export interface SlideTransitionProps extends VibeComponentProps {
+export interface SlideTransitionProps extends EZDSComponentProps {
   /**
    * The direction of the slide transition.
    */

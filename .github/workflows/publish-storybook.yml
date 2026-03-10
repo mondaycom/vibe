@@ -11,7 +11,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Run Setup
@@ -21,13 +21,12 @@ jobs:
       - name: Build & deploy Storybooks to GitHub Pages
         run: |
           yarn lerna run build --include-dependencies
-          yarn lerna run --scope @vibe/docs build-storybook
+          yarn lerna run --scope @ezds/docs build-storybook
           cd packages/docs/static_storybook
-          echo "vibe.monday.com" > ./CNAME
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Push core Storybook to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e  # v4.5.0
         with:
           clean-exclude: |
             v2/*

@@ -161,12 +161,12 @@ describe("MenuDivider component migration", () => {
     transform,
     {},
     `
-      import { MenuDivider as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent classname="old-class" />
+      import { MenuDivider as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent classname="old-class" />
     `,
     `
-      import { MenuDivider as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { MenuDivider as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'MenuDivider' is imported with alias from vibe"
   );

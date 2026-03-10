@@ -9,10 +9,10 @@ const SearchIconsParamsSchema = z.object({
   includeUsageExamples: z.boolean().optional().describe("Include React usage examples in the results (default: false)")
 });
 
-export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = {
-  name: "list-vibe-icons",
+export const listEZDSIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = {
+  name: "list-ezds-icons",
   description:
-    "Get a list of all available Vibe icons from the @ezds/icons package. Supports optional filtering by text query, category, or tags. Returns icon names, descriptions, categories, and tags, with optional usage examples.",
+    "Get a list of all available EZDS icons from the @ezds/icons package. Supports optional filtering by text query, category, or tags. Returns icon names, descriptions, categories, and tags, with optional usage examples.",
   inputSchema: SearchIconsParamsSchema.shape,
   execute: async (input: z.infer<typeof SearchIconsParamsSchema>): Promise<any> => {
     const { query, category, limit, includeUsageExamples = false } = input;
@@ -91,10 +91,10 @@ export const listVibeIconsTool: MCPTool<typeof SearchIconsParamsSchema.shape> = 
         ]
       };
     } catch (e) {
-      const errorMessage = getErrorMessage(e) || `Failed to list vibe icons`;
+      const errorMessage = getErrorMessage(e) || `Failed to list EZDS icons`;
 
       return {
-        content: [{ type: "text", text: `Error in list-vibe-icons: ${errorMessage}` }],
+        content: [{ type: "text", text: `Error in list-ezds-icons: ${errorMessage}` }],
         isError: true
       };
     }

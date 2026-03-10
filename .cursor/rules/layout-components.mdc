@@ -1,11 +1,11 @@
 ---
-description: Guidelines for using Box and Flex layout components in the @vibe/core library instead of custom CSS for spacing, borders, and flexbox layouts.
+description: Guidelines for using Box and Flex layout components in the @ezds/core library instead of custom CSS for spacing, borders, and flexbox layouts.
 globs: *.tsx,*.ts
 ---
 
 # Layout Components Guidelines
 
-This rule provides comprehensive guidelines for using [Box](mdc:packages/core/src/components/Box/Box.tsx) and [Flex](mdc:packages/core/src/components/Flex/Flex.tsx) components from `@vibe/core` instead of custom CSS for layout, spacing, borders, and containers.
+This rule provides comprehensive guidelines for using [Box](mdc:packages/core/src/components/Box/Box.tsx) and [Flex](mdc:packages/core/src/components/Flex/Flex.tsx) components from `@ezds/core` instead of custom CSS for layout, spacing, borders, and containers.
 
 ## Core Principle: Props Over CSS
 

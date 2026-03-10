@@ -32,7 +32,7 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponent, type VibeComponentProps } from "../../types";
+import { type EZDSComponent, type EZDSComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
 import {
   type VirtualizedListItem,
@@ -40,7 +40,7 @@ import {
   type VirtualizedListScrollDirection
 } from "./VirtualizedList.types";
 
-export interface VirtualizedListProps extends VibeComponentProps {
+export interface VirtualizedListProps extends EZDSComponentProps {
   /**
    * Class name applied to the scrollable container.
    */
@@ -420,7 +420,7 @@ const VirtualizedList = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {rowRenderer as VibeComponent<ListChildComponentProps>}
+                {rowRenderer as EZDSComponent<ListChildComponentProps>}
               </List>
             );
           }}

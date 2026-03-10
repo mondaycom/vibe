@@ -4,14 +4,14 @@
   "description": "Vibe sub-package for base components",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/base"
   },
   "bugs": {
-    "url": "https://github.com/mondaycom/vibe/issues"
+    "url": "https://github.com/ezcorp/ezds/issues"
   },
-  "homepage": "https://github.com/mondaycom/vibe#readme",
-  "author": "monday.com",
+  "homepage": "https://github.com/ezcorp/ezds#readme",
+  "author": "ezcorp.com",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

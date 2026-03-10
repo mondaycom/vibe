@@ -161,12 +161,12 @@ describe("Counter component migration", () => {
     transform,
     {},
     `
-      import { Counter as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent wrapperClassName="old-class" />
+      import { Counter as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent wrapperClassName="old-class" />
     `,
     `
-      import { Counter as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { Counter as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'Counter' is imported with alias from vibe"
   );

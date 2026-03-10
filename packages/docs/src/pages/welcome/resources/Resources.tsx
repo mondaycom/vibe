@@ -19,7 +19,7 @@ export default function Resources() {
 
       <EntranceAnimation>
         <p className={styles.text}>
-          Explore monday.com’s open-source <br />
+          Explore ezcorp.com’s open-source <br />
           design and development tools.
         </p>
         <div className={styles.resources}>
@@ -34,7 +34,7 @@ export default function Resources() {
             icon={<IconComponents />}
             hoverIcon={<IconComponentsColored />}
             title="Components"
-            description="Reusable blocks for creating monday.com experiences."
+            description="Reusable blocks for creating ezcorp.com experiences."
             page="Components/Accordion"
           />
           <ResourceCard

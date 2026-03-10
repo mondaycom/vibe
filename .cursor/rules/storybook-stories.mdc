@@ -6,13 +6,13 @@ globs:
 alwaysApply: false
 ---
 
-# Storybook Stories for @vibe/docs library
+# Storybook Stories for @ezds/docs library
 
-This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/docs` library.
+This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@ezds/docs` library.
 
 ## 1. File Structure and Naming Conventions
 
-- **Location:** Component stories are located in the `@vibe/docs` package, organized by component type in `packages/docs/src/pages/`.
+- **Location:** Component stories are located in the `@ezds/docs` package, organized by component type in `packages/docs/src/pages/`.
   - Example for components: `packages/docs/src/pages/components/ComponentName/`
   - Example for hooks: `packages/docs/src/pages/hooks/hookName/`
 - **Story File:** The main story file **must** be named after the component, using PascalCase, followed by the `.stories.tsx` extension.
@@ -29,7 +29,7 @@ All `.stories.tsx` files **must** adhere to Component Story Format (CSF) 3.0 and
 - Import `React`.
 - Import the Component itself.
 - Import `Meta` and `StoryObj` from `@storybook/react`.
-- Import any other necessary Vibe components or primitive types.
+- Import any other necessary EZDS components or primitive types.
 - **DO NOT** import story-specific helper utilities from other files. If a simple helper is absolutely needed for a complex story setup, define it within the `.stories.tsx` file itself.
 
 ### 2.2. Meta Configuration (Default Export)
@@ -39,8 +39,8 @@ The default export defines the component's metadata for Storybook.
 ```typescript
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { ComponentName } from "@vibe/core";
-// Import other Vibe components or types if needed for stories
+import { ComponentName } from "@ezds/core";
+// Import other EZDS components or types if needed for stories
 
 export default {
   title: "Components/ComponentName", // Or "Components/ComponentGroup/ComponentName" for grouped components
@@ -124,7 +124,7 @@ export const PrimaryButton: Story = {
 };
 ```
 
-This approach provides better IntelliSense, type safety, and follows modern Vibe conventions.
+This approach provides better IntelliSense, type safety, and follows modern EZDS conventions.
 
 Example of an `Overview` story's render function:
 
@@ -228,12 +228,12 @@ This approach allows for targeted enhancements or layouts for specific stories w
 - **Exceptions for CSS files:**
   1. If styling is for a **decorator** and helps provide a consistent story environment without being part of the component's direct example shown to user.
   2. If a component **does not support the `style` prop** for the required modifications - and it is a must to add styling to it.
-  3. If very **complex or deep CSS modifications** are absolutely necessary that cannot be achieved with inline styles (e.g., targeting pseudo-elements of a child Vibe component for demonstration purposes).
+  3. If very **complex or deep CSS modifications** are absolutely necessary that cannot be achieved with inline styles (e.g., targeting pseudo-elements of a child EZDS component for demonstration purposes).
   - If an exception is made, the SCSS/CSS Module file should be placed in the `__stories__` directory alongside the `ComponentName.stories.tsx` file. It should ideally be named similarly to the story file or component it primarily affects, for example, `ComponentName.stories.module.scss` (if generally applicable to stories in that file and primarily for decorators).
 
 ## 4. Story Content and Best Practices
 
-- **Self-Contained Examples:** Stories **must** be as self-contained as possible. Users should be able to copy the code from a story's `render` function (or the story definition if no render function) and have it work in their application with minimal changes (assuming Vibe components are installed and imported).
+- **Self-Contained Examples:** Stories **must** be as self-contained as possible. Users should be able to copy the code from a story's `render` function (or the story definition if no render function) and have it work in their application with minimal changes (assuming EZDS components are installed and imported).
 - **NO external utility functions specific to stories:** Avoid referencing helper functions or helper components defined outside the story file (e.g., `TableAvatar` component or a `defineButtonGroup` util from an external helper). Even if a very simple helper is needed to reduce repetition for a complex story setup, define it a few times for each story within the `.stories.tsx` file. But always remember that you prefer not to use helpers at all, unless you must.
 - **Focus on one feature/state per story:** Each story should clearly demonstrate a specific aspect, prop, feature, or state of the component.
 - **Clarity over brevity (if complex):** While stories should be concise, ensure they are clear and easy to understand.
@@ -250,7 +250,7 @@ The following is a template for `ComponentName.mdx`:
 ````mdx
 import { Meta } from "@storybook/blocks";
 import * as ComponentStories from "./ComponentName.stories"; // Import the stories
-import { ComponentName } from "@vibe/core";
+import { ComponentName } from "@ezds/core";
 
 <Meta of={ComponentStories} />
 
@@ -261,7 +261,7 @@ Brief overview of the component, its purpose, and when to use it. This can be mu
 ## Import path
 
 ```tsx
-import { ComponentName } from "@vibe/core"; // Or the correct export path for the component
+import { ComponentName } from "@ezds/core"; // Or the correct export path for the component
 ```
 
 ## Overview
@@ -392,7 +392,7 @@ _/}
 - **`<Meta of={ComponentStories} />`**: Links the MDX file to the stories file. This is crucial for `<Controls />`, `<PropsTable />` and other features to correctly associate with the component and its stories.
 - **Main Title (`# ComponentName`)**: The component's name.
 - **Description**: A brief overview of the component. Use a simple string in the markdown.
-- **Import Path**: Show users how to import the component from `@vibe/core`.
+- **Import Path**: Show users how to import the component from `@ezds/core`.
 - **Overview Story**: **Must** display the `Overview` story from `ComponentName.stories.tsx` using `<Canvas of={ComponentStories.Overview}/>`. Add a brief contextual description.
 - **Props Table**: **Must include an interactive props table using `<PropsTable />`** (globally available). Storybook will generate this based on the component's props when linked via `<Meta of={ComponentStories} />`.
 - **Usage Section**: **Must** include a section titled "Usage" that utilizes the globally available `<UsageGuidelines />` component. This component takes a `guidelines` prop, which is an array of strings, as shown in the template.
@@ -414,4 +414,4 @@ _/}
 
     > "Provide supplementary helper text to guide the user on the expected input and its format."
 
-By following these rules, we can ensure that the Storybook for `@vibe/core` is consistent, maintainable, and provides maximum value to its consumers.
+By following these rules, we can ensure that the Storybook for `@ezds/core` is consistent, maintainable, and provides maximum value to its consumers.

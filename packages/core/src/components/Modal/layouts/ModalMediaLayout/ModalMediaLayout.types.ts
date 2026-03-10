@@ -1,7 +1,7 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 
-export interface ModalMediaLayoutProps extends VibeComponentProps {
+export interface ModalMediaLayoutProps extends EZDSComponentProps {
   /**
    * The content of the layout, structured as:
    * 1. Media content

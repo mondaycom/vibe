@@ -32,12 +32,12 @@ const CONTRIBUTORS = [
   },
   {
     name: "Dmitry Kogan",
-    href: "mailto:dimako@monday.com",
+    href: "mailto:dimako@ezcorp.com",
     image: Dmitry
   },
   {
     name: "Eylon Goren",
-    href: "mailto:eylon@monday.com",
+    href: "mailto:eylon@ezcorp.com",
     image: Eylon
   },
   {
@@ -47,17 +47,17 @@ const CONTRIBUTORS = [
   },
   {
     name: "Devorah Friedman",
-    href: "mailto:devorahfr@monday.com",
+    href: "mailto:devorahfr@ezcorp.com",
     image: Devorah
   },
   {
     name: "Shay Cohen",
-    href: "mailto:shay@monday.com",
+    href: "mailto:shay@ezcorp.com",
     image: Shay
   },
   {
     name: "Noa Fenko",
-    href: "mailto:noafe@monday.com",
+    href: "mailto:noafe@ezcorp.com",
     image: Noa
   },
   {
@@ -67,12 +67,12 @@ const CONTRIBUTORS = [
   }
 ];
 
-const excludedContributors = ["dependabot[bot]", "github-actions[bot]", "snyk-bot", "vibe-gh"];
+const excludedContributors = ["dependabot[bot]", "github-actions[bot]", "snyk-bot", "ezds-gh"];
 
 export default function ContributorsList() {
   const { contributors } = useContributors({
-    organizationName: "mondaycom",
-    packageName: "vibe",
+    organizationName: "ezcorp",
+    packageName: "ezds",
     excludedContributors
   });
   return (

@@ -161,12 +161,12 @@ describe("Checkbox component migration", () => {
     transform,
     {},
     `
-      import { Checkbox as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent componentClassName="old-class" />
+      import { Checkbox as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent componentClassName="old-class" />
     `,
     `
-      import { Checkbox as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { Checkbox as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'Checkbox' is imported with alias from vibe"
   );

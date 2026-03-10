@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef } from "react";
 import {
-  type VibeComponentProps,
+  type EZDSComponentProps,
   withStaticProps,
   ComponentDefaultTestId,
   getTestId,
-  ComponentVibeId,
+  ComponentEZDSId,
   useMergeRef
 } from "@ezds/shared";
 import { IconTypeEnum } from "./constants";
@@ -20,12 +20,12 @@ function renderIcon(Icon: React.FC<IconSubComponentProps>, props: IconSubCompone
     <Icon
       {...props}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON, props.id)}
-      data-vibe={ComponentVibeId.ICON}
+      data-ezds={ComponentEZDSId.ICON}
     />
   );
 }
 
-export interface IconProps extends VibeComponentProps {
+export interface IconProps extends EZDSComponentProps {
   /**
    * The icon name, component, or source URL.
    */

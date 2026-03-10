@@ -3,7 +3,7 @@
 <a href="https://bundlephobia.com/package/@ezds/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@ezds/core"></a>
 <a href="https://www.npmjs.com/package/@ezds/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@ezds/core?label=@ezds/core"></a>
 
-> Vibe Design System's Core Component Library in React
+> EZDS Design System's Core Component Library in React
 
 ## Usage
 

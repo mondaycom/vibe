@@ -79,7 +79,7 @@ test.describe("Testkit - Unit Tests - List", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await list.getAttributeValue("data-vibe");
+    const attributeValue = await list.getAttributeValue("data-ezds");
     expect(attributeValue).toContain("List");
   });
 

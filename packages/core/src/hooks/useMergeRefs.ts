@@ -8,7 +8,7 @@ import { type LegacyRef, type MutableRefObject, useMemo } from "react";
  * });
  */
 
-// TODO: [breaking] deprecate / replace with useMergeRef in next major version - https://monday.monday.com/boards/3532714909/pulses/5657904659
+// TODO: [breaking] deprecate / replace with useMergeRef in next major version - https://monday.ezcorp.com/boards/3532714909/pulses/5657904659
 /**
  * Returns a single ref callback that merges multiple ref callbacks
  * @deprecated - for internal usage - use `useMergeRef` hook instead

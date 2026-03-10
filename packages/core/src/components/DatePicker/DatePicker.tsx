@@ -15,16 +15,16 @@ import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Direction, FocusInput, type Moment, type RangeDate } from "./types";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import { NOOP } from "../../utils/function-utils";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import styles from "./DatePicker.module.scss";
 // Make sure to update when upgrading react-dates
 import "./external_datepicker.scss";
 
-export interface DatePickerProps extends VibeComponentProps {
+export interface DatePickerProps extends EZDSComponentProps {
   /**
    * The first day of the week to display.
    */
@@ -203,7 +203,7 @@ const DatePicker = forwardRef(
           [styles.rangePickerMode]: range,
           [styles.monthYearSelection]: isMonthYearSelection
         })}
-        data-vibe={ComponentVibeId.DATE_PICKER}
+        data-ezds={ComponentEZDSId.DATE_PICKER}
       >
         {range ? (
           <DayPickerRangeController

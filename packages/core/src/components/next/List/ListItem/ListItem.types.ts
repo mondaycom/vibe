@@ -1,6 +1,6 @@
 import type React from "react";
 import { type AriaRole } from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type BaseItemDirection, type BaseItemData, type StartElement, type EndElement } from "../../../BaseItem";
 
 /**
@@ -16,7 +16,7 @@ export type ListItemEndElement = EndElement;
  */
 export interface ListItemProps
   extends Pick<BaseItemData, "label" | "disabled" | "startElement" | "endElement" | "tooltipProps">,
-    VibeComponentProps {
+    EZDSComponentProps {
   /**
    * The value of the list item (used for identification). Defaults to label if not provided.
    */

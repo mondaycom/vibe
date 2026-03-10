@@ -2,7 +2,7 @@ import React, { type FC, useContext, useMemo } from "react";
 import cx from "classnames";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TipseenColor } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { type ElementContent } from "../../types/ElementContent";
 import styles from "./TipseenContent.module.scss";
 import { getTestId } from "../../tests/test-ids-utils";
@@ -11,7 +11,7 @@ import { TipseenContext } from "./Tipseen";
 import { Button } from "@ezds/button";
 import { type SubIcon } from "@ezds/icon";
 
-export interface TipseenContentProps extends VibeComponentProps {
+export interface TipseenContentProps extends EZDSComponentProps {
   /**
    * The title text displayed in the Tipseen content.
    */

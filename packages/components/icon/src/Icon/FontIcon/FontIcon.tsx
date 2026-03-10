@@ -1,9 +1,9 @@
 import React, { type AriaRole, forwardRef } from "react";
 import classNames from "classnames";
-import { type VibeComponentProps, ComponentVibeId } from "@ezds/shared";
+import { type EZDSComponentProps, ComponentEZDSId } from "@ezds/shared";
 import { type SubIcon } from "../types";
 
-export interface FontIconProps extends VibeComponentProps {
+export interface FontIconProps extends EZDSComponentProps {
   /**
    * Callback fired when the icon is clicked.
    */
@@ -59,7 +59,7 @@ const FontIcon = forwardRef(
         role={role}
         id={id}
         data-testid={dataTestId}
-        data-vibe={ComponentVibeId.ICON}
+        data-ezds={ComponentEZDSId.ICON}
       >
         {isIconFunction && <Icon />}
       </span>

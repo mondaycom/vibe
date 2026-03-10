@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import styles from "./TextArea.module.scss";
 import { type TextAreaProps, type TextAreaSize } from "./TextArea.types";
 import { Text } from "@ezds/typography";
@@ -71,7 +71,7 @@ const TextArea = forwardRef(
           className
         )}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_AREA, id)}
-        data-vibe={ComponentVibeId.TEXT_AREA}
+        data-ezds={ComponentEZDSId.TEXT_AREA}
       >
         {label && (
           <label className={cx(styles.label, { [styles.required]: required })} htmlFor={id}>

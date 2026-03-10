@@ -12,16 +12,16 @@ import { Text } from "@ezds/typography";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type EZDSComponentProps, withStaticProps } from "../../types";
 import { type SubIcon } from "@ezds/icon";
 import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@ezds/clickable";
 import styles from "./Chips.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
 const CHIPS_AVATAR_SIZE = 18;
 
-export interface ChipsProps extends VibeComponentProps {
+export interface ChipsProps extends EZDSComponentProps {
   /**
    * The text or content displayed inside the chip.
    */
@@ -262,7 +262,7 @@ const Chips = forwardRef(
     const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
-      <div {...wrapperProps} data-vibe={ComponentVibeId.CHIPS}>
+      <div {...wrapperProps} data-ezds={ComponentEZDSId.CHIPS}>
         {leftAvatar ? (
           <Avatar
             withoutBorder

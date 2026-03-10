@@ -1,30 +1,55 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png" width="300px" alt="Vibe Design System, by monday.com">
-  <h1 align="center">Vibe Design System</h1>
-</p>
-
-<p align="center">
-Official <a href="https://monday.com">monday.com</a> UI resources for application development in React.js
+  <h1 align="center">EZDS — EZCORP Design System</h1>
+  <p align="center">EZCORP's global design system for React web, React Native, and beyond.</p>
 </p>
 
 <p align="center">
   <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ezds/core">
-  <a href="https://bundlephobia.com/package/@ezds/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@ezds/core"></a>
-  <a href="https://www.npmjs.com/package/@ezds/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@ezds/core?label=@ezds/core"></a>
-  <a href="https://github.com/mondaycom/vibe/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mondaycom/vibe"></a>
+  <a href="https://bundlephobia.com/package/@ezds/core"><img alt="Bundle size" src="https://img.shields.io/bundlephobia/minzip/@ezds/core"></a>
+  <a href="https://github.com/ezcorp/ezds"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/ezcorp/ezds"></a>
 </p>
 
 <p align="center">
-  <a href="https://vibe.monday.com">Documentation</a> •
-  <a href="https://vibe.monday.com/?path=/docs/catalog--docs">Catalog</a> •
-  <a href="https://vibe.monday.com/?path=/story/playground--playground">Playground</a>
+  <a href="https://design.ezcorp.com">Documentation</a> •
+  <a href="https://design.ezcorp.com/?path=/docs/catalog--docs">Catalog</a> •
+  <a href="https://design.ezcorp.com/?path=/story/playground--playground">Playground</a>
 </p>
+
+---
 
 ## Overview
 
-Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
+EZDS is EZCORP's unified design system — a collection of React components, design tokens, SCSS utilities, and tooling that ensures visual consistency, accessibility, and development speed across all EZCORP products.
+
+**Three-tier token architecture:**
+
+```
+@ezds/tokens  (platform-agnostic TS constants — hex values, numbers, strings)
+    ↓
+@ezds/web     (CSS custom properties + Tailwind preset + SCSS mixins/functions)
+@ezds/native  (React Native StyleSheet theme objects)
+    ↓
+@ezds/button, @ezds/icon, @ezds/dialog, ...  (individual components)
+    ↓
+@ezds/core    (aggregator re-exporting all components)
+```
+
+---
 
 ## Installation
+
+EZDS packages are published to GitHub Packages under the `@ezds` scope.
+
+### Configure your registry
+
+Add the following to your project's `.npmrc`:
+
+```
+@ezds:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+### Install
 
 ```bash
 npm install @ezds/core
@@ -32,49 +57,153 @@ npm install @ezds/core
 yarn add @ezds/core
 ```
 
-To load all the relevant CSS tokens, import the tokens file in your root application file:
+### Load theme tokens
+
+Import the light theme CSS in your root application file:
 
 ```javascript
-import "@ezds/core/tokens";
+import "@ezds/web/themes/light";
 ```
+
+For dark or black themes:
+
+```javascript
+import "@ezds/web/themes/dark";
+// or
+import "@ezds/web/themes/black";
+```
+
+Apply the theme attribute to your root element:
+
+```html
+<body data-theme="light">
+  <!-- or data-theme="dark" / data-theme="black" -->
+</body>
+```
+
+---
 
 ## Usage
 
-Components are imported from the library's root entry:
-
 ```javascript
-import { Button } from "@ezds/core";
+import { Button, Icon, Dialog } from "@ezds/core";
+
+function MyComponent() {
+  return <Button kind="primary">Save</Button>;
+}
 ```
 
-### MCP
+---
 
-Vibe includes an MCP (Model Context Protocol) server that provides intelligent assistance for working with Vibe components. The MCP server can help you discover component APIs, get usage examples, find appropriate icons, and follow best practices.
+## Package Ecosystem
 
-To get started, follow the installation instructions in the [@ezds/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md) docs to integrate it in your preferred AI development tools.
+| Package | Description |
+|---------|-------------|
+| [`@ezds/core`](./packages/core/README.md) | Main component library (aggregator) |
+| [`@ezds/tokens`](./packages/tokens) | Platform-agnostic design tokens (TS constants) |
+| [`@ezds/web`](./packages/web/README.md) | CSS custom properties, Tailwind preset, SCSS mixins |
+| [`@ezds/native`](./packages/native) | React Native theme objects (scaffold) |
+| [`@ezds/icons`](./packages/icons/README.md) | SVG icon library |
+| [`@ezds/hooks`](./packages/hooks) | Shared React hooks |
+| [`@ezds/testkit`](./packages/testkit) | Playwright E2E testing utilities |
+| [`@ezds/codemod`](./packages/codemod/README.md) | Migration codemods and CLI tools |
+| [`@ezds/storybook-blocks`](./packages/storybook-blocks/README.md) | Storybook documentation components |
+| [`@ezds/mcp`](./packages/mcp/README.md) | MCP server for AI-assisted development |
 
-## Ecosystem
+### Standalone components
 
-- [@ezds/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
-- [@ezds/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
-- [@ezds/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
-- [@ezds/codemod](https://github.com/mondaycom/vibe/blob/master/packages/codemod/README.md): Codemods and CLI tools
-- [@ezds/web](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @ezds/core)
-- [@ezds/storybook-blocks](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
-- [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
-- [@ezds/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
+Individual components are also available as standalone packages:
 
-## Older Versions
+```bash
+yarn add @ezds/button @ezds/icon @ezds/dialog @ezds/tooltip
+```
 
-Vibe 2 ([`monday-ui-react-core`](https://www.npmjs.com/package/monday-ui-react-core)) will no longer receive new features or enhancements but will continue to receive critical bug fixes as needed. We highly recommend following the [migration guide](http://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to the actively maintained Vibe 3, which includes the latest improvements, new components, and ongoing support.
+---
 
-For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2).
+## Design Tokens
+
+EZDS uses a three-mode token system: **Light**, **Dark**, and **Black**.
+
+Tokens are defined in Figma across 7 collections and compiled to `@ezds/tokens` as TypeScript constants:
+
+| Collection | CSS prefix | Description |
+|---|---|---|
+| `colors` | `--ezds-color-*` | Semantic color tokens (250 values × 3 modes) |
+| `dimensions` | `--ezds-space-*`, `--ezds-radius-*` | Spacing, radius, border, shadow |
+| `typography` | `--ezds-font-size-*`, `--ezds-font-family-*` | Type scale and font families |
+| `motion` | `--ezds-motion-*` | Animation durations and easing curves |
+| `_primitives` | — | Raw palette (internal use only) |
+
+```typescript
+import { colors, dimensions, typography, motion } from "@ezds/tokens";
+
+const primaryBg = colors.light["color/background/primary"]; // "#ffffff"
+const spacing400 = dimensions["space/0400"];                // 16
+```
+
+---
+
+## Tailwind Integration
+
+```javascript
+// tailwind.config.js
+import ezdsPreset from "@ezds/web/tailwind";
+
+export default {
+  presets: [ezdsPreset],
+};
+```
+
+---
+
+## MCP Server
+
+EZDS ships an MCP (Model Context Protocol) server for AI-assisted development. It enables component discovery, usage examples, icon search, and token lookup directly inside AI coding tools.
+
+See the [`@ezds/mcp` docs](./packages/mcp/README.md) for setup instructions.
+
+---
+
+## Development
+
+This is a Lerna monorepo with Yarn Workspaces.
+
+```bash
+# Install all dependencies
+yarn install
+
+# Build all packages
+yarn build
+
+# Run tests
+yarn test
+
+# Run Storybook
+yarn storybook
+```
+
+Package-specific commands:
+
+```bash
+yarn workspace @ezds/core test
+yarn workspace @ezds/core test:watch
+yarn workspace @ezds/web lint:fix
+```
+
+---
 
 ## Contributing
 
-We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
+EZDS is an internal EZCORP project. For questions or contributions, open an issue in the [GitHub repo](https://github.com/ezcorp/ezds).
 
-## Suggestions
+---
 
-If you have any questions or suggestions, please feel free to open a [discussion](https://github.com/mondaycom/vibe/discussions).
+## Legacy Migration
 
-Found a bug? Please [open an issue](https://github.com/mondaycom/vibe/issues/new/choose).
+Coming from `monday-ui-react-core` (legacy Vibe 2/3)? Use the included codemod:
+
+```bash
+npx @ezds/codemod
+```
+
+See the [migration guide](./packages/docs/src/pages/migration-guide/) for step-by-step instructions.

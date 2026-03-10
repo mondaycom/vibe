@@ -195,12 +195,12 @@ describe("AttentionBox component migration", () => {
     transform,
     {},
     `
-      import { AttentionBox as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent componentClassName="old-class" />
+      import { AttentionBox as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent componentClassName="old-class" />
     `,
     `
-      import { AttentionBox as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { AttentionBox as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'AttentionBox' is imported with alias from vibe"
   );

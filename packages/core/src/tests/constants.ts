@@ -148,7 +148,7 @@ export enum NavigationCommand {
   PAGE_DOWN = "{pagedown}"
 }
 
-export enum ComponentVibeId {
+export enum ComponentEZDSId {
   ACCORDION = "Accordion",
   LIST_TITLE = "ListTitle",
   ALERT_BANNER = "AlertBanner",

@@ -2,11 +2,11 @@ import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { validateValue } from "./FormattedNumberHelpers";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./FormattedNumber.module.scss";
 
-export interface FormattedNumberProps extends VibeComponentProps {
+export interface FormattedNumberProps extends EZDSComponentProps {
   /**
    * The numeric value to format.
    */

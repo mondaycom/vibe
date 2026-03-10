@@ -27,15 +27,15 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { Clickable } from "@ezds/clickable";
 import { getTestId } from "../../tests/test-ids-utils";
 import { NOOP } from "../../utils/function-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "@ezds/tooltip";
 import { HiddenText } from "../HiddenText";
 
 const EMPTY_OBJECT = { primary: "", secondary: "" };
 
-export interface TextFieldProps extends VibeComponentProps {
+export interface TextFieldProps extends EZDSComponentProps {
   /**
    * The placeholder text displayed when the input is empty.
    */
@@ -404,7 +404,7 @@ const TextField = forwardRef(
               type={type}
               id={id}
               data-testid={dataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD, id)}
-              data-vibe={ComponentVibeId.TEXT_FIELD}
+              data-ezds={ComponentEZDSId.TEXT_FIELD}
               name={name}
               onBlur={onBlurCallback}
               onFocus={onFocus}

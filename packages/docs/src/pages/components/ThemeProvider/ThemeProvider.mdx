@@ -1,13 +1,13 @@
 import { Canvas, Meta } from "@storybook/blocks";
 import {
-  DescriptionWithLinkMondaySdkIntegration,
+  DescriptionWithLinkEZCORPSdkIntegration,
   ThemeProviderNegativeExampleTemplate,
   ThemeProviderPositiveExampleTemplate,
   TipDev,
   UsageGuidelinesThemeProvider
 } from "./ThemeProvider.stories.helpers";
 import * as ThemeProviderStories from "./ThemeProvider.stories";
-import { Frame } from "vibe-storybook-components";
+import { Frame } from "@ezds/storybook-blocks";
 
 <Meta of={ThemeProviderStories} />
 
@@ -27,7 +27,7 @@ Product theme is a custom theme that can be provided by a user, there you can sp
 ### Import
 
 ```js
-import { ThemeProvider } from "@vibe/core";
+import { ThemeProvider } from "@ezds/core";
 ```
 
 ## Props
@@ -66,7 +66,7 @@ If component is wrapped with multiple ThemeProviders, the most nested one will o
 
 ### Product theming
 
-These are theme-definitions, which are used in monday.com products.
+These are theme-definitions, which are used in EZCORP products.
 
 <Canvas of={ThemeProviderStories.ProductTheming} />
 
@@ -84,11 +84,11 @@ It will set the <code>systemTheme</code> on <code>body</code> tag and will apply
 
 <Canvas of={ThemeProviderStories.WithSystemTheme} />
 
-### Integration with monday.com SDK in external applications
+### Integration with EZCORP SDK in external applications
 
-<DescriptionWithLinkMondaySdkIntegration />
+<DescriptionWithLinkEZCORPSdkIntegration />
 
-<Canvas of={ThemeProviderStories.MondaySdkIntegration} />
+<Canvas of={ThemeProviderStories.EZCORPSdkIntegration} />
 
 ## Do’s and Don’ts
 

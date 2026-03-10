@@ -16,7 +16,7 @@ import { Clickable } from "@ezds/clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
 import classNames from "classnames";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type SubIcon } from "@ezds/icon";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
@@ -64,7 +64,7 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   );
 };
 
-export interface StepIndicatorProps extends VibeComponentProps {
+export interface StepIndicatorProps extends EZDSComponentProps {
   /**
    * The status of the step.
    */

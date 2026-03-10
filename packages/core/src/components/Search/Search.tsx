@@ -10,7 +10,7 @@ import { IconButton } from "@ezds/icon-button";
 import { Icon } from "@ezds/icon";
 import { type SearchProps } from "./Search.types";
 import { Loader } from "@ezds/loader";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
 const Search = forwardRef(
   (
@@ -101,7 +101,7 @@ const Search = forwardRef(
         id={id}
         type={"search"}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.SEARCH, id)}
-        data-vibe={ComponentVibeId.SEARCH}
+        data-ezds={ComponentEZDSId.SEARCH}
         className={cx(styles.searchWrapper, className)}
         inputClassName={styles.search}
         value={inputValue}

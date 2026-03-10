@@ -146,12 +146,12 @@ describe("TextField component migration", () => {
       transform,
       {},
       `
-        import { TextField as VibeComponent } from "monday-ui-react-core";
-        <VibeComponent dataTestId="unique-id" />
+        import { TextField as EZDSComponent } from "monday-ui-react-core";
+        <EZDSComponent dataTestId="unique-id" />
       `,
       `
-        import { TextField as VibeComponent } from "monday-ui-react-core";
-        <VibeComponent data-testid="unique-id" />
+        import { TextField as EZDSComponent } from "monday-ui-react-core";
+        <EZDSComponent data-testid="unique-id" />
       `,
       "should change when 'TextField' is imported with alias from vibe"
     );
@@ -254,12 +254,12 @@ describe("TextField component migration", () => {
       transform,
       {},
       `
-        import { TextField as VibeComponent } from "monday-ui-react-core";
-        <VibeComponent withReadOnlyStyle />
+        import { TextField as EZDSComponent } from "monday-ui-react-core";
+        <EZDSComponent withReadOnlyStyle />
       `,
       `
-        import { TextField as VibeComponent } from "monday-ui-react-core";
-        <VibeComponent />
+        import { TextField as EZDSComponent } from "monday-ui-react-core";
+        <EZDSComponent />
       `,
       "should change when 'TextField' is imported with alias from vibe"
     );

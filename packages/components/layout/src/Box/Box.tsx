@@ -33,7 +33,7 @@ import {
   type Shadow
 } from "./Box.types";
 import {
-  type VibeComponentProps,
+  type EZDSComponentProps,
   withStaticProps,
   type ElementContent,
   getTestId,
@@ -42,7 +42,7 @@ import {
 } from "@ezds/shared";
 import styles from "./Box.module.scss";
 
-export interface BoxProps extends VibeComponentProps {
+export interface BoxProps extends EZDSComponentProps {
   /**
    * The HTML element or custom component used as the root.
    */

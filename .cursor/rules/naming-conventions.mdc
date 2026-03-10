@@ -1,12 +1,12 @@
 ---
-description: "Defines naming conventions for files, directories, components, props, variables, types, and CSS classes within the `@vibe/core` package (located in `packages/core/`). Ensures consistency and readability across the codebase for React components and related TypeScript/SCSS files."
+description: "Defines naming conventions for files, directories, components, props, variables, types, and CSS classes within the `@ezds/core` package (located in `packages/core/`). Ensures consistency and readability across the codebase for React components and related TypeScript/SCSS files."
 globs:
 alwaysApply: false
 ---
 
-# Naming Conventions for @vibe/core
+# Naming Conventions for @ezds/core
 
-This document outlines the naming conventions to be followed when developing within the `@vibe/core` library, located under `packages/core/`. Adhering to these conventions ensures consistency, readability, and maintainability across the codebase.
+This document outlines the naming conventions to be followed when developing within the `@ezds/core` library, located under `packages/core/`. Adhering to these conventions ensures consistency, readability, and maintainability across the codebase.
 
 ## General Principles
 
@@ -98,14 +98,14 @@ This document outlines the naming conventions to be followed when developing wit
   - Example: `type UserProfile = { /* ... */ };`.
   - Example: `interface ComponentProps { /* ... */ }`.
 
-### Vibe Standard Types
+### EZDS Standard Types
 
-When working with Vibe components, always use the established standard types for common prop patterns:
+When working with EZDS components, always use the established standard types for common prop patterns:
 
 - **Icon Props**: Always use `SubIcon` type for any prop that accept icons.
   - Example: `icon?: SubIcon;` instead of generic types like `ReactNode` or custom icon types.
-- **Component Props**: Extend `VibeComponentProps` for component props (to get `className`, `id`, `data-testid`).
-- **Consistent Typing**: Always check existing similar components to see what Vibe standard types they use before creating custom types.
+- **Component Props**: Extend `EZDSComponentProps` for component props (to get `className`, `id`, `data-testid`).
+- **Consistent Typing**: Always check existing similar components to see what EZDS standard types they use before creating custom types.
 
 ### CSS Class Names
 

@@ -4,7 +4,7 @@ import { RemoveScroll } from "react-remove-scroll";
 import FocusLock from "react-focus-lock";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
 import { type ModalProps } from "./Modal.types";
 import ModalTopActions from "../ModalTopActions/ModalTopActions";
@@ -172,7 +172,7 @@ const Modal = forwardRef(
                         )}
                         id={id}
                         data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-                        data-vibe={ComponentVibeId.MODAL}
+                        data-ezds={ComponentEZDSId.MODAL}
                         role="dialog"
                         aria-modal
                         aria-labelledby={ariaLabelledby || titleId}

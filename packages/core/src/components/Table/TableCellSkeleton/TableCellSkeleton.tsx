@@ -3,13 +3,13 @@ import cx from "classnames";
 import TableCell from "../TableCell/TableCell";
 import Skeleton from "../../Skeleton/Skeleton";
 import styles from "./TableCellSkeleton.module.scss";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { type TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";
 import { camelCase } from "es-toolkit";
 
-export interface TableCellSkeletonProps extends VibeComponentProps {
+export interface TableCellSkeletonProps extends EZDSComponentProps {
   /**
    * The type of loading state for the skeleton.
    */

@@ -89,12 +89,12 @@ describe("Tipseen component migration", () => {
     transform,
     {},
     `
-      import { Tipseen as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent isCloseButtonHidden />
+      import { Tipseen as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent isCloseButtonHidden />
     `,
     `
-      import { Tipseen as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent hideCloseButton />
+      import { Tipseen as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent hideCloseButton />
     `,
     "should change when 'Tipseen' is imported with alias from vibe"
   );

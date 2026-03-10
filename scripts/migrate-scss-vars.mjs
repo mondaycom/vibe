@@ -8,7 +8,7 @@
  *   node scripts/migrate-scss-vars.mjs             (apply changes)
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
+import { readFileSync, writeFileSync, readdirSync, lstatSync } from "fs";
 import { join, extname } from "path";
 import { fileURLToPath } from "url";
 import { createRequire } from "module";
@@ -54,7 +54,8 @@ let changedFiles = 0;
 function walkDir(dir, callback) {
   for (const entry of readdirSync(dir)) {
     const fullPath = join(dir, entry);
-    const stat = statSync(fullPath);
+    const stat = lstatSync(fullPath);
+    if (stat.isSymbolicLink()) continue; // skip symlinks to prevent traversal outside repo
     if (stat.isDirectory()) {
       walkDir(fullPath, callback);
     } else if (extname(fullPath) === ".scss") {

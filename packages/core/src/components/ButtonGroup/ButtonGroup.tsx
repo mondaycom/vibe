@@ -9,10 +9,10 @@ import { type ButtonType as ButtonTypeEnum, type ButtonValue } from "./ButtonGro
 import { ButtonWrapper } from "./ButtonWrapper";
 import { type SIZES } from "../../constants";
 import { Button, type ButtonType, type ButtonSize } from "@ezds/button";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
 import { type TooltipPositions } from "@ezds/tooltip";
 
@@ -27,7 +27,7 @@ type ButtonGroupOption = {
   tooltipContent?: string;
 };
 
-export interface ButtonGroupProps extends VibeComponentProps {
+export interface ButtonGroupProps extends EZDSComponentProps {
   /**
    * The list of button options.
    */
@@ -215,7 +215,7 @@ const ButtonGroup = forwardRef(
         })}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.BUTTON_GROUP, id)}
-        data-vibe={ComponentVibeId.BUTTON_GROUP}
+        data-ezds={ComponentEZDSId.BUTTON_GROUP}
         ref={mergedRef}
       >
         <div

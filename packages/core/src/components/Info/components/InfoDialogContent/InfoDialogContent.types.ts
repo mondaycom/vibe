@@ -1,7 +1,7 @@
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type InfoLinkProps } from "../InfoLink/InfoLink";
 
-export interface InfoDialogContentProps extends VibeComponentProps {
+export interface InfoDialogContentProps extends EZDSComponentProps {
   /**
    * The title text displayed at the top of the info dialog.
    */

@@ -1,9 +1,9 @@
 import React, { type FC, type ReactElement } from "react";
 import cx from "classnames";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import styles from "./LegacyModalFooter.module.scss";
 
-export interface LegacyModalFooterProps extends VibeComponentProps {
+export interface LegacyModalFooterProps extends EZDSComponentProps {
   children: ReactElement | ReactElement[] | string;
 }
 

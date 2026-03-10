@@ -75,7 +75,7 @@ test.describe("Testkit - Unit Tests - MenuButton", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await menuButton.getAttributeValue("data-vibe");
+    const attributeValue = await menuButton.getAttributeValue("data-ezds");
     expect(attributeValue).toContain("MenuButton");
   });
 });

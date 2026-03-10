@@ -1,13 +1,13 @@
 import React from "react";
-import { useVibeMediaQuery, Box } from "@ezds/core";
+import { useEZDSMediaQuery, Box } from "@ezds/core";
 
 export default {
-  title: "Hooks/useVibeMediaQuery"
+  title: "Hooks/useEZDSMediaQuery"
 };
 
 export const Overview = {
   render: () => {
-    const currentSize = useVibeMediaQuery();
+    const currentSize = useEZDSMediaQuery();
     return (
       <Box border rounded="small" padding="medium">
         {currentSize}

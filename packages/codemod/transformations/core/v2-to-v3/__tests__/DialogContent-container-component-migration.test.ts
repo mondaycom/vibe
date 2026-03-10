@@ -113,12 +113,12 @@ describe("DialogContentContainer component migration", () => {
     transform,
     {},
     `
-      import { DialogContentContainer as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent size={DialogContentContainer.sizes.MEDIUM} />
+      import { DialogContentContainer as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent size={DialogContentContainer.sizes.MEDIUM} />
     `,
     `
-      import { DialogContentContainer as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent size={DialogContentContainer.sizes.SMALL} />
+      import { DialogContentContainer as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent size={DialogContentContainer.sizes.SMALL} />
     `,
     "should change when 'DialogContentContainer' is imported with alias from vibe"
   );

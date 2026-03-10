@@ -7,11 +7,11 @@ import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./Step
 import { type StepsColor, type StepsType } from "./Steps.types";
 import { type ButtonProps } from "@ezds/button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { withStaticProps, type VibeComponentProps } from "../../types";
+import { withStaticProps, type EZDSComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface StepsProps extends VibeComponentProps {
+export interface StepsProps extends EZDSComponentProps {
   /**
    * The index of the currently active step.
    */
@@ -92,7 +92,7 @@ const Steps = forwardRef(
         className={cx(styles.steps, className)}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.STEPS, id)}
-        data-vibe={ComponentVibeId.STEPS}
+        data-ezds={ComponentEZDSId.STEPS}
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader

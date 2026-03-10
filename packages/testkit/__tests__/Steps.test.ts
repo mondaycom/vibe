@@ -107,7 +107,7 @@ test.describe("Testkit - Unit Tests - Steps", () => {
       steps.getPage(),
       steps.getLocator().locator("button").first(),
       "Steps"
-    ).getAttributeValue("data-vibe");
+    ).getAttributeValue("data-ezds");
     expect(attributeValue).toContain("Button");
   });
 

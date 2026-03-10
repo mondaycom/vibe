@@ -1,11 +1,11 @@
 import cx from "classnames";
 import React, { type AriaRole, forwardRef } from "react";
 import { noop as NOOP } from "es-toolkit";
-import { type VibeComponentProps } from "@ezds/shared";
+import { type EZDSComponentProps } from "@ezds/shared";
 import useClickableProps from "../useClickableProps/useClickableProps";
 import styles from "./Clickable.module.scss";
 
-export interface ClickableProps extends VibeComponentProps {
+export interface ClickableProps extends EZDSComponentProps {
   /**
    * The HTML element or custom component used as the root.
    */

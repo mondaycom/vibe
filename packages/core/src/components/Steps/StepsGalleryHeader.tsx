@@ -2,11 +2,11 @@ import React, { type FC, useCallback, useMemo } from "react";
 import { range } from "es-toolkit";
 import cx from "classnames";
 import { StepsDot } from "./StepsDot";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import styles from "./StepsGalleryHeader.module.scss";
 import { type StepsColor } from "./Steps.types";
 
-export interface StepsGalleryHeaderProps extends VibeComponentProps {
+export interface StepsGalleryHeaderProps extends EZDSComponentProps {
   /**
    * The index of the currently active step.
    */

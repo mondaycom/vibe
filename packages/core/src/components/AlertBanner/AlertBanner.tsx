@@ -9,16 +9,16 @@ import { NOOP } from "../../utils/function-utils";
 import { type AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
 import { type AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { type AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 import { Text } from "@ezds/typography";
 import { AlertBannerContext } from "./AlertBannerContext";
 
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 
-export interface AlertBannerProps extends VibeComponentProps {
+export interface AlertBannerProps extends EZDSComponentProps {
   /**
    * The background color of the alert banner.
    */
@@ -108,7 +108,7 @@ const AlertBanner = forwardRef(
         aria-label={ariaLabel || "banner"}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER, id)}
-        data-vibe={ComponentVibeId.ALERT_BANNER}
+        data-ezds={ComponentEZDSId.ALERT_BANNER}
       >
         <AlertBannerContext.Provider value={{ textColor }}>
           <div className={cx(styles.content)}>

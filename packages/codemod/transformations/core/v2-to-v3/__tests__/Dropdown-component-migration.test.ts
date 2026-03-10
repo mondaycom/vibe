@@ -113,12 +113,12 @@ describe("Dropdown component migration", () => {
     transform,
     {},
     `
-      import { Dropdown as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent size={Dropdown.size.MEDIUM} withReadOnlyStyle/>
+      import { Dropdown as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent size={Dropdown.size.MEDIUM} withReadOnlyStyle/>
     `,
     `
-      import { Dropdown as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent size={Dropdown.sizes.MEDIUM} />
+      import { Dropdown as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent size={Dropdown.sizes.MEDIUM} />
     `,
     "should change when 'Dropdown' is imported with alias from vibe"
   );

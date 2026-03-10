@@ -41,11 +41,18 @@
       "types": "./dist/components.d.ts",
       "import": "./dist/components.js",
       "default": "./dist/components.js"
+    },
+    "./motion": {
+      "types": "./dist/motion.d.ts",
+      "import": "./dist/motion.js",
+      "default": "./dist/motion.js"
     }
   },
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build:watch": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@ezds/config": "*",

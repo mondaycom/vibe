@@ -3,7 +3,7 @@ import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
 import {
   useMergeRef,
-  type VibeComponentProps,
+  type EZDSComponentProps,
   withStaticProps,
   ComponentDefaultTestId,
   getTestId,
@@ -13,7 +13,7 @@ import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../D
 import { type DialogSize, type DialogType } from "../Dialog";
 import styles from "./DialogContentContainer.module.scss";
 
-export interface DialogContentContainerProps extends VibeComponentProps {
+export interface DialogContentContainerProps extends EZDSComponentProps {
   /**
    * The content inside the dialog container.
    */

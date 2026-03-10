@@ -2,7 +2,7 @@ import React from "react";
 import { InformationBox } from "@ezds/storybook-blocks";
 import "./principle.scss";
 
-const PRINCIPLE_VISUAL_ELEMENT = `monday-storybook-principle`;
+const PRINCIPLE_VISUAL_ELEMENT = `ezds-storybook-principle`;
 
 interface PrincipleProps {
   imgSrc: string;

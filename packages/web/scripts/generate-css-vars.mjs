@@ -33,6 +33,20 @@ function dimensionValue(name, value) {
   return `${value}px`;
 }
 
+/**
+ * Returns the CSS value string for a component token.
+ * Appends `px` only for numeric length values (radius, margin, padding, border-width).
+ * Unitless ratios, opacity, z-index, scale, weight, and string values are emitted as-is.
+ */
+function componentValue(name, value) {
+  if (typeof value === "string") return value;
+  if (value === 0) return "0";
+  const unitlessKeys = ["opacity", "z-index", "scale", "ratio", "weight", "multiplier"];
+  const isUnitless = unitlessKeys.some(k => name.includes(k));
+  if (!isUnitless && typeof value === "number" && value > 0) return `${value}px`;
+  return String(value);
+}
+
 /** Returns the CSS value string for a typography token. */
 function typographyValue(name, value) {
   // Font families are quoted strings — emit as-is
@@ -46,11 +60,13 @@ function typographyValue(name, value) {
 }
 
 async function loadTokens() {
-  const colors = (await import(path.join(TOKENS_DIST, "colors.js"))).colors;
-  const dimensions = (await import(path.join(TOKENS_DIST, "dimensions.js"))).dimensions;
-  const typography = (await import(path.join(TOKENS_DIST, "typography.js"))).typography;
-  const components = (await import(path.join(TOKENS_DIST, "components.js"))).components;
-  const motion = (await import(path.join(TOKENS_DIST, "motion.js"))).motion;
+  const [colors, dimensions, typography, components, motion] = await Promise.all([
+    import(path.join(TOKENS_DIST, "colors.js")).then(m => m.colors),
+    import(path.join(TOKENS_DIST, "dimensions.js")).then(m => m.dimensions),
+    import(path.join(TOKENS_DIST, "typography.js")).then(m => m.typography),
+    import(path.join(TOKENS_DIST, "components.js")).then(m => m.components),
+    import(path.join(TOKENS_DIST, "motion.js")).then(m => m.motion),
+  ]);
   return { colors, dimensions, typography, components, motion };
 }
 
@@ -88,7 +104,7 @@ function generateThemeCSS(mode, tokens, varMapping) {
   lines.push("");
   lines.push("  /* ═══ EZDS component tokens ═══ */");
   for (const [name, value] of Object.entries(tokens.components)) {
-    lines.push(`  ${figmaPathToCssVar(name)}: ${value}px;`);
+    lines.push(`  ${figmaPathToCssVar(name)}: ${componentValue(name, value)};`);
   }
 
   lines.push("");
@@ -99,43 +115,43 @@ function generateThemeCSS(mode, tokens, varMapping) {
 
   lines.push("");
   lines.push("  /* Color aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.colorAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.colorAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 
   lines.push("");
   lines.push("  /* Spacing aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.spacingAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.spacingAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 
   lines.push("");
   lines.push("  /* Motion aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.motionAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.motionAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 
   lines.push("");
   lines.push("  /* Border-radius aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.borderRadiusAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.borderRadiusAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 
   lines.push("");
   lines.push("  /* Font aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.fontAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.fontAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 
   lines.push("");
   lines.push("  /* Opacity aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.opacityAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.opacityAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 
   lines.push("");
   lines.push("  /* Shadow aliases */");
-  for (const [oldVar, newRef] of Object.entries(varMapping.shadowAliases)) {
+  for (const [oldVar, newRef] of Object.entries(varMapping.shadowAliases ?? {})) {
     lines.push(`  ${oldVar}: ${newRef};`);
   }
 

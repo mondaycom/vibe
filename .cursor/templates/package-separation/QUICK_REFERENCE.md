@@ -176,7 +176,7 @@ grep "export enum" packages/core/src/components/[ComponentName]/[ComponentName]C
 
 ### Check dependencies
 ```bash
-grep "^import.*from" packages/core/src/components/[ComponentName]/[ComponentName].tsx | grep "@vibe"
+grep "^import.*from" packages/core/src/components/[ComponentName]/[ComponentName].tsx | grep "@ezds"
 ```
 
 ### Find all imports to update

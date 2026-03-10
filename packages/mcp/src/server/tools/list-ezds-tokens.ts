@@ -14,10 +14,10 @@ const SearchTokensParamsSchema = z.object({
   includeUsageExamples: z.boolean().optional().describe("Include CSS usage examples in the results (default: false)")
 });
 
-export const listVibeTokensTool: MCPTool<typeof SearchTokensParamsSchema.shape> = {
-  name: "list-vibe-tokens",
+export const listEZDSTokensTool: MCPTool<typeof SearchTokensParamsSchema.shape> = {
+  name: "list-ezds-tokens",
   description:
-    "Get a list of all available Vibe design tokens from the @ezds/style package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.",
+    "Get a list of all available EZDS design tokens from the @ezds/style package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.",
   inputSchema: SearchTokensParamsSchema.shape,
   execute: async (input: z.infer<typeof SearchTokensParamsSchema>): Promise<any> => {
     const { query, category, limit, includeUsageExamples = false } = input;
@@ -112,10 +112,10 @@ export const listVibeTokensTool: MCPTool<typeof SearchTokensParamsSchema.shape> 
         ]
       };
     } catch (e) {
-      const errorMessage = getErrorMessage(e) || `Failed to list vibe tokens`;
+      const errorMessage = getErrorMessage(e) || `Failed to list EZDS tokens`;
 
       return {
-        content: [{ type: "text", text: `Error in list-vibe-tokens: ${errorMessage}` }],
+        content: [{ type: "text", text: `Error in list-ezds-tokens: ${errorMessage}` }],
         isError: true
       };
     }

@@ -62,7 +62,7 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await splitButton.getAttributeValue("data-vibe");
+    const attributeValue = await splitButton.getAttributeValue("data-ezds");
     expect(attributeValue).toContain("SplitButton");
   });
 

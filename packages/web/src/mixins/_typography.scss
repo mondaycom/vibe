@@ -1,8 +1,8 @@
-@mixin vibe-text($type-prefix, $weight-type) {
+@mixin ezds-text($type-prefix, $weight-type) {
   font: var(--font-#{$type-prefix}-#{$weight-type});
 }
 
-@mixin vibe-heading($type-prefix, $weight-type) {
+@mixin ezds-heading($type-prefix, $weight-type) {
   font: var(--font-#{$type-prefix}-#{$weight-type});
   letter-spacing: var(--letter-spacing-#{$type-prefix}-#{$weight-type});
   -webkit-font-smoothing: var(--font-smoothing-webkit);

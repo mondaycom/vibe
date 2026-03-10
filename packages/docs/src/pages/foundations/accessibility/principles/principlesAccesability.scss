@@ -5,7 +5,7 @@ $principles-column-gap: var(--sb-spacing-large);
 $principles-row-gap: var(--sb-spacing-xxxl);
 $principles-grid-cell-array-calc: calc(25% - #{$principles-column-gap});
 
-.monday-storybook-principles {
+.ezds-storybook-principles {
   margin-top: var(--sb-spacing-between-section-items);
 
   @include grid-auto-fit(

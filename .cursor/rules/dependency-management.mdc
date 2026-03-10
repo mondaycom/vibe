@@ -20,7 +20,7 @@ Before considering adding a new package, **always** check the relevant `package.
 
 ## 3. React Version Constraints
 
-We must use latest **React 16** and latest **React DOM 16** for @vibe/core library ("packages/core") and other packages in our monorepo. Do not use or suggest versions newer than 16.x.x for these packages.
+We must use latest **React 16** and latest **React DOM 16** for @ezds/core library ("packages/core") and other packages in our monorepo. Do not use or suggest versions newer than 16.x.x for these packages.
 
 ## 4. Criteria for Adding New Dependencies
 

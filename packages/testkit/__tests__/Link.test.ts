@@ -65,7 +65,7 @@ test.describe("Testkit - Unit Tests - Link", () => {
 
   test("should get link href", async () => {
     const href = await link.getLinkHref();
-    expect.soft(href).toBe("https://www.monday.com");
+    expect.soft(href).toBe("https://www.ezcorp.com");
     expect.soft(href).toBeTruthy();
     expect(href.length).toBeGreaterThan(0);
   });
@@ -74,7 +74,7 @@ test.describe("Testkit - Unit Tests - Link", () => {
     const newPagePromise = page.waitForEvent("popup");
     await link.click();
     const newPage = await newPagePromise;
-    expect(newPage.url()).toContain("https://www.monday.com/");
+    expect(newPage.url()).toContain("https://www.ezcorp.com/");
     await newPage.close();
   });
 

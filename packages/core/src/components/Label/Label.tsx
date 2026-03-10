@@ -8,15 +8,15 @@ import Leg from "./Leg";
 import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import { useClickableProps } from "@ezds/clickable";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { type LabelSizes } from "./Label.types";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface LabelProps extends VibeComponentProps {
+export interface LabelProps extends EZDSComponentProps {
   /**
    * Class name applied to the inner text wrapper.
    */
@@ -130,7 +130,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
           {...(isClickable && clickableProps)}
           className={cx({ [styles.clickableWrapper]: isClickable }, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LABEL, id)}
-          data-vibe={ComponentVibeId.LABEL}
+          data-ezds={ComponentEZDSId.LABEL}
           ref={mergedRef}
         >
           <Text

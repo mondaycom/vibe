@@ -3,11 +3,11 @@ import { getErrorMessage, MCPTool } from "../index.js";
 import { MetadataService } from "./metadata-service.js";
 
 const ComponentNameParamsSchema = z.object({
-  componentName: z.string().describe("The name of the public Vibe component to get metadata for.")
+  componentName: z.string().describe("The name of the public EZDS component to get metadata for.")
 });
 
-export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSchema.shape> = {
-  name: "get-vibe-component-metadata",
+export const getEZDSComponentMetadataTool: MCPTool<typeof ComponentNameParamsSchema.shape> = {
+  name: "get-ezds-component-metadata",
   description: "Get the metadata for a specific @ezds/core/next or @ezds/core component.",
   inputSchema: ComponentNameParamsSchema.shape,
   execute: async (input: z.infer<typeof ComponentNameParamsSchema>): Promise<any> => {
@@ -19,7 +19,7 @@ export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSch
       if (componentMatches.length === 0) {
         return {
           content: [
-            { type: "text", text: `Error in getVibeComponentMetadata: Component '${componentName}' not found.` }
+            { type: "text", text: `Error in getEZDSComponentMetadata: Component '${componentName}' not found.` }
           ],
           isError: true
         };
@@ -42,7 +42,7 @@ export const getVibeComponentMetadataTool: MCPTool<typeof ComponentNameParamsSch
         getErrorMessage(e) || `Failed to get metadata${componentName ? ` for ${componentName}` : ""}`;
 
       return {
-        content: [{ type: "text", text: `Error in getVibeComponentMetadata: ${errorMessage}` }],
+        content: [{ type: "text", text: `Error in getEZDSComponentMetadata: ${errorMessage}` }],
         isError: true
       };
     }

@@ -6,13 +6,13 @@ import { Button, type ButtonProps } from "@ezds/button";
 import { NOOP } from "../../utils/function-utils";
 import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
 import { type StepsColor } from "./Steps.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
 import { camelCase } from "es-toolkit";
 import { getStyle } from "../..//helpers/typesciptCssModulesHelper";
 
-export interface StepsCommandProps extends VibeComponentProps {
+export interface StepsCommandProps extends EZDSComponentProps {
   /**
    * If true, this button is for moving to the next step.
    */

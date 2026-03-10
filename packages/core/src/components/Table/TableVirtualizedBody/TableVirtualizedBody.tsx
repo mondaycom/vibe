@@ -1,5 +1,5 @@
 import React, { type ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
 import { FixedSizeList as List, type ListChildComponentProps, type ScrollDirection } from "react-window";
@@ -15,7 +15,7 @@ import { type TableColumn } from "../Table/Table";
 export type TableVirtualizedRow = Record<string, unknown> & { id: string };
 
 export interface TableVirtualizedBodyProps<T extends TableVirtualizedRow = TableVirtualizedRow>
-  extends VibeComponentProps {
+  extends EZDSComponentProps {
   /**
    * The list of items to render in the virtualized table.
    */

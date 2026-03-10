@@ -1,6 +1,6 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableText.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { camelCase } from "es-toolkit";
@@ -10,7 +10,7 @@ import EditableTypography, {
 import { Text, TextTypeEnum, TextWeightEnum, type TextType, type TextWeight } from "@ezds/typography";
 import cx from "classnames";
 
-export interface EditableTextProps extends VibeComponentProps, EditableTypographyImplementationProps {
+export interface EditableTextProps extends EZDSComponentProps, EditableTypographyImplementationProps {
   /**
    * The text style variant.
    */

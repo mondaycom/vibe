@@ -3,14 +3,14 @@ import { NOOP } from "../../../utils/function-utils";
 import { Tooltip } from "@ezds/tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { type SliderColor, type SliderSize } from "../Slider.types";
 import { camelCase } from "es-toolkit";
 
-export interface SliderThumbProps extends VibeComponentProps {
+export interface SliderThumbProps extends EZDSComponentProps {
   /**
    * The index of the thumb (used in range sliders).
    */

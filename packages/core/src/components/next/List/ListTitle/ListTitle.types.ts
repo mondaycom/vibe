@@ -1,7 +1,7 @@
-import type { VibeComponentProps } from "../../../../types";
+import type { EZDSComponentProps } from "../../../../types";
 import type { BaseListSizes } from "../../../BaseList/BaseList.types";
 
-export interface ListTitleProps extends VibeComponentProps {
+export interface ListTitleProps extends EZDSComponentProps {
   /**
    * The title text to display.
    */

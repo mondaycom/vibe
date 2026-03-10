@@ -15,12 +15,12 @@ import { type ToastType, type ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Toast.module.scss";
 import { IconButton } from "@ezds/icon-button";
 import usePrevious from "../../hooks/usePrevious";
 
-export interface ToastProps extends VibeComponentProps {
+export interface ToastProps extends EZDSComponentProps {
   /**
    * The actions available in the toast.
    */

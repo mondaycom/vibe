@@ -109,12 +109,12 @@ describe("Modal component migration", () => {
       transform,
       {},
       `
-        import { Modal as VibeComponent } from "monday-ui-react-core";
-        <VibeComponent hideCloseButton />
+        import { Modal as EZDSComponent } from "monday-ui-react-core";
+        <EZDSComponent hideCloseButton />
       `,
       `
-        import { Modal as VibeComponent } from "monday-ui-react-core";
-        <VibeComponent />
+        import { Modal as EZDSComponent } from "monday-ui-react-core";
+        <EZDSComponent />
       `,
       "should remove 'hideCloseButton' if imported with alias from vibe"
     );

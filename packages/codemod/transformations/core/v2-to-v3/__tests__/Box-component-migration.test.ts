@@ -113,12 +113,12 @@ describe("Box component migration", () => {
     transform,
     {},
     `
-      import { Box as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent border={Box.borders.DEFAULT} />
+      import { Box as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent border={Box.borders.DEFAULT} />
     `,
     `
-      import { Box as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent border />
+      import { Box as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent border />
     `,
     "should change when 'Box' is imported with alias from vibe"
   );

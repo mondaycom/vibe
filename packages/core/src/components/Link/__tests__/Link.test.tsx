@@ -6,7 +6,7 @@ import Link from "../Link";
 describe("Link", () => {
   const ariaLabel = "Read more about the interesting article";
   const text = "Read More";
-  const href = "https://www.monday.com";
+  const href = "https://www.ezcorp.com";
 
   let onClickMock: Mock;
 

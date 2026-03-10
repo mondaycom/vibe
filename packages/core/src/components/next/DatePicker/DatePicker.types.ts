@@ -1,7 +1,7 @@
-import type { VibeComponentProps } from "@ezds/shared";
+import type { EZDSComponentProps } from "@ezds/shared";
 import type { Intent } from "./utils";
 
-interface DatePickerBaseProps extends VibeComponentProps {
+interface DatePickerBaseProps extends EZDSComponentProps {
   mode?: "single" | "range";
   date: Date | undefined;
   endDate?: Date | undefined;

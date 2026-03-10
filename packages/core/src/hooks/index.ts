@@ -12,7 +12,7 @@ export { default as useHover } from "./useHover/useHover";
 export { default as useGridKeyboardNavigation } from "./useGridKeyboardNavigation/useGridKeyboardNavigation";
 export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
 export { default as useMediaQuery } from "./useMediaQuery";
-export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
+export { default as useEZDSMediaQuery } from "./useEZDSMediaQuery";
 export { default as useListenFocusTriggers } from "./useListenFocusTriggers";
 export { default as useSwitch } from "./useSwitch";
 export { default as useElementsOverflowingIndex } from "./useElementsOverflowingIndex";

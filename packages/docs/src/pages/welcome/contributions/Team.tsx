@@ -96,7 +96,7 @@ export default function Team() {
         <Flex direction="column" align="start" style={{ gap: "42px" }}>
           <p className={styles.text}>
             A team of thinkers, doers, and innovators
-            <br /> pushing the monday.com design experience forward.
+            <br /> pushing the ezcorp.com design experience forward.
           </p>
           <div className={styles.team}>
             {team.map(({ imgSrc, name, linkedinUrl, title }) => (

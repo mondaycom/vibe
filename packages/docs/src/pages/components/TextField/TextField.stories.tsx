@@ -142,7 +142,7 @@ export const TextFieldInAForm: Story = {
       </Heading>
       <Flex direction="column" gap="medium">
         <TextField id="form-name" title="Your Name" size="medium" placeholder="John Doe" />
-        <TextField id="form-email" title="Email" size="medium" placeholder="email@monday.com" />
+        <TextField id="form-email" title="Email" size="medium" placeholder="email@ezcorp.com" />
       </Flex>
     </Flex>
   ),

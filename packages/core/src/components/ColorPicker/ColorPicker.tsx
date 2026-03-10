@@ -14,15 +14,15 @@ import {
   type ColorPickerArrayValueOnly
 } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import { type SubIcon } from "@ezds/icon";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
 import { type ColorStyle } from "../../types/Colors";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface ColorPickerProps extends VibeComponentProps {
+export interface ColorPickerProps extends EZDSComponentProps {
   /**
    * The selected color(s).
    */
@@ -136,7 +136,7 @@ const ColorPicker = forwardRef(
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}
-        data-vibe={ComponentVibeId.COLOR_PICKER}
+        data-ezds={ComponentEZDSId.COLOR_PICKER}
       >
         <ColorPickerContent
           onValueChange={onChange}

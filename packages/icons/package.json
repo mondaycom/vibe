@@ -4,10 +4,10 @@
   "description": "Vibe's Icon Library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/icons"
   },
-  "author": "monday.com",
+  "author": "ezcorp.com",
   "license": "MIT",
   "main": "./dist/react/index.js",
   "type": "module",

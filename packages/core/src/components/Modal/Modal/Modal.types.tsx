@@ -1,4 +1,4 @@
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import type React from "react";
 import { type ModalTopActionsProps } from "../ModalTopActions/ModalTopActions.types";
 import { type PortalTarget } from "../hooks/usePortalTarget/usePortalTarget.types";
@@ -10,7 +10,7 @@ export type ModalCloseEvent =
   | React.MouseEvent<HTMLDivElement | HTMLButtonElement>
   | React.KeyboardEvent<HTMLDivElement>;
 
-export interface ModalProps extends VibeComponentProps {
+export interface ModalProps extends EZDSComponentProps {
   /**
    * Unique identifier for the modal.
    */

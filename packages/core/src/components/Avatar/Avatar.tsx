@@ -12,12 +12,12 @@ import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
 import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { ClickableWrapper } from "@ezds/clickable";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import { type SubIcon } from "@ezds/icon";
 import styles from "./Avatar.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface AvatarProps extends VibeComponentProps {
+export interface AvatarProps extends EZDSComponentProps {
   /**
    * The image source for the avatar.
    */
@@ -27,7 +27,7 @@ export interface AvatarProps extends VibeComponentProps {
    */
   text?: string;
   /**
-   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://design.ezcorp.com/?path=/docs/components-tooltip--docs).
    */
   tooltipProps?: Partial<TooltipProps>;
   /**
@@ -222,7 +222,7 @@ const Avatar = ({
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.AVATAR, id)}
       className={cx(styles.avatar, styles[size], className)}
       style={sizeStyle}
-      data-vibe={ComponentVibeId.AVATAR}
+      data-ezds={ComponentEZDSId.AVATAR}
     >
       <ClickableWrapper
         isClickable={!!onClick}

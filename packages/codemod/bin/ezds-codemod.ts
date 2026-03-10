@@ -90,7 +90,7 @@ function printReport(successCount: number, failureCount: number, errorsCount: nu
   }
   console.log(`${chalk.dim(`       Duration  `)}${duration}`);
   console.log(chalk.blue(`\nAutomatic migration finished. Follow the migration guide to continue:`));
-  console.log(`${chalk.underline.blue("https://vibe.monday.com/?path=/docs/migration-guide--docs")}\n`);
+  console.log(`${chalk.underline.blue("https://design.ezcorp.com/?path=/docs/migration-guide--docs")}\n`);
 }
 
 async function main() {
@@ -119,11 +119,11 @@ async function main() {
     }
   }
 
-  const isVibeCoreInstalled = checkIfPackageExists("@ezds/core");
-  if (migrationType === "v3" && !isVibeCoreInstalled) {
+  const isEZDSCoreInstalled = checkIfPackageExists("@ezds/core");
+  if (migrationType === "v3" && !isEZDSCoreInstalled) {
     console.log(chalk.yellow("Warning: You need to install @ezds/core package to fully apply the v3 migration."));
   }
-  if (migrationType === "enums" && !isVibeCoreInstalled) {
+  if (migrationType === "enums" && !isEZDSCoreInstalled) {
     console.log(chalk.red("Error: Please install @ezds/core to run the enum migration."));
     process.exit(1);
   }

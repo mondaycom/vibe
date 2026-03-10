@@ -1,12 +1,12 @@
 import React, { type FC, type ReactElement } from "react";
 import cx from "classnames";
 import { Text } from "@ezds/typography";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./LegacyModalContent.module.scss";
 
-export interface LegacyModalContentProps extends VibeComponentProps {
+export interface LegacyModalContentProps extends EZDSComponentProps {
   children: ReactElement | ReactElement[] | string;
 }
 

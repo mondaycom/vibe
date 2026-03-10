@@ -2,7 +2,7 @@ import React, { type ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { LoaderColors as LoaderColorsEnum, LoaderSizes as LoaderSizesEnum } from "./LoaderConstants";
 import { type LoaderColors, type LoaderSize, type LoaderSizes } from "./Loader.types";
-import { getTestId, type VibeComponentProps, withStaticProps, ComponentDefaultTestId } from "@ezds/shared";
+import { getTestId, type EZDSComponentProps, withStaticProps, ComponentDefaultTestId } from "@ezds/shared";
 import styles from "./Loader.module.scss";
 
 const mapSizesToLoaderSize: Record<LoaderSizes, number> = {
@@ -19,7 +19,7 @@ const mapLoaderColorsToColors: Record<LoaderColors, string> = {
   dark: "primary-text-color"
 };
 
-export interface LoaderProps extends VibeComponentProps {
+export interface LoaderProps extends EZDSComponentProps {
   /**
    * The size of the loader, either a predefined size or a custom number.
    */

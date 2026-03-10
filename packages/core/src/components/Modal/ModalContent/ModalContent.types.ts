@@ -1,7 +1,7 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 
-export interface ModalContentProps extends VibeComponentProps {
+export interface ModalContentProps extends EZDSComponentProps {
   /**
    * The main content of the modal.
    */

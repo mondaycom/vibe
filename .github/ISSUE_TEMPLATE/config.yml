@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Feature Request
-    url: https://github.com/mondaycom/vibe/discussions
+    url: https://github.com/ezcorp/ezds/discussions
     about: Suggest new features
   - name: Questions & Discussions
-    url: https://github.com/mondaycom/vibe/discussions
+    url: https://github.com/ezcorp/ezds/discussions
     about: Use GitHub discussions for questions and suggestions

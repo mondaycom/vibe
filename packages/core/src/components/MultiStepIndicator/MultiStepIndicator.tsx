@@ -14,10 +14,10 @@ import {
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
 
-export interface MultiStepIndicatorProps extends VibeComponentProps {
+export interface MultiStepIndicatorProps extends EZDSComponentProps {
   /**
    * The list of steps in the multi-step indicator.
    */

@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
     "target": "es6",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "esModuleInterop": true,
     "jsx": "react",
     "skipLibCheck": true,

@@ -1,6 +1,6 @@
-# monday.com UI styles
+# ezcorp.com UI styles
 
-> Vibe Design System's styling foundations: Theme definition, colors, shadows, dimensions, etc.
+> EZDS Design System's styling foundations: Theme definition, colors, shadows, dimensions, etc.
 
 ## Installation
 
@@ -68,7 +68,7 @@ The following SCSS mixins are exported:
   - `reset-button`
   - `focus-style($focus-radius)`
 - Typography:
-  - `vibe-text($type, $weight)`
-  - `vibe-heading($type, $weight)`
+  - `ezds-text($type, $weight)`
+  - `ezds-heading($type, $weight)`
   - `line-clamp($lines)`
   - `ellipsis`

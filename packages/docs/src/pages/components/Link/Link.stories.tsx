@@ -19,7 +19,7 @@ export default {
 type Story = StoryObj<typeof Link>;
 
 export const Overview: Story = {
-  render: (args: LinkProps) => <Link id="overview-link" text="Read more" href="https://www.monday.com" {...args} />,
+  render: (args: LinkProps) => <Link id="overview-link" text="Read more" href="https://www.ezcorp.com" {...args} />,
   parameters: {
     docs: {
       liveEdit: {
@@ -30,14 +30,14 @@ export const Overview: Story = {
 };
 
 export const States: Story = {
-  render: () => <Link id="states-default" text="Default" href="https://www.monday.com" />
+  render: () => <Link id="states-default" text="Default" href="https://www.ezcorp.com" />
 };
 
 export const RightToLeft: Story = {
   render: () => (
     <>
-      <Link id="rtl-arabic" text="اقرأ أكثر" href="https://www.monday.com" icon={IconLink} />
-      <Link id="rtl-hebrew" text="קרא עוד" href="https://www.monday.com" iconPosition="end" icon={Info} />
+      <Link id="rtl-arabic" text="اقرأ أكثر" href="https://www.ezcorp.com" icon={IconLink} />
+      <Link id="rtl-hebrew" text="קרא עוד" href="https://www.ezcorp.com" iconPosition="end" icon={Info} />
     </>
   ),
   parameters: {
@@ -52,8 +52,8 @@ export const RightToLeft: Story = {
 export const WithIcons: Story = {
   render: () => (
     <>
-      <Link id="icon-start" text="Read more" href="https://www.monday.com" icon={ExternalPage} />
-      <Link id="icon-end" text="Read more" href="https://www.monday.com" iconPosition="end" icon={ExternalPage} />
+      <Link id="icon-start" text="Read more" href="https://www.ezcorp.com" icon={ExternalPage} />
+      <Link id="icon-end" text="Read more" href="https://www.ezcorp.com" iconPosition="end" icon={ExternalPage} />
     </>
   ),
   parameters: {
@@ -69,7 +69,7 @@ export const ReferenceLink: Story = {
   render: () => (
     <div>
       {`Lorem Ipsum has been the industry's `}
-      <Link id="reference-link" inlineText inheritFontSize text="standard" href="https://www.monday.com" />
+      <Link id="reference-link" inlineText inheritFontSize text="standard" href="https://www.ezcorp.com" />
       {` dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`}
     </div>
   )
@@ -80,7 +80,7 @@ export const ShorteningTexts: Story = {
     <div>
       {`Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
       galley of type and scrambled it to make a type specimen book. `}
-      <Link id="shortening-link" text="Read more" href="https://www.monday.com" inheritFontSize inlineText />
+      <Link id="shortening-link" text="Read more" href="https://www.ezcorp.com" inheritFontSize inlineText />
     </div>
   )
 };

@@ -161,12 +161,12 @@ describe("ButtonGroup component migration", () => {
     transform,
     {},
     `
-      import { ButtonGroup as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent componentClassName="old-class" />
+      import { ButtonGroup as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent componentClassName="old-class" />
     `,
     `
-      import { ButtonGroup as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { ButtonGroup as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'ButtonGroup' is imported with alias from vibe"
   );

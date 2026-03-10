@@ -4,7 +4,7 @@ import { IconButton } from "@ezds/icon-button";
 import { Dialog, type DialogEvent } from "@ezds/dialog";
 import { InfoDialogContent } from "./components";
 import { type InfoProps } from "./Info.types";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 
@@ -96,7 +96,7 @@ const Info = forwardRef(
           ariaHasPopup="dialog"
           ariaExpanded={isOpen}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.INFO, id)}
-          data-vibe={ComponentVibeId.INFO}
+          data-ezds={ComponentEZDSId.INFO}
           hideTooltip={hideButtonTooltip}
         />
       </Dialog>

@@ -8,12 +8,12 @@ import React, {
   useState
 } from "react";
 import cx from "classnames";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../../types";
 import { type TableHeaderProps } from "../TableHeader/TableHeader";
 import { type TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
 import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../../tests/constants";
 import { RowHeights, RowSizes as RowSizesEnum } from "./TableConsts";
 import { type RowSizes } from "./Table.types";
 import styles from "./Table.module.scss";
@@ -55,7 +55,7 @@ export interface TableColumn {
   loadingStateType?: TableLoadingStateType;
 }
 
-export interface TableProps extends VibeComponentProps {
+export interface TableProps extends EZDSComponentProps {
   /**
    * Defines the columns of the table.
    */
@@ -199,7 +199,7 @@ const Table = forwardRef(
               className
             )}
             data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABLE, id)}
-            data-vibe={ComponentVibeId.TABLE}
+            data-ezds={ComponentEZDSId.TABLE}
             role="table"
             style={calculatedStyle}
             onScroll={onScroll}

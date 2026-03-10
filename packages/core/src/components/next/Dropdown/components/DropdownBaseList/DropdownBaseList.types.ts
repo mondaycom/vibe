@@ -1,11 +1,11 @@
 import { type ReactNode } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../../../../types";
+import { type EZDSComponentProps } from "../../../../../types";
 import { type BaseItemData, type BaseItemSizes, type BaseItemDirection } from "../../../../BaseItem";
 
 export interface DropdownBaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
-    VibeComponentProps {
+    EZDSComponentProps {
   /**
    * The list of options available in the list.
    */

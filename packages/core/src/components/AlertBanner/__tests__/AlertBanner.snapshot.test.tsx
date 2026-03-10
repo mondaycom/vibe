@@ -34,7 +34,7 @@ describe("AlertBanner", () => {
       .create(
         <AlertBanner onClose={NOOP}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
-          <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
+          <AlertBannerLink text="Lorem ipsum" href="https://ezcorp.com" />
         </AlertBanner>
       )
       .toJSON();
@@ -58,7 +58,7 @@ describe("AlertBanner", () => {
       .create(
         <AlertBanner onClose={NOOP}>
           <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
-          <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
+          <AlertBannerLink text="Lorem ipsum" href="https://ezcorp.com" />
           <AlertBannerText text="sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
           <AlertBannerButton onClick={NOOP}>Lorem Ipsum Bailar</AlertBannerButton>
         </AlertBanner>

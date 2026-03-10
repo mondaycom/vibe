@@ -1,1 +1,1 @@
-export * from "./vibe-import-paths";
+export * from "./ezds-import-paths";

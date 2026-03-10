@@ -3,7 +3,7 @@ import { principleClarity, principleSpeed, principleIntuative, principleDelight 
 import { Principle } from "./principle";
 import "./principlesAccesability.scss";
 
-const BASE_CLASS = "monday-storybook-principles";
+const BASE_CLASS = "ezds-storybook-principles";
 
 export const PrinciplesAccesability = () => (
   <div className={BASE_CLASS}>

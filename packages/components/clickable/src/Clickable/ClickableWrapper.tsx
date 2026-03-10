@@ -1,9 +1,9 @@
 import React, { forwardRef } from "react";
 import Clickable from "./Clickable";
-import { type VibeComponentProps } from "@ezds/shared";
+import { type EZDSComponentProps } from "@ezds/shared";
 import { type ClickableProps } from "./Clickable";
 
-export interface ClickableWrapperProps extends VibeComponentProps {
+export interface ClickableWrapperProps extends EZDSComponentProps {
   /**
    * The content inside the wrapper.
    */

@@ -8,16 +8,16 @@ import { IconButton } from "@ezds/icon-button";
 import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@ezds/icons";
 import { AttentionBoxType as AttentionBoxTypeEnum, IconTypeEnum } from "./AttentionBoxConstants";
 import { type AttentionBoxType } from "./AttentionBox.types";
-import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
 import { Text } from "@ezds/typography";
 import { Flex } from "@ezds/layout";
 import styles from "./AttentionBox.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
 /**
  * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@ezds/core/next" instead.
  */
-export interface AttentionBoxProps extends VibeComponentProps {
+export interface AttentionBoxProps extends EZDSComponentProps {
   // TODO: [breaking] remove prop
   /**
    * If true, displays an icon even when no header is provided.
@@ -103,7 +103,7 @@ const AttentionBox = ({
       })}
       role="alert"
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.ATTENTION_BOX, id)}
-      data-vibe={ComponentVibeId.ATTENTION_BOX}
+      data-ezds={ComponentEZDSId.ATTENTION_BOX}
     >
       {title && (
         <Flex justify="start" align="center" className={styles.titleContainer} gap="xs">

@@ -2,10 +2,10 @@ import React, { type FunctionComponent, useCallback, type AriaRole, type Ref } f
 import SVG from "react-inlinesvg";
 import {
   ComponentDefaultTestId,
-  ComponentVibeId,
+  ComponentEZDSId,
   getTestId,
   useIsMounted,
-  type VibeComponentProps
+  type EZDSComponentProps
 } from "@ezds/shared";
 import useIconScreenReaderAccessProps from "../hooks/useIconScreenReaderAccessProps";
 
@@ -13,7 +13,7 @@ function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
 }
 
-export interface CustomSvgIconProps extends VibeComponentProps {
+export interface CustomSvgIconProps extends EZDSComponentProps {
   /**
    * Callback fired when the icon is clicked.
    */
@@ -108,7 +108,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       preProcessor={svgProcessor}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
-      data-vibe={ComponentVibeId.ICON}
+      data-ezds={ComponentEZDSId.ICON}
     >
       {PlaceHolder}
     </SVGComponent>

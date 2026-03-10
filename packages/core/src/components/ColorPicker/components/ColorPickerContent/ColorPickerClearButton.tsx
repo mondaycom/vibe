@@ -1,12 +1,12 @@
 import React, { forwardRef } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import { Button } from "@ezds/button";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type SubIcon } from "@ezds/icon";
 import { NOOP } from "../../../../utils/function-utils";
 import styles from "./ColorPickerClearButton.module.scss";
 
-export interface ColorPickerClearButtonProps extends VibeComponentProps {
+export interface ColorPickerClearButtonProps extends EZDSComponentProps {
   /**
    * Callback fired when the clear button is clicked.
    */

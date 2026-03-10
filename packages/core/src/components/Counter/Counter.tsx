@@ -13,11 +13,11 @@ import {
   CounterType as CounterTypeEnum
 } from "./CounterConstants";
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Counter.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface CounterProps extends VibeComponentProps {
+export interface CounterProps extends EZDSComponentProps {
   /**
    * The ID of the element describing the counter.
    */
@@ -140,7 +140,7 @@ const Counter = ({
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
-      data-vibe={ComponentVibeId.COUNTER}
+      data-ezds={ComponentEZDSId.COUNTER}
     >
       <div className={classNames} aria-label={countText} ref={ref}>
         {noAnimation ? (

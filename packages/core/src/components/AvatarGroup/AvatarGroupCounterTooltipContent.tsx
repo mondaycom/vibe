@@ -4,11 +4,11 @@ import { Flex } from "@ezds/layout";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { type AvatarType } from "../Avatar/Avatar.types";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
-export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {
+export interface AvatarGroupCounterTooltipContentProps extends EZDSComponentProps {
   /**
    * The type of avatars displayed inside the tooltip.
    */

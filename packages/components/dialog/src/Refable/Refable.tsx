@@ -1,9 +1,9 @@
 import React, { type HTMLProps, type MutableRefObject, type ReactElement } from "react";
-import { chainFunctions, chainRefFunctions, type VibeComponentProps } from "@ezds/shared";
+import { chainFunctions, chainRefFunctions, type EZDSComponentProps } from "@ezds/shared";
 
 export const Refable = React.forwardRef<
   ReactElement,
-  React.PropsWithChildren<unknown & HTMLProps<any> & VibeComponentProps> & {
+  React.PropsWithChildren<unknown & HTMLProps<any> & EZDSComponentProps> & {
     children: ReactElement | ReactElement[] | string;
     /**
      * The wrapper element type to use for React components. Defaults to "span".

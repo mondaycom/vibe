@@ -1,10 +1,10 @@
 import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
-import { type VibeComponentProps, type ElementContent } from "../../../types";
+import { type EZDSComponentProps, type ElementContent } from "../../../types";
 import { type ExpandCollapseIconPosition } from "../../ExpandCollapse/ExpandCollapse.types";
 
-export interface AccordionItemProps extends VibeComponentProps {
+export interface AccordionItemProps extends EZDSComponentProps {
   /**
    * The header content displayed in the accordion item.
    */

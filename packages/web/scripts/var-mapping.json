@@ -114,6 +114,11 @@
     "--space-64": "var(--ezds-space-1600)",
     "--space-80": "var(--ezds-space-2000)"
   },
+  "_alias_notes": {
+    "--positive-color-selected-hover": "FIXME: --ezds-color-background-success-subtle--hover does not exist in packages/tokens/src/colors.ts. Alias points to the base subtle token (no hover distinction) until a hover variant token is added.",
+    "--warning-color-selected-hover": "FIXME: --ezds-color-background-warning-subtle--hover does not exist in packages/tokens/src/colors.ts. Alias points to the base subtle token (no hover distinction) until a hover variant token is added."
+  },
+  "_unmapped_note": "These 39 content colors (egg_yolk, grass_green, etc.) have no EZDS semantic equivalent. Components referencing these vars will not be migrated by migrate-scss-vars.mjs. Track resolution in backlog.",
   "unmapped": [
     "Content Color/grass_green",
     "Content Color/done-green",

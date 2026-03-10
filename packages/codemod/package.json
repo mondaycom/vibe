@@ -1,15 +1,15 @@
 {
   "name": "@ezds/codemod",
   "version": "1.1.0",
-  "description": "Vibe's component library migration tool",
+  "description": "EZDS component library migration tool",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/codemod"
   },
-  "author": "monday.com",
+  "author": "ezcorp.com",
   "license": "MIT",
-  "bin": "./dist/bin/vibe-codemod.js",
+  "bin": "./dist/bin/ezds-codemod.js",
   "files": [
     "dist"
   ],

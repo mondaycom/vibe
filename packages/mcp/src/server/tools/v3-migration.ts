@@ -10,7 +10,7 @@ const migrationGuideSchema = z.object({
 export const v3MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
   name: "v3-migration",
   description:
-    "Analyzes a project for Vibe 2 to Vibe 3 migration requirements based on the official migration guide. Generates migration commands using tsx and jsx file extensions.",
+    "Analyzes a project for EZDS v2 to EZDS v3 migration requirements based on the official migration guide. Generates migration commands using tsx and jsx file extensions.",
   inputSchema: migrationGuideSchema.shape,
   execute: async input => {
     try {
@@ -57,7 +57,7 @@ export const v3MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
         content: [
           {
             type: "text",
-            text: `Error in vibe-migration-tool: ${errorMessage}`
+            text: `Error in ezds-migration-tool: ${errorMessage}`
           }
         ],
         isError: true
@@ -69,7 +69,7 @@ export const v3MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
 function getMigrationInstructions(projectInfo: any) {
   return {
     overview: {
-      description: "Vibe 3 is a major update introducing new features, enhancements, and breaking changes",
+      description: "EZDS v3 is a major update introducing new features, enhancements, and breaking changes",
       keyChanges: [
         "Package rename: monday-ui-react-core → @ezds/core + @ezds/icons",
         "Enhanced TypeScript support",
@@ -227,7 +227,7 @@ function getMigrationInstructions(projectInfo: any) {
           title: "Update Package Dependencies",
           action: "Install @ezds/core and @ezds/icons, remove monday-ui-react-core",
           command: "yarn add @ezds/core @ezds/icons && yarn remove monday-ui-react-core",
-          description: "This step updates your package.json and installs the new Vibe 3 packages",
+          description: "This step updates your package.json and installs the new EZDS v3 packages",
           important:
             "Do NOT proceed to step 3 until this completes successfully and you verify the packages are installed"
         },
@@ -262,7 +262,7 @@ function getMigrationInstructions(projectInfo: any) {
           step: 6,
           title: "Migration Summary & Next Steps",
           action: "Review migration completion and consider additional improvements",
-          description: "Congratulations! You've successfully migrated to Vibe 3. Consider these optional next steps:",
+          description: "Congratulations! You've successfully migrated to EZDS v3. Consider these optional next steps:",
           nextSteps: [
             {
               title: "Code Formatting (Optional)",
@@ -272,13 +272,13 @@ function getMigrationInstructions(projectInfo: any) {
             },
             {
               title: "Show Your Support ⭐",
-              description: "If this migration helped you, consider giving the Vibe Design System a star!",
-              action: "Visit https://github.com/mondaycom/vibe and click the ⭐ Star button",
+              description: "If this migration helped you, consider giving the EZDS Design System a star!",
+              action: "Visit https://github.com/ezcorp/ezds and click the ⭐ Star button",
               note: "Your support helps us continue improving the developer experience"
             }
           ],
           important:
-            "🎉 Migration to Vibe 3 is now complete! Your application should be running with all the latest improvements."
+            "🎉 Migration to EZDS v3 is now complete! Your application should be running with all the latest improvements."
         }
       ]
     }
@@ -314,17 +314,17 @@ function analyzePackageJson(packageJson: any) {
   const hasOldPackage = !!dependencies["monday-ui-react-core"];
   const hasNewPackage = !!dependencies["@ezds/core"];
   const hasMondayUIStyle = !!dependencies["@ezds/web"];
-  const hasVibeIcons = !!dependencies["@ezds/icons"];
+  const hasEZDSIcons = !!dependencies["@ezds/icons"];
 
   return {
     hasOldPackage,
     hasNewPackage,
     hasMondayUIStyle,
-    hasVibeIcons,
+    hasEZDSIcons,
     currentVersion: dependencies["monday-ui-react-core"] || "not found",
     newVersion: dependencies["@ezds/core"] || "not installed",
     iconsVersion: dependencies["@ezds/icons"] || "not installed",
-    migrationStatus: hasNewPackage ? "migrated" : hasOldPackage ? "needs-migration" : "not-using-vibe"
+    migrationStatus: hasNewPackage ? "migrated" : hasOldPackage ? "needs-migration" : "not-using-ezds"
   };
 }
 
@@ -503,11 +503,11 @@ function generateRecommendations(analysis: any, projectInfo: any) {
       recommendations.push({
         type: "already-migrated",
         priority: "info",
-        message: "Package dependencies appear to be already migrated to Vibe 3"
+        message: "Package dependencies appear to be already migrated to EZDS v3"
       });
     }
 
-    if (pkg.hasOldPackage && !pkg.hasVibeIcons) {
+    if (pkg.hasOldPackage && !pkg.hasEZDSIcons) {
       recommendations.push({
         type: "missing-icons",
         priority: "medium",
@@ -629,8 +629,8 @@ function generateRecommendations(analysis: any, projectInfo: any) {
     type: "github-star",
     priority: "info",
     action: "Show your support with a GitHub star ⭐",
-    details: "If this migration tool helped you, consider starring the Vibe repository",
-    link: "https://github.com/mondaycom/vibe",
+    details: "If this migration tool helped you, consider starring the EZDS repository",
+    link: "https://github.com/ezcorp/ezds",
     note: "Your support helps us continue improving the developer experience"
   });
 

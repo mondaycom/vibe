@@ -4,10 +4,10 @@
   "description": "Collection of Vibe's Storybook components",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mondaycom/vibe.git",
+    "url": "git+https://github.com/ezcorp/ezds.git",
     "directory": "packages/storybook-blocks"
   },
-  "author": "monday.com",
+  "author": "ezcorp.com",
   "license": "MIT",
   "sideEffects": [
     "*.scss",

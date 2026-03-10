@@ -1,6 +1,6 @@
 import { type ButtonProps } from "@ezds/button";
 import type React from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import { type TooltipProps } from "@ezds/tooltip";
 
 export interface ModalFooterActionProps extends Omit<ButtonProps, "children" | "kind" | "size"> {
@@ -14,7 +14,7 @@ export interface ModalFooterActionProps extends Omit<ButtonProps, "children" | "
   tooltipProps?: Partial<TooltipProps>;
 }
 
-export interface ModalFooterBaseProps extends VibeComponentProps {
+export interface ModalFooterBaseProps extends EZDSComponentProps {
   /**
    * Props for the primary action button.
    */

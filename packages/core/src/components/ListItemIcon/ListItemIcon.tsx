@@ -5,14 +5,14 @@ import { Icon, type SubIcon } from "@ezds/icon";
 import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import styles from "./ListItemIcon.module.scss";
 import { type ListItemIconMargin } from "./ListItemIcon.types";
 
 export const LIST_ITEM_ICON_SIZE = 18;
 
-export interface ListItemIconProps extends VibeComponentProps {
+export interface ListItemIconProps extends EZDSComponentProps {
   /**
    * The HTML element used for the list item icon.
    */

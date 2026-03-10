@@ -5,7 +5,7 @@ import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { useIsOverflowing } from "@ezds/hooks";
 import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 import useMergeRef from "../../hooks/useMergeRef";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import styles from "./TextWithHighlight.module.scss";
 import { type TooltipPositions } from "@ezds/tooltip";
 
@@ -27,7 +27,7 @@ const getTextPart = (
   return <span key={key}>{text}</span>;
 };
 
-export interface TextWithHighlightProps extends VibeComponentProps {
+export interface TextWithHighlightProps extends EZDSComponentProps {
   /**
    * The text content to display.
    */

@@ -8,7 +8,7 @@ import {
   useGridKeyboardNavigation,
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext,
-  type VibeComponent
+  type EZDSComponent
 } from "@ezds/core";
 import "./useGridKeyboardNavigationContext.stories.scss";
 const ELEMENT_WIDTH_PX = 72;
@@ -24,7 +24,7 @@ interface DummyNavigableGridProps {
   disabledIndexes?: number[];
   withoutBorder?: boolean;
 }
-export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwardRef(
+export const DummyNavigableGrid: EZDSComponent<DummyNavigableGridProps> = forwardRef(
   (
     { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled = false, disabledIndexes = [], withoutBorder = false },
     ref: RefObject<HTMLDivElement>

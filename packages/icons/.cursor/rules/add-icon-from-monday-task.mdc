@@ -1,5 +1,5 @@
 ---
-description: "Add a new icon to @vibe/icons package from a monday.com task. Automatically downloads the SVG file and integrates it into the icons package."
+description: "Add a new icon to @vibe/icons package from a ezcorp.com task. Automatically downloads the SVG file and integrates it into the icons package."
 globs:
   - "src/**/*"
 alwaysApply: false
@@ -7,10 +7,10 @@ alwaysApply: false
 
 # Add Icon from Monday.com Task
 
-When the user wants to add an icon from a monday.com task:
+When the user wants to add an icon from a ezcorp.com task:
 
-1. **Extract the item ID** from the monday.com URL (last number in the path)
-2. **Use monday.com MCP tools** to get the task information and find the file attachment
+1. **Extract the item ID** from the ezcorp.com URL (last number in the path)
+2. **Use ezcorp.com MCP tools** to get the task information and find the file attachment
 3. **Get the asset public URL** and download the SVG file
 4. **Extract and present the following information:**
    - Task name

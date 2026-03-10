@@ -1,6 +1,6 @@
 export * from "./events";
-export type { default as VibeComponent } from "./VibeComponent";
-export type { default as VibeComponentProps } from "./VibeComponentProps";
+export type { default as EZDSComponent } from "./EZDSComponent";
+export type { default as EZDSComponentProps } from "./EZDSComponentProps";
 export * from "./withStaticProps";
 export * from "./ArrayLastElement";
 export * from "./SplitString";

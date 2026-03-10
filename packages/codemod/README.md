@@ -1,8 +1,8 @@
 # @ezds/codemod
 
-> Vibe Design System's Codemods and CLI tools for automating migrations and transformations
+> EZDS Design System's Codemods and CLI tools for automating migrations and transformations
 
-The @ezds/codemod package is designed to automate the migration to the latest version of the Vibe design system. It applies specific transformations to your codebase based on the migration type you choose. The tool can be run interactively or via command-line arguments.
+The @ezds/codemod package is designed to automate the migration to the latest version of the EZDS design system. It applies specific transformations to your codebase based on the migration type you choose. The tool can be run interactively or via command-line arguments.
 
 ## Usage
 

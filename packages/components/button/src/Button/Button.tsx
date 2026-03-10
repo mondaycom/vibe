@@ -14,16 +14,16 @@ import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSiz
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import {
   getTestId,
-  type VibeComponentProps,
+  type EZDSComponentProps,
   withStaticProps,
   ComponentDefaultTestId,
-  ComponentVibeId
+  ComponentEZDSId
 } from "@ezds/shared";
 import { getStyle } from "@ezds/shared";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 
-export interface ButtonProps extends VibeComponentProps {
+export interface ButtonProps extends EZDSComponentProps {
   children: React.ReactNode;
   /** Custom class names to pass to the component */
   className?: string;
@@ -258,7 +258,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onBlur,
         tabIndex: tabIndex ?? (disabled || ariaHidden ? -1 : undefined),
         "data-testid": dataTestId || getTestId(ComponentDefaultTestId.BUTTON, id),
-        "data-vibe": ComponentVibeId.BUTTON,
+        "data-ezds": ComponentEZDSId.BUTTON,
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,

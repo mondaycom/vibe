@@ -65,7 +65,7 @@ test.describe("Testkit - Unit Tests - IconButton", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await iconButton.getAttributeValue("data-vibe");
+    const attributeValue = await iconButton.getAttributeValue("data-ezds");
     expect(attributeValue).toContain("Button");
   });
 

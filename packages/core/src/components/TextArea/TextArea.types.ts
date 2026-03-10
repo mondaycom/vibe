@@ -1,5 +1,5 @@
 import { type TextareaHTMLAttributes } from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 
 export type TextAreaSize = "small" | "large";
 type TextAreaNativeInputProps = Omit<
@@ -7,7 +7,7 @@ type TextAreaNativeInputProps = Omit<
   "role" | "aria-describedby" | "aria-invalid"
 >;
 
-export interface TextAreaProps extends TextAreaNativeInputProps, VibeComponentProps {
+export interface TextAreaProps extends TextAreaNativeInputProps, EZDSComponentProps {
   /**
    * The current value of the textarea.
    */

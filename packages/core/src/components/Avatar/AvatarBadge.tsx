@@ -7,10 +7,10 @@ import { Icon, CustomSvgIcon } from "@ezds/icon";
 import { AvatarSize as AvatarSizeEnum } from "./AvatarConstants";
 import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import { type SubIcon } from "@ezds/icon";
 
-export interface AvatarBadgeProps extends VibeComponentProps {
+export interface AvatarBadgeProps extends EZDSComponentProps {
   /**
    * The image source for the badge.
    */

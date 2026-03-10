@@ -2,15 +2,15 @@ import React, { type ReactElement, useMemo } from "react";
 import cx from "classnames";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import { type TooltipProps } from "@ezds/tooltip";
 import styles from "./AvatarGroup.module.scss";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface AvatarGroupProps extends VibeComponentProps {
+export interface AvatarGroupProps extends EZDSComponentProps {
   /**
    * Class name applied to each avatar.
    */
@@ -36,7 +36,7 @@ export interface AvatarGroupProps extends VibeComponentProps {
    */
   counterProps?: AvatarGroupCounterVisualProps;
   /**
-   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://design.ezcorp.com/?path=/docs/components-tooltip--docs).
    */
   counterTooltipCustomProps?: Partial<TooltipProps>;
   /**
@@ -88,7 +88,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   }
 
   return (
-    <div className={cx(styles.avatarGroupContainer, className)} id={id} data-vibe={ComponentVibeId.AVATAR_GROUP}>
+    <div className={cx(styles.avatarGroupContainer, className)} id={id} data-ezds={ComponentEZDSId.AVATAR_GROUP}>
       {displayAvatars}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}

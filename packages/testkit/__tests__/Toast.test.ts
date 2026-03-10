@@ -136,7 +136,7 @@ test.describe("Testkit - Unit Tests - Link Toast", () => {
 
   test("should get link href", async () => {
     const linkHref = await toast.getLinkHref();
-    expect.soft(linkHref).toBe("https://monday.com");
+    expect.soft(linkHref).toBe("https://ezcorp.com");
     expect.soft(linkHref).toBeTruthy();
     expect(linkHref.length).toBeGreaterThan(0);
   });
@@ -193,7 +193,7 @@ test.describe("Testkit - Unit Tests - Link Toast", () => {
     const newPagePromise = page.waitForEvent("popup");
     await toast.clickLink();
     const newPage = await newPagePromise;
-    expect(newPage.url()).toContain("https://monday.com/");
+    expect(newPage.url()).toContain("https://ezcorp.com/");
     await newPage.close();
   });
 

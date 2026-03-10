@@ -1,9 +1,9 @@
 import React, { type ForwardedRef, forwardRef, useCallback } from "react";
 import MenuItem, { type MenuItemProps } from "./MenuItem";
 import Avatar, { type AvatarProps } from "../../Avatar/Avatar";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 
-export interface AvatarMenuItemProps extends VibeComponentProps {
+export interface AvatarMenuItemProps extends EZDSComponentProps {
   /**
    * Props passed to the avatar component.
    */

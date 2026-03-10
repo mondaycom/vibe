@@ -39,7 +39,7 @@ import {
   type DropdownComponentProps
 } from "./Dropdown.types";
 import { withStaticProps } from "../../types";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 import { LayerContext } from "@ezds/layer";
 
 const Dropdown = forwardRef(
@@ -493,7 +493,7 @@ const Dropdown = forwardRef(
         tabIndex={tabIndex}
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-        data-vibe={ComponentVibeId.DROPDOWN}
+        data-ezds={ComponentEZDSId.DROPDOWN}
         autoFocus={autoFocus}
         closeMenuOnSelect={closeMenuOnSelect}
         ref={ref as React.Ref<any>}

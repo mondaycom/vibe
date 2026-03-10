@@ -3,11 +3,11 @@ import { InfixKind as InfixKindEnum } from "./SliderConstants";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./SliderInfix.module.scss";
 import { type InfixKind } from "./Slider.types";
 
-export interface SliderInfixProps extends VibeComponentProps {
+export interface SliderInfixProps extends EZDSComponentProps {
   /**
    * Specifies the type of infix (prefix or postfix).
    */

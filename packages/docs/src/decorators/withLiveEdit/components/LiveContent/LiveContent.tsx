@@ -1,6 +1,6 @@
 import React from "react";
 import { LiveProvider } from "react-live";
-import { playgroundVibeComponents, playgroundReactCommonHooks } from "../../../../pages/playground/playground-helpers";
+import { playgroundEZDSComponents, playgroundReactCommonHooks } from "../../../../pages/playground/playground-helpers";
 import LivePreview from "../../../../layout/live-preview/LivePreview";
 import useApplyDecorators from "../../hooks/useApplyDecorators";
 import { type LiveContentProps } from "./LiveContent.types";
@@ -12,7 +12,7 @@ const LiveContent = ({ code, scope, decorators, context }: LiveContentProps) => 
       <div className={styles.modifiedVersionIndicator}>Modified Version</div>
       <LiveProvider
         code={code}
-        scope={{ ...playgroundVibeComponents, ...playgroundReactCommonHooks, ...scope }}
+        scope={{ ...playgroundEZDSComponents, ...playgroundReactCommonHooks, ...scope }}
         enableTypeScript
       >
         <LivePreview />

@@ -3,11 +3,11 @@ import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { type AvatarType } from "../Avatar/Avatar.types";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
-export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
+export interface AvatarGroupCounterTooltipContainerProps extends EZDSComponentProps {
   /**
    * The type of avatars displayed in the tooltip.
    */
@@ -21,7 +21,7 @@ export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentPr
    */
   avatars?: ReactElement<AvatarProps>[];
   /**
-   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
+   * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://design.ezcorp.com/?path=/docs/components-tooltip--docs).
    */
   counterTooltipCustomProps?: Partial<TooltipProps>;
   /**

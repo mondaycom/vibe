@@ -105,12 +105,12 @@ describe("AvatarGroup component migration", () => {
     transform,
     {},
     `
-      import { AvatarGroup as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent removePadding />
+      import { AvatarGroup as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent removePadding />
     `,
     `
-      import { AvatarGroup as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent />
+      import { AvatarGroup as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent />
     `,
     "should change when 'AvatarGroup' is imported with alias from vibe"
   );

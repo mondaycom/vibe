@@ -70,3 +70,36 @@ There are 40 "Content Color" values inherited from Monday.com's palette (colors 
 - Remove them (if EZCORP apps don't use item color coding)
 
 **Effort:** Design decision first, then ~2 hours of code to map or remove them
+
+---
+
+## [THEMES] Implement Dark and Black Token Values
+
+**Priority:** High — all users are affected
+**Background:** `packages/tokens/src/colors.ts` currently exports:
+```ts
+export const colors = { light: lightColors, dark: { ...lightColors }, black: { ...lightColors } }
+```
+Dark and black modes are shallow copies of light mode, so `[data-theme="dark"]` and `[data-theme="black"]` render the light color palette. The `darkTheme` and `blackTheme` objects in `@ezds/native` are also identical to `lightTheme`.
+
+**What needs to be done:**
+- [ ] Extract actual dark and black hex values from Figma file `q4OabtnoR0FyFHl4RCJUba` (use figma-console MCP `figma_execute` to resolve all 250 `colors` collection variables for dark and black modes)
+- [ ] Populate `packages/tokens/src/colors.ts` with real dark/black values (separate `darkColors` and `blackColors` objects)
+- [ ] Re-run `node packages/web/scripts/generate-css-vars.mjs` to regenerate `light.css`, `dark.css`, `black.css`
+- [ ] Verify theme switching in Storybook — component should visually change between light/dark/black
+- [ ] Add a test: `expect(colors.dark).not.toEqual(colors.light)`
+
+---
+
+## [BUILD] Add CJS Dual Build to `@ezds/tokens` and `@ezds/native`
+
+**Priority:** Medium — affects Jest default config and older bundlers
+**Background:** Both `@ezds/tokens` and `@ezds/native` are `"type": "module"` with only `import`/`default` conditions in their `exports` map. CommonJS consumers (Jest without ESM config, older Webpack, Metro bundler older versions) cannot load these packages.
+
+**What needs to be done:**
+- [ ] Update `packages/tokens/rollup.config.mjs` to output both ESM (`dist/*.js`) and CJS (`dist/cjs/*.js`)
+- [ ] Update `packages/native/rollup.config.mjs` similarly
+- [ ] Add `require` condition to each subpath in `package.json` exports maps pointing to CJS dist files
+- [ ] Add `"main"` field pointing to CJS root entry for maximum compatibility
+- [ ] Update Jest configs in consuming packages to either use `extensionsToTreatAsEsm` or the CJS build
+- [ ] Verify: `const { colors } = require('@ezds/tokens')` works in a Node CJS context

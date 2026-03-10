@@ -2,23 +2,23 @@
 
 import { server, addServerTool } from "./server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { getVibeComponentMetadataTool } from "./server/tools/get-vibe-component-metadata.js";
-import { listVibePublicComponentsTool } from "./server/tools/list-vibe-public-components.js";
-import { getVibeComponentExamples } from "./server/tools/get-vibe-component-examples.js";
-import { getVibeComponentAccessibility } from "./server/tools/get-vibe-component-accessibility.js";
-import { listVibeIconsTool } from "./server/tools/list-vibe-icons.js";
-import { listVibeTokensTool } from "./server/tools/list-vibe-tokens.js";
+import { getEZDSComponentMetadataTool } from "./server/tools/get-ezds-component-metadata.js";
+import { listEZDSPublicComponentsTool } from "./server/tools/list-ezds-public-components.js";
+import { getEZDSComponentExamples } from "./server/tools/get-ezds-component-examples.js";
+import { getEZDSComponentAccessibility } from "./server/tools/get-ezds-component-accessibility.js";
+import { listEZDSIconsTool } from "./server/tools/list-ezds-icons.js";
+import { listEZDSTokensTool } from "./server/tools/list-ezds-tokens.js";
 import { v3MigrationTool } from "./server/tools/v3-migration.js";
 import { dropdownMigrationTool } from "./server/tools/dropdown-migration.js";
 
 async function main() {
   const transport = new StdioServerTransport();
-  addServerTool(getVibeComponentMetadataTool);
-  addServerTool(listVibePublicComponentsTool);
-  addServerTool(getVibeComponentExamples);
-  addServerTool(getVibeComponentAccessibility);
-  addServerTool(listVibeIconsTool);
-  addServerTool(listVibeTokensTool);
+  addServerTool(getEZDSComponentMetadataTool);
+  addServerTool(listEZDSPublicComponentsTool);
+  addServerTool(getEZDSComponentExamples);
+  addServerTool(getEZDSComponentAccessibility);
+  addServerTool(listEZDSIconsTool);
+  addServerTool(listEZDSTokensTool);
   addServerTool(v3MigrationTool);
   addServerTool(dropdownMigrationTool);
   await server.connect(transport);

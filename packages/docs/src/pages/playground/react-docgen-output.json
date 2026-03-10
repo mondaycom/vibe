@@ -18691,7 +18691,7 @@
           "description": ""
         }
       },
-      "composes": ["VibeComponentProps"]
+      "composes": ["EZDSComponentProps"]
     }
   ],
   "src/components/Toggle/ToggleText.tsx": [
@@ -20834,7 +20834,7 @@
           "description": "class name to add to the component scrollable container"
         }
       },
-      "composes": ["VibeComponentProps"]
+      "composes": ["EZDSComponentProps"]
     }
   ],
   "src/components/Dialog/DialogContent/DialogContent.tsx": [
@@ -28132,7 +28132,7 @@
           "description": ""
         }
       },
-      "composes": ["VibeComponentProps"]
+      "composes": ["EZDSComponentProps"]
     }
   ],
   "src/components/MultiStepIndicator/components/StepIndicator/StepIndicator.tsx": [

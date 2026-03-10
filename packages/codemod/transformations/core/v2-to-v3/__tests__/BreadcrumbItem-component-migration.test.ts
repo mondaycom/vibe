@@ -89,12 +89,12 @@ describe("BreadcrumbItem component migration", () => {
     transform,
     {},
     `
-      import { BreadcrumbItem as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent isDisabled />
+      import { BreadcrumbItem as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent isDisabled />
     `,
     `
-      import { BreadcrumbItem as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent disabled />
+      import { BreadcrumbItem as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent disabled />
     `,
     "should change when 'BreadcrumbItem' is imported with alias from vibe"
   );

@@ -4,7 +4,7 @@ import { ThemeProvider, Button, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import {
   ColorsEligibleForThemingTemplate,
-  MondaySdkIntegrationSourceCode,
+  EZCORPSdkIntegrationSourceCode,
   ThemeProviderCustomClassTemplate,
   ThemeProviderFoldedThemingTemplate,
   ThemeProviderProductThemingTemplate,
@@ -116,9 +116,9 @@ export const WithSystemTheme = {
   play: themeProviderSystemThemeSuite
 };
 
-export const MondaySdkIntegration = {
+export const EZCORPSdkIntegration = {
   render: () => {
-    return <Source code={MondaySdkIntegrationSourceCode}></Source>;
+    return <Source code={EZCORPSdkIntegrationSourceCode}></Source>;
   },
-  name: "monday.com SDK integration"
+  name: "EZCORP SDK integration"
 };

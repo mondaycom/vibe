@@ -2,10 +2,10 @@ import React from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import Divider from "../../Divider/Divider";
-import { type VibeComponentProps } from "../../../types";
+import { type EZDSComponentProps } from "../../../types";
 import styles from "./MenuDivider.module.scss";
 
-export type MenuDividerProps = VibeComponentProps;
+export type MenuDividerProps = EZDSComponentProps;
 
 const MenuDivider = ({ className, id, "data-testid": dataTestId }: MenuDividerProps) => {
   return (

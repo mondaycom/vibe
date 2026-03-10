@@ -161,12 +161,12 @@ describe("Link component migration", () => {
     transform,
     {},
     `
-      import { Link as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent componentClassName="old-class" />
+      import { Link as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent componentClassName="old-class" />
     `,
     `
-      import { Link as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { Link as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'Link' is imported with alias from vibe"
   );

@@ -427,9 +427,9 @@ export default [
   },
 
   {
-    name: "MondayDoc",
+    name: "EZCorpDoc",
     file: "MondayDoc.svg",
-    description: "Monday Doc",
+    description: "EZCorp Doc",
     tags: "Doc, Document"
   },
 
@@ -729,7 +729,7 @@ export default [
   {
     name: "Apps",
     file: "Apps.svg",
-    description: "monday apps section",
+    description: "EZCORP apps section",
     tags: "app,apps,apps marketplace,installed apps,puzzle,add",
     category: [PLATFORM]
   },
@@ -1493,10 +1493,10 @@ export default [
   },
 
   {
-    name: "MondayLogoOutline",
+    name: "EZCorpLogoOutline",
     file: "MondayLogoOutline.svg",
-    description: "MondayLogoOutline",
-    tags: "Monday, Logo, Outline",
+    description: "EZCorpLogoOutline",
+    tags: "EZCorp, Logo, Outline",
     category: [PLATFORM]
   },
 

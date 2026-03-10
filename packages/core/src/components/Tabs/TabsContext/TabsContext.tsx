@@ -10,10 +10,10 @@ import React, {
 } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
 import usePrevious from "../../../hooks/usePrevious";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
-export interface TabsContextProps extends VibeComponentProps {
+export interface TabsContextProps extends EZDSComponentProps {
   /**
    * The index of the currently active tab.
    */

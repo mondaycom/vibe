@@ -1,7 +1,7 @@
 import React, { type HTMLProps, type ReactElement } from "react";
-import { chainFunctions, chainRefFunctions, type VibeComponentProps } from "@ezds/shared";
+import { chainFunctions, chainRefFunctions, type EZDSComponentProps } from "@ezds/shared";
 
-export interface RefableProps extends React.PropsWithChildren<HTMLProps<HTMLElement> & VibeComponentProps> {
+export interface RefableProps extends React.PropsWithChildren<HTMLProps<HTMLElement> & EZDSComponentProps> {
   children: ReactElement | ReactElement[] | string;
   /**
    * The wrapper element type to use for React components. Defaults to "span".

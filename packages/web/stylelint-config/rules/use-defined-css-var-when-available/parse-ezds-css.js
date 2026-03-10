@@ -14,7 +14,7 @@ function readCssFromDefaultPath() {
   return fs.readFileSync(stylesCssPath).toString();
 }
 
-function parseMondayUiCss(css = readCssFromDefaultPath()) {
+function parseEZDSCss(css = readCssFromDefaultPath()) {
   const ast = postcss.parse(css);
 
   const varsToCanonicalValue = {}; // css vars that are mapped to canonical values. e.g. {"--color-primary": "#131313"}
@@ -75,7 +75,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
       }
     },
     "font-size":{
-      "14px": { 
+      "14px": {
         allowedVars: [ "--font-size-general-label", "--font-size-subtext" ],
         recommended: "--font-size-general-label"
       },
@@ -83,7 +83,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
   }
  */
 function getPropsToAllowedCssVars() {
-  const { allVarsToCanonicalValue } = parseMondayUiCss();
+  const { allVarsToCanonicalValue } = parseEZDSCss();
   const propsToReplacementConfig = {};
   Object.keys(PROPS_TO_ALLOWED_VARS).forEach(prop => {
     const { allowedVars, recommended } = PROPS_TO_ALLOWED_VARS[prop];
@@ -110,6 +110,6 @@ function getPropsToAllowedCssVars() {
 }
 
 module.exports = {
-  parseMondayUiCss,
+  parseEZDSCss,
   getPropsToAllowedCssVars
 };

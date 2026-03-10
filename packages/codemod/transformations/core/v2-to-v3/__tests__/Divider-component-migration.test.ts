@@ -161,12 +161,12 @@ describe("Divider component migration", () => {
     transform,
     {},
     `
-      import { Divider as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent classname="old-class" />
+      import { Divider as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent classname="old-class" />
     `,
     `
-      import { Divider as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { Divider as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'Divider' is imported with alias from vibe"
   );

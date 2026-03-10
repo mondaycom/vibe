@@ -74,7 +74,7 @@ export const DefaultWithButton = {
 export const ToastWithLink = {
   render: () => {
     return (
-      <Toast id="toast-with-link" open actions={[{ type: "link", text: "Link to action", href: "https://monday.com" }]}>
+      <Toast id="toast-with-link" open actions={[{ type: "link", text: "Link to action", href: "https://ezcorp.com" }]}>
         General message toast
       </Toast>
     );

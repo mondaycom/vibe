@@ -161,12 +161,12 @@ describe("Label component migration", () => {
     transform,
     {},
     `
-      import { Label as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent wrapperClassName="old-class" isAnimationDisabled/>
+      import { Label as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent wrapperClassName="old-class" isAnimationDisabled/>
     `,
     `
-      import { Label as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent className="old-class" />
+      import { Label as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent className="old-class" />
     `,
     "should change when 'Label' is imported with alias from vibe"
   );

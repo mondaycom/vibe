@@ -4,7 +4,7 @@ import FieldLabel from "../../../../FieldLabel/FieldLabel";
 import { Text } from "@ezds/typography";
 import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";
 import { Tooltip } from "@ezds/tooltip";
@@ -53,7 +53,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
       id={id}
       aria-label={ariaLabel}
       data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
-      data-vibe={ComponentVibeId.DROPDOWN}
+      data-ezds={ComponentEZDSId.DROPDOWN}
     >
       {children}
     </div>

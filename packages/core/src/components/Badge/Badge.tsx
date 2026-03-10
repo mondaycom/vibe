@@ -3,7 +3,7 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import useMergeRef from "../../hooks/useMergeRef";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import {
   BadgeAlignments as BadgeAlignmentsEnum,
   BadgeAnchor as BadgeAnchorEnum,
@@ -16,9 +16,9 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type IndicatorColor } from "./Indicator/IndicatorConstants";
 import { type CounterColor } from "../Counter/CounterConstants";
 import styles from "./Badge.module.scss";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../types";
 
-export interface BadgeBaseProps extends VibeComponentProps {
+export interface BadgeBaseProps extends EZDSComponentProps {
   /**
    * The position of the badge relative to its parent.
    */
@@ -74,7 +74,7 @@ const Badge = forwardRef(
     const color = badgeProps.color || type === "indicator" ? "notification" : "negative";
 
     return (
-      <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id} data-vibe={ComponentVibeId.BADGE}>
+      <div ref={mergedRef} className={cx(styles.badgeWrapper, className)} id={id} data-ezds={ComponentEZDSId.BADGE}>
         {children}
         <div className={badgeClassNames} data-testid={dataTestId || getTestId(ComponentDefaultTestId.BADGE, id)}>
           {type === "indicator" ? (

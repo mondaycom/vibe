@@ -1,6 +1,6 @@
 import { type InputHTMLAttributes } from "react";
 import { type SubIcon } from "@ezds/icon";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { type FormElementProps } from "../../types/FormElement";
 
 type NumberFieldNativeInputProps = Omit<
@@ -24,7 +24,7 @@ type NumberFieldNativeInputProps = Omit<
   | "step"
 >;
 
-interface NumberFieldBaseProps extends NumberFieldNativeInputProps, Omit<VibeComponentProps, "id"> {
+interface NumberFieldBaseProps extends NumberFieldNativeInputProps, Omit<EZDSComponentProps, "id"> {
   /**
    * The current value of the number field.
    */

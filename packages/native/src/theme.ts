@@ -63,7 +63,7 @@ const shadow = {
 
 export const lightTheme: EZDSTheme = {
   colors: toNativeColors(colors.light),
-  spacing: { ...dimensions },
+  spacing: Object.fromEntries(Object.entries(dimensions).filter(([k]) => !k.startsWith("shadow/"))),
   typography: nativeTypography,
   motion: nativeMotion,
   shadow,
@@ -72,7 +72,7 @@ export const lightTheme: EZDSTheme = {
 
 export const darkTheme: EZDSTheme = {
   colors: toNativeColors(colors.dark),
-  spacing: { ...dimensions },
+  spacing: Object.fromEntries(Object.entries(dimensions).filter(([k]) => !k.startsWith("shadow/"))),
   typography: nativeTypography,
   motion: nativeMotion,
   shadow,
@@ -81,7 +81,7 @@ export const darkTheme: EZDSTheme = {
 
 export const blackTheme: EZDSTheme = {
   colors: toNativeColors(colors.black),
-  spacing: { ...dimensions },
+  spacing: Object.fromEntries(Object.entries(dimensions).filter(([k]) => !k.startsWith("shadow/"))),
   typography: nativeTypography,
   motion: nativeMotion,
   shadow,

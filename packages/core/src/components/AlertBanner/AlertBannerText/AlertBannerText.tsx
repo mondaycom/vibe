@@ -3,11 +3,11 @@ import cx from "classnames";
 import React, { type FC, useRef } from "react";
 import { Tooltip } from "@ezds/tooltip";
 import { useIsOverflowing } from "@ezds/hooks";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 
 import styles from "./AlertBannerText.module.scss";
 
-export interface AlertBannerTextProps extends VibeComponentProps {
+export interface AlertBannerTextProps extends EZDSComponentProps {
   /**
    * The text content displayed within the alert banner.
    */

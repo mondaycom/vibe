@@ -2,11 +2,11 @@ import cx from 'classnames';
 import React, { forwardRef, useCallback } from 'react';
 import { NOOP } from '../../utils/function-utils';
 import { LinkTarget } from './LinkConsts';
-import { VibeComponentProps, VibeComponent } from '../../types';
+import { EZDSComponentProps, EZDSComponent } from '../../types';
 import { withStaticProps } from '../../../types';
 import styles from './Link.module.scss';
 
-interface LinkProps extends VibeComponentProps {
+interface LinkProps extends EZDSComponentProps {
   /**
    * Class name for overriding link text styles
    */
@@ -33,7 +33,7 @@ interface LinkProps extends VibeComponentProps {
   inlineText?: boolean;
 }
 
-const Link: VibeComponent<LinkProps, HTMLAnchorElement> & {
+const Link: EZDSComponent<LinkProps, HTMLAnchorElement> & {
   targets?: typeof LinkTarget;
   target?: typeof LinkTarget;
 } = forwardRef(

@@ -5,11 +5,11 @@ import { StepsGalleryHeader, type StepsGalleryHeaderProps } from "./StepsGallery
 import { StepsNumbersHeader, type StepsNumbersHeaderProps } from "./StepsNumbersHeader";
 import { FINISH_TEXT } from "./StepsConstants";
 import { type StepsType, type StepsColor } from "./Steps.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import { Button, type ButtonProps } from "@ezds/button";
 import styles from "./StepsHeader.module.scss";
 
-export interface StepsHeaderProps extends VibeComponentProps {
+export interface StepsHeaderProps extends EZDSComponentProps {
   /**
    * The type of steps header.
    */

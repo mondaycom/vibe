@@ -1,7 +1,7 @@
-import { type VibeComponentProps } from "../../../../types";
+import { type EZDSComponentProps } from "../../../../types";
 import type React from "react";
 
-export interface ModalSideBySideLayoutProps extends VibeComponentProps {
+export interface ModalSideBySideLayoutProps extends EZDSComponentProps {
   /**
    * The content of the layout, structured as:
    * 1. Header content

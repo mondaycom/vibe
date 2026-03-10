@@ -12,7 +12,7 @@ function updateStorybookHtmlTitles(storybookDir) {
     if (!storybookDir) {
       throw new Error("Please provide the path to the storybook directory.");
     }
-    const newTitle = "Vibe Design System";
+    const newTitle = "EZDS Design System";
     ["index.html", "iframe.html"].forEach(filePath => updateHtmlTitle(join(storybookDir, filePath), newTitle));
   } catch (err) {
     console.error(err);

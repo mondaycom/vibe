@@ -1,11 +1,11 @@
 import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../../hooks/useMergeRef";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../../types/EZDSComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./TabPanel.module.scss";
 
-export interface TabPanelProps extends VibeComponentProps {
+export interface TabPanelProps extends EZDSComponentProps {
   /**
    * The content inside the tab panel.
    */

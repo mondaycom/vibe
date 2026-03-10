@@ -4,10 +4,10 @@ import styles from "./Indicator.module.scss";
 import { IndicatorColor as IndicatorColorEnum } from "./IndicatorConstants";
 import { type IndicatorColor } from "./Indicator.types";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../../types";
 import { getTestId } from "../../../tests/test-ids-utils";
 
-export interface IndicatorProps extends VibeComponentProps {
+export interface IndicatorProps extends EZDSComponentProps {
   /**
    * The color of the indicator.
    */

@@ -10,7 +10,7 @@ import {
   DialogAnimationTypeEnum as AnimationTypeEnum
 } from "@ezds/dialog";
 import {
-  type VibeComponentProps,
+  type EZDSComponentProps,
   type ElementContent,
   type MoveBy,
   getStyle,
@@ -48,7 +48,7 @@ interface TooltipWithChildrenProps {
 }
 
 // TODO TS-migration extend DialogProps, once Dialog is migrated to TS
-interface TooltipBaseProps extends VibeComponentProps {
+interface TooltipBaseProps extends EZDSComponentProps {
   /**
    * The content displayed inside the tooltip.
    */

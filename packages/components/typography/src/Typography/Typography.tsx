@@ -2,7 +2,7 @@ import React, { forwardRef, useRef, type HTMLAttributes, useContext } from "reac
 import cx from "classnames";
 import {
   useMergeRef,
-  type VibeComponentProps,
+  type EZDSComponentProps,
   getTestId,
   ComponentDefaultTestId,
   type ElementContent
@@ -13,7 +13,7 @@ import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { TypographyContext } from "./TypographyContext";
 import styles from "./Typography.module.scss";
 
-export interface TypographyProps extends VibeComponentProps, HTMLAttributes<HTMLElement> {
+export interface TypographyProps extends EZDSComponentProps, HTMLAttributes<HTMLElement> {
   /**
    * The HTML element tag used for the text component.
    */

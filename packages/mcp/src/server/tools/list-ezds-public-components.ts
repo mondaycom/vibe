@@ -1,10 +1,10 @@
 import { getErrorMessage, MCPTool } from "../index.js";
 import { MetadataService } from "./metadata-service.js";
 
-export const listVibePublicComponentsTool: MCPTool<{}> = {
-  name: "list-vibe-public-components",
+export const listEZDSPublicComponentsTool: MCPTool<{}> = {
+  name: "list-ezds-public-components",
   description:
-    "Get a list of all public @ezds/core & @ezds/core/next components names. Use this tool to get the names of components to use in the get-vibe-component-metadata tool.",
+    "Get a list of all public @ezds/core & @ezds/core/next components names. Use this tool to get the names of components to use in the get-ezds-component-metadata tool.",
   inputSchema: {},
   execute: async () => {
     try {
@@ -28,7 +28,7 @@ export const listVibePublicComponentsTool: MCPTool<{}> = {
         content: [
           {
             type: "text",
-            text: `Error in list-vibe-public-components: ${errorMessage}`
+            text: `Error in list-ezds-public-components: ${errorMessage}`
           }
         ],
         isError: true

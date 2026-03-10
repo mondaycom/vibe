@@ -1,5 +1,5 @@
-export const vibeAsciiLogo = `
- @@@@@        @@@@@  @@@@   @@@@@                 Vibe design system.
+export const ezdsAsciiLogo = `
+ @@@@@        @@@@@  @@@@   @@@@@                 EZDS design system.
   @@@@@      @@@@@  @@@@@@  @@@@@                                    
    @@@@      @@@@     @@    @@@@@                                    
    @@@@@    @@@@@           @@@@@                                    
@@ -16,7 +16,7 @@ export const vibeAsciiLogo = `
 export function paintToConsole() {
   if (process.env.NODE_ENV === "production") {
     setTimeout(() => {
-      console.log(vibeAsciiLogo);
+      console.log(ezdsAsciiLogo);
     }, 3000);
   }
 }

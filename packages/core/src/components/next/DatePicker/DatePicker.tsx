@@ -150,7 +150,7 @@ const DatePicker: FC<DatePickerProps> = ({
       id={id}
       className={cx(styles.datePicker, { [styles.withWeekNumber]: showWeekNumber }, className)}
       data-testid={dataTestId}
-      data-vibe="DatePicker"
+      data-ezds="DatePicker"
     >
       <DayContentHoverProvider>
         <DatePickerHeaderContext.Provider value={DatePickerHeaderContextValue}>

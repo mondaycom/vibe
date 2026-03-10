@@ -5,13 +5,13 @@ import { Icon } from "@ezds/icon";
 import { Check, Remove } from "@ezds/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentEZDSId } from "../../tests/constants";
 import { Text } from "@ezds/typography";
 import styles from "./Checkbox.module.scss";
 
-export interface CheckBoxProps extends VibeComponentProps {
+export interface CheckBoxProps extends EZDSComponentProps {
   /**
    * Class name applied to the checkbox element.
    */
@@ -140,7 +140,7 @@ const Checkbox = forwardRef(
         <div
           className={cx(styles.wrapper, className)}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
-          data-vibe={ComponentVibeId.CHECKBOX}
+          data-ezds={ComponentEZDSId.CHECKBOX}
         >
           <input
             ref={mergedInputRef}
@@ -201,7 +201,7 @@ const Checkbox = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
-        data-vibe={ComponentVibeId.CHECKBOX}
+        data-ezds={ComponentEZDSId.CHECKBOX}
       >
         <input
           ref={mergedInputRef}

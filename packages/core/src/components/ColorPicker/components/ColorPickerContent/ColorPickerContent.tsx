@@ -21,12 +21,12 @@ import {
 } from "../../../GridKeyboardNavigationContext";
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
-import { type VibeComponentProps, withStaticProps } from "../../../../types";
+import { type EZDSComponentProps, withStaticProps } from "../../../../types";
 import { type SubIcon } from "@ezds/icon";
 import useMergeRef from "../../../../hooks/useMergeRef";
 import { type ColorStyle } from "../../../../types";
 
-export interface ColorPickerContentProps extends VibeComponentProps {
+export interface ColorPickerContentProps extends EZDSComponentProps {
   /**
    * The selected color(s).
    */

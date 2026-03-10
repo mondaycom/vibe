@@ -11,20 +11,20 @@ export default function Footer() {
         <div className={styles.footerTitles}>
           <Title className={styles.title}>We&apos;re listening.</Title>
           <p className={styles.subtitle}>
-            We&apos;d love to hear your thoughts <br /> about Vibe!
+            We&apos;d love to hear your thoughts <br /> about EZDS!
           </p>
         </div>
         <Flex gap="large" className={styles.footerCards} align="start" flex="1">
           <FooterCard
             title="Bug report"
             description="Report a bug on our production"
-            href="https://github.com/mondaycom/vibe/issues/new?template=bug_report.yml"
+            href="https://github.com/ezcorp/ezds/issues/new?template=bug_report.yml"
             linkText="See more"
           />
           <FooterCard
             title="General contact"
             description="General questions, feature requests, ideas, etc."
-            href="https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1"
+            href="https://forms.ezcorp.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1"
             linkText="See more"
           />
         </Flex>

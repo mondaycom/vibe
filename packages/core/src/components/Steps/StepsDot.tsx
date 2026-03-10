@@ -1,12 +1,12 @@
 import cx from "classnames";
 import { noop as NOOP, camelCase } from "es-toolkit";
 import { type StepsColor, type StepsDotAriaCurrent } from "./Steps.types";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type EZDSComponentProps from "../../types/EZDSComponentProps";
 import React, { type FC } from "react";
 import styles from "./StepsDot.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
-export interface StepsDotProps extends VibeComponentProps {
+export interface StepsDotProps extends EZDSComponentProps {
   /**
    * Callback fired when the dot is clicked.
    */

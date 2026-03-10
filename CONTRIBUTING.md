@@ -1,12 +1,12 @@
 # Contribution Guide
 
-Hi there! We're really excited that you're interested in contributing to Vibe. Before submitting your contribution, please make sure to take a moment and read through the following guidelines:
+Hi there! We're really excited that you're interested in contributing to EZDS. Before submitting your contribution, please make sure to take a moment and read through the following guidelines:
 
 ## Issue reporting
 
-For new features, suggestions, or general questions, please make sure to create a [discussion](https://github.com/mondaycom/vibe/discussions) first.
+For new features, suggestions, or general questions, please make sure to create a [discussion](https://github.com/ezcorp/ezds/discussions) first.
 
-If you found a bug, please [create an issue](https://github.com/mondaycom/vibe/issues/new).
+If you found a bug, please [create an issue](https://github.com/ezcorp/ezds/issues/new).
 
 ## Development Setup
 
@@ -60,4 +60,4 @@ When creating a PR, please make sure to:
 
 After submitting your PR, the maintainers will review your changes and provide feedback. If everything is good, your PR will be merged.
 
-**We really appreciate your contribution to Vibe! 🚀**
+**We really appreciate your contribution to EZDS! 🚀**

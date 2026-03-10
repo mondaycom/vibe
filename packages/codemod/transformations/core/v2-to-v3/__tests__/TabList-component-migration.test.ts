@@ -105,12 +105,12 @@ describe("TabList component migration", () => {
     transform,
     {},
     `
-      import { TabList as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent noPadding />
+      import { TabList as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent noPadding />
     `,
     `
-      import { TabList as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent />
+      import { TabList as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent />
     `,
     "should change when 'TabList' is imported with alias from vibe"
   );

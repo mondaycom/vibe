@@ -15,7 +15,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
 import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import { withStaticProps, type VibeComponentProps } from "../../types";
+import { withStaticProps, type EZDSComponentProps } from "../../types";
 import { type ListItemProps } from "../ListItem/ListItem";
 import { type ListTitleProps } from "../ListTitle/ListTitle";
 import { ListWrapperComponentType as ListWrapperComponentTypeEnum } from "./ListConstants";
@@ -32,9 +32,9 @@ import {
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface ListProps extends VibeComponentProps {
+export interface ListProps extends EZDSComponentProps {
   /**
    * The wrapping component for the list.
    */
@@ -174,7 +174,7 @@ const List = forwardRef(
       <ListContext.Provider value={{ updateFocusedItem }}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
-          data-vibe={ComponentVibeId.LIST}
+          data-ezds={ComponentEZDSId.LIST}
           ref={mergedRef}
           style={style}
           className={cx(styles.list, className)}

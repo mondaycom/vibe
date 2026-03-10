@@ -1,8 +1,8 @@
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { type DialogPosition } from "@ezds/dialog";
 import { type InfoLinkProps } from "./components";
 
-export type InfoProps = BaseInfoProps & VibeComponentProps & InfoAriaLabelProps;
+export type InfoProps = BaseInfoProps & EZDSComponentProps & InfoAriaLabelProps;
 
 interface BaseInfoProps {
   /**

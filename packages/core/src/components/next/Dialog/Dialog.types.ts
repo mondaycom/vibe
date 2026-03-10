@@ -1,6 +1,6 @@
 import type React from "react";
 import type { ReactElement } from "react";
-import type { VibeComponentProps } from "@ezds/shared";
+import type { EZDSComponentProps } from "@ezds/shared";
 import type { Middleware, Placement } from "@floating-ui/react-dom";
 
 export type DialogType = "modal" | "popover";
@@ -50,7 +50,7 @@ export type DialogMiddleware = Middleware;
 
 export type DialogPlacement = Placement;
 
-export interface DialogProps extends VibeComponentProps {
+export interface DialogProps extends EZDSComponentProps {
   /**
    * Event handler for blur events on the reference element.
    */

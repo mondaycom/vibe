@@ -1,11 +1,11 @@
 import { type AriaRole, type InputHTMLAttributes, type ReactNode } from "react";
-import { type VibeComponentProps, type BASE_SIZES } from "@ezds/shared";
+import { type EZDSComponentProps, type BASE_SIZES } from "@ezds/shared";
 
 export type InputSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES];
 type BaseInputNativeInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "role">;
 type Renderer = ReactNode | ReactNode[];
 
-export interface BaseInputProps extends BaseInputNativeInputProps, VibeComponentProps {
+export interface BaseInputProps extends BaseInputNativeInputProps, EZDSComponentProps {
   /**
    * The size of the input.
    */

@@ -3,10 +3,10 @@ import cx from 'classnames';
 import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from './FlexConstants';
 import { getStyle } from '../../utils/typesciptCssModulesHelper';
 import { ElementContent, withStaticProps } from '../../../types';
-import { VibeComponentProps } from '../../types';
+import { EZDSComponentProps } from '../../types';
 import styles from './Flex.module.scss';
 
-interface FlexProps extends VibeComponentProps {
+interface FlexProps extends EZDSComponentProps {
   style?: object;
   direction?: FlexDirection;
   elementType?: React.ElementType;

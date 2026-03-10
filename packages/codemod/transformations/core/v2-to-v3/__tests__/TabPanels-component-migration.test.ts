@@ -105,12 +105,12 @@ describe("TabPanels component migration", () => {
     transform,
     {},
     `
-      import { TabPanels as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent renderOnlyActiveTab />
+      import { TabPanels as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent renderOnlyActiveTab />
     `,
     `
-      import { TabPanels as VibeComponent } from "monday-ui-react-core";
-      <VibeComponent />
+      import { TabPanels as EZDSComponent } from "monday-ui-react-core";
+      <EZDSComponent />
     `,
     "should change when 'TabPanels' is imported with alias from vibe"
   );

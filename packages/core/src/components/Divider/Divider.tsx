@@ -4,11 +4,11 @@ import React from "react";
 import { DirectionType as DirectionTypeEnum } from "./DividerConstants";
 import { type DividerDirection } from "./Divider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type EZDSComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Divider.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface DividerProps extends VibeComponentProps {
+export interface DividerProps extends EZDSComponentProps {
   /**
    * The direction of the divider.
    */
@@ -30,7 +30,7 @@ const Divider = ({
     <div
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
-      data-vibe={ComponentVibeId.DIVIDER}
+      data-ezds={ComponentEZDSId.DIVIDER}
       className={cx(styles.divider, className, getStyle(styles, direction), {
         [styles.withoutMargin]: withoutMargin
       })}

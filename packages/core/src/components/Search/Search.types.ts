@@ -1,11 +1,11 @@
 import type React from "react";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { type SubIcon } from "@ezds/icon";
 import { type InputSize } from "@ezds/base";
 import type { IconButton } from "@ezds/icon-button";
 import type MenuButton from "../MenuButton/MenuButton";
 
-export interface SearchProps extends VibeComponentProps {
+export interface SearchProps extends EZDSComponentProps {
   /**
    * The icon used for the search button.
    */

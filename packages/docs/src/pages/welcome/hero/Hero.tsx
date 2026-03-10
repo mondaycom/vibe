@@ -13,16 +13,16 @@ export default function Hero() {
         <EntranceAnimation delay={0}>
           <h1 className={styles.header}>
             <Flex align="center" justify="center" gap="medium">
-              Vibe design system
+              EZDS design system
             </Flex>
             <Flex align="center" justify="center" gap="medium">
-              by monday.com
+              by ezcorp.com
             </Flex>
           </h1>
         </EntranceAnimation>
 
         <EntranceAnimation delay={0.1}>
-          <p className={styles.subheader}>Resources for building great monday.com experiences.</p>
+          <p className={styles.subheader}>Resources for building great ezcorp.com experiences.</p>
         </EntranceAnimation>
 
         <EntranceAnimation delay={0.2}>
@@ -30,7 +30,7 @@ export default function Hero() {
             <ResourceButton
               text="GitHub"
               icon={<GitHubIcon />}
-              href="https://github.com/mondaycom/vibe"
+              href="https://github.com/ezcorp/ezds"
               tooltipContent="Become a contributor & join our GitHub community"
             />
             <ResourceButton

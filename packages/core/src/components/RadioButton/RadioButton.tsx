@@ -3,13 +3,13 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { Clickable } from "@ezds/clickable";
 import { Text } from "@ezds/typography";
-import { type VibeComponentProps } from "../../types";
+import { type EZDSComponentProps } from "../../types";
 import { Tooltip } from "@ezds/tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentEZDSId } from "../../tests/constants";
 
-export interface RadioButtonProps extends VibeComponentProps {
+export interface RadioButtonProps extends EZDSComponentProps {
   /**
    * Class name applied to the label text.
    */
@@ -132,7 +132,7 @@ const RadioButton = forwardRef(
       <Tooltip content={tooltipContent}>
         <label
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
-          data-vibe={ComponentVibeId.RADIO_BUTTON}
+          data-ezds={ComponentEZDSId.RADIO_BUTTON}
           className={cx(styles.radioButton, className, {
             [styles.disabled]: disabled,
             disabled: disabled
