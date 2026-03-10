@@ -295,7 +295,7 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
           action: `Run migration script: npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
           command: `npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
           description: "Handles enum→string, ARIA props, import renames, and component prop changes automatically.",
-          important: "Let this script complete fully before making any manual changes",
+          important: "⚠️ Complete step 3 (promoted component migration) BEFORE running this. After this script rewrites imports, old vs new API usage becomes indistinguishable.",
           codemods: [
             "Enums → string literals (Button.sizes.LARGE → \"large\")",
             "ARIA camelCase → aria-* attributes",
@@ -1057,7 +1057,7 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
           after: componentGuide.after,
           files: counts.oldFiles.slice(0, 10),
           ...("toolReference" in componentGuide ? { toolReference: componentGuide.toolReference } : {}),
-          important: "⚠️ Must be resolved BEFORE running codemods (step 3 in migration steps)"
+          important: "⚠️ Must be resolved BEFORE running codemods (step 3 must be done before step 4)"
         });
       }
 
