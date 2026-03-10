@@ -7,7 +7,7 @@ import {
   getTestId,
   ComponentVibeId,
   useMergeRef
-} from "@vibe/shared";
+} from "@ezds/shared";
 import { IconTypeEnum } from "./constants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";

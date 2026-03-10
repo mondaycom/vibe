@@ -1,6 +1,6 @@
 /* stylelint-disable selector-class-pattern */
 
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .chip-with-input-wrapper {
   display: flex;
@@ -27,7 +27,7 @@
 }
 
 .multiselect-chip-disabled {
-  background-color: var(--ui-background-color) !important;
+  background-color: var(--ezds-color-background-secondary) !important;
 }
 
 .value-container {
@@ -65,11 +65,11 @@
 
 .dropdownCounter {
   &:hover {
-    background-color: var(--primary-background-hover-color);
-    box-shadow: 0 0 0 1px var(--primary-hover-color) inset;
+    background-color: var(--ezds-color-background-transparent-inverted);
+    box-shadow: 0 0 0 1px var(--ezds-color-background-accent-default--hover) inset;
   }
 
   &.active {
-    box-shadow: 0 0 0 1px var(--primary-hover-color) inset;
+    box-shadow: 0 0 0 1px var(--ezds-color-background-accent-default--hover) inset;
   }
 }

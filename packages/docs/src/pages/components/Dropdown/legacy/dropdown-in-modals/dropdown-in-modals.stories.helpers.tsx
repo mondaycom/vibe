@@ -1,5 +1,5 @@
 import React from "react";
-import { Tip } from "vibe-storybook-components";
+import { Tip } from "@ezds/storybook-blocks";
 
 export const TipKnowIssue = () => (
   <Tip type={Tip.types.WARNING} emoji={"⚠️"} title="Known issue">

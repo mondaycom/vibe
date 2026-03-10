@@ -2,7 +2,7 @@ import { vi, beforeEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import ModalHeader from "../ModalHeader";
-import { Text as TextIcon } from "@vibe/icons";
+import { Text as TextIcon } from "@ezds/icons";
 import { useModal } from "../../context/ModalContext";
 import { type ModalContextProps } from "../../context/ModalContext.types";
 

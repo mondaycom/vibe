@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Button, type ButtonProps } from "@vibe/button";
+import { Button, type ButtonProps } from "@ezds/button";
 
 export interface AttentionBoxButtonProps extends Omit<ButtonProps, "size" | "kind" | "color" | "children"> {
   text: string;

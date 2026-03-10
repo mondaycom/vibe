@@ -1,5 +1,5 @@
 import React from "react";
-import { MultipleStoryElementsWrapper } from "vibe-storybook-components";
+import { MultipleStoryElementsWrapper } from "@ezds/storybook-blocks";
 import cx from "classnames";
 import styles from "./withGlobalStyle.module.scss";
 import { type Decorator } from "@storybook/react";

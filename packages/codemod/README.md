@@ -1,15 +1,15 @@
-# @vibe/codemod
+# @ezds/codemod
 
 > Vibe Design System's Codemods and CLI tools for automating migrations and transformations
 
-The @vibe/codemod package is designed to automate the migration to the latest version of the Vibe design system. It applies specific transformations to your codebase based on the migration type you choose. The tool can be run interactively or via command-line arguments.
+The @ezds/codemod package is designed to automate the migration to the latest version of the Vibe design system. It applies specific transformations to your codebase based on the migration type you choose. The tool can be run interactively or via command-line arguments.
 
 ## Usage
 
 To run, use the following command:
 
 ```bash
-npx @vibe/codemod [options]
+npx @ezds/codemod [options]
 ```
 
 ## Options
@@ -22,7 +22,7 @@ npx @vibe/codemod [options]
 - **Example**:
 
   ```bash
-  npx @vibe/codemod --migration v3
+  npx @ezds/codemod --migration v3
   ```
 
 ### `--target` (alias: `-t`)
@@ -33,7 +33,7 @@ npx @vibe/codemod [options]
 - **Example**:
 
   ```bash
-  npx @vibe/codemod --target /path/to/your/project
+  npx @ezds/codemod --target /path/to/your/project
   ```
 
 ### `--extensions` (alias: `-x`)
@@ -45,7 +45,7 @@ npx @vibe/codemod [options]
 - **Example**:
 
   ```bash
-  npx @vibe/codemod --extensions jsx tsx
+  npx @ezds/codemod --extensions jsx tsx
   ```
 
 ### `--verbose` (alias: `-v`)
@@ -55,7 +55,7 @@ npx @vibe/codemod [options]
 - **Example**:
 
   ```bash
-  npx @vibe/codemod --verbose
+  npx @ezds/codemod --verbose
   ```
 
 ### `--yes` (alias: `-y`)
@@ -65,7 +65,7 @@ npx @vibe/codemod [options]
 - **Example**:
 
   ```bash
-  npx @vibe/codemod --yes
+  npx @ezds/codemod --yes
   ```
 
 ## Included Migrations
@@ -75,9 +75,9 @@ The following migrations are included in this CLI:
 ### `v3` Migration
 
 - **Migration Type**: `v3` (`--migration v3`)
-- **Description**: This migration transforms components and files to comply with version 3 of @vibe/code.
+- **Description**: This migration transforms components and files to comply with version 3 of @ezds/code.
 
 ### `enums` Migration
 
 - **Migration Type**: `enums` (`--migration enums`)
-- **Description**: This migration transforms enums to TS types with version 3 of @vibe/code.
+- **Description**: This migration transforms enums to TS types with version 3 of @ezds/code.

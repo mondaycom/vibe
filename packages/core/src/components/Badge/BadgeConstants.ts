@@ -1,4 +1,4 @@
-import { DialogPositionEnum as DialogPosition } from "@vibe/dialog";
+import { DialogPositionEnum as DialogPosition } from "@ezds/dialog";
 
 /**
  * @deprecated

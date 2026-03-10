@@ -4,7 +4,7 @@
   min-width: 100px;
   min-height: 40px;
   --tooltip-padding: 0;
-  --tooltip-border-radius: var(--border-radius-medium);
+  --tooltip-border-radius: var(--ezds-radius-0200);
   --tooltip-max-width: initial;
 
   &.tipseenWrapperWithoutCustomWidth {
@@ -15,8 +15,8 @@
     position: fixed;
     bottom: 0;
     right: 0;
-    margin-bottom: var(--spacing-medium);
-    margin-right: var(--spacing-medium);
+    margin-bottom: var(--ezds-space-0200);
+    margin-right: var(--ezds-space-0200);
   }
 
   .tipseen {
@@ -26,7 +26,7 @@
     }
 
     &Title {
-      padding: var(--spacing-medium) var(--spacing-xl) 0 var(--spacing-medium);
+      padding: var(--ezds-space-0200) var(--ezds-space-0500) 0 var(--ezds-space-0200);
     }
 
     &Content {
@@ -36,12 +36,12 @@
 
     &CloseButton {
       position: absolute;
-      top: var(--spacing-small);
-      right: var(--spacing-small);
+      top: var(--ezds-space-0100);
+      right: var(--ezds-space-0100);
       z-index: 2;
 
       &.dark {
-        color: var(--color-asphalt);
+        color: var(--ezds-color-background-neutral-dark);
       }
     }
   }

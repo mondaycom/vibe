@@ -6,7 +6,7 @@ import {
   getTestId,
   useIsMounted,
   type VibeComponentProps
-} from "@vibe/shared";
+} from "@ezds/shared";
 import useIconScreenReaderAccessProps from "../hooks/useIconScreenReaderAccessProps";
 
 function modifySvgCode(svg: string, color = "currentColor") {

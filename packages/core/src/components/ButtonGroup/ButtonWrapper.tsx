@@ -1,9 +1,9 @@
 import React from "react";
 import { isNil } from "es-toolkit";
-import { Button, type ButtonProps } from "@vibe/button";
-import { Tooltip } from "@vibe/tooltip";
+import { Button, type ButtonProps } from "@ezds/button";
+import { Tooltip } from "@ezds/tooltip";
 import { type MoveBy } from "../../types/MoveBy";
-import { type TooltipPositions } from "@vibe/tooltip";
+import { type TooltipPositions } from "@ezds/tooltip";
 import styles from "./ButtonGroup.module.scss";
 
 export interface ButtonWrapperProps extends ButtonProps {

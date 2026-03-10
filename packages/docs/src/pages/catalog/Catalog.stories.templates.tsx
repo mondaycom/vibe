@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { RelatedComponentsDecorator } from "../../layout/related-components/related-components-decorator";
-import { RelatedComponents } from "vibe-storybook-components";
+import { RelatedComponents } from "@ezds/storybook-blocks";
 import { DESCRIPTION_COMPONENTS_WITHOUT_GENERAL_DESCRIPTION_MAP } from "../../layout/related-components/component-description-map";
-import { Search, Flex } from "@vibe/core";
+import { Search, Flex } from "@ezds/core";
 import { CatalogEmptyState } from "./EmptyState/CatalogEmptyState";
 
 const RELATED_COMPONENT_NAMES: string[] = Array.from(

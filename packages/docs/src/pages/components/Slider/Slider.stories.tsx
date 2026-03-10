@@ -1,8 +1,8 @@
 import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Slider, Chips, Flex } from "@vibe/core";
-import { Sound, Video } from "@vibe/icons";
+import { Slider, Chips, Flex } from "@ezds/core";
+import { Sound, Video } from "@ezds/icons";
 import { rangedSliderMouseEventsPlaySuite, nonRangedSliderMouseEventsPlaySuite } from "./Slider.interactions";
 
 const argTypes = createStoryMetaSettingsDecorator({

@@ -1,6 +1,6 @@
-import * as VibeComponents from "@vibe/core";
-import * as VibeIcons from "@vibe/icons";
-import * as VibeComponentsNext from "@vibe/core/next";
+import * as VibeComponents from "@ezds/core";
+import * as VibeIcons from "@ezds/icons";
+import * as VibeComponentsNext from "@ezds/core/next";
 import React from "react";
 
 const VibeLegacy = Object.fromEntries(Object.entries(VibeComponents).filter(([key]) => key in VibeComponentsNext));

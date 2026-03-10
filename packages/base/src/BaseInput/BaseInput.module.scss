@@ -1,23 +1,23 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .wrapper {
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--spacing-small);
-  padding-block: var(--spacing-xs);
-  padding-inline: var(--spacing-medium) var(--spacing-xs);
+  gap: var(--ezds-space-0100);
+  padding-block: var(--ezds-space-0050);
+  padding-inline: var(--ezds-space-0200) var(--ezds-space-0050);
 
   @include vibe-text(text1, normal);
   @include smoothing-text;
 
   outline: none;
-  border: 1px solid var(--ui-border-color);
-  border-radius: var(--border-radius-small);
-  color: var(--primary-text-color);
-  background-color: var(--secondary-background-color);
-  transition: border-color var(--motion-productive-medium) ease-in;
+  border: 1px solid var(--ezds-color-border-strong);
+  border-radius: var(--ezds-radius-0100);
+  color: var(--ezds-color-text-default);
+  background-color: var(--ezds-color-background-primary);
+  transition: border-color var(--ezds-motion-productive-medium) ease-in;
 
   &.small {
     min-height: 32px;
@@ -33,28 +33,28 @@
   &.large {
     min-height: 48px;
     height: 48px;
-    padding-block: var(--spacing-small);
+    padding-block: var(--ezds-space-0100);
   }
 
   &.rightThinnerPadding {
-    padding-inline-end: var(--spacing-medium);
+    padding-inline-end: var(--ezds-space-0200);
   }
 
   &:hover {
-    border-color: var(--primary-text-color);
+    border-color: var(--ezds-color-text-default);
   }
 
   @supports selector(:has(*)) {
     &:has(.input:active, .input:focus) {
-      border-color: var(--primary-color);
+      border-color: var(--ezds-color-background-accent-default);
     }
 
     &:has(.input:read-only) {
-      background-color: var(--allgrey-background-color);
+      background-color: var(--ezds-color-background-quaternary);
       border: none;
 
       .input {
-        background-color: var(--allgrey-background-color);
+        background-color: var(--ezds-color-background-quaternary);
       }
     }
 
@@ -63,50 +63,50 @@
       user-select: none;
       border: none;
       pointer-events: none;
-      background-color: var(--disabled-background-color);
-      color: var(--disabled-text-color);
+      background-color: var(--ezds-color-background-disabled);
+      color: var(--ezds-color-text-default-disabled);
 
       .input {
-        background-color: var(--disabled-background-color);
+        background-color: var(--ezds-color-background-disabled);
       }
     }
 
     &.success {
-      border-color: var(--positive-color);
+      border-color: var(--ezds-color-background-success-default);
 
       &:hover {
-        border-color: var(--positive-color);
+        border-color: var(--ezds-color-background-success-default);
       }
 
       &:has(.input:active, .input:focus) {
-        border-color: var(--positive-color);
+        border-color: var(--ezds-color-background-success-default);
       }
     }
 
     &:has(.input[aria-invalid="true"]) {
-      border-color: var(--negative-color);
+      border-color: var(--ezds-color-background-danger-default);
 
       &:hover {
-        border-color: var(--negative-color);
+        border-color: var(--ezds-color-background-danger-default);
       }
 
       &:has(.input:active, .input:focus) {
-        border-color: var(--negative-color);
+        border-color: var(--ezds-color-background-danger-default);
       }
     }
   }
 
   @supports not selector(:has(*)) {
     &:focus-within {
-      border-color: var(--primary-color);
+      border-color: var(--ezds-color-background-accent-default);
     }
 
     &.readOnly {
-      background-color: var(--allgrey-background-color);
+      background-color: var(--ezds-color-background-quaternary);
       border: none;
 
       .input {
-        background-color: var(--allgrey-background-color);
+        background-color: var(--ezds-color-background-quaternary);
       }
     }
 
@@ -115,34 +115,34 @@
       user-select: none;
       border: none;
       pointer-events: none;
-      background-color: var(--disabled-background-color);
+      background-color: var(--ezds-color-background-disabled);
 
       .input {
-        background-color: var(--disabled-background-color);
+        background-color: var(--ezds-color-background-disabled);
       }
     }
 
     &.success {
-      border-color: var(--positive-color);
+      border-color: var(--ezds-color-background-success-default);
 
       &:hover {
-        border-color: var(--positive-color);
+        border-color: var(--ezds-color-background-success-default);
       }
 
       &:focus-within {
-        border-color: var(--positive-color);
+        border-color: var(--ezds-color-background-success-default);
       }
     }
 
     &.error {
-      border-color: var(--negative-color);
+      border-color: var(--ezds-color-background-danger-default);
 
       &:hover {
-        border-color: var(--negative-color);
+        border-color: var(--ezds-color-background-danger-default);
       }
 
       &:focus-within {
-        border-color: var(--negative-color);
+        border-color: var(--ezds-color-background-danger-default);
       }
     }
   }
@@ -160,12 +160,12 @@
     outline: none;
 
     &::placeholder {
-      color: var(--secondary-text-color);
+      color: var(--ezds-color-text-subtle);
       font-weight: 400;
     }
 
     &:disabled::placeholder {
-      color: var(--disabled-text-color);
+      color: var(--ezds-color-text-default-disabled);
     }
   }
 }

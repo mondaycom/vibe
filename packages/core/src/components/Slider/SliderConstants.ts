@@ -1,4 +1,4 @@
-import { type IconType } from "@vibe/icon";
+import { type IconType } from "@ezds/icon";
 import { type ReactElement } from "react";
 import {
   type SliderSize,

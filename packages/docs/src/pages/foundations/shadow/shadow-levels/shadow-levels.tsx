@@ -1,5 +1,5 @@
 import React from "react";
-import { Frame } from "vibe-storybook-components";
+import { Frame } from "@ezds/storybook-blocks";
 import { ShadowExample } from "./shadow-example/shadow-example";
 import "./shadow-levels.scss";
 

@@ -1,6 +1,6 @@
 import type React from "react";
 import { useRef } from "react";
-import { getTestId, useMergeRef, NOOP, ComponentDefaultTestId, useKeyboardButtonPressedFunc } from "@vibe/shared";
+import { getTestId, useMergeRef, NOOP, ComponentDefaultTestId, useKeyboardButtonPressedFunc } from "@ezds/shared";
 import { type ClickableProps } from "../Clickable/Clickable";
 
 /**

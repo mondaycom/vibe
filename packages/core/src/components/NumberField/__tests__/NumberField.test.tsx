@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import NumberField from "../NumberField";
-import { WhatsNew } from "@vibe/icons";
+import { WhatsNew } from "@ezds/icons";
 
 describe("NumberField", () => {
   const mockOnChange = vi.fn();

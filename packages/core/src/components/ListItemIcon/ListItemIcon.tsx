@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import { Icon, type SubIcon } from "@vibe/icon";
+import { Icon, type SubIcon } from "@ezds/icon";
 import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
 import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";

@@ -8,7 +8,7 @@ import {
   ComponentDefaultTestId,
   getTestId,
   getStyle
-} from "@vibe/shared";
+} from "@ezds/shared";
 import { DialogSize as DialogSizeEnum, DialogType as DialogTypeEnum } from "../Dialog/DialogConstants";
 import { type DialogSize, type DialogType } from "../Dialog";
 import styles from "./DialogContentContainer.module.scss";

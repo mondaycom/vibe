@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo } from "react";
-import { Check } from "@vibe/icons";
-import { type SubIcon } from "@vibe/icon";
+import { Check } from "@ezds/icons";
+import { type SubIcon } from "@ezds/icon";
 import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";

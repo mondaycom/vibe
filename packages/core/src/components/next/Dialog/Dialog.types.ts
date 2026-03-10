@@ -1,6 +1,6 @@
 import type React from "react";
 import type { ReactElement } from "react";
-import type { VibeComponentProps } from "@vibe/shared";
+import type { VibeComponentProps } from "@ezds/shared";
 import type { Middleware, Placement } from "@floating-ui/react-dom";
 
 export type DialogType = "modal" | "popover";

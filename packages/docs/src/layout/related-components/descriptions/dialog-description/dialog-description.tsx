@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Dialog, DialogContentContainer, IconButton, Flex, Skeleton } from "@vibe/core";
-import { Info } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Dialog, DialogContentContainer, IconButton, Flex, Skeleton } from "@ezds/core";
+import { Info } from "@ezds/icons";
 import styles from "./dialog-description.module.scss";
 
 export const DialogDescription = () => {

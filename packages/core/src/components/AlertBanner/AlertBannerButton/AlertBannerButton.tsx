@@ -1,6 +1,6 @@
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
-import { Button, type ButtonProps } from "@vibe/button";
+import { Button, type ButtonProps } from "@ezds/button";
 import React, { type FC } from "react";
 import styles from "./AlertBannerButton.module.scss";
 

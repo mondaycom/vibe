@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
-import { Upgrade } from "@vibe/icons";
+import { Upgrade } from "@ezds/icons";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { type Step } from "../MultiStep.types";
 

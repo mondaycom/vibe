@@ -1,7 +1,7 @@
 import { expect } from "@storybook/jest";
 import { userEvent, within } from "@storybook/test";
 import { type Screen } from "@testing-library/react";
-import { delay, interactionSuite, resetFocus } from "@vibe/core/interactionsTests";
+import { delay, interactionSuite, resetFocus } from "@ezds/core/interactionsTests";
 
 const CHANGES_DELAY = 100;
 

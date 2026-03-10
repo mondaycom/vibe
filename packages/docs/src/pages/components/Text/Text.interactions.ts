@@ -1,5 +1,5 @@
 import { type Screen } from "@testing-library/react";
-import { interactionSuite } from "@vibe/core/interactionsTests";
+import { interactionSuite } from "@ezds/core/interactionsTests";
 import { testHoverTooltipTrigger } from "../Tooltip/Tooltip.interactions";
 
 // Test constants

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useKeyEvent } from "@vibe/core";
+import { useKeyEvent } from "@ezds/core";
 
 export default {
   title: "Hooks/useKeyEvent"

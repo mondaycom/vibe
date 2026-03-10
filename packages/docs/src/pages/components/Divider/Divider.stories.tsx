@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, type DividerProps } from "@vibe/core";
+import { Divider, type DividerProps } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({

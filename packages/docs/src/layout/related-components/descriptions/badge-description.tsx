@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Badge, Button } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Badge, Button } from "@ezds/core";
 
 export const BadgeDescription = () => {
   const component = useMemo(

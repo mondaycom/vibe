@@ -3,33 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.5](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@3.0.4...@vibe/icon-button@3.0.5) (2026-02-27)
+## [3.0.5](https://github.com/mondaycom/vibe/compare/@ezds/icon-button@3.0.4...@ezds/icon-button@3.0.5) (2026-02-27)
 
-**Note:** Version bump only for package @vibe/icon-button
-
-
-
-
-
-## [3.0.4](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@3.0.3...@vibe/icon-button@3.0.4) (2026-01-28)
-
-**Note:** Version bump only for package @vibe/icon-button
+**Note:** Version bump only for package @ezds/icon-button
 
 
 
 
 
-## [3.0.3](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@3.0.2...@vibe/icon-button@3.0.3) (2026-01-18)
+## [3.0.4](https://github.com/mondaycom/vibe/compare/@ezds/icon-button@3.0.3...@ezds/icon-button@3.0.4) (2026-01-28)
 
-**Note:** Version bump only for package @vibe/icon-button
-
-
+**Note:** Version bump only for package @ezds/icon-button
 
 
 
-## [3.0.2](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@3.0.1...@vibe/icon-button@3.0.2) (2026-01-04)
 
-**Note:** Version bump only for package @vibe/icon-button
+
+## [3.0.3](https://github.com/mondaycom/vibe/compare/@ezds/icon-button@3.0.2...@ezds/icon-button@3.0.3) (2026-01-18)
+
+**Note:** Version bump only for package @ezds/icon-button
+
+
+
+
+
+## [3.0.2](https://github.com/mondaycom/vibe/compare/@ezds/icon-button@3.0.1...@ezds/icon-button@3.0.2) (2026-01-04)
+
+**Note:** Version bump only for package @ezds/icon-button
 
 
 
@@ -37,4 +37,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 3.0.1 (2026-01-04)
 
-**Note:** Version bump only for package @vibe/icon-button
+**Note:** Version bump only for package @ezds/icon-button

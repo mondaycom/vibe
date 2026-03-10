@@ -24,8 +24,8 @@ import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 // Components import
-import { Button, type ButtonProps } from "@vibe/button";
-import { DropdownChevronDown } from "@vibe/icons";
+import { Button, type ButtonProps } from "@ezds/button";
+import { DropdownChevronDown } from "@ezds/icons";
 import {
   DialogContentContainer,
   type DialogSize,
@@ -33,8 +33,8 @@ import {
   Dialog,
   type DialogEvent,
   type DialogPosition
-} from "@vibe/dialog";
-import { DialogAnimationTypeEnum as AnimationType, DialogTriggerEventEnum as HideShowEvent } from "@vibe/dialog";
+} from "@ezds/dialog";
+import { DialogAnimationTypeEnum as AnimationType, DialogTriggerEventEnum as HideShowEvent } from "@ezds/dialog";
 import styles from "./SplitButton.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 

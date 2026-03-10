@@ -1,5 +1,5 @@
 import React from "react";
-import { StorybookLink, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
 
 export const TipClickable = () => (
   <Tip title="Check out our component solution for this use case">

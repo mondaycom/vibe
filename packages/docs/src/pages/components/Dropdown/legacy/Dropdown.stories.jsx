@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { StoryDescription } from "vibe-storybook-components";
+import { StoryDescription } from "@ezds/storybook-blocks";
 import { createStoryMetaSettingsDecorator } from "../../../../utils/createStoryMetaSettingsDecorator";
 import { multiInteractionTests, overviewPlaySuite } from "./Dropdown.interactions";
 import person1 from "../../Avatar/assets/person1.png";
 import person3 from "../../Avatar/assets/person3.png";
 import person2 from "../../Avatar/assets/person2.png";
 import { OptionRenderer } from "./OptionRenderer";
-import { Attach, Email } from "@vibe/icons";
-import { Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "@vibe/core";
+import { Attach, Email } from "@ezds/icons";
+import { Box, Button, DialogContentContainer, Dropdown, Flex, Label, Modal, ModalContent } from "@ezds/core";
 import ModalExampleContent from "../legacy/dropdown-in-modals/ModalExampleContent";
 import "./Dropdown.stories.scss";
 import { fakeFetchUsers, generateItems } from "./Dropdown.stories.helpers";

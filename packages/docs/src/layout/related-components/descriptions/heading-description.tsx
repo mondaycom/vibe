@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Heading } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Heading } from "@ezds/core";
 
 export const HeadingDescription = () => {
   const component = useMemo(() => {

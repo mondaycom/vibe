@@ -1,5 +1,5 @@
 import React, { type ReactElement, type RefObject, useCallback, useMemo, useRef, useState } from "react";
-import { Tooltip, type TooltipProps } from "@vibe/tooltip";
+import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";

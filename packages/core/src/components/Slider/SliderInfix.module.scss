@@ -1,6 +1,6 @@
 .infix {
   font-size: 14px;
-  font-family: var(--font-family);
+  font-family: var(--ezds-font-family-body);
   flex: 0 0 auto;
 }
 
@@ -9,9 +9,9 @@
 }
 
 .prefix {
-  margin-right: var(--spacing-small);
+  margin-right: var(--ezds-space-0100);
 }
 
 .postfix {
-  margin-left: var(--spacing-small);
+  margin-left: var(--ezds-space-0100);
 }

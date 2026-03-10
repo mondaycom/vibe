@@ -1,6 +1,6 @@
 import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { TextArea } from "@vibe/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { TextArea } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 

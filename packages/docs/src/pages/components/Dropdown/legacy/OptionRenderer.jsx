@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "@vibe/core";
+import { Avatar } from "@ezds/core";
 import "./Dropdown.stories.scss";
 
 export const OptionRenderer = ({ src, type, size, name, position }) => {

@@ -1,7 +1,7 @@
 import React, { forwardRef, type ReactNode } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { getStyle, withStaticProps } from "@vibe/shared";
+import { getStyle, withStaticProps } from "@ezds/shared";
 import { TextType as TextTypeEnum, TextWeight as TextWeightEnum } from "./TextConstants";
 import Typography, { type TypographyProps } from "../Typography/Typography";
 import {

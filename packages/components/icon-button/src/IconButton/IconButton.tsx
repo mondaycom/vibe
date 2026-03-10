@@ -9,12 +9,12 @@ import {
   ComponentDefaultTestId,
   ComponentVibeId,
   getStyle
-} from "@vibe/shared";
-import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import { Icon, type SubIcon } from "@vibe/icon";
-import { AddSmall } from "@vibe/icons";
+} from "@ezds/shared";
+import { Tooltip, type TooltipProps } from "@ezds/tooltip";
+import { Icon, type SubIcon } from "@ezds/icon";
+import { AddSmall } from "@ezds/icons";
 import { getWidthHeight, type Size } from "./services/IconButton-helpers";
-import { Button, type ButtonColor, type ButtonType } from "@vibe/button";
+import { Button, type ButtonColor, type ButtonType } from "@ezds/button";
 import styles from "./IconButton.module.scss";
 
 export interface IconButtonProps extends VibeComponentProps {

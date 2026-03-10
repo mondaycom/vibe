@@ -11,7 +11,7 @@ import Talko from "./assets/Talko.png";
 import Anna from "./assets/Anna.png";
 import Orr from "./assets/Orr.png";
 import Ron from "./assets/Ron.png";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import styles from "./Team.module.scss";
 import Section from "../Section";
 import EntranceAnimation from "../EntranceAnimation";

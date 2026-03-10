@@ -167,10 +167,10 @@ function resolveExportsRecursively(
     const modSpec = decl.getModuleSpecifierValue();
     if (!modSpec) continue;
 
-    // Handle @vibe/* imports (e.g., export * from "@vibe/button")
+    // Handle @ezds/* imports (e.g., export * from "@ezds/button")
     let matchedPaths: string[] = [];
-    if (modSpec.startsWith("@vibe/")) {
-      const pkgName = modSpec.replace("@vibe/", "");
+    if (modSpec.startsWith("@ezds/")) {
+      const pkgName = modSpec.replace("@ezds/", "");
       const pkgPath = path.resolve(__dirname, `../../../components/${pkgName}/src/index.ts`);
       if (fs.existsSync(pkgPath)) matchedPaths = [pkgPath];
     } else {
@@ -214,7 +214,7 @@ function aggregatorMain(): AggregatorRecord[] {
   const packageDir = path.resolve(__dirname, "../components");
   project.addSourceFilesAtPaths([`${packageDir}/**/*.ts`, `${packageDir}/**/*.tsx`]);
 
-  // Also load source files from separate component packages (e.g., @vibe/button)
+  // Also load source files from separate component packages (e.g., @ezds/button)
   const componentsDir = path.resolve(__dirname, "../../../components");
   if (fs.existsSync(componentsDir)) {
     project.addSourceFilesAtPaths([`${componentsDir}/*/src/**/*.{ts,tsx}`]);
@@ -416,9 +416,9 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
         }
       }
 
-      // Determine correct import path: if file is from packages/components/{pkg}/, use @vibe/{pkg}
+      // Determine correct import path: if file is from packages/components/{pkg}/, use @ezds/{pkg}
       const pkgMatch = agg.filePath.match(/\/components\/([^/]+)\/src\//);
-      const importPath = pkgMatch ? `@vibe/${pkgMatch[1]}` : `@vibe/core${agg.aggregator === "next" ? "/next" : ""}`;
+      const importPath = pkgMatch ? `@ezds/${pkgMatch[1]}` : `@ezds/core${agg.aggregator === "next" ? "/next" : ""}`;
 
       return {
         filePath: toRelativePath(agg.filePath),

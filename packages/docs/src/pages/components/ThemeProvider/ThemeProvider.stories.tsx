@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Source } from "@storybook/blocks7";
-import { ThemeProvider, Button, Flex } from "@vibe/core";
+import { ThemeProvider, Button, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import {
   ColorsEligibleForThemingTemplate,

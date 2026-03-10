@@ -5,7 +5,7 @@ import cx from "classnames";
 import React from "react";
 import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
-import { Icon, type SubIcon } from "@vibe/icon";
+import { Icon, type SubIcon } from "@ezds/icon";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./AvatarContent.module.scss";
 

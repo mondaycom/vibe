@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Clickable, Text } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Clickable, Text } from "@ezds/core";
 import classes from "./clickable-description.stories.module.scss";
 
 export const ClickableDescription = () => {

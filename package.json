@@ -1,14 +1,14 @@
 {
   "version": "0.0.0",
   "private": true,
-  "description": "Vibe monorepo",
+  "description": "EZDS Design System monorepo",
   "scripts": {
     "build": "lerna run build",
     "build:package": "sh scripts/build-dependencies.sh",
     "lint": "lerna run lint",
     "test": "lerna run test",
     "storybook": "lerna run storybook --parallel --stream",
-    "postinstall": "lerna run build --scope={vibe-storybook-components,@vibe/shared,@vibe/icons,@vibe/hooks}"
+    "postinstall": "lerna run build --scope={@ezds/storybook-blocks,@ezds/shared,@ezds/icons,@ezds/hooks}"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.2.0",

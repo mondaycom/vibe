@@ -1,9 +1,9 @@
 import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { DialogContentContainer, Combobox, Flex, IconButton, Search } from "@vibe/core";
+import { DialogContentContainer, Combobox, Flex, IconButton, Search } from "@ezds/core";
 import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
-import { Filter as FilterIcon } from "@vibe/icons";
+import { Filter as FilterIcon } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Search,

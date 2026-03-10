@@ -1,27 +1,27 @@
 @import "../../styles/typography";
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .textAreaWrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: var(--spacing-xs);
+  gap: var(--ezds-space-0050);
   @include smoothing-text;
   @include vibe-text(text2, normal);
 
   .label {
     display: inline-flex;
-    gap: var(--spacing-xs);
-    color: var(--primary-text-color);
+    gap: var(--ezds-space-0050);
+    color: var(--ezds-color-text-default);
 
     &.required::after {
       content: "*";
-      color: var(--color-error);
+      color: var(--ezds-color-background-danger-default);
     }
   }
 
   .subTextContainer {
-    color: var(--secondary-text-color);
+    color: var(--ezds-color-text-subtle);
 
     .helpText {
       display: flex;
@@ -34,21 +34,21 @@
 
   .textArea {
     resize: vertical;
-    border: 1px solid var(--ui-border-color);
-    border-radius: var(--border-radius-small);
-    padding: var(--spacing-small) var(--spacing-medium);
+    border: 1px solid var(--ezds-color-border-strong);
+    border-radius: var(--ezds-radius-0100);
+    padding: var(--ezds-space-0100) var(--ezds-space-0200);
     outline: none;
-    background-color: var(--secondary-background-color);
-    color: var(--primary-text-color);
+    background-color: var(--ezds-color-background-primary);
+    color: var(--ezds-color-text-default);
 
     &:hover {
-      border-color: var(--primary-text-color);
+      border-color: var(--ezds-color-text-default);
     }
 
     &:active,
     &:focus,
     &:focus-within {
-      border-color: var(--primary-color);
+      border-color: var(--ezds-color-background-accent-default);
     }
 
     &.small {
@@ -66,43 +66,43 @@
 
   &.success {
     .textArea {
-      border-color: var(--color-success);
+      border-color: var(--ezds-color-background-success-default);
     }
 
     .helpText {
-      color: var(--color-success);
+      color: var(--ezds-color-background-success-default);
     }
   }
 
   &.error {
     .textArea {
-      border-color: var(--color-error);
+      border-color: var(--ezds-color-background-danger-default);
     }
 
     .helpText,
     .limitText {
-      color: var(--color-error);
+      color: var(--ezds-color-background-danger-default);
     }
   }
 
   &.disabled {
     .textArea,
     .textArea:hover {
-      color: var(--disabled-text-color);
-      background-color: var(--disabled-background-color);
+      color: var(--ezds-color-text-default-disabled);
+      background-color: var(--ezds-color-background-disabled);
       border-color: transparent;
       resize: none;
     }
 
     .helpText {
-      color: var(--disabled-text-color);
+      color: var(--ezds-color-text-default-disabled);
     }
   }
 
   &.readOnly {
     .textArea,
     .textArea:hover {
-      background-color: var(--allgrey-background-color);
+      background-color: var(--ezds-color-background-quaternary);
       border-color: transparent;
       resize: none;
     }

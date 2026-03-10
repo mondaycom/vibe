@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { TextBig } from "@vibe/icons";
-import { RelatedComponent } from "vibe-storybook-components";
-import { NumberField } from "@vibe/core";
+import { TextBig } from "@ezds/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { NumberField } from "@ezds/core";
 
 export const NumberFieldDescription = () => {
   const component = useMemo(() => {

@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import cx from "classnames";
-import { BaseInput } from "@vibe/base";
+import { BaseInput } from "@ezds/base";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";
-import { Text } from "@vibe/typography";
+import { Text } from "@ezds/typography";
 
 const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium" | "large"; fullWidth?: boolean }) => {
   const {

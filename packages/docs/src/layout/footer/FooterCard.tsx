@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./FooterCard.module.scss";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import ArrowIcon from "./ArrowIcon";
 import Title from "../../pages/welcome/Title";
 

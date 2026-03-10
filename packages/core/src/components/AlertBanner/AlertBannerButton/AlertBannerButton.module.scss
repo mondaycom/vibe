@@ -5,9 +5,9 @@
 }
 
 :global(.dark-app-theme) .darkBackground .bannerButton {
-  background-color: var(--dark-background-color);
+  background-color: var(--ezds-color-background-dark);
 }
 
 .marginLeft {
-  margin-left: var(--spacing-small);
+  margin-left: var(--ezds-space-0100);
 }

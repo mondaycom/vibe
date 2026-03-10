@@ -2,9 +2,9 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
 import { BaseSizes } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
-import { DialogContentContainer } from "@vibe/dialog";
+import { DialogContentContainer } from "@ezds/dialog";
 import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
-import { NoColor } from "@vibe/icons";
+import { NoColor } from "@ezds/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import {
@@ -15,7 +15,7 @@ import {
 } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import { type VibeComponentProps, withStaticProps } from "../../types";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";

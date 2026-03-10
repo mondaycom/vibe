@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { TextField } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { TextField } from "@ezds/core";
 
 export const TextFieldDescription = () => {
   const component = useMemo(() => {

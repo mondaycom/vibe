@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { AttentionBox } from "@vibe/core/next";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { AttentionBox } from "@ezds/core/next";
 
 export const AttentionBoxDescription = () => {
   const component = useMemo(() => {

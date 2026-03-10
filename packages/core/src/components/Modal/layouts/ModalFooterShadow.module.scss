@@ -3,10 +3,10 @@
     content: "";
     position: absolute;
     opacity: 0;
-    transition: opacity var(--motion-productive-medium) ease-out;
+    transition: opacity var(--ezds-motion-productive-medium) ease-out;
     width: 100%;
     height: 10px;
-    box-shadow: var(--box-shadow-medium);
+    box-shadow: var(--ezds-shadow-medium);
   }
 
   &.show::after {

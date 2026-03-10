@@ -1,50 +1,50 @@
 @use "sass:map";
 @use "sass:string";
 @use "sass:list";
-@import "~monday-ui-style/dist/functions";
+@import "~@ezds/web/dist/functions";
 
 /*  stylelint-disable scss/at-if-no-null */
 $utility-spacing-vars: (
   0: 0,
-  xs: var(--spacing-xs),
-  small: var(--spacing-small),
-  medium: var(--spacing-medium),
-  large: var(--spacing-large),
-  xl: var(--spacing-xl),
-  xxl: var(--spacing-xxl),
-  xxxl: var(--spacing-xxxl)
+  xs: var(--ezds-space-0050),
+  small: var(--ezds-space-0100),
+  medium: var(--ezds-space-0200),
+  large: var(--ezds-space-0400),
+  xl: var(--ezds-space-0500),
+  xxl: var(--ezds-space-0600),
+  xxxl: var(--ezds-space-0800)
 );
 
 $utility-border-colors-vars: (
-  uiBorderColor: var(--ui-border-color),
-  layoutBorderColor: var(--layout-border-color)
+  uiBorderColor: var(--ezds-color-border-strong),
+  layoutBorderColor: var(--ezds-color-border-default)
 );
 
 $utility-colors-vars: (
-  primaryTextColor: var(--primary-text-color),
-  textColorOnInverted: var(--text-color-on-inverted),
-  secondaryTextColor: var(--secondary-text-color)
+  primaryTextColor: var(--ezds-color-text-default),
+  textColorOnInverted: var(--ezds-color-text-default-inverted),
+  secondaryTextColor: var(--ezds-color-text-subtle)
 );
 
 $utility-background-colors-vars: (
-  primaryBackgroundColor: var(--primary-background-color),
-  secondaryBackgroundColor: var(--secondary-background-color),
-  greyBackgroundColor: var(--grey-background-color),
-  allgreyBackgroundColor: var(--allgrey-background-color),
-  invertedColorBackground: var(--inverted-color-background)
+  primaryBackgroundColor: var(--ezds-color-background-primary),
+  secondaryBackgroundColor: var(--ezds-color-background-primary),
+  greyBackgroundColor: var(--ezds-color-background-quaternary),
+  allgreyBackgroundColor: var(--ezds-color-background-quaternary),
+  invertedColorBackground: var(--ezds-color-background-primary-inverted)
 );
 
 $utilities-modules: (
   "opacity": (
     property: opacity,
     values: (
-      disabled: var(--disabled-component-opacity)
+      disabled: var(--ezds-disabled-opacity)
     )
   ),
   "border": (
     property: border,
     values: (
-      null: var(--border-width) var(--border-style) var(--ui-border-color)
+      null: var(--border-width) var(--border-style) var(--ezds-color-border-strong)
     )
   ),
   "borderColor": (
@@ -57,19 +57,19 @@ $utilities-modules: (
     class: rounded,
     values: (
       0: 0,
-      small: var(--border-radius-small),
-      medium: var(--border-radius-medium),
-      big: var(--border-radius-big)
+      small: var(--ezds-radius-0100),
+      medium: var(--ezds-radius-0200),
+      big: var(--ezds-radius-0400)
     )
   ),
   "shadow": (
     property: box-shadow,
     class: shadow,
     values: (
-      xs: var(--box-shadow-xs),
-      small: var(--box-shadow-small),
-      medium: var(--box-shadow-medium),
-      large: var(--box-shadow-large)
+      xs: var(--ezds-shadow-xs),
+      small: var(--ezds-shadow-small),
+      medium: var(--ezds-shadow-medium),
+      large: var(--ezds-shadow-large)
     )
   ),
   "margin": (

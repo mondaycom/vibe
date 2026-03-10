@@ -1,8 +1,8 @@
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type FC, useRef } from "react";
-import { Tooltip } from "@vibe/tooltip";
-import { useIsOverflowing } from "@vibe/hooks";
+import { Tooltip } from "@ezds/tooltip";
+import { useIsOverflowing } from "@ezds/hooks";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 
 import styles from "./AlertBannerText.module.scss";

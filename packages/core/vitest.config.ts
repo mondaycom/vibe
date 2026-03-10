@@ -9,18 +9,18 @@ const componentsFolder = path.resolve(process.cwd(), "../components");
 const components = fs.readdirSync(componentsFolder).reduce((acc, component) => {
   const componentFolderPath = path.resolve(componentsFolder, component);
   if (fs.statSync(componentFolderPath).isDirectory()) {
-    acc[`@vibe/${component}`] = path.join(componentFolderPath, "src/index.ts");
+    acc[`@ezds/${component}`] = path.join(componentFolderPath, "src/index.ts");
   }
 
   return acc;
 }, {});
 
-// Add @vibe/base package alias
+// Add @ezds/base package alias
 const baseFolder = path.resolve(process.cwd(), "../base");
 const baseSrcPath = path.join(baseFolder, "src");
 
 if (fs.existsSync(baseSrcPath)) {
-  components["@vibe/base"] = path.join(baseFolder, "src/index.ts");
+  components["@ezds/base"] = path.join(baseFolder, "src/index.ts");
 }
 
 export default defineConfig({
@@ -34,7 +34,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "~monday-ui-style": path.resolve(process.cwd(), "../../node_modules/monday-ui-style"),
+      "~@ezds/web": path.resolve(process.cwd(), "../../node_modules/@ezds/web"),
       "~": path.resolve(process.cwd(), "../../node_modules"),
       ...components
     }

@@ -1,8 +1,8 @@
 import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { MenuItemButton, Menu } from "@vibe/core";
-import { Invite } from "@vibe/icons";
+import { MenuItemButton, Menu } from "@ezds/core";
+import { Invite } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: MenuItemButton,

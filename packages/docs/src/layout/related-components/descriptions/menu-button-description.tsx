@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { MenuButton, Menu, MenuItem } from "@vibe/core";
-import { Sun, Moon, Favorite } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { MenuButton, Menu, MenuItem } from "@ezds/core";
+import { Sun, Moon, Favorite } from "@ezds/icons";
 
 export const MenuButtonDescription = () => {
   const component = useMemo(

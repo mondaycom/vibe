@@ -7,7 +7,7 @@ const componentsFolder = path.resolve(__dirname, "../../components");
 const components = fs.readdirSync(componentsFolder).reduce((acc: Record<string, string>, component) => {
   const componentFolderPath = path.resolve(componentsFolder, component);
   if (fs.statSync(componentFolderPath).isDirectory()) {
-    acc[`@vibe/${component}`] = path.join(componentFolderPath, "src/index.ts");
+    acc[`@ezds/${component}`] = path.join(componentFolderPath, "src/index.ts");
   }
   return acc;
 }, {});
@@ -77,18 +77,18 @@ export default {
     return mergeConfig(config, {
       resolve: {
         alias: {
-          "monday-ui-style/dist/index.min.css": path.resolve(__dirname, "../../style/src/index.scss"),
-          "monday-ui-style/dist": path.resolve(__dirname, "../../style/src"),
+          "@ezds/web/dist/index.min.css": path.resolve(__dirname, "../../web/src/index.scss"),
+          "@ezds/web/dist": path.resolve(__dirname, "../../web/src"),
           // mixins workaround for vite:
-          "~monday-ui-style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
-          "~monday-ui-style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
-          "~monday-ui-style": path.resolve(__dirname, "../../style"),
-          "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src"),
-          "@vibe/shared": path.resolve(__dirname, "../../shared/src"),
-          "@vibe/core/interactionsTests": path.resolve(__dirname, "../../core/src/tests/interactions-utils.ts"),
-          "@vibe/core/next": path.resolve(__dirname, "../../core/src/components/next.ts"),
-          "@vibe/core": path.resolve(__dirname, "../../core/src/index.ts"),
-          "@vibe/base": path.resolve(__dirname, "../../base/src/index.ts"),
+          "~@ezds/web/dist/mixins": path.resolve(__dirname, "../../web/src/mixins"),
+          "~@ezds/web/dist/functions": path.resolve(__dirname, "../../web/src/functions"),
+          "~@ezds/web": path.resolve(__dirname, "../../web"),
+          "~@ezds/storybook-blocks": path.resolve(__dirname, "../../storybook-blocks/src"),
+          "@ezds/shared": path.resolve(__dirname, "../../shared/src"),
+          "@ezds/core/interactionsTests": path.resolve(__dirname, "../../core/src/tests/interactions-utils.ts"),
+          "@ezds/core/next": path.resolve(__dirname, "../../core/src/components/next.ts"),
+          "@ezds/core": path.resolve(__dirname, "../../core/src/index.ts"),
+          "@ezds/base": path.resolve(__dirname, "../../base/src/index.ts"),
           ...components
         }
       },

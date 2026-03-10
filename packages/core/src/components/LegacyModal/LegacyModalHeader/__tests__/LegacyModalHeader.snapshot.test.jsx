@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import React from "react";
 import ModalHeader from "../LegacyModalHeader";
-import { Settings } from "@vibe/icons";
+import { Settings } from "@ezds/icons";
 import { render } from "@testing-library/react";
 
 describe("ModalHeader renders correctly", () => {

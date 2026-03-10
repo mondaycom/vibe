@@ -1,8 +1,8 @@
 import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { DialogContentContainer, Menu, MenuItem, MenuTitle, MenuGridItem, type MenuGridItemProps } from "@vibe/core";
+import { DialogContentContainer, Menu, MenuItem, MenuTitle, MenuGridItem, type MenuGridItemProps } from "@ezds/core";
 import { DummyNavigableGrid } from "../GridKeyboardNavigationContext/useGridKeyboardNavigationContext.stories.helpers";
-import { Activity, Code, Favorite, Feedback, Invite, Settings } from "@vibe/icons";
+import { Activity, Code, Favorite, Feedback, Invite, Settings } from "@ezds/icons";
 import "./MenuGridItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

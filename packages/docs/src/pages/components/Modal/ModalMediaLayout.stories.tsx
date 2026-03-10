@@ -8,9 +8,9 @@ import {
   ModalContent,
   ModalFooter,
   ModalFooterWizard
-} from "@vibe/core/next";
-import { useWizard, Button, Text, Link, Flex, IconButton, TransitionView } from "@vibe/core";
-import { Menu } from "@vibe/icons";
+} from "@ezds/core/next";
+import { useWizard, Button, Text, Link, Flex, IconButton, TransitionView } from "@ezds/core";
+import { Menu } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import mediaImage from "./assets/media-image.png";
 import { withOpenedModalPreview } from "./Modal.stories.helpers";

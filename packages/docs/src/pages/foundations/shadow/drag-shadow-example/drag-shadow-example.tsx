@@ -1,7 +1,7 @@
 import React from "react";
-import { Frame } from "vibe-storybook-components";
-import { Drag } from "@vibe/icons";
-import { Icon } from "@vibe/icon";
+import { Frame } from "@ezds/storybook-blocks";
+import { Drag } from "@ezds/icons";
+import { Icon } from "@ezds/icon";
 import classes from "./drag-shadow-example.module.scss";
 
 const CSS_BASE_CLASS = "drag-shadow-example";

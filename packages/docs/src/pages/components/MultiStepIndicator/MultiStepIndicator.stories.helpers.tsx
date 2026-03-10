@@ -1,5 +1,5 @@
 import React from "react";
-import { StorybookLink, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
 import { type Step } from "../MultiStep.types";
 
 export const firstSteps: Step[] = [

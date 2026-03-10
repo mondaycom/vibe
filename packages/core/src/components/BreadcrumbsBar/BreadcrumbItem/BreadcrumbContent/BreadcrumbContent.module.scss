@@ -1,9 +1,9 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../../../styles/states";
 
 .breadcrumbContent {
   @include vibe-text(text2, normal);
-  color: var(--secondary-text-color);
+  color: var(--ezds-color-text-subtle);
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -18,7 +18,7 @@
 }
 
 a.breadcrumbContent:hover {
-  color: var(--secondary-text-color);
+  color: var(--ezds-color-text-subtle);
   text-decoration: none;
 }
 
@@ -47,12 +47,12 @@ a.breadcrumbContent:hover {
 
 .breadcrumbContent.clickable:hover,
 .breadcrumbContent:focus-within {
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--ezds-color-background-transparent-inverted);
   border-radius: 4px;
 }
 
 .breadcrumbContent.current {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   font-weight: 500;
 }
 

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import styles from "./Letter.module.scss";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import LetterHeart from "./LetterHeart";
 import EntranceAnimation from "../EntranceAnimation";
 import AnimatedText from "./AnimatedText";

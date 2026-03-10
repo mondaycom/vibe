@@ -1,6 +1,6 @@
 @import "../../styles/typography";
 
 .numbers {
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--ezds-space-0100);
   @include smoothing-text;
 }

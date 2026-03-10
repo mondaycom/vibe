@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import MenuItem from "../MenuItem";
-import { Activity } from "@vibe/icons";
+import { Activity } from "@ezds/icons";
 
 describe("Snapshots", () => {
   it("renders correctly with empty props", () => {

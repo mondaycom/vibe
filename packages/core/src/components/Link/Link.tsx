@@ -2,7 +2,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { NOOP } from "../../utils/function-utils";
-import { Icon, type SubIcon } from "@vibe/icon";
+import { Icon, type SubIcon } from "@ezds/icon";
 import { IconPosition as IconPositionEnum, LinkTarget as LinkTargetEnum } from "./LinkConsts";
 import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.types";
 import { type VibeComponentProps, withStaticProps } from "../../types";

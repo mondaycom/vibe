@@ -1,4 +1,4 @@
-# @vibe/icons
+# @ezds/icons
 
 This package includes all of the icons of monday.com's [Vibe Design System](https://vibe.monday.com/?path=/story/media-icon--icons-list-story), available as React components and raw SVGs and with lazy loading support for optimized performance and flexible usage in your projects.
 
@@ -8,7 +8,7 @@ This package includes all of the icons of monday.com's [Vibe Design System](http
 To install, use the following command:
 
 ```bash
-npm install @vibe/icons
+npm install @ezds/icons
 ```
 
 ## Usage
@@ -16,19 +16,19 @@ npm install @vibe/icons
 #### Using React Components
 
 ```javascript
-import { Close } from "@vibe/icons";
+import { Close } from "@ezds/icons";
 ```
 
 #### Using Lazy React Components
 
 ```javascript
-import { Close } from "@vibe/icons/lazy";
+import { Close } from "@ezds/icons/lazy";
 ```
 
 #### Using Raw SVG Files
 
 ```javascript
-import { Close as CloseSvg } from "@vibe/icons/raw";
+import { Close as CloseSvg } from "@ezds/icons/raw";
 ```
 
 #### Using Meta Information
@@ -43,7 +43,7 @@ The meta export provides detailed metadata for each icon, including:
 This metadata can be used to programmatically work with icons, such as building custom icon pickers or managing icons in your project.
 
 ```javascript
-import iconsMetaData from "@vibe/icons/meta";
+import iconsMetaData from "@ezds/icons/meta";
 ```
 
 ### Using Type-Safe Icon Names
@@ -51,7 +51,7 @@ import iconsMetaData from "@vibe/icons/meta";
 For TypeScript users, the types export provides type-safe icon names:
 
 ```typescript
-import type { IconName } from "@vibe/icons/types";
+import type { IconName } from "@ezds/icons/types";
 
 // Type-safe props
 interface IconButtonProps {

@@ -3,11 +3,11 @@ import { wrap, renameImportPath, getImports } from "../../../src/utils";
 import { TransformationContext } from "../../../types";
 
 /**
- * 1. Changes imports from 'monday-ui-react-core' to '@vibe/core'
- * 2. Changes imports from 'monday-ui-react-core/icons' to '@vibe/icons'
- * 3. Changes imports from 'monday-ui-react-core/interactionsTests' to '@vibe/core/interactionsTests'
- * 4. Changes imports from 'monday-ui-react-core/testIds' to '@vibe/core/testIds'
- * 5. Changes imports from 'monday-ui-react-core/tokens' to '@vibe/core/tokens'
+ * 1. Changes imports from 'monday-ui-react-core' to '@ezds/core'
+ * 2. Changes imports from 'monday-ui-react-core/icons' to '@ezds/icons'
+ * 3. Changes imports from 'monday-ui-react-core/interactionsTests' to '@ezds/core/interactionsTests'
+ * 4. Changes imports from 'monday-ui-react-core/testIds' to '@ezds/core/testIds'
+ * 5. Changes imports from 'monday-ui-react-core/tokens' to '@ezds/core/tokens'
  
  */
 function transform({ root }: TransformationContext) {

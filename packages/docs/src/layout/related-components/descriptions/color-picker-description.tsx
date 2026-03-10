@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { ColorPicker } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { ColorPicker } from "@ezds/core";
 
 const COLORS_LIST = [
   "grass_green",

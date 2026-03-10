@@ -39,13 +39,13 @@
       }
     }
     .CalendarMonthGrid {
-      background-color: var(--secondary-background-color);
+      background-color: var(--ezds-color-background-primary);
     }
     .CalendarMonth {
-      background-color: var(--secondary-background-color);
+      background-color: var(--ezds-color-background-primary);
     }
     .DayPicker__horizontal {
-      background-color: var(--secondary-background-color);
+      background-color: var(--ezds-color-background-primary);
     }
     .DayPicker {
       box-shadow: none;
@@ -57,65 +57,65 @@
       border: none;
       font-size: 16px;
       font-weight: 300;
-      color: var(--primary-text-on-secondary-color);
-      background-color: var(--secondary-background-color);
-      border-top: 1px solid var(--secondary-background-color);
-      border-bottom: 1px solid var(--secondary-background-color);
+      color: var(--ezds-color-text-on-secondary);
+      background-color: var(--ezds-color-background-primary);
+      border-top: 1px solid var(--ezds-color-background-primary);
+      border-bottom: 1px solid var(--ezds-color-background-primary);
       z-index: 1;
       position: relative;
 
       &:hover {
         background: none;
         border: none;
-        border-top: 1px solid var(--secondary-background-color);
-        border-bottom: 1px solid var(--secondary-background-color);
+        border-top: 1px solid var(--ezds-color-background-primary);
+        border-bottom: 1px solid var(--ezds-color-background-primary);
         &::before {
           @include pseudo-circle;
           border: none;
-          background-color: var(--primary-background-hover-color);
+          background-color: var(--ezds-color-background-transparent-inverted);
         }
       }
       &.CalendarDay__selected {
-        color: var(--text-color-on-primary);
+        color: var(--ezds-color-text-default-inverted);
         &::before {
           @include pseudo-circle;
           border: none;
 
-          background: var(--primary-color);
+          background: var(--ezds-color-background-accent-default);
           &:hover {
-            color: var(--text-color-on-primary);
-            background: var(--primary-color);
+            color: var(--ezds-color-text-default-inverted);
+            background: var(--ezds-color-background-accent-default);
           }
         }
       }
     }
     .CalendarMonth_caption {
-      color: var(--primary-text-on-secondary-color);
+      color: var(--ezds-color-text-on-secondary);
     }
 
     .CalendarDay__today {
       &::before {
         @include pseudo-circle;
-        border: 1px solid var(--primary-color);
+        border: 1px solid var(--ezds-color-background-accent-default);
       }
       &:hover {
         &::before {
-          border: 1px solid var(--primary-color);
+          border: 1px solid var(--ezds-color-background-accent-default);
         }
       }
     }
     .CalendarDay__blocked_calendar,
     .CalendarDay__blocked_calendar:active,
     .CalendarDay__blocked_calendar:hover {
-      background-color: var(--secondary-background-color);
-      color: var(--primary-text-color);
+      background-color: var(--ezds-color-background-primary);
+      color: var(--ezds-color-text-default);
       opacity: 0.2;
       pointer-events: none;
     }
     .DayPicker_weekHeader_li {
       small {
         font-size: 12px;
-        color: var(--secondary-text-on-secondary-color);
+        color: var(--ezds-color-text-on-secondary-subtle);
         font-weight: 300;
         cursor: default;
       }
@@ -146,38 +146,38 @@
       .CalendarDay__selected {
         &.CalendarDay__selected_start {
           border-radius: 0;
-          background: linear-gradient(90deg, var(--secondary-background-color) 50%, var(--primary-selected-color) 50%);
+          background: linear-gradient(90deg, var(--ezds-color-background-primary) 50%, var(--ezds-color-background-accent-subtle) 50%);
           z-index: 1;
           position: relative;
           &:hover {
             background: linear-gradient(
               90deg,
-              var(--secondary-background-color) 50%,
-              var(--primary-selected-color) 50%
+              var(--ezds-color-background-primary) 50%,
+              var(--ezds-color-background-accent-subtle) 50%
             );
           }
           &::before {
             @include pseudo-circle;
-            background-color: var(--primary-color);
+            background-color: var(--ezds-color-background-accent-default);
           }
         }
       }
       .CalendarDay__selected {
         &.CalendarDay__selected_end {
           border-radius: 0;
-          background: linear-gradient(90deg, var(--primary-selected-color) 50%, var(--secondary-background-color) 50%);
+          background: linear-gradient(90deg, var(--ezds-color-background-accent-subtle) 50%, var(--ezds-color-background-primary) 50%);
           z-index: 1;
           position: relative;
           &:hover {
             background: linear-gradient(
               90deg,
-              var(--primary-selected-color) 50%,
-              var(--secondary-background-color) 50%
+              var(--ezds-color-background-accent-subtle) 50%,
+              var(--ezds-color-background-primary) 50%
             );
           }
           &::before {
             @include pseudo-circle;
-            background-color: var(--primary-color);
+            background-color: var(--ezds-color-background-accent-default);
           }
         }
       }
@@ -185,19 +185,19 @@
       .CalendarDay__hovered_span,
       .CalendarDay__hovered_span:hover {
         border-radius: 0;
-        color: var(--primary-text-color);
-        background: var(--primary-selected-color);
+        color: var(--ezds-color-text-default);
+        background: var(--ezds-color-background-accent-subtle);
         &:hover {
           &::before {
             border-radius: 0;
-            background: var(--primary-selected-color);
+            background: var(--ezds-color-background-accent-subtle);
           }
         }
       }
       .CalendarDay__selected_span {
-        background: var(--primary-selected-color);
+        background: var(--ezds-color-background-accent-subtle);
         &:hover {
-          color: var(--primary-text-color);
+          color: var(--ezds-color-text-default);
         }
         &.CalendarDay__today {
           &::before {
@@ -213,7 +213,7 @@
 
       &.range-single-date-selected {
         .CalendarDay__hovered_span {
-          background: var(--primary-background-hover-color);
+          background: var(--ezds-color-background-transparent-inverted);
           &.CalendarDay__today {
             &::before {
               border-radius: 0;
@@ -221,7 +221,7 @@
           }
           &:hover {
             &::before {
-              background: var(--primary-background-hover-color);
+              background: var(--ezds-color-background-transparent-inverted);
             }
           }
         }

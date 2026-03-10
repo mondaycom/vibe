@@ -10,14 +10,14 @@ $full-view-margin: 40px;
   position: fixed;
   inset: 0;
   height: 100%;
-  background-color: var(--backdrop-color);
+  background-color: var(--ezds-color-overlay-scrim-default);
 }
 
 .modal {
-  --top-actions-margin-inline: var(--spacing-large);
-  --top-actions-margin-block: var(--spacing-large);
-  --top-actions-width: var(--spacing-xl);
-  --modal-inline-padding: var(--spacing-xl);
+  --top-actions-margin-inline: var(--ezds-space-0400);
+  --top-actions-margin-block: var(--ezds-space-0400);
+  --top-actions-width: var(--ezds-space-0500);
+  --modal-inline-padding: var(--ezds-space-0500);
 
   position: relative;
   top: 50%;
@@ -27,14 +27,14 @@ $full-view-margin: 40px;
   flex-direction: column;
   width: var(--modal-width);
   max-height: var(--modal-max-height);
-  background-color: var(--primary-background-color);
+  background-color: var(--ezds-color-background-primary);
   overflow: hidden;
-  border-radius: var(--border-radius-big);
-  box-shadow: var(--box-shadow-large);
+  border-radius: var(--ezds-radius-0400);
+  box-shadow: var(--ezds-shadow-large);
   outline: none;
 
   &.withHeaderAction {
-    --top-actions-width: calc(var(--spacing-xl) * 2);
+    --top-actions-width: calc(var(--ezds-space-0500) * 2);
   }
 
   &.sizeSmall {
@@ -53,7 +53,7 @@ $full-view-margin: 40px;
   }
 
   &.sizeFullView {
-    --top-actions-margin-inline: var(--spacing-xl);
+    --top-actions-margin-inline: var(--ezds-space-0500);
     --modal-max-height: 100%;
     --modal-width: auto;
 
@@ -61,7 +61,7 @@ $full-view-margin: 40px;
     inset: 0;
     height: calc(100% - $full-view-margin);
 
-    margin-inline: var(--spacing-large);
+    margin-inline: var(--ezds-space-0400);
     margin-block-start: $full-view-margin;
 
     border-end-start-radius: unset;

@@ -1,7 +1,7 @@
 import { expect } from "@storybook/jest";
 import { type Screen } from "@testing-library/react";
 import { userEvent, waitFor } from "@storybook/test";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { ComponentDefaultTestId, getTestId } from "@ezds/shared";
 
 export async function testHoverTooltipTrigger(
   canvas: Screen,

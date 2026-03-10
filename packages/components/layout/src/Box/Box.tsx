@@ -39,7 +39,7 @@ import {
   getTestId,
   ComponentDefaultTestId,
   useMergeRef
-} from "@vibe/shared";
+} from "@ezds/shared";
 import styles from "./Box.module.scss";
 
 export interface BoxProps extends VibeComponentProps {

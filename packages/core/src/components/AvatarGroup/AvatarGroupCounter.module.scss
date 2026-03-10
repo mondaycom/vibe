@@ -1,15 +1,15 @@
 @use "sass:math";
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../components/Avatar/AvatarConstants";
 
 .counterContainer.counterContainer {
-  background: var(--ui-background-color);
+  background: var(--ezds-color-background-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: calc(-1 * var(--spacing-small));
+  margin-left: calc(-1 * var(--ezds-space-0100));
   z-index: 1;
-  border: 1px solid var(--primary-background-color);
+  border: 1px solid var(--ezds-color-background-primary);
 
   &:focus-visible,
   &.focus-visible { /* stylelint-disable-line selector-class-pattern */
@@ -36,30 +36,30 @@
   }
   &.large {
     @include counterSize($avatar-size-large);
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--ezds-space-0050);
   }
 
   &.primary {
-    color: var(--text-color-on-primary);
-    background-color: var(--primary-color);
+    color: var(--ezds-color-text-default-inverted);
+    background-color: var(--ezds-color-background-accent-default);
   }
   &.dark {
-    color: var(--text-color-on-inverted);
-    background-color: var(--inverted-color-background);
+    color: var(--ezds-color-text-default-inverted);
+    background-color: var(--ezds-color-background-primary-inverted);
   }
   &.negative {
-    color: var(--text-color-on-primary);
-    background-color: var(--negative-color);
+    color: var(--ezds-color-text-default-inverted);
+    background-color: var(--ezds-color-background-danger-default);
   }
   &.light {
-    color: var(--primary-text-color);
-    background-color: var(--ui-background-color);
+    color: var(--ezds-color-text-default);
+    background-color: var(--ezds-color-background-secondary);
   }
 
   .disabled,
   &.disabled {
-    background-color: var(--disabled-background-color);
-    color: var(--disabled-text-color);
+    background-color: var(--ezds-color-background-disabled);
+    color: var(--ezds-color-text-default-disabled);
   }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { StorybookLink, Tip, UsageGuidelines } from "vibe-storybook-components";
+import { StorybookLink, Tip, UsageGuidelines } from "@ezds/storybook-blocks";
 
 export const TipCheckYourself = () => (
   <Tip title="Check yourself">

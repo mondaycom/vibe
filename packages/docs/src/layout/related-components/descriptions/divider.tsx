@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Divider, Menu, MenuItem } from "@vibe/core";
-import { Settings, Bolt } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Divider, Menu, MenuItem } from "@ezds/core";
+import { Settings, Bolt } from "@ezds/icons";
 
 export const DividerDescription = () => {
   const component = useMemo(() => {

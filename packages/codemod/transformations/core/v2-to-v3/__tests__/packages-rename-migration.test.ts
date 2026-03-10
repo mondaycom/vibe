@@ -6,32 +6,32 @@ describe("Packages rename migration", () => {
     transform,
     {},
     `import { Button, Label } from "monday-ui-react-core";`,
-    `import { Button, Label } from "@vibe/core";`,
-    "should rename 'monday-ui-react-core' to '@vibe/core'"
+    `import { Button, Label } from "@ezds/core";`,
+    "should rename 'monday-ui-react-core' to '@ezds/core'"
   );
 
   defineInlineTest(
     transform,
     {},
     `import { BUTTON_TEST_ID } from "monday-ui-react-core/testIds";`,
-    `import { BUTTON_TEST_ID } from "@vibe/core/testIds";`,
-    "should rename 'monday-ui-react-core/testIds' to '@vibe/core/testIds'"
+    `import { BUTTON_TEST_ID } from "@ezds/core/testIds";`,
+    "should rename 'monday-ui-react-core/testIds' to '@ezds/core/testIds'"
   );
 
   defineInlineTest(
     transform,
     {},
     `import { getWithin } from "monday-ui-react-core/interactionsTests";`,
-    `import { getWithin } from "@vibe/core/interactionsTests";`,
-    "should rename 'monday-ui-react-core/interactionsTests' to '@vibe/core/interactionsTests'"
+    `import { getWithin } from "@ezds/core/interactionsTests";`,
+    "should rename 'monday-ui-react-core/interactionsTests' to '@ezds/core/interactionsTests'"
   );
 
   defineInlineTest(
     transform,
     {},
     `import "monday-ui-react-core/tokens";`,
-    `import "@vibe/core/tokens";`,
-    "should rename 'monday-ui-react-core/tokens' to '@vibe/core/tokens'"
+    `import "@ezds/core/tokens";`,
+    "should rename 'monday-ui-react-core/tokens' to '@ezds/core/tokens'"
   );
 
   defineInlineTest(
@@ -39,9 +39,9 @@ describe("Packages rename migration", () => {
     {},
     `import { Button } from "monday-ui-react-core";
     import { Heart } from "monday-ui-react-core/icons";`,
-    `import { Button } from "@vibe/core";
-    import { Heart } from "@vibe/icons";`,
-    "should rename both 'monday-ui-react-core' and /icons to '@vibe/core' and '@vibe/icons'"
+    `import { Button } from "@ezds/core";
+    import { Heart } from "@ezds/icons";`,
+    "should rename both 'monday-ui-react-core' and /icons to '@ezds/core' and '@ezds/icons'"
   );
 
   defineInlineTest(
@@ -57,9 +57,9 @@ describe("Packages rename migration", () => {
     {},
     `import { Button, Label } from "monday-ui-react-core";
      import { getByLabelText } from "another-library";`,
-    `import { Button, Label } from "@vibe/core";
+    `import { Button, Label } from "@ezds/core";
      import { getByLabelText } from "another-library";`,
-    "should rename 'monday-ui-react-core' to '@vibe/core' but leave unrelated imports unchanged"
+    "should rename 'monday-ui-react-core' to '@ezds/core' but leave unrelated imports unchanged"
   );
 
   defineInlineTest(
@@ -68,9 +68,9 @@ describe("Packages rename migration", () => {
     `import { Button } from "monday-ui-react-core";
      import { Heart } from "monday-ui-react-core/icons";
      import { BUTTON_TEST_ID } from "monday-ui-react-core/testIds";`,
-    `import { Button } from "@vibe/core";
-     import { Heart } from "@vibe/icons";
-     import { BUTTON_TEST_ID } from "@vibe/core/testIds";`,
+    `import { Button } from "@ezds/core";
+     import { Heart } from "@ezds/icons";
+     import { BUTTON_TEST_ID } from "@ezds/core/testIds";`,
     "should rename all imports from 'monday-ui-react-core' and related paths correctly"
   );
 
@@ -78,8 +78,8 @@ describe("Packages rename migration", () => {
     transform,
     {},
     `import { Button } from "monday-ui-react-core";`,
-    `import { Button } from "@vibe/core";`,
-    "should only change the import path from 'monday-ui-react-core' to '@vibe/core' if no other paths are present"
+    `import { Button } from "@ezds/core";`,
+    "should only change the import path from 'monday-ui-react-core' to '@ezds/core' if no other paths are present"
   );
 
   defineInlineTest(
@@ -88,9 +88,9 @@ describe("Packages rename migration", () => {
     `import { Button } from "monday-ui-react-core";
      import { SomeOtherComponent } from "another-library";
      import { Icon } from "monday-ui-react-core/icons";`,
-    `import { Button } from "@vibe/core";
+    `import { Button } from "@ezds/core";
      import { SomeOtherComponent } from "another-library";
-     import { Icon } from "@vibe/icons";`,
+     import { Icon } from "@ezds/icons";`,
     "should only rename 'monday-ui-react-core' and 'monday-ui-react-core/icons' while leaving other imports unchanged"
   );
 });

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { VirtualizedList, Flex, type VirtualizedListItem, Heading } from "@vibe/core";
+import { VirtualizedList, Flex, type VirtualizedListItem, Heading } from "@ezds/core";
 import { generateItems } from "./VirtualizedList.stories.helpers";
 
 export default {

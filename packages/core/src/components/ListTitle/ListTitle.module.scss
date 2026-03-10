@@ -2,6 +2,6 @@
 
 .listTitle {
   @include smoothing-text;
-  padding: var(--spacing-medium) var(--spacing-medium) var(--spacing-small);
-  border-radius: var(--border-radius-small);
+  padding: var(--ezds-space-0200) var(--ezds-space-0200) var(--ezds-space-0100);
+  border-radius: var(--ezds-radius-0100);
 }

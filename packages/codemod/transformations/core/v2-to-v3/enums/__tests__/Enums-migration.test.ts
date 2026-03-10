@@ -3,7 +3,7 @@ import { defineInlineTest } from "jscodeshift/src/testUtils";
 
 function prependImport(source: string): string {
   return `
-    import { Button } from "@vibe/core";
+    import { Button } from "@ezds/core";
     ${source}
   `;
 }

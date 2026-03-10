@@ -3,19 +3,19 @@ import React, { useMemo } from "react";
 import { camelCase } from "es-toolkit";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { Icon, type SubIcon } from "@vibe/icon";
-import { IconButton } from "@vibe/icon-button";
-import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@vibe/icons";
+import { Icon, type SubIcon } from "@ezds/icon";
+import { IconButton } from "@ezds/icon-button";
+import { CloseSmall, Alert as AlertIcon, Info as InfoIcon } from "@ezds/icons";
 import { AttentionBoxType as AttentionBoxTypeEnum, IconTypeEnum } from "./AttentionBoxConstants";
 import { type AttentionBoxType } from "./AttentionBox.types";
 import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../types";
-import { Text } from "@vibe/typography";
-import { Flex } from "@vibe/layout";
+import { Text } from "@ezds/typography";
+import { Flex } from "@ezds/layout";
 import styles from "./AttentionBox.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
 /**
- * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@ezds/core/next" instead.
  */
 export interface AttentionBoxProps extends VibeComponentProps {
   // TODO: [breaking] remove prop
@@ -71,7 +71,7 @@ export interface AttentionBoxProps extends VibeComponentProps {
 }
 
 /**
- * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ * @deprecated AttentionBox is deprecated. Please use AttentionBox from "@ezds/core/next" instead.
  */
 const AttentionBox = ({
   className,

@@ -1,6 +1,6 @@
 import React from "react";
-import { createComponentTemplate, MultipleStoryElementsWrapper } from "vibe-storybook-components";
-import { Toggle, Flex, Text } from "@vibe/core";
+import { createComponentTemplate, MultipleStoryElementsWrapper } from "@ezds/storybook-blocks";
+import { Toggle, Flex, Text } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
 

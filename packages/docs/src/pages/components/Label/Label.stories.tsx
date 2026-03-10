@@ -1,7 +1,7 @@
 import React from "react";
-import { Label, Button, Flex, Box, Heading, Text } from "@vibe/core";
+import { Label, Button, Flex, Box, Heading, Text } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { useEffect, useState } from "react";
 import { type Decorator, type StoryObj } from "@storybook/react";
 

@@ -1,10 +1,10 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "../../../../styles/typography";
 @import "../../../../styles/keyframes";
 
 .indicator {
   @include vibe-text(text2, normal);
-  color: var(--text-color-on-primary);
+  color: var(--ezds-color-text-default-inverted);
   display: flex;
   margin: 0;
   padding: 0;
@@ -20,14 +20,14 @@
 }
 
 .sizeCompactTextContainer {
-  margin-left: var(--spacing-small);
+  margin-left: var(--ezds-space-0100);
   justify-content: center;
   align-content: center;
 }
 
 .textContainerTitle {
   width: 100%;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--ezds-space-0050);
 }
 
 .textContainerTitle .visuallyHidden {
@@ -36,14 +36,14 @@
 
 .textContainerTitleText {
   @include vibe-text(text2, medium);
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   margin-bottom: 2px;
 }
 
 .textContainerSubtitleText {
   width: 100%;
   @include vibe-text(text2, normal);
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 }
 .sizeCompactTextContainerTitle {
   margin-bottom: 0px;
@@ -57,7 +57,7 @@
 
 .textPlacementVertical .textContainer {
   margin-left: 0;
-  margin-top: var(--spacing-medium);
+  margin-top: var(--ezds-space-0200);
 }
 
 .textPlacementVertical .numberDividerContainer {
@@ -78,7 +78,7 @@
 }
 
 .textPlacementVertical .numberDividerContainer .divider {
-  background-color: var(--ui-border-color);
+  background-color: var(--ezds-color-border-strong);
   margin: 16px 0 16px 16px;
   height: 1px;
   flex: 1 1 0;
@@ -99,7 +99,7 @@
 }
 
 .withAnimation {
-  animation: stepIndicatiorCirclePopElastic var(--motion-expressive-short);
+  animation: stepIndicatiorCirclePopElastic var(--ezds-motion-expressive-short);
 }
 
 /* New state enters */
@@ -112,7 +112,7 @@
 .swapEnterActive {
   position: relative;
   opacity: 1;
-  transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+  transition: transform var(--ezds-motion-productive-long) var(--ezds-motion-timing-enter), opacity var(--ezds-motion-productive-short);
   transform: translateY(0);
 }
 
@@ -128,7 +128,7 @@
   position: relative;
   opacity: 0;
   transform: translateY(-15px);
-  transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+  transition: transform var(--ezds-motion-productive-long) var(--ezds-motion-timing-enter), opacity var(--ezds-motion-productive-short);
 }
 
 .numberContainer {
@@ -151,52 +151,52 @@
 }
 
 .typePrimaryNumberContainer {
-  background-color: var(--primary-color);
+  background-color: var(--ezds-color-background-accent-default);
 }
 
 .typePrimaryNumberContainer:hover {
-  background-color: var(--primary-hover-color);
+  background-color: var(--ezds-color-background-accent-default--hover);
 }
 
 .typeDangerNumberContainer {
-  background-color: var(--negative-color);
+  background-color: var(--ezds-color-background-danger-default);
 }
 
 .typeDangerNumberContainer:hover {
-  background-color: var(--negative-color-hover);
+  background-color: var(--ezds-color-background-danger-default--hover);
 }
 
 .typeSuccessNumberContainer {
-  background-color: var(--positive-color);
+  background-color: var(--ezds-color-background-success-default);
 }
 
 .typeSuccessNumberContainer:hover {
-  background-color: var(--positive-color-hover);
+  background-color: var(--ezds-color-background-success-default--hover);
 }
 
 .typeDarkNumberContainer {
-  background-color: var(--inverted-color-background);
-  color: var(--text-color-on-inverted);
+  background-color: var(--ezds-color-background-primary-inverted);
+  color: var(--ezds-color-text-default-inverted);
 }
 
 .typeDarkNumberContainer:hover {
-  background-color: var(--secondary-text-color);
+  background-color: var(--ezds-color-text-subtle);
 }
 
 .statusActiveNumberContainer {
-  box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--primary-color);
+  box-shadow: 0 0 0 4px var(--ezds-color-background-primary), 0 0 0 6px var(--ezds-color-background-accent-default);
 }
 
 .statusActiveNumberContainer.typeDangerNumberContainer {
-  box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--negative-color);
+  box-shadow: 0 0 0 4px var(--ezds-color-background-primary), 0 0 0 6px var(--ezds-color-background-danger-default);
 }
 
 .statusActiveNumberContainer.typeSuccessNumberContainer {
-  box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--positive-color);
+  box-shadow: 0 0 0 4px var(--ezds-color-background-primary), 0 0 0 6px var(--ezds-color-background-success-default);
 }
 
 .statusActiveNumberContainer.typeDarkNumberContainer {
-  box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--primary-text-color);
+  box-shadow: 0 0 0 4px var(--ezds-color-background-primary), 0 0 0 6px var(--ezds-color-text-default);
 }
 
 .sizeCompactNumberContainer {
@@ -205,28 +205,28 @@
 }
 
 .statusPendingNumberContainer {
-  background-color: var(--primary-background-color);
-  color: var(--primary-text-color);
-  border-color: var(--ui-border-color) !important;
+  background-color: var(--ezds-color-background-primary);
+  color: var(--ezds-color-text-default);
+  border-color: var(--ezds-color-border-strong) !important;
   border: 1px solid;
 }
 
 .statusPendingNumberContainer:hover {
-  background-color: var(--primary-color);
-  color: var(--text-color-on-primary);
+  background-color: var(--ezds-color-background-accent-default);
+  color: var(--ezds-color-text-default-inverted);
   border: none;
 }
 
 .statusPendingNumberContainer.typeDangerNumberContainer:hover {
-  background-color: var(--negative-color);
+  background-color: var(--ezds-color-background-danger-default);
 }
 
 .statusPendingNumberContainer.typeSuccessNumberContainer:hover {
-  background-color: var(--positive-color);
+  background-color: var(--ezds-color-background-success-default);
 }
 
 .statusPendingNumberContainer.typeDarkNumberContainer:hover {
-  background-color: var(--text-color-on-inverted);
+  background-color: var(--ezds-color-text-default-inverted);
 }
 
 @include keyframe(step-indicatior-circle-pop-elastic) {

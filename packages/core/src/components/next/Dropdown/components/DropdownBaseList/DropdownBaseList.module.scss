@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .wrapper {
   overflow-y: auto;
@@ -7,9 +7,9 @@
   margin: 0;
 
   .groupTitle {
-    color: var(--secondary-text-color);
-    padding: var(--spacing-small) var(--spacing-xs);
-    background-color: var(--secondary-background-color);
+    color: var(--ezds-color-text-subtle);
+    padding: var(--ezds-space-0100) var(--ezds-space-0050);
+    background-color: var(--ezds-color-background-primary);
 
     &.sticky {
       position: sticky;

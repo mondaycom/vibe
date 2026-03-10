@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { Icon, type SubIcon, type IconType } from "@vibe/icon";
+import { Icon, type SubIcon, type IconType } from "@ezds/icon";
 import styles from "./AttentionBoxLeadingIcon.module.scss";
 
 export interface AttentionBoxLeadingIconProps {

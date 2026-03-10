@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { VirtualizedList, Text } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { VirtualizedList, Text } from "@ezds/core";
 import { generateItems } from "../../../../pages/components/VirtualizedList/VirtualizedList.stories.helpers";
 import styles from "./virtualized-list.module.scss";
 

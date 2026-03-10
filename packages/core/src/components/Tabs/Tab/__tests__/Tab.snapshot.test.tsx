@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Tab from "../Tab";
-import { Email } from "@vibe/icons";
+import { Email } from "@ezds/icons";
 
 describe("Tab renders correctly", () => {
   it("with empty props", () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { TokenTable } from "vibe-storybook-components";
+import { TokenTable } from "@ezds/storybook-blocks";
 
 export const EasingTokenTable = () => {
   const theadData = ["Token", "Usage", "Cubic bezier"];

@@ -8,9 +8,9 @@ import {
   type LegacyModalProps as ModalProps,
   EditableHeading,
   ModalFooterButtons
-} from "@vibe/core";
+} from "@ezds/core";
 import { useHelperOpenModalButton } from "./LegacyModal.stories.helpers";
-import { Upgrade } from "@vibe/icons";
+import { Upgrade } from "@ezds/icons";
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Modal,
   actionPropsArray: ["onClose"]

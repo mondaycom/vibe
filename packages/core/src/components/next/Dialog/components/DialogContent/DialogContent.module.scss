@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .contentWrapper {
   outline: 0;
@@ -7,35 +7,35 @@
   &.right,
   &.left,
   &.bottom {
-    padding: var(--space-4);
+    padding: var(--ezds-space-0100);
   }
   &.bottomStart,
   &.topStart,
   &.bottomEnd,
   &.topEnd {
-    padding-block: var(--space-4);
+    padding-block: var(--ezds-space-0100);
   }
   &.bottomStart,
   &.topStart {
-    padding-inline-end: var(--space-4);
+    padding-inline-end: var(--ezds-space-0100);
   }
   &.bottomEnd,
   &.topEnd {
-    padding-inline-start: var(--space-4);
+    padding-inline-start: var(--ezds-space-0100);
   }
   &.leftStart,
   &.rightStart,
   &.leftEnd,
   &.rightEnd {
-    padding-inline: var(--space-4);
+    padding-inline: var(--ezds-space-0100);
   }
   &.leftStart,
   &.rightStart {
-    padding-block-end: var(--space-4);
+    padding-block-end: var(--ezds-space-0100);
   }
   &.leftEnd,
   &.rightEnd {
-    padding-block-start: var(--space-4);
+    padding-block-start: var(--ezds-space-0100);
   }
 }
 
@@ -54,13 +54,13 @@
 
 // Animations
 
-$translate-minus-px: calc(var(--space-16) * -1);
+$translate-minus-px: calc(var(--ezds-space-0400) * -1);
 
 .opacitySlideAppear {
   opacity: 0;
 
   &.top {
-    transform: translateY(var(--space-16));
+    transform: translateY(var(--ezds-space-0400));
   }
 
   &.right {
@@ -72,7 +72,7 @@ $translate-minus-px: calc(var(--space-16) * -1);
   }
 
   &.left {
-    transform: translateX(var(--space-16));
+    transform: translateX(var(--ezds-space-0400));
   }
 }
 

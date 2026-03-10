@@ -1,7 +1,7 @@
 import React from "react";
-import { ButtonGroup, Flex, Text } from "@vibe/core";
+import { ButtonGroup, Flex, Text } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof ButtonGroup>;

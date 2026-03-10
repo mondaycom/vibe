@@ -17,7 +17,7 @@ const SearchTokensParamsSchema = z.object({
 export const listVibeTokensTool: MCPTool<typeof SearchTokensParamsSchema.shape> = {
   name: "list-vibe-tokens",
   description:
-    "Get a list of all available Vibe design tokens from the @vibe/style package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.",
+    "Get a list of all available Vibe design tokens from the @ezds/style package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.",
   inputSchema: SearchTokensParamsSchema.shape,
   execute: async (input: z.infer<typeof SearchTokensParamsSchema>): Promise<any> => {
     const { query, category, limit, includeUsageExamples = false } = input;

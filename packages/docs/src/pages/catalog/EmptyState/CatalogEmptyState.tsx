@@ -1,6 +1,6 @@
 import React from "react";
 import emptyStateExample from "./emptyStateExample.svg";
-import { Heading, Text } from "@vibe/core";
+import { Heading, Text } from "@ezds/core";
 import styles from "./CatalogEmptyState.module.scss";
 
 export const CatalogEmptyState = () => {

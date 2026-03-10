@@ -12,7 +12,7 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import { CSSTransition } from "react-transition-group";
 import { type CSSTransitionProps } from "react-transition-group/CSSTransition";
-import { useClickOutside } from "@vibe/hooks";
+import { useClickOutside } from "@ezds/hooks";
 import {
   chainFunctions,
   NOOP,
@@ -21,7 +21,7 @@ import {
   keyCodes,
   getStyle,
   useMergeRef
-} from "@vibe/shared";
+} from "@ezds/shared";
 import {
   type DialogAnimationType,
   type DialogTriggerEvent,

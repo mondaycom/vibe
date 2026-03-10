@@ -1,11 +1,11 @@
-# `@vibe/testkit`
+# `@ezds/testkit`
 
 > TODO: description
 
 ## Usage
 
 ```
-const testingKit = require('@vibe/testkit');
+const testingKit = require('@ezds/testkit');
 
 // TODO: DEMONSTRATE API
 ```

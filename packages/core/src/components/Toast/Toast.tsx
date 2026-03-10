@@ -3,11 +3,11 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { type IconSubComponentProps } from "@vibe/icon";
-import { Text } from "@vibe/typography";
-import { Loader } from "@vibe/loader";
-import { Flex } from "@vibe/layout";
-import { CloseSmall } from "@vibe/icons";
+import { type IconSubComponentProps } from "@ezds/icon";
+import { Text } from "@ezds/typography";
+import { Loader } from "@ezds/loader";
+import { Flex } from "@ezds/layout";
+import { CloseSmall } from "@ezds/icons";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
 import { ToastActionType as ToastActionTypeEnum, ToastType as ToastTypeEnum } from "./ToastConstants";
@@ -17,7 +17,7 @@ import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Toast.module.scss";
-import { IconButton } from "@vibe/icon-button";
+import { IconButton } from "@ezds/icon-button";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {

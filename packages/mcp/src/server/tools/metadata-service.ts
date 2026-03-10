@@ -10,7 +10,7 @@ interface ComponentMetadata {
 }
 
 export class MetadataService {
-  private static readonly UNPKG_URL = "https://unpkg.com/@vibe/core@latest/dist/metadata.json";
+  private static readonly UNPKG_URL = "https://unpkg.com/@ezds/core@latest/dist/metadata.json";
   private static cachedMetadata: ComponentMetadata[] | null = null;
 
   static async getMetadata(): Promise<ComponentMetadata[]> {

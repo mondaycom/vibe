@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion, type AccordionProps, AccordionItem, Checkbox, Flex } from "@vibe/core";
+import { Accordion, type AccordionProps, AccordionItem, Checkbox, Flex } from "@ezds/core";
 import { accordionMultiActivePlaySuite, accordionSingleActivePlaySuite } from "./Accordion.interactions";
 
 const accordionTemplate = (args: AccordionProps) => {

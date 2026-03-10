@@ -1,9 +1,9 @@
 import { type EndElement, type StartElement } from "./BaseItem.types";
-import { Text, type TextType } from "@vibe/typography";
+import { Text, type TextType } from "@ezds/typography";
 import React from "react";
 import Avatar from "../Avatar/Avatar";
 import styles from "./BaseItem.module.scss";
-import { Icon } from "@vibe/icon";
+import { Icon } from "@ezds/icon";
 
 export function renderSideElement(
   element: StartElement | EndElement,

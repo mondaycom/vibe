@@ -1,17 +1,17 @@
 @import "../../../styles/typography";
 
 .container {
-  margin-block-start: var(--spacing-medium);
+  margin-block-start: var(--ezds-space-0200);
 
   .icon {
-    margin-top: var(--spacing-xs);
+    margin-top: var(--ezds-space-0050);
     flex-shrink: 0;
-    color: var(--primary-text-color);
+    color: var(--ezds-color-text-default);
   }
 
   .description {
-    margin-block-start: var(--spacing-small);
-    color: var(--secondary-text-color);
+    margin-block-start: var(--ezds-space-0100);
+    color: var(--ezds-color-text-subtle);
   }
 
   .closeButton {

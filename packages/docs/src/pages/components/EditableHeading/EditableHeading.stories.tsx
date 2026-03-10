@@ -1,7 +1,7 @@
 import React from "react";
-import { EditableHeading, Flex } from "@vibe/core";
+import { EditableHeading, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { overviewPlaySuite } from "./EditableHeading.interactions";
 
 const metaSettings = createStoryMetaSettingsDecorator({

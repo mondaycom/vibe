@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, Tooltip, type ElementContent } from "@vibe/core";
+import { Flex, Text, Tooltip, type ElementContent } from "@ezds/core";
 import styles from "./Contributor.module.scss";
 
 export interface ContributorProps {

@@ -2,37 +2,37 @@
   width: 100%;
 }
 .wrapper {
-  --border-color: var(--ui-border-color);
-  --background-color: var(--secondary-background-color);
+  --border-color: var(--ezds-color-border-strong);
+  --background-color: var(--ezds-color-background-primary);
 
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
   box-shadow: inset 0 0 0 1px var(--border-color);
-  background: var(--background-color);
+  background: var(--ezds-color-background-primary);
   cursor: pointer;
 
   &:hover {
-    --border-color: var(--primary-text-color);
+    --border-color: var(--ezds-color-text-default);
   }
 
   &.active,
   &:focus {
-    --border-color: var(--primary-color);
+    --border-color: var(--ezds-color-background-accent-default);
   }
 
   &.disabled {
-    --border-color: var(--disabled-background-color);
-    --background-color: var(--disabled-background-color);
+    --border-color: var(--ezds-color-background-disabled);
+    --background-color: var(--ezds-color-background-disabled);
     cursor: not-allowed;
   }
 
   &.readOnly {
-    --border-color: var(--allgrey-background-color);
-    --background-color: var(--allgrey-background-color);
+    --border-color: var(--ezds-color-background-quaternary);
+    --background-color: var(--ezds-color-background-quaternary);
     cursor: default;
   }
 
   &.error {
-    --border-color: var(--negative-color);
+    --border-color: var(--ezds-color-background-danger-default);
   }
 
   &.boxMode {
@@ -45,15 +45,15 @@
     --border-color: transparent;
 
     &:hover {
-      --border-color: var(--primary-text-color);
+      --border-color: var(--ezds-color-text-default);
     }
 
     &.active,
     &:focus {
-      --border-color: var(--primary-color);
+      --border-color: var(--ezds-color-background-accent-default);
     }
   }
 }
 .helperText {
-  margin-top: var(--spacing-xs);
+  margin-top: var(--ezds-space-0050);
 }

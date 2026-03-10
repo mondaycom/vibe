@@ -5,12 +5,12 @@ export * from "./Avatar";
 export * from "./AvatarGroup";
 export * from "./Badge";
 export * from "./BreadcrumbsBar";
-export * from "@vibe/button";
+export * from "@ezds/button";
 export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./Chips";
-// TODO: export * after removing ClickableWrapper from @vibe/clickable
-export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
+// TODO: export * after removing ClickableWrapper from @ezds/clickable
+export { Clickable, type ClickableProps, useClickableProps } from "@ezds/clickable";
 export * from "./ColorPicker";
 export * from "./Combobox";
 export * from "./Counter";
@@ -28,30 +28,30 @@ export {
   type DialogAnimationType,
   type DialogOffset,
   type DialogEvent
-} from "@vibe/dialog";
+} from "@ezds/dialog";
 export * from "./Divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
 export * from "./EmptyState";
 export * from "./ExpandCollapse";
-export * from "@vibe/layout";
+export * from "@ezds/layout";
 export * from "./FormattedNumber";
 export * from "./GridKeyboardNavigationContext";
-export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
+export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@ezds/typography";
 export * from "./HiddenText";
-export * from "@vibe/icon";
-export * from "@vibe/icon-button";
+export * from "@ezds/icon";
+export * from "@ezds/icon-button";
 export * from "./Info";
 export * from "./Label";
-export { LayerProvider, type LayerProviderType } from "@vibe/layer";
+export { LayerProvider, type LayerProviderType } from "@ezds/layer";
 export * from "./Link";
 export * from "./List";
 export * from "./ListItem";
 export * from "./ListItemAvatar";
 export * from "./ListItemIcon";
 export * from "./ListTitle";
-export * from "@vibe/loader";
+export * from "@ezds/loader";
 export * from "./Menu";
 export * from "./MenuButton";
 export * from "./NumberField";
@@ -66,7 +66,7 @@ export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Table";
 export * from "./Tabs";
-export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
+export { Text, type TextProps, type TextType, type TextWeight } from "@ezds/typography";
 export * from "./TextArea";
 export * from "./TextField";
 export * from "./TextWithHighlight";
@@ -75,11 +75,11 @@ export * from "./Tipseen";
 export * from "./Toast";
 export * from "./Toggle";
 // TODO: export * after removing enums
-export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
+export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@ezds/tooltip";
 export * from "./TransitionView";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
 
-export type { TypographyColor, TypographyAlign } from "@vibe/typography";
+export type { TypographyColor, TypographyAlign } from "@ezds/typography";
 
 export { default as ColorUtils } from "../utils/colors-utils";

@@ -1,5 +1,5 @@
 .divider {
-  background-color: var(--layout-border-color);
+  background-color: var(--ezds-color-border-default);
 }
 
 .divider.withoutMargin {
@@ -9,11 +9,11 @@
 .horizontal {
   height: 1px;
   width: 100%;
-  margin: var(--spacing-small) 0;
+  margin: var(--ezds-space-0100) 0;
 }
 
 .vertical {
   height: 100%;
   width: 1px;
-  margin: 0 var(--spacing-xs);
+  margin: 0 var(--ezds-space-0050);
 }

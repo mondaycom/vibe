@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getClickableScreenReaderAccessProps, getClickableIconScreenReaderAccessProps } from "@vibe/shared";
+import { getClickableScreenReaderAccessProps, getClickableIconScreenReaderAccessProps } from "@ezds/shared";
 import { getIconScreenReaderAccessProps } from "../hooks/useIconScreenReaderAccessProps";
 
 describe("getIconScreenReaderAccessProps", () => {

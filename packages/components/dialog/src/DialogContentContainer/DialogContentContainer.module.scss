@@ -3,31 +3,31 @@
 }
 
 .sizeSmall {
-  padding: var(--spacing-small);
+  padding: var(--ezds-space-0100);
 }
 
 .sizeMedium {
-  padding: var(--spacing-medium);
+  padding: var(--ezds-space-0200);
 }
 
 .sizeLarge {
-  padding: var(--spacing-large);
+  padding: var(--ezds-space-0400);
 }
 
 .typePopover {
-  box-shadow: var(--box-shadow-medium);
-  border-radius: var(--border-radius-medium);
-  background-color: var(--secondary-background-color);
+  box-shadow: var(--ezds-shadow-medium);
+  border-radius: var(--ezds-radius-0200);
+  background-color: var(--ezds-color-background-primary);
 
   :global(.dark-app-theme) &,
   :global(.black-app-theme) &,
   :global(.hacker-app-theme) & {
-    box-shadow: 0 0 0 1px var(--layout-border-color), var(--box-shadow-medium);
+    box-shadow: 0 0 0 1px var(--ezds-color-border-default), var(--ezds-shadow-medium);
   }
 }
 
 .typeModal {
-  box-shadow: var(--box-shadow-large);
-  border-radius: var(--border-radius-big);
-  background-color: var(--primary-background-color);
+  box-shadow: var(--ezds-shadow-large);
+  border-radius: var(--ezds-radius-0400);
+  background-color: var(--ezds-color-background-primary);
 }

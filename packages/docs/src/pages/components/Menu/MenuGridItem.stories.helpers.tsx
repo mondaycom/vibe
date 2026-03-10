@@ -1,5 +1,5 @@
 import React from "react";
-import { Tip } from "vibe-storybook-components";
+import { Tip } from "@ezds/storybook-blocks";
 
 // TODO add links to the components mentioned in the tip
 export const TipOtherMenuItemComponents = () => (

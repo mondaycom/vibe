@@ -1,19 +1,19 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .expandCollapse {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
   background-color: transparent;
   box-sizing: border-box;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
 }
 
 .header {
   @include reset-button();
-  padding: var(--spacing-medium);
+  padding: var(--ezds-space-0200);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .header:hover {
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--ezds-color-background-transparent-inverted);
 }
 
 .header:active {
@@ -33,11 +33,11 @@
 }
 
 .header .iconComponent {
-  color: var(--icon-color);
+  color: var(--ezds-color-icon-subtle);
 }
 
 .content {
-  padding: var(--spacing-medium);
+  padding: var(--ezds-space-0200);
 }
 
 .section {
@@ -53,24 +53,24 @@
 }
 
 .showBorder {
-  border: 1px solid var(--ui-border-color);
+  border: 1px solid var(--ezds-color-border-strong);
   .headerOpen {
     border-bottom: 1px solid;
-    border-color: var(--ui-border-color);
+    border-color: var(--ezds-color-border-strong);
   }
 }
 
 .animateIconOpen {
   transform: rotate(-180deg);
-  transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
+  transition: transform var(--ezds-motion-expressive-short) var(--ezds-motion-timing-transition);
 }
 
 .animateIconClose {
   transform: rotate(-360deg);
-  transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
+  transition: transform var(--ezds-motion-expressive-short) var(--ezds-motion-timing-transition);
 }
 
 .header.leftIcon {
   justify-content: flex-start;
-  gap: var(--spacing-small);
+  gap: var(--ezds-space-0100);
 }

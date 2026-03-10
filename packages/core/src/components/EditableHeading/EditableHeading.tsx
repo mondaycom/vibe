@@ -1,6 +1,6 @@
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
-import { Heading, HeadingTypeEnum, HeadingWeightEnum, type HeadingType, type HeadingWeight } from "@vibe/typography";
+import { Heading, HeadingTypeEnum, HeadingWeightEnum, type HeadingType, type HeadingWeight } from "@ezds/typography";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
+import { RelatedComponent } from "@ezds/storybook-blocks";
 import person1 from "./assets/person1.png";
-import { Avatar } from "@vibe/core";
+import { Avatar } from "@ezds/core";
 
 export const AvatarDescription = () => {
   const component = useMemo(() => <Avatar src={person1} type="img" ariaLabel="Julia Martinez" />, []);

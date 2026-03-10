@@ -22,8 +22,8 @@
   .button {
     border-style: solid;
     border-width: 1px 0;
-    background-color: var(--primary-background-color);
-    border-color: var(--ui-border-color);
+    background-color: var(--ezds-color-background-primary);
+    border-color: var(--ezds-color-border-strong);
 
     // &:first-of-type {
     //   border-inline-start-width: 1px;
@@ -34,19 +34,19 @@
     // }
 
     &.activeButton {
-      background-color: var(--primary-selected-color);
-      border-color: var(--primary-color);
+      background-color: var(--ezds-color-background-accent-subtle);
+      border-color: var(--ezds-color-background-accent-default);
       border-inline-start-width: 1px;
       border-inline-end-width: 1px;
 
       &:hover {
-        background-color: var(--primary-selected-color);
+        background-color: var(--ezds-color-background-accent-subtle);
       }
     }
 
     &.disabled,
     &.buttonDisabled {
-      background-color: var(--disabled-background-color);
+      background-color: var(--ezds-color-background-disabled);
       opacity: 0.5;
       cursor: not-allowed;
     }
@@ -77,11 +77,11 @@
 }
 
 .optionText:not(.disabled) {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 }
 
 .optionText:not(.disabled).selected {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 }
 
 .wrapper.disabled {

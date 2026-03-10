@@ -1,33 +1,33 @@
 .iconWrapper {
-  margin-right: var(--spacing-small);
+  margin-right: var(--ezds-space-0100);
 
   &.rightIcon {
     margin-right: 0;
-    margin-left: var(--spacing-small);
+    margin-left: var(--ezds-space-0100);
   }
 
   &.withBackgroundColor {
-    border-radius: var(--spacing-xs);
+    border-radius: var(--ezds-space-0050);
 
     &.disabled {
       opacity: 0.4;
     }
 
     .icon {
-      color: var(--text-color-on-primary);
+      color: var(--ezds-color-text-default-inverted);
     }
   }
 
   &.disabled .icon {
     cursor: not-allowed;
-    color: var(--disabled-text-color);
+    color: var(--ezds-color-text-default-disabled);
   }
 
   .icon {
-    color: var(--icon-color);
+    color: var(--ezds-color-icon-subtle);
 
     &.selected {
-      color: var(--primary-color);
+      color: var(--ezds-color-background-accent-default);
     }
   }
 }

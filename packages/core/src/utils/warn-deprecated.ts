@@ -25,7 +25,7 @@ export function warnDeprecated({
   message: string;
 }) {
   if (condition && process.env.NODE_ENV !== "production") {
-    const warningMessage = `[@vibe/core] ${component}: ${message}`;
+    const warningMessage = `[@ezds/core] ${component}: ${message}`;
     console.warn(warningMessage);
   }
 }

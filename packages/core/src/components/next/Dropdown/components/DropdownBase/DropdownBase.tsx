@@ -1,13 +1,13 @@
 import React from "react";
 import cx from "classnames";
 import FieldLabel from "../../../../FieldLabel/FieldLabel";
-import { Text } from "@vibe/typography";
+import { Text } from "@ezds/typography";
 import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";
-import { Tooltip } from "@vibe/tooltip";
+import { Tooltip } from "@ezds/tooltip";
 
 interface DropdownBaseProps {
   dropdownRef: React.Ref<HTMLDivElement>;

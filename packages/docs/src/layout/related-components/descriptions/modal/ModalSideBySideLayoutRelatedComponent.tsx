@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
+import { RelatedComponent } from "@ezds/storybook-blocks";
 import relatedComponentImage from "./assets/sbs-related-component.png";
 
 export const ModalSideBySideLayoutRelatedComponent = () => {

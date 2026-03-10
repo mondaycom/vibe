@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.16.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.15.1...@vibe/testkit@1.16.0) (2026-02-04)
+# [1.16.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.15.1...@ezds/testkit@1.16.0) (2026-02-04)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.15.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.15.0...@vibe/testkit@1.15.1) (2025-12-04)
+## [1.15.1](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.15.0...@ezds/testkit@1.15.1) (2025-12-04)
 
 
 ### Bug Fixes
@@ -25,7 +25,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.3...@vibe/testkit@1.15.0) (2025-10-19)
+# [1.15.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.14.3...@ezds/testkit@1.15.0) (2025-10-19)
 
 
 ### Features
@@ -36,7 +36,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.14.3](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.2...@vibe/testkit@1.14.3) (2025-08-10)
+## [1.14.3](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.14.2...@ezds/testkit@1.14.3) (2025-08-10)
 
 
 ### Bug Fixes
@@ -47,7 +47,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.14.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.1...@vibe/testkit@1.14.2) (2025-07-28)
+## [1.14.2](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.14.1...@ezds/testkit@1.14.2) (2025-07-28)
 
 
 ### Bug Fixes
@@ -58,15 +58,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.14.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.14.0...@vibe/testkit@1.14.1) (2025-07-27)
+## [1.14.1](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.14.0...@ezds/testkit@1.14.1) (2025-07-27)
 
-**Note:** Version bump only for package @vibe/testkit
-
-
+**Note:** Version bump only for package @ezds/testkit
 
 
 
-# [1.14.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.13.0...@vibe/testkit@1.14.0) (2025-07-27)
+
+
+# [1.14.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.13.0...@ezds/testkit@1.14.0) (2025-07-27)
 
 
 ### Features
@@ -77,7 +77,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.12.0...@vibe/testkit@1.13.0) (2025-07-23)
+# [1.13.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.12.0...@ezds/testkit@1.13.0) (2025-07-23)
 
 
 ### Features
@@ -89,7 +89,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.2...@vibe/testkit@1.12.0) (2025-07-13)
+# [1.12.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.11.2...@ezds/testkit@1.12.0) (2025-07-13)
 
 
 ### Features
@@ -100,7 +100,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.11.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.1...@vibe/testkit@1.11.2) (2025-07-03)
+## [1.11.2](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.11.1...@ezds/testkit@1.11.2) (2025-07-03)
 
 
 ### Bug Fixes
@@ -111,7 +111,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.11.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.11.0...@vibe/testkit@1.11.1) (2025-07-01)
+## [1.11.1](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.11.0...@ezds/testkit@1.11.1) (2025-07-01)
 
 
 ### Bug Fixes
@@ -122,7 +122,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.10.0...@vibe/testkit@1.11.0) (2025-06-19)
+# [1.11.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.10.0...@ezds/testkit@1.11.0) (2025-06-19)
 
 
 ### Features
@@ -133,7 +133,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.2...@vibe/testkit@1.10.0) (2025-06-18)
+# [1.10.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.9.2...@ezds/testkit@1.10.0) (2025-06-18)
 
 
 ### Features
@@ -144,7 +144,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.9.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.1...@vibe/testkit@1.9.2) (2025-05-21)
+## [1.9.2](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.9.1...@ezds/testkit@1.9.2) (2025-05-21)
 
 
 ### Bug Fixes
@@ -155,7 +155,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.9.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.9.0...@vibe/testkit@1.9.1) (2025-03-27)
+## [1.9.1](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.9.0...@ezds/testkit@1.9.1) (2025-03-27)
 
 
 ### Bug Fixes
@@ -166,7 +166,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.8.0...@vibe/testkit@1.9.0) (2025-03-25)
+# [1.9.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.8.0...@ezds/testkit@1.9.0) (2025-03-25)
 
 
 ### Features
@@ -177,7 +177,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.7.0...@vibe/testkit@1.8.0) (2025-03-24)
+# [1.8.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.7.0...@ezds/testkit@1.8.0) (2025-03-24)
 
 
 ### Features
@@ -188,7 +188,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.1...@vibe/testkit@1.7.0) (2025-03-23)
+# [1.7.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.5.1...@ezds/testkit@1.7.0) (2025-03-23)
 
 
 ### Features
@@ -199,7 +199,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.6.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.1...@vibe/testkit@1.6.0) (2025-03-23)
+# [1.6.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.5.1...@ezds/testkit@1.6.0) (2025-03-23)
 
 
 ### Features
@@ -210,26 +210,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.5.0...@vibe/testkit@1.5.1) (2025-02-13)
+## [1.5.1](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.5.0...@ezds/testkit@1.5.1) (2025-02-13)
 
-**Note:** Version bump only for package @vibe/testkit
-
-
-
-
-
-# [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.5.0) (2025-02-11)
-
-
-### Features
-
-* testkit - playwright should be a peer dependency ([#2758](https://github.com/mondaycom/vibe/issues/2758)) ([758cc08](https://github.com/mondaycom/vibe/commit/758cc0835576076cd8c323a24f3db8fe2a5ba812))
+**Note:** Version bump only for package @ezds/testkit
 
 
 
 
 
-# [1.4.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.3.0...@vibe/testkit@1.4.0) (2025-02-11)
+# [1.5.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.3.0...@ezds/testkit@1.5.0) (2025-02-11)
 
 
 ### Features
@@ -240,7 +229,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.2.1...@vibe/testkit@1.3.0) (2025-02-05)
+# [1.4.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.3.0...@ezds/testkit@1.4.0) (2025-02-11)
+
+
+### Features
+
+* testkit - playwright should be a peer dependency ([#2758](https://github.com/mondaycom/vibe/issues/2758)) ([758cc08](https://github.com/mondaycom/vibe/commit/758cc0835576076cd8c323a24f3db8fe2a5ba812))
+
+
+
+
+
+# [1.3.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.2.1...@ezds/testkit@1.3.0) (2025-02-05)
 
 
 ### Features
@@ -251,7 +251,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.2.1](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.2.0...@vibe/testkit@1.2.1) (2025-01-19)
+## [1.2.1](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.2.0...@ezds/testkit@1.2.1) (2025-01-19)
 
 
 ### Bug Fixes
@@ -262,7 +262,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.2.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.1.0...@vibe/testkit@1.2.0) (2025-01-12)
+# [1.2.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.1.0...@ezds/testkit@1.2.0) (2025-01-12)
 
 
 ### Features
@@ -273,7 +273,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.7...@vibe/testkit@1.1.0) (2024-12-03)
+# [1.1.0](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.7...@ezds/testkit@1.1.0) (2024-12-03)
 
 
 ### Features
@@ -284,49 +284,49 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.0.7](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.6...@vibe/testkit@1.0.7) (2024-11-24)
+## [1.0.7](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.6...@ezds/testkit@1.0.7) (2024-11-24)
 
-**Note:** Version bump only for package @vibe/testkit
-
-
-
-
-
-## [1.0.6](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.5...@vibe/testkit@1.0.6) (2024-11-24)
-
-**Note:** Version bump only for package @vibe/testkit
+**Note:** Version bump only for package @ezds/testkit
 
 
 
 
 
-## [1.0.5](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.4...@vibe/testkit@1.0.5) (2024-11-20)
+## [1.0.6](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.5...@ezds/testkit@1.0.6) (2024-11-24)
 
-**Note:** Version bump only for package @vibe/testkit
-
-
-
-
-
-## [1.0.4](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.3...@vibe/testkit@1.0.4) (2024-11-19)
-
-**Note:** Version bump only for package @vibe/testkit
+**Note:** Version bump only for package @ezds/testkit
 
 
 
 
 
-## [1.0.3](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.2...@vibe/testkit@1.0.3) (2024-11-14)
+## [1.0.5](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.4...@ezds/testkit@1.0.5) (2024-11-20)
 
-**Note:** Version bump only for package @vibe/testkit
-
-
+**Note:** Version bump only for package @ezds/testkit
 
 
 
-## [1.0.2](https://github.com/mondaycom/vibe/compare/@vibe/testkit@1.0.1...@vibe/testkit@1.0.2) (2024-11-06)
 
-**Note:** Version bump only for package @vibe/testkit
+
+## [1.0.4](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.3...@ezds/testkit@1.0.4) (2024-11-19)
+
+**Note:** Version bump only for package @ezds/testkit
+
+
+
+
+
+## [1.0.3](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.2...@ezds/testkit@1.0.3) (2024-11-14)
+
+**Note:** Version bump only for package @ezds/testkit
+
+
+
+
+
+## [1.0.2](https://github.com/mondaycom/vibe/compare/@ezds/testkit@1.0.1...@ezds/testkit@1.0.2) (2024-11-06)
+
+**Note:** Version bump only for package @ezds/testkit
 
 
 
@@ -334,4 +334,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2024-10-31)
 
-**Note:** Version bump only for package @vibe/testkit
+**Note:** Version bump only for package @ezds/testkit

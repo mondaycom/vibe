@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Toast } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Toast } from "@ezds/core";
 
 export const ToastDescription = () => {
   const component = useMemo(() => {

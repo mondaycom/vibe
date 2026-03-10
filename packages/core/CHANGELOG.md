@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.87.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.1...@vibe/core@3.87.0) (2026-02-27)
+# [3.87.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.85.1...@ezds/core@3.87.0) (2026-02-27)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.85.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.0...@vibe/core@3.85.1) (2026-02-12)
+## [3.85.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.85.0...@ezds/core@3.85.1) (2026-02-12)
 
 
 ### Bug Fixes
@@ -25,7 +25,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.85.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.84.0...@vibe/core@3.85.0) (2026-02-09)
+# [3.85.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.84.0...@ezds/core@3.85.0) (2026-02-09)
 
 
 ### Bug Fixes
@@ -41,7 +41,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.84.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.4...@vibe/core@3.84.0) (2026-02-04)
+# [3.84.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.83.4...@ezds/core@3.84.0) (2026-02-04)
 
 
 ### Features
@@ -52,15 +52,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.83.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.3...@vibe/core@3.83.4) (2026-01-28)
+## [3.83.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.83.3...@ezds/core@3.83.4) (2026-01-28)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-## [3.83.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.2...@vibe/core@3.83.3) (2026-01-25)
+
+
+## [3.83.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.83.2...@ezds/core@3.83.3) (2026-01-25)
 
 
 ### Bug Fixes
@@ -71,7 +71,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.83.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.1...@vibe/core@3.83.2) (2026-01-18)
+## [3.83.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.83.1...@ezds/core@3.83.2) (2026-01-18)
 
 
 ### Bug Fixes
@@ -82,15 +82,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.83.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.0...@vibe/core@3.83.1) (2026-01-04)
+## [3.83.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.83.0...@ezds/core@3.83.1) (2026-01-04)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.83.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.4...@vibe/core@3.83.0) (2026-01-04)
+
+
+# [3.83.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.82.4...@ezds/core@3.83.0) (2026-01-04)
 
 
 ### Features
@@ -101,39 +101,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.82.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.3...@vibe/core@3.82.4) (2025-12-28)
+## [3.82.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.82.3...@ezds/core@3.82.4) (2025-12-28)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.82.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.2...@vibe/core@3.82.3) (2025-12-25)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-## [3.82.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.1...@vibe/core@3.82.2) (2025-12-22)
+## [3.82.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.82.2...@ezds/core@3.82.3) (2025-12-25)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.82.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.82.0...@vibe/core@3.82.1) (2025-12-17)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-# [3.82.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.81.1...@vibe/core@3.82.0) (2025-12-17)
+## [3.82.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.82.1...@ezds/core@3.82.2) (2025-12-22)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+## [3.82.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.82.0...@ezds/core@3.82.1) (2025-12-17)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+# [3.82.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.81.1...@ezds/core@3.82.0) (2025-12-17)
 
 
 ### Features
@@ -144,15 +144,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.81.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.81.0...@vibe/core@3.81.1) (2025-12-04)
+## [3.81.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.81.0...@ezds/core@3.81.1) (2025-12-04)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.81.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.80.0...@vibe/core@3.81.0) (2025-11-27)
+
+
+# [3.81.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.80.0...@ezds/core@3.81.0) (2025-11-27)
 
 
 ### Features
@@ -163,7 +163,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.80.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.79.0...@vibe/core@3.80.0) (2025-11-27)
+# [3.80.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.79.0...@ezds/core@3.80.0) (2025-11-27)
 
 
 ### Bug Fixes
@@ -180,7 +180,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.79.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.78.0...@vibe/core@3.79.0) (2025-11-26)
+# [3.79.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.78.0...@ezds/core@3.79.0) (2025-11-26)
 
 
 ### Features
@@ -191,7 +191,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.78.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.77.0...@vibe/core@3.78.0) (2025-11-25)
+# [3.78.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.77.0...@ezds/core@3.78.0) (2025-11-25)
 
 
 ### Features
@@ -202,7 +202,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.77.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.1...@vibe/core@3.77.0) (2025-11-19)
+# [3.77.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.76.1...@ezds/core@3.77.0) (2025-11-19)
 
 
 ### Features
@@ -213,7 +213,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.76.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.76.0...@vibe/core@3.76.1) (2025-11-19)
+## [3.76.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.76.0...@ezds/core@3.76.1) (2025-11-19)
 
 
 ### Bug Fixes
@@ -224,7 +224,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.76.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.75.0...@vibe/core@3.76.0) (2025-11-11)
+# [3.76.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.75.0...@ezds/core@3.76.0) (2025-11-11)
 
 
 ### Features
@@ -235,18 +235,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.75.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.74.0...@vibe/core@3.75.0) (2025-11-10)
+# [3.75.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.74.0...@ezds/core@3.75.0) (2025-11-10)
 
 
 ### Features
 
-* Enhance metadata generation to support @vibe/* imports ([#3178](https://github.com/mondaycom/vibe/issues/3178)) ([70c5822](https://github.com/mondaycom/vibe/commit/70c5822573d385d151206fefbe49bc96d78a8698))
+* Enhance metadata generation to support @ezds/* imports ([#3178](https://github.com/mondaycom/vibe/issues/3178)) ([70c5822](https://github.com/mondaycom/vibe/commit/70c5822573d385d151206fefbe49bc96d78a8698))
 
 
 
 
 
-# [3.74.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.73.0...@vibe/core@3.74.0) (2025-11-06)
+# [3.74.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.73.0...@ezds/core@3.74.0) (2025-11-06)
 
 
 ### Bug Fixes
@@ -262,7 +262,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.73.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.72.0...@vibe/core@3.73.0) (2025-11-03)
+# [3.73.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.72.0...@ezds/core@3.73.0) (2025-11-03)
 
 
 ### Bug Fixes
@@ -278,7 +278,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.72.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.71.1...@vibe/core@3.72.0) (2025-10-30)
+# [3.72.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.71.1...@ezds/core@3.72.0) (2025-10-30)
 
 
 ### Bug Fixes
@@ -294,15 +294,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.71.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.71.0...@vibe/core@3.71.1) (2025-10-30)
+## [3.71.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.71.0...@ezds/core@3.71.1) (2025-10-30)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.71.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.5...@vibe/core@3.71.0) (2025-10-28)
+
+
+# [3.71.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.70.5...@ezds/core@3.71.0) (2025-10-28)
 
 
 ### Features
@@ -313,7 +313,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.70.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.4...@vibe/core@3.70.5) (2025-10-27)
+## [3.70.5](https://github.com/mondaycom/vibe/compare/@ezds/core@3.70.4...@ezds/core@3.70.5) (2025-10-27)
 
 
 ### Bug Fixes
@@ -324,7 +324,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.70.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.3...@vibe/core@3.70.4) (2025-10-26)
+## [3.70.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.70.3...@ezds/core@3.70.4) (2025-10-26)
 
 
 ### Bug Fixes
@@ -335,15 +335,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.70.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.2...@vibe/core@3.70.3) (2025-10-26)
+## [3.70.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.70.2...@ezds/core@3.70.3) (2025-10-26)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-## [3.70.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.1...@vibe/core@3.70.2) (2025-10-25)
+
+
+## [3.70.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.70.1...@ezds/core@3.70.2) (2025-10-25)
 
 
 ### Bug Fixes
@@ -354,15 +354,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.70.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.70.0...@vibe/core@3.70.1) (2025-10-19)
+## [3.70.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.70.0...@ezds/core@3.70.1) (2025-10-19)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.70.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.69.1...@vibe/core@3.70.0) (2025-10-16)
+
+
+# [3.70.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.69.1...@ezds/core@3.70.0) (2025-10-16)
 
 
 ### Bug Fixes
@@ -378,7 +378,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.69.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.69.0...@vibe/core@3.69.1) (2025-09-29)
+## [3.69.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.69.0...@ezds/core@3.69.1) (2025-09-29)
 
 
 ### Bug Fixes
@@ -390,7 +390,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.69.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.5...@vibe/core@3.69.0) (2025-09-28)
+# [3.69.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.68.5...@ezds/core@3.69.0) (2025-09-28)
 
 
 ### Features
@@ -401,7 +401,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.68.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.4...@vibe/core@3.68.5) (2025-09-28)
+## [3.68.5](https://github.com/mondaycom/vibe/compare/@ezds/core@3.68.4...@ezds/core@3.68.5) (2025-09-28)
 
 
 ### Bug Fixes
@@ -412,7 +412,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.68.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.3...@vibe/core@3.68.4) (2025-09-21)
+## [3.68.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.68.3...@ezds/core@3.68.4) (2025-09-21)
 
 
 ### Bug Fixes
@@ -423,7 +423,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.68.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.2...@vibe/core@3.68.3) (2025-09-19)
+## [3.68.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.68.2...@ezds/core@3.68.3) (2025-09-19)
 
 
 ### Bug Fixes
@@ -434,7 +434,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.68.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.1...@vibe/core@3.68.2) (2025-09-19)
+## [3.68.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.68.1...@ezds/core@3.68.2) (2025-09-19)
 
 
 ### Bug Fixes
@@ -445,7 +445,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.68.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.68.0...@vibe/core@3.68.1) (2025-09-18)
+## [3.68.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.68.0...@ezds/core@3.68.1) (2025-09-18)
 
 
 ### Bug Fixes
@@ -456,7 +456,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.68.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.67.0...@vibe/core@3.68.0) (2025-09-18)
+# [3.68.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.67.0...@ezds/core@3.68.0) (2025-09-18)
 
 
 ### Bug Fixes
@@ -477,7 +477,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.67.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.66.0...@vibe/core@3.67.0) (2025-09-17)
+# [3.67.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.66.0...@ezds/core@3.67.0) (2025-09-17)
 
 
 ### Features
@@ -488,7 +488,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.66.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.1...@vibe/core@3.66.0) (2025-09-17)
+# [3.66.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.65.1...@ezds/core@3.66.0) (2025-09-17)
 
 
 ### Features
@@ -499,7 +499,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.65.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.65.0...@vibe/core@3.65.1) (2025-09-14)
+## [3.65.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.65.0...@ezds/core@3.65.1) (2025-09-14)
 
 
 ### Bug Fixes
@@ -510,7 +510,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.65.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.64.0...@vibe/core@3.65.0) (2025-09-08)
+# [3.65.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.64.0...@ezds/core@3.65.0) (2025-09-08)
 
 
 ### Features
@@ -521,7 +521,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.64.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.1...@vibe/core@3.64.0) (2025-09-07)
+# [3.64.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.63.1...@ezds/core@3.64.0) (2025-09-07)
 
 
 ### Features
@@ -533,15 +533,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.63.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.63.0...@vibe/core@3.63.1) (2025-09-04)
+## [3.63.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.63.0...@ezds/core@3.63.1) (2025-09-04)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.63.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.62.0...@vibe/core@3.63.0) (2025-09-04)
+
+
+# [3.63.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.62.0...@ezds/core@3.63.0) (2025-09-04)
 
 
 ### Bug Fixes
@@ -562,7 +562,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.62.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.1...@vibe/core@3.62.0) (2025-08-27)
+# [3.62.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.61.1...@ezds/core@3.62.0) (2025-08-27)
 
 
 ### Bug Fixes
@@ -581,7 +581,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.61.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.61.0...@vibe/core@3.61.1) (2025-08-25)
+## [3.61.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.61.0...@ezds/core@3.61.1) (2025-08-25)
 
 
 ### Bug Fixes
@@ -592,7 +592,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.61.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.60.0...@vibe/core@3.61.0) (2025-08-20)
+# [3.61.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.60.0...@ezds/core@3.61.0) (2025-08-20)
 
 
 ### Features
@@ -610,7 +610,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.60.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.59.0...@vibe/core@3.60.0) (2025-08-14)
+# [3.60.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.59.0...@ezds/core@3.60.0) (2025-08-14)
 
 
 ### Features
@@ -621,7 +621,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.59.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.4...@vibe/core@3.59.0) (2025-08-13)
+# [3.59.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.58.4...@ezds/core@3.59.0) (2025-08-13)
 
 
 ### Features
@@ -632,7 +632,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.58.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.3...@vibe/core@3.58.4) (2025-08-12)
+## [3.58.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.58.3...@ezds/core@3.58.4) (2025-08-12)
 
 
 ### Bug Fixes
@@ -643,7 +643,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.58.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.2...@vibe/core@3.58.3) (2025-08-12)
+## [3.58.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.58.2...@ezds/core@3.58.3) (2025-08-12)
 
 
 ### Bug Fixes
@@ -654,7 +654,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.58.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.1...@vibe/core@3.58.2) (2025-08-07)
+## [3.58.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.58.1...@ezds/core@3.58.2) (2025-08-07)
 
 
 ### Bug Fixes
@@ -665,7 +665,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.58.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.58.0...@vibe/core@3.58.1) (2025-08-05)
+## [3.58.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.58.0...@ezds/core@3.58.1) (2025-08-05)
 
 
 ### Bug Fixes
@@ -676,7 +676,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.58.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.1...@vibe/core@3.58.0) (2025-08-05)
+# [3.58.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.57.1...@ezds/core@3.58.0) (2025-08-05)
 
 
 ### Features
@@ -687,15 +687,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.57.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.57.0...@vibe/core@3.57.1) (2025-08-04)
+## [3.57.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.57.0...@ezds/core@3.57.1) (2025-08-04)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.57.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.5...@vibe/core@3.57.0) (2025-08-03)
+
+
+# [3.57.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.56.5...@ezds/core@3.57.0) (2025-08-03)
 
 
 ### Bug Fixes
@@ -713,15 +713,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.56.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.4...@vibe/core@3.56.5) (2025-07-27)
+## [3.56.5](https://github.com/mondaycom/vibe/compare/@ezds/core@3.56.4...@ezds/core@3.56.5) (2025-07-27)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-## [3.56.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.3...@vibe/core@3.56.4) (2025-07-27)
+
+
+## [3.56.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.56.3...@ezds/core@3.56.4) (2025-07-27)
 
 
 ### Bug Fixes
@@ -732,7 +732,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.56.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.2...@vibe/core@3.56.3) (2025-07-24)
+## [3.56.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.56.2...@ezds/core@3.56.3) (2025-07-24)
 
 
 ### Bug Fixes
@@ -743,23 +743,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.56.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.1...@vibe/core@3.56.2) (2025-07-24)
+## [3.56.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.56.1...@ezds/core@3.56.2) (2025-07-24)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.56.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.56.0...@vibe/core@3.56.1) (2025-07-24)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-# [3.56.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.6...@vibe/core@3.56.0) (2025-07-23)
+## [3.56.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.56.0...@ezds/core@3.56.1) (2025-07-24)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+# [3.56.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.6...@ezds/core@3.56.0) (2025-07-23)
 
 
 ### Bug Fixes
@@ -775,23 +775,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.55.6](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.5...@vibe/core@3.55.6) (2025-07-23)
+## [3.55.6](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.5...@ezds/core@3.55.6) (2025-07-23)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.55.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.4...@vibe/core@3.55.5) (2025-07-23)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-## [3.55.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.3...@vibe/core@3.55.4) (2025-07-22)
+## [3.55.5](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.4...@ezds/core@3.55.5) (2025-07-23)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+## [3.55.4](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.3...@ezds/core@3.55.4) (2025-07-22)
 
 
 ### Bug Fixes
@@ -802,15 +802,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.55.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.2...@vibe/core@3.55.3) (2025-07-22)
+## [3.55.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.2...@ezds/core@3.55.3) (2025-07-22)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-## [3.55.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.1...@vibe/core@3.55.2) (2025-07-21)
+
+
+## [3.55.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.1...@ezds/core@3.55.2) (2025-07-21)
 
 
 ### Bug Fixes
@@ -821,7 +821,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.55.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.55.0...@vibe/core@3.55.1) (2025-07-21)
+## [3.55.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.55.0...@ezds/core@3.55.1) (2025-07-21)
 
 
 ### Bug Fixes
@@ -832,12 +832,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.55.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.2...@vibe/core@3.55.0) (2025-07-20)
+# [3.55.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.54.2...@ezds/core@3.55.0) (2025-07-20)
 
 
 ### Bug Fixes
 
-* fix @vibe/core/tokens import ts error ([#2948](https://github.com/mondaycom/vibe/issues/2948)) ([1f66197](https://github.com/mondaycom/vibe/commit/1f661978f5a4be098e7f20428b3af426954f89f3))
+* fix @ezds/core/tokens import ts error ([#2948](https://github.com/mondaycom/vibe/issues/2948)) ([1f66197](https://github.com/mondaycom/vibe/commit/1f661978f5a4be098e7f20428b3af426954f89f3))
 
 
 ### Features
@@ -848,23 +848,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.54.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.1...@vibe/core@3.54.2) (2025-07-15)
+## [3.54.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.54.1...@ezds/core@3.54.2) (2025-07-15)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.54.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.54.0...@vibe/core@3.54.1) (2025-07-13)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-# [3.54.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.1...@vibe/core@3.54.0) (2025-07-09)
+## [3.54.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.54.0...@ezds/core@3.54.1) (2025-07-13)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+# [3.54.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.53.1...@ezds/core@3.54.0) (2025-07-09)
 
 
 ### Features
@@ -875,7 +875,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.53.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.53.0...@vibe/core@3.53.1) (2025-07-03)
+## [3.53.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.53.0...@ezds/core@3.53.1) (2025-07-03)
 
 
 ### Bug Fixes
@@ -886,7 +886,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.53.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.2...@vibe/core@3.53.0) (2025-07-01)
+# [3.53.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.52.2...@ezds/core@3.53.0) (2025-07-01)
 
 
 ### Features
@@ -898,7 +898,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.52.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.1...@vibe/core@3.52.2) (2025-06-18)
+## [3.52.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.52.1...@ezds/core@3.52.2) (2025-06-18)
 
 
 ### Bug Fixes
@@ -909,7 +909,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.52.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.52.0...@vibe/core@3.52.1) (2025-06-11)
+## [3.52.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.52.0...@ezds/core@3.52.1) (2025-06-11)
 
 
 ### Bug Fixes
@@ -920,7 +920,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.52.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.3...@vibe/core@3.52.0) (2025-06-08)
+# [3.52.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.51.3...@ezds/core@3.52.0) (2025-06-08)
 
 
 ### Bug Fixes
@@ -936,15 +936,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.51.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.2...@vibe/core@3.51.3) (2025-06-01)
+## [3.51.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.51.2...@ezds/core@3.51.3) (2025-06-01)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-## [3.51.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.1...@vibe/core@3.51.2) (2025-05-29)
+
+
+## [3.51.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.51.1...@ezds/core@3.51.2) (2025-05-29)
 
 
 ### Bug Fixes
@@ -955,7 +955,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.51.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.51.0...@vibe/core@3.51.1) (2025-05-28)
+## [3.51.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.51.0...@ezds/core@3.51.1) (2025-05-28)
 
 
 ### Bug Fixes
@@ -966,7 +966,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.51.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.3...@vibe/core@3.51.0) (2025-05-26)
+# [3.51.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.50.3...@ezds/core@3.51.0) (2025-05-26)
 
 
 ### Features
@@ -977,23 +977,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.50.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.2...@vibe/core@3.50.3) (2025-05-25)
+## [3.50.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.50.2...@ezds/core@3.50.3) (2025-05-25)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.50.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.1...@vibe/core@3.50.2) (2025-05-20)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-## [3.50.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.50.0...@vibe/core@3.50.1) (2025-05-19)
+## [3.50.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.50.1...@ezds/core@3.50.2) (2025-05-20)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+## [3.50.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.50.0...@ezds/core@3.50.1) (2025-05-19)
 
 
 ### Bug Fixes
@@ -1007,7 +1007,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.50.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.49.0...@vibe/core@3.50.0) (2025-05-15)
+# [3.50.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.49.0...@ezds/core@3.50.0) (2025-05-15)
 
 
 ### Features
@@ -1018,7 +1018,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.49.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.48.1...@vibe/core@3.49.0) (2025-05-13)
+# [3.49.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.48.1...@ezds/core@3.49.0) (2025-05-13)
 
 
 ### Features
@@ -1029,7 +1029,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.48.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.48.0...@vibe/core@3.48.1) (2025-05-11)
+## [3.48.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.48.0...@ezds/core@3.48.1) (2025-05-11)
 
 
 ### Bug Fixes
@@ -1040,7 +1040,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.48.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.47.0...@vibe/core@3.48.0) (2025-05-08)
+# [3.48.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.47.0...@ezds/core@3.48.0) (2025-05-08)
 
 
 ### Bug Fixes
@@ -1057,7 +1057,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.47.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.1...@vibe/core@3.47.0) (2025-05-05)
+# [3.47.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.46.1...@ezds/core@3.47.0) (2025-05-05)
 
 
 ### Features
@@ -1068,7 +1068,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.46.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.46.0...@vibe/core@3.46.1) (2025-05-04)
+## [3.46.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.46.0...@ezds/core@3.46.1) (2025-05-04)
 
 
 ### Bug Fixes
@@ -1079,7 +1079,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.46.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.45.0...@vibe/core@3.46.0) (2025-05-04)
+# [3.46.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.45.0...@ezds/core@3.46.0) (2025-05-04)
 
 
 ### Features
@@ -1090,7 +1090,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.45.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.3...@vibe/core@3.45.0) (2025-04-29)
+# [3.45.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.44.3...@ezds/core@3.45.0) (2025-04-29)
 
 
 ### Bug Fixes
@@ -1106,7 +1106,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.44.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.2...@vibe/core@3.44.3) (2025-04-29)
+## [3.44.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.44.2...@ezds/core@3.44.3) (2025-04-29)
 
 
 ### Bug Fixes
@@ -1117,7 +1117,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.44.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.1...@vibe/core@3.44.2) (2025-04-28)
+## [3.44.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.44.1...@ezds/core@3.44.2) (2025-04-28)
 
 
 ### Bug Fixes
@@ -1128,7 +1128,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.44.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.44.0...@vibe/core@3.44.1) (2025-04-27)
+## [3.44.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.44.0...@ezds/core@3.44.1) (2025-04-27)
 
 
 ### Bug Fixes
@@ -1140,7 +1140,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.44.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.1...@vibe/core@3.44.0) (2025-04-24)
+# [3.44.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.43.1...@ezds/core@3.44.0) (2025-04-24)
 
 
 ### Bug Fixes
@@ -1157,7 +1157,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.43.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.43.0...@vibe/core@3.43.1) (2025-04-23)
+## [3.43.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.43.0...@ezds/core@3.43.1) (2025-04-23)
 
 
 ### Bug Fixes
@@ -1169,7 +1169,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.43.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.42.0...@vibe/core@3.43.0) (2025-04-23)
+# [3.43.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.42.0...@ezds/core@3.43.0) (2025-04-23)
 
 
 ### Bug Fixes
@@ -1186,7 +1186,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.42.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.41.0...@vibe/core@3.42.0) (2025-04-10)
+# [3.42.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.41.0...@ezds/core@3.42.0) (2025-04-10)
 
 
 ### Bug Fixes
@@ -1203,7 +1203,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.41.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.40.0...@vibe/core@3.41.0) (2025-04-10)
+# [3.41.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.40.0...@ezds/core@3.41.0) (2025-04-10)
 
 
 ### Features
@@ -1214,7 +1214,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.40.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.39.0...@vibe/core@3.40.0) (2025-04-09)
+# [3.40.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.39.0...@ezds/core@3.40.0) (2025-04-09)
 
 
 ### Bug Fixes
@@ -1230,7 +1230,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.39.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.38.0...@vibe/core@3.39.0) (2025-04-06)
+# [3.39.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.38.0...@ezds/core@3.39.0) (2025-04-06)
 
 
 ### Bug Fixes
@@ -1246,7 +1246,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.38.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.37.0...@vibe/core@3.38.0) (2025-04-03)
+# [3.38.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.37.0...@ezds/core@3.38.0) (2025-04-03)
 
 
 ### Bug Fixes
@@ -1263,7 +1263,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.37.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.36.0...@vibe/core@3.37.0) (2025-03-30)
+# [3.37.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.36.0...@ezds/core@3.37.0) (2025-03-30)
 
 
 ### Features
@@ -1274,7 +1274,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.36.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.35.0...@vibe/core@3.36.0) (2025-03-26)
+# [3.36.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.35.0...@ezds/core@3.36.0) (2025-03-26)
 
 
 ### Bug Fixes
@@ -1291,7 +1291,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.35.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.34.2...@vibe/core@3.35.0) (2025-03-25)
+# [3.35.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.34.2...@ezds/core@3.35.0) (2025-03-25)
 
 
 ### Features
@@ -1302,23 +1302,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.34.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.34.1...@vibe/core@3.34.2) (2025-03-24)
+## [3.34.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.34.1...@ezds/core@3.34.2) (2025-03-24)
 
-**Note:** Version bump only for package @vibe/core
-
-
-
-
-
-## [3.34.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.34.0...@vibe/core@3.34.1) (2025-03-23)
-
-**Note:** Version bump only for package @vibe/core
+**Note:** Version bump only for package @ezds/core
 
 
 
 
 
-# [3.34.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.33.0...@vibe/core@3.34.0) (2025-03-20)
+## [3.34.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.34.0...@ezds/core@3.34.1) (2025-03-23)
+
+**Note:** Version bump only for package @ezds/core
+
+
+
+
+
+# [3.34.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.33.0...@ezds/core@3.34.0) (2025-03-20)
 
 
 ### Features
@@ -1329,7 +1329,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.33.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.32.0...@vibe/core@3.33.0) (2025-03-19)
+# [3.33.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.32.0...@ezds/core@3.33.0) (2025-03-19)
 
 
 ### Features
@@ -1341,7 +1341,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.32.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.2...@vibe/core@3.32.0) (2025-03-13)
+# [3.32.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.31.2...@ezds/core@3.32.0) (2025-03-13)
 
 
 ### Bug Fixes
@@ -1358,7 +1358,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.31.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.1...@vibe/core@3.31.2) (2025-03-11)
+## [3.31.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.31.1...@ezds/core@3.31.2) (2025-03-11)
 
 
 ### Bug Fixes
@@ -1370,7 +1370,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.31.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.31.0...@vibe/core@3.31.1) (2025-03-11)
+## [3.31.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.31.0...@ezds/core@3.31.1) (2025-03-11)
 
 
 ### Bug Fixes
@@ -1381,7 +1381,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.31.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.30.0...@vibe/core@3.31.0) (2025-03-11)
+# [3.31.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.30.0...@ezds/core@3.31.0) (2025-03-11)
 
 
 ### Features
@@ -1392,7 +1392,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.30.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.29.0...@vibe/core@3.30.0) (2025-03-05)
+# [3.30.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.29.0...@ezds/core@3.30.0) (2025-03-05)
 
 
 ### Features
@@ -1404,7 +1404,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.29.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.2...@vibe/core@3.29.0) (2025-02-24)
+# [3.29.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.28.2...@ezds/core@3.29.0) (2025-02-24)
 
 
 ### Features
@@ -1415,7 +1415,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.28.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.1...@vibe/core@3.28.2) (2025-02-19)
+## [3.28.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.28.1...@ezds/core@3.28.2) (2025-02-19)
 
 
 ### Bug Fixes
@@ -1426,7 +1426,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.28.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.28.0...@vibe/core@3.28.1) (2025-02-19)
+## [3.28.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.28.0...@ezds/core@3.28.1) (2025-02-19)
 
 
 ### Bug Fixes
@@ -1437,7 +1437,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.28.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.1...@vibe/core@3.28.0) (2025-02-17)
+# [3.28.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.27.1...@ezds/core@3.28.0) (2025-02-17)
 
 
 ### Features
@@ -1448,7 +1448,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.27.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.27.0...@vibe/core@3.27.1) (2025-02-13)
+## [3.27.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.27.0...@ezds/core@3.27.1) (2025-02-13)
 
 
 ### Bug Fixes
@@ -1459,7 +1459,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.27.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.27.0) (2025-02-11)
+# [3.27.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.25.0...@ezds/core@3.27.0) (2025-02-11)
 
 
 ### Features
@@ -1470,7 +1470,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.26.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.25.0...@vibe/core@3.26.0) (2025-02-11)
+# [3.26.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.25.0...@ezds/core@3.26.0) (2025-02-11)
 
 
 ### Features
@@ -1481,7 +1481,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.25.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.24.2...@vibe/core@3.25.0) (2025-02-09)
+# [3.25.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.24.2...@ezds/core@3.25.0) (2025-02-09)
 
 
 ### Features
@@ -1492,7 +1492,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.24.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.24.1...@vibe/core@3.24.2) (2025-02-09)
+## [3.24.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.24.1...@ezds/core@3.24.2) (2025-02-09)
 
 
 ### Bug Fixes
@@ -1503,15 +1503,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.24.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.24.0...@vibe/core@3.24.1) (2025-02-05)
+## [3.24.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.24.0...@ezds/core@3.24.1) (2025-02-05)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.24.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.23.0...@vibe/core@3.24.0) (2025-02-04)
+
+
+# [3.24.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.23.0...@ezds/core@3.24.0) (2025-02-04)
 
 
 ### Features
@@ -1523,7 +1523,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.23.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.1...@vibe/core@3.23.0) (2025-02-03)
+# [3.23.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.22.1...@ezds/core@3.23.0) (2025-02-03)
 
 
 ### Features
@@ -1534,7 +1534,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.22.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.22.0...@vibe/core@3.22.1) (2025-02-03)
+## [3.22.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.22.0...@ezds/core@3.22.1) (2025-02-03)
 
 
 ### Bug Fixes
@@ -1545,7 +1545,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.22.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.21.0...@vibe/core@3.22.0) (2025-02-02)
+# [3.22.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.21.0...@ezds/core@3.22.0) (2025-02-02)
 
 
 ### Features
@@ -1556,7 +1556,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.21.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.20.0...@vibe/core@3.21.0) (2025-01-30)
+# [3.21.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.20.0...@ezds/core@3.21.0) (2025-01-30)
 
 
 ### Features
@@ -1567,7 +1567,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.20.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.19.0...@vibe/core@3.20.0) (2025-01-30)
+# [3.20.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.19.0...@ezds/core@3.20.0) (2025-01-30)
 
 
 ### Bug Fixes
@@ -1583,7 +1583,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.19.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.18.0...@vibe/core@3.19.0) (2025-01-27)
+# [3.19.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.18.0...@ezds/core@3.19.0) (2025-01-27)
 
 
 ### Features
@@ -1594,7 +1594,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.18.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.1...@vibe/core@3.18.0) (2025-01-27)
+# [3.18.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.17.1...@ezds/core@3.18.0) (2025-01-27)
 
 
 ### Bug Fixes
@@ -1611,7 +1611,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.17.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.17.0...@vibe/core@3.17.1) (2025-01-20)
+## [3.17.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.17.0...@ezds/core@3.17.1) (2025-01-20)
 
 
 ### Bug Fixes
@@ -1622,7 +1622,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.17.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.16.0...@vibe/core@3.17.0) (2025-01-16)
+# [3.17.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.16.0...@ezds/core@3.17.0) (2025-01-16)
 
 
 ### Features
@@ -1633,7 +1633,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.16.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.15.1...@vibe/core@3.16.0) (2025-01-13)
+# [3.16.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.15.1...@ezds/core@3.16.0) (2025-01-13)
 
 
 ### Bug Fixes
@@ -1649,15 +1649,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.15.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.15.0...@vibe/core@3.15.1) (2025-01-12)
+## [3.15.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.15.0...@ezds/core@3.15.1) (2025-01-12)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-# [3.15.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.14.0...@vibe/core@3.15.0) (2025-01-07)
+
+
+# [3.15.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.14.0...@ezds/core@3.15.0) (2025-01-07)
 
 
 ### Bug Fixes
@@ -1673,7 +1673,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.14.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.13.0...@vibe/core@3.14.0) (2025-01-06)
+# [3.14.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.13.0...@ezds/core@3.14.0) (2025-01-06)
 
 
 ### Bug Fixes
@@ -1690,7 +1690,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.13.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.3...@vibe/core@3.13.0) (2025-01-06)
+# [3.13.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.12.3...@ezds/core@3.13.0) (2025-01-06)
 
 
 ### Bug Fixes
@@ -1706,7 +1706,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.12.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.2...@vibe/core@3.12.3) (2025-01-01)
+## [3.12.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.12.2...@ezds/core@3.12.3) (2025-01-01)
 
 
 ### Bug Fixes
@@ -1717,7 +1717,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.12.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.1...@vibe/core@3.12.2) (2025-01-01)
+## [3.12.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.12.1...@ezds/core@3.12.2) (2025-01-01)
 
 
 ### Bug Fixes
@@ -1728,7 +1728,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.12.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.12.0...@vibe/core@3.12.1) (2025-01-01)
+## [3.12.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.12.0...@ezds/core@3.12.1) (2025-01-01)
 
 
 ### Bug Fixes
@@ -1741,7 +1741,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.12.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.11.0...@vibe/core@3.12.0) (2024-12-31)
+# [3.12.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.11.0...@ezds/core@3.12.0) (2024-12-31)
 
 
 ### Features
@@ -1752,7 +1752,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.11.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.3...@vibe/core@3.11.0) (2024-12-31)
+# [3.11.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.10.3...@ezds/core@3.11.0) (2024-12-31)
 
 
 ### Features
@@ -1763,7 +1763,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.10.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.2...@vibe/core@3.10.3) (2024-12-30)
+## [3.10.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.10.2...@ezds/core@3.10.3) (2024-12-30)
 
 
 ### Bug Fixes
@@ -1774,7 +1774,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.10.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.1...@vibe/core@3.10.2) (2024-12-30)
+## [3.10.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.10.1...@ezds/core@3.10.2) (2024-12-30)
 
 
 ### Bug Fixes
@@ -1790,7 +1790,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.10.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.10.0...@vibe/core@3.10.1) (2024-12-29)
+## [3.10.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.10.0...@ezds/core@3.10.1) (2024-12-29)
 
 
 ### Bug Fixes
@@ -1801,7 +1801,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.10.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.3...@vibe/core@3.10.0) (2024-12-26)
+# [3.10.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.9.3...@ezds/core@3.10.0) (2024-12-26)
 
 
 ### Features
@@ -1812,7 +1812,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.9.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.2...@vibe/core@3.9.3) (2024-12-24)
+## [3.9.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.9.2...@ezds/core@3.9.3) (2024-12-24)
 
 
 ### Bug Fixes
@@ -1823,15 +1823,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.9.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.1...@vibe/core@3.9.2) (2024-12-23)
+## [3.9.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.9.1...@ezds/core@3.9.2) (2024-12-23)
 
-**Note:** Version bump only for package @vibe/core
-
-
+**Note:** Version bump only for package @ezds/core
 
 
 
-## [3.9.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.9.0...@vibe/core@3.9.1) (2024-12-22)
+
+
+## [3.9.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.9.0...@ezds/core@3.9.1) (2024-12-22)
 
 
 ### Bug Fixes
@@ -1842,7 +1842,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.9.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.8.0...@vibe/core@3.9.0) (2024-12-19)
+# [3.9.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.8.0...@ezds/core@3.9.0) (2024-12-19)
 
 
 ### Bug Fixes
@@ -1858,7 +1858,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.8.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.3...@vibe/core@3.8.0) (2024-12-19)
+# [3.8.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.7.3...@ezds/core@3.8.0) (2024-12-19)
 
 
 ### Features
@@ -1870,7 +1870,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.7.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.2...@vibe/core@3.7.3) (2024-12-18)
+## [3.7.3](https://github.com/mondaycom/vibe/compare/@ezds/core@3.7.2...@ezds/core@3.7.3) (2024-12-18)
 
 
 ### Bug Fixes
@@ -1881,7 +1881,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.7.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.1...@vibe/core@3.7.2) (2024-12-18)
+## [3.7.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.7.1...@ezds/core@3.7.2) (2024-12-18)
 
 
 ### Bug Fixes
@@ -1892,7 +1892,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.7.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.7.0...@vibe/core@3.7.1) (2024-12-17)
+## [3.7.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.7.0...@ezds/core@3.7.1) (2024-12-17)
 
 
 ### Bug Fixes
@@ -1903,7 +1903,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.7.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.2...@vibe/core@3.7.0) (2024-12-17)
+# [3.7.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.6.2...@ezds/core@3.7.0) (2024-12-17)
 
 
 ### Features
@@ -1914,7 +1914,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.6.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.1...@vibe/core@3.6.2) (2024-12-17)
+## [3.6.2](https://github.com/mondaycom/vibe/compare/@ezds/core@3.6.1...@ezds/core@3.6.2) (2024-12-17)
 
 
 ### Bug Fixes
@@ -1925,7 +1925,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.6.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.6.0...@vibe/core@3.6.1) (2024-12-16)
+## [3.6.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.6.0...@ezds/core@3.6.1) (2024-12-16)
 
 
 ### Bug Fixes
@@ -1936,7 +1936,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.6.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.5.1...@vibe/core@3.6.0) (2024-12-15)
+# [3.6.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.5.1...@ezds/core@3.6.0) (2024-12-15)
 
 
 ### Bug Fixes
@@ -1953,7 +1953,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.5.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.5.0...@vibe/core@3.5.1) (2024-12-12)
+## [3.5.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.5.0...@ezds/core@3.5.1) (2024-12-12)
 
 
 ### Bug Fixes
@@ -1964,7 +1964,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.5.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.4.1...@vibe/core@3.5.0) (2024-12-12)
+# [3.5.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.4.1...@ezds/core@3.5.0) (2024-12-12)
 
 
 ### Features
@@ -1975,7 +1975,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.4.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.4.0...@vibe/core@3.4.1) (2024-12-12)
+## [3.4.1](https://github.com/mondaycom/vibe/compare/@ezds/core@3.4.0...@ezds/core@3.4.1) (2024-12-12)
 
 
 ### Bug Fixes
@@ -1986,7 +1986,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.4.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.3.0...@vibe/core@3.4.0) (2024-12-09)
+# [3.4.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.3.0...@ezds/core@3.4.0) (2024-12-09)
 
 
 ### Bug Fixes
@@ -2003,7 +2003,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.2.0...@vibe/core@3.3.0) (2024-12-08)
+# [3.3.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.2.0...@ezds/core@3.3.0) (2024-12-08)
 
 
 ### Bug Fixes
@@ -2022,7 +2022,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.2.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.1.0...@vibe/core@3.2.0) (2024-12-04)
+# [3.2.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.1.0...@ezds/core@3.2.0) (2024-12-04)
 
 
 ### Bug Fixes
@@ -2038,7 +2038,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.0.0...@vibe/core@3.1.0) (2024-12-03)
+# [3.1.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.0.0...@ezds/core@3.1.0) (2024-12-03)
 
 
 ### Bug Fixes
@@ -2056,7 +2056,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [3.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.0.0-rc.0...@vibe/core@3.0.0) (2024-11-24)
+# [3.0.0](https://github.com/mondaycom/vibe/compare/@ezds/core@3.0.0-rc.0...@ezds/core@3.0.0) (2024-11-24)
 
 We're excited to announce the release of Vibe v3! 🎉
 
@@ -3467,7 +3467,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1938](https://github.com/mondaycom/monday-ui-react-core/pull/1938) feat(MenuItem): be able to provide a component to title ([@talkor](https://github.com/talkor))
 
 #### New Icons
-* [#1941](https://github.com/mondaycom/monday-ui-react-core/pull/1941) Update icons - monday-ui-style 0.1.210 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1941](https://github.com/mondaycom/monday-ui-react-core/pull/1941) Update icons - @ezds/web 0.1.210 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.90.3 (2024-02-07)
 
@@ -3728,7 +3728,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 2.73.2 (2023-12-18)
 
 #### Bug Fixes
-* [#1829](https://github.com/mondaycom/monday-ui-react-core/pull/1829) fix: update Feedback and DoubleCheck icons after monday-ui-style update ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1829](https://github.com/mondaycom/monday-ui-react-core/pull/1829) fix: update Feedback and DoubleCheck icons after @ezds/web update ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 2.73.1 (2023-12-17)
 
@@ -3742,7 +3742,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1819](https://github.com/mondaycom/monday-ui-react-core/pull/1819) docs(slider): add slider description on catalog page ([@Dhoni77](https://github.com/Dhoni77))
 
 #### Internal Changes
-* [#1822](https://github.com/mondaycom/monday-ui-react-core/pull/1822) chore: update monday-ui-style ([@talkor](https://github.com/talkor))
+* [#1822](https://github.com/mondaycom/monday-ui-react-core/pull/1822) chore: update @ezds/web ([@talkor](https://github.com/talkor))
 
 ## 2.73.0 (2023-12-14)
 
@@ -3844,7 +3844,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1786](https://github.com/mondaycom/monday-ui-react-core/pull/1786) docs: RelatedComponents - fix <Dialog> description ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### Internal Changes
-* [#1775](https://github.com/mondaycom/monday-ui-react-core/pull/1775) infra: disable cron for update monday-ui-style version workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1775](https://github.com/mondaycom/monday-ui-react-core/pull/1775) infra: disable cron for update @ezds/web version workflow ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 2.64.2 (2023-11-28)
 
@@ -3884,7 +3884,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1770](https://github.com/mondaycom/monday-ui-react-core/pull/1770) chore: supress <Dialog> console.error if container not found, add TODO ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1764](https://github.com/mondaycom/monday-ui-react-core/pull/1764) Update icons - monday-ui-style 0.1.203 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1764](https://github.com/mondaycom/monday-ui-react-core/pull/1764) Update icons - @ezds/web 0.1.203 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.63.2 (2023-11-23)
 
@@ -3991,10 +3991,10 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1614](https://github.com/mondaycom/monday-ui-react-core/pull/1614) feat(Refable): add TypeScript support ([@naorpeled](https://github.com/naorpeled))
 
 #### Documentation
-* [#1720](https://github.com/mondaycom/monday-ui-react-core/pull/1720) Update vibe-storybook-components to ^0.10.3 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1720](https://github.com/mondaycom/monday-ui-react-core/pull/1720) Update @ezds/storybook-blocks to ^0.10.3 ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### Internal Changes
-* [#1721](https://github.com/mondaycom/monday-ui-react-core/pull/1721) chore: Replace Github contributors list to be from vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1721](https://github.com/mondaycom/monday-ui-react-core/pull/1721) chore: Replace Github contributors list to be from @ezds/storybook-blocks ([@SergeyRoyt](https://github.com/SergeyRoyt))
 * [#1724](https://github.com/mondaycom/monday-ui-react-core/pull/1724) chore: cleanup ([@SergeyRoyt](https://github.com/SergeyRoyt))
 * [#1651](https://github.com/mondaycom/monday-ui-react-core/pull/1651) chore: fix lint warnings ([@Dhoni77](https://github.com/Dhoni77))
 
@@ -4025,7 +4025,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1714](https://github.com/mondaycom/monday-ui-react-core/pull/1714) fix: <MenuButton> change moveBy <Dialog> and active state text color ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1709](https://github.com/mondaycom/monday-ui-react-core/pull/1709) Update icons - monday-ui-style 0.1.202 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1709](https://github.com/mondaycom/monday-ui-react-core/pull/1709) Update icons - @ezds/web 0.1.202 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.56.0 (2023-10-29)
 
@@ -4033,7 +4033,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1705](https://github.com/mondaycom/monday-ui-react-core/pull/1705) feat: fix for Vite ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### Internal Changes
-* [#1711](https://github.com/mondaycom/monday-ui-react-core/pull/1711) chore: replace mixins with exported mixins from monday-ui-style ([@talkor](https://github.com/talkor))
+* [#1711](https://github.com/mondaycom/monday-ui-react-core/pull/1711) chore: replace mixins with exported mixins from @ezds/web ([@talkor](https://github.com/talkor))
 
 ## 2.55.1 (2023-10-26)
 
@@ -4084,7 +4084,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1691](https://github.com/mondaycom/monday-ui-react-core/pull/1691) feat(EditableInput): expose inputType ([@talkor](https://github.com/talkor))
 
 #### Internal Changes
-* [#1693](https://github.com/mondaycom/monday-ui-react-core/pull/1693) chore: fix < Tip /> imports to be from vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1693](https://github.com/mondaycom/monday-ui-react-core/pull/1693) chore: fix < Tip /> imports to be from @ezds/storybook-blocks ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 2.51.2 (2023-10-22)
 
@@ -4111,8 +4111,8 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1601](https://github.com/mondaycom/monday-ui-react-core/pull/1601) chore(deps-dev): bump postcss from 8.4.21 to 8.4.31 ([@dependabot[bot]](https://github.com/apps/dependabot))
 
 #### New Icons
-* [#1688](https://github.com/mondaycom/monday-ui-react-core/pull/1688) Update icons - monday-ui-style 0.1.201 ([@github-actions[bot]](https://github.com/apps/github-actions))
-* [#1685](https://github.com/mondaycom/monday-ui-react-core/pull/1685) Update icons - monday-ui-style 0.1.200 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1688](https://github.com/mondaycom/monday-ui-react-core/pull/1688) Update icons - @ezds/web 0.1.201 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1685](https://github.com/mondaycom/monday-ui-react-core/pull/1685) Update icons - @ezds/web 0.1.200 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.50.2 (2023-10-18)
 
@@ -4123,12 +4123,12 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1656](https://github.com/mondaycom/monday-ui-react-core/pull/1656) chore: < GridKeyboardNavigationContext /> - migrate to TS ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1677](https://github.com/mondaycom/monday-ui-react-core/pull/1677) Update icons - monday-ui-style 0.1.199 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1677](https://github.com/mondaycom/monday-ui-react-core/pull/1677) Update icons - @ezds/web 0.1.199 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.50.1 (2023-10-18)
 
 #### Bug Fixes
-* [#1671](https://github.com/mondaycom/monday-ui-react-core/pull/1671) Update vibe-storybook-components version, @babel/core version ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1671](https://github.com/mondaycom/monday-ui-react-core/pull/1671) Update @ezds/storybook-blocks version, @babel/core version ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 2.50.0 (2023-10-18)
 
@@ -4139,7 +4139,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1653](https://github.com/mondaycom/monday-ui-react-core/pull/1653) chore: resolve lint warnings - < Menu /> ([@Kritik-J](https://github.com/Kritik-J))
 
 #### New Icons
-* [#1669](https://github.com/mondaycom/monday-ui-react-core/pull/1669) Update icons - monday-ui-style 0.1.198 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1669](https://github.com/mondaycom/monday-ui-react-core/pull/1669) Update icons - @ezds/web 0.1.198 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.49.1 (2023-10-16)
 
@@ -4223,7 +4223,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1599](https://github.com/mondaycom/monday-ui-react-core/pull/1599) docs: enable controls for some of the stories ([@Dhoni77](https://github.com/Dhoni77))
 
 #### Internal Changes
-* [#1626](https://github.com/mondaycom/monday-ui-react-core/pull/1626) chore: cleanup, update vibe-storybook-components to ^0.8.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1626](https://github.com/mondaycom/monday-ui-react-core/pull/1626) chore: cleanup, update @ezds/storybook-blocks to ^0.8.0 ([@SergeyRoyt](https://github.com/SergeyRoyt))
 * [#1612](https://github.com/mondaycom/monday-ui-react-core/pull/1612) test: add editable heading interaction test ([@jes14](https://github.com/jes14))
 
 ## 2.46.1 (2023-10-05)
@@ -4278,7 +4278,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1590](https://github.com/mondaycom/monday-ui-react-core/pull/1590) Sergeyro/chore/cleanup  ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1597](https://github.com/mondaycom/monday-ui-react-core/pull/1597) Update icons - monday-ui-style 0.1.196 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1597](https://github.com/mondaycom/monday-ui-react-core/pull/1597) Update icons - @ezds/web 0.1.196 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.43.0 (2023-10-02)
 
@@ -4347,7 +4347,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1549](https://github.com/mondaycom/monday-ui-react-core/pull/1549) fix: <Chips> text overflow Tooltip issue - replace internal Tooltip logic with Text overflow Tooltip logic ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1544](https://github.com/mondaycom/monday-ui-react-core/pull/1544) Update icons - monday-ui-style 0.1.194 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1544](https://github.com/mondaycom/monday-ui-react-core/pull/1544) Update icons - @ezds/web 0.1.194 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.38.0 (2023-09-14)
 
@@ -4408,7 +4408,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1529](https://github.com/mondaycom/monday-ui-react-core/pull/1529) docs: Change <LegacyHeading> name in the story ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1531](https://github.com/mondaycom/monday-ui-react-core/pull/1531) Update icons - monday-ui-style 0.1.189 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1531](https://github.com/mondaycom/monday-ui-react-core/pull/1531) Update icons - @ezds/web 0.1.189 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.33.0 (2023-09-05)
 
@@ -4432,12 +4432,12 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1522](https://github.com/mondaycom/monday-ui-react-core/pull/1522) fix: <BreadcrumbsBar> type ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1518](https://github.com/mondaycom/monday-ui-react-core/pull/1518) Update icons - monday-ui-style 0.1.188 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1518](https://github.com/mondaycom/monday-ui-react-core/pull/1518) Update icons - @ezds/web 0.1.188 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.31.3 (2023-08-31)
 
 #### New Icons
-* [#1516](https://github.com/mondaycom/monday-ui-react-core/pull/1516) Update icons - monday-ui-style 0.1.186 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1516](https://github.com/mondaycom/monday-ui-react-core/pull/1516) Update icons - @ezds/web 0.1.186 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.31.2 (2023-08-30)
 
@@ -4451,7 +4451,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1487](https://github.com/mondaycom/monday-ui-react-core/pull/1487) Sergeyro/chore/replace theme prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1509](https://github.com/mondaycom/monday-ui-react-core/pull/1509) Update icons - monday-ui-style 0.1.184 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1509](https://github.com/mondaycom/monday-ui-react-core/pull/1509) Update icons - @ezds/web 0.1.184 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.31.1 (2023-08-28)
 
@@ -4491,7 +4491,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1492](https://github.com/mondaycom/monday-ui-react-core/pull/1492) feat: <Menu> id generation ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### Dependency Upgrades
-* [#1501](https://github.com/mondaycom/monday-ui-react-core/pull/1501) update monday-ui-style ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1501](https://github.com/mondaycom/monday-ui-react-core/pull/1501) update @ezds/web ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 2.28.3 (2023-08-23)
 
@@ -4538,7 +4538,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 2.25.1 (2023-08-16)
 
 #### Dependency Upgrades
-* [#1482](https://github.com/mondaycom/monday-ui-react-core/pull/1482) Upgrade monday-ui-style ([@sahariko](https://github.com/sahariko))
+* [#1482](https://github.com/mondaycom/monday-ui-react-core/pull/1482) Upgrade @ezds/web ([@sahariko](https://github.com/sahariko))
 
 ## 2.25.0 (2023-08-16)
 
@@ -4686,7 +4686,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 
 #### Internal Changes
 * [#1425](https://github.com/mondaycom/monday-ui-react-core/pull/1425) PR #3 of replacing old token variants with mixins ([@hadasfa](https://github.com/hadasfa))
-* [#1430](https://github.com/mondaycom/monday-ui-react-core/pull/1430) Replace storybookComponents with vibe-storybook-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#1430](https://github.com/mondaycom/monday-ui-react-core/pull/1430) Replace storybookComponents with @ezds/storybook-blocks ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 2.16.1 (2023-07-19)
 
@@ -4706,7 +4706,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1412](https://github.com/mondaycom/monday-ui-react-core/pull/1412) Fix vibe typography instances 2 ([@hadasfa](https://github.com/hadasfa))
 
 #### New Icons
-* [#1426](https://github.com/mondaycom/monday-ui-react-core/pull/1426) Update icons - monday-ui-style 0.1.173 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1426](https://github.com/mondaycom/monday-ui-react-core/pull/1426) Update icons - @ezds/web 0.1.173 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.15.5 (2023-07-13)
 
@@ -4720,8 +4720,8 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 2.15.4 (2023-07-12)
 
 #### New Icons
-* [#1417](https://github.com/mondaycom/monday-ui-react-core/pull/1417) Update icons - monday-ui-style 0.1.172 ([@github-actions[bot]](https://github.com/apps/github-actions))
-* [#1415](https://github.com/mondaycom/monday-ui-react-core/pull/1415) Update icons - monday-ui-style 0.1.171 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1417](https://github.com/mondaycom/monday-ui-react-core/pull/1417) Update icons - @ezds/web 0.1.172 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1415](https://github.com/mondaycom/monday-ui-react-core/pull/1415) Update icons - @ezds/web 0.1.171 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.15.3 (2023-07-12)
 
@@ -4743,7 +4743,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1406](https://github.com/mondaycom/monday-ui-react-core/pull/1406) test(useSwitch): add tests for hook ([@YossiSaadi](https://github.com/YossiSaadi))
 
 #### New Icons
-* [#1413](https://github.com/mondaycom/monday-ui-react-core/pull/1413) Update icons - monday-ui-style 0.1.170 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1413](https://github.com/mondaycom/monday-ui-react-core/pull/1413) Update icons - @ezds/web 0.1.170 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.15.1 (2023-07-11)
 
@@ -4822,7 +4822,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1360](https://github.com/mondaycom/monday-ui-react-core/pull/1360) Add docs best practices to contribution md ([@hadasfa](https://github.com/hadasfa))
 
 #### New Icons
-* [#1361](https://github.com/mondaycom/monday-ui-react-core/pull/1361) Update icons - monday-ui-style 0.1.162 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1361](https://github.com/mondaycom/monday-ui-react-core/pull/1361) Update icons - @ezds/web 0.1.162 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 2.10.1 (2023-06-21)
 
@@ -4836,7 +4836,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#1356](https://github.com/mondaycom/monday-ui-react-core/pull/1356) feat: <Modal> components - data-testid attributes ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 #### New Icons
-* [#1355](https://github.com/mondaycom/monday-ui-react-core/pull/1355) Update monday-ui-style to 0.1.160 ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#1355](https://github.com/mondaycom/monday-ui-react-core/pull/1355) Update @ezds/web to 0.1.160 ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## prerelease (2023-06-12)
 
@@ -5707,7 +5707,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 * [#988](https://github.com/mondaycom/monday-ui-react-core/pull/988) Rollup ([@sahariko](https://github.com/sahariko))
 
 #### New Icons
-* [#990](https://github.com/mondaycom/monday-ui-react-core/pull/990) Bump monday-ui-styles version to "0.1.144": team icon ([@3dyonic](https://github.com/3dyonic))
+* [#990](https://github.com/mondaycom/monday-ui-react-core/pull/990) Bump @ezds/webs version to "0.1.144": team icon ([@3dyonic](https://github.com/3dyonic))
 
 ## 1.71.2 (2022-11-16)
 
@@ -6121,7 +6121,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 1.50.0 (2022-07-20)
 
 #### New Features
-* [#770](https://github.com/mondaycom/monday-ui-react-core/pull/770) Manually update monday-ui-style version to 0.1.132 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#770](https://github.com/mondaycom/monday-ui-react-core/pull/770) Manually update @ezds/web version to 0.1.132 ([@SergeyRoyt](https://github.com/SergeyRoyt))
 
 ## 1.49.0 (2022-07-20)
 
@@ -6304,7 +6304,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 
 #### New Features
 * [#698](https://github.com/mondaycom/monday-ui-react-core/pull/698) Feature/yonatanari/add shadow xs example ([@3dyonic](https://github.com/3dyonic))
-* [#697](https://github.com/mondaycom/monday-ui-react-core/pull/697) * Update version "monday-ui-style": "0.1.118", ([@3dyonic](https://github.com/3dyonic))
+* [#697](https://github.com/mondaycom/monday-ui-react-core/pull/697) * Update version "@ezds/web": "0.1.118", ([@3dyonic](https://github.com/3dyonic))
 
 ## 1.34.0 (2022-06-08)
 
@@ -6370,7 +6370,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 1.30.0 (2022-05-19)
 
 #### New Features
-* [#676](https://github.com/mondaycom/monday-ui-react-core/pull/676) #  Update "monday-ui-style" to "0.1.111" ([@3dyonic](https://github.com/3dyonic))
+* [#676](https://github.com/mondaycom/monday-ui-react-core/pull/676) #  Update "@ezds/web" to "0.1.111" ([@3dyonic](https://github.com/3dyonic))
 
 #### Dependency Upgrades
 * [#669](https://github.com/mondaycom/monday-ui-react-core/pull/669) upgrade patch versions ([@orrgottlieb](https://github.com/orrgottlieb))
@@ -6765,7 +6765,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 1.11.2 (2022-02-13)
 
 #### Dependency Upgrades
-* [#527](https://github.com/mondaycom/monday-ui-react-core/pull/527) Upgrade monday-ui-style ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#527](https://github.com/mondaycom/monday-ui-react-core/pull/527) Upgrade @ezds/web ([@github-actions[bot]](https://github.com/apps/github-actions))
 
 ## 1.11.1 (2022-02-13)
 
@@ -6779,7 +6779,7 @@ See the complete changelog of v3 [here](https://github.com/mondaycom/vibe/blob/m
 ## 1.11.0 (2022-02-08)
 
 #### New Features
-* [#521](https://github.com/mondaycom/monday-ui-react-core/pull/521) Replace typography source to monday-ui-style font variables ([@hadasfa](https://github.com/hadasfa))
+* [#521](https://github.com/mondaycom/monday-ui-react-core/pull/521) Replace typography source to @ezds/web font variables ([@hadasfa](https://github.com/hadasfa))
 
 #### New Icons
 * [#522](https://github.com/mondaycom/monday-ui-react-core/pull/522) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))

@@ -4,13 +4,13 @@ $utilities-modules: (
         "opacity": (
                 property: opacity,
                 values: (
-                        disabled: var(--disabled-component-opacity),
+                        disabled: var(--ezds-disabled-opacity),
                 )
         ),
         "border": (
                 property: border,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--ui-border-color)
+                        null: var(--border-width) var(--border-style) var(--ezds-color-border-strong)
                 )
         ),
         "borderColor": (
@@ -23,19 +23,19 @@ $utilities-modules: (
                 class: rounded,
                 values: (
                         0: 0,
-                        small: var(--border-radius-small),
-                        medium: var(--border-radius-medium),
-                        big: var(--border-radius-big),
+                        small: var(--ezds-radius-0100),
+                        medium: var(--ezds-radius-0200),
+                        big: var(--ezds-radius-0400),
                 ),
         ),
         "shadow": (
                 property: box-shadow,
                 class: shadow,
                 values: (
-                        xs: var(--box-shadow-xs),
-                        small: var(--box-shadow-small),
-                        medium: var(--box-shadow-medium),
-                        large: var(--box-shadow-large),
+                        xs: var(--ezds-shadow-xs),
+                        small: var(--ezds-shadow-small),
+                        medium: var(--ezds-shadow-medium),
+                        large: var(--ezds-shadow-large),
                 )
         ),
         "margin": (

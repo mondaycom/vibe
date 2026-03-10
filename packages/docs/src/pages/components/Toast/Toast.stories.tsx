@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useState } from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { Toast, Button, Flex } from "@vibe/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { Toast, Button, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Decorator, type Meta, type StoryObj } from "@storybook/react";
 

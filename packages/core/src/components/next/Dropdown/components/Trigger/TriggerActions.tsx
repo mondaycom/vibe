@@ -1,8 +1,8 @@
 import React from "react";
-import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
-import { IconButton } from "@vibe/icon-button";
-import { Flex } from "@vibe/layout";
-import { Loader } from "@vibe/loader";
+import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@ezds/icons";
+import { IconButton } from "@ezds/icon-button";
+import { Flex } from "@ezds/layout";
+import { Loader } from "@ezds/loader";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../../BaseItem";

@@ -11,7 +11,7 @@ import {
   Label,
   Flex,
   type TableProps
-} from "@vibe/core";
+} from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import {
   emailColumns,

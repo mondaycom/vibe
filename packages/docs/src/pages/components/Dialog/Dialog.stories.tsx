@@ -1,9 +1,9 @@
 import React from "react";
 import { shift } from "@floating-ui/react-dom";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Button, Flex, DialogContentContainer, IconButton, Skeleton, useSwitch } from "@vibe/core";
-import { Dialog, type DialogTriggerEvent, type DialogProps } from "@vibe/core/next";
-import { Info } from "@vibe/icons";
+import { Button, Flex, DialogContentContainer, IconButton, Skeleton, useSwitch } from "@ezds/core";
+import { Dialog, type DialogTriggerEvent, type DialogProps } from "@ezds/core/next";
+import { Info } from "@ezds/icons";
 
 // Floating UI middleware to prevent dialog from shifting along the main axis while scrolling
 const preventMainAxisShift = [shift({ mainAxis: false })];

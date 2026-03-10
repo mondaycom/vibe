@@ -1,26 +1,26 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .listTitle {
   @include smoothing-text;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
 }
 
 // Inline padding matches BaseItem for alignment
 .small {
-  padding: var(--spacing-medium) var(--spacing-small) var(--spacing-small);
+  padding: var(--ezds-space-0200) var(--ezds-space-0100) var(--ezds-space-0100);
 }
 
 .medium {
-  padding: var(--spacing-medium) 12px var(--spacing-small);
+  padding: var(--ezds-space-0200) 12px var(--ezds-space-0100);
 }
 
 .large {
-  padding: var(--spacing-medium) 12px var(--spacing-small);
+  padding: var(--ezds-space-0200) 12px var(--ezds-space-0100);
 }
 
 .sticky {
   position: sticky;
   inset-block-start: 0;
-  background-color: var(--primary-background-color);
+  background-color: var(--ezds-color-background-primary);
   z-index: 1;
 }

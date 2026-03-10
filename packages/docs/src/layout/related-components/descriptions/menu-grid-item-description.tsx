@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
+import { RelatedComponent } from "@ezds/storybook-blocks";
 import { DummyNavigableGrid } from "../../../pages/components/GridKeyboardNavigationContext/useGridKeyboardNavigationContext.stories.helpers";
-import { MenuGridItem } from "@vibe/core";
+import { MenuGridItem } from "@ezds/core";
 
 export const MenuGridItemDescription = () => {
   const component = useMemo(() => {

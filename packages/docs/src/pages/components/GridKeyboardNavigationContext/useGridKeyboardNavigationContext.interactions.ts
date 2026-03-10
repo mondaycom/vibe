@@ -1,5 +1,5 @@
 import { expect } from "@storybook/jest";
-import { getByText, interactionSuite, clickElement, typeMultipleTimes, resetFocus } from "@vibe/core/interactionsTests";
+import { getByText, interactionSuite, clickElement, typeMultipleTimes, resetFocus } from "@ezds/core/interactionsTests";
 
 //NOTE: this test may fail if it runs when the storybook page isn't focused. (For example, during an HMR refresh without focusing the storybook tab)
 const multiGridLayoutKeyboardNavigation = async canvas => {

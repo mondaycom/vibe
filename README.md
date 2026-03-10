@@ -8,9 +8,9 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
 </p>
 
 <p align="center">
-  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vibe/core">
-  <a href="https://bundlephobia.com/package/@vibe/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@vibe/core"></a>
-  <a href="https://www.npmjs.com/package/@vibe/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@vibe/core?label=@vibe/core"></a>
+  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@ezds/core">
+  <a href="https://bundlephobia.com/package/@ezds/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@ezds/core"></a>
+  <a href="https://www.npmjs.com/package/@ezds/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@ezds/core?label=@ezds/core"></a>
   <a href="https://github.com/mondaycom/vibe/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mondaycom/vibe"></a>
 </p>
 
@@ -27,15 +27,15 @@ Vibe Design System is a collection of packages designed to streamline your devel
 ## Installation
 
 ```bash
-npm install @vibe/core
+npm install @ezds/core
 # or
-yarn add @vibe/core
+yarn add @ezds/core
 ```
 
 To load all the relevant CSS tokens, import the tokens file in your root application file:
 
 ```javascript
-import "@vibe/core/tokens";
+import "@ezds/core/tokens";
 ```
 
 ## Usage
@@ -43,25 +43,25 @@ import "@vibe/core/tokens";
 Components are imported from the library's root entry:
 
 ```javascript
-import { Button } from "@vibe/core";
+import { Button } from "@ezds/core";
 ```
 
 ### MCP
 
 Vibe includes an MCP (Model Context Protocol) server that provides intelligent assistance for working with Vibe components. The MCP server can help you discover component APIs, get usage examples, find appropriate icons, and follow best practices.
 
-To get started, follow the installation instructions in the [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md) docs to integrate it in your preferred AI development tools.
+To get started, follow the installation instructions in the [@ezds/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md) docs to integrate it in your preferred AI development tools.
 
 ## Ecosystem
 
-- [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
-- [@vibe/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
-- [@vibe/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
-- [@vibe/codemod](https://github.com/mondaycom/vibe/blob/master/packages/codemod/README.md): Codemods and CLI tools
-- [monday-ui-style](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @vibe/core)
-- [vibe-storybook-components](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
+- [@ezds/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
+- [@ezds/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
+- [@ezds/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
+- [@ezds/codemod](https://github.com/mondaycom/vibe/blob/master/packages/codemod/README.md): Codemods and CLI tools
+- [@ezds/web](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @ezds/core)
+- [@ezds/storybook-blocks](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
 - [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
-- [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
+- [@ezds/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
 
 ## Older Versions
 

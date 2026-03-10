@@ -1,8 +1,8 @@
-import { ColorPicker } from "@vibe/core";
-import { TextColorIndicator, Check } from "@vibe/icons";
+import { ColorPicker } from "@ezds/core";
+import { TextColorIndicator, Check } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { multiSelectionInteractionSuite, noColorInteractionSuite } from "./ColorPicker.interactions";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: ColorPicker,

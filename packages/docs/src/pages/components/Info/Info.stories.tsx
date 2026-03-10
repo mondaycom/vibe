@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Info, Flex, Text, Box } from "@vibe/core";
+import { Info, Flex, Text, Box } from "@ezds/core";
 
 type Story = StoryObj<typeof Info>;
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "@vibe/icon";
-import { Flex } from "@vibe/layout";
+import { Icon } from "@ezds/icon";
+import { Flex } from "@ezds/layout";
 import cx from "classnames";
 import styles from "./MenuItemIcon.module.scss";
 import { type MenuItemIconProps } from "./MenuItemIcon.types";

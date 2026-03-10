@@ -1,9 +1,9 @@
 import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Flex, Heading, Divider, Search, Checkbox, Button, Box } from "@vibe/core";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { Flex, Heading, Divider, Search, Checkbox, Button, Box } from "@ezds/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 import { ONE_LINE_ELLIPSIS_TEST_ID, OVERFLOW_TITLE_CONTAINER_ID, headingOverflowSuite } from "./Heading.interactions";
-import { Custom } from "@vibe/icons";
+import { Custom } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Heading

@@ -1,15 +1,15 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .tooltip {
   position: relative;
   display: inline-block;
-  border-radius: var(--tooltip-border-radius, var(--border-radius-small));
-  box-shadow: var(--box-shadow-medium);
+  border-radius: var(--tooltip-border-radius, var(--ezds-radius-0100));
+  box-shadow: var(--ezds-shadow-medium);
   @include vibe-text(text2, normal);
   max-width: var(--tooltip-max-width, 50vw);
   word-break: break-word;
-  background-color: var(--inverted-color-background);
-  color: var(--text-color-on-inverted);
+  background-color: var(--ezds-color-background-primary-inverted);
+  color: var(--ezds-color-text-default-inverted);
   --tooltip-max-width: 240px;
   white-space: pre-wrap;
 
@@ -33,13 +33,13 @@
   .content {
     word-break: break-word;
     display: inline-block;
-    padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
+    padding: var(--tooltip-padding, #{var(--ezds-space-0100) var(--ezds-space-0200)});
   }
 }
 
 .tooltip.paddingSizeMd {
-  border-radius: var(--border-radius-medium);
-  padding: var(--spacing-medium);
+  border-radius: var(--ezds-radius-0200);
+  padding: var(--ezds-space-0200);
   @include vibe-text(text2, normal);
 }
 
@@ -50,8 +50,8 @@
 .arrow,
 .dark,
 .arrow.dark {
-  background-color: var(--inverted-color-background);
-  color: var(--text-color-on-inverted);
+  background-color: var(--ezds-color-background-primary-inverted);
+  color: var(--ezds-color-text-default-inverted);
 }
 
 .arrow.arrow.dark,
@@ -65,6 +65,6 @@
 
 .primary,
 .arrow.primary {
-  background-color: var(--primary-color);
-  color: var(--text-color-on-primary);
+  background-color: var(--ezds-color-background-accent-default);
+  color: var(--ezds-color-text-default-inverted);
 }

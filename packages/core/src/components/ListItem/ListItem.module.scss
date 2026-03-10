@@ -11,7 +11,7 @@
 }
 
 .listItem:hover {
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--ezds-color-background-transparent-inverted);
 }
 
 .disabled {
@@ -23,11 +23,11 @@
 }
 
 .selected {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .selected:hover {
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .small {

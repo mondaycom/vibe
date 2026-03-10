@@ -1,6 +1,6 @@
 import React from "react";
-import { Frame } from "vibe-storybook-components";
-import { Button, Heading } from "@vibe/core";
+import { Frame } from "@ezds/storybook-blocks";
+import { Button, Heading } from "@ezds/core";
 import { peopleColumn } from "../assets";
 import classes from "./card-shadow-example.module.scss";
 

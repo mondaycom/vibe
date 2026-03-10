@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 @import "./AvatarConstants";
 
 .avatar {
@@ -40,7 +40,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-color-on-primary);
+  color: var(--ezds-color-text-default-inverted);
 }
 
 .circle:focus {
@@ -49,11 +49,11 @@
 }
 
 .circleImg {
-  border-color: var(--primary-background-color);
+  border-color: var(--ezds-color-background-primary);
 }
 
 .circleText {
-  border-color: var(--layout-border-color);
+  border-color: var(--ezds-color-border-default);
 }
 
 .disabled:before {
@@ -63,16 +63,16 @@
   position: absolute;
   top: 0;
   opacity: 0.7;
-  background: var(--primary-background-color);
+  background: var(--ezds-color-background-primary);
 }
 
 .square {
-  border-radius: var(--border-radius-small);
+  border-radius: var(--ezds-radius-0100);
 }
 
 .square:focus {
   outline: none;
-  @include focus-style(var(--border-radius-small));
+  @include focus-style(var(--ezds-radius-0100));
 }
 
 .withoutBorder {

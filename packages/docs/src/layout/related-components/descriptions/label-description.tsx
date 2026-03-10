@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Label } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Label } from "@ezds/core";
 
 export const LabelDescription = () => {
   const component = useMemo(() => <Label text="New" />, []);

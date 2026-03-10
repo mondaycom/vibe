@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .editableTypography {
   display: inline-flex;
@@ -15,11 +15,11 @@
     display: inline-block;
     max-width: 100%;
     min-width: 64px;
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--ezds-space-0050);
     outline: none;
-    border: 1px solid var(--primary-color);
-    border-radius: var(--border-radius-small);
-    color: var(--primary-text-color);
+    border: 1px solid var(--ezds-color-background-accent-default);
+    border-radius: var(--ezds-radius-0100);
+    color: var(--ezds-color-text-default);
     background-color: transparent;
 
     &:focus,
@@ -36,11 +36,11 @@
 
   .typography {
     border: 1px solid transparent;
-    padding: 0 var(--spacing-xs);
-    border-radius: var(--border-radius-small);
+    padding: 0 var(--ezds-space-0050);
+    border-radius: var(--ezds-radius-0100);
 
     &:hover:not(.disabled) {
-      border-color: var(--ui-border-color);
+      border-color: var(--ezds-color-border-strong);
     }
 
     &.hidden {
@@ -52,7 +52,7 @@
     }
 
     &.placeholder {
-      color: var(--secondary-text-color);
+      color: var(--ezds-color-text-subtle);
     }
 
     &.multiline {

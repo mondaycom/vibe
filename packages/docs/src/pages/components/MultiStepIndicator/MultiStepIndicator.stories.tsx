@@ -1,8 +1,8 @@
 import React from "react";
 import { useMemo, useState, useEffect } from "react";
-import { MultiStepIndicator, type Step } from "@vibe/core";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { Upgrade } from "@vibe/icons";
+import { MultiStepIndicator, type Step } from "@ezds/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { Upgrade } from "@ezds/icons";
 
 export default {
   title: "Components/MultiStepIndicator",

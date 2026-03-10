@@ -1,16 +1,17 @@
 name: Release new version
 
-on: []
+on:
+  workflow_dispatch: {}   # Manually triggered from GitHub Actions UI
 
 jobs:
   validate-branch:
     name: Validate Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Ensure running on master
-        if: github.ref != 'refs/heads/master'
+      - name: Ensure running on main
+        if: github.ref != 'refs/heads/main'
         run: |
-          echo "::error::Release workflow must be triggered from master branch. Current branch: ${{ github.ref }}"
+          echo "::error::Release workflow must be triggered from main branch. Current branch: ${{ github.ref }}"
           exit 1
 
   notify-release-start:
@@ -56,29 +57,33 @@ jobs:
     needs: [build, test]
     if: ${{ needs.build.outputs.has_changes == 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write     # Push version bump commit + tags
+      packages: write     # Publish to GitHub Packages
     env:
-      NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.VIBE_GITHUB_TOKEN }}
+          token: ${{ secrets.EZDS_GITHUB_TOKEN }}
           fetch-depth: 0
+      - name: Set up Node.js with GitHub Packages registry
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: "@ezds"
       - name: Run Setup
         uses: ./.github/actions/setup
         with:
-          npm_token: ${{ secrets.npm_token }}
+          npm_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: ./.github/actions/git-creds
       - uses: ./.github/actions/download-builds
-      - name: Generate new versions
-        run: yarn lerna version --exact --conventional-commits --conventional-graduate --message "Publish [skip ci]" -y --create-release github
+      - name: Bump versions (Lerna fixed mode)
+        run: yarn lerna version --exact --conventional-commits --message "chore(release): publish [skip ci]" -y --create-release github
         env:
-          GH_TOKEN: ${{ secrets.VIBE_GITHUB_TOKEN }}
-      - run: yarn config set registry https://registry.npmjs.org/
-      - name: Setup .npmrc for publish
-        id: setup-npmrc
-        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
-      - name: Publish to npm
+          GH_TOKEN: ${{ secrets.EZDS_GITHUB_TOKEN }}
+      - name: Publish to GitHub Packages
         run: yarn lerna publish from-package -y
-      - name: Remove .npmrc
-        if: steps.setup-npmrc.outcome == 'success'
-        run: rm .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

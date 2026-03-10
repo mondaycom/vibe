@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Bolt } from "@vibe/icons";
-import { Icon } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Bolt } from "@ezds/icons";
+import { Icon } from "@ezds/core";
 
 export const IconDescription = () => {
   const component = useMemo(() => {

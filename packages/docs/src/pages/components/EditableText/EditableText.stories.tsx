@@ -1,6 +1,6 @@
 import React from "react";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { EditableText, Flex } from "@vibe/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { EditableText, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { overviewPlaySuite } from "./EditableText.interactions";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useCallback, useState } from "react";
-import { StoryDescription } from "vibe-storybook-components";
+import { StoryDescription } from "@ezds/storybook-blocks";
 import { type Meta, type StoryObj } from "@storybook/react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import person1 from "../Avatar/assets/person1.png";
@@ -19,7 +19,7 @@ import {
   TableBody,
   TableRow,
   TableCell
-} from "@vibe/core";
+} from "@ezds/core";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: AvatarGroup

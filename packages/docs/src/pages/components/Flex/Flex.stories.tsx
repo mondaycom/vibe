@@ -1,7 +1,7 @@
 import React from "react";
-import { Add, Filter, Person, Search, Sort } from "@vibe/icons";
-import { Button, Flex, Text, Box, Chips, type FlexProps } from "@vibe/core";
-import { StoryDescription } from "vibe-storybook-components";
+import { Add, Filter, Person, Search, Sort } from "@ezds/icons";
+import { Button, Flex, Text, Box, Chips, type FlexProps } from "@ezds/core";
+import { StoryDescription } from "@ezds/storybook-blocks";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({

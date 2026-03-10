@@ -1,7 +1,7 @@
 import React from "react";
-import { Counter, Flex, Text, Icon, Avatar, Divider, type CounterProps } from "@vibe/core";
+import { Counter, Flex, Text, Icon, Avatar, Divider, type CounterProps } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { AddUpdate, Update, Notifications } from "@vibe/icons";
+import { AddUpdate, Update, Notifications } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Counter

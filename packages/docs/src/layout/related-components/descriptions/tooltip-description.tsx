@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Tooltip } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Tooltip } from "@ezds/core";
 
 export const TooltipDescription = () => {
   const component = useMemo(() => {

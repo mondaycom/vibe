@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Chips } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Chips } from "@ezds/core";
 
 export const ChipsDescription = () => {
   const component = useMemo(() => <Chips label="This is a chip" readOnly />, []);

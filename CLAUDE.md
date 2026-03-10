@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-The **Vibe Design System** is monday.com's official React component library, managed as a Lerna monorepo with Yarn Workspaces. The main package `@vibe/core` provides the primary component library, while specialized packages handle icons, testing utilities, codemods, and more.
+The **Vibe Design System** is monday.com's official React component library, managed as a Lerna monorepo with Yarn Workspaces. The main package `@ezds/core` provides the primary component library, while specialized packages handle icons, testing utilities, codemods, and more.
 
 ## Development Commands
 
@@ -14,15 +14,15 @@ The **Vibe Design System** is monday.com's official React component library, man
 yarn build
 
 # Build with dependencies for specific package
-sh scripts/build-dependencies.sh @vibe/core
+sh scripts/build-dependencies.sh @ezds/core
 
 # Run tests
 yarn test
 lerna run test                    # All packages
-yarn workspace @vibe/core test   # Specific package
+yarn workspace @ezds/core test   # Specific package
 
 # Watch mode for testing
-yarn workspace @vibe/core test:watch
+yarn workspace @ezds/core test:watch
 ```
 
 ### Linting and Formatting
@@ -32,10 +32,10 @@ yarn lint
 lerna run lint
 
 # Fix lint issues
-yarn workspace @vibe/core lint:fix
+yarn workspace @ezds/core lint:fix
 
 # Style linting
-yarn workspace @vibe/core stylelint
+yarn workspace @ezds/core stylelint
 ```
 
 ### Package Management
@@ -44,8 +44,8 @@ yarn workspace @vibe/core stylelint
 yarn install
 
 # Add dependency to specific package
-yarn workspace @vibe/core add <dependency>
-yarn workspace @vibe/core add -D <dev-dependency>
+yarn workspace @ezds/core add <dependency>
+yarn workspace @ezds/core add -D <dev-dependency>
 
 # Add dependency to root (for global tools)
 yarn add -W <dependency>
@@ -65,12 +65,12 @@ yarn storybook
 - **`components/`** - Legacy component structure (deprecated)
 
 ### Key Packages
-- **`@vibe/core`** - Main component library, depends on standalone component packages
-- **`@vibe/icons`** - SVG icon library
-- **`@vibe/testkit`** - Playwright testing utilities
-- **`@vibe/codemod`** - Code transformation tools
-- **`@vibe/hooks`** - Shared React hooks
-- **`@vibe/shared`** - Shared utilities and types
+- **`@ezds/core`** - Main component library, depends on standalone component packages
+- **`@ezds/icons`** - SVG icon library
+- **`@ezds/testkit`** - Playwright testing utilities
+- **`@ezds/codemod`** - Code transformation tools
+- **`@ezds/hooks`** - Shared React hooks
+- **`@ezds/shared`** - Shared utilities and types
 
 ### Component Architecture
 Components follow a systematic structure:
@@ -87,7 +87,7 @@ Component/
 ```
 
 ### Package Separation Pattern
-Components are extracted from `@vibe/core` into standalone packages under `packages/components/`. This follows a specific workflow:
+Components are extracted from `@ezds/core` into standalone packages under `packages/components/`. This follows a specific workflow:
 
 1. **Enum Handling**: Deprecated enums are exported with "Enum" suffix to avoid conflicts with string union types
 2. **Export Strategy**: Core package imports from standalone packages and re-exports selectively
@@ -111,14 +111,14 @@ Components are extracted from `@vibe/core` into standalone packages under `packa
 
 ### Testing Strategy
 - **Vitest** for unit tests with Testing Library
-- **Playwright** for E2E tests (via `@vibe/testkit`)
+- **Playwright** for E2E tests (via `@ezds/testkit`)
 - Test actual DOM behavior and accessibility attributes
 - Use established test ID patterns from constants
 
 ## Specialized Workflows
 
 ### Package Separation
-When extracting components from `@vibe/core`:
+When extracting components from `@ezds/core`:
 - Use templates from `.cursor/templates/package-separation/`
 - Handle enum exports carefully (rename with "Enum" suffix)
 - Update dependencies in both packages
@@ -126,13 +126,13 @@ When extracting components from `@vibe/core`:
 - Clear TypeScript cache (`rm -rf .rpt2_cache`)
 
 ### MCP Integration
-The repository includes an MCP (Model Context Protocol) server (`@vibe/mcp`) that provides intelligent assistance for working with Vibe components. Reference the MCP documentation for API discovery and usage examples.
+The repository includes an MCP (Model Context Protocol) server (`@ezds/mcp`) that provides intelligent assistance for working with Vibe components. Reference the MCP documentation for API discovery and usage examples.
 
 ### Build System
 - **Rollup** for bundling with TypeScript support
 - **Independent versioning** via Lerna
 - **Metadata generation** for component documentation
-- **CSS token handling** via `monday-ui-style` package
+- **CSS token handling** via `@ezds/web` package
 
 ## Important Files and Conventions
 

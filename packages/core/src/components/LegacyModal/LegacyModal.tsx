@@ -20,7 +20,7 @@ import { ComponentDefaultTestId } from "../../tests/constants";
 import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import styles from "./LegacyModal.module.scss";
 import { type ModalWidth } from "./LegacyModal.types";
-import { LayerProvider } from "@vibe/layer";
+import { LayerProvider } from "@ezds/layer";
 import { isClient } from "../../utils/ssr-utils";
 
 export interface LegacyModalProps {
@@ -108,7 +108,7 @@ const Modal = ({
   useWarnDeprecated({
     component: "Modal (Legacy)",
     message:
-      "This component is deprecated and will be removed in the next major version. Please use Modal from @vibe/core/next instead."
+      "This component is deprecated and will be removed in the next major version. Please use Modal from @ezds/core/next instead."
   });
 
   const childrenArray: ReactElement[] = useMemo(

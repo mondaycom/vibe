@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { TextBig } from "@vibe/icons";
-import { NumberField, Flex } from "@vibe/core";
+import { TextBig } from "@ezds/icons";
+import { NumberField, Flex } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 
 const metaSettings = createStoryMetaSettingsDecorator({

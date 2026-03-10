@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
-import { Clickable } from "@vibe/clickable";
+import { Clickable } from "@ezds/clickable";
 import {
   FlexAlign as FlexAlignEnum,
   FlexDirection as FlexDirectionEnum,
@@ -8,7 +8,7 @@ import {
   FlexJustify as FlexJustifyEnum
 } from "./FlexConstants";
 import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, type FlexShorthand } from "./Flex.types";
-import { type ElementContent, withStaticProps, type VibeComponentProps, getStyle, useMergeRef } from "@vibe/shared";
+import { type ElementContent, withStaticProps, type VibeComponentProps, getStyle, useMergeRef } from "@ezds/shared";
 import styles from "./Flex.module.scss";
 import { camelCase } from "es-toolkit";
 

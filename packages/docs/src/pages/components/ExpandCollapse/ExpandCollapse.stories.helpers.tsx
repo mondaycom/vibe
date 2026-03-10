@@ -1,5 +1,5 @@
 import React from "react";
-import { StorybookLink, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
 
 export const TipCombineMultiple = () => (
   <Tip title="Want to combine multiple ExpandCollapse?">

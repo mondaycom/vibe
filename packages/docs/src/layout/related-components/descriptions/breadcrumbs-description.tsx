@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { BreadcrumbsBar, BreadcrumbItem } from "@vibe/core";
-import { Group, Board, Workspace } from "@vibe/icons";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { BreadcrumbsBar, BreadcrumbItem } from "@ezds/core";
+import { Group, Board, Workspace } from "@ezds/icons";
 
 export const BreadcrumbsDescription = () => {
   const component = useMemo(() => {

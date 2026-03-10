@@ -1,28 +1,28 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .table {
   @include scroller(6px, 6px);
   --sticky-cell-hover-background: linear-gradient(
       to right,
-      var(--primary-background-hover-color),
-      var(--primary-background-hover-color)
+      var(--ezds-color-background-transparent-inverted),
+      var(--ezds-color-background-transparent-inverted)
     ),
-    linear-gradient(to right, var(--primary-background-color), var(--primary-background-color));
+    linear-gradient(to right, var(--ezds-color-background-primary), var(--ezds-color-background-primary));
 
-  background-color: var(--primary-background-color);
+  background-color: var(--ezds-color-background-primary);
   overflow: auto;
   width: 100%;
   height: 100%;
 
   &.border {
-    border: 1px solid var(--layout-border-color);
-    border-radius: var(--border-radius-small);
+    border: 1px solid var(--ezds-color-border-default);
+    border-radius: var(--ezds-radius-0100);
   }
 
   [role="rowgroup"] {
     [role="row"] {
       > [role="cell"] {
-        border-bottom: 1px solid var(--layout-border-color);
+        border-bottom: 1px solid var(--ezds-color-border-default);
       }
     }
 

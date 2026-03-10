@@ -9,7 +9,7 @@ import {
   Dialog,
   DialogContentContainer,
   Button
-} from "@vibe/core";
+} from "@ezds/core";
 import ModalExampleContent from "./ModalExampleContent";
 
 export default {

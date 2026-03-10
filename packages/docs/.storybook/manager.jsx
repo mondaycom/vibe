@@ -1,7 +1,7 @@
 import React from "react";
 import { addons } from "@storybook/manager-api";
-import { SidebarItem } from "vibe-storybook-components";
-import "vibe-storybook-components/index.css";
+import { SidebarItem } from "@ezds/storybook-blocks";
+import "@ezds/storybook-blocks/index.css";
 import theme from "./theme";
 import isChromatic from "chromatic/isChromatic";
 

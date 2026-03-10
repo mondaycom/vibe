@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import styles from "./ModalFooterBase.module.scss";
-import { Button } from "@vibe/button";
-import { Flex } from "@vibe/layout";
+import { Button } from "@ezds/button";
+import { Flex } from "@ezds/layout";
 import { type ModalFooterBaseProps } from "./ModalFooterBase.types";
 import cx from "classnames";
-import { Tooltip } from "@vibe/tooltip";
+import { Tooltip } from "@ezds/tooltip";
 
 const ModalFooterBase = forwardRef(
   (

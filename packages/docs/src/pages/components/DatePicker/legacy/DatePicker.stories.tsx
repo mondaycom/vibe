@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment, { type Moment } from "moment";
-import { DatePicker, type DatePickerProps, DialogContentContainer, type RangeDate } from "@vibe/core";
+import { DatePicker, type DatePickerProps, DialogContentContainer, type RangeDate } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../../utils/createStoryMetaSettingsDecorator";
 
 // for Chromatic check to always have the same date UI

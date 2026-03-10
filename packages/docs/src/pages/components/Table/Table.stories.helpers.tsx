@@ -1,6 +1,6 @@
 import React from "react";
-import { Avatar, type LabelColor, type TableColumn } from "@vibe/core";
-import { Calendar, Doc, Status } from "@vibe/icons";
+import { Avatar, type LabelColor, type TableColumn } from "@ezds/core";
+import { Calendar, Doc, Status } from "@ezds/icons";
 
 export const doAndDontIconsRuleColumns = [
   {

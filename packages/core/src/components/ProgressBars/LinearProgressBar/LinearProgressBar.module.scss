@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .wrapper {
   display: flex;
@@ -13,7 +13,7 @@
     .container {
       border-radius: 0;
       .progressBar {
-        border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+        border-radius: 0 var(--ezds-radius-0100) var(--ezds-radius-0100) 0;
 
         &.completed {
           border-radius: 0;
@@ -24,7 +24,7 @@
 }
 
 .label {
-  padding-left: var(--spacing-xs);
+  padding-left: var(--ezds-space-0050);
 }
 
 .large {
@@ -45,6 +45,6 @@
 .container {
   position: relative;
   width: 100%;
-  background-color: var(--ui-background-color);
-  border-radius: var(--border-radius-small);
+  background-color: var(--ezds-color-background-secondary);
+  border-radius: var(--ezds-radius-0100);
 }

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Dropdown } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Dropdown } from "@ezds/core";
 
 export const DropdownDescription = () => {
   const component = useMemo(() => {

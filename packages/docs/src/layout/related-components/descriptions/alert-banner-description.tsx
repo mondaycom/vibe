@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { AlertBanner, AlertBannerText } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { AlertBanner, AlertBannerText } from "@ezds/core";
 
 export const AlertBannerDescription = () => {
   const component = useMemo(() => {

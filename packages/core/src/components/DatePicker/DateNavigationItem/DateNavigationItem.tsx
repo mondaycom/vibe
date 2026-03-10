@@ -1,6 +1,6 @@
 import React from "react";
-import { Icon } from "@vibe/icon";
-import { MoveArrowLeft, MoveArrowRight } from "@vibe/icons";
+import { Icon } from "@ezds/icon";
+import { MoveArrowLeft, MoveArrowRight } from "@ezds/icons";
 import styles from "./DateNavigationItem.module.scss";
 
 const ICONS = {

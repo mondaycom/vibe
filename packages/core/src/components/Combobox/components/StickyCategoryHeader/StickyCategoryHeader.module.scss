@@ -2,8 +2,8 @@
   position: absolute;
   z-index: 10;
   width:  calc(100% - 12px);
-  background-color: var(--primary-background-color);
-  padding-block: 10px var(--spacing-xs);
+  background-color: var(--ezds-color-background-primary);
+  padding-block: 10px var(--ezds-space-0050);
   display: flex;
   align-items: center;
 }

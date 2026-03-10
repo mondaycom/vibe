@@ -1,8 +1,8 @@
 import React from "react";
-import { createComponentTemplate, Link } from "vibe-storybook-components";
-import { IconButton, Text, Flex, Button, Box, Divider, Avatar, Icon } from "@vibe/core";
+import { createComponentTemplate, Link } from "@ezds/storybook-blocks";
+import { IconButton, Text, Flex, Button, Box, Divider, Avatar, Icon } from "@ezds/core";
 import person1 from "../Avatar/assets/person1.png";
-import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@vibe/icons";
+import { Add, Bolt, CloseSmall, Doc, Drag, Filter, Item, Robot, Time } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
 

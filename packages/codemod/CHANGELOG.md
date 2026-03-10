@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/codemod@1.0.1...@vibe/codemod@1.1.0) (2025-05-29)
+# [1.1.0](https://github.com/mondaycom/vibe/compare/@ezds/codemod@1.0.1...@ezds/codemod@1.1.0) (2025-05-29)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.0.1](https://github.com/mondaycom/vibe/compare/@vibe/codemod@1.0.0...@vibe/codemod@1.0.1) (2025-01-20)
+## [1.0.1](https://github.com/mondaycom/vibe/compare/@ezds/codemod@1.0.0...@ezds/codemod@1.0.1) (2025-01-20)
 
 
 ### Bug Fixes
@@ -25,7 +25,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.0.0](https://github.com/mondaycom/vibe/compare/@vibe/codemod@0.1.0...@vibe/codemod@1.0.0) (2024-11-24)
+# [1.0.0](https://github.com/mondaycom/vibe/compare/@ezds/codemod@0.1.0...@ezds/codemod@1.0.0) (2024-11-24)
 
 
 ### Features

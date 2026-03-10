@@ -6,10 +6,10 @@ import {
   getTestId,
   ComponentDefaultTestId,
   type ElementContent
-} from "@vibe/shared";
+} from "@ezds/shared";
 import { type TypographyAlign, type TypographyColor } from "./Typography.types";
 import { useEllipsisClass, useTooltipProps } from "./TypographyHooks";
-import { Tooltip, type TooltipProps } from "@vibe/tooltip";
+import { Tooltip, type TooltipProps } from "@ezds/tooltip";
 import { TypographyContext } from "./TypographyContext";
 import styles from "./Typography.module.scss";
 

@@ -1,6 +1,6 @@
 import { type KeyboardEvent, type MouseEvent, type UIEvent, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
-import { useEventListener, useKeyEvent, keyCodes } from "@vibe/shared";
+import { useEventListener, useKeyEvent, keyCodes } from "@ezds/shared";
 import useIconScreenReaderAccessProps from "./useIconScreenReaderAccessProps";
 import { noop as NOOP } from "es-toolkit";
 import styles from "../Icon.module.scss";

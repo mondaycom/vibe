@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Skeleton } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Skeleton } from "@ezds/core";
 
 export const SkeletonDescription = () => {
   const component = useMemo(() => <Skeleton type={Skeleton.types.CIRCLE} />, []);

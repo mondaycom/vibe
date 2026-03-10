@@ -3,7 +3,7 @@
 ## For AI: Prompt to Use
 
 ```
-@.cursor/rules/package-separation.mdc Separate the [ComponentName] component into @vibe/[package-name]
+@.cursor/rules/package-separation.mdc Separate the [ComponentName] component into @ezds/[package-name]
 ```
 
 ## Full Example: Separating Badge Component
@@ -59,8 +59,8 @@ Add dependencies (based on imports found):
 ```json
 {
   "dependencies": {
-    "@vibe/shared": "3.0.8",
-    "@vibe/icon": "3.0.9",
+    "@ezds/shared": "3.0.8",
+    "@ezds/icon": "3.0.9",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   }
@@ -103,7 +103,7 @@ Add dependency:
 ```json
 {
   "dependencies": {
-    "@vibe/badge": "3.0.0"
+    "@ezds/badge": "3.0.0"
   }
 }
 ```
@@ -117,7 +117,7 @@ export {
   type BadgeProps,
   type BadgeColor,
   type BadgeSize
-} from "@vibe/badge";
+} from "@ezds/badge";
 ```
 
 ### 8. Find and Update All Imports
@@ -128,10 +128,10 @@ grep -r "from.*Badge" packages/core/src/components/
 
 # Update imports:
 # Before: import Badge from "../Badge/Badge";
-# After:  import { Badge } from "@vibe/badge";
+# After:  import { Badge } from "@ezds/badge";
 
 # Before: import { BadgeColor as BadgeColorEnum } from "../Badge/BadgeConstants";
-# After:  import { BadgeColorEnum } from "@vibe/badge";
+# After:  import { BadgeColorEnum } from "@ezds/badge";
 ```
 
 ### 9. Link Workspace Packages
@@ -142,7 +142,7 @@ cd <VIBE_ROOT>  # Root of the monorepo
 yarn install
 ```
 
-This creates: `node_modules/@vibe/badge -> ../../packages/components/badge`
+This creates: `node_modules/@ezds/badge -> ../../packages/components/badge`
 
 ### 10. Build
 
@@ -186,7 +186,7 @@ grep -r "from.*[ComponentName]" packages/core/src/ --include="*.tsx" --include="
 
 ### Verify symlink (should be created automatically by yarn install)
 ```bash
-ls -la node_modules/@vibe/[package-name]
+ls -la node_modules/@ezds/[package-name]
 # Should show: lrwxr-xr-x ... [package-name] -> ../../packages/components/[package-name]
 ```
 
@@ -204,7 +204,7 @@ After separation, verify:
 - [ ] No TypeScript errors mentioning the component
 - [ ] Tests pass
 - [ ] Ran `yarn install` at root (creates symlinks)
-- [ ] Symlink exists in `node_modules/@vibe/`
+- [ ] Symlink exists in `node_modules/@ezds/`
 - [ ] Component exports correctly (check `dist/index.d.ts`)
 - [ ] Enums have "Enum" suffix in exports
 - [ ] Consumer code imports enums directly (no renaming)

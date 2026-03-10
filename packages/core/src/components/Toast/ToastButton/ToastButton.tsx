@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from "@vibe/button";
+import { Button, type ButtonProps } from "@ezds/button";
 import React, { type FC } from "react";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.16.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.15.0...@vibe/icons@1.16.0) (2026-01-04)
+# [1.16.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.15.0...@ezds/icons@1.16.0) (2026-01-04)
 
 
 ### Features
@@ -14,7 +14,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.14.0...@vibe/icons@1.15.0) (2025-12-25)
+# [1.15.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.14.0...@ezds/icons@1.15.0) (2025-12-25)
 
 
 ### Features
@@ -25,7 +25,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.14.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.13.0...@vibe/icons@1.14.0) (2025-12-22)
+# [1.14.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.13.0...@ezds/icons@1.14.0) (2025-12-22)
 
 
 ### Features
@@ -36,7 +36,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.12.0...@vibe/icons@1.13.0) (2025-12-17)
+# [1.13.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.12.0...@ezds/icons@1.13.0) (2025-12-17)
 
 
 ### Features
@@ -47,7 +47,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.2...@vibe/icons@1.12.0) (2025-12-17)
+# [1.12.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.11.2...@ezds/icons@1.12.0) (2025-12-17)
 
 
 ### Features
@@ -58,23 +58,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.11.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.1...@vibe/icons@1.11.2) (2025-11-26)
+## [1.11.2](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.11.1...@ezds/icons@1.11.2) (2025-11-26)
 
-**Note:** Version bump only for package @vibe/icons
-
-
-
-
-
-## [1.11.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.0...@vibe/icons@1.11.1) (2025-11-06)
-
-**Note:** Version bump only for package @vibe/icons
+**Note:** Version bump only for package @ezds/icons
 
 
 
 
 
-# [1.11.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.10.0...@vibe/icons@1.11.0) (2025-09-04)
+## [1.11.1](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.11.0...@ezds/icons@1.11.1) (2025-11-06)
+
+**Note:** Version bump only for package @ezds/icons
+
+
+
+
+
+# [1.11.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.10.0...@ezds/icons@1.11.0) (2025-09-04)
 
 
 ### Features
@@ -85,7 +85,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.10.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.9.0...@vibe/icons@1.10.0) (2025-08-20)
+# [1.10.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.9.0...@ezds/icons@1.10.0) (2025-08-20)
 
 
 ### Features
@@ -96,7 +96,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.9.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.8.0...@vibe/icons@1.9.0) (2025-07-03)
+# [1.9.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.8.0...@ezds/icons@1.9.0) (2025-07-03)
 
 
 ### Bug Fixes
@@ -112,7 +112,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.8.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.2...@vibe/icons@1.8.0) (2025-06-01)
+# [1.8.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.7.2...@ezds/icons@1.8.0) (2025-06-01)
 
 
 ### Features
@@ -123,7 +123,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.7.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.1...@vibe/icons@1.7.2) (2025-05-13)
+## [1.7.2](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.7.1...@ezds/icons@1.7.2) (2025-05-13)
 
 
 ### Bug Fixes
@@ -134,7 +134,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.7.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.7.0...@vibe/icons@1.7.1) (2025-05-04)
+## [1.7.1](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.7.0...@ezds/icons@1.7.1) (2025-05-04)
 
 
 ### Bug Fixes
@@ -145,7 +145,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.7.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.1...@vibe/icons@1.7.0) (2025-04-10)
+# [1.7.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.6.1...@ezds/icons@1.7.0) (2025-04-10)
 
 
 ### Features
@@ -156,7 +156,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.6.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.6.0...@vibe/icons@1.6.1) (2025-04-06)
+## [1.6.1](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.6.0...@ezds/icons@1.6.1) (2025-04-06)
 
 
 ### Bug Fixes
@@ -167,7 +167,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.6.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.1...@vibe/icons@1.6.0) (2025-03-24)
+# [1.6.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.5.1...@ezds/icons@1.6.0) (2025-03-24)
 
 
 ### Features
@@ -178,7 +178,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.5.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.5.0...@vibe/icons@1.5.1) (2025-03-20)
+## [1.5.1](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.5.0...@ezds/icons@1.5.1) (2025-03-20)
 
 
 ### Bug Fixes
@@ -189,7 +189,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.5.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.4.0...@vibe/icons@1.5.0) (2025-02-13)
+# [1.5.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.4.0...@ezds/icons@1.5.0) (2025-02-13)
 
 
 ### Features
@@ -200,7 +200,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.4.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.3...@vibe/icons@1.4.0) (2025-01-27)
+# [1.4.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.3.3...@ezds/icons@1.4.0) (2025-01-27)
 
 
 ### Features
@@ -212,7 +212,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.3.3](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.2...@vibe/icons@1.3.3) (2025-01-20)
+## [1.3.3](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.3.2...@ezds/icons@1.3.3) (2025-01-20)
 
 
 ### Bug Fixes
@@ -223,7 +223,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.3.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.1...@vibe/icons@1.3.2) (2025-01-16)
+## [1.3.2](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.3.1...@ezds/icons@1.3.2) (2025-01-16)
 
 
 ### Bug Fixes
@@ -235,7 +235,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.3.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.3.0...@vibe/icons@1.3.1) (2025-01-13)
+## [1.3.1](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.3.0...@ezds/icons@1.3.1) (2025-01-13)
 
 
 ### Bug Fixes
@@ -247,7 +247,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.3.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.2.0...@vibe/icons@1.3.0) (2024-12-26)
+# [1.3.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.2.0...@ezds/icons@1.3.0) (2024-12-26)
 
 
 ### Features
@@ -259,7 +259,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.2.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.1.0...@vibe/icons@1.2.0) (2024-12-12)
+# [1.2.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.1.0...@ezds/icons@1.2.0) (2024-12-12)
 
 
 ### Features
@@ -270,7 +270,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.1.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.0.0...@vibe/icons@1.1.0) (2024-12-04)
+# [1.1.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@1.0.0...@ezds/icons@1.1.0) (2024-12-04)
 
 
 ### Features
@@ -281,7 +281,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.0.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@0.1.0...@vibe/icons@1.0.0) (2024-11-24)
+# [1.0.0](https://github.com/mondaycom/vibe/compare/@ezds/icons@0.1.0...@ezds/icons@1.0.0) (2024-11-24)
 
 
 ### Bug Fixes

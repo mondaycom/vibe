@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@ezds/web/dist/mixins";
 
 .datePicker {
   --day-picker-header-height: 34px;
@@ -7,12 +7,12 @@
   --day-picker-day-height: 30px;
   --day-picker-days-horizontal-gap: 4px;
   --day-picker-days-vertical-gap: 2px;
-  --day-picker-day-change-range: var(--primary-surface-color);
+  --day-picker-day-change-range: var(--ezds-color-background-tertiary);
 
   .datePickerMonths {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-medium);
+    gap: var(--ezds-space-0200);
     align-items: flex-start;
   }
 
@@ -24,12 +24,12 @@
     .datePickerHead {
       td:first-child {
         width: var(--day-picker-day-width);
-        border-top-left-radius: var(--border-radius-medium);
-        border-top-right-radius: var(--border-radius-medium);
-        background-color: var(--primary-background-hover-color);
+        border-top-left-radius: var(--ezds-radius-0200);
+        border-top-right-radius: var(--ezds-radius-0200);
+        background-color: var(--ezds-color-background-transparent-inverted);
 
         &::after {
-          color: var(--secondary-text-color);
+          color: var(--ezds-color-text-subtle);
           @include vibe-text(text2, normal);
           display: flex;
           justify-content: center;
@@ -40,48 +40,48 @@
 
     .datePickerBody {
       td:first-child {
-        background-color: var(--primary-background-hover-color);
+        background-color: var(--ezds-color-background-transparent-inverted);
       }
 
       tr:last-child td:first-child {
-        border-bottom-left-radius: var(--border-radius-medium);
-        border-bottom-right-radius: var(--border-radius-medium);
+        border-bottom-left-radius: var(--ezds-radius-0200);
+        border-bottom-right-radius: var(--ezds-radius-0200);
       }
     }
   }
 
   .datePickerTable {
-    margin-top: var(--spacing-small);
+    margin-top: var(--ezds-space-0100);
     border-collapse: collapse;
     height: var(--day-picker-content-height);
   }
 
   .datePickerHead {
     th {
-      color: var(--secondary-text-color);
+      color: var(--ezds-color-text-subtle);
       @include vibe-text(text2, normal);
-      padding-block: var(--space-2);
+      padding-block: var(--ezds-space-0050);
       text-align: center;
       height: var(--day-picker-day-height);
     }
   }
   .datePickerBody {
     td {
-      color: var(--secondary-text-color);
+      color: var(--ezds-color-text-subtle);
       @include vibe-text(text2, normal);
       text-align: center;
       padding: 0;
     }
 
     .datePickerDay {
-      color: var(--primary-text-color);
+      color: var(--ezds-color-text-default);
       @include vibe-text(text2, normal);
       width: var(--day-picker-day-width);
       height: var(--day-picker-day-height);
       background: none;
       border: none;
       cursor: pointer;
-      border-radius: var(--border-radius-small);
+      border-radius: var(--ezds-radius-0100);
       margin: var(--day-picker-days-vertical-gap) var(--day-picker-days-horizontal-gap);
       padding: 0;
 
@@ -91,18 +91,18 @@
         align-items: center;
         width: 100%;
         height: 100%;
-        border-radius: var(--border-radius-small);
+        border-radius: var(--ezds-radius-0100);
       }
 
       &:focus-visible {
         outline: none;
         .datePickerDayContent {
-          outline: 2px solid var(--primary-color);
+          outline: 2px solid var(--ezds-color-background-accent-default);
         }
       }
 
       &.datePickerDayDisabled {
-        color: var(--disabled-text-color);
+        color: var(--ezds-color-text-default-disabled);
         cursor: not-allowed;
       }
 
@@ -110,28 +110,28 @@
           .datePickerAddToRangeMiddle
         ):not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd)
         .datePickerDayContent:hover {
-        background: var(--primary-background-hover-color);
+        background: var(--ezds-color-background-transparent-inverted);
       }
 
       &.datePickerDayOutside {
-        color: var(--disabled-text-color);
+        color: var(--ezds-color-text-default-disabled);
       }
 
       &.datePickerDaySelected:not(.datePickerDayRangeMiddle):not(.datePickerRemoveFromRange) {
-        background: var(--primary-color);
-        color: var(--text-color-on-primary);
+        background: var(--ezds-color-background-accent-default);
+        color: var(--ezds-color-text-default-inverted);
       }
 
       &.datePickerDayRangeStart:not(.datePickerDayRangeEnd):not(.datePickerRemoveFromRange),
       &.datePickerDayRangeEnd:not(.datePickerDayRangeStart):not(.datePickerRemoveFromRange) {
-        background: var(--primary-color);
+        background: var(--ezds-color-background-accent-default);
         width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
       }
 
       &.datePickerDayRangeStart.datePickerRemoveFromRange,
       &.datePickerDayRangeEnd.datePickerRemoveFromRange {
-        background: var(--primary-color);
-        color: var(--text-color-on-primary);
+        background: var(--ezds-color-background-accent-default);
+        color: var(--ezds-color-text-default-inverted);
       }
 
       &.datePickerDayRangeStart.datePickerRemoveFromRange:not(.datePickerDayRangeEnd),
@@ -163,8 +163,8 @@
       &.datePickerAddToRangeEnd:not(.datePickerDayRangeStart):not(.datePickerDayRangeEnd),
       &.datePickerAddToRangeMiddle,
       &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd) {
-        background-color: var(--primary-selected-color);
-        border: var(--day-picker-days-horizontal-gap) var(--border-style) var(--primary-selected-color);
+        background-color: var(--ezds-color-background-accent-subtle);
+        border: var(--day-picker-days-horizontal-gap) var(--border-style) var(--ezds-color-background-accent-subtle);
         border-top: none;
         border-bottom: none;
         width: calc(var(--day-picker-day-width) + 2 * var(--day-picker-days-horizontal-gap));
@@ -172,7 +172,7 @@
 
       &.datePickerAddToRangeMiddle,
       &.datePickerDayRangeMiddle:not(.datePickerAddToRangeStart):not(.datePickerAddToRangeEnd) {
-        background: var(--primary-selected-color);
+        background: var(--ezds-color-background-accent-subtle);
         margin: var(--day-picker-days-vertical-gap) 0;
         border-radius: 0;
       }
@@ -195,9 +195,9 @@
           border: none;
           width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
           margin-left: var(--day-picker-days-horizontal-gap);
-          border-right: var(--day-picker-days-horizontal-gap) solid var(--primary-selected-color);
-          border-top-left-radius: var(--border-radius-small);
-          border-bottom-left-radius: var(--border-radius-small);
+          border-right: var(--day-picker-days-horizontal-gap) solid var(--ezds-color-background-accent-subtle);
+          border-top-left-radius: var(--ezds-radius-0100);
+          border-bottom-left-radius: var(--ezds-radius-0100);
         }
 
         &.datePickerRemoveFromRange {
@@ -218,9 +218,9 @@
           border: none;
           width: calc(var(--day-picker-day-width) + var(--day-picker-days-horizontal-gap));
           margin-right: var(--day-picker-days-horizontal-gap);
-          border-left: var(--day-picker-days-horizontal-gap) solid var(--primary-selected-color);
-          border-top-right-radius: var(--border-radius-small);
-          border-bottom-right-radius: var(--border-radius-small);
+          border-left: var(--day-picker-days-horizontal-gap) solid var(--ezds-color-background-accent-subtle);
+          border-top-right-radius: var(--ezds-radius-0100);
+          border-bottom-right-radius: var(--ezds-radius-0100);
         }
 
         &.datePickerRemoveFromRange {
@@ -251,9 +251,9 @@
     }
 
     .datePickerDaySelected.datePickerDayRangeEnd.datePickerAddToRangeStart {
-      border-radius: var(--border-radius-small) !important;
-      border-color: var(--primary-color) !important;
-      background-color: var(--primary-color) !important;
+      border-radius: var(--ezds-radius-0100) !important;
+      border-color: var(--ezds-color-background-accent-default) !important;
+      background-color: var(--ezds-color-background-accent-default) !important;
 
       &:not(.datePickerHalfRangeSelected) {
         margin-left: calc(var(--day-picker-days-horizontal-gap) * -1);
@@ -261,9 +261,9 @@
     }
 
     .datePickerDaySelected.datePickerDayRangeStart.datePickerAddToRangeEnd {
-      border-radius: var(--border-radius-small) !important;
-      border-color: var(--primary-color) !important;
-      background-color: var(--primary-color) !important;
+      border-radius: var(--ezds-radius-0100) !important;
+      border-color: var(--ezds-color-background-accent-default) !important;
+      background-color: var(--ezds-color-background-accent-default) !important;
 
       &:not(.datePickerHalfRangeSelected) {
         margin-right: calc(var(--day-picker-days-horizontal-gap) * -1);

@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/shared",
+  "name": "@ezds/shared",
   "version": "3.0.8",
   "description": "Shared utilities for Vibe packages",
   "repository": {
@@ -34,7 +34,7 @@
     "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
-    "@vibe/config": "3.0.5",
+    "@ezds/config": "*",
     "@vitejs/plugin-react": "^4.3.1",
     "prettier": "^2.5.1",
     "react": "^16.14.0",
@@ -48,5 +48,9 @@
   "dependencies": {
     "es-toolkit": "^1.39.10"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
 }

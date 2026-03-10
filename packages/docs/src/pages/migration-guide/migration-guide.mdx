@@ -154,11 +154,11 @@ Please note that the following changes are **complementary to the migration scri
   />
 </ul>
 
-- The `monday-ui-style/src/Icons` **was removed**, use `@vibe/icons/raw` instead to use svg icons:
+- The `@ezds/web/src/Icons` **was removed**, use `@vibe/icons/raw` instead to use svg icons:
 
 <ul>
   <DiffCodeBlock
-    code={`- import Close from "monday-ui-style/src/Icons/Close.svg";
+    code={`- import Close from "@ezds/web/src/Icons/Close.svg";
 + import { Close } from "@vibe/icons/raw";
 `}
   />
@@ -402,7 +402,7 @@ The following components have breaking changes to their API, behavior, or style,
 ### Colors
 
 - The `--shareable-color` and `--private-color` CSS variables were removed for all themes
-- The `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` colors were removed from the `colors.json` file (in `monday-ui-style` package), use `warning-color-*` respectively
+- The `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` colors were removed from the `colors.json` file (in `@ezds/web` package), use `warning-color-*` respectively
 
 ### Icons
 

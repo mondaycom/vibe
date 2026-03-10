@@ -7,24 +7,24 @@ For the complete migration guide see the [Vibe 3 Migration Guide](https://vibe.m
 ## General
 
 - CommonJS support removed
-- Package rename - `monday-ui-react-core` renamed to `@vibe/core`: 🔀
-  - `/tokens` -> `@vibe/core/tokens` 🔀
-  - `/interactionsTests` -> `@vibe/core/interactionsTests` 🔀
-  - `/testIds` -> `@vibe/core/testIds` 🔀
-  - `/mockedClassNames` -> `@vibe/core/mockedClassNames`
+- Package rename - `monday-ui-react-core` renamed to `@ezds/core`: 🔀
+  - `/tokens` -> `@ezds/core/tokens` 🔀
+  - `/interactionsTests` -> `@ezds/core/interactionsTests` 🔀
+  - `/testIds` -> `@ezds/core/testIds` 🔀
+  - `/mockedClassNames` -> `@ezds/core/mockedClassNames`
 - Removed entry points:
-  - `/types` removed, import from `@vibe/core` instead 🔀
+  - `/types` removed, import from `@ezds/core` instead 🔀
 - Entry points moved to a new package:
-  - `/icons` -> use `@vibe/icons` package instead 🔀
-  - `/storybookComponents` removed, use the `vibe-storybook-components` package instead
-- `monday-ui-react-core/dist/main.css` removed, use `@vibe/core/tokens` instead
-- Removed svg icons from `monday-ui-style/src/Icons/`, use `@vibe/icons/raw` instead
+  - `/icons` -> use `@ezds/icons` package instead 🔀
+  - `/storybookComponents` removed, use the `@ezds/storybook-blocks` package instead
+- `monday-ui-react-core/dist/main.css` removed, use `@ezds/core/tokens` instead
+- Removed svg icons from `@ezds/web/src/Icons/`, use `@ezds/icons/raw` instead
 - All components' props interfaces are exported
 
 ## Colors
 
 - The `--shareable-color` and `--private-color` CSS variables were removed for all themes
-- The `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` colors were removed from the `colors.json` file (in `monday-ui-style` package), use `warning-color-*` respectively
+- The `color-warning`, `color-warning-hover`, `color-warning-select`, `color-warning-select-hover` colors were removed from the `colors.json` file (in `@ezds/web` package), use `warning-color-*` respectively
 
 ## Typography
 

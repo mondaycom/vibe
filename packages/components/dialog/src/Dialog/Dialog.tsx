@@ -13,7 +13,7 @@ import {
   ComponentDefaultTestId,
   getTestId,
   isClient
-} from "@vibe/shared";
+} from "@ezds/shared";
 import DialogContent from "./DialogContent/DialogContent";
 import { Refable } from "../Refable/Refable";
 import {
@@ -29,7 +29,7 @@ import {
   type DialogTriggerEvent,
   type DialogEvent
 } from "./Dialog.types";
-import { LayerContext, LayerProvider } from "@vibe/layer";
+import { LayerContext, LayerProvider } from "@ezds/layer";
 import { createObserveContentResizeModifier } from "./modifiers/observeContentResizeModifier";
 
 export interface DialogProps extends VibeComponentProps {

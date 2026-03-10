@@ -2,9 +2,9 @@
 import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
-import { Icon, type SubIcon } from "@vibe/icon";
-import { Loader } from "@vibe/loader";
+import { SIZES, useMergeRef, NOOP } from "@ezds/shared";
+import { Icon, type SubIcon } from "@ezds/icon";
+import { Loader } from "@ezds/loader";
 import {
   ButtonColor as ButtonColorEnum,
   ButtonInputType as ButtonInputTypeEnum,
@@ -18,8 +18,8 @@ import {
   withStaticProps,
   ComponentDefaultTestId,
   ComponentVibeId
-} from "@vibe/shared";
-import { getStyle } from "@vibe/shared";
+} from "@ezds/shared";
+import { getStyle } from "@ezds/shared";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
 

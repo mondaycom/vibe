@@ -14,32 +14,32 @@
 
 .attention {
   width: 100%;
-  border-radius: var(--border-radius-medium);
-  padding: var(--space-12) var(--space-16);
+  border-radius: var(--ezds-radius-0200);
+  padding: var(--ezds-space-0300) var(--ezds-space-0400);
   position: relative;
   overflow: hidden;
 
   &.animate {
-    animation: attentionBoxAnimation 200ms var(--motion-timing-transition);
+    animation: attentionBoxAnimation 200ms var(--ezds-motion-timing-transition);
   }
 
   &.primary {
-    background-color: var(--primary-selected-color);
+    background-color: var(--ezds-color-background-accent-subtle);
   }
 
   &.positive {
-    background-color: var(--positive-color-selected);
+    background-color: var(--ezds-color-background-success-subtle);
   }
 
   &.negative {
-    background-color: var(--negative-color-selected);
+    background-color: var(--ezds-color-background-danger-subtle);
   }
 
   &.warning {
-    background-color: var(--warning-color-selected);
+    background-color: var(--ezds-color-background-warning-subtle);
   }
 
   &.neutral {
-    background-color: var(--allgrey-background-color);
+    background-color: var(--ezds-color-background-quaternary);
   }
 }

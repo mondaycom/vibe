@@ -1,5 +1,5 @@
 import React from "react";
-import { useWizard, Button, Flex, Heading, Steps } from "@vibe/core";
+import { useWizard, Button, Flex, Heading, Steps } from "@ezds/core";
 import { type Decorator } from "@storybook/react";
 import styles from "./useWizard.stories.module.scss";
 

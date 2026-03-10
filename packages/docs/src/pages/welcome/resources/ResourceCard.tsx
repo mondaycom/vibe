@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ResourceCard.module.scss";
-import { StorybookLink } from "vibe-storybook-components";
+import { StorybookLink } from "@ezds/storybook-blocks";
 import Title from "../Title";
 
 export default function ResourceCard({

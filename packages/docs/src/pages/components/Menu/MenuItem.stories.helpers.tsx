@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogContentContainer, Menu, MenuItem } from "@vibe/core";
+import { DialogContentContainer, Menu, MenuItem } from "@ezds/core";
 
 export const ComponentRuleWithLabelDo = () => (
   <DialogContentContainer>

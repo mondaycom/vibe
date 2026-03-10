@@ -1,6 +1,6 @@
 # Package Separation Templates
 
-These templates are used when separating a component from `@vibe/core` into its own package.
+These templates are used when separating a component from `@ezds/core` into its own package.
 
 ## Template Files
 
@@ -110,10 +110,10 @@ Common dependencies to add to `package.json`:
 ```json
 {
   "dependencies": {
-    "@vibe/shared": "3.0.8",         // Almost always needed
-    "@vibe/icon": "3.0.x",            // If component uses icons
-    "@vibe/dialog": "3.0.x",          // If uses Dialog/Popover
-    "@vibe/layout": "3.0.x",          // If uses Box/Flex
+    "@ezds/shared": "3.0.8",         // Almost always needed
+    "@ezds/icon": "3.0.x",            // If component uses icons
+    "@ezds/dialog": "3.0.x",          // If uses Dialog/Popover
+    "@ezds/layout": "3.0.x",          // If uses Box/Flex
     "classnames": "^2.5.1",           // Usually needed
     "es-toolkit": "^1.39.10"          // For utilities
   }
@@ -142,7 +142,7 @@ yarn install
 
 This automatically creates symlinks for all packages in `packages/components/*`. You should see:
 ```
-node_modules/@vibe/[package-name] -> ../../packages/components/[package-name]
+node_modules/@ezds/[package-name] -> ../../packages/components/[package-name]
 ```
 
 **Note:** Manual symlink creation with `ln -s` is NOT needed - Yarn Workspaces handles this automatically.

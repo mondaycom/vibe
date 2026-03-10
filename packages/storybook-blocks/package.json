@@ -1,5 +1,5 @@
 {
-  "name": "vibe-storybook-components",
+  "name": "@ezds/storybook-blocks",
   "version": "1.0.7",
   "description": "Collection of Vibe's Storybook components",
   "repository": {
@@ -105,5 +105,9 @@
   },
   "browserslist": [
     "extends browserslist-config-monday"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  }
 }

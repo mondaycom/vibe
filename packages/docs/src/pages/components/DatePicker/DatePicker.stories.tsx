@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type DatePickerProps } from "../DatePicker.types";
 import { ja } from "date-fns/locale";
-import { DialogContentContainer } from "@vibe/core";
-import { DatePicker } from "@vibe/core/next";
+import { DialogContentContainer } from "@ezds/core";
+import { DatePicker } from "@ezds/core/next";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: DatePicker,

@@ -14,8 +14,8 @@
 
 .attentionBox {
   position: relative;
-  padding: 12px var(--spacing-medium);
-  border-radius: var(--border-radius-medium);
+  padding: 12px var(--ezds-space-0200);
+  border-radius: var(--ezds-radius-0200);
   width: fit-content;
   max-width: 100%;
   height: fit-content;
@@ -26,7 +26,7 @@
 
   // Overriding on primary icon color should be with bigger specificity than the original color
   & .closeIconWrapper .closeIcon {
-    color: var(--primary-text-color);
+    color: var(--ezds-color-text-default);
   }
 
   .icon {
@@ -36,39 +36,39 @@
 
 .title {
   margin: 0;
-  padding-right: var(--spacing-xl);
+  padding-right: var(--ezds-space-0500);
 }
 
 .text,
 .titleContainer {
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 }
 
 .typePrimary {
-  color: var(--primary-text-color);
-  background-color: var(--primary-selected-color);
+  color: var(--ezds-color-text-default);
+  background-color: var(--ezds-color-background-accent-subtle);
 }
 
 .typeDanger {
-  background-color: var(--negative-color-selected);
+  background-color: var(--ezds-color-background-danger-subtle);
 }
 
 .typeSuccess {
-  background-color: var(--positive-color-selected);
+  background-color: var(--ezds-color-background-success-subtle);
 }
 
 .typeDark {
-  background-color: var(--ui-background-color);
-  color: var(--primary-text-color);
+  background-color: var(--ezds-color-background-secondary);
+  color: var(--ezds-color-text-default);
 }
 
 .typeWarning {
-  background-color: var(--warning-color-selected);
-  color: var(--primary-text-color);
+  background-color: var(--ezds-color-background-warning-subtle);
+  color: var(--ezds-color-text-default);
 }
 
 .titleContainer {
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--ezds-space-0050);
 }
 
 .titleContainer:empty {
@@ -90,11 +90,11 @@
     flex: 1;
 
     &.dismissible {
-      padding-right: var(--spacing-xl);
+      padding-right: var(--ezds-space-0500);
     }
   }
 
   &.paragraph {
-    margin: 0 var(--spacing-medium) 0 0;
+    margin: 0 var(--ezds-space-0200) 0 0;
   }
 }

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { LinearProgressBar } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { LinearProgressBar } from "@ezds/core";
 
 export const LinearProgressBarDescription = () => {
   const component = useMemo(() => {

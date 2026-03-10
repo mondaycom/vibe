@@ -1,4 +1,4 @@
-import type { VibeComponentProps } from "@vibe/shared";
+import type { VibeComponentProps } from "@ezds/shared";
 import type { Intent } from "./utils";
 
 interface DatePickerBaseProps extends VibeComponentProps {

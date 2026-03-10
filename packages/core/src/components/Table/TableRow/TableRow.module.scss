@@ -8,11 +8,11 @@
   width: fit-content;
 
   &[aria-selected="true"] > [role="cell"] {
-    background-color: var(--primary-selected-color);
+    background-color: var(--ezds-color-background-accent-subtle);
   }
 
   > [role="cell"] {
-    background-color: var(--primary-background-color);
+    background-color: var(--ezds-color-background-primary);
   }
 
   &:hover {
@@ -21,7 +21,7 @@
     }
 
     &[aria-selected="true"] > [role="cell"] {
-      background: var(--primary-selected-hover-color);
+      background: var(--ezds-color-background-accent-subtle--hover);
     }
   }
 }

@@ -1,10 +1,10 @@
 .galleryHeader {
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--ezds-space-0100);
   display: flex;
   align-items: center;
 
   .galleryHeaderDot {
-    margin-right: var(--spacing-small);
+    margin-right: var(--ezds-space-0100);
     &:last-child {
       margin-right: 0;
     }

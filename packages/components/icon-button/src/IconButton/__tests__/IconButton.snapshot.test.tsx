@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import IconButton from "../IconButton";
-import { SIZES } from "@vibe/shared";
+import { SIZES } from "@ezds/shared";
 
 describe("IconButton renders correctly", () => {
   it("with empty props", () => {

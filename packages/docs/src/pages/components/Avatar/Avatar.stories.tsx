@@ -1,7 +1,7 @@
 import React from "react";
-import { Avatar, AvatarGroup, Flex, Counter } from "@vibe/core";
+import { Avatar, AvatarGroup, Flex, Counter } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate, StoryDescription } from "vibe-storybook-components";
+import { createComponentTemplate, StoryDescription } from "@ezds/storybook-blocks";
 import guest from "./assets/guest.svg";
 import home from "./assets/home.svg";
 import minus from "./assets/minus.svg";
@@ -9,7 +9,7 @@ import owner from "./assets/owner.svg";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
-import { WhatsNew } from "@vibe/icons";
+import { WhatsNew } from "@ezds/icons";
 import { useCallback, useState } from "react";
 import "./Avatar.stories.scss";
 

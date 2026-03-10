@@ -1,1 +1,1 @@
-import "monday-ui-style/dist/index.min.css";
+import "@ezds/web/dist/index.min.css";

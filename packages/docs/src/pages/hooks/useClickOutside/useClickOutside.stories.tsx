@@ -1,6 +1,6 @@
 import React from "react";
 import { useCallback, useRef, useState } from "react";
-import { useClickOutside, Box } from "@vibe/core";
+import { useClickOutside, Box } from "@ezds/core";
 
 export default {
   title: "Hooks/useClickOutside"

@@ -10,8 +10,8 @@ import {
   pressNavigationKey,
   NavigationCommand,
   resetFocus
-} from "@vibe/core/interactionsTests";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+} from "@ezds/core/interactionsTests";
+import { ComponentDefaultTestId, getTestId } from "@ezds/shared";
 
 async function getComponentElements(canvas) {
   const comboboxElement = getByTestId(canvas, ComponentDefaultTestId.COMBOBOX);

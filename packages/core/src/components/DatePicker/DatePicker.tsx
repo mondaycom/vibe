@@ -109,7 +109,7 @@ const DatePicker = forwardRef(
     useWarnDeprecated({
       component: "DatePicker",
       message:
-        "This component is deprecated and will be removed in the next major version. Please use DatePicker from @vibe/core/next instead."
+        "This component is deprecated and will be removed in the next major version. Please use DatePicker from @ezds/core/next instead."
     });
 
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);

@@ -1,14 +1,14 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
 import { isNil, noop as NOOP } from "es-toolkit";
-import { Icon } from "@vibe/icon";
-import { Check, Remove } from "@vibe/icons";
+import { Icon } from "@ezds/icon";
+import { Check, Remove } from "@ezds/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 import useMergeRef from "../../hooks/useMergeRef";
 import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { Text } from "@vibe/typography";
+import { Text } from "@ezds/typography";
 import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {

@@ -1,8 +1,8 @@
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
-import { type SubIcon } from "@vibe/icon";
-import { type InputSize } from "@vibe/base";
-import type { IconButton } from "@vibe/icon-button";
+import { type SubIcon } from "@ezds/icon";
+import { type InputSize } from "@ezds/base";
+import type { IconButton } from "@ezds/icon-button";
 import type MenuButton from "../MenuButton/MenuButton";
 
 export interface SearchProps extends VibeComponentProps {

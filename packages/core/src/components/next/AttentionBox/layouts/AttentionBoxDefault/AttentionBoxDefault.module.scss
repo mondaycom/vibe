@@ -1,7 +1,7 @@
 .container {
   --grid-columns: auto 1fr auto;
   display: grid;
-  gap: var(--space-4);
+  gap: var(--ezds-space-0100);
   width: 100%;
   grid-template-columns: var(--grid-columns);
 
@@ -25,7 +25,7 @@
   .text {
     grid-row: 2;
     min-width: 0;
-    margin-inline-end: var(--space-8);
+    margin-inline-end: var(--ezds-space-0200);
   }
 
   .closeButton {
@@ -36,7 +36,7 @@
 
   .actions {
     grid-row: 3;
-    margin-block-start: var(--space-8);
+    margin-block-start: var(--ezds-space-0200);
   }
 
   &:not(.hasIcon) {

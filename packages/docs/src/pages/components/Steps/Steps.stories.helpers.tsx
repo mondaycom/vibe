@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Steps } from "@vibe/core";
+import { Steps } from "@ezds/core";
 
 const steps6 = [<div />, <div />, <div />, <div />, <div />, <div />];
 

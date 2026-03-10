@@ -4,17 +4,17 @@ import cx from "classnames";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 import { type ButtonType as ButtonTypeEnum, type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { type SIZES } from "../../constants";
-import { Button, type ButtonType, type ButtonSize } from "@vibe/button";
+import { Button, type ButtonType, type ButtonSize } from "@ezds/button";
 import { type VibeComponentProps, withStaticProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
-import { type TooltipPositions } from "@vibe/tooltip";
+import { type TooltipPositions } from "@ezds/tooltip";
 
 type ButtonGroupOption = {
   icon?: SubIcon;

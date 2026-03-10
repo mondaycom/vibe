@@ -1,5 +1,5 @@
 import React from "react";
-import { useSwitch, Toggle, Flex } from "@vibe/core";
+import { useSwitch, Toggle, Flex } from "@ezds/core";
 
 export default {
   title: "Hooks/useSwitch"

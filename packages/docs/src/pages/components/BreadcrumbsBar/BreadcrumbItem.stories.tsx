@@ -1,8 +1,8 @@
 import React from "react";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
-import { BreadcrumbsBar, BreadcrumbItem } from "@vibe/core";
-import { Workspace } from "@vibe/icons";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
+import { BreadcrumbsBar, BreadcrumbItem } from "@ezds/core";
+import { Workspace } from "@ezds/icons";
 import "./BreadcrumbItem.stories.scss";
 
 const metaSettings = createStoryMetaSettingsDecorator({

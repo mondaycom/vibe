@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { VirtualizedGrid } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { VirtualizedGrid } from "@ezds/core";
 import {
   generateItems,
   itemRenderer

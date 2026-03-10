@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
 import { type Meta, type StoryObj } from "@storybook/react";
-import { List, ListItem, ListTitle, type ListProps } from "@vibe/core/next";
-import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search } from "@vibe/icons";
+import { List, ListItem, ListTitle, type ListProps } from "@ezds/core/next";
+import { Board, Email, Favorite, Person, Settings, Team, ThumbsUp, Search } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Flex, DialogContentContainer, Text } from "@vibe/core";
+import { Flex, DialogContentContainer, Text } from "@ezds/core";
 import { FixedSizeList } from "react-window";
 import person1 from "../Avatar/assets/person1.png";
 import person2 from "../Avatar/assets/person2.png";

@@ -3,7 +3,7 @@ import styles from "./Hero.module.scss";
 import FigmaIcon from "./icons/FigmaIcon";
 import GitHubIcon from "./icons/GitHubIcon";
 import ResourceButton from "./ResourceButton";
-import { Flex } from "@vibe/core";
+import { Flex } from "@ezds/core";
 import EntranceAnimation from "../EntranceAnimation";
 
 export default function Hero() {

@@ -1,21 +1,21 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { Icon } from "@vibe/icon";
+import { Icon } from "@ezds/icon";
 import useMergeRef from "../../hooks/useMergeRef";
-import { CloseSmall } from "@vibe/icons";
+import { CloseSmall } from "@ezds/icons";
 import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import Avatar from "../Avatar/Avatar";
-import { IconButton } from "@vibe/icon-button";
-import { Text } from "@vibe/typography";
+import { IconButton } from "@ezds/icon-button";
+import { Text } from "@ezds/typography";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 import useSetFocus from "../../hooks/useSetFocus";
-import { useClickableProps } from "@vibe/clickable";
+import { useClickableProps } from "@ezds/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 

@@ -1,8 +1,8 @@
 import React, { useRef, useMemo, createRef } from "react";
 import { type BaseItemData } from "../../../../BaseItem";
 import { Chips } from "../../../../Chips";
-import { Flex } from "@vibe/layout";
-import { DialogContentContainer, Dialog } from "@vibe/dialog";
+import { Flex } from "@ezds/layout";
+import { DialogContentContainer, Dialog } from "@ezds/dialog";
 import useItemsOverflow from "../../../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";

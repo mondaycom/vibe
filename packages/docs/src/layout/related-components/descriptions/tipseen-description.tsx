@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useCallback } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Tipseen, TipseenWizard } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Tipseen, TipseenWizard } from "@ezds/core";
 
 export const TipseenDescription = () => {
   const [activeStepIndex, setActiveStepIndex] = useState(2);

@@ -3,13 +3,13 @@
 .listItemIcon {
   display: flex;
   align-items: center;
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 }
 
 .start {
-  margin-right: var(--spacing-small);
+  margin-right: var(--ezds-space-0100);
 }
 
 .end {
-  margin-left: var(--spacing-small);
+  margin-left: var(--ezds-space-0100);
 }

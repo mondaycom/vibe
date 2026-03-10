@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { useClickableProps } from "@vibe/core";
+import { useClickableProps } from "@ezds/core";
 import "./useClickableProps.stories.scss";
 
 export default {

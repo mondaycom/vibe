@@ -1,6 +1,6 @@
 import { expect } from "@storybook/jest";
 import { fireEvent, within } from "@storybook/test";
-import { delay, interactionSuite, resetFocus } from "@vibe/core/interactionsTests";
+import { delay, interactionSuite, resetFocus } from "@ezds/core/interactionsTests";
 
 const CHANGES_DELAY = 50;
 const DRAG_STEPS = 20;

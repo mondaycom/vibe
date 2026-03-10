@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Checkbox } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Checkbox } from "@ezds/core";
 
 export const CheckboxDescription = () => {
   const component = useMemo(() => <Checkbox label="Selected" checked />, []);

@@ -1,7 +1,7 @@
 .track {
   position: absolute;
   border-radius: inherit;
-  background-color: var(--primary-selected-color);
+  background-color: var(--ezds-color-background-accent-subtle);
   height: inherit;
   top: 50%;
   transform: translateY(-50%);
@@ -9,9 +9,9 @@
 }
 
 .positive {
-  background-color: var(--positive-color-selected);
+  background-color: var(--ezds-color-background-success-subtle);
 }
 
 .negative {
-  background-color: var(--negative-color-selected);
+  background-color: var(--ezds-color-background-danger-subtle);
 }

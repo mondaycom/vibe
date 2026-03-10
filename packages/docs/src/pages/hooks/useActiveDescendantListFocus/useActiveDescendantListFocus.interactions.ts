@@ -5,9 +5,9 @@ import {
   pressNavigationKey,
   NavigationCommand,
   resetFocus
-} from "@vibe/core/interactionsTests";
+} from "@ezds/core/interactionsTests";
 import styles from "./useActiveDescendantListFocus.module.scss";
-import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
+import { getTestId, ComponentDefaultTestId } from "@ezds/shared";
 
 export const overviewInteractionSuite = interactionSuite({
   tests: [keyboardNavAndFocusForVerticalList],

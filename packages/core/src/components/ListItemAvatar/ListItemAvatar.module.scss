@@ -3,11 +3,11 @@
 .listItemAvatar {
   display: flex;
   align-items: center;
-  color: var(--primary-text-color);
+  color: var(--ezds-color-text-default);
 }
 
 .avatar {
   width: 22px;
   height: 22px;
-  margin-right: var(--spacing-small);
+  margin-right: var(--ezds-space-0100);
 }

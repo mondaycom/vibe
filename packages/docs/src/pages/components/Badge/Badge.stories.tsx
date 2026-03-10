@@ -1,9 +1,9 @@
 import React from "react";
-import { Badge, Flex, Button, Avatar, Link } from "@vibe/core";
+import { Badge, Flex, Button, Avatar, Link } from "@ezds/core";
 import person from "../Avatar/assets/person1.png";
-import { ExternalPage, WhatsNew } from "@vibe/icons";
+import { ExternalPage, WhatsNew } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Badge,

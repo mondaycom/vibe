@@ -9,17 +9,17 @@
 }
 
 .icon {
-  color: var(--icon-color);
+  color: var(--ezds-color-icon-subtle);
   width: 15.5px;
   height: 15.5px;
   &.disabled {
-    color: var(--disabled-text-color);
+    color: var(--ezds-color-text-default-disabled);
   }
   &.colorOnPrimaryColor {
-    color: var(--text-color-on-primary);
+    color: var(--ezds-color-text-default-inverted);
   }
   &.colorOnInvertedBackground {
-    color: var(--text-color-on-inverted);
+    color: var(--ezds-color-text-default-inverted);
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { RelatedComponent } from "vibe-storybook-components";
-import { Flex, Heading } from "@vibe/core";
+import { RelatedComponent } from "@ezds/storybook-blocks";
+import { Flex, Heading } from "@ezds/core";
 
 export const TypographyDescription = () => {
   const component = useMemo(() => {

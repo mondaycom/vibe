@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { Skeleton, type SkeletonProps, Avatar, Button, Flex, Box, Text } from "@vibe/core";
+import { Skeleton, type SkeletonProps, Avatar, Button, Flex, Box, Text } from "@ezds/core";
 import person from "../Avatar/assets/person1.png";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { Reply, ThumbsUp } from "@vibe/icons";
+import { Reply, ThumbsUp } from "@ezds/icons";
 
 const metaSettings = createStoryMetaSettingsDecorator({
   component: Skeleton

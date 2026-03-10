@@ -1,5 +1,5 @@
 import React from "react";
-import { StorybookLink, Tip } from "vibe-storybook-components";
+import { StorybookLink, Tip } from "@ezds/storybook-blocks";
 
 export const TipDevTipPopover = () => (
   <Tip title="Dev tip">

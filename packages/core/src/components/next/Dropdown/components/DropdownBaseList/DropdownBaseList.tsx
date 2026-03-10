@@ -2,8 +2,8 @@ import React, { forwardRef } from "react";
 import BaseItem from "../../../../BaseItem/BaseItem";
 import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
-import { Flex } from "@vibe/layout";
-import { Text, type TextType } from "@vibe/typography";
+import { Flex } from "@ezds/layout";
+import { Text, type TextType } from "@ezds/typography";
 import cx from "classnames";
 import { Divider } from "../../../../Divider";
 

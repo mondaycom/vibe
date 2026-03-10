@@ -1,5 +1,5 @@
-import { TextWithHighlight } from "@vibe/core";
-import { createComponentTemplate } from "vibe-storybook-components";
+import { TextWithHighlight } from "@ezds/core";
+import { createComponentTemplate } from "@ezds/storybook-blocks";
 
 export default {
   title: "Text/TextWithHighlight",

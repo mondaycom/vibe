@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { Text } from "@vibe/core";
+import { Text } from "@ezds/core";
 import styles from "./example-table.module.scss";
 
 interface TableData {

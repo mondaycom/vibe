@@ -1,6 +1,6 @@
 import React from "react";
-import { Menu, MenuItem, type MenuItemProps, Flex, Text } from "@vibe/core";
-import { Activity } from "@vibe/icons";
+import { Menu, MenuItem, type MenuItemProps, Flex, Text } from "@ezds/core";
+import { Activity } from "@ezds/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type Meta, type StoryObj } from "@storybook/react";
 

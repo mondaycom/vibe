@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/layer",
+  "name": "@ezds/layer",
   "version": "3.0.10",
   "description": "Vibe sub-package for layering components",
   "repository": {
@@ -38,16 +38,16 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/icon": "3.0.11",
-    "@vibe/loader": "3.0.11",
-    "@vibe/shared": "3.0.8",
+    "@ezds/icon": "*",
+    "@ezds/loader": "*",
+    "@ezds/shared": "*",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.5",
-    "@vibe/icons": "1.16.0",
+    "@ezds/config": "*",
+    "@ezds/icons": "*",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -66,7 +66,11 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@ezds/config/.eslintrc.cjs"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }

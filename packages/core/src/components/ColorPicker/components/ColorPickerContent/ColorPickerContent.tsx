@@ -6,7 +6,7 @@ import {
   type CONTENT_COLORS_VALUES,
   contentColors
 } from "../../../../utils/colors-vars-map";
-import { NoColor } from "@vibe/icons";
+import { NoColor } from "@ezds/icons";
 import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import {
   type ColorShapes,
@@ -22,7 +22,7 @@ import {
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
 import { type VibeComponentProps, withStaticProps } from "../../../../types";
-import { type SubIcon } from "@vibe/icon";
+import { type SubIcon } from "@ezds/icon";
 import useMergeRef from "../../../../hooks/useMergeRef";
 import { type ColorStyle } from "../../../../types";
 

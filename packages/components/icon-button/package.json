@@ -1,5 +1,5 @@
 {
-  "name": "@vibe/icon-button",
+  "name": "@ezds/icon-button",
   "version": "3.0.5",
   "description": "Vibe sub-package for icon button component",
   "repository": {
@@ -38,17 +38,17 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/button": "3.0.16",
-    "@vibe/icon": "3.0.11",
-    "@vibe/icons": "1.16.0",
-    "@vibe/shared": "3.0.8",
-    "@vibe/tooltip": "3.0.5",
+    "@ezds/button": "*",
+    "@ezds/icon": "*",
+    "@ezds/icons": "*",
+    "@ezds/shared": "*",
+    "@ezds/tooltip": "*",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.5",
+    "@ezds/config": "*",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
@@ -67,7 +67,11 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@ezds/config/.eslintrc.cjs"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }

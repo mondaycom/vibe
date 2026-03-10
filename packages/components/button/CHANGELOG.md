@@ -3,31 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.16](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.15...@vibe/button@3.0.16) (2026-01-18)
+## [3.0.16](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.15...@ezds/button@3.0.16) (2026-01-18)
 
-**Note:** Version bump only for package @vibe/button
-
-
-
-
-
-## [3.0.15](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.14...@vibe/button@3.0.15) (2026-01-04)
-
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button
 
 
 
 
 
-## [3.0.14](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.13...@vibe/button@3.0.14) (2026-01-04)
+## [3.0.15](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.14...@ezds/button@3.0.15) (2026-01-04)
 
-**Note:** Version bump only for package @vibe/button
-
-
+**Note:** Version bump only for package @ezds/button
 
 
 
-## [3.0.13](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.12...@vibe/button@3.0.13) (2025-12-28)
+
+
+## [3.0.14](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.13...@ezds/button@3.0.14) (2026-01-04)
+
+**Note:** Version bump only for package @ezds/button
+
+
+
+
+
+## [3.0.13](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.12...@ezds/button@3.0.13) (2025-12-28)
 
 
 ### Bug Fixes
@@ -38,87 +38,87 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.0.12](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.11...@vibe/button@3.0.12) (2025-12-25)
+## [3.0.12](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.11...@ezds/button@3.0.12) (2025-12-25)
 
-**Note:** Version bump only for package @vibe/button
-
-
-
-
-
-## [3.0.11](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.10...@vibe/button@3.0.11) (2025-12-22)
-
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button
 
 
 
 
 
-## [3.0.10](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.9...@vibe/button@3.0.10) (2025-12-17)
+## [3.0.11](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.10...@ezds/button@3.0.11) (2025-12-22)
 
-**Note:** Version bump only for package @vibe/button
-
-
-
-
-
-## [3.0.9](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.8...@vibe/button@3.0.9) (2025-12-17)
-
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button
 
 
 
 
 
-## [3.0.8](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.7...@vibe/button@3.0.8) (2025-11-26)
+## [3.0.10](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.9...@ezds/button@3.0.10) (2025-12-17)
 
-**Note:** Version bump only for package @vibe/button
-
-
-
-
-
-## [3.0.7](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.6...@vibe/button@3.0.7) (2025-11-25)
-
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button
 
 
 
 
 
-## [3.0.6](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.5...@vibe/button@3.0.6) (2025-11-19)
+## [3.0.9](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.8...@ezds/button@3.0.9) (2025-12-17)
 
-**Note:** Version bump only for package @vibe/button
-
-
-
-
-
-## [3.0.5](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.4...@vibe/button@3.0.5) (2025-11-06)
-
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button
 
 
 
 
 
-## [3.0.4](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.3...@vibe/button@3.0.4) (2025-10-30)
+## [3.0.8](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.7...@ezds/button@3.0.8) (2025-11-26)
 
-**Note:** Version bump only for package @vibe/button
-
-
-
-
-
-## [3.0.3](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.2...@vibe/button@3.0.3) (2025-10-26)
-
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button
 
 
 
 
 
-## [3.0.2](https://github.com/mondaycom/vibe/compare/@vibe/button@3.0.1...@vibe/button@3.0.2) (2025-10-26)
+## [3.0.7](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.6...@ezds/button@3.0.7) (2025-11-25)
+
+**Note:** Version bump only for package @ezds/button
+
+
+
+
+
+## [3.0.6](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.5...@ezds/button@3.0.6) (2025-11-19)
+
+**Note:** Version bump only for package @ezds/button
+
+
+
+
+
+## [3.0.5](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.4...@ezds/button@3.0.5) (2025-11-06)
+
+**Note:** Version bump only for package @ezds/button
+
+
+
+
+
+## [3.0.4](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.3...@ezds/button@3.0.4) (2025-10-30)
+
+**Note:** Version bump only for package @ezds/button
+
+
+
+
+
+## [3.0.3](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.2...@ezds/button@3.0.3) (2025-10-26)
+
+**Note:** Version bump only for package @ezds/button
+
+
+
+
+
+## [3.0.2](https://github.com/mondaycom/vibe/compare/@ezds/button@3.0.1...@ezds/button@3.0.2) (2025-10-26)
 
 
 ### Bug Fixes
@@ -131,4 +131,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 3.0.1 (2025-10-25)
 
-**Note:** Version bump only for package @vibe/button
+**Note:** Version bump only for package @ezds/button

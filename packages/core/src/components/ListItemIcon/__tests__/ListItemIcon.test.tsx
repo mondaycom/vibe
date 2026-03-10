@@ -2,7 +2,7 @@ import { it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import ListItemIcon from "../ListItemIcon";
-import { Sun } from "@vibe/icons";
+import { Sun } from "@ezds/icons";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ListItemIcon />).toJSON();

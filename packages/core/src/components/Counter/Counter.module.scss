@@ -13,7 +13,7 @@
 }
 
 .withAnimation {
-  animation: counterPopElastic var(--motion-expressive-short);
+  animation: counterPopElastic var(--ezds-motion-expressive-short);
 }
 
 .sizeXs {
@@ -21,40 +21,40 @@
   @include smoothing-text;
   min-width: 18px;
   line-height: 18px;
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--ezds-space-0100);
 }
 
 .sizeSmall {
   @include font-caption();
   min-width: 18px;
   line-height: 18px;
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--ezds-space-0100);
 }
 
 .sizeLarge {
   @include label-text();
   min-width: 24px;
-  padding: 2px var(--spacing-small);
+  padding: 2px var(--ezds-space-0100);
 }
 
 .kindFill.colorPrimary {
-  color: var(--fixed-light-color);
-  background-color: var(--primary-color);
+  color: var(--ezds-color-text-default-inverted);
+  background-color: var(--ezds-color-background-accent-default);
 }
 
 .kindFill.colorDark {
-  color: var(--text-color-on-inverted);
-  background-color: var(--inverted-color-background);
+  color: var(--ezds-color-text-default-inverted);
+  background-color: var(--ezds-color-background-primary-inverted);
 }
 
 .kindFill.colorNegative {
-  color: var(--fixed-light-color);
-  background-color: var(--negative-color);
+  color: var(--ezds-color-text-default-inverted);
+  background-color: var(--ezds-color-background-danger-default);
 }
 
 .kindFill.colorLight {
-  color: var(--primary-text-color);
-  background-color: var(--ui-background-color);
+  color: var(--ezds-color-text-default);
+  background-color: var(--ezds-color-background-secondary);
 }
 
 .kindLine {
@@ -62,20 +62,20 @@
 }
 
 .kindLine.colorPrimary {
-  color: var(--primary-color);
+  color: var(--ezds-color-background-accent-default);
 }
 
 .kindLine.colorDark {
-  color: var(--inverted-color-background);
+  color: var(--ezds-color-background-primary-inverted);
 }
 
 .kindLine.colorNegative {
-  color: var(--negative-color);
+  color: var(--ezds-color-background-danger-default);
 }
 
 .kindLine.colorLight {
-  color: var(--primary-text-color);
-  box-shadow: 0 0 0 1px var(--ui-background-color) inset !important;
+  color: var(--ezds-color-text-default);
+  box-shadow: 0 0 0 1px var(--ezds-color-background-secondary) inset !important;
 }
 
 // Animations
@@ -89,7 +89,7 @@
 .fadeEnterActive {
   position: relative;
   opacity: 1;
-  transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
+  transition: transform var(--ezds-motion-productive-long) var(--ezds-motion-timing-enter), opacity var(--ezds-motion-productive-short);
   transform: translateY(0);
 }
 
@@ -105,5 +105,5 @@
   position: relative;
   opacity: 0;
   transform: translateY(-15px);
-  transition: transform var(--motion-productive-long) var(--motion-timing-exit), opacity var(--motion-productive-short);
+  transition: transform var(--ezds-motion-productive-long) var(--ezds-motion-timing-exit), opacity var(--ezds-motion-productive-short);
 }

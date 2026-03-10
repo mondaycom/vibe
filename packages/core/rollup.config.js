@@ -65,7 +65,7 @@ function getVibePackagesWithMockedClassNames() {
       if (!fs.existsSync(pkgJsonPath)) continue;
       try {
         const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
-        if (pkg.name?.startsWith("@vibe/") && pkg.exports?.["./mockedClassNames"]) {
+        if (pkg.name?.startsWith("@ezds/") && pkg.exports?.["./mockedClassNames"]) {
           packagesWithMocked.set(pkg.name, true);
         }
       } catch (e) {
@@ -100,7 +100,7 @@ export default {
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
     next: path.join(SRC_PATH, "components/next.ts")
   },
-  external: [/node_modules\/(?!monday-ui-style)(.*)/],
+  external: [/node_modules\/(?!@ezds\/web)(.*)/],
   plugins: [
     ...(shouldMockModularClassnames
       ? [
@@ -109,9 +109,9 @@ export default {
             resolveId: {
               order: "pre",
               handler(source) {
-                if (source.startsWith("@vibe/") && !source.includes("/mockedClassNames")) {
-                  const packageName = source.replace("@vibe/", "").split("/")[0];
-                  const fullPackageName = `@vibe/${packageName}`;
+                if (source.startsWith("@ezds/") && !source.includes("/mockedClassNames")) {
+                  const packageName = source.replace("@ezds/", "").split("/")[0];
+                  const fullPackageName = `@ezds/${packageName}`;
 
                   if (vibePackagesWithMocked.has(fullPackageName)) {
                     return { id: `${fullPackageName}/mockedClassNames`, external: true };
@@ -176,7 +176,7 @@ export default {
     copy({
       targets: [
         {
-          src: "../../node_modules/monday-ui-style/dist/index.min.css",
+          src: "../../node_modules/@ezds/web/dist/index.min.css",
           dest: "dist/tokens",
           rename: () => "tokens.css"
         },

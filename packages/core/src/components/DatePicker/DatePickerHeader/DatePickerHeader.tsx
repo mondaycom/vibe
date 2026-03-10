@@ -1,9 +1,9 @@
 import React from "react";
-import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
+import { DropdownChevronUp, DropdownChevronDown } from "@ezds/icons";
 import moment from "moment";
 import { type Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";
-import { Icon } from "@vibe/icon";
+import { Icon } from "@ezds/icon";
 
 export interface DatePickerHeaderProps {
   /**

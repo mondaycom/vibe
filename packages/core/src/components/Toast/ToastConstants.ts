@@ -1,4 +1,4 @@
-import { Info, Check, Alert, Warning } from "@vibe/icons";
+import { Info, Check, Alert, Warning } from "@ezds/icons";
 
 /**
  * @deprecated

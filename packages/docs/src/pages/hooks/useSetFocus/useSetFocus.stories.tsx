@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Button, Flex, TextField, useSetFocus } from "@vibe/core";
+import { Button, Flex, TextField, useSetFocus } from "@ezds/core";
 import styles from "./useSetFocus.stories.module.scss";
 
 export default {

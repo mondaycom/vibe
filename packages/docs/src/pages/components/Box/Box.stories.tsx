@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, type BoxProps, Divider } from "@vibe/core";
+import { Box, type BoxProps, Divider } from "@ezds/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { type StoryFn } from "@storybook/react";
 

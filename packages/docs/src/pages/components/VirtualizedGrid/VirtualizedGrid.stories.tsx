@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { VirtualizedGrid, type VirtualizedGridProps } from "@vibe/core";
-import { Button, Flex } from "@vibe/core";
+import { VirtualizedGrid, type VirtualizedGridProps } from "@ezds/core";
+import { Button, Flex } from "@ezds/core";
 import { generateItems, itemRenderer } from "./VirtualizedGrid.stories.helpers";
 
 export default {

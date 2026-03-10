@@ -4,12 +4,12 @@ import Link, { type LinkProps } from "../../Link/Link";
 import cx from "classnames";
 
 /**
- * @deprecated AttentionBoxLink is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ * @deprecated AttentionBoxLink is deprecated. Please use AttentionBox from "@ezds/core/next" instead.
  */
 export type AttentionBoxLinkProps = LinkProps;
 
 /**
- * @deprecated AttentionBoxLink is deprecated. Please use AttentionBox from "@vibe/core/next" instead.
+ * @deprecated AttentionBoxLink is deprecated. Please use AttentionBox from "@ezds/core/next" instead.
  */
 const AttentionBoxLink = ({
   href,
