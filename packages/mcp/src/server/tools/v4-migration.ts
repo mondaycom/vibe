@@ -3,6 +3,24 @@ import { z } from "zod";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, resolve, extname } from "path";
 
+// ── Promoted Components (old @vibe/core → new @vibe/core/next in v3, now default in v4) ──
+
+const PROMOTED_COMPONENTS = ["Dropdown", "AttentionBox", "Modal", "DatePicker", "Dialog"] as const;
+
+interface OldComponentDetection {
+  component: string;
+  file: string;
+  line: number;
+  importSource: "old" | "new";
+  importStatement: string;
+}
+
+interface PromotedComponentAnalysis {
+  oldApiUsage: OldComponentDetection[];
+  newApiUsage: OldComponentDetection[];
+  summary: Record<string, { oldCount: number; newCount: number; oldFiles: string[]; newFiles: string[] }>;
+}
+
 const migrationGuideSchema = z.object({
   projectPath: z.string().describe("Path to the project directory to analyze for migration")
 });
@@ -38,6 +56,7 @@ export const v4MigrationTool: MCPTool<typeof migrationGuideSchema.shape> = {
 
       const result = {
         migrationGuide: migrationData,
+        promotedComponentMigrationGuide: getPromotedComponentMigrationGuide(),
         projectInfo,
         projectAnalysis: analysis,
         recommendations: generateRecommendations(analysis, projectInfo)
@@ -255,6 +274,23 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
         },
         {
           step: 3,
+          title: "Migrate Old Components to New API",
+          action: "Identify and migrate components that had old/new versions in Vibe 3",
+          description:
+            "In Vibe 3, Dropdown, AttentionBox, Modal, DatePicker, and Dialog had OLD versions in @vibe/core and NEW versions in @vibe/core/next. " +
+            "In Vibe 4, the NEW versions are now the default in @vibe/core. If you were importing these from @vibe/core (old API), " +
+            "your code now silently uses a completely different component with a different API.",
+          details: [
+            "Check the promotedComponentAnalysis section in the project analysis output",
+            "Components imported from @vibe/core (old API) need manual migration to the new API",
+            "Components imported from @vibe/core/next (new API) only need the import path updated (handled by codemod)",
+            "For Dropdown migration, use the dedicated 'dropdown-migration' tool for detailed guidance",
+            "Review the promotedComponentMigrationGuide for before/after examples per component"
+          ],
+          important: "⚠️ This step MUST be completed BEFORE running codemods. The codemods update import paths but do NOT transform old API usage to new API usage."
+        },
+        {
+          step: 4,
           title: "Run Automated Migration",
           action: `Run migration script: npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
           command: `npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
@@ -274,7 +310,7 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
           ]
         },
         {
-          step: 4,
+          step: 5,
           title: "Manual Review and Fixes",
           action: "Apply changes that codemods cannot handle",
           description: "Use the projectAnalysis.manualChanges results to find and fix these issues",
@@ -294,7 +330,7 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
           important: "Use the file:line references from projectAnalysis to locate each issue"
         },
         {
-          step: 5,
+          step: 6,
           title: "Testing",
           action: "Build and test application",
           description: "Run build and tests to verify all functionality",
@@ -306,7 +342,7 @@ function getMigrationInstructions(projectInfo: { targetDirectory: string }) {
           important: "Do not consider migration complete until build passes and all features work correctly"
         },
         {
-          step: 6,
+          step: 7,
           title: "Migration Summary & Next Steps",
           action: "Review migration completion",
           description: "Congratulations! You've successfully migrated to Vibe 4.",
@@ -345,6 +381,7 @@ async function analyzeProject(projectPath: string) {
     importAnalysis: null,
     componentUsage: null,
     manualChanges: null,
+    promotedComponentAnalysis: null,
     potentialIssues: []
   };
 
@@ -363,6 +400,7 @@ async function analyzeProject(projectPath: string) {
   analysis.importAnalysis = scanResult.importAnalysis;
   analysis.componentUsage = scanResult.componentUsage;
   analysis.manualChanges = scanResult.manualChanges;
+  analysis.promotedComponentAnalysis = scanResult.promotedComponentAnalysis;
 
   return analysis;
 }
@@ -485,7 +523,9 @@ function scanAllFiles(files: string[]) {
     }
   }
 
-  return { importAnalysis, componentUsage, manualChanges };
+  const promotedComponentAnalysis = detectPromotedComponentImports(files);
+
+  return { importAnalysis, componentUsage, manualChanges, promotedComponentAnalysis };
 }
 
 function scanStyleFile(file: string, lines: string[], importAnalysis: any, manualChanges: Record<string, FileIssue[]>) {
@@ -698,6 +738,138 @@ function scanManualChanges(file: string, lines: string[], content: string, manua
   }
 }
 
+// ── Promoted Component Detection ─────────────────────────────────────
+
+function detectPromotedComponentImports(files: string[]): PromotedComponentAnalysis {
+  const oldApiUsage: OldComponentDetection[] = [];
+  const newApiUsage: OldComponentDetection[] = [];
+  const summary: PromotedComponentAnalysis["summary"] = {};
+
+  for (const comp of PROMOTED_COMPONENTS) {
+    summary[comp] = { oldCount: 0, newCount: 0, oldFiles: [], newFiles: [] };
+  }
+
+  // Match import statements from @vibe/core or @vibe/core/next (both quote styles)
+  const importRegex = /import\s+\{([^}]+)\}\s+from\s+["'](@vibe\/core(?:\/next)?)["']/g;
+
+  for (const file of files) {
+    try {
+      const content = readFileSync(file, "utf-8");
+      const lines = content.split("\n");
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        importRegex.lastIndex = 0;
+        let match;
+
+        while ((match = importRegex.exec(line)) !== null) {
+          const importedNames = match[1].split(",").map(s => s.trim().split(/\s+as\s+/)[0].trim());
+          const source = match[2];
+          const isNext = source === "@vibe/core/next";
+
+          for (const name of importedNames) {
+            if ((PROMOTED_COMPONENTS as readonly string[]).includes(name)) {
+              const detection: OldComponentDetection = {
+                component: name,
+                file,
+                line: i + 1,
+                importSource: isNext ? "new" : "old",
+                importStatement: line.trim()
+              };
+
+              if (isNext) {
+                newApiUsage.push(detection);
+                summary[name].newCount++;
+                if (!summary[name].newFiles.includes(file)) {
+                  summary[name].newFiles.push(file);
+                }
+              } else {
+                oldApiUsage.push(detection);
+                summary[name].oldCount++;
+                if (!summary[name].oldFiles.includes(file)) {
+                  summary[name].oldFiles.push(file);
+                }
+              }
+            }
+          }
+        }
+      }
+    } catch {
+      // Skip unreadable files
+    }
+  }
+
+  return { oldApiUsage, newApiUsage, summary };
+}
+
+function getPromotedComponentMigrationGuide() {
+  return {
+    description:
+      "In Vibe 3, these components had OLD versions in @vibe/core and NEW versions in @vibe/core/next. " +
+      "In Vibe 4, the NEW versions are now the default in @vibe/core. If you were using the OLD version " +
+      "from @vibe/core, your import path is now 'correct' but points to a completely different component with a different API.",
+    components: {
+      Dropdown: {
+        severity: "critical" as const,
+        apiChanges: [
+          "Option shape: { id, text } → { value, label }",
+          "Sub-components removed: DropdownMenu, DropdownOption, DropdownSingleValue",
+          "searchable now defaults to true",
+          "Combobox replaced by Dropdown with box mode"
+        ],
+        before: `import { Dropdown } from "@vibe/core";\n<Dropdown options={[{ id: "1", text: "Option" }]} />`,
+        after: `import { Dropdown } from "@vibe/core";\n<Dropdown options={[{ value: "1", label: "Option" }]} />`,
+        toolReference: "Use the 'dropdown-migration' tool for detailed Dropdown migration assistance"
+      },
+      AttentionBox: {
+        severity: "high" as const,
+        apiChanges: [
+          'type values renamed: "success" → "positive", "danger" → "negative", "dark" → "neutral"',
+          "entryAnimation → animate",
+          "withoutIcon / withIconWithoutHeader → icon={false}",
+          "AttentionBoxLink removed — use link prop"
+        ],
+        before: `import { AttentionBox } from "@vibe/core";\n<AttentionBox type="danger" entryAnimation withoutIcon />`,
+        after: `import { AttentionBox } from "@vibe/core";\n<AttentionBox type="negative" animate icon={false} />`
+      },
+      Modal: {
+        severity: "critical" as const,
+        apiChanges: [
+          "id prop is now required",
+          "show prop controls visibility (replaces external state pattern)",
+          "width → size (\"small\" | \"medium\" | \"large\")",
+          "Layout via ModalHeader, ModalContent, ModalFooter sub-components",
+          "ModalFooterButtons removed — use ModalFooter with Button children"
+        ],
+        before: `import { Modal } from "@vibe/core";\n<Modal title="My Modal" width={500}>{content}</Modal>`,
+        after: `import { Modal } from "@vibe/core";\n<Modal id="my-modal" show={isOpen} onClose={onClose} size="medium">\n  <ModalHeader title="My Modal" />\n  <ModalContent>{content}</ModalContent>\n</Modal>`
+      },
+      DatePicker: {
+        severity: "critical" as const,
+        apiChanges: [
+          "date prop: moment.Moment → native Date",
+          "onPickDate → onDateChange",
+          'range boolean → mode: "single" | "range"',
+          "shouldBlockDay → isDateDisabled",
+          "moment no longer a peer dependency — uses date-fns internally"
+        ],
+        before: `import { DatePicker } from "@vibe/core";\n<DatePicker date={moment("2024-01-01")} onPickDate={handler} range />`,
+        after: `import { DatePicker } from "@vibe/core";\n<DatePicker date={new Date("2024-01-01")} onDateChange={handler} mode="range" />`
+      },
+      Dialog: {
+        severity: "high" as const,
+        apiChanges: [
+          "modifiers → middleware (uses @floating-ui/react-dom)",
+          "enableNestedDialogLayer removed — LayerProvider is always used",
+          "addKeyboardHideShowTriggersByDefault default changed to true"
+        ],
+        before: `import { Dialog } from "@vibe/core";\n<Dialog modifiers={[{ name: "offset", options: { offset: [0, 8] } }]} enableNestedDialogLayer>`,
+        after: `import { Dialog } from "@vibe/core";\n<Dialog middleware={[offset(8)]}>  // import { offset } from "@floating-ui/react-dom"`
+      }
+    }
+  };
+}
+
 // ── File Discovery ───────────────────────────────────────────────────
 
 function getAllSourceFiles(dir: string): string[] {
@@ -863,6 +1035,47 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
     }
   }
 
+  // Promoted component recommendations
+  if (analysis.promotedComponentAnalysis) {
+    const promoted = analysis.promotedComponentAnalysis as PromotedComponentAnalysis;
+    const guide = getPromotedComponentMigrationGuide();
+
+    for (const [component, counts] of Object.entries(promoted.summary)) {
+      const componentGuide = guide.components[component as keyof typeof guide.components];
+      if (!componentGuide) continue;
+
+      if (counts.oldCount > 0) {
+        recommendations.push({
+          type: "promoted-component-old-api",
+          priority: componentGuide.severity,
+          action: `Migrate ${component} from old API to new API`,
+          details:
+            `Found ${counts.oldCount} import(s) of ${component} from @vibe/core (old API) across ${counts.oldFiles.length} file(s). ` +
+            `After upgrading to Vibe 4, these imports will silently point to the NEW ${component} which has a different API.`,
+          apiChanges: componentGuide.apiChanges,
+          before: componentGuide.before,
+          after: componentGuide.after,
+          files: counts.oldFiles.slice(0, 10),
+          ...("toolReference" in componentGuide ? { toolReference: componentGuide.toolReference } : {}),
+          important: "⚠️ Must be resolved BEFORE running codemods (step 3 in migration steps)"
+        });
+      }
+
+      if (counts.newCount > 0) {
+        recommendations.push({
+          type: "promoted-component-new-api",
+          priority: "info",
+          action: `${component}: already using new API from @vibe/core/next`,
+          details:
+            `Found ${counts.newCount} import(s) of ${component} from @vibe/core/next (new API) across ${counts.newFiles.length} file(s). ` +
+            `The codemod will automatically update the import path from @vibe/core/next to @vibe/core.`,
+          files: counts.newFiles.slice(0, 10),
+          fix: "Handled by codemod: next-imports-migration"
+        });
+      }
+    }
+  }
+
   // Migration script
   recommendations.push({
     type: "migration-script",
@@ -889,7 +1102,7 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
     priority: "medium",
     action: "Manual review and fixes",
     details: "Review breaking changes and apply manual fixes",
-    warning: "⚠️ ONLY do manual changes AFTER the automated migration script completes (step 3)"
+    warning: "⚠️ ONLY do manual changes AFTER the automated migration script completes (step 4)"
   });
 
   recommendations.push({
@@ -904,7 +1117,7 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
       "Verify ARIA attributes render correctly",
       "Check CSS spacing and layout"
     ],
-    warning: "⚠️ ONLY test AFTER completing manual fixes (step 4)"
+    warning: "⚠️ ONLY test AFTER completing manual fixes (step 5)"
   });
 
   recommendations.push({
