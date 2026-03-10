@@ -1083,7 +1083,7 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
     action: "Run automated migration script",
     command: `npx @vibe/codemod -m v4 --target "${projectInfo.targetDirectory}" --extensions tsx jsx -y`,
     details: "Handles enums, ARIA props, import renames, and component prop migrations automatically",
-    warning: "⚠️ ONLY run this AFTER completing package dependency updates (step 2)"
+    warning: "⚠️ ONLY run this AFTER completing promoted component migration (step 3). After codemods rewrite imports, old vs new API usage becomes indistinguishable."
   });
 
   // CSS tokens
@@ -1102,7 +1102,7 @@ function generateRecommendations(analysis: any, projectInfo: { targetDirectory: 
     priority: "medium",
     action: "Manual review and fixes",
     details: "Review breaking changes and apply manual fixes",
-    warning: "⚠️ ONLY do manual changes AFTER the automated migration script completes (step 4)"
+    warning: "⚠️ Promoted component migration (step 3) must be done BEFORE codemods. Other manual fixes (step 5) should be done AFTER."
   });
 
   recommendations.push({
