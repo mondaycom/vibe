@@ -12,12 +12,14 @@ $checkbox-size: 16px;
   border-color: var(--secondary-text-color);
 }
 
+
 .wrapper {
   position: relative;
   display: flex;
   align-items: center;
   width: fit-content;
   height: min-content;
+  outline: none; /* focus ring is rendered on .checkbox child, not the wrapper */
 }
 
 .checkbox {
@@ -68,12 +70,14 @@ $checkbox-size: 16px;
 /* Since it is not possible to change the design of the checkbox according to the requirements using css, */
 /* we hide the checkbox and draw a new one instead. */
 /* In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected */
+/* The input has tabIndex=-1 and is not the Tab target — the wrapper/label is. */
 .input {
   @include hidden-element();
 }
 
 /* For any active attribute in the hidden checkbox, we will change the appearance of the checkbox we drew in its place. */
 
+/* autoFocus: input is programmatically focused (tabIndex=-1 but focusable) */
 .input:focus + .checkbox {
   @include hover-unselected;
 }
@@ -83,15 +87,41 @@ $checkbox-size: 16px;
 }
 
 .input:focus-visible + .checkbox {
-  outline: none;
-  border: 1px solid;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
-  border-radius: 2px;
+  @include focus-style-css(2px);
 }
 
 .input:checked:focus + .checkbox:after,
 .input:indeterminate:focus + .checkbox:after {
+  background-color: var(--primary-hover-color);
+}
+
+/* Tab navigation — non-separate mode: the wrapper <label> is the Tab target */
+.wrapper:focus-visible > .checkbox {
+  @include focus-style-css(2px);
+}
+
+.wrapper:focus-visible > .input:checked ~ .checkbox,
+.wrapper:focus-visible > .input:indeterminate ~ .checkbox {
+  @include hover-selected;
+}
+
+.wrapper:focus-visible > .input:checked ~ .checkbox:after,
+.wrapper:focus-visible > .input:indeterminate ~ .checkbox:after {
+  background-color: var(--primary-hover-color);
+}
+
+/* Tab navigation — separate mode: the .checkbox <label> is the Tab target */
+.checkbox:focus-visible {
+  @include focus-style-css(2px);
+}
+
+.input:checked + .checkbox:focus-visible,
+.input:indeterminate + .checkbox:focus-visible {
+  @include hover-selected;
+}
+
+.input:checked + .checkbox:focus-visible:after,
+.input:indeterminate + .checkbox:focus-visible:after {
   background-color: var(--primary-hover-color);
 }
 
