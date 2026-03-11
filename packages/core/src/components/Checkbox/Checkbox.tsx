@@ -143,7 +143,7 @@ const Checkbox = forwardRef(
       [inputRef]
     );
 
-    const wrapperTabIndex = disabled ? undefined : (tabIndex ?? 0);
+    const wrapperTabIndex = disabled ? undefined : tabIndex ?? 0;
 
     if (separateLabel) {
       return (
