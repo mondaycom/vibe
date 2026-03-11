@@ -102,8 +102,6 @@ const Checkbox = forwardRef(
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
 
-    // Blur the focused wrapper/label after mouse click so the focus ring doesn't
-    // persist after pointer interaction (keyboard focus ring only via :focus-visible).
     const onMouseUpCallback = useCallback((e: React.MouseEvent<HTMLElement>) => {
       const target = e.currentTarget;
       window.requestAnimationFrame(() => {
@@ -135,9 +133,6 @@ const Checkbox = forwardRef(
       return "";
     }, [ariaLabel, label]);
 
-    // Safari on macOS excludes native <input type="checkbox"> from Tab order by default,
-    // regardless of tabIndex. The fix is to make the wrapper/label element the Tab target
-    // and forward Space key presses to the hidden input.
     const onKeyDownCallback = useCallback(
       (e: React.KeyboardEvent) => {
         if (e.key === " ") {
@@ -148,8 +143,6 @@ const Checkbox = forwardRef(
       [inputRef]
     );
 
-    // The effective tabIndex for the focusable wrapper element.
-    // Disabled checkboxes are excluded from tab order (no tabIndex at all).
     const wrapperTabIndex = disabled ? undefined : (tabIndex ?? 0);
 
     if (separateLabel) {
@@ -159,7 +152,6 @@ const Checkbox = forwardRef(
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
           data-vibe={ComponentVibeId.CHECKBOX}
         >
-          {/* tabIndex={-1}: removed from Tab order — the .checkbox label below is the Tab target */}
           <input
             ref={mergedInputRef}
             id={id}
@@ -225,7 +217,6 @@ const Checkbox = forwardRef(
         onClickCapture={onClickCaptureLabel}
         data-vibe={ComponentVibeId.CHECKBOX}
       >
-        {/* tabIndex={-1}: removed from Tab order — the wrapper label above is the Tab target */}
         <input
           ref={mergedInputRef}
           id={id}

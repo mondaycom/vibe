@@ -6660,6 +6660,57 @@
     react-windowed-select "^2.0.4"
     style-inject "^0.3.0"
 
+"@vibe/dialog@3.0.11":
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/@vibe/dialog/-/dialog-3.0.11.tgz#a7be64b673bb7443325b39f38582758b077c6331"
+  integrity sha512-a0Gh6NfnTtbSgIIuVJwW09Cvfh+O1V+21CQ2J1rtVqTPOCGzSKlnC+omzEnJMnnotbYYSSne8K310Y2shaorFA==
+  dependencies:
+    "@popperjs/core" "2.11.6"
+    "@vibe/hooks" "3.0.3"
+    "@vibe/layer" "3.0.10"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+    react-popper "^2.3.0"
+    react-transition-group "^4.4.5"
+
+"@vibe/icon-button@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@vibe/icon-button/-/icon-button-3.0.4.tgz#cd11ca357a16415174bf866ba3124d708ec6ebfc"
+  integrity sha512-lOuO2kb9MnwAx0jVlDKxYSxIOE3G6Pr9B4DA8Mdk7jYJ+ZqEwcJKMAA84rXi6iQBUOebpqv7MpS/IEc4NcV0gw==
+  dependencies:
+    "@vibe/button" "3.0.16"
+    "@vibe/icon" "3.0.11"
+    "@vibe/icons" "1.16.0"
+    "@vibe/shared" "3.0.8"
+    "@vibe/tooltip" "3.0.4"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/tooltip@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@vibe/tooltip/-/tooltip-3.0.4.tgz#73630b7747dd1721ed1e797e5e452bce06451580"
+  integrity sha512-4YjCaaz5oToONkE8nUAXubeKW6m3/Wm2K40kMDZda3Agdc4qiLlynT44AGByIWExJCbcVL3IqZsZ4xQjOo/Eiw==
+  dependencies:
+    "@vibe/dialog" "3.0.11"
+    "@vibe/icon" "3.0.11"
+    "@vibe/layout" "3.0.3"
+    "@vibe/shared" "3.0.8"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+
+"@vibe/typography@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@vibe/typography/-/typography-3.0.4.tgz#c19140765431c2f9ae23bfb0e9a69c37dcff7784"
+  integrity sha512-fyvsEXG7e7+U5+mbGj+RiHMyTLGyQAepsYcsd/TrqRSHyoBkmWyrlM3Hkhe+X7Du5r5fdUEudbEAC394enHT7Q==
+  dependencies:
+    "@vibe/hooks" "3.0.3"
+    "@vibe/shared" "3.0.8"
+    "@vibe/tooltip" "3.0.4"
+    classnames "^2.5.1"
+    es-toolkit "^1.39.10"
+    monday-ui-style "0.26.2"
+
 "@vitejs/plugin-react@^4.3.1":
   version "4.5.2"
   resolved "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-4.5.2.tgz"
