@@ -6,7 +6,9 @@ exports[`Checkbox renders correctly > when autoFocus 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -16,6 +18,7 @@ exports[`Checkbox renders correctly > when autoFocus 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -54,7 +57,9 @@ exports[`Checkbox renders correctly > when checked 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -63,6 +68,7 @@ exports[`Checkbox renders correctly > when checked 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -101,7 +107,9 @@ exports[`Checkbox renders correctly > when default checked 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -110,6 +118,7 @@ exports[`Checkbox renders correctly > when default checked 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -148,6 +157,7 @@ exports[`Checkbox renders correctly > when disabled 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -157,6 +167,7 @@ exports[`Checkbox renders correctly > when disabled 1`] = `
     disabled={true}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -195,7 +206,9 @@ exports[`Checkbox renders correctly > when interminate 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -204,6 +217,7 @@ exports[`Checkbox renders correctly > when interminate 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -242,7 +256,9 @@ exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -252,6 +268,7 @@ exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -290,7 +307,9 @@ exports[`Checkbox renders correctly > with empty props 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -299,6 +318,7 @@ exports[`Checkbox renders correctly > with empty props 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -337,7 +357,9 @@ exports[`Checkbox renders correctly > with name 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -346,6 +368,7 @@ exports[`Checkbox renders correctly > with name 1`] = `
     disabled={false}
     name="checkbox"
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />
@@ -384,7 +407,9 @@ exports[`Checkbox renders correctly > with props 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label="Option 1"
@@ -393,6 +418,7 @@ exports[`Checkbox renders correctly > with props 1`] = `
     disabled={false}
     name="checkbox"
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value="option1"
   />
@@ -433,7 +459,9 @@ exports[`Checkbox renders correctly > with value 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -442,6 +470,7 @@ exports[`Checkbox renders correctly > with value 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value="checkboxValue"
   />
@@ -480,7 +509,9 @@ exports[`Checkbox renders correctly > without label 1`] = `
   data-testid="checkbox"
   data-vibe="Checkbox"
   onClickCapture={[Function]}
+  onKeyDown={[Function]}
   onMouseUp={[Function]}
+  tabIndex={0}
 >
   <input
     aria-label=""
@@ -489,6 +520,7 @@ exports[`Checkbox renders correctly > without label 1`] = `
     disabled={false}
     name=""
     onChange={[Function]}
+    tabIndex={-1}
     type="checkbox"
     value=""
   />

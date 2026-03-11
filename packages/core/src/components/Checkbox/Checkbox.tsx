@@ -101,18 +101,16 @@ const Checkbox = forwardRef(
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
-    const iconContainerRef = useRef<HTMLDivElement>(null);
 
-    const onMouseUpCallback = useCallback(() => {
-      const input = inputRef.current;
-      if (!input) return;
-
+    const onMouseUpCallback = useCallback((e: React.MouseEvent<HTMLElement>) => {
+      const target = e.currentTarget;
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
-          input.blur();
+          target.blur();
         });
       });
-    }, [inputRef]);
+    }, []);
+
     let overrideDefaultChecked = defaultChecked;
 
     // If component did not receive default checked and checked props, choose default checked as
@@ -135,6 +133,18 @@ const Checkbox = forwardRef(
       return "";
     }, [ariaLabel, label]);
 
+    const onKeyDownCallback = useCallback(
+      (e: React.KeyboardEvent) => {
+        if (e.key === " ") {
+          e.preventDefault();
+          inputRef.current?.click();
+        }
+      },
+      [inputRef]
+    );
+
+    const wrapperTabIndex = disabled ? undefined : tabIndex ?? 0;
+
     if (separateLabel) {
       return (
         <div
@@ -156,14 +166,16 @@ const Checkbox = forwardRef(
             aria-label={finalAriaLabel}
             aria-labelledby={ariaLabelledBy}
             checked={checked}
-            tabIndex={tabIndex}
+            tabIndex={-1}
           />
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
           <label
             htmlFor={id}
             className={cx(styles.checkbox, checkboxClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
+            tabIndex={wrapperTabIndex}
             onMouseUp={onMouseUpCallback}
+            onKeyDown={onKeyDownCallback}
             onClickCapture={onClickCaptureLabel}
           >
             <Icon
@@ -197,7 +209,9 @@ const Checkbox = forwardRef(
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
         className={cx(styles.wrapper, className)}
+        tabIndex={wrapperTabIndex}
         onMouseUp={onMouseUpCallback}
+        onKeyDown={onKeyDownCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
@@ -217,11 +231,10 @@ const Checkbox = forwardRef(
           aria-label={finalAriaLabel}
           aria-labelledby={ariaLabelledBy}
           checked={checked}
-          tabIndex={tabIndex}
+          tabIndex={-1}
         />
         <div
           className={cx(styles.checkbox, checkboxClassName)}
-          ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
         >
           <Icon

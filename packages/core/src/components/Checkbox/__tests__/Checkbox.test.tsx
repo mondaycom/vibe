@@ -213,6 +213,44 @@ describe("Checkbox tests", () => {
     });
   });
 
+  describe("keyboard navigation (Safari compatibility)", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
+    it("should have tabIndex 0 on the wrapper label by default so Safari includes it in Tab order", () => {
+      const { getByTestId } = render(<Checkbox label="Option" data-testid="cb" />);
+      const wrapper = getByTestId("cb");
+      expect(wrapper.tabIndex).toBe(0);
+    });
+
+    it("should have tabIndex -1 on the hidden input so it is not a duplicate Tab stop", () => {
+      const { getByLabelText } = render(<Checkbox label="Option" />);
+      const input = getByLabelText<HTMLInputElement>("Option");
+      expect(input.tabIndex).toBe(-1);
+    });
+
+    it("should respect a custom tabIndex on the wrapper", () => {
+      const { getByTestId } = render(<Checkbox label="Option" tabIndex={3} data-testid="cb" />);
+      const wrapper = getByTestId("cb");
+      expect(wrapper.tabIndex).toBe(3);
+    });
+
+    it("should have no tabIndex when disabled so it is excluded from Tab order", () => {
+      const { getByTestId } = render(<Checkbox label="Option" disabled data-testid="cb" />);
+      const wrapper = getByTestId("cb");
+      expect(wrapper.getAttribute("tabindex")).toBeNull();
+    });
+
+    it("should toggle the checkbox when Space is pressed on the wrapper", () => {
+      const onChange = vi.fn();
+      const { getByTestId } = render(<Checkbox label="Option" onChange={onChange} data-testid="cb" />);
+      const wrapper = getByTestId("cb");
+      fireEvent.keyDown(wrapper, { key: " " });
+      expect(onChange).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe("specific firefox checkbox tests", () => {
     const {
       formName,
