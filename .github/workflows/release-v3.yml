@@ -1,0 +1,85 @@
+name: Release v3 version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate-branch:
+    name: Validate Branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure running on vibe3
+        if: github.ref != 'refs/heads/vibe3'
+        run: |
+          echo "::error::Release v3 workflow must be triggered from the vibe3 branch. Current branch: ${{ github.ref }}"
+          exit 1
+
+  notify-release-start:
+    name: Notify Slack - Release Started
+    needs: validate-branch
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Send Slack notification
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.SLACK_DEV_TEAM_WEBHOOK_URL }}
+          method: "POST"
+          contentType: "application/json"
+          data: |
+            {
+              "event": "v3_release_started",
+              "actor": "${{ github.actor }}",
+              "commit_id": "${{ github.sha }}",
+              "workflow": "${{ github.workflow }}",
+              "run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+              "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+            }
+
+  build:
+    name: Build
+    needs: validate-branch
+    uses: ./.github/workflows/build-and-upload.yml
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  test:
+    name: Test
+    needs: build
+    uses: ./.github/workflows/test.yml
+    with:
+      has_changes: ${{ needs.build.outputs.has_changes }}
+    secrets:
+      npm_token: ${{ secrets.npm_token }}
+
+  release:
+    name: Release
+    needs: [build, test]
+    if: ${{ needs.build.outputs.has_changes == 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.VIBE_GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Run Setup
+        uses: ./.github/actions/setup
+        with:
+          npm_token: ${{ secrets.npm_token }}
+      - uses: ./.github/actions/git-creds
+      - uses: ./.github/actions/download-builds
+      - name: Generate new versions
+        run: yarn lerna version --exact --conventional-commits --message "Publish [skip ci]" -y --create-release github
+        env:
+          GH_TOKEN: ${{ secrets.VIBE_GITHUB_TOKEN }}
+      - run: yarn config set registry https://registry.npmjs.org/
+      - name: Setup .npmrc for publish
+        id: setup-npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      - name: Publish to npm with v3 dist-tag
+        run: yarn lerna publish from-package --dist-tag v3 --dry-run -y
+      - name: Remove .npmrc
+        if: steps.setup-npmrc.outcome == 'success'
+        run: rm .npmrc
