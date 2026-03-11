@@ -4,7 +4,16 @@ import { calculateSteppedValue } from "../utils/calcValue";
 
 export type UseNumberFieldStateProps = Pick<
   NumberFieldProps,
-  "value" | "onChange" | "min" | "max" | "step" | "disabled" | "readOnly" | "allowOutOfBounds" | "onValidityChange"
+  | "value"
+  | "onChange"
+  | "min"
+  | "max"
+  | "step"
+  | "disabled"
+  | "readOnly"
+  | "allowOutOfBounds"
+  | "onValidityChange"
+  | "restrictInput"
 >;
 
 const useNumberFieldState = ({
@@ -16,7 +25,8 @@ const useNumberFieldState = ({
   disabled,
   readOnly,
   allowOutOfBounds,
-  onValidityChange
+  onValidityChange,
+  restrictInput
 }: UseNumberFieldStateProps) => {
   const [inputValue, setInputValue] = useState(controlledValue === null ? "" : String(controlledValue));
 
@@ -42,6 +52,17 @@ const useNumberFieldState = ({
         return;
       }
 
+      if (restrictInput) {
+        if (stringValue === "-" && min !== undefined && min >= 0) {
+          return;
+        }
+        if (max !== undefined && stringValue !== "-" && !stringValue.endsWith(".")) {
+          if (parseFloat(stringValue) > max) {
+            return;
+          }
+        }
+      }
+
       setInputValue(stringValue);
       const isPartial = stringValue === "-" || stringValue.endsWith(".");
       if (isPartial && stringValue.length === 1 && stringValue.endsWith(".")) {
@@ -64,7 +85,7 @@ const useNumberFieldState = ({
         }
       }
     },
-    [onChange, allowOutOfBounds, min, max, controlledValue]
+    [onChange, allowOutOfBounds, min, max, controlledValue, restrictInput]
   );
 
   useEffect(() => {

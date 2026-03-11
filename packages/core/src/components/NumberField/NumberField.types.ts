@@ -82,6 +82,11 @@ interface NumberFieldBaseProps extends NumberFieldNativeInputProps, Omit<VibeCom
    * An icon to display on the left side of the input.
    */
   leftIcon?: SubIcon;
+  /**
+   * If true, prevents typing characters that would result in an invalid value.
+   * Blocks the minus sign when `min` is non-negative, and blocks input when the typed number exceeds `max`.
+   */
+  restrictInput?: boolean;
 }
 
 type NumberFieldValidityChangeProps =

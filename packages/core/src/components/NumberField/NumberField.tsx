@@ -37,6 +37,7 @@ const NumberField = forwardRef(
       "data-testid": dataTestId,
       allowOutOfBounds,
       onValidityChange,
+      restrictInput,
       ...inputProps
     }: NumberFieldProps,
     ref: React.ForwardedRef<HTMLInputElement>
@@ -60,7 +61,8 @@ const NumberField = forwardRef(
       disabled,
       readOnly,
       allowOutOfBounds,
-      onValidityChange
+      onValidityChange,
+      restrictInput
     });
 
     const { onIncrement, onDecrement } = useSpinButtonHandlers({
