@@ -85,7 +85,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
     "svg2react-icon": "^3.1.178",
-    "typescript": "^4.7.3",
+    "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

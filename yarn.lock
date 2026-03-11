@@ -21079,15 +21079,15 @@ typescript-plugin-css-modules@^5.0.1:
     stylus "^0.62.0"
     tsconfig-paths "^4.2.0"
 
-"typescript@>=3 < 6", typescript@^5.1.6:
+"typescript@>=3 < 6":
   version "5.4.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.4.3.tgz"
   integrity sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==
 
-typescript@^4.7.3:
-  version "4.9.5"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
-  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+typescript@^5.9.3:
+  version "5.9.3"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
+  integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
 ufo@^1.5.3:
   version "1.5.3"
