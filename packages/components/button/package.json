@@ -1,6 +1,6 @@
 {
   "name": "@vibe/button",
-  "version": "4.0.0-alpha.1",
+  "version": "4.0.0-alpha.2",
   "description": "Vibe sub-package for button components",
   "repository": {
     "type": "git",
@@ -38,17 +38,17 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/icon": "^4.0.0-alpha.1",
-    "@vibe/loader": "^4.0.0-alpha.1",
-    "@vibe/shared": "^4.0.0-alpha.1",
-    "@vibe/style": "^4.0.0-alpha.1",
+    "@vibe/icon": "^4.0.0-alpha.2",
+    "@vibe/loader": "^4.0.0-alpha.2",
+    "@vibe/shared": "^4.0.0-alpha.2",
+    "@vibe/style": "^4.0.0-alpha.2",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "^4.0.0-alpha.1",
-    "@vibe/icons": "^4.0.0-alpha.1",
+    "@vibe/config": "^4.0.0-alpha.2",
+    "@vibe/icons": "^4.0.0-alpha.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
