@@ -69,5 +69,6 @@
     "extends": [
       "../../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
-  }
+  },
+  "gitHead": "01832aca5798e20b08d09b965c96727a06e9a04b"
 }
