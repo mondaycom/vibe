@@ -92,6 +92,5 @@
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
-  "sideEffects": false,
-  "gitHead": "01832aca5798e20b08d09b965c96727a06e9a04b"
+  "sideEffects": false
 }
