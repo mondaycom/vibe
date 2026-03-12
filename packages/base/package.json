@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@vibe/shared": "^4.0.0-alpha.1",
+    "@vibe/style": "^4.0.0-alpha.1",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
