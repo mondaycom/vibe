@@ -41,6 +41,7 @@
     "@vibe/icon": "^4.0.0-alpha.1",
     "@vibe/loader": "^4.0.0-alpha.1",
     "@vibe/shared": "^4.0.0-alpha.1",
+    "@vibe/style": "^4.0.0-alpha.1",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
