@@ -7,13 +7,8 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
-import {
-  CounterColor as CounterColorEnum,
-  CounterSize as CounterSizeEnum,
-  CounterType as CounterTypeEnum
-} from "./CounterConstants";
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Counter.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
@@ -21,7 +16,7 @@ export interface CounterProps extends VibeComponentProps {
   /**
    * The ID of the element describing the counter.
    */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * Class name applied to the counter element.
    */
@@ -33,7 +28,7 @@ export interface CounterProps extends VibeComponentProps {
   /**
    * The label of the counter for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The size of the counter.
    */
@@ -72,8 +67,8 @@ const Counter = ({
   kind = "fill",
   color = "primary",
   maxDigits = 3,
-  ariaLabeledBy = "",
-  ariaLabel = "",
+  "aria-labelledby": ariaLabelledBy = "",
+  "aria-label": ariaLabel = "",
   id = "",
   prefix = "",
   onMouseDown = NOOP,
@@ -138,7 +133,7 @@ const Counter = ({
     <span
       className={className}
       aria-label={`${ariaLabel} ${countText}`}
-      aria-labelledby={ariaLabeledBy}
+      aria-labelledby={ariaLabelledBy}
       onMouseDown={onMouseDown}
       data-vibe={ComponentVibeId.COUNTER}
     >
@@ -175,14 +170,4 @@ const Counter = ({
   );
 };
 
-interface CounterStaticProps {
-  sizes: typeof CounterSizeEnum;
-  colors: typeof CounterColorEnum;
-  kinds: typeof CounterTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<CounterProps, CounterStaticProps>(Counter, {
-  sizes: CounterSizeEnum,
-  colors: CounterColorEnum,
-  kinds: CounterTypeEnum
-});
+export default Counter;

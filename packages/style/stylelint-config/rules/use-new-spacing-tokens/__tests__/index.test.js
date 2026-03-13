@@ -5,18 +5,18 @@ const config = {
   plugins: [path.resolve(__dirname, "../index.js")],
   customSyntax: "postcss-scss",
   rules: {
-    "monday-ui-style/use-new-spacing-tokens": [true, { severity: "warning" }]
+    "@vibe/style/use-new-spacing-tokens": [true, { severity: "warning" }]
   }
 };
 
 const configWithError = {
   ...config,
   rules: {
-    "monday-ui-style/use-new-spacing-tokens": true // Default severity is error
+    "@vibe/style/use-new-spacing-tokens": true // Default severity is error
   }
 };
 
-describe("monday-ui-style/use-new-spacing-tokens", () => {
+describe("@vibe/style/use-new-spacing-tokens", () => {
   it("should warn for legacy spacing tokens by default", async () => {
     const result = await lint({
       code: `

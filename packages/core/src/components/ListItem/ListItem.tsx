@@ -13,11 +13,10 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { Text } from "@vibe/typography";
 import { SIZES, SELECTION_KEYS } from "../../constants";
 import { NOOP } from "../../utils/function-utils";
-import { withStaticProps, type VibeComponentProps, type ElementContent } from "../../types";
+import { type VibeComponentProps, type ElementContent } from "../../types";
 import { useKeyEvent } from "../../hooks";
 import useMergeRef from "../../hooks/useMergeRef";
 import { ListContext } from "../List/utils/ListContext";
-import { ListItemComponentType as ListItemComponentTypeEnum } from "./ListItemConstants";
 import { type ListItemElement, type ListItemSize } from "./ListItem.types";
 import { type TooltipProps } from "@vibe/tooltip";
 import styles from "./ListItem.module.scss";
@@ -107,10 +106,12 @@ const ListItem = forwardRef(
       [disabled, onClick, id]
     );
 
+    const onKeyboardSelect = useCallback((event: React.KeyboardEvent) => componentOnClick(event), [componentOnClick]);
+
     useKeyEvent({
       keys: SELECTION_KEYS,
       ref: componentRef,
-      callback: componentOnClick
+      callback: onKeyboardSelect
     });
 
     const componentOnHover = useCallback(
@@ -153,12 +154,4 @@ Object.assign(ListItem, {
   displayName: "ListItem"
 });
 
-interface ListItemStaticProps {
-  sizes: typeof SIZES;
-  components: typeof ListItemComponentTypeEnum;
-}
-
-export default withStaticProps<ListItemProps, ListItemStaticProps>(ListItem, {
-  sizes: SIZES,
-  components: ListItemComponentTypeEnum
-});
+export default ListItem;

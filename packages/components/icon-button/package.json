@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icon-button",
-  "version": "3.0.5",
+  "version": "4.0.0-alpha.2",
   "description": "Vibe sub-package for icon button component",
   "repository": {
     "type": "git",
@@ -38,21 +38,21 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/button": "3.0.16",
-    "@vibe/icon": "3.0.11",
-    "@vibe/icons": "1.16.0",
-    "@vibe/shared": "3.0.8",
-    "@vibe/tooltip": "3.0.5",
+    "@vibe/button": "^4.0.0-alpha.2",
+    "@vibe/icon": "^4.0.0-alpha.2",
+    "@vibe/icons": "^4.0.0-alpha.2",
+    "@vibe/shared": "^4.0.0-alpha.2",
+    "@vibe/tooltip": "^4.0.0-alpha.2",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "3.0.5",
+    "@vibe/config": "^4.0.0-alpha.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
-    "typescript": "^4.7.3",
+    "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

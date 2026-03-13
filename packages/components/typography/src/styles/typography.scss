@@ -1,6 +1,6 @@
 @use "sass:string";
-@import "~monday-ui-style/dist/mixins";
-@import "~monday-ui-style/dist/functions";
+@import "~@vibe/style/dist/mixins";
+@import "~@vibe/style/dist/functions";
 
 @mixin create-text-classes() {
   @include create-typography-classes($textClasses, text);

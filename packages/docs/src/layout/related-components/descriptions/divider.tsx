@@ -8,11 +8,11 @@ export const DividerDescription = () => {
     return (
       <div style={{ width: "220px" }}>
         <Menu>
-          <MenuItem title="My Item" icon={Settings} iconType="svg" iconBackgroundColor="var(--sb-negative-color)" />
+          <MenuItem title="My Item" icon={Settings} type="svg" iconBackgroundColor="var(--sb-negative-color)" />
         </Menu>
         <Divider />
         <Menu>
-          <MenuItem title="My Item" icon={Bolt} iconType="svg" iconBackgroundColor="var(--sb-color-purple)" />
+          <MenuItem title="My Item" icon={Bolt} type="svg" iconBackgroundColor="var(--sb-color-purple)" />
         </Menu>
       </div>
     );

@@ -26,7 +26,7 @@ export const Overview = {
   args: {
     id: "overview-badge",
     children: (
-      <Button id="overview-badge-button" ariaLabel="What's new button with badge" leftIcon={WhatsNew}>
+      <Button id="overview-badge-button" aria-label="What's new button with badge" leftIcon={WhatsNew}>
         {"What's new"}
       </Button>
     )
@@ -46,15 +46,15 @@ export const States = {
       <Flex direction="column" gap="medium" align="start">
         Indicator
         <Badge id="indicator-badge">
-          <Button id="indicator-button" ariaLabel="What's new button with indicator" leftIcon={WhatsNew}>
+          <Button id="indicator-button" aria-label="What's new button with indicator" leftIcon={WhatsNew}>
             {"What's new"}
           </Button>
         </Badge>
       </Flex>
       <Flex direction="column" gap="medium" align="start">
         Counter
-        <Badge id="counter-badge" type="counter" count={100} maxDigits={2} ariaLabel="100 notifications">
-          <Button id="counter-button" ariaLabel="What's new button with counter" leftIcon={WhatsNew}>
+        <Badge id="counter-badge" type="counter" count={100} maxDigits={2} aria-label="100 notifications">
+          <Button id="counter-button" aria-label="What's new button with counter" leftIcon={WhatsNew}>
             {"What's new"}
           </Button>
         </Badge>
@@ -74,7 +74,7 @@ export const States = {
 export const ButtonStory = {
   render: () => (
     <Badge id="button-badge" alignment="rectangular">
-      <Button id="button-story-button" ariaLabel="Button with external page icon and badge" leftIcon={ExternalPage}>
+      <Button id="button-story-button" aria-label="Button with external page icon and badge" leftIcon={ExternalPage}>
         Button
       </Button>
     </Badge>

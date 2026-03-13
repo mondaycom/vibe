@@ -43,10 +43,6 @@ export interface ToggleProps extends VibeComponentProps {
    */
   areLabelsHidden?: boolean;
   /**
-   * If true, removes the horizontal spacing around the toggle.
-   */
-  noSpacing?: boolean;
-  /**
    * The text displayed when the toggle is in the "on" position.
    */
   onOverrideText?: string;
@@ -57,11 +53,11 @@ export interface ToggleProps extends VibeComponentProps {
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The ID of the element controlled by the toggle.
    */
-  ariaControls?: string;
+  "aria-controls"?: string;
   /**
    * The size of the toggle.
    */
@@ -80,10 +76,9 @@ const Toggle = forwardRef(
       value,
       name,
       disabled,
-      ariaLabel,
-      ariaControls,
+      "aria-label": ariaLabel,
+      "aria-controls": ariaControls,
       areLabelsHidden = false,
-      noSpacing,
       onOverrideText = "On",
       offOverrideText = "Off",
       size = "medium",
@@ -104,8 +99,8 @@ const Toggle = forwardRef(
         value={value}
         name={name}
         disabled={disabled}
-        ariaLabel={ariaLabel}
-        ariaControls={ariaControls}
+        aria-label={ariaLabel}
+        aria-controls={ariaControls}
         inputClassName={inputClassName}
         ref={ref}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOGGLE)}
@@ -113,7 +108,6 @@ const Toggle = forwardRef(
       >
         <MockToggle
           areLabelsHidden={areLabelsHidden}
-          noSpacing={noSpacing}
           offOverrideText={offOverrideText}
           onOverrideText={onOverrideText}
           disabled={disabled}

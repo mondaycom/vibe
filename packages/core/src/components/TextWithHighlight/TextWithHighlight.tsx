@@ -7,7 +7,6 @@ import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect
 import useMergeRef from "../../hooks/useMergeRef";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./TextWithHighlight.module.scss";
-import { type TooltipPositions } from "@vibe/tooltip";
 
 const getTextPart = (
   text: string,
@@ -69,11 +68,6 @@ export interface TextWithHighlightProps extends VibeComponentProps {
    */
   wrappingElementClassName?: string;
   /**
-   * The position of the tooltip when displayed.
-   * @deprecated Use `tooltipProps.position` instead.
-   */
-  tooltipPosition?: TooltipPositions;
-  /**
    * Additional props to customize the tooltip component.
    */
   tooltipProps?: Partial<TooltipProps>;
@@ -92,7 +86,6 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
       ignoreCase = true,
       allowTermSplit = true,
       nonEllipsisTooltip,
-      tooltipPosition,
       wrappingTextTag = "em",
       wrappingElementClassName,
       tooltipProps = {},
@@ -153,7 +146,7 @@ const TextWithHighlight: React.FC<TextWithHighlightProps> = forwardRef(
     if (isOverflowing || nonEllipsisTooltip) {
       const tooltipContent = isOverflowing ? text : nonEllipsisTooltip;
       return (
-        <Tooltip content={tooltipContent} position={tooltipPosition} {...tooltipProps}>
+        <Tooltip content={tooltipContent} {...tooltipProps}>
           {Element}
         </Tooltip>
       );

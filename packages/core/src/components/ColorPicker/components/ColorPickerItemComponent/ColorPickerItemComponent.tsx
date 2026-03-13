@@ -123,13 +123,13 @@ const ColorPickerItemComponent = forwardRef(
           <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
-            ariaLabel={color}
+            aria-label={color}
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
               [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
             })}
             style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
             onClick={onClick}
-            tabIndex="-1"
+            tabIndex={-1}
             onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
           >
             <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>

@@ -1,7 +1,7 @@
 .table {
   $border: 1px solid var(--sb-layout-border-color);
   width: 100%;
-  margin-block: var(--spacing-medium) var(--spacing-xl);
+  margin-block: var(--space-16) var(--space-32);
   border-inline: $border;
   border-block-start: $border;
   border-spacing: 0;
@@ -9,7 +9,7 @@
   th,
   td {
     text-align: start !important;
-    padding: var(--spacing-small) var(--spacing-medium);
+    padding: var(--space-8) var(--space-16);
     height: 40px;
     border-bottom: $border;
     &:not(:last-child) {

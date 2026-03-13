@@ -1,6 +1,6 @@
 {
   "name": "vibe-storybook-components",
-  "version": "1.0.7",
+  "version": "4.0.0-alpha.2",
   "description": "Collection of Vibe's Storybook components",
   "repository": {
     "type": "git",
@@ -96,7 +96,7 @@
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "ts-jest": "^29.1.2",
-    "typescript": "^5.1.6",
+    "typescript": "^5.9.3",
     "typescript-plugin-css-modules": "^5.0.1"
   },
   "peerDependencies": {

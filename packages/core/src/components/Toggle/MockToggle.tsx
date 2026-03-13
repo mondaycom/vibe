@@ -3,8 +3,6 @@ import cx from "classnames";
 import React, { type FC } from "react";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./MockToggle.module.scss";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
 import { type ToggleSize } from "./Toggle.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
@@ -17,10 +15,6 @@ export interface MockToggleProps extends VibeComponentProps {
    * If true, the toggle is in the "on" state.
    */
   checked?: boolean;
-  /**
-   * If true, removes the horizontal spacing around the toggle.
-   */
-  noSpacing?: boolean;
   /**
    * The text displayed when the toggle is in the "off" state.
    */
@@ -46,7 +40,6 @@ export interface MockToggleProps extends VibeComponentProps {
 export const MockToggle: FC<MockToggleProps> = ({
   areLabelsHidden,
   checked,
-  noSpacing,
   offOverrideText,
   onOverrideText,
   className,
@@ -61,10 +54,9 @@ export const MockToggle: FC<MockToggleProps> = ({
         [cx(styles.selected, selectedClassName)]: checked,
         [styles.notSelected]: !checked,
         [styles.disabled]: disabled,
-        [styles.noSpacing]: noSpacing
+        [styles.noSpacing]: areLabelsHidden
       })}
       aria-hidden="true"
-      data-testid={getTestId(ComponentDefaultTestId.TOGGLE)}
     />
     {areLabelsHidden ? null : <ToggleText disabled={disabled}>{onOverrideText}</ToggleText>}
   </>

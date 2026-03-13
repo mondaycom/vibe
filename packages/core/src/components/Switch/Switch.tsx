@@ -26,11 +26,11 @@ export interface SwitchProps extends VibeComponentProps {
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The ID of the element labeling the switch.
    */
-  ariaLabelledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * If true, the switch is checked.
    */
@@ -46,7 +46,7 @@ export interface SwitchProps extends VibeComponentProps {
   /**
    * The ID of the element controlled by the switch.
    */
-  ariaControls?: string;
+  "aria-controls"?: string;
   /**
    * If true, the switch is checked by default.
    */
@@ -70,12 +70,12 @@ const Switch = forwardRef(
       value,
       role,
       disabled,
-      ariaLabel,
-      ariaLabelledBy,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledBy,
       checked,
       inputClassName,
       onChange,
-      ariaControls,
+      "aria-controls": ariaControls,
       defaultChecked,
       children: originalChildren,
       wrapperClassName,

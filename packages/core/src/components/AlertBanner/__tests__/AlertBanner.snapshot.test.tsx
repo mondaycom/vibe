@@ -19,7 +19,7 @@ describe("AlertBanner", () => {
         <AlertBanner
           onClose={NOOP}
           backgroundColor="negative"
-          ariaLabel="lorem-banner"
+          aria-label="lorem-banner"
           className="my-lorem-ipsum-banner"
         >
           <AlertBannerText text="Lorem ipsum dolor sit amet" />

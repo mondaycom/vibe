@@ -32,7 +32,7 @@ import {
 } from "../../services/virtualized-service";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponent, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
 import {
   type VirtualizedListItem,
@@ -57,10 +57,6 @@ export interface VirtualizedListProps extends VibeComponentProps {
    * Function to render each item in the list.
    */
   itemRenderer: (item: VirtualizedListItem, index: number, style: CSSProperties) => ReactElement | JSX.Element;
-  /**
-   * @deprecated - use `getItemSize`.
-   */
-  getItemHeight?: (item: VirtualizedListItem, index: number) => number;
   /**
    * Function to get the size (height/width) of each item, based on layout.
    */
@@ -108,10 +104,6 @@ export interface VirtualizedListProps extends VibeComponentProps {
    */
   onSizeUpdate?: (width: number, height: number) => void;
   /**
-   * @deprecated - use `onLayoutDirectionScrollbarVisibilityChange`.
-   */
-  onVerticalScrollbarVisiblityChange?: (value: boolean) => void;
-  /**
    * Callback fired when the vertical or horizontal scrollbar visibility changes.
    */
   onLayoutDirectionScrollbarVisibilityChange?: (value: boolean) => void;
@@ -122,7 +114,7 @@ export interface VirtualizedListProps extends VibeComponentProps {
   /**
    * The ARIA label for the list.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * Custom inline styles applied to the list.
    */
@@ -152,8 +144,7 @@ const VirtualizedList = forwardRef(
       id,
       items = [],
       itemRenderer = (item: VirtualizedListItem, _index: number, _style: CSSProperties) => item as ReactElement,
-      getItemHeight = (item: VirtualizedListItem, _index: number) => item.height,
-      getItemSize = null, // must be null for backward compatibility
+      getItemSize = (item: VirtualizedListItem, _index: number) => item.height,
       layout = "vertical",
       onScroll,
       overscanCount = 0,
@@ -164,12 +155,11 @@ const VirtualizedList = forwardRef(
       onItemsRendered,
       onItemsRenderedThrottleMs = 200,
       onSizeUpdate = NOOP,
-      onVerticalScrollbarVisiblityChange = null,
       onLayoutDirectionScrollbarVisibilityChange = null,
       virtualListRef,
       scrollableClassName,
       role,
-      ariaLabel,
+      "aria-label": ariaLabel,
       style,
       "data-testid": dataTestId
     }: VirtualizedListProps,
@@ -212,14 +202,13 @@ const VirtualizedList = forwardRef(
     // Callbacks
     const sizeGetter = useCallback(
       (item: VirtualizedListItem, index: number) => {
-        const getSize = getItemSize || getItemHeight;
-        const height = getSize(item, index);
+        const height = getItemSize(item, index);
         if (height === undefined) {
           console.error("Couldn't get height for item: ", item);
         }
         return height;
       },
-      [getItemHeight, getItemSize]
+      [getItemSize]
     );
 
     const idGetter = useCallback(
@@ -377,22 +366,14 @@ const VirtualizedList = forwardRef(
 
     useEffect(() => {
       // update vertical scrollbar visibility
-      const callback = onLayoutDirectionScrollbarVisibilityChange || onVerticalScrollbarVisiblityChange;
-      if (callback) {
+      if (onLayoutDirectionScrollbarVisibilityChange) {
         const isVisible = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, listSizeByLayout);
         if (isVerticalScrollbarVisibleRef.current !== isVisible) {
           isVerticalScrollbarVisibleRef.current = isVisible;
-          callback(isVisible);
+          onLayoutDirectionScrollbarVisibilityChange(isVisible);
         }
       }
-    }, [
-      onLayoutDirectionScrollbarVisibilityChange,
-      onVerticalScrollbarVisiblityChange,
-      items,
-      normalizedItems,
-      listSizeByLayout,
-      idGetter
-    ]);
+    }, [onLayoutDirectionScrollbarVisibilityChange, items, normalizedItems, listSizeByLayout, idGetter]);
 
     return (
       <div
@@ -420,7 +401,7 @@ const VirtualizedList = forwardRef(
                 onItemsRendered={onItemsRenderedCB}
                 className={scrollableClassName}
               >
-                {rowRenderer as VibeComponent<ListChildComponentProps>}
+                {rowRenderer as React.ComponentType<ListChildComponentProps>}
               </List>
             );
           }}

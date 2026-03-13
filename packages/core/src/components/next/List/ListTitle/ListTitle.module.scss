@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .listTitle {
   @include smoothing-text;
@@ -7,15 +7,15 @@
 
 // Inline padding matches BaseItem for alignment
 .small {
-  padding: var(--spacing-medium) var(--spacing-small) var(--spacing-small);
+  padding: var(--space-16) var(--space-8) var(--space-8);
 }
 
 .medium {
-  padding: var(--spacing-medium) 12px var(--spacing-small);
+  padding: var(--space-16) 12px var(--space-8);
 }
 
 .large {
-  padding: var(--spacing-medium) 12px var(--spacing-small);
+  padding: var(--space-16) 12px var(--space-8);
 }
 
 .sticky {

@@ -4,7 +4,6 @@ import { noop as NOOP } from "es-toolkit";
 import {
   useMergeRef,
   type VibeComponentProps,
-  withStaticProps,
   getTestId,
   ComponentDefaultTestId,
   ComponentVibeId,
@@ -37,23 +36,23 @@ export interface IconButtonProps extends VibeComponentProps {
   /**
    * The ID of the element that labels this button.
    */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, indicates that the button controls a popup.
    */
-  ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
+  "aria-haspopup"?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /**
    * If true, indicates that the associated popup is open.
    */
-  ariaExpanded?: boolean;
+  "aria-expanded"?: boolean;
   /**
    * The ID of the region controlled by the button.
    */
-  ariaControls?: string;
+  "aria-controls"?: string;
   /**
    * ID of the element describing the button.
    */
@@ -127,11 +126,11 @@ const IconButton = forwardRef(
       size = "medium",
       tooltipProps = {} as TooltipProps,
       tooltipContent,
-      ariaLabeledBy,
-      ariaLabel,
-      ariaHasPopup,
-      ariaExpanded,
-      ariaControls,
+      "aria-labelledby": ariaLabelledBy,
+      "aria-label": ariaLabel,
+      "aria-haspopup": ariaHasPopup,
+      "aria-expanded": ariaExpanded,
+      "aria-controls": ariaControls,
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       "aria-pressed": ariaPressed,
@@ -214,11 +213,11 @@ const IconButton = forwardRef(
             disabled={disabled}
             color={color}
             kind={kind}
-            ariaLabeledBy={ariaLabeledBy}
-            ariaLabel={buttonAriaLabel}
-            ariaHasPopup={ariaHasPopup}
-            ariaExpanded={ariaExpanded}
-            ariaControls={ariaControls}
+            aria-labelledby={ariaLabelledBy}
+            aria-label={buttonAriaLabel}
+            aria-haspopup={ariaHasPopup}
+            aria-expanded={ariaExpanded}
+            aria-controls={ariaControls}
             aria-describedby={ariaDescribedBy}
             aria-hidden={ariaHidden}
             aria-pressed={ariaPressed}
@@ -235,7 +234,7 @@ const IconButton = forwardRef(
             loading={loading}
             loaderClassName={cx(styles.loader, getStyle(styles, size))}
           >
-            <Icon icon={icon} iconType="svg" iconSize={iconSize} ignoreFocusStyle className={iconClassName} />
+            <Icon icon={icon} type="svg" size={iconSize} ignoreFocusStyle className={iconClassName} />
           </Button>
         </Tooltip>
       </IconButtonWrapper>
@@ -243,14 +242,4 @@ const IconButton = forwardRef(
   }
 );
 
-interface IconButtonStaticProps {
-  sizes: typeof Button.sizes;
-  kinds: typeof Button.kinds;
-  colors: typeof Button.colors;
-}
-
-export default withStaticProps<IconButtonProps, IconButtonStaticProps>(IconButton, {
-  sizes: Button.sizes,
-  kinds: Button.kinds,
-  colors: Button.colors
-});
+export default IconButton;

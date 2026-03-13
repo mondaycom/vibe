@@ -39,7 +39,7 @@ export interface EditableTypographyImplementationProps {
   /**
    * The label of the component for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * Controls whether the component is in edit mode.
    */
@@ -98,7 +98,7 @@ const EditableTypography = forwardRef(
       onClick,
       onKeyDown,
       readOnly = false,
-      ariaLabel = "",
+      "aria-label": ariaLabel = "",
       placeholder,
       clearable,
       typographyClassName,

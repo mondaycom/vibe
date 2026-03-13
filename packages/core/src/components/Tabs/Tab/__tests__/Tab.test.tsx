@@ -51,16 +51,16 @@ describe("Tab tests", () => {
   });
 
   describe("aria-controls", () => {
-    it("should add aria-controls attribute when id and ariaControls are provided", () => {
+    it("should add aria-controls attribute when id and aria-controls are provided", () => {
       const tabId = "test-tab";
       const panelId = "test-panel";
 
-      renderComponent({ id: tabId, ariaControls: panelId });
+      renderComponent({ id: tabId, "aria-controls": panelId });
       const tabElement = screen.getByRole("tab");
       expect(tabElement).toHaveAttribute("aria-controls", panelId);
     });
 
-    it("should not add aria-controls attribute when ariaControls is missing", () => {
+    it("should not add aria-controls attribute when aria-controls is missing", () => {
       const tabId = "test-tab";
 
       renderComponent({ id: tabId });
@@ -68,7 +68,7 @@ describe("Tab tests", () => {
       expect(tabElement).not.toHaveAttribute("aria-controls");
     });
 
-    it("should not add aria-controls attribute when both id and ariaControls are missing", () => {
+    it("should not add aria-controls attribute when both id and aria-controls are missing", () => {
       renderComponent();
       const tabElement = screen.getByRole("tab");
       expect(tabElement).not.toHaveAttribute("aria-controls");

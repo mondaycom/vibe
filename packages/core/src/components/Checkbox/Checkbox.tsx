@@ -23,7 +23,7 @@ export interface CheckBoxProps extends VibeComponentProps {
   /**
    * The label of the checkbox for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The content displayed next to the checkbox.
    */
@@ -31,7 +31,7 @@ export interface CheckBoxProps extends VibeComponentProps {
   /**
    * The ID of an element describing the checkbox.
    */
-  ariaLabelledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * Callback fired when the checkbox value changes.
    */
@@ -81,9 +81,9 @@ const Checkbox = forwardRef(
       className,
       checkboxClassName,
       labelClassName,
-      ariaLabel,
+      "aria-label": ariaLabel,
       label,
-      ariaLabelledBy,
+      "aria-labelledby": ariaLabelledBy,
       onChange = NOOP,
       checked,
       autoFocus,
@@ -180,11 +180,11 @@ const Checkbox = forwardRef(
           >
             <Icon
               className={styles.icon}
-              iconType="svg"
+              type="svg"
               icon={indeterminate ? Remove : Check}
               ignoreFocusStyle
-              ariaHidden={true}
-              iconSize="16"
+              aria-hidden={true}
+              size="16"
             />
           </label>
           {label === false ? null : (
@@ -239,11 +239,11 @@ const Checkbox = forwardRef(
         >
           <Icon
             className={styles.icon}
-            iconType="svg"
+            type="svg"
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
-            ariaHidden={true}
-            iconSize="16"
+            aria-hidden={true}
+            size="16"
           />
         </div>
         {label === false ? null : (

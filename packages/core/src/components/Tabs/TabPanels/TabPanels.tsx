@@ -2,12 +2,11 @@ import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
 import useMergeRef from "../../../hooks/useMergeRef";
-import { TabPanelsAnimationDirection as TabPanelsAnimationDirectionEnum } from "./TabPanelsConstants";
 import { type TabPanelsAnimationDirection } from "./TabPanels.types";
 import { type TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
@@ -68,10 +67,4 @@ Object.assign(TabPanels, {
   isTabPanels: true
 });
 
-interface TabPanelsStaticProps {
-  animationDirections: typeof TabPanelsAnimationDirectionEnum;
-}
-
-export default withStaticProps<TabPanelsProps, TabPanelsStaticProps>(TabPanels, {
-  animationDirections: TabPanelsAnimationDirectionEnum
-});
+export default TabPanels;
