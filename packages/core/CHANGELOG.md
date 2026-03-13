@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.88.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.87.0...@vibe/core@3.88.0) (2026-03-11)
+
+
+### Bug Fixes
+
+* **checkbox:** safari keyboard navigation ([#3328](https://github.com/mondaycom/vibe/issues/3328)) ([8614a7b](https://github.com/mondaycom/vibe/commit/8614a7bfb85f4ce59b4765a12d418dbe705ae6e8))
+
+
+### Features
+
+* **LinearProgressBar:** add allowExceedingMax prop to support values… ([#3255](https://github.com/mondaycom/vibe/issues/3255)) ([ce68c53](https://github.com/mondaycom/vibe/commit/ce68c53deab2663b57d0da75d2c6ecb21274827f))
+
+
+
+
+
 # [3.87.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.1...@vibe/core@3.87.0) (2026-02-27)
 
 
