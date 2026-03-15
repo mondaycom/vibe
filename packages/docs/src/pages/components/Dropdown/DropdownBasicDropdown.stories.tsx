@@ -59,9 +59,7 @@ export const Overview: Story = {
     id: "overview-dropdown",
     "aria-label": "Overview dropdown",
     placeholder: "Placeholder text here",
-    clearAriaLabel: "Clear",
-    searchable: true,
-    inputAriaLabel: "Dropdown input"
+    clearAriaLabel: "Clear"
   },
   parameters: {
     docs: {
