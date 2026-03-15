@@ -4,7 +4,7 @@ import { checkboxStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let checkbox: Checkbox;
-const checkboxLocator = 'label[data-testid="checkbox"]';
+const checkboxLocator = 'label[data-testid^="checkbox"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Checkbox", () => {
