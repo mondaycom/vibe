@@ -1,5 +1,5 @@
 import { test, expect, FrameLocator } from "@playwright/test";
-import { BaseElement, Checkbox } from "../components";
+import { Checkbox } from "../components";
 import { checkboxStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
