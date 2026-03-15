@@ -2,7 +2,7 @@ import { test, expect, FrameLocator } from "@playwright/test";
 import { linkToastStory, buttonToastStory, loadingToastStory } from "./utils/url-helper";
 import { Toast } from "../components/Toast";
 
-const toastLocator = 'div[data-testid^="toast"]';
+const toastLocator = 'div[data-testid^="toast_"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Button Toast", () => {
