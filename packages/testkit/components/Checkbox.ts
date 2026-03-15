@@ -19,7 +19,7 @@ export class Checkbox extends BaseElement {
    */
   constructor(page: Page, locator: Locator, elementReportName: string) {
     super(page, locator, elementReportName);
-    this.checkbox = new TextField(page, locator.locator("div"), `${elementReportName} - Checkbox`);
+    this.checkbox = new TextField(page, locator.locator("input"), `${elementReportName} - Checkbox`);
     this.label = new Text(page, locator.locator("span"), `${elementReportName} - Label`);
   }
 

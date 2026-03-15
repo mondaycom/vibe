@@ -4,7 +4,7 @@ import { loaderStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let loader: Loader;
-const loaderLocator = 'div[data-testid="loader"]';
+const loaderLocator = 'div[data-testid^="loader"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Loader", () => {

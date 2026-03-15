@@ -17,19 +17,19 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("Checkbox should be initially checked", async () => {
-    await expect(checkbox.getLocator()).toBeChecked();
+    await expect(checkbox.getLocator().locator("input")).toBeChecked();
   });
 
   test("Checkbox should be able to be unchecked", async () => {
     await checkbox.setUnchecked();
-    await expect(checkbox.getLocator()).not.toBeChecked();
+    await expect(checkbox.getLocator().locator("input")).not.toBeChecked();
   });
 
   test("Checkbox should be able to be checked after being unchecked", async () => {
     await checkbox.setUnchecked();
-    await expect.soft(checkbox.getLocator()).not.toBeChecked();
+    await expect.soft(checkbox.getLocator().locator("input")).not.toBeChecked();
     await checkbox.setChecked();
-    await expect(checkbox.getLocator()).toBeChecked();
+    await expect(checkbox.getLocator().locator("input")).toBeChecked();
   });
 
   test("Checkbox should return its label text", async () => {
@@ -40,13 +40,13 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("Checkbox should toggle correctly with multiple check/uncheck operations", async () => {
-    await expect.soft(checkbox.getLocator()).toBeChecked();
+    await expect.soft(checkbox.getLocator().locator("input")).toBeChecked();
     await checkbox.setUnchecked();
-    await expect.soft(checkbox.getLocator()).not.toBeChecked();
+    await expect.soft(checkbox.getLocator().locator("input")).not.toBeChecked();
     await checkbox.setChecked();
-    await expect.soft(checkbox.getLocator()).toBeChecked();
+    await expect.soft(checkbox.getLocator().locator("input")).toBeChecked();
     await checkbox.setUnchecked();
-    await expect(checkbox.getLocator()).not.toBeChecked();
+    await expect(checkbox.getLocator().locator("input")).not.toBeChecked();
   });
 
   test("Checkbox should be enabled by default", async () => {
@@ -63,11 +63,7 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
   });
 
   test("should handle attribute retrieval", async () => {
-    const attributeValue = await new BaseElement(
-      checkbox.getPage(),
-      checkbox.getLocator().locator("div"),
-      "Checkbox"
-    ).getAttributeValue("data-vibe");
+    const attributeValue = await checkbox.getAttributeValue("data-vibe");
     expect(attributeValue).toContain("Checkbox");
   });
 });
