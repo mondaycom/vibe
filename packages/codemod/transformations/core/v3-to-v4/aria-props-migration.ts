@@ -45,6 +45,7 @@ const COMPONENTS_WITH_ARIA_PROPS = [
   "LinearProgressBar",
   "Link",
   "List",
+  "Menu",
   "MenuButton",
   "RadioButton",
   "Search",
