@@ -1,6 +1,6 @@
 {
   "name": "@vibe/codemod",
-  "version": "4.0.0-alpha.2",
+  "version": "4.0.0-beta.0",
   "description": "Vibe's component library migration tool",
   "repository": {
     "type": "git",

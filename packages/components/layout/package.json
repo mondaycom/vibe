@@ -1,6 +1,6 @@
 {
   "name": "@vibe/layout",
-  "version": "4.0.0-alpha.2",
+  "version": "4.0.0-beta.0",
   "description": "Vibe sub-package for layout components",
   "repository": {
     "type": "git",
@@ -38,15 +38,15 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/clickable": "^4.0.0-alpha.2",
-    "@vibe/shared": "^4.0.0-alpha.2",
-    "@vibe/style": "^4.0.0-alpha.2",
+    "@vibe/clickable": "^4.0.0-beta.0",
+    "@vibe/shared": "^4.0.0-beta.0",
+    "@vibe/style": "^4.0.0-beta.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/config": "^4.0.0-alpha.2",
+    "@vibe/config": "^4.0.0-beta.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
