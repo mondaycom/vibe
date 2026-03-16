@@ -5,7 +5,7 @@ import { Menu } from "../components/Menu";
 
 let frame: FrameLocator;
 let splitButton: SplitButton;
-const splitButtonLocator = 'div[data-testid="split-button"]';
+const splitButtonLocator = 'div[data-testid^="split-button"]';
 const menuLocator = 'ul[role="menu"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 

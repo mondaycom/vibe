@@ -240,4 +240,10 @@ export interface DialogProps extends VibeComponentProps {
    * If true, automatically updates position when content resizes.
    */
   observeContentResize?: boolean;
+  /**
+   * If true, provides a LayerProvider context for nested dialogs to render correctly.
+   * This is useful when you have components that use Dialog internally (like Dropdown)
+   * inside another Dialog, ensuring proper z-index stacking and click-outside behavior.
+   */
+  enableNestedDialogLayer?: boolean;
 }

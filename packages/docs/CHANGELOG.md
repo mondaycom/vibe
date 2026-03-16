@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.3...@vibe/docs@3.8.0) (2026-03-11)
+
+
+### Features
+
+* **LinearProgressBar:** add allowExceedingMax prop to support values… ([#3255](https://github.com/mondaycom/vibe/issues/3255)) ([ce68c53](https://github.com/mondaycom/vibe/commit/ce68c53deab2663b57d0da75d2c6ecb21274827f))
+
+
+
+
+
 ## [3.7.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.1...@vibe/docs@3.7.3) (2026-02-27)
 
 **Note:** Version bump only for package @vibe/docs
