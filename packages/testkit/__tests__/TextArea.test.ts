@@ -4,7 +4,7 @@ import { textAreaStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let textArea: TextArea;
-const textAreaLocator = 'div[data-testid="text-area"]';
+const textAreaLocator = 'div[data-testid^="text-area"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - TextArea", () => {

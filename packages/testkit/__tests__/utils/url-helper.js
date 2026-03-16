@@ -4,7 +4,7 @@ export const buttonToastStory = "/?path=/story/components-toast--default-with-bu
 export const checkboxStory = "/?path=/story/components-checkbox--overview";
 export const colorPickerStory = "/?path=/story/components-colorpicker--overview";
 export const comboboxStory = "/?path=/story/components-combobox-deprecated--overview";
-export const dropdownStory = "/?path=/story/components-dropdown-basic-dropdown--overview";
+export const dropdownStory = "/?path=/story/components-dropdown-basic-dropdown--searchable";
 export const editableHeadingStory = "/?path=/story/components-editableheading--overview";
 export const editableTextStory = "/?path=/story/components-editabletext--overview";
 export const expandCollapseStory = "/?path=/story/components-expandcollapse--overview";
