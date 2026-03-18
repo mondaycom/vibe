@@ -23,9 +23,9 @@
   },
   "dependencies": {
     "@vibe/core": "3.85.1",
-    "@vibe/icons": "^4.0.0",
-    "@vibe/shared": "^4.0.0",
-    "@vibe/style": "^4.0.0",
+    "@vibe/icons": "4.0.0",
+    "@vibe/shared": "4.0.0",
+    "@vibe/style": "4.0.0",
     "classnames": "^2.3.2",
     "es-toolkit": "^1.39.10",
     "framer-motion": "^6.5.1",

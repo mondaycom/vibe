@@ -34,7 +34,7 @@
     "lint:fix": "yarn lint -- --fix"
   },
   "devDependencies": {
-    "@vibe/config": "^4.0.0",
+    "@vibe/config": "4.0.0",
     "@vitejs/plugin-react": "^4.3.1",
     "prettier": "^2.5.1",
     "react": "^16.14.0",
