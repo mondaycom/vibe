@@ -44,6 +44,7 @@ import Footer from "../src/layout/footer/Footer";
 import StorybookTableOfContents from "../src/layout/toc/TableOfContents";
 import { paintToConsole } from "./art";
 import FloatingObjects from "../src/pages/welcome/hero/FloatingObjects";
+import Vibe4Banner from "../src/pages/welcome/banner/Vibe4Banner";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -70,6 +71,7 @@ const preview: Preview = {
 
         return (
           <>
+            {isWelcomePage && <Vibe4Banner />}
             {isWelcomePage && <FloatingObjects />}
             <DocsContainer context={context}>
               <Unstyled>{children}</Unstyled>
