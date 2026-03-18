@@ -40,6 +40,7 @@ Model Context Protocol is an open standard that enables AI assistants to securel
 
 ### Migration Assistant
 
+- [`v4-migration`](#v4-migration) - Advanced project analysis for Vibe 3 → Vibe 4 migration
 - [`v3-migration`](#v3-migration) - Advanced project analysis for Vibe 2 → Vibe 3 migration
 - [`dropdown-migration`](#dropdown-migration) - Tool for migrating from old Dropdown to new Dropdown
 
@@ -89,6 +90,20 @@ Model Context Protocol is an open standard that enables AI assistants to securel
 - Spacing and layout tokens
 - Border radius values
 - Motion and timing tokens
+
+#### `v4-migration`
+
+This tool analyzes your entire project and provides:
+
+- **Comprehensive project scanning** - Identifies all Vibe component usage
+- **Breaking change detection** - Highlights components that need updates for Vibe 4
+- **Migration command generation** - Provides ready-to-run codemod commands
+- **Detailed migration report** - Complete analysis with recommendations
+
+<Tip title="Migration Made Easy">
+  The migration tool follows the official Vibe 4 migration guide and generates precise codemod commands to automate most
+  of the migration process.
+</Tip>
 
 #### `v3-migration`
 
@@ -184,7 +199,18 @@ The MCP will:
 2. Show all margin-related design tokens
 3. Provide CSS custom property usage
 
-### Migration Planning
+### Migration Planning (Vibe 3 → 4)
+
+Ask your AI assistant: _"Help me migrate this React project from Vibe 3 to Vibe 4"_
+
+The MCP will:
+
+1. Analyze entire project structure
+2. Identify breaking changes and deprecated component usage
+3. Generate specific codemod commands
+4. Provide step-by-step recommendations
+
+### Migration Planning (Vibe 2 → 3)
 
 Ask your AI assistant: _"Help me migrate this React project from Vibe 2 to Vibe 3"_
 
