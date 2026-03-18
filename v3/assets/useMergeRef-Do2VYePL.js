@@ -1,0 +1,1 @@
+import{r as o}from"./index-CTZeEbLr.js";import{u}from"./useIsomorphicLayoutEffect-BBiFUoiz.js";function f(...t){const e=o.useRef(null);return u(()=>{t.forEach(r=>{r&&(typeof r=="function"?r(e.current):r.current=e.current)})},[t]),e}export{f as u};

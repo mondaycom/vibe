@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Vibe Design System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    
+    <style>
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-regular.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-italic.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold-italic.woff2') format('woff2');
+      }
+    </style>
+
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/links-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/a11y-2/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-controls-3/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-actions-4/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-viewport-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-toolbars-6/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-measure-7/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-outline-8/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/themes-9/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/playground-10/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/chromatic-com-storybook-11/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storysource-12/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/docs-13/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-14/manager-bundle.js" rel="modulepreload" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500&display=swap" rel="stylesheet" />
+<meta property="og:description" content="Vibe design system by monday.com" />
+<meta property="og:title" content="Vibe Design System" />
+<meta property="og:image" content="https://irp.cdn-website.com/33477119/dms3rep/multi/og-banner.jpeg" />
+<title>Vibe Design System</title>
+<script src="https://use.fontawesome.com/660238b999.js"></script>
+<script type="module">
+  const faviconLink = document.querySelector("link[rel='icon']");
+  if (import.meta.url.includes("localhost")) {
+    faviconLink.href = "/favicon-dev.ico";
+  }
+</script>
+<style>
+  body {
+    font-family: "Figtree", sans-serif;
+    background: none !important;
+    font-size: 14px;
+  }
+
+  /* Remove sidebar background */
+  body > div > div > div,
+  .container.sidebar-container {
+    background: none !important;
+  }
+
+  /* Sidebar alignment */
+  #storybook-explorer-menu .sidebar-item {
+    margin-left: -6px;
+  }
+
+  /* Sections style */
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]),
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) a,
+  #storybook-explorer-menu .sidebar-item:not([data-parent-id]) button {
+    font-family: "Figtree", sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+
+  /* Sidebar sections spacing */
+  #storybook-explorer-tree > div > div {
+    margin-top: 32px;
+  }
+
+  .sidebar-header + label + div {
+    margin-left: 16px;
+  }
+
+  .sidebar-container .search-field {
+    border-radius: 20px;
+  }
+
+  /* Sidebar spacings */
+  #storybook-explorer-menu [data-item-id="foundations"] {
+    margin-top: 24px;
+  }
+
+  /* Items style */
+  #storybook-explorer-menu a,
+  #storybook-explorer-menu button {
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    color: var(--sb-secondary-text-color);
+  }
+  #storybook-explorer-menu [data-item-id]:focus {
+    background: none;
+  }
+  #storybook-explorer-menu [data-item-id]:hover {
+    background-color: var(--sb-primary-background-hover-color);
+  }
+
+  /* Items spacings */
+  #storybook-explorer-menu a,
+  #storybook-explorer-menu button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    align-items: center;
+  }
+
+  /* Chevron alignment */
+  #storybook-explorer-menu .sidebar-item button[aria-expanded] > div {
+    margin-top: 0;
+  }
+
+  /* Icons color */
+  #storybook-explorer-menu svg {
+    color: var(--sb-secondary-text-color);
+  }
+
+  /* Items hover style */
+  #storybook-explorer-menu [data-item-id] {
+    border-radius: 8px;
+  }
+
+  /* Selected items style */
+  #storybook-explorer-menu [data-selected="true"],
+  #storybook-explorer-menu [data-selected="true"]:hover {
+    background: none;
+  }
+  #storybook-explorer-menu [data-selected="true"] a,
+  #storybook-explorer-menu [data-selected="true"] a svg {
+    color: #000000;
+  }
+
+  /* Removes sidebar icons */
+  #storybook-explorer-menu .sidebar-item[data-parent-id] > button > div > svg[type],
+  #storybook-explorer-menu .sidebar-item[data-parent-id="foundations"] > a > div > svg,
+  #storybook-explorer-menu
+    .sidebar-item:not([data-parent-id])
+    :not([data-nodetype="story"], [data-nodetype="document"])
+    svg[type] {
+    display: none;
+  }
+
+  #storybook-explorer-menu .sidebar-item [aria-expanded] {
+    margin-left: 6px;
+  }
+
+  /* Fixes items spacings */
+  #storybook-explorer-menu button[data-item-id] {
+    width: calc(100% - 16px);
+  }
+
+  /* Adds a margin between the sidebar sections */
+  [data-parent-id]:has(+ :not([data-parent-id])) {
+    margin-bottom: 16px !important;
+  }
+
+  .sidebar-container .sidebar-header {
+    margin-top: 2px !important;
+    margin-left: 12px !important;
+  }
+  #storybook-explorer-searchfield::placeholder {
+    color: #32333861;
+  }
+
+  /* Left sidebar border */
+  div[role="main"] > div {
+    box-shadow: none !important;
+    border-left: 1px solid var(--sb-layout-border-color);
+    border-radius: 0;
+  }
+
+  /* Top border */
+  div[role="main"] > div > div > div > div {
+    border-bottom: 1px solid var(--sb-layout-border-color);
+    box-shadow: none !important;
+  }
+</style>
+
+<script>
+  //workaround to increase the left panel width just enough to show even the longer story names
+  //based on https://github.com/storybookjs/storybook/issues/9682#issuecomment-983356523
+  const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 244; // original default is 230
+  let storybookConfig = JSON.parse(localStorage.getItem("storybook-layout"));
+
+  // we only resize the left panel if it is set to a value lower than DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
+  if (
+    typeof storybookConfig === "object" &&
+    storybookConfig !== null &&
+    storybookConfig.resizerNav.x < DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
+  ) {
+    storybookConfig.resizerNav.x = DEFAULT_MINIMUM_LEFT_PANEL_WIDTH;
+    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
+    document.location.reload();
+  } else if (storybookConfig === null) {
+    storybookConfig = { resizerNav: { x: DEFAULT_MINIMUM_LEFT_PANEL_WIDTH, y: 0 } };
+    localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig));
+    document.location.reload();
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CBP2ER8YL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-0CBP2ER8YL");
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const waitForComponentsFolder = () => {
+      return new Promise(resolve => {
+        const observer = new MutationObserver((mutations, obs) => {
+          const componentsFolder = document.querySelector("button#components");
+          if (componentsFolder) {
+            obs.disconnect();
+            resolve(componentsFolder);
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    };
+
+    const initComponentsFolderLogic = componentsFolder => {
+      const isExpanded = componentsFolder.getAttribute("aria-expanded") === "true";
+
+      if (isExpanded) {
+        addModalFolderObserver();
+      } else {
+        const folderObserver = new MutationObserver((mutations, obs) => {
+          for (const mutation of mutations) {
+            if (mutation.attributeName === "aria-expanded") {
+              if (componentsFolder.getAttribute("aria-expanded") === "true") {
+                addModalFolderObserver();
+                obs.disconnect();
+                break;
+              }
+            }
+          }
+        });
+        folderObserver.observe(componentsFolder, { attributes: true });
+      }
+    };
+
+    const addModalFolderObserver = () => {
+      const modalFolder = document.querySelector("button#components-modal-new");
+      if (!modalFolder) return;
+
+      const modalFolderObserver = new MutationObserver(mutations => {
+        for (const mutation of mutations) {
+          if (mutation.attributeName === "aria-expanded") {
+            const oldVal = mutation.oldValue || "";
+            const newVal = modalFolder.getAttribute("aria-expanded") || "";
+
+            if (oldVal !== "true" && newVal === "true") {
+              const modalDocsPage = modalFolder.nextElementSibling.querySelector("a");
+              modalDocsPage.click();
+            }
+          }
+        }
+      });
+
+      modalFolderObserver.observe(modalFolder, {
+        attributes: true,
+        attributeOldValue: true,
+        attributeFilter: ["aria-expanded"]
+      });
+    };
+
+    waitForComponentsFolder().then(componentsFolder => {
+      try {
+        initComponentsFolderLogic(componentsFolder);
+      } catch (e) {}
+    });
+  });
+</script>
+ 
+
+    <style>
+      #storybook-root[hidden] {
+        display: none !important;
+      }
+    </style>
+
+    
+    <link href="./sb-addons/storybook-14/manager-bundle.css" rel="stylesheet" />
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false,
+  "disallowImplicitActionsInRenderV8": true
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs",
+  "autodocs": "tag"
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+        
+          window['TAGS_OPTIONS'] = {
+  "dev-only": {
+    "excludeFromDocsStories": true
+  },
+  "docs-only": {
+    "excludeFromSidebar": true
+  },
+  "test-only": {
+    "excludeFromSidebar": true,
+    "excludeFromDocsStories": true
+  }
+};
+        
+      
+        
+          window['STORYBOOK_RENDERER'] = "react";
+        
+      
+        
+          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
+        
+      
+        
+          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-vite";
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/globals-runtime.js';
+      
+      
+        import './sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js';
+      
+        import './sb-addons/links-1/manager-bundle.js';
+      
+        import './sb-addons/a11y-2/manager-bundle.js';
+      
+        import './sb-addons/essentials-controls-3/manager-bundle.js';
+      
+        import './sb-addons/essentials-actions-4/manager-bundle.js';
+      
+        import './sb-addons/essentials-viewport-5/manager-bundle.js';
+      
+        import './sb-addons/essentials-toolbars-6/manager-bundle.js';
+      
+        import './sb-addons/essentials-measure-7/manager-bundle.js';
+      
+        import './sb-addons/essentials-outline-8/manager-bundle.js';
+      
+        import './sb-addons/themes-9/manager-bundle.js';
+      
+        import './sb-addons/playground-10/manager-bundle.js';
+      
+        import './sb-addons/chromatic-com-storybook-11/manager-bundle.js';
+      
+        import './sb-addons/storysource-12/manager-bundle.js';
+      
+        import './sb-addons/docs-13/manager-bundle.js';
+      
+        import './sb-addons/storybook-14/manager-bundle.js';
+      
+      
+      import './sb-manager/runtime.js';
+    </script>
+  </body>
+</html>

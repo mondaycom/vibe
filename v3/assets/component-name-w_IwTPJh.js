@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{c as n}from"./index-BpvXyOxN.js";const t="_componentName_1gxp4_1",s={componentName:t},p=({children:o,className:m})=>e.jsx("h1",{className:n(s.componentName,m),children:o});export{p as C};
