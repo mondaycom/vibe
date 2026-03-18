@@ -31,6 +31,7 @@ jobs:
         with:
           clean-exclude: |
             v2/*
+            v3/*
             playground/*
           folder: packages/docs/static_storybook
           branch: gh-pages
