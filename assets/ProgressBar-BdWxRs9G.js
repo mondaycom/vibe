@@ -1,0 +1,29 @@
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as h}from"./index-BfNsOeqz.js";import{M as u}from"./index-CjICzR-8.js";import{l as j}from"./tip-CK87uV3P.js";import{m as g}from"./storybook-link-ClVKa61z.js";import{D as x}from"./DialogContentContainer-CnYOKF_Z.js";import{T as i}from"./Text-DKH6hkNh.js";import{F as n}from"./Flex-DZptE16X.js";import{P as a}from"./ProgressBar-DjE6M8Kc.js";import{P as f,O as v,R as y,W as b,M as w,a as P,b as C}from"./ProgressBar.stories-D1OE9qJo.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-BpcggjD7.js";import"./index-DDEq5q86.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./index-BpvXyOxN.js";import"./Flex-qb9MRXYX.js";import"./withStaticProps-DibdfTK_.js";import"./_tslib-BMUU9Vyh.js";import"./link-CVYAeutz.js";import"./index-BhLfryR5.js";import"./camelCase-CO1PkVrH.js";import"./useMergeRef-X5HCLGob.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Typography-CRXkpeMq.js";import"./index-C-yBOSr8.js";import"./debounce-D3NSP8gs.js";import"./Tooltip-C-VqkVk0.js";import"./Icon-DN6IoOvm.js";import"./noop-DX6rZLP_.js";import"./useEventListener-CkU0kzyk.js";import"./keyCodes-BtXLi1ea.js";import"./function-utils-BT-tMqNc.js";import"./index-CZ877qUP.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./Clickable-BZqHH2Dt.js";import"./useClickableProps-DFOJ6ejq.js";import"./typesciptCssModulesHelper-DQ-2Bs84.js";import"./test-ids-utils-BSSgvOTA.js";import"./constants-DEBzQJwg.js";import"./createStoryMetaSettingsDecorator-DJeVV-64.js";import"./index-DLpaL66y.js";import"./_tslib-Ct4JumdA.js";import"./Invite-BJsiPZ1j.js";import"./AddSmall-DFewX5rK.js";import"./Workspace-DZbcEHYw.js";import"./Calendar-NzkLrIBg.js";import"./Table-DaDp-EUK.js";import"./Check-CxyRTNy4.js";import"./CloseSmall-DUYWL2FE.js";import"./Delete-BKCcQViV.js";import"./Drag-8qsbRXq_.js";import"./Remove-q9vvuCgy.js";import"./DropdownChevronRight-CtJWrCfY.js";import"./Email-TZY0cRuW.js";import"./Settings-C9Ssqg9X.js";import"./Wand-CS0YeGd1.js";import"./NewTab-CMglqP6P.js";import"./Info-jvFNh0HS.js";import"./NavigationChevronRight-DwBPRKWZ.js";import"./Person-XH7Sg-gK.js";import"./Search-ClaS4_rs.js";import"./SortDescending-DfYW2xR2.js";import"./Upgrade-CC_w3yRG.js";import"./index-B-lxVbXh.js";import"./v4-CtRu48qb.js";import"./Box-D05YjtvS.js";const B=()=>e.jsxs(j,{children:["If you need to lead a user through a progress, use the"," ",e.jsx(g,{page:"Components/MultiStepIndicator",size:"small",children:"MultiStepIndicator"})," ","instead."]}),M=()=>e.jsx("div",{style:{width:250},children:e.jsxs(x,{style:{padding:"var(--space-20)"},children:[e.jsx(i,{type:"text1",weight:"bold",style:{marginBottom:"var(--space-4)"},children:"Items usage"}),e.jsxs(n,{justify:"space-between",style:{marginBottom:"var(--space-4)"},children:[e.jsx(i,{children:"Items"}),e.jsx(i,{children:"142/200"})]}),e.jsx(a,{value:71})]})}),R=()=>e.jsx("div",{style:{width:250},children:e.jsxs(x,{style:{padding:"var(--space-20)"},children:[e.jsx(i,{type:"text1",weight:"bold",style:{marginBottom:"var(--space-4)"},children:"Storage"}),e.jsxs(n,{gap:"medium",children:[e.jsx(i,{ellipsis:!1,style:{flexBasis:80},children:"Drive 1"}),e.jsx(a,{value:88})]}),e.jsxs(n,{gap:"medium",children:[e.jsx(i,{ellipsis:!1,style:{flexBasis:80},children:"Drive 2"}),e.jsx(a,{value:46})]}),e.jsxs(n,{gap:"medium",children:[e.jsx(i,{ellipsis:!1,style:{flexBasis:80},children:"Drive 3"}),e.jsx(a,{value:72})]})]})});function c(s){const r={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...h(),...s.components},{Canvas:o,ComponentRules:p,PropsTable:m,RelatedComponents:l,UsageGuidelines:d}=r;return o||t("Canvas"),p||t("ComponentRules"),m||t("PropsTable"),l||t("RelatedComponents"),d||t("UsageGuidelines"),e.jsxs(e.Fragment,{children:[e.jsx(u,{of:f}),`
+`,e.jsx(r.h1,{id:"progressbar",children:"ProgressBar"}),`
+`,e.jsx(r.p,{children:"Progress bars show continuous progress through a process, such as a percentage value. They show how much progress is complete and how much remains."}),`
+`,e.jsx(o,{of:v}),`
+`,e.jsx(r.h3,{id:"import",children:"Import"}),`
+`,e.jsx(r.pre,{children:e.jsx(r.code,{className:"language-js",children:`import { ProgressBar } from "@vibe/core";
+`})}),`
+`,e.jsx(r.h2,{id:"props",children:"Props"}),`
+`,e.jsx(m,{}),`
+`,e.jsx(r.h2,{id:"usage",children:"Usage"}),`
+`,e.jsx(d,{guidelines:["Give users an indication of how much of the task has been completed and how much is left."]}),`
+`,e.jsx(B,{}),`
+`,e.jsx(r.h2,{id:"variants",children:"Variants"}),`
+`,e.jsx(r.h3,{id:"regular",children:"Regular"}),`
+`,e.jsx(o,{of:y}),`
+`,e.jsx(r.h3,{id:"with-secondary-value",children:"With secondary value"}),`
+`,e.jsx(o,{of:b}),`
+`,e.jsx(r.h3,{id:"multi-progress-bar",children:"Multi progress bar"}),`
+`,e.jsx(o,{of:w}),`
+`,e.jsx(r.h2,{id:"dos-and-donts",children:"Do’s and Don’ts"}),`
+`,e.jsx(p,{rules:[{positive:{component:e.jsx(M,{}),description:"Use a progress bar only process has start and finish point."},negative:{component:e.jsx(R,{}),description:"Don’t use an infinite scalable indicator."}}]}),`
+`,e.jsx(r.h2,{id:"use-cases-and-examples",children:"Use cases and examples"}),`
+`,e.jsx(r.h3,{id:"progress-bar-as-a-counter",children:"Progress bar as a counter"}),`
+`,e.jsx(r.p,{children:"The user can see in a clear way the number of items used in the account."}),`
+`,e.jsx(o,{of:P}),`
+`,e.jsx(r.h3,{id:"progress-bar-as-loading-indicator",children:"Progress bar as loading indicator"}),`
+`,e.jsx(o,{of:C}),`
+`,e.jsx(r.h2,{id:"related-components",children:"Related components"}),`
+`,e.jsx(l,{componentsNames:["Spinner","Steps","Skeleton"]})]})}function Ve(s={}){const{wrapper:r}={...h(),...s.components};return r?e.jsx(r,{...s,children:e.jsx(c,{...s})}):c(s)}function t(s,r){throw new Error("Expected component `"+s+"` to be defined: you likely forgot to import, pass, or provide it.")}export{Ve as default};
