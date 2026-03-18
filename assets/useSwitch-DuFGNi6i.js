@@ -1,0 +1,18 @@
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as a}from"./index-BfNsOeqz.js";import{M as c,C as i}from"./index-B3y303_e.js";import{U as d,O as h,D as l,a as m}from"./useSwitch.stories-lmxP_hf3.js";import{e as r,d as o}from"./function-arguments-Cjbh7Tou.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-DeTp_3vZ.js";import"./index-B-_6Tbvl.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./index-Bgok7zfD.js";import"./Flex-DZptE16X.js";import"./index-BpvXyOxN.js";import"./Clickable-BZqHH2Dt.js";import"./useClickableProps-DFOJ6ejq.js";import"./keyCodes-BtXLi1ea.js";import"./useMergeRef-X5HCLGob.js";import"./function-utils-BT-tMqNc.js";import"./noop-DX6rZLP_.js";import"./camelCase-CO1PkVrH.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Toggle-CvFG4jeo.js";import"./constants-DEBzQJwg.js";import"./Text-DKH6hkNh.js";import"./Typography-CRXkpeMq.js";import"./index-C-yBOSr8.js";import"./debounce-D3NSP8gs.js";import"./Tooltip-C-VqkVk0.js";import"./Icon-DN6IoOvm.js";import"./useEventListener-CkU0kzyk.js";import"./index-CZ877qUP.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./typesciptCssModulesHelper-DQ-2Bs84.js";import"./test-ids-utils-BSSgvOTA.js";function s(n){const t={code:"code",em:"em",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",strong:"strong",...a(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{of:d}),`
+`,e.jsx(t.h1,{id:"useswitch",children:"useSwitch"}),`
+`,e.jsx(t.p,{children:"Hook for controlling boolean state on components, e.g. Toggle, by exposing state and a handler"}),`
+`,e.jsx(i,{of:h}),`
+`,e.jsx(t.h3,{id:"import",children:"Import"}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-js",children:`import { useSwitch } from "@vibe/core";
+`})}),`
+`,e.jsx(t.h2,{id:"variants",children:"Variants"}),`
+`,e.jsx(t.h3,{id:"disabled",children:"Disabled"}),`
+`,e.jsxs(t.p,{children:["Hook can have argument of ",e.jsx(t.code,{children:"isDisabled"})," to not allow trigger ",e.jsx(t.code,{children:"onChange"})," (or the custom passed ",e.jsx(t.code,{children:"onChange"}),") and change returned ",e.jsx(t.code,{children:"isChecked"})," value."]}),`
+`,e.jsx(i,{of:l}),`
+`,e.jsx(t.h3,{id:"default-initial-value",children:"Default (initial) value"}),`
+`,e.jsxs(t.p,{children:["Hook can have argument of ",e.jsx(t.code,{children:"defaultChecked"})," to control the ",e.jsx(t.strong,{children:e.jsx(t.em,{children:"initial"})})," value returned from it."]}),`
+`,e.jsx(i,{of:m}),`
+`,e.jsx(t.h2,{id:"arguments",children:"Arguments"}),`
+`,e.jsx(r,{children:e.jsxs(o,{name:"options",type:"Object",children:[e.jsx(o,{name:"isChecked",type:"boolean",description:"Value to override the hook state."}),e.jsx(o,{name:"defaultChecked",type:"boolean",description:"Value to override the hook initial state (init hook with 'true' instead of 'false')."}),e.jsx(o,{name:"onChange",type:"(value: boolean) => void",description:"Callback function to execute when hook 'change' triggered."}),e.jsx(o,{name:"isDisabled",type:"boolean",description:"Value that, if passed as 'true', prevents hook from trigger 'change' lifecycle."})]})}),`
+`,e.jsx(t.h2,{id:"returns",children:"Returns"}),`
+`,e.jsx(r,{children:e.jsxs(o,{name:"result",type:"Object",children:[e.jsx(o,{name:"isChecked",type:"boolean",description:"Returned value of current state."}),e.jsx(o,{name:"onChange",type:"() => void",description:"Returned handler function to trigger the hook 'change' lifecycle."})]})})]})}function W(n={}){const{wrapper:t}={...a(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(s,{...n})}):s(n)}export{W as default};
