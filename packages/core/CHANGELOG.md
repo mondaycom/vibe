@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.0...@vibe/core@4.0.0) (2026-03-18)
+
+
+### BREAKING CHANGES
+
+This release contains breaking changes across components, APIs, and styling. Key highlights:
+
+- **Enum removal**: Removed all deprecated enum exports and static properties across 30+ components. Use string literals instead. Run `npx @vibe/codemod --migration v4` to migrate automatically.
+- **Dropdown**: Complete API rewrite replacing the react-select-based implementation with a new custom component.
+- **Dialog**: Migrated from Popper.js to Floating UI (`@floating-ui/react-dom`). The `modifiers` prop is replaced by `middleware`.
+- **AttentionBox**: New component promoted from `@vibe/core/next`. Legacy props removed; type values renamed.
+- **Icon**: Props renamed — `iconLabel` → `label`, `iconType` → `type`, `iconSize` → `size`.
+- **TipseenImage**: Removed — use `TipseenMedia` with an `<img>` child instead.
+
+For the full list of breaking changes and migration instructions, see the [v4 migration guide](https://vibe.monday.com/?path=/docs/migration-guide--docs).
+
+
 # [3.88.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.87.0...@vibe/core@3.88.0) (2026-03-11)
 
 
