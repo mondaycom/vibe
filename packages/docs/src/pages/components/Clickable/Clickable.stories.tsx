@@ -32,12 +32,12 @@ export const Overview = {
 export const States = {
   render: () => (
     <Flex gap="medium">
-      <Clickable onClick={() => alert("clicked")} ariaLabel="clickable button">
+      <Clickable onClick={() => alert("clicked")} aria-label="clickable button">
         <Box border padding="small" rounded="small">
           Regular clickable element
         </Box>
       </Clickable>
-      <Clickable onClick={() => alert("clicked")} disabled ariaLabel="disabled clickable button">
+      <Clickable onClick={() => alert("clicked")} disabled aria-label="disabled clickable button">
         <Box border backgroundColor="greyBackgroundColor" padding="small" rounded="small">
           Disabled clickable element
         </Box>

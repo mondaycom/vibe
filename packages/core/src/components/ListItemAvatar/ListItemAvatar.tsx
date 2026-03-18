@@ -1,9 +1,8 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import Avatar from "../Avatar/Avatar";
-import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";
 import styles from "./ListItemAvatar.module.scss";
 
@@ -38,10 +37,4 @@ const ListItemAvatar = forwardRef(
   }
 );
 
-interface ListItemAvatarStaticProps {
-  components: typeof ListItemComponentTypeEnum;
-}
-
-export default withStaticProps<ListItemAvatarProps, ListItemAvatarStaticProps>(ListItemAvatar, {
-  components: ListItemComponentTypeEnum
-});
+export default ListItemAvatar;

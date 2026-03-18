@@ -1,3 +1,4 @@
+import type React from "react";
 import { describe, it, expect } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
 import { useAdjacentSelectableMenuIndex } from "../useAdjacentSelectableMenuIndex";
@@ -120,7 +121,7 @@ describe("useAdjacentSelectableMenuIndex", () => {
     });
   });
 
-  function renderHookForTest(children: any) {
+  function renderHookForTest(children: React.ReactElement[]) {
     return renderHook(() => useAdjacentSelectableMenuIndex({ children }));
   }
 });

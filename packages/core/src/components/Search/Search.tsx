@@ -37,8 +37,8 @@ const Search = forwardRef(
       onClear,
       onKeyDown,
       className,
-      ariaExpanded,
-      ariaHasPopup,
+      "aria-expanded": ariaExpanded,
+      "aria-haspopup": ariaHasPopup,
       showClearIcon = true,
       id,
       "data-testid": dataTestId
@@ -62,19 +62,14 @@ const Search = forwardRef(
     }, [disabled, clearValue, onClear]);
 
     const SearchIcon = (
-      <Icon
-        icon={searchIconName}
-        className={styles.icon}
-        iconType="font"
-        iconSize={size === "small" ? "16px" : "20px"}
-      />
+      <Icon icon={searchIconName} className={styles.icon} type="font" size={size === "small" ? "16px" : "20px"} />
     );
 
     const ClearIcon = (
       <IconButton
         className={cx(styles.icon, { [styles.empty]: !inputValue })}
         icon={clearIconName}
-        ariaLabel={clearIconLabel}
+        aria-label={clearIconLabel}
         onClick={onClearButtonClick}
         size={size === "small" ? "xs" : "small"}
         data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}

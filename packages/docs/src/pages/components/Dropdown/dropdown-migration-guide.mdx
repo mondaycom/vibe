@@ -4,7 +4,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { DiffCodeBlock } from "../../migration-guide/DiffCodeBlock";
 
-<Meta title="Components/Dropdown [New]/Migration Guide" />
+<Meta title="Components/Dropdown/Migration Guide" />
 
 # Dropdown Migration Guide
 
@@ -65,8 +65,13 @@ The Dropdown component has been completely rewritten from scratch to provide bet
 ### 1. Update Import Path
 
 <DiffCodeBlock
-  code={`- import { Dropdown } from "@vibe/core";
-+ import { Dropdown } from "@vibe/core/next";`}
+  code={`// In v4, the new Dropdown is the default export from @vibe/core
+import { Dropdown } from "@vibe/core";
+
+// The old react-select based Dropdown has been removed.
+// If you were using the alpha import path:
+// - import { Dropdown } from "@vibe/core/next";
+// + import { Dropdown } from "@vibe/core";`}
 />
 
 ### 2. Update Option Data Structure
@@ -336,14 +341,11 @@ interface Task {
 
 ## FAQ ❓
 
-**Q: When should I migrate to the new Dropdown?**
-A: The new Dropdown is currently in Alpha. We recommend migrating for new projects or when you need the enhanced accessibility and performance features.
+**Q: What happened to the old Dropdown?**
+A: The old react-select based Dropdown has been removed in Vibe 4. The new Dropdown (previously available via `@vibe/core/next`) is now the default export from `@vibe/core`.
 
-**Q: Will the old Dropdown be deprecated?**
-A: Yes, the old Dropdown will be deprecated in the next major version (Vibe 4). We'll provide ample notice and migration support.
-
-**Q: Can I use both implementations in the same project?**
-A: Yes, you can import the new Dropdown from `@vibe/core/next` and the old one from `@vibe/core` during the migration period.
+**Q: I was importing Dropdown from `@vibe/core/next`. What should I change?**
+A: Update your import to use `@vibe/core` instead of `@vibe/core/next`.
 
 **Q: Are there any features missing from the new Dropdown?**
 A: The new Dropdown covers all major use cases. If you're using `asyncOptions`, implement data fetching externally and pass the results to the `options` prop.

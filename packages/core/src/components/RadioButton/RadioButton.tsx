@@ -65,7 +65,7 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * The tab index applied to the children.
    */
-  childrenTabIndex?: string;
+  childrenTabIndex?: number;
   /**
    * If true, disables the label animation.
    */
@@ -73,11 +73,11 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * ARIA label for accessibility when no text is provided.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * ID of element that describe this radio button.
    */
-  ariaDescribedby?: string;
+  "aria-describedby"?: string;
 }
 
 const RadioButton = forwardRef(
@@ -97,10 +97,10 @@ const RadioButton = forwardRef(
       onSelect,
       checked,
       retainChildClick = true,
-      childrenTabIndex = "0",
+      childrenTabIndex = 0,
       noLabelAnimation = false,
-      ariaLabel,
-      ariaDescribedby,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedby,
       id,
       "data-testid": dataTestId
     }: RadioButtonProps,

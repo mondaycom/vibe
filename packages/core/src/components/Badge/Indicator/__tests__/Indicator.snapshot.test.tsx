@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Indicator from "../Indicator";
-import { IndicatorColor } from "../IndicatorConstants";
 
 describe("Indicator", () => {
   it("renders correctly with empty props", () => {
@@ -11,7 +10,7 @@ describe("Indicator", () => {
   });
 
   it("renders correctly with a custom color", () => {
-    const tree = renderer.create(<Indicator color={IndicatorColor.PRIMARY} />).toJSON();
+    const tree = renderer.create(<Indicator color="primary" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

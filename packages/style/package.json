@@ -1,6 +1,6 @@
 {
-  "name": "monday-ui-style",
-  "version": "0.26.2",
+  "name": "@vibe/style",
+  "version": "4.0.0-rc.0",
   "description": "Monday UI CSS Foundations",
   "keywords": [
     "CSS",

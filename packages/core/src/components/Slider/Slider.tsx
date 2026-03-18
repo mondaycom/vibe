@@ -1,5 +1,4 @@
 import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
-import { BASE_SIZES } from "../../constants";
 import useMergeRef from "../../hooks/useMergeRef";
 import { NOOP } from "../../utils/function-utils";
 import { ensureDefaultValue } from "./SliderHelpers";
@@ -7,9 +6,7 @@ import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
 import { type IconType } from "@vibe/icon";
-import { SliderColor as SliderColorEnum } from "./SliderConstants";
 import cx from "classnames";
-import { withStaticProps } from "../../types";
 import styles from "./Slider.module.scss";
 import { type SliderColor, type SliderLabelColor, type SliderLabelPosition, type SliderSize } from "./Slider.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
@@ -19,11 +16,11 @@ export type SliderProps = {
   /**
    * Define a string that labels the current element (Slider)
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * ElementId of Node that have the text needed for labeling the current element (Slider)
    */
-  ariaLabelledby?: string;
+  "aria-labelledby"?: string;
   /**
    * Custom `class name` to be added to the component-root-node
    */
@@ -130,8 +127,8 @@ export type SliderProps = {
 const Slider = forwardRef(
   (
     {
-      ariaLabel,
-      ariaLabelledby,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
       className,
       color,
       "data-testid": dataTestId = "monday-slider",
@@ -165,8 +162,8 @@ const Slider = forwardRef(
     );
     return (
       <SliderProvider
-        ariaLabel={ariaLabel}
-        ariaLabelledby={ariaLabelledby}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
         color={color}
         data-testid={dataTestId}
         disabled={disabled}
@@ -196,21 +193,13 @@ const Slider = forwardRef(
           id={id}
           ref={mergedRef}
         >
-          <SliderInfix kind={SliderInfix.kinds.PREFIX} />
+          <SliderInfix kind="prefix" />
           <SliderBase />
-          <SliderInfix kind={SliderInfix.kinds.POSTFIX} />
+          <SliderInfix kind="postfix" />
         </div>
       </SliderProvider>
     );
   }
 );
 
-interface SliderStaticProps {
-  sizes: typeof BASE_SIZES;
-  colors: typeof SliderColorEnum;
-}
-
-export default withStaticProps<SliderProps, SliderStaticProps>(Slider, {
-  sizes: BASE_SIZES,
-  colors: SliderColorEnum
-});
+export default Slider;

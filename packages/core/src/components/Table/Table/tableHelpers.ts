@@ -4,8 +4,7 @@ import { type TableColumn, type TableLoadingStateType } from "./Table";
 import { Sort } from "@vibe/icons";
 import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import { SortAscending, SortDescending } from "@vibe/icons";
-import { SkeletonType } from "../../Skeleton/SkeletonConstants";
-
+import { type SkeletonType } from "../../../components/Skeleton/Skelton.types";
 export function generateWidth(width: TableColumn["width"]): string {
   if (typeof width === "number") {
     return `${width}px`;
@@ -58,12 +57,12 @@ export function getAriaSort(sortState: TableHeaderCellProps["sortState"]): AriaA
 
 export function getSkeletonType(loadingStateType: TableLoadingStateType): SkeletonType {
   if (loadingStateType === "circle") {
-    return SkeletonType.CIRCLE;
+    return "circle";
   }
   if (loadingStateType === "rectangle") {
-    return SkeletonType.RECTANGLE;
+    return "rectangle";
   }
-  return SkeletonType.TEXT;
+  return "text";
 }
 
 export function getLoadingTypeForCell(

@@ -27,12 +27,12 @@ describe("ButtonGroup renders correctly", () => {
   });
 
   it("with large size", () => {
-    const tree = renderer.create(<ButtonGroup size={ButtonGroup.sizes.LARGE} options={option} />).toJSON();
+    const tree = renderer.create(<ButtonGroup size="large" options={option} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with TERTIARY kind", () => {
-    const tree = renderer.create(<ButtonGroup kind={ButtonGroup.kinds.TERTIARY} options={option} />).toJSON();
+    const tree = renderer.create(<ButtonGroup kind="tertiary" options={option} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

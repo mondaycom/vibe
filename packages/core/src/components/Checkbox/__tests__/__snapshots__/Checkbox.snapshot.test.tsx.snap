@@ -250,7 +250,7 @@ exports[`Checkbox renders correctly > when interminate 1`] = `
 </label>
 `;
 
-exports[`Checkbox renders correctly > with ariaLabelledBy 1`] = `
+exports[`Checkbox renders correctly > with aria-labelledby 1`] = `
 <label
   className="wrapper"
   data-testid="checkbox"

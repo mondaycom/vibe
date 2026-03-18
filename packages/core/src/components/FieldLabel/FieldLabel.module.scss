@@ -1,14 +1,14 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .labelComponentWrapper {
   @include vibe-text(text2, normal);
   display: flex;
-  padding-bottom: var(--spacing-xs);
+  padding-bottom: var(--space-4);
   align-items: center;
 }
 
 .labelComponentIcon {
-  margin: 0 var(--spacing-small) 0 var(--spacing-xs);
+  margin: 0 var(--space-8) 0 var(--space-4);
   line-height: 24px;
   color: var(--secondary-text-color);
 }

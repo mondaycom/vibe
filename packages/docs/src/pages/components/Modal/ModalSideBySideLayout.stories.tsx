@@ -8,7 +8,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalFooterWizard
-} from "@vibe/core/next";
+} from "@vibe/core";
 import {
   TransitionView,
   useWizard,
@@ -33,7 +33,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/Modal [New]/Side by side modal",
+  title: "Components/Modal/Side by side modal",
   component: Modal,
   subcomponents: {
     ModalSideBySideLayout,
@@ -236,7 +236,7 @@ export const HeaderWithIconButton: Story = {
       <Modal
         id="modal-sbs"
         show={show}
-        renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" ariaLabel="Open Menu" />}
+        renderHeaderAction={<IconButton icon={Menu} size="small" kind="tertiary" aria-label="Open Menu" />}
         size="large"
         onClose={() => setShow(false)}
         container={container}

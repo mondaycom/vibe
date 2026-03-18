@@ -1,6 +1,6 @@
 {
   "name": "@vibe/dialog",
-  "version": "3.0.12",
+  "version": "4.0.0-rc.0",
   "description": "Vibe sub-package for dialog components",
   "repository": {
     "type": "git",
@@ -38,13 +38,13 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@popperjs/core": "2.11.6",
-    "@vibe/hooks": "3.0.3",
-    "@vibe/layer": "3.0.10",
-    "@vibe/shared": "3.0.8",
+    "@floating-ui/react-dom": "^2.1.2",
+    "@vibe/hooks": "^4.0.0-rc.0",
+    "@vibe/layer": "^4.0.0-rc.0",
+    "@vibe/shared": "^4.0.0-rc.0",
+    "@vibe/style": "^4.0.0-rc.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
-    "react-popper": "^2.3.0",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
@@ -52,11 +52,11 @@
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/react-transition-group": "^4.4.5",
-    "@vibe/config": "3.0.5",
+    "@vibe/config": "^4.0.0-rc.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
-    "typescript": "^4.7.3",
+    "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

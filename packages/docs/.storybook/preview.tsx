@@ -28,7 +28,7 @@ import CanvasWrapper from "../src/layout/canvas-wrapper/CanvasWrapper";
 import withGlobalStyle from "../src/decorators/withGlobalStyle/withGlobalStyle";
 import { PropsTable } from "../src/layout/props-table/props-table";
 import { RelatedComponentsDecorator } from "../src/layout/related-components/related-components-decorator";
-import "monday-ui-style/dist/index.min.css";
+import "@vibe/style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
 import {
@@ -113,7 +113,7 @@ const preview: Preview = {
           "Welcome",
           "Getting Started",
           "Catalog",
-          "MCP [New]",
+          "MCP",
           "Playground",
           "Changelog",
           "Migration Guide",

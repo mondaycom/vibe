@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import { AnimatePresence } from "framer-motion";
 import { type TransitionViewProps } from "./TransitionView.types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
@@ -19,11 +18,9 @@ const TransitionView = forwardRef(
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.TRANSITION_VIEW, id)}
         ref={ref}
       >
-        <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
-          <SlideTransition key={activeStep} direction={direction}>
-            {children[activeStep]}
-          </SlideTransition>
-        </AnimatePresence>
+        <SlideTransition key={activeStep} direction={direction}>
+          {children[activeStep]}
+        </SlideTransition>
       </div>
     );
   }

@@ -49,16 +49,17 @@ export function useSliderActionsContextValue(
 
   const _validateValue = useCallback(
     (index: number, newValue: number | number[] | string): number => {
-      if (newValue === "" || Number.isNaN(Number(newValue))) {
+      const numericValue = Number(newValue);
+      if (newValue === "" || Number.isNaN(numericValue)) {
         return index === 1 ? max : min;
       }
-      if (newValue > max) {
+      if (numericValue > max) {
         return max;
       }
-      if (newValue < min) {
+      if (numericValue < min) {
         return min;
       }
-      return newValue as number;
+      return numericValue;
     },
     [min, max]
   );

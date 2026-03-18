@@ -24,7 +24,7 @@ export const Overview: Story = {
   render: toggleTemplate.bind({}),
   args: {
     id: "overview-toggle",
-    ariaLabel: "Toggle option"
+    "aria-label": "Toggle option"
   },
   parameters: {
     docs: {
@@ -38,8 +38,8 @@ export const Overview: Story = {
 export const States: Story = {
   render: () => (
     <Flex direction="column" gap="medium">
-      <Toggle id="states-off" ariaLabel="Toggle off state" isDefaultSelected={false} />
-      <Toggle id="states-on" ariaLabel="Toggle on state" />
+      <Toggle id="states-off" aria-label="Toggle off state" isDefaultSelected={false} />
+      <Toggle id="states-on" aria-label="Toggle on state" />
     </Flex>
   ),
   parameters: {
@@ -54,8 +54,8 @@ export const States: Story = {
 export const Size: Story = {
   render: () => (
     <Flex gap="large">
-      <Toggle id="size-medium" ariaLabel="Medium toggle" size="medium" />
-      <Toggle id="size-small" ariaLabel="Small toggle" size="small" />
+      <Toggle id="size-medium" aria-label="Medium toggle" size="medium" />
+      <Toggle id="size-small" aria-label="Small toggle" size="small" />
     </Flex>
   ),
   parameters: {
@@ -70,8 +70,8 @@ export const Size: Story = {
 export const Disabled: Story = {
   render: () => (
     <Flex direction="column" gap="large">
-      <Toggle id="disabled-off" ariaLabel="Disabled toggle off" isDefaultSelected={false} disabled />
-      <Toggle id="disabled-on" ariaLabel="Disabled toggle on" disabled />
+      <Toggle id="disabled-off" aria-label="Disabled toggle off" isDefaultSelected={false} disabled />
+      <Toggle id="disabled-on" aria-label="Disabled toggle on" disabled />
     </Flex>
   ),
   parameters: {
@@ -87,7 +87,7 @@ export const TurnOnOffAnAutomation: Story = {
   render: () => (
     <Flex gap="medium">
       <Text id="automation-label">Board automations</Text>
-      <Toggle id="automation-toggle" ariaLabel="Toggle board automations" />
+      <Toggle id="automation-toggle" aria-label="Toggle board automations" />
     </Flex>
   ),
   name: "Turn on/ off an automation"
