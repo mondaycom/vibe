@@ -1,10 +1,10 @@
 /* eslint-disable */
 /* tslint:disable */
 import * as React from 'react';
-export interface AiStarProps extends React.SVGAttributes<SVGElement> {
+export interface AiCreditsProps extends React.SVGAttributes<SVGElement> {
 size?: string | number;
 }
-const AiStar: React.FC<AiStarProps> = ({size, ...props}) => (
+const AiCredits: React.FC<AiCreditsProps> = ({size, ...props}) => (
   <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
     <path d="M10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2ZM5.3465 5.3465C6.58069 4.11232 8.2546 3.41896 10 3.41896C11.7454 3.41896 13.4193 4.11232 14.6535 5.3465C15.8877 6.58069 16.581 8.2546 16.581 10C16.581 11.7454 15.8877 13.4193 14.6535 14.6535C13.4193 15.8877 11.7454 16.581 10 16.581C8.2546 16.581 6.58069 15.8877 5.3465 14.6535C4.11232 13.4193 3.41896 11.7454 3.41896 10C3.41896 8.2546 4.11232 6.58069 5.3465 5.3465Z"
       fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
@@ -12,7 +12,7 @@ const AiStar: React.FC<AiStarProps> = ({size, ...props}) => (
       fill="currentColor" />
   </svg>
 );
-AiStar.displayName = 'AiStar';
-export default AiStar;
+AiCredits.displayName = 'AiCredits';
+export default AiCredits;
 /* tslint:enable */
 /* eslint-enable */

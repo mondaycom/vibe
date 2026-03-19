@@ -7,7 +7,7 @@ export {default as AddNewDoc} from './AddNewDoc';
 export {default as AddSmall} from './AddSmall';
 export {default as AddToTeam} from './AddToTeam';
 export {default as AddUpdate} from './AddUpdate';
-export {default as AiStar} from './AiStar';
+export {default as AiCredits} from './AiCredits';
 export {default as Alert} from './Alert';
 export {default as AlignCenter} from './AlignCenter';
 export {default as AlignLeft} from './AlignLeft';
