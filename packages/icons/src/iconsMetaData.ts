@@ -13,6 +13,12 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "AiStar",
+      file: "AiStar.svg",
+      description: "AI star icon representing AI-powered features",
+      tags: "AI, Star, Artificial Intelligence, Sparkle, Magic, Smart"
+  },
+  {
     name: "ZoomIn",
     file: "ZoomIn.svg",
     description: "Zoom In icon for external views",
