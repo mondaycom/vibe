@@ -8,14 +8,14 @@
     "lint": "lerna run lint",
     "test": "lerna run test",
     "storybook": "lerna run storybook --parallel --stream",
-    "postinstall": "lerna run build --scope={vibe-storybook-components,@vibe/icons}"
+    "postinstall": "lerna run build --scope={vibe-storybook-components,@vibe/shared,@vibe/icons,@vibe/hooks}"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.2.0",
     "bytes": "^3.1.2",
     "lerna": "^8.1.2",
     "size-limit": "^11.2.0",
-    "typescript": "^4.7.3"
+    "typescript": "^5.9.3"
   },
   "workspaces": [
     "packages/*",

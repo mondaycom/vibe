@@ -1,6 +1,6 @@
 import React, { cloneElement, forwardRef, useCallback, useRef, useState } from "react";
 import cx from "classnames";
-import useResizeObserver from "../../hooks/useResizeObserver";
+import { useResizeObserver } from "@vibe/hooks";
 import styles from "./LabelCelebrationAnimation.module.scss";
 
 const DEFAULT_BORDER_RADIUS = 4;

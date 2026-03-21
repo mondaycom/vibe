@@ -1,16 +1,16 @@
 import React, { type AriaAttributes, type ForwardedRef, type ReactElement, forwardRef, useMemo, useRef } from "react";
-import Tooltip, { type TooltipProps } from "../../../components/Tooltip/Tooltip";
-import { type IconType, Icon, type SubIcon } from "@vibe/icon";
-import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import { type VibeComponentProps, withStaticProps } from "../../../types";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
+import { type IconType, type SubIcon } from "@vibe/icon";
+import { useIsOverflowing } from "@vibe/hooks";
+import { type VibeComponentProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
 import Label from "../../Label/Label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
-import { type TooltipPositions } from "../../Tooltip/Tooltip.types";
-import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
+import { type TooltipPositions } from "@vibe/tooltip";
 import { type SubmenuPosition } from "./MenuItem.types";
+import { Flex } from "@vibe/layout";
 
 export interface MenuItemProps extends VibeComponentProps {
   /**
@@ -33,6 +33,22 @@ export interface MenuItemProps extends VibeComponentProps {
    * The background color of the icon.
    */
   iconBackgroundColor?: string;
+  /**
+   * The right icon to be displayed.
+   */
+  rightIcon?: SubIcon;
+  /**
+   * The type of right icon.
+   */
+  rightIconType?: IconType;
+  /**
+   * The background color of the right icon.
+   */
+  rightIconBackgroundColor?: string;
+  /**
+   * Class name applied to the icon wrapper.
+   */
+  rightIconWrapperClassName?: string;
   /**
    * If true, the menu item is disabled.
    */
@@ -130,9 +146,9 @@ export interface MenuItemProps extends VibeComponentProps {
    */
   menuRef?: React.RefObject<HTMLElement>;
   /**
-   * The submenu items, if applicable.
+   * The submenu, if applicable. Must be a single `Menu` element.
    */
-  children?: MenuChild | MenuChild[];
+  children?: MenuChild;
   /**
    * If true, enables a split menu item interaction where the main area triggers an action,
    * while the icon button opens the submenu.
@@ -162,9 +178,13 @@ const MenuItem = forwardRef(
     {
       className,
       iconWrapperClassName,
+      rightIconWrapperClassName,
       title = "",
       label = "",
       icon = "",
+      rightIcon = "",
+      rightIconType,
+      rightIconBackgroundColor,
       iconType,
       iconBackgroundColor,
       disabled = false,
@@ -176,15 +196,11 @@ const MenuItem = forwardRef(
       tooltipPosition = "right",
       tooltipShowDelay = 300,
       tooltipProps,
-      "aria-label": ariaLabel,
       ...baseMenuProps
     }: MenuItemProps | MenuItemTitleComponentProps,
     ref: ForwardedRef<HTMLElement>
   ) => {
     const titleRef = useRef();
-
-    // if "title" is a component ariaLabel is mandatory
-    const iconLabel = ariaLabel ?? (title as string);
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
     const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
@@ -225,7 +241,6 @@ const MenuItem = forwardRef(
             <MenuItemIcon
               icon={icon}
               type={iconType}
-              label={iconLabel}
               disabled={disabled}
               selected={selected}
               backgroundColor={iconBackgroundColor}
@@ -235,7 +250,20 @@ const MenuItem = forwardRef(
           <div ref={titleRef} className={styles.title}>
             {title}
           </div>
-          {renderLabel}
+          <Flex gap="xs">
+            {Boolean(rightIcon) && !children && (
+              <MenuItemIcon
+                icon={rightIcon}
+                type={rightIconType}
+                disabled={disabled}
+                selected={selected}
+                backgroundColor={rightIconBackgroundColor}
+                isRightIcon={true}
+                wrapperClassName={rightIconWrapperClassName}
+              />
+            )}
+            {renderLabel}
+          </Flex>
         </BaseMenuItem>
       </Tooltip>
     );
@@ -247,12 +275,4 @@ Object.assign(MenuItem, {
   isMenuChild: true
 });
 
-interface MenuItemStaticProps {
-  iconType: typeof Icon.type;
-  tooltipPositions: typeof TooltipPositionsEnum;
-}
-
-export default withStaticProps<MenuItemProps | MenuItemTitleComponentProps, MenuItemStaticProps>(MenuItem, {
-  iconType: Icon.type,
-  tooltipPositions: TooltipPositionsEnum
-});
+export default MenuItem;

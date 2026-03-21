@@ -13,6 +13,18 @@ Components are imported from the library's root entry:
 import { Button } from "@vibe/core";
 ```
 
+### Global CSS Setup
+
+Vibe components require `box-sizing: border-box` to be applied globally. Add the following to your root stylesheet:
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
 ### Font installation
 
 We don't import fonts ourselves, we work best with the following fonts -

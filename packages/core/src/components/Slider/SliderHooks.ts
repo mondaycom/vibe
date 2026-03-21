@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import useResizeObserver from "../../hooks/useResizeObserver";
+import { useResizeObserver } from "@vibe/hooks";
 import { NOOP } from "../../utils/function-utils";
 import { UPDATE_SLIDER_SIZE_DEBOUNCE } from "./SliderConstants";
 import { ensureValueText } from "./SliderHelpers";
@@ -49,16 +49,17 @@ export function useSliderActionsContextValue(
 
   const _validateValue = useCallback(
     (index: number, newValue: number | number[] | string): number => {
-      if (newValue === "" || Number.isNaN(Number(newValue))) {
+      const numericValue = Number(newValue);
+      if (newValue === "" || Number.isNaN(numericValue)) {
         return index === 1 ? max : min;
       }
-      if (newValue > max) {
+      if (numericValue > max) {
         return max;
       }
-      if (newValue < min) {
+      if (numericValue < min) {
         return min;
       }
-      return newValue as number;
+      return numericValue;
     },
     [min, max]
   );

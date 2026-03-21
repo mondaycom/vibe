@@ -4,11 +4,11 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const componentsDir = path.join(__dirname, "../../core/src/components");
+const componentsDir = path.join(__dirname, "../../docs/src/pages/components/");
 const outputDir = path.join(__dirname, "../dist/generated/accessibility/");
 
 if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir);
+  fs.mkdirSync(outputDir, { recursive: true });
 }
 
 function getMdxFiles() {
@@ -21,15 +21,12 @@ function getMdxFiles() {
       const fullPath = path.join(dir, entry.name);
 
       if (entry.isDirectory()) {
-        if (entry.name === "__stories__") {
-          const storyDirEntries = fs.readdirSync(fullPath, { withFileTypes: true });
-          for (const storyEntry of storyDirEntries) {
-            if (storyEntry.isFile() && storyEntry.name.endsWith(".mdx")) {
-              mdxFiles.push(path.relative(__dirname, path.join(fullPath, storyEntry.name)));
-            }
-          }
-        } else {
-          traverseDirectory(fullPath);
+        // Recursively traverse subdirectories
+        traverseDirectory(fullPath);
+      } else if (entry.isFile()) {
+        // Check for MDX files
+        if (entry.name.endsWith(".mdx")) {
+          mdxFiles.push(path.relative(__dirname, fullPath));
         }
       }
     }

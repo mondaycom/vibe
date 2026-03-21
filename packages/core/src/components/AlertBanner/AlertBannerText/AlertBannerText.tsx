@@ -1,8 +1,8 @@
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type FC, useRef } from "react";
-import Tooltip from "../../Tooltip/Tooltip";
-import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
+import { Tooltip } from "@vibe/tooltip";
+import { useIsOverflowing } from "@vibe/hooks";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 
 import styles from "./AlertBannerText.module.scss";
@@ -16,9 +16,19 @@ export interface AlertBannerTextProps extends VibeComponentProps {
    * If true, a left margin is applied to the alert banner text.
    */
   marginLeft?: boolean;
+  /**
+   * The aria-live attribute value for the alert banner text.
+   */
+  ariaLive?: "polite" | "assertive" | "off";
 }
 
-const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, id, "data-testid": dataTestId }) => {
+const AlertBannerText: FC<AlertBannerTextProps> = ({
+  text,
+  marginLeft = false,
+  id,
+  "data-testid": dataTestId,
+  ariaLive
+}) => {
   const componentRef = useRef(null);
   const classNames = cx(styles.bannerText, {
     [styles.marginLeft]: marginLeft
@@ -38,7 +48,7 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({ text, marginLeft = false, i
         id={id}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_TEXT, id)}
       >
-        <span>{text}</span>
+        <span aria-live={ariaLive}>{text}</span>
       </div>
     </Tooltip>
   );

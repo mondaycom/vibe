@@ -60,6 +60,9 @@ export function ensureDefaultValue(
   if (ranged && !Array.isArray(defaultValue)) {
     return [min, max];
   }
+  if (Array.isArray(defaultValue)) {
+    return defaultValue;
+  }
   if (defaultValue < min) {
     return min;
   }

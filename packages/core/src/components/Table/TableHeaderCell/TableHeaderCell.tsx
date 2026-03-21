@@ -3,12 +3,12 @@ import cx from "classnames";
 import { type VibeComponentProps } from "../../../types";
 import styles from "./TableHeaderCell.module.scss";
 import { Icon, type SubIcon } from "@vibe/icon";
-import IconButton from "../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { Info } from "@vibe/icons";
-import Text from "../../Text/Text";
-import Flex from "../../Flex/Flex";
+import { Text } from "@vibe/typography";
+import { Flex } from "@vibe/layout";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
-import Tooltip from "../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
@@ -94,7 +94,7 @@ const TableHeaderCell = forwardRef(
           )}
           {infoContent && (
             <Tooltip content={infoContent} referenceWrapperClassName={styles.infoTooltip}>
-              <Icon icon={Info} iconLabel={infoContent} />
+              <Icon icon={Info} label={infoContent} />
             </Tooltip>
           )}
         </Flex>
@@ -104,7 +104,7 @@ const TableHeaderCell = forwardRef(
               icon={getSortIcon(sortState)}
               kind="tertiary"
               size="xs"
-              ariaLabel={sortButtonAriaLabel}
+              aria-label={sortButtonAriaLabel}
               aria-hidden={!shouldShowSortIcon}
               className={cx(styles.sort, getStyle(styles, sortState), {
                 [styles.show]: shouldShowSortIcon

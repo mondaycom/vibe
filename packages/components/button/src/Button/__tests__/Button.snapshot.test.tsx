@@ -1,14 +1,24 @@
-import { vi, describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import { noop as NOOP } from "es-toolkit";
 import Button from "../Button";
 import { WhatsNew } from "@vibe/icons";
-import { type ButtonSize } from "../Button.types";
+import { type ButtonSize, type ButtonColor, type ButtonType } from "../Button.types";
 
-vi.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => ({
-  default: () => <div data-testid="custom-icon-mock" />
-}));
+const BUTTON_COLORS: ButtonColor[] = [
+  "primary",
+  "positive",
+  "negative",
+  "inverted",
+  "on-primary-color",
+  "on-inverted-background",
+  "brand",
+  "fixed-light",
+  "fixed-dark"
+];
+
+const BUTTON_KINDS: ButtonType[] = ["primary", "secondary", "tertiary"];
 
 describe("Button renders correctly", () => {
   it("renders correctly with empty props", () => {
@@ -37,21 +47,21 @@ describe("Button renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  Object.values(["small", "medium", "large"]).forEach(size => {
+  (["small", "medium", "large"] as ButtonSize[]).forEach(size => {
     it(`renders Button size- ${size}`, () => {
-      const tree = renderer.create(<Button size={size as ButtonSize}>Button</Button>).toJSON();
+      const tree = renderer.create(<Button size={size}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
-  Object.values(Button.colors).forEach(color => {
+  BUTTON_COLORS.forEach(color => {
     it(`renders Button color- ${color}`, () => {
       const tree = renderer.create(<Button color={color}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
-  Object.values(Button.kinds).forEach(kind => {
+  BUTTON_KINDS.forEach(kind => {
     it(`renders Button kind- ${kind}`, () => {
       const tree = renderer.create(<Button kind={kind}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
@@ -82,7 +92,13 @@ describe("Button renders correctly", () => {
     it("renders correctly with a11y props (false)", () => {
       const tree = renderer
         .create(
-          <Button ariaLabel="text" ariaControls="area" ariaExpanded={false} ariaLabeledBy="id" ariaHasPopup={false}>
+          <Button
+            aria-label="text"
+            aria-controls="area"
+            aria-expanded={false}
+            aria-labelledby="id"
+            aria-haspopup={false}
+          >
             Button
           </Button>
         )
@@ -93,7 +109,7 @@ describe("Button renders correctly", () => {
     it("renders correctly with a11y props (true)", () => {
       const tree = renderer
         .create(
-          <Button ariaLabel="text" ariaControls="area" ariaExpanded={true} ariaLabeledBy="id" ariaHasPopup={true}>
+          <Button aria-label="text" aria-controls="area" aria-expanded={true} aria-labelledby="id" aria-haspopup={true}>
             Button
           </Button>
         )

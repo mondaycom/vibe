@@ -1,93 +1,63 @@
-import { type ReactNode } from "react";
+import { type AriaAttributes, type AriaRole, type ReactElement } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
-import { type BaseListItemData } from "../BaseListItem";
+import { type BaseItemSizes } from "../BaseItem";
 
-export interface BaseListProps<Item = Record<string, unknown>>
-  extends React.HTMLAttributes<HTMLUListElement>,
-    VibeComponentProps {
+export type BaseListElement = "div" | "nav" | "ul" | "ol";
+
+export type BaseListSizes = BaseItemSizes;
+
+export interface BaseListProps extends Omit<React.HTMLAttributes<HTMLElement>, "id">, VibeComponentProps {
   /**
-   * The list of options available in the list.
+   * A unique identifier for the list. Required to ensure unique IDs across micro-frontends.
    */
-  options: ListGroup<Item>[];
+  id: string;
   /**
-   * The selected item in the list.
+   * The HTML element to render as. Defaults to "ul".
    */
-  selectedItems?: BaseListItemData<Item>[] | null;
+  as?: BaseListElement;
   /**
-   * The index of the highlighted item in the list.
+   * The child elements inside the list.
    */
-  highlightedIndex?: number;
+  children?: ReactElement | ReactElement[];
   /**
-   * The ARIA label for the menu.
+   * The ARIA label describing the list. Required for accessibility when aria-describedby is not provided.
    */
-  menuAriaLabel?: string;
+  "aria-label"?: string;
   /**
-   * Function to get props for the menu container.
+   * The ID of an element that describes the list.
    */
-  getMenuProps?: ((options?: any, otherOptions?: any) => Record<string, unknown>) | null;
+  "aria-describedby"?: string;
   /**
-   * Function to get props for each item in the list.
+   * The ID of an element controlled by the list.
    */
-  getItemProps?: ((options: any) => Record<string, unknown>) | null;
+  "aria-controls"?: AriaAttributes["aria-controls"];
   /**
-   * The size of the list item.
+   * The ARIA role of the list. Defaults to "listbox".
+   */
+  role?: AriaRole;
+  /**
+   * The size of the list items.
    */
   size?: BaseListSizes;
   /**
-   * If true, displays dividers between grouped options.
+   * The maximum height of the list container. Enables scrolling when content exceeds this height.
    */
-  withGroupDivider?: boolean;
+  maxHeight?: number | string;
   /**
-   * If true, makes the group title sticky.
+   * If true, the list will automatically focus on mount.
    */
-  stickyGroupTitle?: boolean;
+  focusOnMount?: boolean;
   /**
-   * The text direction of the list.
+   * Index of the item that should be focused initially. Defaults to 0.
    */
-  dir?: BaseListDirection;
+  defaultFocusIndex?: number;
   /**
-   * Custom renderer for options.
+   * Callback fired when the focused item changes.
    */
-  itemRenderer?: (item: BaseListItemData<Item>) => React.ReactNode;
+  onFocusChange?: (index: number, id?: string) => void;
   /**
-   * Custom renderer for the entire menu content inside the ul element.
+   * If true, disables all keyboard navigation and focus management.
    */
-  menuRenderer?: (props: {
-    children: React.ReactNode;
-    filteredOptions: ListGroup<Item>[];
-    selectedItem?: Item | null;
-    selectedItems?: Item[];
-  }) => React.ReactNode;
-  /**
-   * Text or function to customize the "No results" message.
-   */
-  noOptionsMessage?: string | ReactNode;
-  /**
-   * If true, the options are rendered.
-   */
-  renderOptions?: boolean;
-  /**
-   * Function to handle scroll events.
-   */
-  onScroll?: (event: React.UIEvent<HTMLUListElement>) => void;
-  /**
-   * The maximum height of the list.
-   */
-  maxMenuHeight?: number;
+  disabled?: boolean;
 }
-
-export interface ListGroup<Item = Record<string, unknown>> {
-  /**
-   * The label for the group of options.
-   */
-  label?: string;
-  /**
-   * The list of options within this group.
-   */
-  options: BaseListItemData<Item>[];
-}
-
-export type BaseListSizes = "small" | "medium" | "large";
-
-export type BaseListDirection = "ltr" | "rtl" | "auto";

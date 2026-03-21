@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icons",
-  "version": "1.11.1",
+  "version": "4.0.0",
   "description": "Vibe's Icon Library",
   "repository": {
     "type": "git",
@@ -31,6 +31,11 @@
       "types": "./dist/lazy/index.d.ts",
       "import": "./dist/lazy/index.js",
       "default": "./dist/lazy/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js",
+      "default": "./dist/types.js"
     }
   },
   "typesVersions": {
@@ -46,6 +51,9 @@
       ],
       "lazy": [
         "./dist/lazy/index.d.ts"
+      ],
+      "types": [
+        "./dist/types.d.ts"
       ]
     }
   },
@@ -77,7 +85,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
     "svg2react-icon": "^3.1.178",
-    "typescript": "^4.7.3",
+    "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

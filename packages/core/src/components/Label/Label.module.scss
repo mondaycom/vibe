@@ -1,9 +1,9 @@
-@use "../Clickable/Clickable.module" as clickable;
+@import "~@vibe/style/dist/mixins/states";
 @import "../../styles/typography";
 @import "../../styles/keyframes";
 
 .clickableWrapper {
-  @include clickable.clickable;
+  @include clickable;
 
   &:active {
     transform: scale(0.95) translate3d(0, 0, 0);
@@ -17,24 +17,27 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-small);
-  padding: 2px var(--spacing-small);
+  padding: 2px var(--space-8);
   position: relative;
 
   &.small {
-    padding: 0 var(--spacing-xs);
+    padding: 0 var(--space-4);
     border-radius: 2px;
   }
 }
 
 .withLeg {
-  border-radius: var(--border-radius-small) var(--border-radius-small) var(--border-radius-small) 0;
+  border-start-start-radius: var(--border-radius-small);
+  border-start-end-radius: var(--border-radius-small);
+  border-end-end-radius: var(--border-radius-small);
+  border-end-start-radius: 0;
 }
 
 .legWrapper {
   position: absolute;
   height: 8px;
   top: 100%;
-  left: 0;
+  inset-inline-start: 0;
   display: inline-flex;
 }
 
@@ -89,10 +92,10 @@
 
 .kindLine {
   border: 1px solid currentColor;
-  padding: 1px var(--spacing-small);
+  padding: 1px var(--space-8);
 
   .legWrapper {
-    left: -1px;
+    inset-inline-start: -1px;
     top: calc(100% + 1px);
   }
 

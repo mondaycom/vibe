@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
-import Clickable from "../Clickable/Clickable";
-import Text from "../Text/Text";
+import { Clickable } from "@vibe/clickable";
+import { Text } from "@vibe/typography";
 import { type VibeComponentProps } from "../../types";
-import Tooltip from "../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
@@ -65,7 +65,7 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * The tab index applied to the children.
    */
-  childrenTabIndex?: string;
+  childrenTabIndex?: number;
   /**
    * If true, disables the label animation.
    */
@@ -73,11 +73,11 @@ export interface RadioButtonProps extends VibeComponentProps {
   /**
    * ARIA label for accessibility when no text is provided.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * ID of element that describe this radio button.
    */
-  ariaDescribedby?: string;
+  "aria-describedby"?: string;
 }
 
 const RadioButton = forwardRef(
@@ -97,10 +97,10 @@ const RadioButton = forwardRef(
       onSelect,
       checked,
       retainChildClick = true,
-      childrenTabIndex = "0",
+      childrenTabIndex = 0,
       noLabelAnimation = false,
-      ariaLabel,
-      ariaDescribedby,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedby,
       id,
       "data-testid": dataTestId
     }: RadioButtonProps,

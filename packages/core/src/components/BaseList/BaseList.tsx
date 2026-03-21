@@ -1,106 +1,154 @@
-import React, { forwardRef } from "react";
-import BaseListItem from "../BaseListItem/BaseListItem";
-import styles from "./BaseList.module.scss";
-import { type BaseListProps } from "./BaseList.types";
-import { Flex } from "../Flex";
-import { type TextType } from "../Text";
-import Text from "../Text/Text";
+import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
-import { Divider } from "../Divider";
+import useMergeRef from "../../hooks/useMergeRef";
+import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
+import { type BaseListProps } from "./BaseList.types";
+import {
+  BaseListProvider,
+  BaseListItemProvider,
+  type BaseListContextProps,
+  type BaseListItemContextProps
+} from "./context/BaseListContext";
+import { useBaseListFocus } from "./hooks/useBaseListFocus";
+import { useBaseListKeyboard } from "./hooks/useBaseListKeyboard";
+import { getChildRole, getItemComponentType, getItemId, isListItem } from "./utils/baseListUtils";
+import styles from "./BaseList.module.scss";
 
 const BaseList = forwardRef(
-  <Item extends Record<string, unknown>>(
+  (
     {
-      options,
-      selectedItems,
-      highlightedIndex,
-      menuAriaLabel,
-      getMenuProps,
-      getItemProps,
+      className,
+      id,
+      as = "ul",
+      children,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedBy,
+      "aria-controls": ariaControls,
+      role = "listbox",
       size = "medium",
-      withGroupDivider = false,
-      dir = "ltr",
-      itemRenderer,
-      menuRenderer,
-      noOptionsMessage = "No results",
-      stickyGroupTitle = false,
-      renderOptions = true,
-      onScroll,
-      maxMenuHeight = 300
-    }: BaseListProps<Item>,
-    ref: React.Ref<HTMLUListElement>
+      maxHeight,
+      focusOnMount = false,
+      defaultFocusIndex = 0,
+      onFocusChange,
+      style,
+      disabled = false,
+      "data-testid": dataTestId,
+      ...rest
+    }: BaseListProps,
+    ref: React.ForwardedRef<HTMLElement>
   ) => {
-    const textVariant: TextType = size === "small" ? "text2" : "text1";
+    const componentRef = useRef<HTMLElement>(null);
+    const mergedRef = useMergeRef(ref, componentRef);
 
-    const defaultContent = renderOptions ? (
-      options.every(group => group.options?.length === 0) ? (
-        <div role="status">
-          {typeof noOptionsMessage === "string" ? (
-            <Flex justify="center">
-              <BaseListItem component="div" item={{ label: noOptionsMessage, value: "" }} size={size} readOnly />
-            </Flex>
-          ) : (
-            noOptionsMessage
-          )}
-        </div>
-      ) : (
-        options.map((group, groupIndex) => (
-          <React.Fragment key={group.label ?? groupIndex}>
-            {group.label && (
-              <li className={cx(styles.groupTitle, { [styles.sticky]: stickyGroupTitle })}>
-                <Text type={textVariant} color="inherit">
-                  {group.label}
-                </Text>
-              </li>
-            )}
-            {group.options.map((option, itemIndex) => {
-              const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
-              const isHighlighted =
-                highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
-              const isSelected =
-                selectedItems?.some(selectedItem => selectedItem?.value === option.value) && !option.disabled;
+    const Element = as as React.ElementType;
 
-              return (
-                <BaseListItem<Item>
-                  itemProps={itemProps}
-                  key={typeof option.value === "string" ? option.value : itemIndex}
-                  size={size}
-                  highlighted={isHighlighted}
-                  selected={isSelected}
-                  itemRenderer={itemRenderer}
-                  item={option}
-                  role="option"
-                />
-              );
-            })}
-            {withGroupDivider && groupIndex < options.length - 1 && <Divider />}
-          </React.Fragment>
-        ))
-      )
-    ) : null;
+    const { focusIndex, activeDescendantId, updateFocusedItem, registerItem, childrenRefs } = useBaseListFocus({
+      defaultFocusIndex,
+      onFocusChange,
+      listId: id,
+      disabled
+    });
+
+    useBaseListKeyboard({
+      focusIndex,
+      childrenRefs,
+      listId: id,
+      updateFocusedItem,
+      componentRef,
+      disabled
+    });
+
+    useIsomorphicLayoutEffect(() => {
+      if (focusOnMount && componentRef.current) {
+        requestAnimationFrame(() => {
+          componentRef.current?.focus();
+        });
+      }
+    }, [focusOnMount]);
+
+    const enrichedChildren = useMemo(() => {
+      const childArray = React.Children.toArray(children) as ReactElement[];
+      childrenRefs.current = childrenRefs.current.slice(0, childArray.length);
+
+      return childArray.map((child, index) => {
+        if (!React.isValidElement(child)) {
+          return child;
+        }
+
+        const childId = getItemId(id, index, (child.props as { id?: string }).id);
+        const currentRef = childrenRefs.current[index];
+        const isFocusableItem = currentRef === undefined || currentRef === null || isListItem(currentRef);
+        const isDOMElement = typeof child.type === "string";
+
+        const existingRole = (child.props as { role?: string }).role;
+        const childRole = existingRole || (!isDOMElement ? getChildRole(role) : undefined);
+
+        const refCallback = (itemRef: HTMLElement | null) => {
+          childrenRefs.current[index] = itemRef;
+        };
+
+        const itemContextValue: BaseListItemContextProps = {
+          index,
+          id: childId,
+          highlighted: focusIndex === index && isFocusableItem,
+          tabIndex: focusIndex === index && isFocusableItem ? 0 : -1,
+          component: getItemComponentType(as),
+          size,
+          role: childRole,
+          refCallback
+        };
+
+        return (
+          <BaseListItemProvider key={childId} value={itemContextValue}>
+            {child}
+          </BaseListItemProvider>
+        );
+      });
+    }, [children, as, focusIndex, id, role, size, childrenRefs]);
+
+    const contextValue: BaseListContextProps = useMemo(
+      () => ({
+        activeItemIndex: focusIndex,
+        updateFocusedItem,
+        registerItem,
+        size
+      }),
+      [focusIndex, updateFocusedItem, registerItem, size]
+    );
+
+    const listStyle = useMemo(
+      () =>
+        maxHeight
+          ? ({
+              ...style,
+              "--baselist-max-height": typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight
+            } as React.CSSProperties)
+          : style,
+      [maxHeight, style]
+    );
 
     return (
-      <ul
-        ref={ref}
-        dir={dir}
-        className={styles.wrapper}
-        {...getMenuProps?.({ "aria-label": menuAriaLabel })}
-        onScroll={onScroll}
-        style={{ maxHeight: maxMenuHeight }}
-      >
-        {menuRenderer && renderOptions
-          ? menuRenderer({
-              children: defaultContent,
-              filteredOptions: options,
-              selectedItem: selectedItems?.[0] || null,
-              selectedItems: selectedItems || []
-            })
-          : defaultContent}
-      </ul>
+      <BaseListProvider value={contextValue}>
+        <Element
+          ref={mergedRef}
+          id={id}
+          className={cx(styles.baseList, className)}
+          style={listStyle}
+          aria-label={ariaLabel}
+          aria-describedby={ariaDescribedBy}
+          aria-controls={ariaControls}
+          aria-activedescendant={activeDescendantId}
+          aria-disabled={disabled || undefined}
+          role={role}
+          tabIndex={-1}
+          data-testid={dataTestId}
+          {...rest}
+        >
+          {enrichedChildren}
+        </Element>
+      </BaseListProvider>
     );
   }
 );
 
-export default BaseList as <Item extends Record<string, unknown>>(
-  props: BaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }
-) => React.ReactElement;
+export default BaseList;

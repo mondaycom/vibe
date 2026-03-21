@@ -128,6 +128,39 @@ function getMigrationInstructions(projectInfo: any) {
         changes: ["hideCloseButton removed", "unmountOnClose default changed to true"],
         behaviorChanges: ["Modal will not render when show is false by default"]
       },
+      Search: {
+        changes: [
+          "Component completely rewritten with new API",
+          "type prop removed (SQUARE, ROUND, UNDERLINE variants no longer available)",
+          "validation prop removed",
+          "wrapperClassName prop removed (use className instead)",
+          "setRef prop removed (use ref instead)",
+          "iconNames prop removed",
+          "iconName renamed to searchIconName",
+          "secondaryIconName renamed to clearIconName",
+          "activeDescendant renamed to currentAriaResultId",
+          "debounceRate default changed from 200 to 400",
+          "Size values changed from Search.sizes.SMALL/MEDIUM/LARGE to 'small'/'medium'/'large'"
+        ],
+        renamedProps: {
+          iconName: "searchIconName",
+          secondaryIconName: "clearIconName",
+          activeDescendant: "currentAriaResultId"
+        },
+        removedProps: ["type", "validation", "wrapperClassName", "setRef", "iconNames"],
+        newProps: {
+          clearIconLabel: "Accessibility label for clear button (defaults to 'Clear')",
+          renderAction: "Render additional action button in right section",
+          hideRenderActionOnInput: "Hide action when input has text",
+          ariaExpanded: "ARIA expanded state for popups",
+          ariaHasPopup: "ARIA popup type",
+          onClear: "Callback when clear button clicked",
+          onKeyDown: "Keyboard event handler",
+          showClearIcon: "Control clear button visibility (defaults to true)"
+        },
+        behaviorChanges: ["debounceRate default changed from 200 to 400"],
+        note: "Import from @vibe/core instead of monday-ui-react-core/next"
+      },
       TextField: {
         changes: ["requiredAsterisk prop removed", "sm/md/lg sizes renamed", "readonly style updated"],
         sizeMapping: { sm: "small", md: "medium", lg: "large" }
@@ -351,7 +384,17 @@ async function analyzeComponentUsage(projectPath: string): Promise<any> {
   };
 
   const removedComponents = ["Input", "EditableInput", "SearchComponent", "ResponsiveList"];
-  const breakingChangeComponents = ["Button", "Chips", "Counter", "Icon", "Modal", "TextField", "Tooltip", "Dropdown"];
+  const breakingChangeComponents = [
+    "Button",
+    "Chips",
+    "Counter",
+    "Icon",
+    "Modal",
+    "Search",
+    "TextField",
+    "Tooltip",
+    "Dropdown"
+  ];
   const removedIcons = ["Upgrade"];
   const renamedIcons = ["Featured", "Replay"];
 
@@ -611,6 +654,8 @@ function getBreakingChangeDetails(component: string): string {
     Counter: "Check size props (sm/md/lg → small/medium/large)",
     Icon: "Replace clickable icons with IconButton component",
     Modal: "Remove hideCloseButton usage, check unmountOnClose behavior",
+    Search:
+      "Component rewritten with new API - type/validation/wrapperClassName/setRef/iconNames props removed, iconName→searchIconName, secondaryIconName→clearIconName, activeDescendant→currentAriaResultId, debounceRate default 200→400, size values now strings",
     TextField: "Check size props, remove requiredAsterisk usage",
     Tooltip: "Remove paddingSize, justify, arrowPosition props, check theme/position values"
   };

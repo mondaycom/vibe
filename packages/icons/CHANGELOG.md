@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.15.0...@vibe/icons@1.16.0) (2026-01-04)
+
+
+### Features
+
+* **Icons:** New zoom out icon ([#3227](https://github.com/mondaycom/vibe/issues/3227)) ([d480582](https://github.com/mondaycom/vibe/commit/d4805829ae79c9300a3a5767c84bc08db9cafa7c))
+
+
+
+
+
+# [1.15.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.14.0...@vibe/icons@1.15.0) (2025-12-25)
+
+
+### Features
+
+* **icons:** allow a type-safe way to get all available icon names ([#3209](https://github.com/mondaycom/vibe/issues/3209)) ([473b47b](https://github.com/mondaycom/vibe/commit/473b47bc5ab39598d7d4060c4cd5c08732a365bc))
+
+
+
+
+
+# [1.14.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.13.0...@vibe/icons@1.14.0) (2025-12-22)
+
+
+### Features
+
+* **icons:** update Image icon in Vibe icons ([#3206](https://github.com/mondaycom/vibe/issues/3206)) ([955d67d](https://github.com/mondaycom/vibe/commit/955d67dd6a662a3a298ab275afcdb4bf9e2204a7))
+
+
+
+
+
+# [1.13.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.12.0...@vibe/icons@1.13.0) (2025-12-17)
+
+
+### Features
+
+* **icon:** add ZoomIn ([#3204](https://github.com/mondaycom/vibe/issues/3204)) ([0e97803](https://github.com/mondaycom/vibe/commit/0e97803418bb8b532030af13fd285acde674b044))
+
+
+
+
+
+# [1.12.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.2...@vibe/icons@1.12.0) (2025-12-17)
+
+
+### Features
+
+* **Icon:** added NavigationArrow ([#3201](https://github.com/mondaycom/vibe/issues/3201)) ([c9cc5d0](https://github.com/mondaycom/vibe/commit/c9cc5d022743e328720f89582632eeed0084ae2b))
+
+
+
+
+
+## [1.11.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.1...@vibe/icons@1.11.2) (2025-11-26)
+
+**Note:** Version bump only for package @vibe/icons
+
+
+
+
+
 ## [1.11.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.11.0...@vibe/icons@1.11.1) (2025-11-06)
 
 **Note:** Version bump only for package @vibe/icons

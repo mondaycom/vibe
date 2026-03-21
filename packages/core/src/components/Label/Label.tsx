@@ -3,17 +3,17 @@ import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import Leg from "./Leg";
-import { LabelAllowedColor as LabelColorEnum, LabelKind as LabelKindEnum, mapSizesToTextSize } from "./LabelConstants";
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
 import { contentColors } from "../../utils/colors-vars-map";
-import { type VibeComponentProps, withStaticProps } from "../../types";
-import useClickableProps from "../../hooks/useClickableProps/useClickableProps";
+import { type VibeComponentProps } from "../../types";
+import { useClickableProps } from "@vibe/clickable";
 import useMergeRef from "../../hooks/useMergeRef";
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { type LabelSizes } from "./Label.types";
+import { mapSizesToTextSize } from "./LabelConstants";
 import { ComponentVibeId } from "../../tests/constants";
 
 export interface LabelProps extends VibeComponentProps {
@@ -113,9 +113,9 @@ const Label = forwardRef<HTMLElement, LabelProps>(
       {
         onClick: onClickCallback,
         id,
-        ariaHidden: false,
-        ariaHasPopup: false,
-        ariaExpanded: false
+        "aria-hidden": false,
+        "aria-haspopup": false,
+        "aria-expanded": false
       },
       labelRef
     );
@@ -138,7 +138,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
-            color="onInverted"
+            color={color === "dark" ? "onInverted" : "onPrimary"}
             data-celebration-text={isCelebrationAnimation}
           >
             <Text
@@ -165,7 +165,8 @@ const Label = forwardRef<HTMLElement, LabelProps>(
       text,
       isLegIncluded,
       size,
-      backgroundColorStyle
+      backgroundColorStyle,
+      color
     ]);
 
     // Celebration animation is applied only for line kind
@@ -181,12 +182,4 @@ const Label = forwardRef<HTMLElement, LabelProps>(
   }
 );
 
-interface LabelStaticProps {
-  colors: typeof LabelColorEnum;
-  kinds: typeof LabelKindEnum;
-}
-
-export default withStaticProps<LabelProps, LabelStaticProps>(Label, {
-  colors: LabelColorEnum,
-  kinds: LabelKindEnum
-});
+export default Label;

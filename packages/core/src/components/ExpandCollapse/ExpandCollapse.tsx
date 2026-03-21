@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useCallback, useRef, useState } from "react";
 import useMergeRef from "../../hooks/useMergeRef";
 import { Icon } from "@vibe/icon";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { DropdownChevronDown } from "@vibe/icons";
 import { type VibeComponentProps, type ElementContent } from "../../types";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
@@ -112,9 +112,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
           [styles.animateIconOpen]: isExpanded,
           [styles.animateIconClose]: !isExpanded
         })}
-        iconType="svg"
+        type="svg"
         icon={DropdownChevronDown}
-        iconSize={iconSize}
+        size={iconSize}
       />
     );
 

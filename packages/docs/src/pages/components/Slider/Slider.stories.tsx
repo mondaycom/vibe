@@ -3,7 +3,7 @@ import { createComponentTemplate } from "vibe-storybook-components";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { Slider, Chips, Flex } from "@vibe/core";
 import { Sound, Video } from "@vibe/icons";
-// import { rangedSliderMouseEventsPlaySuite, nonRangedSliderMouseEventsPlaySuite } from "./Slider.interactions";
+import { rangedSliderMouseEventsPlaySuite, nonRangedSliderMouseEventsPlaySuite } from "./Slider.interactions";
 
 const argTypes = createStoryMetaSettingsDecorator({
   component: Slider
@@ -21,7 +21,7 @@ export const Overview = {
   render: sliderTemplate.bind({}),
   args: {
     id: "overview-slider",
-    ariaLabel: "Overview slider"
+    "aria-label": "Overview slider"
   },
   parameters: {
     docs: {
@@ -35,9 +35,9 @@ export const Overview = {
 export const Sizes = {
   render: () => (
     <Flex gap="medium" flex="1">
-      <Slider id="sizes-small" ariaLabel="Small slider" size="small" defaultValue={12} />
-      <Slider id="sizes-medium" ariaLabel="Medium slider" size="medium" defaultValue={24} />
-      <Slider id="sizes-large" ariaLabel="Large slider" size="large" defaultValue={35} />
+      <Slider id="sizes-small" aria-label="Small slider" size="small" defaultValue={12} />
+      <Slider id="sizes-medium" aria-label="Medium slider" size="medium" defaultValue={24} />
+      <Slider id="sizes-large" aria-label="Large slider" size="large" defaultValue={35} />
     </Flex>
   )
 };
@@ -47,40 +47,38 @@ export const Ranged = {
     <Flex gap="medium" flex="1">
       <Slider
         id="ranged-small"
-        ariaLabel="Small ranged slider"
+        aria-label="Small ranged slider"
         data-testid={"monday-ranged-slider-s"}
         size="small"
         ranged={true}
       />
       <Slider
         id="ranged-medium"
-        ariaLabel="Medium ranged slider"
+        aria-label="Medium ranged slider"
         data-testid={"monday-ranged-slider-m"}
         size="medium"
         ranged={true}
         defaultValue={[12, 55]}
       />
-      <Slider id="ranged-large" ariaLabel="Large ranged slider" size="large" ranged={true} defaultValue={[25, 32]} />
+      <Slider id="ranged-large" aria-label="Large ranged slider" size="large" ranged={true} defaultValue={[25, 32]} />
     </Flex>
-  )
-
-  // TODO storybook 7 migration: interactive test isn't working correctly
-  // play: rangedSliderMouseEventsPlaySuite
+  ),
+  play: rangedSliderMouseEventsPlaySuite
 };
 
 export const Colors = {
   render: () => (
     <Flex gap="medium" flex="1">
-      <Slider id="color-positive" ariaLabel="Positive color slider" color="positive" defaultValue={34} size="medium" />
+      <Slider id="color-positive" aria-label="Positive color slider" color="positive" defaultValue={34} size="medium" />
       <Slider
         id="color-negative"
-        ariaLabel="Negative color ranged slider"
+        aria-label="Negative color ranged slider"
         color="negative"
         ranged={true}
         defaultValue={[12, 55]}
         size="medium"
       />
-      <Slider id="color-primary" ariaLabel="Primary color slider" color="primary" defaultValue={12} size="medium" />
+      <Slider id="color-primary" aria-label="Primary color slider" color="primary" defaultValue={12} size="medium" />
     </Flex>
   )
 };
@@ -90,7 +88,7 @@ export const Disabled = {
     <Flex gap="medium" flex="1">
       <Slider
         id="disabled-positive"
-        ariaLabel="Disabled positive slider"
+        aria-label="Disabled positive slider"
         disabled={true}
         defaultValue={24}
         color="positive"
@@ -98,14 +96,14 @@ export const Disabled = {
       />
       <Slider
         id="disabled-negative"
-        ariaLabel="Disabled negative slider"
+        aria-label="Disabled negative slider"
         disabled={true}
         color="negative"
         size="medium"
       />
       <Slider
         id="disabled-ranged"
-        ariaLabel="Disabled ranged primary slider"
+        aria-label="Disabled ranged primary slider"
         disabled={true}
         ranged={true}
         defaultValue={[12, 55]}
@@ -121,14 +119,14 @@ export const WithLabels = {
     <Flex direction="column" gap="large" style={{ width: "500px" }}>
       <Slider
         id="labeled-simple"
-        ariaLabel="Simple labeled slider"
+        aria-label="Simple labeled slider"
         indicateSelection={true}
         defaultValue={12}
         size="small"
       />
       <Slider
         id="labeled-ranged"
-        ariaLabel="Labeled ranged slider"
+        aria-label="Labeled ranged slider"
         indicateSelection={true}
         ranged={true}
         defaultValue={[12, 55]}
@@ -136,7 +134,7 @@ export const WithLabels = {
       />
       <Slider
         id="labeled-sound"
-        ariaLabel="Sound slider with icon"
+        aria-label="Sound slider with icon"
         // @ts-ignore
         prefix={{ icon: Sound }}
         indicateSelection={true}
@@ -145,7 +143,7 @@ export const WithLabels = {
       />
       <Slider
         id="labeled-video"
-        ariaLabel="Video slider with icons"
+        aria-label="Video slider with icons"
         // @ts-ignore
         prefix={{ icon: Video }}
         // @ts-ignore
@@ -155,7 +153,7 @@ export const WithLabels = {
       />
       <Slider
         id="labeled-volume"
-        ariaLabel="Volume slider"
+        aria-label="Volume slider"
         prefix="Vol"
         indicateSelection={true}
         defaultValue={0}
@@ -177,7 +175,7 @@ export const ShowValue = {
     <Flex gap="medium" flex="1">
       <Slider
         id="show-value-small"
-        ariaLabel="Small slider showing value"
+        aria-label="Small slider showing value"
         data-testid={"monday-slider-show-value-s"}
         showValue={true}
         defaultValue={12}
@@ -185,7 +183,7 @@ export const ShowValue = {
       />
       <Slider
         id="show-value-medium"
-        ariaLabel="Medium slider showing value"
+        aria-label="Medium slider showing value"
         data-testid={"monday-slider-show-value-m"}
         showValue={true}
         defaultValue={55}
@@ -193,17 +191,15 @@ export const ShowValue = {
       />
       <Slider
         id="show-value-large"
-        ariaLabel="Large slider showing value"
+        aria-label="Large slider showing value"
         data-testid={"monday-slider-show-value-l"}
         showValue={true}
         defaultValue={89}
         size="large"
       />
     </Flex>
-  )
-
-  // TODO storybook 7 migration: interactive test isn't working correctly
-  // play: nonRangedSliderMouseEventsPlaySuite
+  ),
+  play: nonRangedSliderMouseEventsPlaySuite
 };
 
 export const LimitsSteps = {
@@ -211,7 +207,7 @@ export const LimitsSteps = {
     <Flex direction="column" gap="large" style={{ width: "500px" }}>
       <Slider
         id="step-10"
-        ariaLabel="Slider with step 10"
+        aria-label="Slider with step 10"
         prefix="Step 10"
         step={10}
         indicateSelection={true}
@@ -220,7 +216,7 @@ export const LimitsSteps = {
       />
       <Slider
         id="step-2-max-20"
-        ariaLabel="Slider with step 2 max 20"
+        aria-label="Slider with step 2 max 20"
         prefix="Step 2, Max: 20"
         max={20}
         step={2}
@@ -230,7 +226,7 @@ export const LimitsSteps = {
       />
       <Slider
         id="percentage-range"
-        ariaLabel="Percentage range slider from 20% to 80%"
+        aria-label="Percentage range slider from 20% to 80%"
         prefix="from 20%"
         postfix="till 80%"
         min={20}
@@ -241,7 +237,7 @@ export const LimitsSteps = {
       />
       <Slider
         id="ranged-100-200"
-        ariaLabel="Ranged slider from 100 to 200"
+        aria-label="Ranged slider from 100 to 200"
         ranged={true}
         indicateSelection={true}
         min={100}

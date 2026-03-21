@@ -1,20 +1,13 @@
-.wrapper {
-  overflow-y: auto;
-  padding: 0;
+@import "~@vibe/style/dist/mixins";
+@import "../../styles/states";
+@import "../../styles/typography";
+
+.baseList {
   margin: 0;
-
-  .groupTitle {
-    color: var(--secondary-text-color);
-    padding: var(--spacing-small) var(--spacing-xs);
-    background-color: var(--secondary-background-color);
-
-    &.sticky {
-      position: sticky;
-      top: 0;
-    }
-  }
-
-  > li:not(:last-child) {
-    margin-bottom: 2px;
-  }
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  max-height: var(--baselist-max-height, none);
+  @include smoothing-text;
+  @include scroller();
 }

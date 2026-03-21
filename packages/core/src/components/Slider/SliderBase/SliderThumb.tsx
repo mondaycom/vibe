@@ -1,6 +1,6 @@
 import React, { type FC, useEffect, useRef } from "react";
 import { NOOP } from "../../../utils/function-utils";
-import Tooltip from "../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
@@ -39,8 +39,8 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
   const valueText = ranged ? (valueOrValuesText as unknown as string[])[index] : (valueOrValuesText as string);
   const {
     active,
-    ariaLabel,
-    ariaLabelledby,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledby,
     disabled,
     dragging,
     focused,

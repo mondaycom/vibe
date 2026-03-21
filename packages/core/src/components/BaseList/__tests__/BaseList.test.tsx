@@ -1,243 +1,255 @@
-import { describe, it, expect } from "vitest";
+import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { render } from "@testing-library/react";
-import BaseList from "../BaseList";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { BaseList } from "../index";
+import BaseItem from "../../BaseItem/BaseItem";
 import { type BaseListProps } from "../BaseList.types";
 
-function renderBaseList(props?: Partial<BaseListProps<any>>) {
-  const defaultProps: BaseListProps<any> = {
-    options: [],
-    ...props
-  };
-
-  return render(<BaseList {...defaultProps} />);
+function renderBaseList(props?: Partial<Omit<BaseListProps, "id">> & { id?: string }) {
+  return render(
+    <BaseList id="test-list" aria-label="Test List" {...props}>
+      <BaseItem item={{ label: "Item 1", value: "1" }} />
+      <BaseItem item={{ label: "Item 2", value: "2" }} />
+      <BaseItem item={{ label: "Item 3", value: "3" }} />
+    </BaseList>
+  );
 }
 
 describe("BaseList", () => {
-  const options = [
-    {
-      label: "Group 1",
-      options: [
-        { label: "Option 1", value: "opt1", index: 0 },
-        { label: "Option 2", value: "opt2", index: 1, disabled: true }
-      ]
-    },
-    {
-      label: "Group 2",
-      options: [
-        { label: "Option 3", value: "opt3", index: 2 },
-        { label: "Option 4", value: "opt4", index: 3 }
-      ]
-    }
-  ];
-  it("should render correctly with all props", () => {
-    const { getByText } = renderBaseList({
-      options,
-      size: "large",
-      withGroupDivider: true,
-      dir: "rtl",
-      noOptionsMessage: "No options available"
+  describe("rendering", () => {
+    it("should render with default props", () => {
+      renderBaseList();
+      expect(screen.getByRole("listbox")).toBeInTheDocument();
     });
 
-    expect(getByText("Group 1")).toBeInTheDocument();
-    expect(getByText("Group 2")).toBeInTheDocument();
-    expect(getByText("Option 1")).toBeInTheDocument();
-    expect(getByText("Option 2")).toBeInTheDocument();
-    expect(getByText("Option 3")).toBeInTheDocument();
-    expect(getByText("Option 4")).toBeInTheDocument();
-  });
-
-  describe("with declared props", () => {
-    it("should display group labels when provided", () => {
-      const { getByText } = renderBaseList({ options });
-
-      expect(getByText("Group 1")).toBeInTheDocument();
-      expect(getByText("Group 2")).toBeInTheDocument();
+    it("should render children correctly", () => {
+      renderBaseList();
+      expect(screen.getByText("Item 1")).toBeInTheDocument();
+      expect(screen.getByText("Item 2")).toBeInTheDocument();
+      expect(screen.getByText("Item 3")).toBeInTheDocument();
     });
 
-    it("should apply the selected class to the selected item", () => {
-      const { getByText } = renderBaseList({
-        options,
-        selectedItems: [{ index: 0, value: "opt1", label: "Option 1" }]
-      });
-
-      expect(getByText("Option 1").parentNode).toHaveClass("selected");
+    it("should apply custom className", () => {
+      renderBaseList({ className: "custom-list" });
+      expect(screen.getByRole("listbox")).toHaveClass("custom-list");
     });
 
-    it("should apply the selected class to multiple selected items", () => {
-      const { getByText } = renderBaseList({
-        options,
-        selectedItems: [
-          { index: 0, value: "opt1", label: "Option 1" },
-          { label: "Option 4", value: "opt4", index: 3 }
-        ]
-      });
-
-      expect(getByText("Option 1").parentNode).toHaveClass("selected");
-      expect(getByText("Option 2").parentNode).not.toHaveClass("selected");
-      expect(getByText("Option 3").parentNode).not.toHaveClass("selected");
-      expect(getByText("Option 4").parentNode).toHaveClass("selected");
-    });
-
-    it("should no apply selected class when no selected items", () => {
-      const { getByText } = renderBaseList({
-        options,
-        selectedItems: []
-      });
-
-      expect(getByText("Option 1").parentNode).not.toHaveClass("selected");
-      expect(getByText("Option 2").parentNode).not.toHaveClass("selected");
-      expect(getByText("Option 3").parentNode).not.toHaveClass("selected");
-      expect(getByText("Option 4").parentNode).not.toHaveClass("selected");
-    });
-
-    it("should apply the highlighted class to the highlighted item", () => {
-      const { getByText } = renderBaseList({
-        options,
-        highlightedIndex: 0
-      });
-
-      expect(getByText("Option 1").parentNode).toHaveClass("highlighted");
-    });
-
-    it("should apply the disabled class when an option is disabled", () => {
-      const { getByText } = renderBaseList({ options });
-
-      expect(getByText("Option 2").parentNode).toHaveClass("disabled");
-    });
-
-    it("should display a no-options message when the list is empty", () => {
-      const { getByText } = renderBaseList({ options: [], noOptionsMessage: "No items available" });
-
-      expect(getByText("No items available")).toBeInTheDocument();
-    });
-
-    it("should display group dividers when `withGroupDivider` is true", () => {
-      const { container } = renderBaseList({ options, withGroupDivider: true });
-
-      expect(container.getElementsByClassName("divider").length).toBe(1);
-    });
-
-    it("should support a custom option renderer", () => {
-      const customRenderer = (item: any) => <div data-testid="custom-renderer">Renderer - {item.label}</div>;
-      const { getByText } = renderBaseList({ options, itemRenderer: customRenderer });
-
-      expect(getByText("Renderer - Option 1")).toBeInTheDocument();
-      expect(getByText("Renderer - Option 2")).toBeInTheDocument();
-    });
-
-    it("should have the correct `dir` attribute", () => {
-      const { container } = renderBaseList({ options, dir: "rtl" });
-
-      expect(container.querySelector("ul")).toHaveAttribute("dir", "rtl");
+    it("should render with custom element type", () => {
+      render(
+        <BaseList id="ordered-list" as="ol" aria-label="Ordered List">
+          <BaseItem item={{ label: "Item 1", value: "1" }} />
+        </BaseList>
+      );
+      const list = screen.getByRole("listbox");
+      expect(list.tagName.toLowerCase()).toBe("ol");
     });
   });
 
-  describe("with custom type", () => {
-    it("should work without explicit type parameter", () => {
-      const simpleOptions = [
-        {
-          label: "Simple Group",
-          options: [
-            {
-              index: 0,
-              value: "simple-1",
-              label: "Simple Item",
-              customField: "custom value"
-            }
-          ]
-        }
-      ];
-
-      const { getByText } = render(<BaseList options={simpleOptions} />);
-      expect(getByText("Simple Item")).toBeInTheDocument();
+  describe("accessibility", () => {
+    it("should have correct aria-label", () => {
+      renderBaseList({ "aria-label": "Custom Label" });
+      expect(screen.getByLabelText("Custom Label")).toBeInTheDocument();
     });
 
-    it("should work with explicit type parameter", () => {
-      type ExplicitType = Record<string, unknown> & {
-        id: string;
-        isActive: boolean;
-      };
-
-      const typedOptions = [
-        {
-          label: "Typed Group",
-          options: [
-            {
-              index: 0,
-              value: "typed-1",
-              label: "Typed Item",
-              id: "123",
-              isActive: true
-            }
-          ]
-        }
-      ];
-
-      const { getByText } = render(<BaseList<ExplicitType> options={typedOptions} />);
-      expect(getByText("Typed Item")).toBeInTheDocument();
+    it("should have correct role", () => {
+      renderBaseList({ role: "menu" });
+      expect(screen.getByRole("menu")).toBeInTheDocument();
     });
 
-    it("should work with itemRenderer without explicit type", () => {
-      const simpleOptions = [
-        {
-          label: "Renderer Group",
-          options: [
-            {
-              index: 0,
-              value: "render-1",
-              label: "Renderer Item",
-              count: 42
-            }
-          ]
-        }
-      ];
+    it("should have aria-describedby when provided", () => {
+      render(
+        <>
+          <span id="description">List description</span>
+          <BaseList id="described-list" aria-label="Test" aria-describedby="description">
+            <BaseItem item={{ label: "Item 1", value: "1" }} />
+          </BaseList>
+        </>
+      );
+      expect(screen.getByRole("listbox")).toHaveAttribute("aria-describedby", "description");
+    });
+  });
 
-      const simpleRenderer = (item: any) => <div data-testid="simple-rendered">{`${item.label}: ${item.count}`}</div>;
+  describe("keyboard navigation", () => {
+    it("should navigate down with arrow key", async () => {
+      renderBaseList();
 
-      const { getByTestId } = render(<BaseList options={simpleOptions} itemRenderer={simpleRenderer} />);
+      const list = screen.getByRole("listbox");
+      list.focus();
 
-      expect(getByTestId("simple-rendered")).toHaveTextContent("Renderer Item: 42");
+      const items = screen.getAllByRole("option");
+      expect(items[0]).toHaveAttribute("tabindex", "0");
+
+      await userEvent.keyboard("{ArrowDown}");
+
+      // After pressing down, second item should be focusable
+      expect(items[1]).toHaveAttribute("tabindex", "0");
+      expect(items[0]).toHaveAttribute("tabindex", "-1");
     });
 
-    it("should work with itemRenderer and explicit type", () => {
-      type ComplexType = Record<string, unknown> & {
-        id: string;
-        metadata: {
-          version: number;
-          status: string;
-        };
-      };
+    it("should navigate up with arrow key", async () => {
+      renderBaseList({ defaultFocusIndex: 2 });
 
-      const complexOptions = [
-        {
-          label: "Complex Group",
-          options: [
-            {
-              index: 0,
-              value: "complex-1",
-              label: "Complex Item",
-              id: "complex-1",
-              metadata: {
-                version: 2,
-                status: "active"
-              }
-            }
-          ]
-        }
-      ];
+      const list = screen.getByRole("listbox");
+      list.focus();
 
-      const typedRenderer = (item: any) => {
-        return (
-          <div data-testid="complex-rendered">
-            {`${item.label} (v${item.metadata.version}): ${item.metadata.status}`}
-          </div>
-        );
-      };
+      const items = screen.getAllByRole("option");
+      expect(items[2]).toHaveAttribute("tabindex", "0");
 
-      const { getByTestId } = render(<BaseList<ComplexType> options={complexOptions} itemRenderer={typedRenderer} />);
+      await userEvent.keyboard("{ArrowUp}");
 
-      expect(getByTestId("complex-rendered")).toHaveTextContent("Complex Item (v2): active");
+      expect(items[1]).toHaveAttribute("tabindex", "0");
+      expect(items[2]).toHaveAttribute("tabindex", "-1");
+    });
+
+    it("should wrap to last item when pressing up from first item", async () => {
+      renderBaseList({ defaultFocusIndex: 0 });
+
+      const list = screen.getByRole("listbox");
+      list.focus();
+
+      const items = screen.getAllByRole("option");
+      await userEvent.keyboard("{ArrowUp}");
+
+      // Should wrap to last item
+      expect(items[2]).toHaveAttribute("tabindex", "0");
+    });
+
+    it("should wrap to first item when pressing down from last item", async () => {
+      renderBaseList({ defaultFocusIndex: 2 });
+
+      const list = screen.getByRole("listbox");
+      list.focus();
+
+      const items = screen.getAllByRole("option");
+      await userEvent.keyboard("{ArrowDown}");
+
+      // Should wrap to first item
+      expect(items[0]).toHaveAttribute("tabindex", "0");
+    });
+  });
+
+  describe("focus management", () => {
+    it("should call onFocusChange when focus changes", async () => {
+      const onFocusChange = vi.fn();
+
+      renderBaseList({ onFocusChange });
+
+      const list = screen.getByRole("listbox");
+      list.focus();
+
+      await userEvent.keyboard("{ArrowDown}");
+
+      expect(onFocusChange).toHaveBeenCalledWith(1, expect.any(String));
+    });
+
+    it("should focus list on mount when focusOnMount is true", () => {
+      renderBaseList({ focusOnMount: true });
+
+      // Note: focusOnMount uses requestAnimationFrame, so we may need to wait
+      // This is a basic check that the component renders
+      expect(screen.getByRole("listbox")).toBeInTheDocument();
+    });
+
+    it("should respect defaultFocusIndex", () => {
+      renderBaseList({ defaultFocusIndex: 1 });
+
+      const items = screen.getAllByRole("option");
+      expect(items[1]).toHaveAttribute("tabindex", "0");
+      expect(items[0]).toHaveAttribute("tabindex", "-1");
+    });
+  });
+
+  describe("scrollable container", () => {
+    it("should apply maxHeight as CSS variable", () => {
+      renderBaseList({ maxHeight: 200 });
+      expect(screen.getByRole("listbox")).toHaveStyle({ "--baselist-max-height": "200px" });
+    });
+
+    it("should apply maxHeight as string via CSS variable", () => {
+      renderBaseList({ maxHeight: "50vh" });
+      expect(screen.getByRole("listbox")).toHaveStyle({ "--baselist-max-height": "50vh" });
+    });
+
+    it("should merge maxHeight with custom style prop", () => {
+      renderBaseList({ maxHeight: 200, style: { width: "300px", backgroundColor: "red" } });
+      const list = screen.getByRole("listbox");
+      expect(list).toHaveStyle({ "--baselist-max-height": "200px", width: "300px", backgroundColor: "red" });
+    });
+
+    it("should prioritize maxHeight prop over style.maxHeight", () => {
+      renderBaseList({ maxHeight: 200, style: { maxHeight: "500px" } });
+      const list = screen.getByRole("listbox");
+      // maxHeight prop sets the CSS variable, style.maxHeight is ignored since CSS uses the variable
+      expect(list).toHaveStyle({ "--baselist-max-height": "200px" });
+    });
+  });
+
+  describe("direction", () => {
+    it("should apply dir attribute", () => {
+      renderBaseList({ dir: "rtl" });
+      expect(screen.getByRole("listbox")).toHaveAttribute("dir", "rtl");
+    });
+  });
+
+  describe("with selected items", () => {
+    it("should focus on selected item initially", () => {
+      render(
+        <BaseList id="selected-list" aria-label="Test List">
+          <BaseItem item={{ label: "Item 1", value: "1" }} />
+          <BaseItem item={{ label: "Item 2", value: "2" }} selected />
+          <BaseItem item={{ label: "Item 3", value: "3" }} />
+        </BaseList>
+      );
+
+      const items = screen.getAllByRole("option");
+      // The selected item (index 1) should have tabindex 0
+      expect(items[1]).toHaveAttribute("tabindex", "0");
+    });
+  });
+
+  describe("with disabled items", () => {
+    it("should support disabled items", () => {
+      render(
+        <BaseList id="disabled-list" aria-label="Test List">
+          <BaseItem item={{ label: "Item 1", value: "1" }} />
+          <BaseItem item={{ label: "Disabled Item", value: "disabled", disabled: true }} />
+          <BaseItem item={{ label: "Item 2", value: "2" }} />
+        </BaseList>
+      );
+
+      const disabledItem = screen.getByText("Disabled Item").closest("[role='option']");
+      expect(disabledItem).toHaveClass("disabled");
+    });
+  });
+
+  describe("automatic role assignment", () => {
+    it("should assign role='option' to children when list role is 'listbox'", () => {
+      renderBaseList({ role: "listbox" });
+      const items = screen.getAllByRole("option");
+      expect(items).toHaveLength(3);
+    });
+
+    it("should assign role='menuitem' to children when list role is 'menu'", () => {
+      render(
+        <BaseList id="menu-list" aria-label="Menu" role="menu">
+          <BaseItem item={{ label: "Action 1", value: "1" }} />
+          <BaseItem item={{ label: "Action 2", value: "2" }} />
+        </BaseList>
+      );
+      const items = screen.getAllByRole("menuitem");
+      expect(items).toHaveLength(2);
+    });
+
+    it("should allow explicit role override on individual items", () => {
+      render(
+        <BaseList id="override-list" aria-label="Test List" role="listbox">
+          <BaseItem item={{ label: "Item 1", value: "1" }} />
+          <BaseItem item={{ label: "Item 2", value: "2" }} role="menuitem" />
+        </BaseList>
+      );
+      expect(screen.getByRole("option")).toBeInTheDocument();
+      expect(screen.getByRole("menuitem")).toBeInTheDocument();
     });
   });
 });

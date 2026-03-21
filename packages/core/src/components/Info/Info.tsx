@@ -1,13 +1,12 @@
 import React, { forwardRef, useCallback, useRef, useState } from "react";
 import { Info as InfoIcon } from "@vibe/icons";
-import { IconButton } from "../IconButton";
-import { Dialog } from "../Dialog";
+import { IconButton } from "@vibe/icon-button";
+import { Dialog, type DialogEvent } from "@vibe/dialog";
 import { InfoDialogContent } from "./components";
 import { type InfoProps } from "./Info.types";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
-import { type DialogEvent } from "../Dialog/Dialog";
 
 const Info = forwardRef(
   (
@@ -32,7 +31,6 @@ const Info = forwardRef(
   ) => {
     const iconButtonRef = useRef<HTMLButtonElement>(null);
     const mergedRef = useMergeRef(ref, iconButtonRef);
-    const dialogRef = useRef<Dialog>(null);
     const dialogContentRef = useRef<HTMLDivElement>(null);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +58,6 @@ const Info = forwardRef(
 
     return (
       <Dialog
-        ref={dialogRef}
         id={dialogId}
         disable={disabled}
         position={position}
@@ -91,11 +88,11 @@ const Info = forwardRef(
           kind="tertiary"
           active={isOpen}
           disabled={disabled}
-          ariaLabel={ariaLabel}
-          ariaLabeledBy={ariaLabelledby}
-          ariaControls={dialogId}
-          ariaHasPopup="dialog"
-          ariaExpanded={isOpen}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledby}
+          aria-controls={dialogId}
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.INFO, id)}
           data-vibe={ComponentVibeId.INFO}
           hideTooltip={hideButtonTooltip}

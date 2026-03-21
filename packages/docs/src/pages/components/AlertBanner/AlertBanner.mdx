@@ -45,6 +45,11 @@ import { AlertBanner } from "@vibe/core";
     <>
       For dismissible AlertBanners, use the <code>closeButtonAriaLabel</code> prop to provide a descriptive accessible
       name for the close button.
+    </>,
+    <>
+      When the banner text should be announced by screen readers (e.g., for dynamic updates), set the{" "}
+      <code>ariaLive</code> prop on AlertBannerText to control the live region behavior ("polite", "assertive", or
+      "off"). By default, AlertBannerText does not set a live region.
     </>
   ]}
 />

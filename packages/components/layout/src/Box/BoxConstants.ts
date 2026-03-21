@@ -1,0 +1,21 @@
+export const SizePrefixMapping = {
+  margin: "m",
+  marginX: "mx",
+  marginY: "my",
+  marginTop: "mt",
+  marginEnd: "me",
+  marginBottom: "mb",
+  marginStart: "ms",
+  padding: "p",
+  paddingX: "px",
+  paddingY: "py",
+  paddingTop: "pt",
+  paddingEnd: "pe",
+  paddingBottom: "pb",
+  paddingStart: "ps",
+  shadow: "shadow",
+  rounded: "rounded",
+  borderColor: "borderColor",
+  backgroundColor: "bg",
+  textColor: "text"
+};

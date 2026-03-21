@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import Flex from "../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { type ModalMediaProps } from "./ModalMedia.types";
 import styles from "./ModalMedia.module.scss";
 import cx from "classnames";
@@ -13,7 +13,7 @@ const ModalMedia = forwardRef(
     return (
       <Flex
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_MEDIA, id)}
         justify="center"
         align="stretch"
         ref={ref}

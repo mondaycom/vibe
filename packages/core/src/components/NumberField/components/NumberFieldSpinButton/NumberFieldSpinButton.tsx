@@ -1,9 +1,9 @@
 import React from "react";
 import cx from "classnames";
 import { type NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
-import IconButton from "../../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
-import Flex from "../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
 import styles from "./NumberFieldSpinButton.module.scss";
 
@@ -27,9 +27,9 @@ const NumberFieldSpinButton = ({
   return (
     <Flex direction="column" align="stretch" justify="center" onMouseDown={handleMouseDown}>
       <IconButton
-        ariaLabel="Increase"
+        aria-label="Increase"
         hideTooltip
-        ariaControls={inputId}
+        aria-controls={inputId}
         tabIndex={-1}
         onClick={onIncrement}
         disabled={disabled || isAtMax}
@@ -39,9 +39,9 @@ const NumberFieldSpinButton = ({
         icon={DropdownChevronUp}
       />
       <IconButton
-        ariaLabel="Decrease"
+        aria-label="Decrease"
         hideTooltip
-        ariaControls={inputId}
+        aria-controls={inputId}
         tabIndex={-1}
         onClick={onDecrement}
         disabled={disabled || isAtMin}

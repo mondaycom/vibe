@@ -1,10 +1,11 @@
 import React, { useMemo, useRef } from "react";
-import DialogContentContainer from "../../../../DialogContentContainer/DialogContentContainer";
-import usePopover from "../../../../../hooks/usePopover";
+import { DialogContentContainer } from "@vibe/dialog";
+import { useFloating, flip, type Placement } from "@floating-ui/react-dom";
 import { type MenuChild } from "../../../Menu/MenuConstants";
 import { type MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
-import { Placement } from "../../../../../hooks/popoverConstants";
-import useIsomorphicLayoutEffect from "../../../../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
+
+const DEFAULT_FALLBACK_PLACEMENTS: Placement[] = ["right-end", "left-start", "left-end"];
 
 const MenuItemSubMenu = ({
   anchorRef,
@@ -12,11 +13,9 @@ const MenuItemSubMenu = ({
   autoFocusOnMount,
   onClose,
   children,
-  submenuPosition,
-  autoAdjustOnSubMenuContentResize
+  submenuPosition
 }: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
-  const popperElementRef = useRef<HTMLDivElement>(null);
 
   useIsomorphicLayoutEffect(() => {
     if (!autoFocusOnMount || !open || !childRef?.current) {
@@ -27,20 +26,22 @@ const MenuItemSubMenu = ({
     });
   }, [autoFocusOnMount, open]);
 
-  const submenuPlacement = useMemo(
-    () => (submenuPosition === "left" ? Placement.LEFT_START : undefined),
+  const placement = useMemo<Placement>(
+    () => (submenuPosition === "left" ? "left-start" : "right-start"),
     [submenuPosition]
   );
 
-  const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(
-    anchorRef?.current,
-    popperElementRef?.current,
-    {
-      isOpen: open,
-      placement: submenuPlacement,
-      observeContentResize: autoAdjustOnSubMenuContentResize
+  const {
+    refs,
+    floatingStyles,
+    placement: actualPlacement
+  } = useFloating({
+    placement,
+    middleware: [flip({ fallbackPlacements: DEFAULT_FALLBACK_PLACEMENTS })],
+    elements: {
+      reference: anchorRef?.current
     }
-  );
+  });
 
   const subMenu: MenuChild = children && React.Children.only(children);
   if (!subMenu?.type?.isMenu) {
@@ -50,9 +51,9 @@ const MenuItemSubMenu = ({
 
   return (
     <div
-      style={{ ...popoverStyles.popper, visibility: open ? "visible" : "hidden" }}
-      {...popoverAttributes.popper}
-      ref={popperElementRef}
+      style={{ ...floatingStyles, visibility: open ? "visible" : "hidden" }}
+      ref={refs.setFloating}
+      data-popper-placement={actualPlacement}
     >
       {subMenu && open && (
         <DialogContentContainer>

@@ -1,6 +1,6 @@
 import type React from "react";
 import { type SubIcon } from "@vibe/icon";
-import type { TooltipProps } from "../../Tooltip/Tooltip";
+import type { TooltipProps } from "@vibe/tooltip";
 
 export const COMBOBOX_DIVIDER_ITEM = "combobox-divider";
 export const COMBOBOX_CATEGORY_ITEM = "combobox-category";
@@ -34,7 +34,7 @@ export interface IComboboxCategory {
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, the category is only shown when searching.
    */
@@ -89,7 +89,7 @@ export interface IComboboxOption {
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, the option belongs to a category.
    */

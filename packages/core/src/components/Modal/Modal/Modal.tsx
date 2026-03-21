@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react
 import cx from "classnames";
 import { RemoveScroll } from "react-remove-scroll";
 import FocusLock from "react-focus-lock";
-import { motion, AnimatePresence } from "framer-motion";
+import { CSSTransition } from "react-transition-group";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
@@ -13,16 +13,10 @@ import { camelCase } from "es-toolkit";
 import { ModalProvider } from "../context/ModalContext";
 import { type ModalProviderValue } from "../context/ModalContext.types";
 import { keyCodes } from "../../../constants";
-import {
-  modalAnimationAnchorPopVariants,
-  modalAnimationCenterPopVariants,
-  modalAnimationFullViewVariants,
-  modalAnimationOverlayVariants
-} from "../utils/animationVariants";
 import { createPortal } from "react-dom";
 import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 import useFocusEscapeTargets from "../hooks/useFocusEscapeTargets/useFocusEscapeTargets";
-import { LayerProvider } from "../../LayerProvider";
+import { LayerProvider } from "@vibe/layer";
 import useMergeRef from "../../../hooks/useMergeRef";
 
 // @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)
@@ -104,12 +98,15 @@ const Modal = forwardRef(
       [alertModal, onClose, show]
     );
 
-    const modalAnimationVariants =
-      size === "full-view"
-        ? modalAnimationFullViewVariants
-        : anchorElementRef?.current
-        ? modalAnimationAnchorPopVariants
-        : modalAnimationCenterPopVariants;
+    const animationType = size === "full-view" ? "fullView" : anchorElementRef?.current ? "anchorPop" : "centerPop";
+
+    const anchorRect = anchorElementRef?.current?.getBoundingClientRect();
+    const anchorVars = anchorRect
+      ? ({
+          "--modal-start-x": `${anchorRect.left + anchorRect.width / 2}px`,
+          "--modal-start-y": `${anchorRect.top + anchorRect.height / 2}px`
+        } as React.CSSProperties)
+      : {};
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
 
@@ -140,64 +137,63 @@ const Modal = forwardRef(
     );
 
     return (
-      <AnimatePresence>
-        {show && (
-          <LayerProvider layerRef={containerRef}>
-            <ModalProvider value={contextValue}>
-              {createPortal(
-                <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
-                  <div ref={containerRef} className={styles.container} style={zIndexStyle}>
-                    <motion.div
-                      variants={modalAnimationOverlayVariants}
-                      initial="initial"
-                      animate="enter"
-                      exit="exit"
-                      data-testid={getTestId(ComponentDefaultTestId.MODAL_NEXT_OVERLAY, id)}
-                      className={styles.overlay}
-                      onClick={onBackdropClick}
-                      aria-hidden
-                    />
-                    <RemoveScroll forwardProps ref={modalMergedRef}>
-                      <motion.div
-                        variants={modalAnimationVariants}
-                        initial="exit"
-                        animate="enter"
-                        exit="exit"
-                        custom={anchorElementRef}
-                        className={cx(
-                          styles.modal,
-                          getStyle(styles, camelCase("size-" + size)),
-                          { [styles.withHeaderAction]: !!renderHeaderAction },
-                          className
-                        )}
-                        id={id}
-                        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT, id)}
-                        data-vibe={ComponentVibeId.MODAL}
-                        role="dialog"
-                        aria-modal
-                        aria-labelledby={ariaLabelledby || titleId}
-                        aria-describedby={ariaDescribedby || descriptionId}
-                        style={style}
-                        onKeyDown={onModalKeyDown}
-                        tabIndex={-1}
-                      >
-                        {children}
-                        <ModalTopActions
-                          renderAction={renderHeaderAction}
-                          theme={closeButtonTheme}
-                          closeButtonAriaLabel={closeButtonAriaLabel}
-                          onClose={onClose}
-                        />
-                      </motion.div>
-                    </RemoveScroll>
-                  </div>
-                </FocusLockComponent>,
-                portalTargetElement
-              )}
-            </ModalProvider>
-          </LayerProvider>
-        )}
-      </AnimatePresence>
+      <CSSTransition
+        in={show}
+        nodeRef={containerRef}
+        timeout={{ enter: 250, exit: 150 }}
+        unmountOnExit
+        classNames={{
+          enter: styles.containerEnter,
+          enterActive: styles.containerEnterActive,
+          exitActive: styles.containerExitActive
+        }}
+      >
+        <LayerProvider layerRef={containerRef}>
+          <ModalProvider value={contextValue}>
+            {createPortal(
+              <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
+                <div ref={containerRef} className={styles.container} style={zIndexStyle} onKeyDown={onModalKeyDown}>
+                  <div
+                    data-testid={getTestId(ComponentDefaultTestId.MODAL_OVERLAY, id)}
+                    className={styles.overlay}
+                    onClick={onBackdropClick}
+                    aria-hidden
+                  />
+                  <RemoveScroll forwardProps ref={modalMergedRef}>
+                    <div
+                      className={cx(
+                        styles.modal,
+                        styles[animationType],
+                        getStyle(styles, camelCase("size-" + size)),
+                        { [styles.withHeaderAction]: !!renderHeaderAction },
+                        className
+                      )}
+                      id={id}
+                      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+                      data-vibe={ComponentVibeId.MODAL}
+                      role="dialog"
+                      aria-modal
+                      aria-labelledby={ariaLabelledby || titleId}
+                      aria-describedby={ariaDescribedby || descriptionId}
+                      style={{ ...style, ...anchorVars }}
+                      tabIndex={-1}
+                    >
+                      {children}
+                      <ModalTopActions
+                        renderAction={renderHeaderAction}
+                        theme={closeButtonTheme}
+                        closeButtonAriaLabel={closeButtonAriaLabel}
+                        onClose={onClose}
+                      />
+                    </div>
+                  </RemoveScroll>
+                </div>
+              </FocusLockComponent>,
+              portalTargetElement
+            )}
+          </ModalProvider>
+        </LayerProvider>
+      </CSSTransition>
     );
   }
 );

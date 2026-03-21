@@ -8,7 +8,7 @@ import useMergeRef from "../../hooks/useMergeRef";
 import { type VibeComponentProps } from "../../types";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./Checkbox.module.scss";
 
 export interface CheckBoxProps extends VibeComponentProps {
@@ -23,7 +23,7 @@ export interface CheckBoxProps extends VibeComponentProps {
   /**
    * The label of the checkbox for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The content displayed next to the checkbox.
    */
@@ -31,7 +31,7 @@ export interface CheckBoxProps extends VibeComponentProps {
   /**
    * The ID of an element describing the checkbox.
    */
-  ariaLabelledBy?: string;
+  "aria-labelledby"?: string;
   /**
    * Callback fired when the checkbox value changes.
    */
@@ -81,9 +81,9 @@ const Checkbox = forwardRef(
       className,
       checkboxClassName,
       labelClassName,
-      ariaLabel,
+      "aria-label": ariaLabel,
       label,
-      ariaLabelledBy,
+      "aria-labelledby": ariaLabelledBy,
       onChange = NOOP,
       checked,
       autoFocus,
@@ -101,18 +101,16 @@ const Checkbox = forwardRef(
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const mergedInputRef = useMergeRef(ref, inputRef);
-    const iconContainerRef = useRef<HTMLDivElement>(null);
 
-    const onMouseUpCallback = useCallback(() => {
-      const input = inputRef.current;
-      if (!input) return;
-
+    const onMouseUpCallback = useCallback((e: React.MouseEvent<HTMLElement>) => {
+      const target = e.currentTarget;
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
-          input.blur();
+          target.blur();
         });
       });
-    }, [inputRef]);
+    }, []);
+
     let overrideDefaultChecked = defaultChecked;
 
     // If component did not receive default checked and checked props, choose default checked as
@@ -135,6 +133,18 @@ const Checkbox = forwardRef(
       return "";
     }, [ariaLabel, label]);
 
+    const onKeyDownCallback = useCallback(
+      (e: React.KeyboardEvent) => {
+        if (e.key === " ") {
+          e.preventDefault();
+          inputRef.current?.click();
+        }
+      },
+      [inputRef]
+    );
+
+    const wrapperTabIndex = disabled ? undefined : tabIndex ?? 0;
+
     if (separateLabel) {
       return (
         <div
@@ -156,23 +166,25 @@ const Checkbox = forwardRef(
             aria-label={finalAriaLabel}
             aria-labelledby={ariaLabelledBy}
             checked={checked}
-            tabIndex={tabIndex}
+            tabIndex={-1}
           />
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
           <label
             htmlFor={id}
             className={cx(styles.checkbox, checkboxClassName)}
             data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
+            tabIndex={wrapperTabIndex}
             onMouseUp={onMouseUpCallback}
+            onKeyDown={onKeyDownCallback}
             onClickCapture={onClickCaptureLabel}
           >
             <Icon
               className={styles.icon}
-              iconType="svg"
+              type="svg"
               icon={indeterminate ? Remove : Check}
               ignoreFocusStyle
-              ariaHidden={true}
-              iconSize="16"
+              aria-hidden={true}
+              size="16"
             />
           </label>
           {label === false ? null : (
@@ -197,7 +209,9 @@ const Checkbox = forwardRef(
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
         className={cx(styles.wrapper, className)}
+        tabIndex={wrapperTabIndex}
         onMouseUp={onMouseUpCallback}
+        onKeyDown={onKeyDownCallback}
         data-testid={dataTestId || getTestId(ComponentDefaultTestId.CHECKBOX, id)}
         htmlFor={id}
         onClickCapture={onClickCaptureLabel}
@@ -217,20 +231,19 @@ const Checkbox = forwardRef(
           aria-label={finalAriaLabel}
           aria-labelledby={ariaLabelledBy}
           checked={checked}
-          tabIndex={tabIndex}
+          tabIndex={-1}
         />
         <div
           className={cx(styles.checkbox, checkboxClassName)}
-          ref={iconContainerRef}
           data-testid={getTestId(ComponentDefaultTestId.CHECKBOX_CHECKBOX, id)}
         >
           <Icon
             className={styles.icon}
-            iconType="svg"
+            type="svg"
             icon={indeterminate ? Remove : Check}
             ignoreFocusStyle
-            ariaHidden={true}
-            iconSize="16"
+            aria-hidden={true}
+            size="16"
           />
         </div>
         {label === false ? null : (

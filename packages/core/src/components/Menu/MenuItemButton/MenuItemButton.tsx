@@ -2,16 +2,15 @@ import cx from "classnames";
 import React, { useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { Button, type ButtonType } from "@vibe/button";
-import Tooltip from "../../Tooltip/Tooltip";
+import { Tooltip } from "@vibe/tooltip";
 import useMergeRef from "../../../hooks/useMergeRef";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { type VibeComponentProps, type ElementContent, withStaticPropsWithoutForwardRef } from "../../../types";
+import { type VibeComponentProps, type ElementContent } from "../../../types";
 import { type SubIcon } from "@vibe/icon";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./MenuItemButton.module.scss";
-import { type TooltipPositions } from "../../Tooltip";
-import { TooltipPositions as TooltipPositionsEnum } from "../../Tooltip/TooltipConstants";
+import { type TooltipPositions } from "@vibe/tooltip";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   /**
@@ -179,12 +178,4 @@ Object.assign(MenuItemButton, {
   isMenuChild: true
 });
 
-interface MenuItemButtonStaticProps {
-  kinds: typeof Button.kinds;
-  tooltipPositions: typeof TooltipPositionsEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<MenuItemButtonProps, MenuItemButtonStaticProps>(MenuItemButton, {
-  kinds: Button.kinds,
-  tooltipPositions: TooltipPositionsEnum
-});
+export default MenuItemButton;

@@ -1,0 +1,46 @@
+import type React from "react";
+import { useRef } from "react";
+import { getTestId, useMergeRef, NOOP, ComponentDefaultTestId, useKeyboardButtonPressedFunc } from "@vibe/shared";
+import { type ClickableProps } from "../Clickable/Clickable";
+
+/**
+ * Return props for adding clickable functionality to the element except for the styles and classNames
+ */
+export default function useClickableProps(
+  {
+    onClick = NOOP,
+    onMouseDown = NOOP,
+    onMouseEnter = NOOP,
+    onMouseLeave = NOOP,
+    disabled = false,
+    id,
+    "data-testid": dataTestId,
+    role = "button",
+    tabIndex = 0,
+    "aria-label": ariaLabel,
+    "aria-hidden": ariaHidden,
+    "aria-haspopup": ariaHasPopup,
+    "aria-expanded": ariaExpanded
+  }: ClickableProps,
+  ref: React.ForwardedRef<HTMLElement>
+) {
+  const onKeyDown = useKeyboardButtonPressedFunc(onClick);
+  const componentRef = useRef<HTMLElement | null>(null);
+  const mergedRef = useMergeRef(ref, componentRef);
+  return {
+    ref: mergedRef,
+    id,
+    "data-testid": dataTestId || getTestId(ComponentDefaultTestId.CLICKABLE, id),
+    onClick: disabled ? undefined : onClick,
+    onKeyDown: disabled ? undefined : onKeyDown,
+    onMouseDown,
+    onMouseEnter,
+    onMouseLeave,
+    tabIndex: disabled ? -1 : tabIndex,
+    role,
+    "aria-label": ariaLabel,
+    "aria-hidden": ariaHidden,
+    "aria-haspopup": ariaHasPopup,
+    "aria-expanded": ariaExpanded
+  };
+}

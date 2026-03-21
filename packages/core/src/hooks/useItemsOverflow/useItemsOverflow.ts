@@ -8,12 +8,14 @@ export default function useItemsOverflow({
   containerRef,
   gap,
   deductedSpaceRef,
+  deductedWidth = 0,
   itemRefs,
   minVisibleCount = 0
 }: {
   containerRef: RefObject<HTMLElement>;
   gap: number;
   deductedSpaceRef?: RefObject<HTMLElement>;
+  deductedWidth?: number;
   itemRefs: RefObject<HTMLElement>[];
   minVisibleCount?: number;
 }) {
@@ -31,8 +33,9 @@ export default function useItemsOverflow({
     }
 
     const containerWidth = container.offsetWidth;
-    const deductedWidth = deductedWidthRef.current;
-    const availableWidth = containerWidth - deductedWidth;
+    const deductedRefWidth = deductedWidthRef.current;
+    // Only apply fixed deductedWidth when container has measurable width (avoids issues in test environments)
+    const availableWidth = containerWidth - deductedRefWidth - (containerWidth > 0 ? deductedWidth : 0);
 
     let totalItemsWidth = 0;
     let count = 0;
@@ -54,7 +57,7 @@ export default function useItemsOverflow({
     // Ensure at least minVisibleCount items are visible
     const finalCount = Math.max(count, Math.min(minVisibleCount, maxIter));
     setVisibleCount(finalCount);
-  }, [containerRef, itemRefs, gap, minVisibleCount]);
+  }, [containerRef, itemRefs, gap, minVisibleCount, deductedWidth]);
 
   const measureDeductedWidth = useCallback(() => {
     if (deductedSpaceRef?.current) {

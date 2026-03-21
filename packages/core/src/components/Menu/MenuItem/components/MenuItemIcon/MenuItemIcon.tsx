@@ -1,15 +1,14 @@
 import React from "react";
 import { Icon } from "@vibe/icon";
-import Flex from "../../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import cx from "classnames";
 import styles from "./MenuItemIcon.module.scss";
 import { type MenuItemIconProps } from "./MenuItemIcon.types";
 
 const MenuItemIcon = ({
   icon,
+  isRightIcon = false,
   type,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  label,
   disabled,
   selected,
   backgroundColor,
@@ -20,6 +19,7 @@ const MenuItemIcon = ({
     className={cx(
       styles.iconWrapper,
       {
+        [styles.rightIcon]: isRightIcon,
         [styles.disabled]: disabled,
         [styles.withBackgroundColor]: !!backgroundColor
       },
@@ -28,11 +28,11 @@ const MenuItemIcon = ({
     style={{ ...(backgroundColor && { backgroundColor }) }}
   >
     <Icon
-      iconType={type || (typeof icon === "function" ? "svg" : "font")}
+      type={type || (typeof icon === "function" ? "svg" : "font")}
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
-      iconSize={18}
+      size={18}
     />
   </Flex>
 );

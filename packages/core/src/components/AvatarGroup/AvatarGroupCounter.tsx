@@ -10,7 +10,7 @@ import type VibeComponentProps from "../../types/VibeComponentProps";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
-import { type TooltipProps } from "../Tooltip/Tooltip";
+import { type TooltipProps } from "@vibe/tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import styles from "./AvatarGroupCounter.module.scss";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE } from "./AvatarGroupConstants";
@@ -84,7 +84,7 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         count={counterValue}
         prefix={counterPrefix}
         maxDigits={counterMaxDigits}
-        ariaLabel={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
+        aria-label={counterAriaLabel ? counterAriaLabel : `Tab for more ${counterAriaLabelItemsName}`}
         noAnimation={noAnimation}
         counterClassName={cx({ [styles.disabled]: disabled })}
         size={size === "xs" ? "xs" : undefined}
@@ -123,23 +123,23 @@ const AvatarGroupCounter: React.FC<AvatarGroupCounterProps> = ({
         component={counterComponent}
         zIndex={1}
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
-        ariaLabel={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
+        aria-label={counterAriaLabel ? counterAriaLabel : `${counterValue} additional ${counterAriaLabelItemsName}`}
         dialogContainerSelector={dialogContainerSelector}
       >
-        <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
+        <Menu id="menu" size="medium" className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
               // eslint-disable-next-line react/jsx-key
               <AvatarMenuItem
                 menuItemProps={{
                   key: avatar.props?.id || String(index),
-                  title: (avatar.props?.tooltipProps?.content as string) || avatar?.props?.ariaLabel,
+                  title: (avatar.props?.tooltipProps?.content as string) || avatar?.props?.["aria-label"],
                   onClick: (event: React.MouseEvent | React.KeyboardEvent) => avatarOnClick(event, avatar.props)
                 }}
                 avatarProps={{
                   ...avatar.props,
                   customSize: AVATAR_GROUP_COUNTER_AVATAR_SIZE,
-                  ariaLabel: "",
+                  "aria-label": "",
                   tabIndex: -1
                 }}
               />

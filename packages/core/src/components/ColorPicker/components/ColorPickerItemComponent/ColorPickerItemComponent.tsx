@@ -5,8 +5,8 @@ import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "reac
 import { contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import { Icon } from "@vibe/icon";
-import Tooltip from "../../../Tooltip/Tooltip";
-import Clickable from "../../../Clickable/Clickable";
+import { Tooltip } from "@vibe/tooltip";
+import { Clickable } from "@vibe/clickable";
 import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
@@ -123,13 +123,13 @@ const ColorPickerItemComponent = forwardRef(
           <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
-            ariaLabel={color}
+            aria-label={color}
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
               [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
             })}
             style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
             onClick={onClick}
-            tabIndex="-1"
+            tabIndex={-1}
             onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
           >
             <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>

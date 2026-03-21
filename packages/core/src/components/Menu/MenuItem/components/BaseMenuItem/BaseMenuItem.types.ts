@@ -24,12 +24,10 @@ export type LossMenuItemProps = Omit<
 >;
 
 export interface BaseMenuItemProps extends LossMenuItemProps, VibeComponentProps {
-  // TODO: [breaking] MenuItem can accept only Menu element as first level, it accepts MenuChild[] as subMenu even though it is not valid.
   /**
-   * The submenu items associated with this menu item.
-   * **Note:** Only `Menu` elements are allowed as first-level children, even though `MenuChild[]` is currently accepted.
+   * The submenu associated with this menu item. Must be a single `Menu` element.
    */
-  subMenu?: MenuChild | MenuChild[];
+  subMenu?: MenuChild;
   /**
    * The content of the menu item.
    */

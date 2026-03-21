@@ -2,7 +2,7 @@ import type React from "react";
 import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import { type InputSize } from "@vibe/base";
-import type IconButton from "../IconButton/IconButton";
+import type { IconButton } from "@vibe/icon-button";
 import type MenuButton from "../MenuButton/MenuButton";
 
 export interface SearchProps extends VibeComponentProps {
@@ -61,11 +61,11 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * If true, indicates that a popup is open.
    */
-  ariaExpanded?: React.AriaAttributes["aria-expanded"];
+  "aria-expanded"?: React.AriaAttributes["aria-expanded"];
   /**
    * Specifies the type of popup associated with the search input.
    */
-  ariaHasPopup?: React.AriaAttributes["aria-haspopup"];
+  "aria-haspopup"?: React.AriaAttributes["aria-haspopup"];
   /**
    * The debounce rate for input value changes.
    */

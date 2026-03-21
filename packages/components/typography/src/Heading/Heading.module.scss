@@ -1,0 +1,8 @@
+@import "~@vibe/style/dist/mixins";
+@import "../styles/typography";
+
+@include create-title-classes;
+
+.heading {
+  margin: 0;
+}

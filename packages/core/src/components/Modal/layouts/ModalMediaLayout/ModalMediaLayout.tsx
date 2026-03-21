@@ -4,7 +4,7 @@ import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalMediaLayout.module.scss";
 import { type ModalMediaLayoutProps } from "./ModalMediaLayout.types";
-import Flex from "../../../Flex/Flex";
+import { Flex } from "@vibe/layout";
 
 const ModalMediaLayout = forwardRef(
   (
@@ -20,7 +20,7 @@ const ModalMediaLayout = forwardRef(
         align="start"
         className={cx(styles.layout, className)}
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_MEDIA_LAYOUT, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_MEDIA_LAYOUT, id)}
       >
         <div className={styles.media}>{media}</div>
         <div className={styles.header}>{header}</div>

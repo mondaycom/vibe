@@ -10,6 +10,7 @@ import { listVibeIconsTool } from "./server/tools/list-vibe-icons.js";
 import { listVibeTokensTool } from "./server/tools/list-vibe-tokens.js";
 import { v3MigrationTool } from "./server/tools/v3-migration.js";
 import { dropdownMigrationTool } from "./server/tools/dropdown-migration.js";
+import { v4MigrationTool } from "./server/tools/v4-migration.js";
 
 async function main() {
   const transport = new StdioServerTransport();
@@ -21,6 +22,7 @@ async function main() {
   addServerTool(listVibeTokensTool);
   addServerTool(v3MigrationTool);
   addServerTool(dropdownMigrationTool);
+  addServerTool(v4MigrationTool);
   await server.connect(transport);
 }
 

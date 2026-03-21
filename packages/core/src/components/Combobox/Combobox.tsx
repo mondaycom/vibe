@@ -6,16 +6,15 @@ import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import useMergeRef from "../../hooks/useMergeRef";
 import Search from "../Search/Search";
-import { BASE_SIZES } from "../../constants";
 import { Button } from "@vibe/button";
-import Text from "../Text/Text";
-import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
+import { Text } from "@vibe/typography";
+import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps } from "../../types";
 import {
   type IComboboxCategoryMap,
   type IComboboxItem,
@@ -25,7 +24,7 @@ import {
 } from "./components/ComboboxConstants";
 import styles from "./Combobox.module.scss";
 import { type ComboboxSizes } from "./Combobox.types";
-import type IconButton from "../IconButton/IconButton";
+import type { IconButton } from "@vibe/icon-button";
 import type MenuButton from "../MenuButton/MenuButton";
 import { ComponentVibeId } from "../../tests/constants";
 import { type SubIcon } from "@vibe/icon";
@@ -232,6 +231,12 @@ const Combobox = forwardRef(
     }: ComboboxProps,
     ref: React.ForwardedRef<HTMLElement>
   ) => {
+    useWarnDeprecated({
+      component: "Combobox",
+      message:
+        "This component is deprecated and will be removed in the next major version. Please use Dropdown box mode from @vibe/core instead."
+    });
+
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
@@ -386,8 +391,8 @@ const Combobox = forwardRef(
             autoFocus={autoFocus}
             loading={loading}
             searchIconName={searchIcon}
-            ariaExpanded={hasFilter || hasResults}
-            ariaHasPopup="listbox"
+            aria-expanded={hasFilter || hasResults}
+            aria-haspopup="listbox"
             searchResultsContainerId={id ? `${id}-listbox` : COMBOBOX_LISTBOX_ID}
             debounceRate={debounceRate}
             renderAction={RenderAction}
@@ -432,12 +437,4 @@ const Combobox = forwardRef(
 // color it with --secondary-text-color
 // size it like the icon - we think it's 16px - make sure it's not fat
 
-interface ComboboxStaticProps {
-  sizes: typeof BASE_SIZES;
-  iconTypes: typeof ComboboxOption.iconTypes;
-}
-
-export default withStaticProps<ComboboxProps, ComboboxStaticProps>(Combobox, {
-  sizes: BASE_SIZES,
-  iconTypes: ComboboxOption.iconTypes
-});
+export default Combobox;

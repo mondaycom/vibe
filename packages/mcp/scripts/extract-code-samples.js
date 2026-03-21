@@ -7,10 +7,10 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const componentsDir = path.join(__dirname, "../../core/src/components");
+const componentsDir = path.join(__dirname, "../../docs/src/pages/components/");
 const outputDir = path.join(__dirname, "../dist/generated/");
 if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir); 
+  fs.mkdirSync(outputDir);
 }
 
 function getStoryFiles() {
@@ -18,22 +18,17 @@ function getStoryFiles() {
 
   function traverseDirectory(dir) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
-    
+
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
-      
+
       if (entry.isDirectory()) {
-        if (entry.name === "__stories__") {
-          // Found stories directory, get all .stories.tsx files
-          const storyDirEntries = fs.readdirSync(fullPath, { withFileTypes: true });
-          for (const storyEntry of storyDirEntries) {
-            if (storyEntry.isFile() && (storyEntry.name.endsWith(".stories.tsx") || storyEntry.name.endsWith(".stories.js"))) {
-              storyFiles.push(path.relative(__dirname, path.join(fullPath, storyEntry.name)));
-            }
-          }
-        } else {
-          // Recursively traverse other directories
-          traverseDirectory(fullPath);
+        // Recursively traverse subdirectories
+        traverseDirectory(fullPath);
+      } else if (entry.isFile()) {
+        // Check for story files
+        if (entry.name.endsWith(".stories.tsx") || entry.name.endsWith(".stories.js")) {
+          storyFiles.push(path.relative(__dirname, fullPath));
         }
       }
     }
@@ -50,10 +45,10 @@ function generateCodeForOneLiner(ast, constName) {
   traverse.default(ast, {
     VariableDeclarator(path) {
       if (path.node.id.name === constName) {
-        if (path.node.init?.callee?.name !== 'createComponentTemplate') {
+        if (path.node.init?.callee?.name !== "createComponentTemplate") {
           calleeCode = "const " + generate.default(path.node).code;
         } else {
-          return calleeCode = ""
+          return (calleeCode = "");
         }
       }
     }
@@ -62,16 +57,13 @@ function generateCodeForOneLiner(ast, constName) {
 }
 
 function extractMarkdown(file) {
-  const inputFile = path.join(
-    __dirname,
-    file
-  );
+  const inputFile = path.join(__dirname, file);
   const inputFileComponentName = path.basename(inputFile).split(".")[0];
   const outputFile = path.resolve(__dirname, outputDir, inputFileComponentName + ".md");
 
   const fileContent = fs.readFileSync(inputFile, "utf-8");
 
-  console.log(`Generating markdown for ${inputFileComponentName}`)
+  console.log(`Generating markdown for ${inputFileComponentName}`);
 
   // Parse the file using Babel parser with TypeScript and JSX support
   const ast = parser.parse(fileContent, {
@@ -115,23 +107,24 @@ function extractMarkdown(file) {
             });
             if (renderProp) {
               // If render is a function, generate its code
-              if (renderProp.type == 'ArrowFunctionExpression') {
-                if (renderProp.body.type == 'JSXFragment' || renderProp.body.type == 'MemberExpression' || renderProp.body.type == 'JSXElement') {
-                  codeBlock = generate.default(renderProp.body).code; 
-                }
-                else if (renderProp.body.type == 'BlockStatement') {
-                  codeBlock = renderProp.body.body.map(line => generate.default(line).code).join('\n')
-                }
-                else {
+              if (renderProp.type == "ArrowFunctionExpression") {
+                if (
+                  renderProp.body.type == "JSXFragment" ||
+                  renderProp.body.type == "MemberExpression" ||
+                  renderProp.body.type == "JSXElement"
+                ) {
+                  codeBlock = generate.default(renderProp.body).code;
+                } else if (renderProp.body.type == "BlockStatement") {
+                  codeBlock = renderProp.body.body.map(line => generate.default(line).code).join("\n");
+                } else {
                   console.log(`${nameProp || storyName} is a ${renderProp.body.type}`);
                   codeBlock = generate.default(renderProp.body).code;
                 }
-              } else if (renderProp.type == 'CallExpression') {
+              } else if (renderProp.type == "CallExpression") {
                 // console.log(renderProp.callee.object.name);
                 const calleeName = renderProp.callee.object.name;
-                codeBlock = generateCodeForOneLiner(ast, calleeName) 
-              }
-              else {
+                codeBlock = generateCodeForOneLiner(ast, calleeName);
+              } else {
                 console.log(`${nameProp || storyName} is a ${renderProp.type}`);
               }
             }

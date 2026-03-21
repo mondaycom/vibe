@@ -1,0 +1,61 @@
+@import "../../styles/states";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  border-radius: var(--border-radius-small);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  @include focus-style-inset();
+
+  &.highlighted,
+  &:hover:not(.disabled):not(.readOnly) {
+    background-color: var(--primary-background-hover-color);
+  }
+
+  &.disabled {
+    color: var(--disabled-text-color);
+    cursor: not-allowed;
+  }
+
+  &.readOnly {
+    cursor: default;
+  }
+
+  &.selected {
+    background-color: var(--primary-selected-color);
+
+    &.highlighted,
+    &:hover:not(.disabled):not(.readOnly) {
+      background-color: var(--primary-selected-hover-color);
+    }
+  }
+
+  &.small {
+    padding: 6px var(--space-8);
+  }
+
+  &.medium {
+    padding: 9px 12px;
+  }
+
+  &.large {
+    padding: 13px 12px;
+  }
+
+  .avatar,
+  .icon {
+    flex-shrink: 0;
+  }
+
+  .indent {
+    width: 20px;
+  }
+
+  .endElement {
+    padding-inline-start: var(--space-8);
+    margin-inline-start: auto;
+    display: flex;
+  }
+}

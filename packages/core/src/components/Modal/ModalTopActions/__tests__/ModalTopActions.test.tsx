@@ -2,7 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import ModalTopActions from "../ModalTopActions";
-import IconButton from "../../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { Feedback as FeedbackIcon } from "@vibe/icons";
 
 describe("ModalTopActions", () => {
@@ -46,9 +46,7 @@ describe("ModalTopActions", () => {
   });
 
   it("renders the action button using the renderAction prop directly", () => {
-    const renderAction = (
-      <IconButton data-testid="extra-action" icon={FeedbackIcon} color={IconButton.colors.ON_PRIMARY_COLOR} />
-    );
+    const renderAction = <IconButton data-testid="extra-action" icon={FeedbackIcon} color="on-primary-color" />;
     const { getByTestId } = render(<ModalTopActions renderAction={renderAction} />);
 
     expect(within(getByTestId("extra-action")).getByTestId("icon")).toBeInTheDocument();

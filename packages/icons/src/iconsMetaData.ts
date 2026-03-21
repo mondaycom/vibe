@@ -6,12 +6,32 @@ type Icon = {
   file: string;
   description: string;
   tags: string;
-  category?: Array<typeof BASIC | typeof PLATFORM | typeof VIEW>;
+  category?: readonly (typeof BASIC | typeof PLATFORM | typeof VIEW)[];
   ignore?: boolean;
 };
 export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
+  {
+    name: "ZoomIn",
+    file: "ZoomIn.svg",
+    description: "Zoom In icon for external views",
+    tags: "Zoom, Magnification, Increase, Detail, View, Interface, Action"
+  },
+
+  {
+    name: "ZoomOut",
+    file: "ZoomOut.svg",
+    description: "Decreases magnification to view more of the layout",
+    tags: "Zoom, Decrease, Magnification, Layout, Detail, Interface, Canvas, Editor"
+  },
+
+  {
+    name: "NavigationArrow",
+    file: "NavigationArrow.svg",
+    description: "Primary tool for moving and selecting elements on the canvas",
+    tags: "Move, Tool, Navigation, Selection, Canvas, Cursor, Interaction"
+  },
   {
     name: "EnterArrow",
     file: "EnterArrow.svg",
@@ -2031,4 +2051,4 @@ export default [
     description: "User status",
     tags: "user, status"
   }
-] satisfies Icon[];
+] as const satisfies readonly Icon[];

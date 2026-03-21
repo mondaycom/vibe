@@ -4,20 +4,19 @@ import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { type IconSubComponentProps } from "@vibe/icon";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import { Loader } from "@vibe/loader";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import { CloseSmall } from "@vibe/icons";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import { ToastActionType as ToastActionTypeEnum, ToastType as ToastTypeEnum } from "./ToastConstants";
 import { type ToastType, type ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
 import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
-import IconButton from "../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
@@ -216,7 +215,7 @@ const Toast = ({
             size="small"
             kind="tertiary"
             color="fixed-light"
-            ariaLabel={closeButtonAriaLabel}
+            aria-label={closeButtonAriaLabel}
             data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
             icon={CloseSmall}
             hideTooltip
@@ -227,12 +226,4 @@ const Toast = ({
   );
 };
 
-interface ToastStaticProps {
-  types: typeof ToastTypeEnum;
-  actionTypes: typeof ToastActionTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<ToastProps, ToastStaticProps>(Toast, {
-  types: ToastTypeEnum,
-  actionTypes: ToastActionTypeEnum
-});
+export default Toast;

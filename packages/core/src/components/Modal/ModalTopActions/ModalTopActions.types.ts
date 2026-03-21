@@ -1,6 +1,6 @@
 import type React from "react";
 import type MenuButton from "../../MenuButton/MenuButton";
-import type IconButton from "../../IconButton/IconButton";
+import type { IconButton } from "@vibe/icon-button";
 import { type ButtonColor } from "@vibe/button";
 
 export type ModalTopActionsTheme = "light" | "dark";

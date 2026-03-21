@@ -1,11 +1,11 @@
 {
   "name": "@vibe/icon",
-  "version": "3.0.5",
+  "version": "4.0.0",
   "description": "Vibe sub-package for icon components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "components/icon"
+    "directory": "packages/components/icon"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -27,26 +27,27 @@
       "default": "./dist/index.js"
     },
     "./mockedClassNames": {
-      "import": "./dist/mocked_classnames/src/index.js",
-      "default": "./dist/mocked_classnames/src/index.js"
+      "import": "./dist/mocked_classnames/index.js",
+      "default": "./dist/mocked_classnames/index.js"
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "3.0.5",
+    "@vibe/shared": "4.0.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-inlinesvg": "^4.1.3"
   },
   "devDependencies": {
-    "@vibe/config": "3.0.4",
+    "@vibe/config": "4.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "typescript": "^4.7.3",
+    "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },
   "peerDependencies": {

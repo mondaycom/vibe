@@ -6,11 +6,11 @@
 }
 
 .button .mainButton {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 
 .button .secondaryButton {
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 .secondaryButtonWrapper .secondaryButtonIconWrapper {
@@ -92,12 +92,12 @@
 }
 
 .kindTertiary .secondaryButton {
-  border-left: 1px solid transparent;
-  margin-left: 1px;
+  border-inline-start: 1px solid transparent;
+  margin-inline-start: 1px;
 }
 
 .kindPrimary.disabled .secondaryButton {
-  border-left: 1px solid;
+  border-inline-start: 1px solid;
   border-color: var(--ui-border-color);
 }
 
@@ -107,7 +107,7 @@
 }
 
 .kindPrimary:not(.disabled).colorPrimary .secondaryButton {
-  border-left: 1px solid;
+  border-inline-start: 1px solid;
   border-color: var(--primary-hover-color);
 }
 
@@ -117,27 +117,27 @@
 }
 
 .kindPrimary:not(.disabled).colorBrand .secondaryButton {
-  border-left: 1px solid;
+  border-inline-start: 1px solid;
   border-color: var(--brand-hover-color);
 }
 
 .kindPrimary:not(.disabled).colorPositive .secondaryButton {
-  border-left: 1px solid;
+  border-inline-start: 1px solid;
   border-color: var(--positive-color-hover);
 }
 
 .kindPrimary:not(.disabled).colorNegative .secondaryButton {
-  border-left: 1px solid;
+  border-inline-start: 1px solid;
   border-color: var(--negative-color-hover);
 }
 
 .kindPrimary:not(.disabled).colorOnPrimaryColor .secondaryButton {
-  border-left: 1px solid;
+  border-inline-start: 1px solid;
   border-color: var(--color-ui_grey);
 }
 
 .kindSecondary .mainButton {
-  border-right: none;
+  border-inline-end: none;
 }
 
 .kindSecondary.colorPrimary.mainActive .mainButton {
