@@ -6,7 +6,7 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../BaseItem";
 import TriggerActions from "./TriggerActions";
 import styles from "./Trigger.module.scss";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import cx from "classnames";
 import DropdownChip from "./DropdownChip";
 

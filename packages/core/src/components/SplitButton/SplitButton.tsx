@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle, NOOP, isInsideClass } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 // Libraries import
@@ -16,8 +16,7 @@ import {
   type SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
 // Utils import
-import { NOOP } from "../../utils/function-utils";
-import { isInsideClass } from "../../utils/dom-utils";
+
 // Hooks import
 import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";

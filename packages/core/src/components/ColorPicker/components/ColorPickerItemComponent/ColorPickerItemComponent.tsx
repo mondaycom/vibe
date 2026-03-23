@@ -1,5 +1,5 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import cx from "classnames";
 import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
 import { contentColors } from "../../../../utils/colors-vars-map";

@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { Heading, type HeadingType, type HeadingWeight } from "@vibe/typography";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps

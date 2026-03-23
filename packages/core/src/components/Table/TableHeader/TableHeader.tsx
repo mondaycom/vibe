@@ -6,7 +6,7 @@ import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { useTable } from "../context/TableContext/TableContext";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 
 export interface TableHeaderProps extends VibeComponentProps {
   /**

@@ -1,5 +1,5 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle, NOOP } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
@@ -10,7 +10,7 @@ import useKeyEvent from "../../../../hooks/useKeyEvent";
 import { Icon } from "@vibe/icon";
 import { Check } from "@vibe/icons";
 import Divider from "../../../../components/Divider/Divider";
-import { NOOP } from "../../../../utils/function-utils";
+
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import { Clickable } from "@vibe/clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";

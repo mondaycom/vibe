@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useRef } from "react";
 import { type VibeComponentProps } from "../../../types";
 import { type TableCellProps } from "../TableCell/TableCell";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import cx from "classnames";

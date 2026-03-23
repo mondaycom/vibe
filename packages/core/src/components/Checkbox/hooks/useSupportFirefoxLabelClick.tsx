@@ -1,6 +1,6 @@
 import type React from "react";
 import { useCallback, useRef } from "react";
-import { isFirefox } from "../../../utils/user-agent-utils";
+import { isFirefox } from "@vibe/shared";
 
 export function useSupportFirefoxLabelClick({ inputRef }: { inputRef: React.RefObject<HTMLInputElement> }) {
   // The purpose of this variable is to make sure that the captured event is a checkbox's label click event and not a manual event

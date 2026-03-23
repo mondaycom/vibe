@@ -7,10 +7,10 @@ import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import { FEEDBACK_CLASSES, SIZE_MAPPER, TextFieldAriaLabel } from "./TextFieldConstants";
 import { type TextFieldType, type TextFieldSize } from "./TextField.types";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, NOOP } from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
 import { getTestId } from "../../tests/test-ids-utils";
-import { NOOP } from "../../utils/function-utils";
+
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { type VibeComponentProps } from "../../types";
 import styles from "./TextField.module.scss";

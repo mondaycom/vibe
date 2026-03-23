@@ -1,9 +1,9 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle, useMergeRef } from "@vibe/shared";
 import usePrevious from "../../hooks/usePrevious";
-import useMergeRef from "../../hooks/useMergeRef";
+
 import { type SubIcon } from "@vibe/icon";
 import { type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";

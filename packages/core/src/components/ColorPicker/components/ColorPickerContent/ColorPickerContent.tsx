@@ -19,7 +19,7 @@ import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
 import { type VibeComponentProps } from "../../../../types";
 import { type SubIcon } from "@vibe/icon";
-import useMergeRef from "../../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { type ColorStyle } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
