@@ -1,5 +1,5 @@
 import { type RefObject, useCallback, useState, useRef } from "react";
-import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 
 /**
  * Custom hook that calculates how many items can fit in a container without overflowing

@@ -4,7 +4,7 @@ import { type NumberFieldSpinButtonProps } from "./NumberFieldSpinButton.types";
 import { IconButton } from "@vibe/icon-button";
 import { DropdownChevronUp, DropdownChevronDown } from "@vibe/icons";
 import { Flex } from "@vibe/layout";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import styles from "./NumberFieldSpinButton.module.scss";
 
 const NumberFieldSpinButton = ({

@@ -1,10 +1,10 @@
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle, NOOP } from "@vibe/shared";
 import cx from "classnames";
 import React, { type ForwardedRef, forwardRef, type ReactElement, useMemo } from "react";
 import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import { type AlertBannerBackgroundColor } from "./AlertBanner.types";
-import { NOOP } from "../../utils/function-utils";
+
 import { type AlertBannerLinkProps } from "./AlertBannerLink/AlertBannerLink";
 import { type AlertBannerButtonProps } from "./AlertBannerButton/AlertBannerButton";
 import { type AlertBannerTextProps } from "./AlertBannerText/AlertBannerText";

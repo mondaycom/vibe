@@ -9,13 +9,13 @@ import React, {
   useRef
 } from "react";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle, NOOP, useMergeRef } from "@vibe/shared";
 import { Text } from "@vibe/typography";
 import { SIZES, SELECTION_KEYS } from "../../constants";
-import { NOOP } from "../../utils/function-utils";
+
 import { type VibeComponentProps, type ElementContent } from "../../types";
 import { useKeyEvent } from "../../hooks";
-import useMergeRef from "../../hooks/useMergeRef";
+
 import { ListContext } from "../List/utils/ListContext";
 import { type ListItemElement, type ListItemSize } from "./ListItem.types";
 import { type TooltipProps } from "@vibe/tooltip";

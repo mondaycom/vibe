@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { Text } from "@vibe/typography";
 import { type MenuTitleCaptionPosition } from "./MenuTitle.type";

@@ -3,8 +3,8 @@ import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { useIsOverflowing } from "@vibe/hooks";
-import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useIsomorphicLayoutEffect, useMergeRef } from "@vibe/shared";
+
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./TextWithHighlight.module.scss";
 

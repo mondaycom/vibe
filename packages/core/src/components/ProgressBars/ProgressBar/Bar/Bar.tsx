@@ -1,6 +1,6 @@
 import React, { type FC, useMemo } from "react";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { calculatePercentage } from "../ProgressBarHelpers";

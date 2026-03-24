@@ -1,7 +1,7 @@
 import { type MutableRefObject, type ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import useFullKeyboardListeners, { type NavDirections } from "../../hooks/useFullKeyboardListeners";
-import useEventListener from "../../hooks/useEventListener";
+import { useEventListener } from "@vibe/shared";
 import {
   calcActiveIndexAfterArrowNavigation,
   getActiveIndexFromInboundNavigation

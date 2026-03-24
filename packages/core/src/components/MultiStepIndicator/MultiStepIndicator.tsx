@@ -3,7 +3,7 @@ import React, { forwardRef, useCallback, useMemo } from "react";
 import { Check } from "@vibe/icons";
 import { type SubIcon } from "@vibe/icon";
 import Divider from "../../components/Divider/Divider";
-import { NOOP } from "../../utils/function-utils";
+import { NOOP } from "@vibe/shared";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";
 import { getTestId } from "../../tests/test-ids-utils";

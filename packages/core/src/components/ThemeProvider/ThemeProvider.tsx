@@ -10,7 +10,7 @@ import {
   removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
-import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 export interface ThemeProviderProps {
   /**
    * The theme configuration to apply. It consists of a `name` (a unique CSS class name added to the children)

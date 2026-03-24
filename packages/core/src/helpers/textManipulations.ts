@@ -1,4 +1,4 @@
-import { convertToArray } from "../utils/function-utils";
+import { convertToArray } from "@vibe/shared";
 
 const MIN_PRECISION = 0;
 const MAX_PRECISION = 20;

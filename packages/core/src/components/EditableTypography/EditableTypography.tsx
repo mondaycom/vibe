@@ -1,15 +1,14 @@
 import React, { type ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, useKeyboardButtonPressedFunc, useIsomorphicLayoutEffect } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
-import { useKeyboardButtonPressedFunc } from "@vibe/shared";
+
 import { type TooltipProps } from "@vibe/tooltip";
 import usePrevious from "../../hooks/usePrevious";
 import { type TextType, type TextWeight } from "@vibe/typography";
 import { type HeadingType, type HeadingWeight } from "@vibe/typography";
-import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
 
 export interface EditableTypographyImplementationProps {
   /**

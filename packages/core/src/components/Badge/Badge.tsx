@@ -1,13 +1,13 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, getStyle } from "@vibe/shared";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { type BadgeAlignments, type BadgeAnchor, type BadgeType } from "./Badge.types";
 import Indicator, { type IndicatorProps } from "./Indicator/Indicator";
 import Counter, { type CounterProps } from "../Counter/Counter";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+
 import { type IndicatorColor } from "./Indicator/Indicator.types";
 import { type CounterColor } from "../Counter/Counter.types";
 import styles from "./Badge.module.scss";

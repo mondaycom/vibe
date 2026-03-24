@@ -3,8 +3,10 @@ import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import Checkbox from "../Checkbox";
 
-vi.mock("../../../utils/user-agent-utils", () => {
+vi.mock("@vibe/shared", async importOriginal => {
+  const actual = await importOriginal();
   return {
+    ...(actual as object),
     isFirefox: vi.fn()
   };
 });
@@ -266,16 +268,20 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      vi.mock("../../../utils/user-agent-utils", () => {
+      vi.mock("@vibe/shared", async importOriginal => {
+        const actual = await importOriginal();
         return {
+          ...(actual as object),
           isFirefox: vi.fn().mockImplementation(() => true)
         };
       });
     });
 
     afterAll(() => {
-      vi.mock("../../../utils/user-agent-utils", () => {
+      vi.mock("@vibe/shared", async importOriginal => {
+        const actual = await importOriginal();
         return {
+          ...(actual as object),
           isFirefox: vi.fn()
         };
       });

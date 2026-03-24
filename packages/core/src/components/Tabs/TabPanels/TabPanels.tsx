@@ -1,11 +1,11 @@
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
 import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef, getStyle } from "@vibe/shared";
 import { type TabPanelsAnimationDirection } from "./TabPanels.types";
 import { type TabPanelProps } from "../TabPanel/TabPanel";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+
 import { type VibeComponentProps } from "../../../types";
 import styles from "./TabPanels.module.scss";
 

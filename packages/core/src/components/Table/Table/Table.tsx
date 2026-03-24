@@ -19,7 +19,7 @@ import { type RowSizes } from "./Table.types";
 import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
 import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMenuContext";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { type TableProviderValue } from "../context/TableContext/TableContext.types";
 import { type TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
 import { type SubIcon } from "@vibe/icon";

@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import { type VibeComponentProps, type ElementContent } from "../../../types";
 import { type ExpandCollapseIconPosition } from "../../ExpandCollapse/ExpandCollapse.types";

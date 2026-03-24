@@ -1,10 +1,10 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, getStyle } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { type ListItemElement } from "../ListItem";
 import { type VibeComponentProps } from "../../types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+
 import styles from "./ListItemIcon.module.scss";
 import { type ListItemIconMargin } from "./ListItemIcon.types";
 

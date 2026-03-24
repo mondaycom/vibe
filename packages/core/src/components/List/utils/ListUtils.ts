@@ -1,7 +1,7 @@
 import { type MutableRefObject, useState } from "react";
 import { type ListItemElement } from "../../ListItem/ListItem.types";
 import { type ListElement } from "../List.types";
-import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 
 let listIdCounter = 0;
 export const generateListId = () => {

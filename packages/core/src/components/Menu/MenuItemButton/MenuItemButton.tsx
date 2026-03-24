@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { Button, type ButtonType } from "@vibe/button";
 import { Tooltip } from "@vibe/tooltip";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 import { type VibeComponentProps, type ElementContent } from "../../../types";

@@ -4,7 +4,7 @@ import {
   type DropdownMultiControllerProps,
   type DropdownSingleControllerProps
 } from "./Dropdown.types";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { type BaseItemData } from "../BaseItem";
 import DropdownComboboxController from "./modes/DropdownComboboxController";
 import DropdownMultiComboboxController from "./modes/DropdownMultiComboboxController";

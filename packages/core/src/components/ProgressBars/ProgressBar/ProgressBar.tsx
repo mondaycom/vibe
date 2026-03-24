@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { type ProgressBarSize, type ProgressBarStyle } from "./ProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./ProgressBarHelpers";
