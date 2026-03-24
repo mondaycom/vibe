@@ -2,13 +2,12 @@ import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import { isFunction } from "es-toolkit";
 import { noop as NOOP, camelCase } from "es-toolkit";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle, useMergeRef, useWarnDeprecated } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import useMergeRef from "../../hooks/useMergeRef";
+
 import Search from "../Search/Search";
 import { Button } from "@vibe/button";
 import { Text } from "@vibe/typography";
-import { useWarnDeprecated } from "../../utils/warn-deprecated";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";

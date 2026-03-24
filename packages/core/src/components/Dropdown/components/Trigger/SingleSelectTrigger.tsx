@@ -6,7 +6,7 @@ import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { Flex } from "@vibe/layout";
 import TriggerActions from "./TriggerActions";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 
 const SingleSelectTrigger = () => {
   const {

@@ -1,5 +1,5 @@
 import React, { createContext, type ReactElement, useContext, useMemo, useState } from "react";
-import { createTestIdHelper } from "../../helpers/testid-helper";
+import { createTestIdHelper } from "@vibe/shared";
 import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
 import { type SliderProps } from "./Slider";
 import {

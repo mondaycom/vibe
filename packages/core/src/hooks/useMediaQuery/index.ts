@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import useIsomorphicLayoutEffect from "../ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 
 export function useMediaQuery(query: string | string[]) {
   const queries = useMemo(() => {

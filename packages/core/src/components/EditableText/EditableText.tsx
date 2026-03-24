@@ -2,7 +2,7 @@ import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import React, { forwardRef } from "react";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableText.module.scss";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps

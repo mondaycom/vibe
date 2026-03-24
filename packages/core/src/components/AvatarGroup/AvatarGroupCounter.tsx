@@ -8,7 +8,7 @@ import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import { type AvatarSize, type AvatarType } from "../Avatar/Avatar.types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 import { type TooltipProps } from "@vibe/tooltip";
 import { avatarOnClick } from "./AvatarGroupHelper";

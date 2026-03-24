@@ -1,5 +1,5 @@
 import React, { createContext, useContext, type ReactNode, type AriaRole } from "react";
-import { NOOP } from "../../../utils/function-utils";
+import { NOOP } from "@vibe/shared";
 import { type BaseListSizes } from "../BaseList.types";
 
 export interface BaseListItemContextProps {

@@ -24,9 +24,9 @@ import {
 } from "../../services/virtualized-service";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, NOOP } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";
-import { NOOP } from "../../utils/function-utils";
+
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./VirtualizedGrid.module.scss";
 import { type VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";

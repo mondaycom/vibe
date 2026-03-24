@@ -1,12 +1,11 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle, NOOP } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
-import { NOOP } from "../../utils/function-utils";
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
 import { type VibeComponentProps } from "../../types";
 import styles from "./Counter.module.scss";

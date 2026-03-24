@@ -7,7 +7,7 @@ import MenuButton from "../../MenuButton/MenuButton";
 import { Menu } from "../../Menu";
 import { createPortal } from "react-dom";
 import { useTable } from "../context/TableContext/TableContext";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 import { useTableContainer } from "../context/TableContainerContext/TableContainerContext";
 import { type TableMenuProps } from "./TableRowMenu.types";

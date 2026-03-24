@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useResizeObserver } from "@vibe/hooks";
-import { NOOP } from "../../utils/function-utils";
+import { NOOP } from "@vibe/shared";
 import { UPDATE_SLIDER_SIZE_DEBOUNCE } from "./SliderConstants";
 import { ensureValueText } from "./SliderHelpers";
 

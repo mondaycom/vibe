@@ -11,7 +11,7 @@ import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelper
 import { Tooltip } from "@vibe/tooltip";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 
 export interface TableHeaderCellProps extends VibeComponentProps {
   /**

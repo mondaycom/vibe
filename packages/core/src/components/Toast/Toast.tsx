@@ -12,8 +12,8 @@ import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
 import { type ToastType, type ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
-import { NOOP } from "../../utils/function-utils";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { NOOP, getStyle } from "@vibe/shared";
+
 import { type VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import { IconButton } from "@vibe/icon-button";

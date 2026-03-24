@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useIsomorphicLayoutEffect from "../../../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 
 let menuIdCounter = 0;
 export const generateMenuId = () => {

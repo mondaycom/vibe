@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";

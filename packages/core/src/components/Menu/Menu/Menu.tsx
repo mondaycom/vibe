@@ -1,8 +1,8 @@
 import cx from "classnames";
 import { SIZES } from "../../../constants";
 import React, { forwardRef, type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import useMergeRef from "../../../hooks/useMergeRef";
-import useIsomorphicLayoutEffect from "../../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useMergeRef, useIsomorphicLayoutEffect, getStyle } from "@vibe/shared";
+
 import { useClickOutside } from "@vibe/hooks";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
@@ -13,7 +13,6 @@ import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMen
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
 import { type ElementContent, type VibeComponentProps } from "../../../types";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { useFocusOnMount } from "./hooks/useFocusOnMount";

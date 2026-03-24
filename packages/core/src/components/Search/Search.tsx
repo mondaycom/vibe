@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";

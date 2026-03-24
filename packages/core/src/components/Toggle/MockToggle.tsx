@@ -4,7 +4,7 @@ import React, { type FC } from "react";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./MockToggle.module.scss";
 import { type ToggleSize } from "./Toggle.types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 
 export interface MockToggleProps extends VibeComponentProps {
   /**

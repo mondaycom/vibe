@@ -3,7 +3,7 @@ import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigati
 import { Button } from "@vibe/button";
 import { type VibeComponentProps } from "../../../../types";
 import { type SubIcon } from "@vibe/icon";
-import { NOOP } from "../../../../utils/function-utils";
+import { NOOP } from "@vibe/shared";
 import styles from "./ColorPickerClearButton.module.scss";
 
 export interface ColorPickerClearButtonProps extends VibeComponentProps {

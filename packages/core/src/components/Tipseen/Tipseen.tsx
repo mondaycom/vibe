@@ -1,7 +1,7 @@
 import { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { Tooltip } from "@vibe/tooltip";
 import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";

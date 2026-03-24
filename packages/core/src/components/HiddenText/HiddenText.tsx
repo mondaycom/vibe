@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./HiddenText.module.scss";

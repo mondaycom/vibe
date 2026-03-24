@@ -1,8 +1,8 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import { noop as NOOP } from "es-toolkit";
-import useMergeRef from "../../../hooks/useMergeRef";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { useMergeRef, getStyle } from "@vibe/shared";
+
 import { Icon, type IconType, type SubIcon } from "@vibe/icon";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";

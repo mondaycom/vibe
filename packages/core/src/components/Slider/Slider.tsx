@@ -1,6 +1,6 @@
 import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
-import { NOOP } from "../../utils/function-utils";
+import { useMergeRef, NOOP, getStyle } from "@vibe/shared";
+
 import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
@@ -9,7 +9,7 @@ import { type IconType } from "@vibe/icon";
 import cx from "classnames";
 import styles from "./Slider.module.scss";
 import { type SliderColor, type SliderLabelColor, type SliderLabelPosition, type SliderSize } from "./Slider.types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+
 import { camelCase } from "es-toolkit";
 
 export type SliderProps = {
