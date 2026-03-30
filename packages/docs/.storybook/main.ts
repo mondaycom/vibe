@@ -83,7 +83,6 @@ export default {
           "~@vibe/style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
           "~@vibe/style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
           "~@vibe/style": path.resolve(__dirname, "../../style"),
-          "vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src/index.ts"),
           "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src"),
           "@vibe/shared": path.resolve(__dirname, "../../shared/src"),
           "@vibe/hooks": path.resolve(__dirname, "../../hooks/src/index.ts"),
