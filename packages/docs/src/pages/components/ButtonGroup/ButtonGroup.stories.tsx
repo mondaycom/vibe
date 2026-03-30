@@ -1,7 +1,6 @@
 import React from "react";
 import { ButtonGroup, Flex, Text } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof ButtonGroup>;
@@ -11,8 +10,6 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onSelect"]
 });
 
-const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
-
 export default {
   title: "Components/ButtonGroup",
   component: ButtonGroup,
@@ -21,8 +18,10 @@ export default {
 } satisfies Meta<typeof ButtonGroup>;
 
 export const Overview: Story = {
-  render: buttonGroupTemplate.bind({}),
-
+  render: args => {
+    const content = <ButtonGroup {...args} />;
+    return args.fullWidth ? <div style={{ width: "100%" }}>{content}</div> : content;
+  },
   args: {
     id: "overview-button-group",
     groupAriaLabel: "Overview button group",
