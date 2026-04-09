@@ -25,18 +25,23 @@ exports[`renders correctly with empty props 1`] = `
     <ul
       className="colorsGrid"
       data-testid="color-picker"
-      role="grid"
+      role="listbox"
       tabIndex={0}
     >
       <li
+        aria-label="Grass Green"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_grass_green"
+        id="color-picker-grid-0-item-grass_green"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="grass_green"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -44,7 +49,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-grass_green)",
@@ -59,14 +64,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Done Green"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_done-green"
+        id="color-picker-grid-0-item-done-green"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="done-green"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -74,7 +84,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-done-green)",
@@ -89,14 +99,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Bright Green"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_bright-green"
+        id="color-picker-grid-0-item-bright-green"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="bright-green"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -104,7 +119,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-bright-green)",
@@ -119,14 +134,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Saladish"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_saladish"
+        id="color-picker-grid-0-item-saladish"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="saladish"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -134,7 +154,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-saladish)",
@@ -149,14 +169,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Egg Yolk"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_egg_yolk"
+        id="color-picker-grid-0-item-egg_yolk"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="egg_yolk"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -164,7 +189,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-egg_yolk)",
@@ -179,14 +204,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Working Orange"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_working_orange"
+        id="color-picker-grid-0-item-working_orange"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="working_orange"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -194,7 +224,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-working_orange)",
@@ -209,14 +239,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Dark Orange"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_dark-orange"
+        id="color-picker-grid-0-item-dark-orange"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="dark-orange"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -224,7 +259,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-dark-orange)",
@@ -239,14 +274,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Peach"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_peach"
+        id="color-picker-grid-0-item-peach"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="peach"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -254,7 +294,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-peach)",
@@ -269,14 +309,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Sunset"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_sunset"
+        id="color-picker-grid-0-item-sunset"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="sunset"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -284,7 +329,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-sunset)",
@@ -299,14 +344,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Stuck Red"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_stuck-red"
+        id="color-picker-grid-0-item-stuck-red"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="stuck-red"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -314,7 +364,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-stuck-red)",
@@ -329,14 +379,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Dark Red"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_dark-red"
+        id="color-picker-grid-0-item-dark-red"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="dark-red"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -344,7 +399,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-dark-red)",
@@ -359,14 +414,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Sofia Pink"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_sofia_pink"
+        id="color-picker-grid-0-item-sofia_pink"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="sofia_pink"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -374,7 +434,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-sofia_pink)",
@@ -389,14 +449,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Lipstick"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_lipstick"
+        id="color-picker-grid-0-item-lipstick"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="lipstick"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -404,7 +469,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-lipstick)",
@@ -419,14 +484,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Bubble"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_bubble"
+        id="color-picker-grid-0-item-bubble"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="bubble"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -434,7 +504,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-bubble)",
@@ -449,14 +519,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Purple"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_purple"
+        id="color-picker-grid-0-item-purple"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="purple"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -464,7 +539,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-purple)",
@@ -479,14 +554,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Dark Purple"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_dark_purple"
+        id="color-picker-grid-0-item-dark_purple"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="dark_purple"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -494,7 +574,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-dark_purple)",
@@ -509,14 +589,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Berry"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_berry"
+        id="color-picker-grid-0-item-berry"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="berry"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -524,7 +609,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-berry)",
@@ -539,14 +624,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Dark Indigo"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_dark_indigo"
+        id="color-picker-grid-0-item-dark_indigo"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="dark_indigo"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -554,7 +644,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-dark_indigo)",
@@ -569,14 +659,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Indigo"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_indigo"
+        id="color-picker-grid-0-item-indigo"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="indigo"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -584,7 +679,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-indigo)",
@@ -599,14 +694,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Navy"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_navy"
+        id="color-picker-grid-0-item-navy"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="navy"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -614,7 +714,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-navy)",
@@ -629,14 +729,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Bright Blue"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_bright-blue"
+        id="color-picker-grid-0-item-bright-blue"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="bright-blue"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -644,7 +749,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-bright-blue)",
@@ -659,14 +764,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Dark Blue"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_dark-blue"
+        id="color-picker-grid-0-item-dark-blue"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="dark-blue"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -674,7 +784,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-dark-blue)",
@@ -689,14 +799,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Aquamarine"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_aquamarine"
+        id="color-picker-grid-0-item-aquamarine"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="aquamarine"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -704,7 +819,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-aquamarine)",
@@ -719,14 +834,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Chili Blue"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_chili-blue"
+        id="color-picker-grid-0-item-chili-blue"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="chili-blue"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -734,7 +854,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-chili-blue)",
@@ -749,14 +869,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="River"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_river"
+        id="color-picker-grid-0-item-river"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="river"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -764,7 +889,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-river)",
@@ -779,14 +904,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Winter"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_winter"
+        id="color-picker-grid-0-item-winter"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="winter"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -794,7 +924,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-winter)",
@@ -809,14 +939,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Explosive"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_explosive"
+        id="color-picker-grid-0-item-explosive"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="explosive"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -824,7 +959,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-explosive)",
@@ -839,14 +974,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="American Gray"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_american_gray"
+        id="color-picker-grid-0-item-american_gray"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="american_gray"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -854,7 +994,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-american_gray)",
@@ -869,14 +1009,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Blackish"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_blackish"
+        id="color-picker-grid-0-item-blackish"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="blackish"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -884,7 +1029,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-blackish)",
@@ -899,14 +1044,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Brown"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_brown"
+        id="color-picker-grid-0-item-brown"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="brown"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -914,7 +1064,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-brown)",
@@ -929,14 +1079,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Orchid"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_orchid"
+        id="color-picker-grid-0-item-orchid"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="orchid"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -944,7 +1099,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-orchid)",
@@ -959,14 +1114,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Tan"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_tan"
+        id="color-picker-grid-0-item-tan"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="tan"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -974,7 +1134,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-tan)",
@@ -989,14 +1149,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Sky"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_sky"
+        id="color-picker-grid-0-item-sky"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="sky"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1004,7 +1169,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-sky)",
@@ -1019,14 +1184,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Coffee"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_coffee"
+        id="color-picker-grid-0-item-coffee"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="coffee"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1034,7 +1204,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-coffee)",
@@ -1049,14 +1219,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Royal"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_royal"
+        id="color-picker-grid-0-item-royal"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="royal"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1064,7 +1239,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-royal)",
@@ -1079,14 +1254,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Teal"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_teal"
+        id="color-picker-grid-0-item-teal"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="teal"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1094,7 +1274,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-teal)",
@@ -1109,14 +1289,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Lavender"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_lavender"
+        id="color-picker-grid-0-item-lavender"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="lavender"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1124,7 +1309,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-lavender)",
@@ -1139,14 +1324,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Steel"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_steel"
+        id="color-picker-grid-0-item-steel"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="steel"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1154,7 +1344,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-steel)",
@@ -1169,14 +1359,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Lilac"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_lilac"
+        id="color-picker-grid-0-item-lilac"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="lilac"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1184,7 +1379,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-lilac)",
@@ -1199,14 +1394,19 @@ exports[`renders correctly with empty props 1`] = `
         </div>
       </li>
       <li
+        aria-label="Pecan"
+        aria-selected={false}
         className="itemWrapper"
         data-testid="color-picker-item_pecan"
+        id="color-picker-grid-0-item-pecan"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        role="option"
       >
         <div
           className="feedbackIndicator"
         />
         <div
-          aria-label="pecan"
           className="clickable colorItem colorItemSizeMedium disableTextSelection"
           data-testid="clickable"
           onClick={[Function]}
@@ -1214,7 +1414,7 @@ exports[`renders correctly with empty props 1`] = `
           onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="button"
+          role="presentation"
           style={
             {
               "background": "var(--color-pecan)",

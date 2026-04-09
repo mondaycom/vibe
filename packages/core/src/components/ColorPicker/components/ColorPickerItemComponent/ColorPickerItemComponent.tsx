@@ -60,6 +60,10 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
    * The shape of the color item.
    */
   colorShape: ColorShapes;
+  /**
+   * Human-readable label for the color, used for screen reader announcements.
+   */
+  colorAriaLabel: string;
 }
 
 const ColorPickerItemComponent = forwardRef(
@@ -76,6 +80,8 @@ const ColorPickerItemComponent = forwardRef(
       tooltipContent,
       isActive,
       colorShape,
+      colorAriaLabel,
+      id,
       "data-testid": dataTestId
     }: ColorPickerItemComponentProps,
     _ref: React.ForwardedRef<HTMLElement>
@@ -112,25 +118,30 @@ const ColorPickerItemComponent = forwardRef(
     const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
     return (
       <Tooltip content={tooltipContent}>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events -- keyboard handling is managed by the parent grid's useGridKeyboardNavigation */}
         <li
+          id={id}
+          role="option"
+          aria-label={colorAriaLabel}
+          aria-selected={isSelected}
           className={cx(styles.itemWrapper, {
             [styles.selectedColor]: isSelected,
             [styles.active]: isActive,
             [styles.circle]: colorShape === "circle"
           })}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
+          onClick={onClick}
+          onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
         >
           <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
-            aria-label={color}
+            role="presentation"
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
               [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
             })}
             style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
-            onClick={onClick}
             tabIndex={-1}
-            onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
           >
             <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>
               {shouldRenderIcon && (
