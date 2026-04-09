@@ -132,6 +132,7 @@ const ColorPickerItemComponent = forwardRef(
           <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
+            role="presentation"
             aria-label={colorAriaLabel}
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
               [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
