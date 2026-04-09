@@ -127,8 +127,8 @@ const ColorPickerColorsGrid = forwardRef(
     });
 
     const gridId = useColorPickerGridId(id);
-    const getColorItemId = (color: ColorPickerValueOnly) => (gridId ? `${gridId}-item-${color}` : undefined);
-    const activeDescendantId = activeIndex >= 0 ? getColorItemId(colorsToRender[activeIndex]) : undefined;
+    const getColorItemId = (index: number) => (gridId ? `${gridId}-item-${index}` : undefined);
+    const activeDescendantId = activeIndex >= 0 ? getColorItemId(activeIndex) : undefined;
 
     return (
       <ul
@@ -144,7 +144,7 @@ const ColorPickerColorsGrid = forwardRef(
           return (
             <ColorPickerItemComponent
               key={color}
-              id={getColorItemId(color)}
+              id={getColorItemId(index)}
               color={color}
               colorAriaLabel={calculateColorTooltip(color, tooltipContentByColor)}
               onColorClicked={() => onSelectionAction(index)}
