@@ -109,7 +109,7 @@
     "chromatic": "^11.5.4",
     "csstype": "^3.1.0",
     "date-fns": "^2.30.0",
-    "ejs": "^3.1.9",
+    "ejs": "^5.0.2",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.3.0",
@@ -149,7 +149,7 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.51.0",
     "snapshot-diff": "^0.9.0",
-    "storybook": "^8.6.15",
+    "storybook": "^10.3.5",
     "storybook-addon-playground": "^2.0.1",
     "ts-loader": "^9.3.1",
     "ts-morph": "^25.0.1",
@@ -157,8 +157,8 @@
     "tsx": "^4.20.3",
     "typescript": "^5.9.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "vite": "^5.3.1",
-    "vitest": "^1.6.0"
+    "vite": "^8.0.8",
+    "vitest": "^4.1.4"
   },
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"
