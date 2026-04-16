@@ -1,0 +1,26 @@
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as a}from"./index-BfNsOeqz.js";import{M as h}from"./index-D8bByWG8.js";import{D as d}from"./DialogContentContainer-BenjnFfs.js";import{M as c}from"./useMenuItemKeyboardEvents-DJxhfpSP.js";import{M as r}from"./MenuItem-D3ro_MFj.js";import{M as u,O as x,S as j,I as f,L as b,a as M,b as v,T as g}from"./MenuItem.stories-DfJqynx6.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-Du8WtWvp.js";import"./index-B460DqIH.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./index-BpvXyOxN.js";import"./camelCase-CO1PkVrH.js";import"./useMergeRef-Do2VYePL.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./ssr-utils-Do6V6AqB.js";import"./constants-CenpDJY1.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./index-BKMrxRLL.js";import"./useEventListener-CkU0kzyk.js";import"./keyCodes-DhPS-8Mm.js";import"./useKeyEvent-BeN1aNjK.js";import"./useFullKeyboardListeners-0PU-90q7.js";import"./noop-DX6rZLP_.js";import"./index-BxdhJjph.js";import"./test-ids-utils-BSSgvOTA.js";import"./constants-DEBzQJwg.js";import"./sizes-De2_3kVk.js";import"./index-CqkoFCDi.js";import"./debounce-D3NSP8gs.js";import"./Label-BaHRPGx1.js";import"./colors-vars-map-1xEW7YrD.js";import"./useClickableProps-Ul4gSWS9.js";import"./keyCodes-BPHiFfps.js";import"./Text-Bn4lX0iC.js";import"./Typography-D0i8w_Jp.js";import"./Tooltip-BlbcRfFE.js";import"./Flex-7H_pA1dJ.js";import"./Clickable-DnQGpUs5.js";import"./Icon-BxXgVPAg.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./Divider-D0Oy2bpS.js";import"./DropdownChevronRight-C951c-JF.js";import"./IconButton-xcDP9Sdd.js";import"./AddSmall-B_5viru5.js";import"./Button-CAkxRwa_.js";import"./Loader-B0wBwV8P.js";import"./Invite-0V4zx4R3.js";import"./createStoryMetaSettingsDecorator-C07DgdqT.js";import"./index-D1D0uiJ1.js";import"./Workspace-BRy0vdK8.js";import"./Calendar-DUM0ORSW.js";import"./Table-COtoXgIc.js";import"./Check-BhuJDOHf.js";import"./CloseSmall-s783aDlP.js";import"./Delete-rsE7lq-b.js";import"./Drag-Ds0nT9eq.js";import"./Remove-BN6wnPjE.js";import"./Email-BmMi5Ll_.js";import"./Settings-Dllwc6G3.js";import"./Wand-CDIW39RM.js";import"./NewTab-BAQw6vct.js";import"./Info-LYrK74vc.js";import"./NavigationChevronRight-BDrJkoFj.js";import"./Person-C6oC2dzb.js";import"./Search-B-LsiQVE.js";import"./SortDescending-zUObFE7J.js";import"./Upgrade-CdQgCbE5.js";import"./index-B-lxVbXh.js";import"./v4-CtRu48qb.js";const w=()=>e.jsx(d,{children:e.jsxs(c,{children:[e.jsx(r,{title:"Menu item 1",label:"New"}),e.jsx(r,{title:"Menu item 2"}),e.jsx(r,{title:"Menu item 3"})]})}),y=()=>e.jsx(d,{children:e.jsxs(c,{children:[e.jsx(r,{title:"Menu Item 1",label:"Long menu item label"}),e.jsx(r,{title:"Menu Item 2"}),e.jsx(r,{title:"Menu Item 3"})]})});function l(i){const t={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...a(),...i.components},{Canvas:o,ComponentRules:s,PropsTable:m,UsageGuidelines:p}=t;return o||n("Canvas"),s||n("ComponentRules"),m||n("PropsTable"),p||n("UsageGuidelines"),e.jsxs(e.Fragment,{children:[e.jsx(h,{of:u}),`
+`,e.jsx(t.h1,{id:"menu-item",children:"Menu Item"}),`
+`,e.jsx(t.p,{children:"Use menu item for drawing one options that displayed inside a menu."}),`
+`,e.jsx(o,{of:x}),`
+`,e.jsx(t.h3,{id:"import",children:"Import"}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-js",children:`import { MenuItem } from "@vibe/core";
+`})}),`
+`,e.jsx(t.h2,{id:"props",children:"Props"}),`
+`,e.jsx(m,{}),`
+`,e.jsx(t.h2,{id:"accessibility",children:"Accessibility"}),`
+`,e.jsx(p,{guidelines:[e.jsxs(e.Fragment,{children:["Use the ",e.jsx(t.code,{children:"aria-label"})," prop when you need to provide a custom accessible name that differs from the visible title text, especially for icon-only menu items."]}),e.jsx(e.Fragment,{children:"For menu items with submenus, ensure the submenu content is properly structured with descriptive menu item titles for clear navigation hierarchy."}),e.jsxs(e.Fragment,{children:["Use the ",e.jsx(t.code,{children:"disabled"})," prop appropriately with a ",e.jsx(t.code,{children:"disableReason"})," to provide context for why a menu item cannot be selected."]})]}),`
+`,e.jsx(t.h2,{id:"variants",children:"Variants"}),`
+`,e.jsx(t.h3,{id:"states",children:"States"}),`
+`,e.jsx(o,{of:j}),`
+`,e.jsx(t.h3,{id:"icons",children:"Icons"}),`
+`,e.jsx(o,{of:f}),`
+`,e.jsx(t.h3,{id:"label",children:"Label"}),`
+`,e.jsx(o,{of:b}),`
+`,e.jsx(t.h3,{id:"submenu",children:"SubMenu"}),`
+`,e.jsx(o,{of:M}),`
+`,e.jsx(t.h3,{id:"overflow",children:"Overflow"}),`
+`,e.jsx(o,{of:v}),`
+`,e.jsx(t.h3,{id:"tooltips",children:"Tooltips"}),`
+`,e.jsx(o,{of:g}),`
+`,e.jsx(t.h2,{id:"dos-and-donts",children:"Do's and Don’ts"}),`
+`,e.jsx(s,{rules:[{positive:{component:w(),description:"Keep the label text in the menu item short and informative. Use 1 word only."},negative:{component:y(),description:"Dont use long text with more than 1 word, to ensure clarity and to avoid ellipsis."}}]})]})}function Ve(i={}){const{wrapper:t}={...a(),...i.components};return t?e.jsx(t,{...i,children:e.jsx(l,{...i})}):l(i)}function n(i,t){throw new Error("Expected component `"+i+"` to be defined: you likely forgot to import, pass, or provide it.")}export{Ve as default};

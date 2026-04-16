@@ -1,0 +1,33 @@
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as c}from"./index-BfNsOeqz.js";import{M as h}from"./index-D8bByWG8.js";import{L as x,O as b,K as j,S as u,C as f,a as y,b as C,c as k}from"./Label.stories-C_RYsrWW.js";import{l as g}from"./tip-CK87uV3P.js";import{m as v}from"./storybook-link-C_q2g1jx.js";import{L as t}from"./Label-BaHRPGx1.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-Du8WtWvp.js";import"./index-B460DqIH.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./createStoryMetaSettingsDecorator-C07DgdqT.js";import"./index-D1D0uiJ1.js";import"./Invite-0V4zx4R3.js";import"./AddSmall-B_5viru5.js";import"./Workspace-BRy0vdK8.js";import"./Calendar-DUM0ORSW.js";import"./Table-COtoXgIc.js";import"./Check-BhuJDOHf.js";import"./CloseSmall-s783aDlP.js";import"./Delete-rsE7lq-b.js";import"./Drag-Ds0nT9eq.js";import"./Remove-BN6wnPjE.js";import"./DropdownChevronRight-C951c-JF.js";import"./Email-BmMi5Ll_.js";import"./Settings-Dllwc6G3.js";import"./Wand-CDIW39RM.js";import"./NewTab-BAQw6vct.js";import"./Info-LYrK74vc.js";import"./NavigationChevronRight-BDrJkoFj.js";import"./Person-C6oC2dzb.js";import"./Search-B-LsiQVE.js";import"./SortDescending-zUObFE7J.js";import"./Upgrade-CdQgCbE5.js";import"./index-B-lxVbXh.js";import"./v4-CtRu48qb.js";import"./createComponentTemplate-B08h-OOW.js";import"./Flex-7H_pA1dJ.js";import"./index-BpvXyOxN.js";import"./Clickable-DnQGpUs5.js";import"./useClickableProps-Ul4gSWS9.js";import"./keyCodes-BPHiFfps.js";import"./useMergeRef-Do2VYePL.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./ssr-utils-Do6V6AqB.js";import"./constants-CenpDJY1.js";import"./noop-DX6rZLP_.js";import"./camelCase-CO1PkVrH.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Text-Bn4lX0iC.js";import"./Typography-D0i8w_Jp.js";import"./index-CqkoFCDi.js";import"./debounce-D3NSP8gs.js";import"./Tooltip-BlbcRfFE.js";import"./Icon-BxXgVPAg.js";import"./useEventListener-CkU0kzyk.js";import"./useKeyEvent-BeN1aNjK.js";import"./index-BKMrxRLL.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./Box-BfMxHC0B.js";import"./Heading-CE8CoG9V.js";import"./Button-CAkxRwa_.js";import"./Loader-B0wBwV8P.js";import"./Flex-qb9MRXYX.js";import"./withStaticProps-DibdfTK_.js";import"./_tslib-BMUU9Vyh.js";import"./link-CVYAeutz.js";import"./index-CZy3fjCD.js";import"./test-ids-utils-BSSgvOTA.js";import"./constants-DEBzQJwg.js";import"./colors-vars-map-1xEW7YrD.js";const w=()=>e.jsxs(g,{title:"Check yourself",children:["Need to count or indicate numbers? Use the"," ",e.jsx(v,{page:"Components/Counter",size:"small",children:"Counter"})," ","component instead."]});function d(i){const o={code:"code",div:"div",h1:"h1",h2:"h2",h3:"h3",h5:"h5",p:"p",pre:"pre",...c(),...i.components},{Canvas:n,ComponentRules:a,PropsTable:l,RelatedComponents:m,StorybookLink:r,UsageGuidelines:p}=o;return n||s("Canvas"),a||s("ComponentRules"),l||s("PropsTable"),m||s("RelatedComponents"),r||s("StorybookLink"),p||s("UsageGuidelines"),e.jsxs(e.Fragment,{children:[e.jsx(h,{of:x}),`
+`,e.jsx(o.h1,{id:"label",children:"Label"}),`
+`,e.jsx(o.p,{children:"A label indicates the status of an item."}),`
+`,e.jsx(n,{of:b}),`
+`,e.jsx(o.h3,{id:"import",children:"Import"}),`
+`,e.jsx(o.pre,{children:e.jsx(o.code,{className:"language-js",children:`import { Label } from "@vibe/core";
+`})}),`
+`,e.jsx(o.h2,{id:"props",children:"Props"}),`
+`,e.jsx(l,{}),`
+`,e.jsx(o.h2,{id:"usage",children:"Usage"}),`
+`,e.jsx(p,{guidelines:["Label will always appear in context next to the item it classifies.","Displays a short message like new, beta, coming soon.,etc.","Use only UI colors, not content colors (like status colors)."]}),`
+`,e.jsx(w,{}),`
+`,e.jsx(o.h2,{id:"variants",children:"Variants"}),`
+`,e.jsx(o.h3,{id:"kinds",children:"Kinds"}),`
+`,e.jsx(n,{of:j}),`
+`,e.jsx(o.h3,{id:"size",children:"Size"}),`
+`,e.jsx(o.p,{children:"Label can appear in 2 sizes: small and medium."}),`
+`,e.jsx(n,{of:u}),`
+`,e.jsx(o.h3,{id:"colors",children:"Colors"}),`
+`,e.jsx(n,{of:f}),`
+`,e.jsx(o.h3,{id:"clickable",children:"Clickable"}),`
+`,e.jsx(n,{of:y}),`
+`,e.jsx(o.h2,{id:"dos-and-donts",children:"Do’s and Don’ts"}),`
+`,e.jsx(a,{rules:[{positive:{component:e.jsx(t,{text:"New"}),description:"Use label to indicate the status of an item, for example: “New”."},negative:{component:e.jsx(t,{text:"123"}),description:e.jsxs(e.Fragment,{children:["Don’t use the label component in order to indicate numbers, instead use the"," ",e.jsx(r,{page:"Components/Counter",children:"Counter."})]})}},{positive:{component:e.jsxs(o.div,{className:"monday-storybook-label_inline-block",children:[e.jsx(o.h5,{className:"monday-storybook-label_title",children:"Categories"}),e.jsx(t,{text:"new"})]}),description:"Use label only once per item."},negative:{component:[e.jsxs(o.div,{className:"monday-storybook-label_block",children:[e.jsx(o.h5,{children:"Categories"}),e.jsxs(o.div,{className:"monday-storybook-label_inline-block",children:[e.jsx(t,{text:"Featured"}),e.jsx(t,{text:"CRM"}),e.jsx(t,{text:"Export"})]})]})],description:e.jsxs(e.Fragment,{children:["Don’t use multiple labels for one item. Instead, use"," ",e.jsx(r,{page:"Components/Chips",children:"Chips."})]})}},{positive:{component:[e.jsx(t,{text:"New",kind:"line"}),e.jsx(t,{text:"Beta"})],description:"Use only the UI colors above."},negative:{component:[e.jsx(t,{className:"monday-storybook-label_bad-lable monday-storybook-label_purple",kind:"line",text:"Beta"}),e.jsx(t,{className:"monday-storybook-label_bad-lable monday-storybook-label_pink",kind:"line",text:"Beta"})],description:"Don’t use any content colors for labels. If the page is full of CTAs, use the outline state."}}]}),`
+`,e.jsx(o.h2,{id:"use-cases-and-examples",children:"Use cases and examples"}),`
+`,e.jsx(o.h3,{id:"secondary-label",children:"Secondary label"}),`
+`,e.jsx(o.p,{children:"In case of visual overload, use the secondary label in order to create hirarchy."}),`
+`,e.jsx(n,{of:C}),`
+`,e.jsx(o.h3,{id:"celebration",children:"Celebration"}),`
+`,e.jsx(o.p,{children:"To celebrate new feature, outline label can be highlighted by adding celebrate animation."}),`
+`,e.jsx(n,{of:k}),`
+`,e.jsx(o.h2,{id:"related-components",children:"Related components"}),`
+`,e.jsx(m,{componentsNames:["Tooltip","Counter","Chips"]})]})}function Ye(i={}){const{wrapper:o}={...c(),...i.components};return o?e.jsx(o,{...i,children:e.jsx(d,{...i})}):d(i)}function s(i,o){throw new Error("Expected component `"+i+"` to be defined: you likely forgot to import, pass, or provide it.")}export{Ye as default};

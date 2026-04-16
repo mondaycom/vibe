@@ -1,0 +1,36 @@
+import{j as e}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as x}from"./index-BfNsOeqz.js";import{M as b}from"./index-D8bByWG8.js";import{C as j}from"./Calendar-DUM0ORSW.js";import{T as h,C as f}from"./Table-COtoXgIc.js";import{G as u,N as T,a as g}from"./NewTab-BAQw6vct.js";import{T as w,O as v,D as C,S as y,a as M,M as D,B as P,A as S}from"./Tabs.stories-PKr36LXj.js";import{l as B}from"./tip-CK87uV3P.js";import{m as R}from"./storybook-link-C_q2g1jx.js";import{r as p}from"./usage-guidelines-DaF3e-2f.js";import{D as s}from"./DialogContentContainer-BenjnFfs.js";import{T as r,a as n}from"./TabList-DIIZ0P8J.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-Du8WtWvp.js";import"./index-B460DqIH.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./TabPanels-D5J0HxrK.js";import"./index-BpvXyOxN.js";import"./test-ids-utils-BSSgvOTA.js";import"./constants-DEBzQJwg.js";import"./useMergeRef-Do2VYePL.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./ssr-utils-Do6V6AqB.js";import"./index-BxdhJjph.js";import"./camelCase-CO1PkVrH.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Box-BfMxHC0B.js";import"./constants-CenpDJY1.js";import"./Flex-7H_pA1dJ.js";import"./Clickable-DnQGpUs5.js";import"./useClickableProps-Ul4gSWS9.js";import"./keyCodes-BPHiFfps.js";import"./noop-DX6rZLP_.js";import"./TextField-DDXTwBtX.js";import"./index-BHzG1aTI.js";import"./debounce-D3NSP8gs.js";import"./FieldLabel-B83fbdTw.js";import"./Icon-BxXgVPAg.js";import"./useEventListener-CkU0kzyk.js";import"./useKeyEvent-BeN1aNjK.js";import"./sizes-De2_3kVk.js";import"./Loader-B0wBwV8P.js";import"./Tooltip-BlbcRfFE.js";import"./index-BKMrxRLL.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./Text-Bn4lX0iC.js";import"./Typography-D0i8w_Jp.js";import"./index-CqkoFCDi.js";import"./HiddenText-DZk3PqwD.js";import"./Flex-qb9MRXYX.js";import"./withStaticProps-DibdfTK_.js";import"./_tslib-BMUU9Vyh.js";import"./link-CVYAeutz.js";import"./index-CZy3fjCD.js";import"./keyCodes-DhPS-8Mm.js";import"./useGridKeyboardNavigation-CdqIwhDN.js";import"./useFullKeyboardListeners-0PU-90q7.js";const U=()=>e.jsxs(B,{children:["Use tabs to navigate between different contents, if switching between states within the same content use"," ",e.jsx(R,{page:"Components/ButtonGroup",size:"small",children:"Button group"})," ","instead"]});function m(i){const t={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...x(),...i.components},{Canvas:o,ComponentRules:c,PropsTable:d,RelatedComponents:l}=t;return o||a("Canvas"),c||a("ComponentRules"),d||a("PropsTable"),l||a("RelatedComponents"),e.jsxs(e.Fragment,{children:[e.jsx(b,{of:w}),`
+`,e.jsx(t.h1,{id:"tabs",children:"Tabs"}),`
+`,e.jsx(t.p,{children:"Tabs allow users to navigate between related views of content while remaining in the context of the page."}),`
+`,e.jsx(o,{of:v}),`
+`,e.jsx(t.h3,{id:"import",children:"Import"}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-js",children:`import { Tabs, TabPanel, TabPanels, TabList, Tab, TabsContext } from "@vibe/core";
+`})}),`
+`,e.jsx(t.h2,{id:"props",children:"Props"}),`
+`,e.jsx(d,{}),`
+`,e.jsx(t.h2,{id:"usage",children:"Usage"}),`
+`,e.jsx(p,{guidelines:["Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.","Align navigation tabs and content tabs left (in left-to-right languages) and never center within a page or content area.","The first tab is selected by default. The default tab is most important use case of the page.","Stick to only one row of tabs."]}),`
+`,e.jsx(U,{}),`
+`,e.jsx(t.h2,{id:"accessibility",children:"Accessibility"}),`
+`,e.jsx(p,{guidelines:[e.jsxs(e.Fragment,{children:["Provide an ",e.jsx(t.code,{children:"id"})," for the ",e.jsx(t.code,{children:"TabList"})," and individual ",e.jsx(t.code,{children:"Tab"})," components to enable proper accessibility associations and unique identification."]}),e.jsxs(e.Fragment,{children:["Ensure each ",e.jsx(t.code,{children:"Tab"})," has clear, descriptive text content or appropriate icon with accessible name to indicate what content will be displayed when selected."]}),e.jsxs(e.Fragment,{children:["Use the ",e.jsx(t.code,{children:"tabPanelIds"})," prop in ",e.jsx(t.code,{children:"TabList"})," to establish proper relationships between tabs and their corresponding tab panels. Pass an array of ",e.jsx(t.code,{children:"TabPanel"})," IDs in the same order as the tabs."]}),e.jsxs(e.Fragment,{children:["Provide unique ",e.jsx(t.code,{children:"id"})," props for each ",e.jsx(t.code,{children:"TabPanel"})," to enable the ",e.jsx(t.code,{children:"aria-controls"}),"relationships established by the tabs."]})]}),`
+`,e.jsx(t.h2,{id:"variants",children:"Variants"}),`
+`,e.jsx(t.h3,{id:"default---compact-tabs",children:"Default - compact tabs"}),`
+`,e.jsx(o,{of:C}),`
+`,e.jsx(t.h3,{id:"stretched",children:"Stretched"}),`
+`,e.jsx(t.p,{children:"The width of the list is responsive to the screen's width."}),`
+`,e.jsx(o,{of:y}),`
+`,e.jsx(t.h3,{id:"stretched-underline",children:"Stretched Underline"}),`
+`,e.jsx(o,{of:M}),`
+`,e.jsx(t.h3,{id:"motion",children:"Motion"}),`
+`,e.jsx(t.p,{children:"Tabs animation direction"}),`
+`,e.jsx(o,{of:D}),`
+`,e.jsx(t.h2,{id:"dos-and-donts",children:"Do’s and Don’ts"}),`
+`,e.jsx(c,{rules:[{positive:{component:e.jsx(s,{children:e.jsxs(r,{children:[e.jsx(n,{icon:h,children:"Main Table"}),e.jsx(n,{icon:f,children:"Chart"}),e.jsx(n,{icon:j,children:"Calendar"})]})}),description:"Use either all text labels, all icon labels, or both, across all labels."},negative:{component:e.jsx(s,{children:e.jsxs(r,{children:[e.jsx(n,{children:"Main Table"}),e.jsx(n,{icon:u,children:" "})]})}),description:"Don’t mix tabs that contain only text, with tabs that contain only icons. "}},{positive:{component:e.jsx(s,{children:e.jsxs(r,{children:[e.jsx(n,{icon:T,children:"Main Table"}),e.jsx(n,{icon:h,children:"Table"}),e.jsx(n,{icon:g,iconSide:"right",children:"More"})]})}),description:"When there are too many tabs to fit horizontally across the viewport, use a “More” dropdown."},negative:{component:e.jsx(s,{children:e.jsxs(r,{children:[e.jsx(n,{children:"Main..."}),e.jsx(n,{children:"Table"}),e.jsx(n,{children:"Time..."}),e.jsx(n,{children:"Fir..."})]})}),description:"Do not cut the tabs name just to make them fit horizontally."}}]}),`
+`,e.jsx(t.h2,{id:"use-cases-and-examples",children:"Use cases and examples"}),`
+`,e.jsx(t.h3,{id:"board-views-tabs",children:"Board views tabs"}),`
+`,e.jsx(t.p,{children:"The tabs are presenting the same content, in a different view."}),`
+`,e.jsx(o,{of:P}),`
+`,e.jsx(t.h3,{id:"admin-section-tabs",children:"Admin section tabs"}),`
+`,e.jsx(t.p,{children:"In the admin section tabs used to navigate between the different preferences"}),`
+`,e.jsx(o,{of:S}),`
+`,e.jsx(t.h2,{id:"related-components",children:"Related components"}),`
+`,e.jsx(l,{componentsNames:["Breadcrumbs","ButtonGroup","Steps"]})]})}function Ie(i={}){const{wrapper:t}={...x(),...i.components};return t?e.jsx(t,{...i,children:e.jsx(m,{...i})}):m(i)}function a(i,t){throw new Error("Expected component `"+i+"` to be defined: you likely forgot to import, pass, or provide it.")}export{Ie as default};
