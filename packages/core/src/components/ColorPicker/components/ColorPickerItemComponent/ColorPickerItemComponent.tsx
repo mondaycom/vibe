@@ -60,6 +60,10 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
    * The shape of the color item.
    */
   colorShape: ColorShapes;
+  /**
+   * Human-readable label for the color, used for screen reader announcements.
+   */
+  colorAriaLabel: string;
 }
 
 const ColorPickerItemComponent = forwardRef(
@@ -76,6 +80,8 @@ const ColorPickerItemComponent = forwardRef(
       tooltipContent,
       isActive,
       colorShape,
+      colorAriaLabel,
+      id,
       "data-testid": dataTestId
     }: ColorPickerItemComponentProps,
     _ref: React.ForwardedRef<HTMLElement>
@@ -113,6 +119,9 @@ const ColorPickerItemComponent = forwardRef(
     return (
       <Tooltip content={tooltipContent}>
         <li
+          id={id}
+          role="option"
+          aria-selected={isSelected}
           className={cx(styles.itemWrapper, {
             [styles.selectedColor]: isSelected,
             [styles.active]: isActive,
@@ -123,7 +132,8 @@ const ColorPickerItemComponent = forwardRef(
           <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
-            aria-label={color}
+            role="presentation"
+            aria-label={colorAriaLabel}
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
               [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
             })}
