@@ -157,7 +157,7 @@
     "tsx": "^4.20.3",
     "typescript": "^5.9.3",
     "typescript-plugin-css-modules": "^4.2.1",
-    "vite": "^5.3.1",
+    "vite": "^6.4.2",
     "vitest": "^1.6.0"
   },
   "storybook-deployer": {
