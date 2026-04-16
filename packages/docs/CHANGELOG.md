@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.0...@vibe/docs@4.0.1) (2026-04-16)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add screen reader support for color announcements ([#3346](https://github.com/mondaycom/vibe/issues/3346)) ([ed1bbb1](https://github.com/mondaycom/vibe/commit/ed1bbb1d466d544fbab6ab08198e1db026c116a9))
+
+
+
+
+
 # [3.8.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.3...@vibe/docs@3.8.0) (2026-03-11)
 
 

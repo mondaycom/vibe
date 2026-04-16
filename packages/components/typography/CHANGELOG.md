@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/typography@4.0.0...@vibe/typography@4.0.1) (2026-04-16)
+
+**Note:** Version bump only for package @vibe/typography
+
+
+
+
+
 ## [3.0.5](https://github.com/mondaycom/vibe/compare/@vibe/typography@3.0.4...@vibe/typography@3.0.5) (2026-02-27)
 
 **Note:** Version bump only for package @vibe/typography
