@@ -127,6 +127,7 @@ const preview: Preview = {
           "Theming",
           "Technical Patterns",
           "Accessibility",
+          "Dropdown Testing",
           "Hooks"
         ]
       }
