@@ -114,21 +114,9 @@ export const Default: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Search..."
+        label="Default"
         aria-label="Default single searchable"
-        searchable
-        clearAriaLabel="Clear selection"
-      />
-    </Wrapper>
-  )
-};
-
-export const WithLabel: Story = {
-  render: () => (
-    <Wrapper>
-      <Dropdown
-        options={basicOptions}
-        placeholder="Search..."
-        label="Label"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -144,6 +132,7 @@ export const WithLabelAndHelperText: Story = {
         placeholder="Search..."
         label="Label"
         helperText="Type to filter the options"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -159,6 +148,7 @@ export const Required: Story = {
         placeholder="Search..."
         label="Required field"
         required
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -175,6 +165,7 @@ export const RequiredWithHelperText: Story = {
         label="Required field"
         required
         helperText="This field is mandatory"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -190,6 +181,7 @@ export const Disabled: Story = {
         placeholder="Disabled"
         label="Disabled"
         disabled
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -205,6 +197,7 @@ export const DisabledWithValue: Story = {
         defaultValue={basicOptions[0]}
         label="Disabled with value"
         disabled
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -220,6 +213,7 @@ export const ReadOnly: Story = {
         defaultValue={basicOptions[1]}
         label="Read only"
         readOnly
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -236,6 +230,7 @@ export const ErrorState: Story = {
         label="Error"
         error
         helperText="Something went wrong"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -252,6 +247,7 @@ export const ErrorWithValue: Story = {
         label="Error with value"
         error
         helperText="Invalid selection"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -266,6 +262,7 @@ export const WithPreselectedValue: Story = {
         options={basicOptions}
         defaultValue={basicOptions[2]}
         label="Preselected"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -281,6 +278,7 @@ export const SizeSmall: Story = {
         placeholder="Small"
         label="Small size"
         size="small"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -296,6 +294,7 @@ export const SizeMedium: Story = {
         placeholder="Medium"
         label="Medium size"
         size="medium"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -311,6 +310,7 @@ export const SizeLarge: Story = {
         placeholder="Large"
         label="Large size"
         size="large"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -327,6 +327,7 @@ export const AllSizes: Story = {
           placeholder="Small"
           label="Small"
           size="small"
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -337,6 +338,7 @@ export const AllSizes: Story = {
           placeholder="Medium"
           label="Medium"
           size="medium"
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -347,6 +349,7 @@ export const AllSizes: Story = {
           placeholder="Large"
           label="Large"
           size="large"
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -363,6 +366,7 @@ export const Borderless: Story = {
         placeholder="Borderless"
         label="Borderless"
         borderless
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -378,6 +382,7 @@ export const BorderlessWithValue: Story = {
         defaultValue={basicOptions[0]}
         label="Borderless with value"
         borderless
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -393,6 +398,7 @@ export const NotClearable: Story = {
         defaultValue={basicOptions[0]}
         label="Not clearable"
         clearable={false}
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -408,6 +414,7 @@ export const Loading: Story = {
         placeholder="Loading..."
         label="Loading state"
         loading
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -421,7 +428,9 @@ export const WithAriaLabel: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Search..."
+        label="With ARIA label"
         aria-label="Search for your preferred option"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -452,6 +461,7 @@ export const WithMenuAriaLabel: Story = {
         placeholder="Search..."
         label="With menu ARIA label"
         menuAriaLabel="Filtered options list"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -465,6 +475,7 @@ export const AllAriaLabels: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Search..."
+        label="All ARIA labels"
         aria-label="Fully accessible combobox"
         inputAriaLabel="Type to filter"
         menuAriaLabel="Filtered results"
@@ -482,6 +493,7 @@ export const WithIconOptions: Story = {
         options={optionsWithIcons}
         placeholder="Search actions..."
         label="With icons"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -496,6 +508,7 @@ export const WithIconOptionsPreselected: Story = {
         options={optionsWithIcons}
         defaultValue={optionsWithIcons[0]}
         label="Icon preselected"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -510,6 +523,7 @@ export const WithAvatarOptions: Story = {
         options={optionsWithAvatars}
         placeholder="Search people..."
         label="With avatars"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -524,6 +538,7 @@ export const WithAvatarOptionsPreselected: Story = {
         options={optionsWithAvatars}
         defaultValue={optionsWithAvatars[0]}
         label="Avatar preselected"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -538,6 +553,7 @@ export const WithEndElements: Story = {
         options={optionsWithEndElements}
         placeholder="Search actions..."
         label="End elements"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -552,6 +568,7 @@ export const WithDisabledOptions: Story = {
         options={optionsWithDisabled}
         placeholder="Search..."
         label="Disabled options"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -566,6 +583,7 @@ export const GroupedByCategory: Story = {
         options={groupedOptions}
         placeholder="Search groups..."
         label="Grouped"
+        inputAriaLabel="Search for options"
         searchable
         maxMenuHeight={200}
         clearAriaLabel="Clear selection"
@@ -582,6 +600,7 @@ export const GroupedWithDivider: Story = {
         placeholder="Search..."
         label="Grouped with divider"
         withGroupDivider
+        inputAriaLabel="Search for options"
         searchable
         maxMenuHeight={200}
         clearAriaLabel="Clear selection"
@@ -598,6 +617,7 @@ export const GroupedWithStickyTitle: Story = {
         placeholder="Search..."
         label="Sticky group titles"
         stickyGroupTitle
+        inputAriaLabel="Search for options"
         searchable
         maxMenuHeight={150}
         clearAriaLabel="Clear selection"
@@ -613,6 +633,7 @@ export const WithTooltips: Story = {
         options={optionsWithTooltips}
         placeholder="Search..."
         label="Options with tooltips"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -628,6 +649,7 @@ export const NoOptionsMessage: Story = {
         placeholder="Search..."
         label="Empty"
         noOptionsMessage="No results found"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -643,6 +665,7 @@ export const DirectionRTL: Story = {
         placeholder="חפש..."
         label="כיוון מימין לשמאל"
         dir="rtl"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="נקה בחירה"
       />
@@ -658,6 +681,7 @@ export const DirectionLTR: Story = {
         placeholder="Search..."
         label="Left to right"
         dir="ltr"
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -673,6 +697,7 @@ export const CloseMenuOnSelect: Story = {
         placeholder="Search..."
         label="Close menu on select"
         closeMenuOnSelect
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -687,6 +712,7 @@ export const CustomValueRenderer: Story = {
         options={optionsWithIcons}
         defaultValue={optionsWithIcons[0]}
         label="Custom value renderer"
+        inputAriaLabel="Search for options"
         searchable
         valueRenderer={option => (
           <Text type="text2" weight="bold">
@@ -707,6 +733,7 @@ export const MaxMenuHeight: Story = {
         placeholder="Search..."
         label="Max menu height (100px)"
         maxMenuHeight={100}
+        inputAriaLabel="Search for options"
         searchable
         clearAriaLabel="Clear selection"
       />
@@ -721,6 +748,7 @@ export const CustomFilterOption: Story = {
         options={basicOptions}
         placeholder="Type exact label..."
         label="Custom filter (exact match)"
+        inputAriaLabel="Search for options"
         searchable
         filterOption={(option, inputValue) => option.label.toLowerCase() === inputValue.toLowerCase()}
         clearAriaLabel="Clear selection"
@@ -737,6 +765,7 @@ export const AllStates: Story = {
           options={basicOptions}
           placeholder="Default"
           label="Default"
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -747,6 +776,7 @@ export const AllStates: Story = {
           placeholder="Disabled"
           label="Disabled"
           disabled
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -757,6 +787,7 @@ export const AllStates: Story = {
           defaultValue={basicOptions[0]}
           label="Read only"
           readOnly
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -768,6 +799,7 @@ export const AllStates: Story = {
           label="Error"
           error
           helperText="Error message"
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />
@@ -778,6 +810,7 @@ export const AllStates: Story = {
           placeholder="Loading"
           label="Loading"
           loading
+          inputAriaLabel="Search for options"
           searchable
           clearAriaLabel="Clear"
         />

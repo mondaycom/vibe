@@ -120,21 +120,9 @@ export const Default: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Select options"
+        label="Default"
         aria-label="Default multi select"
-        multi
-        clearAriaLabel="Clear all selections"
-      />
-    </Wrapper>
-  )
-};
-
-export const WithLabel: Story = {
-  render: () => (
-    <Wrapper>
-      <Dropdown
-        options={basicOptions}
-        placeholder="Select options"
-        label="Label"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -150,6 +138,7 @@ export const WithLabelAndHelperText: Story = {
         placeholder="Select options"
         label="Label"
         helperText="You can select multiple options"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -165,6 +154,7 @@ export const Required: Story = {
         placeholder="Select options"
         label="Required field"
         required
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -181,6 +171,7 @@ export const RequiredWithHelperText: Story = {
         label="Required field"
         required
         helperText="At least one selection is required"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -196,6 +187,7 @@ export const Disabled: Story = {
         placeholder="Disabled"
         label="Disabled"
         disabled
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -211,6 +203,7 @@ export const DisabledWithValues: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Disabled with values"
         disabled
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -226,6 +219,7 @@ export const ReadOnly: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Read only"
         readOnly
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -242,6 +236,7 @@ export const ErrorState: Story = {
         label="Error"
         error
         helperText="Something went wrong"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -258,6 +253,7 @@ export const ErrorWithValues: Story = {
         label="Error with values"
         error
         helperText="Invalid selection"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -272,6 +268,7 @@ export const WithPreselectedValues: Story = {
         options={basicOptions}
         defaultValue={[basicOptions[0], basicOptions[2], basicOptions[4]]}
         label="Preselected"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -286,6 +283,7 @@ export const SingleLine: Story = {
         options={basicOptions}
         defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
         label="Single line (default)"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -300,6 +298,7 @@ export const Multiline: Story = {
         options={basicOptions}
         defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
         label="Multiline"
+        inputAriaLabel="Select options"
         multi
         multiline
         clearAriaLabel="Clear all selections"
@@ -316,6 +315,7 @@ export const MinVisibleCount: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2], basicOptions[3]]}
           label="Min visible: 1"
+          inputAriaLabel="Select options"
           multi
           minVisibleCount={1}
           clearAriaLabel="Clear all selections"
@@ -326,6 +326,7 @@ export const MinVisibleCount: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2], basicOptions[3]]}
           label="Min visible: 3"
+          inputAriaLabel="Select options"
           multi
           minVisibleCount={3}
           clearAriaLabel="Clear all selections"
@@ -343,6 +344,7 @@ export const SizeSmall: Story = {
         placeholder="Small"
         label="Small size"
         size="small"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -358,6 +360,7 @@ export const SizeMedium: Story = {
         placeholder="Medium"
         label="Medium size"
         size="medium"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -373,6 +376,7 @@ export const SizeLarge: Story = {
         placeholder="Large"
         label="Large size"
         size="large"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -389,6 +393,7 @@ export const AllSizes: Story = {
           placeholder="Small"
           label="Small"
           size="small"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -399,6 +404,7 @@ export const AllSizes: Story = {
           placeholder="Medium"
           label="Medium"
           size="medium"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -409,6 +415,7 @@ export const AllSizes: Story = {
           placeholder="Large"
           label="Large"
           size="large"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -426,6 +433,7 @@ export const AllSizesWithValues: Story = {
           defaultValue={[basicOptions[0], basicOptions[1]]}
           label="Small"
           size="small"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -436,6 +444,7 @@ export const AllSizesWithValues: Story = {
           defaultValue={[basicOptions[0], basicOptions[1]]}
           label="Medium"
           size="medium"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -446,6 +455,7 @@ export const AllSizesWithValues: Story = {
           defaultValue={[basicOptions[0], basicOptions[1]]}
           label="Large"
           size="large"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -462,6 +472,7 @@ export const Borderless: Story = {
         placeholder="Borderless"
         label="Borderless"
         borderless
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -477,6 +488,7 @@ export const BorderlessWithValues: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Borderless with values"
         borderless
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -492,6 +504,7 @@ export const NotClearable: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Not clearable"
         clearable={false}
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -507,6 +520,7 @@ export const Loading: Story = {
         placeholder="Loading..."
         label="Loading state"
         loading
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -520,7 +534,9 @@ export const WithAriaLabel: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Select options"
+        label="With ARIA label"
         aria-label="Choose multiple options"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -551,6 +567,7 @@ export const WithMenuAriaLabel: Story = {
         placeholder="Select options"
         label="With menu ARIA label"
         menuAriaLabel="Available options for multi select"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -564,6 +581,7 @@ export const AllAriaLabels: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Select options"
+        label="All ARIA labels"
         aria-label="Fully accessible multi select"
         inputAriaLabel="Multi select input field"
         menuAriaLabel="Available options"
@@ -581,6 +599,7 @@ export const WithIconOptions: Story = {
         options={optionsWithIcons}
         placeholder="Select actions"
         label="With icons"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -595,6 +614,7 @@ export const WithIconOptionsPreselected: Story = {
         options={optionsWithIcons}
         defaultValue={[optionsWithIcons[0], optionsWithIcons[1]]}
         label="Icons preselected"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -609,6 +629,7 @@ export const WithAvatarOptions: Story = {
         options={optionsWithAvatars}
         placeholder="Select people"
         label="With avatars"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -623,6 +644,7 @@ export const WithAvatarOptionsPreselected: Story = {
         options={optionsWithAvatars}
         defaultValue={[optionsWithAvatars[0], optionsWithAvatars[1]]}
         label="Avatars preselected"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -637,6 +659,7 @@ export const WithEndElements: Story = {
         options={optionsWithEndElements}
         placeholder="Select actions"
         label="End elements"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -651,6 +674,7 @@ export const WithDisabledOptions: Story = {
         options={optionsWithDisabled}
         placeholder="Some disabled"
         label="Disabled options"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -665,6 +689,7 @@ export const WithChipColors: Story = {
         options={chipColorOptions}
         defaultValue={chipColorOptions}
         label="Chip colors"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -680,6 +705,7 @@ export const HideSelectedOptions: Story = {
         defaultValue={[basicOptions[0], basicOptions[2]]}
         label="Hide selected options"
         showSelectedOptions={false}
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -694,6 +720,7 @@ export const GroupedByCategory: Story = {
         options={groupedOptions}
         placeholder="Grouped options"
         label="Grouped"
+        inputAriaLabel="Select options"
         multi
         maxMenuHeight={200}
         clearAriaLabel="Clear all selections"
@@ -710,6 +737,7 @@ export const GroupedWithDivider: Story = {
         placeholder="With dividers"
         label="Grouped with divider"
         withGroupDivider
+        inputAriaLabel="Select options"
         multi
         maxMenuHeight={200}
         clearAriaLabel="Clear all selections"
@@ -726,6 +754,7 @@ export const GroupedWithStickyTitle: Story = {
         placeholder="Sticky titles"
         label="Sticky group titles"
         stickyGroupTitle
+        inputAriaLabel="Select options"
         multi
         maxMenuHeight={150}
         clearAriaLabel="Clear all selections"
@@ -741,6 +770,7 @@ export const WithTooltips: Story = {
         options={optionsWithTooltips}
         placeholder="Hover for tooltips"
         label="Options with tooltips"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -756,6 +786,7 @@ export const NoOptionsMessage: Story = {
         placeholder="Select options"
         label="Empty"
         noOptionsMessage="No options available"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -771,6 +802,7 @@ export const DirectionRTL: Story = {
         placeholder="בחר אפשרויות"
         label="כיוון מימין לשמאל"
         dir="rtl"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="נקה הכל"
       />
@@ -786,6 +818,7 @@ export const DirectionRTLWithValues: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="RTL עם ערכים"
         dir="rtl"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="נקה הכל"
       />
@@ -801,6 +834,7 @@ export const DirectionLTR: Story = {
         placeholder="Select options"
         label="Left to right"
         dir="ltr"
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -816,6 +850,7 @@ export const MaxMenuHeight: Story = {
         placeholder="Limited height"
         label="Max menu height (100px)"
         maxMenuHeight={100}
+        inputAriaLabel="Select options"
         multi
         clearAriaLabel="Clear all selections"
       />
@@ -827,7 +862,7 @@ export const AllStates: Story = {
   render: () => (
     <Flex gap="medium" wrap>
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Default" label="Default" multi clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Default" label="Default" inputAriaLabel="Select options" multi clearAriaLabel="Clear" />
       </Wrapper>
       <Wrapper>
         <Dropdown
@@ -835,6 +870,7 @@ export const AllStates: Story = {
           placeholder="Disabled"
           label="Disabled"
           disabled
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -845,6 +881,7 @@ export const AllStates: Story = {
           defaultValue={[basicOptions[0]]}
           label="Read only"
           readOnly
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -856,6 +893,7 @@ export const AllStates: Story = {
           label="Error"
           error
           helperText="Error message"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -866,6 +904,7 @@ export const AllStates: Story = {
           placeholder="Loading"
           label="Loading"
           loading
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -882,6 +921,7 @@ export const MultilineVsSingleLine: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
           label="Single line"
+          inputAriaLabel="Select options"
           multi
           clearAriaLabel="Clear"
         />
@@ -891,6 +931,7 @@ export const MultilineVsSingleLine: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
           label="Multiline"
+          inputAriaLabel="Select options"
           multi
           multiline
           clearAriaLabel="Clear"

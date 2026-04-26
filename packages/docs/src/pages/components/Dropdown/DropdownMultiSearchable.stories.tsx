@@ -121,22 +121,9 @@ export const Default: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Search and select..."
+        label="Default"
         aria-label="Default multi searchable"
-        multi
-        searchable
-        clearAriaLabel="Clear all selections"
-      />
-    </Wrapper>
-  )
-};
-
-export const WithLabel: Story = {
-  render: () => (
-    <Wrapper>
-      <Dropdown
-        options={basicOptions}
-        placeholder="Search and select..."
-        label="Label"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -153,6 +140,7 @@ export const WithLabelAndHelperText: Story = {
         placeholder="Search and select..."
         label="Label"
         helperText="Type to search, select multiple"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -169,6 +157,7 @@ export const Required: Story = {
         placeholder="Search and select..."
         label="Required field"
         required
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -186,6 +175,7 @@ export const RequiredWithHelperText: Story = {
         label="Required field"
         required
         helperText="At least one selection is required"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -202,6 +192,7 @@ export const Disabled: Story = {
         placeholder="Disabled"
         label="Disabled"
         disabled
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -218,6 +209,7 @@ export const DisabledWithValues: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Disabled with values"
         disabled
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -234,6 +226,7 @@ export const ReadOnly: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Read only"
         readOnly
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -251,6 +244,7 @@ export const ErrorState: Story = {
         label="Error"
         error
         helperText="Something went wrong"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -268,6 +262,7 @@ export const ErrorWithValues: Story = {
         label="Error with values"
         error
         helperText="Invalid selection"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -283,6 +278,7 @@ export const WithPreselectedValues: Story = {
         options={basicOptions}
         defaultValue={[basicOptions[0], basicOptions[2], basicOptions[4]]}
         label="Preselected"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -298,6 +294,7 @@ export const SingleLine: Story = {
         options={basicOptions}
         defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
         label="Single line (default)"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -313,6 +310,7 @@ export const Multiline: Story = {
         options={basicOptions}
         defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
         label="Multiline"
+        inputAriaLabel="Search for options"
         multi
         multiline
         searchable
@@ -330,6 +328,7 @@ export const MinVisibleCount: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2], basicOptions[3]]}
           label="Min visible: 1"
+          inputAriaLabel="Search for options"
           multi
           searchable
           minVisibleCount={1}
@@ -341,6 +340,7 @@ export const MinVisibleCount: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2], basicOptions[3]]}
           label="Min visible: 3"
+          inputAriaLabel="Search for options"
           multi
           searchable
           minVisibleCount={3}
@@ -359,6 +359,7 @@ export const SizeSmall: Story = {
         placeholder="Small"
         label="Small size"
         size="small"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -375,6 +376,7 @@ export const SizeMedium: Story = {
         placeholder="Medium"
         label="Medium size"
         size="medium"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -391,6 +393,7 @@ export const SizeLarge: Story = {
         placeholder="Large"
         label="Large size"
         size="large"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -408,6 +411,7 @@ export const AllSizes: Story = {
           placeholder="Small"
           label="Small"
           size="small"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -419,6 +423,7 @@ export const AllSizes: Story = {
           placeholder="Medium"
           label="Medium"
           size="medium"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -430,6 +435,7 @@ export const AllSizes: Story = {
           placeholder="Large"
           label="Large"
           size="large"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -448,6 +454,7 @@ export const AllSizesWithValues: Story = {
           defaultValue={[basicOptions[0], basicOptions[1]]}
           label="Small"
           size="small"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -459,6 +466,7 @@ export const AllSizesWithValues: Story = {
           defaultValue={[basicOptions[0], basicOptions[1]]}
           label="Medium"
           size="medium"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -470,6 +478,7 @@ export const AllSizesWithValues: Story = {
           defaultValue={[basicOptions[0], basicOptions[1]]}
           label="Large"
           size="large"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -487,6 +496,7 @@ export const Borderless: Story = {
         placeholder="Search..."
         label="Borderless"
         borderless
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -503,6 +513,7 @@ export const BorderlessWithValues: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Borderless with values"
         borderless
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -519,6 +530,7 @@ export const NotClearable: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="Not clearable"
         clearable={false}
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -535,6 +547,7 @@ export const Loading: Story = {
         placeholder="Loading..."
         label="Loading state"
         loading
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -549,7 +562,9 @@ export const WithAriaLabel: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Search..."
+        label="With ARIA label"
         aria-label="Search and select multiple options"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -582,6 +597,7 @@ export const WithMenuAriaLabel: Story = {
         placeholder="Search..."
         label="With menu ARIA label"
         menuAriaLabel="Filtered options for multi select"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -596,6 +612,7 @@ export const AllAriaLabels: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Search..."
+        label="All ARIA labels"
         aria-label="Fully accessible multi searchable"
         inputAriaLabel="Type to filter and select"
         menuAriaLabel="Filtered results"
@@ -614,6 +631,7 @@ export const WithIconOptions: Story = {
         options={optionsWithIcons}
         placeholder="Search actions..."
         label="With icons"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -629,6 +647,7 @@ export const WithIconOptionsPreselected: Story = {
         options={optionsWithIcons}
         defaultValue={[optionsWithIcons[0], optionsWithIcons[1]]}
         label="Icons preselected"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -644,6 +663,7 @@ export const WithAvatarOptions: Story = {
         options={optionsWithAvatars}
         placeholder="Search people..."
         label="With avatars"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -659,6 +679,7 @@ export const WithAvatarOptionsPreselected: Story = {
         options={optionsWithAvatars}
         defaultValue={[optionsWithAvatars[0], optionsWithAvatars[1]]}
         label="Avatars preselected"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -674,6 +695,7 @@ export const WithEndElements: Story = {
         options={optionsWithEndElements}
         placeholder="Search actions..."
         label="End elements"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -689,6 +711,7 @@ export const WithDisabledOptions: Story = {
         options={optionsWithDisabled}
         placeholder="Search..."
         label="Disabled options"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -704,6 +727,7 @@ export const WithChipColors: Story = {
         options={chipColorOptions}
         defaultValue={chipColorOptions}
         label="Chip colors"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -720,6 +744,7 @@ export const HideSelectedOptions: Story = {
         defaultValue={[basicOptions[0], basicOptions[2]]}
         label="Hide selected options"
         showSelectedOptions={false}
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -735,6 +760,7 @@ export const GroupedByCategory: Story = {
         options={groupedOptions}
         placeholder="Search groups..."
         label="Grouped"
+        inputAriaLabel="Search for options"
         multi
         searchable
         maxMenuHeight={200}
@@ -752,6 +778,7 @@ export const GroupedWithDivider: Story = {
         placeholder="Search..."
         label="Grouped with divider"
         withGroupDivider
+        inputAriaLabel="Search for options"
         multi
         searchable
         maxMenuHeight={200}
@@ -769,6 +796,7 @@ export const GroupedWithStickyTitle: Story = {
         placeholder="Search..."
         label="Sticky group titles"
         stickyGroupTitle
+        inputAriaLabel="Search for options"
         multi
         searchable
         maxMenuHeight={150}
@@ -785,6 +813,7 @@ export const WithTooltips: Story = {
         options={optionsWithTooltips}
         placeholder="Search..."
         label="Options with tooltips"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -801,6 +830,7 @@ export const NoOptionsMessage: Story = {
         placeholder="Search..."
         label="Empty"
         noOptionsMessage="No results found"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -817,6 +847,7 @@ export const DirectionRTL: Story = {
         placeholder="חפש..."
         label="כיוון מימין לשמאל"
         dir="rtl"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="נקה הכל"
@@ -833,6 +864,7 @@ export const DirectionRTLWithValues: Story = {
         defaultValue={[basicOptions[0], basicOptions[1]]}
         label="RTL עם ערכים"
         dir="rtl"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="נקה הכל"
@@ -849,6 +881,7 @@ export const DirectionLTR: Story = {
         placeholder="Search..."
         label="Left to right"
         dir="ltr"
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -864,6 +897,7 @@ export const CustomFilterOption: Story = {
         options={basicOptions}
         placeholder="Type exact label..."
         label="Custom filter (exact match)"
+        inputAriaLabel="Search for options"
         multi
         searchable
         filterOption={(option, inputValue) => option.label.toLowerCase() === inputValue.toLowerCase()}
@@ -881,6 +915,7 @@ export const MaxMenuHeight: Story = {
         placeholder="Search..."
         label="Max menu height (100px)"
         maxMenuHeight={100}
+        inputAriaLabel="Search for options"
         multi
         searchable
         clearAriaLabel="Clear all selections"
@@ -897,6 +932,7 @@ export const AllStates: Story = {
           options={basicOptions}
           placeholder="Default"
           label="Default"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -908,6 +944,7 @@ export const AllStates: Story = {
           placeholder="Disabled"
           label="Disabled"
           disabled
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -919,6 +956,7 @@ export const AllStates: Story = {
           defaultValue={[basicOptions[0]]}
           label="Read only"
           readOnly
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -931,6 +969,7 @@ export const AllStates: Story = {
           label="Error"
           error
           helperText="Error message"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -942,6 +981,7 @@ export const AllStates: Story = {
           placeholder="Loading"
           label="Loading"
           loading
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -959,6 +999,7 @@ export const MultilineVsSingleLine: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
           label="Single line"
+          inputAriaLabel="Search for options"
           multi
           searchable
           clearAriaLabel="Clear"
@@ -969,6 +1010,7 @@ export const MultilineVsSingleLine: Story = {
           options={basicOptions}
           defaultValue={[basicOptions[0], basicOptions[1], basicOptions[2]]}
           label="Multiline"
+          inputAriaLabel="Search for options"
           multi
           multiline
           searchable

@@ -61,7 +61,7 @@ const DropdownBaseList = forwardRef(
 
               return (
                 <BaseItem<Item>
-                  itemProps={itemProps}
+                  itemProps={{ ...itemProps, "aria-selected": isSelected || false }}
                   key={typeof option.value === "string" ? option.value : itemIndex}
                   size={size}
                   highlighted={isHighlighted}

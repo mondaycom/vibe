@@ -113,20 +113,9 @@ export const Default: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="Select an option"
+        label="Default"
         aria-label="Default single select"
-        clearAriaLabel="Clear selection"
-      />
-    </Wrapper>
-  )
-};
-
-export const WithLabel: Story = {
-  render: () => (
-    <Wrapper>
-      <Dropdown
-        options={basicOptions}
-        placeholder="Select an option"
-        label="Label"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -141,6 +130,7 @@ export const WithLabelAndHelperText: Story = {
         placeholder="Select an option"
         label="Label"
         helperText="Helper text with additional context"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -155,6 +145,7 @@ export const Required: Story = {
         placeholder="Select an option"
         label="Required field"
         required
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -170,6 +161,7 @@ export const RequiredWithHelperText: Story = {
         label="Required field"
         required
         helperText="This field is mandatory"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -184,6 +176,7 @@ export const Disabled: Story = {
         placeholder="Disabled dropdown"
         label="Disabled"
         disabled
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -198,6 +191,7 @@ export const DisabledWithValue: Story = {
         defaultValue={basicOptions[0]}
         label="Disabled with value"
         disabled
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -212,6 +206,7 @@ export const ReadOnly: Story = {
         defaultValue={basicOptions[1]}
         label="Read only"
         readOnly
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -227,6 +222,7 @@ export const ErrorState: Story = {
         label="Error"
         error
         helperText="Something went wrong"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -242,6 +238,7 @@ export const ErrorWithValue: Story = {
         label="Error with value"
         error
         helperText="Invalid selection"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -255,6 +252,7 @@ export const WithPreselectedValue: Story = {
         options={basicOptions}
         defaultValue={basicOptions[2]}
         label="Preselected"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -269,6 +267,7 @@ export const SizeSmall: Story = {
         placeholder="Small"
         label="Small size"
         size="small"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -283,6 +282,7 @@ export const SizeMedium: Story = {
         placeholder="Medium"
         label="Medium size"
         size="medium"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -297,6 +297,7 @@ export const SizeLarge: Story = {
         placeholder="Large"
         label="Large size"
         size="large"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -307,13 +308,13 @@ export const AllSizes: Story = {
   render: () => (
     <Flex gap="medium">
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Small" label="Small" size="small" clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Small" label="Small" size="small" inputAriaLabel="Select an option" clearAriaLabel="Clear" />
       </Wrapper>
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Medium" label="Medium" size="medium" clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Medium" label="Medium" size="medium" inputAriaLabel="Select an option" clearAriaLabel="Clear" />
       </Wrapper>
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Large" label="Large" size="large" clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Large" label="Large" size="large" inputAriaLabel="Select an option" clearAriaLabel="Clear" />
       </Wrapper>
     </Flex>
   )
@@ -327,6 +328,7 @@ export const Borderless: Story = {
         placeholder="Borderless"
         label="Borderless"
         borderless
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -341,6 +343,7 @@ export const BorderlessWithValue: Story = {
         defaultValue={basicOptions[0]}
         label="Borderless with value"
         borderless
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -355,6 +358,7 @@ export const NotClearable: Story = {
         defaultValue={basicOptions[0]}
         label="Not clearable"
         clearable={false}
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -369,6 +373,7 @@ export const Loading: Story = {
         placeholder="Loading..."
         label="Loading state"
         loading
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -381,7 +386,9 @@ export const WithAriaLabel: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="ARIA labeled"
+        label="With ARIA label"
         aria-label="Choose your preferred option"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -410,6 +417,7 @@ export const WithMenuAriaLabel: Story = {
         placeholder="Menu ARIA label"
         label="With menu ARIA label"
         menuAriaLabel="List of available options"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -422,6 +430,7 @@ export const AllAriaLabels: Story = {
       <Dropdown
         options={basicOptions}
         placeholder="All ARIA labels"
+        label="All ARIA labels"
         aria-label="Fully accessible dropdown"
         inputAriaLabel="Type to filter options"
         menuAriaLabel="Available options list"
@@ -438,6 +447,7 @@ export const WithIconOptions: Story = {
         options={optionsWithIcons}
         placeholder="Select action"
         label="With icons"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -451,6 +461,7 @@ export const WithIconOptionsPreselected: Story = {
         options={optionsWithIcons}
         defaultValue={optionsWithIcons[0]}
         label="Icon preselected"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -464,6 +475,7 @@ export const WithAvatarOptions: Story = {
         options={optionsWithAvatars}
         placeholder="Select person"
         label="With avatars"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -477,6 +489,7 @@ export const WithAvatarOptionsPreselected: Story = {
         options={optionsWithAvatars}
         defaultValue={optionsWithAvatars[0]}
         label="Avatar preselected"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -490,6 +503,7 @@ export const WithEndElements: Story = {
         options={optionsWithEndElements}
         placeholder="Select action"
         label="End elements"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -503,6 +517,7 @@ export const WithDisabledOptions: Story = {
         options={optionsWithDisabled}
         placeholder="Some disabled"
         label="Disabled options"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -517,6 +532,7 @@ export const GroupedByCategory: Story = {
         placeholder="Grouped options"
         label="Grouped"
         maxMenuHeight={200}
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -532,6 +548,7 @@ export const GroupedWithDivider: Story = {
         label="Grouped with divider"
         withGroupDivider
         maxMenuHeight={200}
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -547,6 +564,7 @@ export const GroupedWithStickyTitle: Story = {
         label="Sticky group titles"
         stickyGroupTitle
         maxMenuHeight={150}
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -560,6 +578,7 @@ export const WithTooltips: Story = {
         options={optionsWithTooltips}
         placeholder="Hover for tooltips"
         label="Options with tooltips"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -574,6 +593,7 @@ export const NoOptionsMessage: Story = {
         placeholder="No options"
         label="Empty dropdown"
         noOptionsMessage="No options available"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -588,6 +608,7 @@ export const DirectionRTL: Story = {
         placeholder="בחר אפשרות"
         label="כיוון מימין לשמאל"
         dir="rtl"
+        inputAriaLabel="Select an option"
         clearAriaLabel="נקה בחירה"
       />
     </Wrapper>
@@ -602,6 +623,7 @@ export const DirectionLTR: Story = {
         placeholder="Select option"
         label="Left to right"
         dir="ltr"
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -616,6 +638,7 @@ export const CloseMenuOnSelect: Story = {
         placeholder="Closes on select"
         label="Close menu on select"
         closeMenuOnSelect
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -634,6 +657,7 @@ export const CustomValueRenderer: Story = {
             Selected: {option.label}
           </Text>
         )}
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -648,6 +672,7 @@ export const MaxMenuHeight: Story = {
         placeholder="Limited height"
         label="Max menu height (100px)"
         maxMenuHeight={100}
+        inputAriaLabel="Select an option"
         clearAriaLabel="Clear selection"
       />
     </Wrapper>
@@ -658,10 +683,10 @@ export const AllStates: Story = {
   render: () => (
     <Flex gap="medium" wrap>
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Default" label="Default" clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Default" label="Default" inputAriaLabel="Select an option" clearAriaLabel="Clear" />
       </Wrapper>
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Disabled" label="Disabled" disabled clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Disabled" label="Disabled" disabled inputAriaLabel="Select an option" clearAriaLabel="Clear" />
       </Wrapper>
       <Wrapper>
         <Dropdown
@@ -669,6 +694,7 @@ export const AllStates: Story = {
           defaultValue={basicOptions[0]}
           label="Read only"
           readOnly
+          inputAriaLabel="Select an option"
           clearAriaLabel="Clear"
         />
       </Wrapper>
@@ -679,11 +705,12 @@ export const AllStates: Story = {
           label="Error"
           error
           helperText="Error message"
+          inputAriaLabel="Select an option"
           clearAriaLabel="Clear"
         />
       </Wrapper>
       <Wrapper>
-        <Dropdown options={basicOptions} placeholder="Loading" label="Loading" loading clearAriaLabel="Clear" />
+        <Dropdown options={basicOptions} placeholder="Loading" label="Loading" loading inputAriaLabel="Select an option" clearAriaLabel="Clear" />
       </Wrapper>
     </Flex>
   )
