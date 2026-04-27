@@ -46,10 +46,12 @@ function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebratio
 
       if (!wrapperRef.current || !width || !height) return;
 
-      // Read the actual rendered radii from the child so the stroke matches the label's
-      // shape regardless of size or token overrides, and handles non-uniform corners
-      // (e.g. labels with a leg, where one corner is squared off).
-      const radii = readCornerRadii(childRef.current);
+      // Border-radius is applied to the inner Text element (marked with data-celebration-text),
+      // not the outer wrapper that childRef points to. Resolve the inner element so the stroke
+      // matches the label's actual shape regardless of size, token overrides, or non-uniform
+      // corners (e.g. labels with a leg, where one corner is squared off).
+      const shapeElement = childRef.current?.querySelector<HTMLElement>("[data-celebration-text]") ?? childRef.current;
+      const radii = readCornerRadii(shapeElement);
 
       setPath(getPath({ width, height, radii }));
       wrapperRef.current.style.setProperty("--container-perimeter", String(getPerimeter({ width, height, radii })));
