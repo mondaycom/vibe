@@ -3,7 +3,6 @@ import cx from "classnames";
 import { useResizeObserver } from "@vibe/hooks";
 import styles from "./LabelCelebrationAnimation.module.scss";
 
-const DEFAULT_BORDER_RADIUS = 4;
 const DEFAULT_STROKE_WIDTH = 1;
 
 export interface LabelCelebrationAnimationProps {
@@ -15,18 +14,27 @@ export interface LabelCelebrationAnimationProps {
    * Callback fired when the celebration animation ends.
    */
   onAnimationEnd: () => void;
-  /**
-   * Border radius of the wrapped label, in pixels. Used to draw the animated stroke so it follows
-   * the label's actual rounded corners (e.g. small labels use a 2px radius, medium labels 4px).
-   */
-  borderRadius?: number;
 }
 
-function LabelCelebrationAnimation({
-  children,
-  onAnimationEnd,
-  borderRadius = DEFAULT_BORDER_RADIUS
-}: LabelCelebrationAnimationProps) {
+interface CornerRadii {
+  tl: number;
+  tr: number;
+  br: number;
+  bl: number;
+}
+
+function readCornerRadii(element: HTMLElement | null | undefined): CornerRadii {
+  if (!element) return { tl: 0, tr: 0, br: 0, bl: 0 };
+  const cs = getComputedStyle(element);
+  return {
+    tl: parseFloat(cs.borderTopLeftRadius) || 0,
+    tr: parseFloat(cs.borderTopRightRadius) || 0,
+    br: parseFloat(cs.borderBottomRightRadius) || 0,
+    bl: parseFloat(cs.borderBottomLeftRadius) || 0
+  };
+}
+
+function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebrationAnimationProps) {
   const wrapperRef = useRef<HTMLDivElement>();
   const childRef = useRef<HTMLDivElement>();
 
@@ -36,15 +44,17 @@ function LabelCelebrationAnimation({
     ({ borderBoxSize }: { borderBoxSize: { blockSize: number; inlineSize: number } }) => {
       const { blockSize: height, inlineSize: width } = borderBoxSize || {};
 
-      if (wrapperRef.current) {
-        const d = getPath({ width, height, borderRadius });
-        setPath(d);
+      if (!wrapperRef.current || !width || !height) return;
 
-        const perimeter = getPerimeter({ width, height, borderRadius });
-        wrapperRef.current.style.setProperty("--container-perimeter", String(perimeter));
-      }
+      // Read the actual rendered radii from the child so the stroke matches the label's
+      // shape regardless of size or token overrides, and handles non-uniform corners
+      // (e.g. labels with a leg, where one corner is squared off).
+      const radii = readCornerRadii(childRef.current);
+
+      setPath(getPath({ width, height, radii }));
+      wrapperRef.current.style.setProperty("--container-perimeter", String(getPerimeter({ width, height, radii })));
     },
-    [borderRadius]
+    []
   );
 
   useResizeObserver({
@@ -77,38 +87,34 @@ export default LabelCelebrationAnimation;
 function getPath({
   width,
   height,
-  borderRadius = DEFAULT_BORDER_RADIUS,
+  radii,
   strokeWidth = DEFAULT_STROKE_WIDTH
 }: {
   width: number;
   height: number;
-  borderRadius?: number;
+  radii: CornerRadii;
   strokeWidth?: number;
 }) {
+  const { tl, tr, br, bl } = radii;
   const offset = strokeWidth / 2;
 
-  return `M ${width - strokeWidth / 2}, ${borderRadius} V ${
-    height - borderRadius
-  } A ${borderRadius} ${borderRadius} 0 0 1 ${width - borderRadius} ${height - strokeWidth / 2} H ${
-    borderRadius + offset
-  } A ${borderRadius} ${borderRadius} 0 0 1 ${strokeWidth / 2} ${height - borderRadius} V ${
-    borderRadius + offset
-  } A ${borderRadius} ${borderRadius} 0 0 1 ${borderRadius} ${strokeWidth / 2} L ${width - borderRadius}, ${
+  // Trace the perimeter clockwise: start on the right edge below the top-right corner,
+  // arc through each corner using that corner's own radius.
+  return `M ${width - strokeWidth / 2}, ${tr} V ${height - br} A ${br} ${br} 0 0 1 ${width - br} ${
+    height - strokeWidth / 2
+  } H ${bl + offset} A ${bl} ${bl} 0 0 1 ${strokeWidth / 2} ${height - bl} V ${
+    tl + offset
+  } A ${tl} ${tl} 0 0 1 ${tl} ${strokeWidth / 2} L ${width - tr}, ${
     strokeWidth / 2
-  } A ${borderRadius} ${borderRadius} 0 0 1 ${width - strokeWidth / 2} ${borderRadius} Z`;
+  } A ${tr} ${tr} 0 0 1 ${width - strokeWidth / 2} ${tr} Z`;
 }
 
-function getPerimeter({
-  width,
-  height,
-  borderRadius = DEFAULT_BORDER_RADIUS
-}: {
-  width: number;
-  height: number;
-  borderRadius?: number;
-}) {
-  const straightWidth = width - 2 * borderRadius;
-  const straightHeight = height - 2 * borderRadius;
-  const cornerCircumference = 2 * Math.PI * borderRadius;
-  return cornerCircumference + 2 * straightWidth + 2 * straightHeight;
+function getPerimeter({ width, height, radii }: { width: number; height: number; radii: CornerRadii }) {
+  const { tl, tr, br, bl } = radii;
+  const totalRadius = tl + tr + br + bl;
+  // Straight segments: full perimeter minus the radius slice taken from each end of every edge.
+  const straightEdges = 2 * width + 2 * height - 2 * totalRadius;
+  // Each corner contributes a quarter-circle of its own radius.
+  const corners = (Math.PI / 2) * totalRadius;
+  return straightEdges + corners;
 }

@@ -171,15 +171,8 @@ const Label = forwardRef<HTMLElement, LabelProps>(
 
     // Celebration animation is applied only for line kind
     if (isCelebrationAnimation && kind === "line") {
-      // Small labels use a 2px border-radius (see Label.module.scss `.label.small`),
-      // while medium labels use --border-radius-small (4px). Pass the matching value so the
-      // animated stroke follows the label's actual rounded corners.
-      const labelBorderRadius = size === "small" ? 2 : 4;
       return (
-        <LabelCelebrationAnimation
-          borderRadius={labelBorderRadius}
-          onAnimationEnd={() => setIsCelebrationAnimation(false)}
-        >
+        <LabelCelebrationAnimation onAnimationEnd={() => setIsCelebrationAnimation(false)}>
           {label}
         </LabelCelebrationAnimation>
       );
