@@ -15,9 +15,18 @@ export interface LabelCelebrationAnimationProps {
    * Callback fired when the celebration animation ends.
    */
   onAnimationEnd: () => void;
+  /**
+   * Border radius of the wrapped label, in pixels. Used to draw the animated stroke so it follows
+   * the label's actual rounded corners (e.g. small labels use a 2px radius, medium labels 4px).
+   */
+  borderRadius?: number;
 }
 
-function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebrationAnimationProps) {
+function LabelCelebrationAnimation({
+  children,
+  onAnimationEnd,
+  borderRadius = DEFAULT_BORDER_RADIUS
+}: LabelCelebrationAnimationProps) {
   const wrapperRef = useRef<HTMLDivElement>();
   const childRef = useRef<HTMLDivElement>();
 
@@ -28,14 +37,14 @@ function LabelCelebrationAnimation({ children, onAnimationEnd }: LabelCelebratio
       const { blockSize: height, inlineSize: width } = borderBoxSize || {};
 
       if (wrapperRef.current) {
-        const d = getPath({ width, height });
+        const d = getPath({ width, height, borderRadius });
         setPath(d);
 
-        const perimeter = getPerimeter({ width, height });
+        const perimeter = getPerimeter({ width, height, borderRadius });
         wrapperRef.current.style.setProperty("--container-perimeter", String(perimeter));
       }
     },
-    []
+    [borderRadius]
   );
 
   useResizeObserver({
