@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",

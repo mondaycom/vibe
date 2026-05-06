@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.1.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
 ## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.0...@vibe/core@4.0.1) (2026-04-16)
 
 
