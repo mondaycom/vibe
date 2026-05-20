@@ -15,6 +15,10 @@
   "license": "MIT",
   "type": "module",
   "bin": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./tools": "./dist/server/tools/index.js"
+  },
   "files": [
     "dist"
   ],
