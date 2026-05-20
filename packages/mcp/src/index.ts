@@ -3,10 +3,10 @@
 import { server, addServerTool } from "./server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
+  getVibeComponentAccessibility,
+  getVibeComponentExamples,
   getVibeComponentMetadataTool,
   listVibePublicComponentsTool,
-  getVibeComponentExamples,
-  getVibeComponentAccessibility,
   listVibeIconsTool,
   listVibeTokensTool,
   v3MigrationTool,
