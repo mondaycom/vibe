@@ -1,8 +1,7 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { RemoveScroll } from "react-remove-scroll";
 import FocusLock from "react-focus-lock";
-import { CSSTransition } from "react-transition-group";
 import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import styles from "./Modal.module.scss";
@@ -135,66 +134,99 @@ const Modal = forwardRef(
       [onFocusAttempt, shouldAllowFocusEscape]
     );
 
+    // CSS-driven enter/exit transition (replaces react-transition-group <CSSTransition>).
+    // Mounts when `show` becomes true, applies enter classes, keeps mounted during the
+    // 150ms exit animation, then unmounts. Mirrors the original timeout={{enter:250,exit:150}}.
+    const [transitionStage, setTransitionStage] = useState<"entering" | "entered" | "exiting" | "exited">(
+      show ? "entering" : "exited"
+    );
+
+    useEffect(() => {
+      if (show) {
+        if (transitionStage === "exited") {
+          setTransitionStage("entering");
+          return;
+        }
+        if (transitionStage === "entering") {
+          const timer = setTimeout(() => setTransitionStage("entered"), MODAL_ENTER_MS);
+          return () => clearTimeout(timer);
+        }
+      } else {
+        if (transitionStage === "entered" || transitionStage === "entering") {
+          setTransitionStage("exiting");
+          return;
+        }
+        if (transitionStage === "exiting") {
+          const timer = setTimeout(() => setTransitionStage("exited"), MODAL_EXIT_MS);
+          return () => clearTimeout(timer);
+        }
+      }
+    }, [show, transitionStage]);
+
+    if (!show && transitionStage === "exited") {
+      return null;
+    }
+
+    const containerClassName = cx(styles.container, {
+      [styles.containerEnter]: transitionStage === "entering",
+      [styles.containerEnterActive]: transitionStage === "entering",
+      [styles.containerExitActive]: transitionStage === "exiting"
+    });
+
     return (
-      <CSSTransition
-        in={show}
-        nodeRef={containerRef}
-        timeout={{ enter: 250, exit: 150 }}
-        unmountOnExit
-        classNames={{
-          enter: styles.containerEnter,
-          enterActive: styles.containerEnterActive,
-          exitActive: styles.containerExitActive
-        }}
-      >
-        <LayerProvider layerRef={containerRef}>
-          <ModalProvider value={contextValue}>
-            {createPortal(
-              <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
-                <div ref={containerRef} className={styles.container} style={zIndexStyle} onKeyDown={onModalKeyDown}>
+      <LayerProvider layerRef={containerRef}>
+        <ModalProvider value={contextValue}>
+          {createPortal(
+            <FocusLockComponent returnFocus autoFocus={autoFocus} whiteList={handleFocusLockWhiteList}>
+              <div ref={containerRef} className={containerClassName} style={zIndexStyle} onKeyDown={onModalKeyDown}>
+                <div
+                  data-testid={getTestId(ComponentDefaultTestId.MODAL_OVERLAY, id)}
+                  className={styles.overlay}
+                  onClick={onBackdropClick}
+                  aria-hidden
+                />
+                <RemoveScroll forwardProps ref={modalMergedRef}>
                   <div
-                    data-testid={getTestId(ComponentDefaultTestId.MODAL_OVERLAY, id)}
-                    className={styles.overlay}
-                    onClick={onBackdropClick}
-                    aria-hidden
-                  />
-                  <RemoveScroll forwardProps ref={modalMergedRef}>
-                    <div
-                      className={cx(
-                        styles.modal,
-                        styles[animationType],
-                        getStyle(styles, camelCase("size-" + size)),
-                        { [styles.withHeaderAction]: !!renderHeaderAction },
-                        className
-                      )}
-                      id={id}
-                      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-                      data-vibe={ComponentVibeId.MODAL}
-                      role="dialog"
-                      aria-modal
-                      aria-labelledby={ariaLabelledby || titleId}
-                      aria-describedby={ariaDescribedby || descriptionId}
-                      style={{ ...style, ...anchorVars }}
-                      tabIndex={-1}
-                    >
-                      {children}
-                      <ModalTopActions
-                        renderAction={renderHeaderAction}
-                        theme={closeButtonTheme}
-                        closeButtonAriaLabel={closeButtonAriaLabel}
-                        onClose={onClose}
-                      />
-                    </div>
-                  </RemoveScroll>
-                </div>
-              </FocusLockComponent>,
-              portalTargetElement
-            )}
-          </ModalProvider>
-        </LayerProvider>
-      </CSSTransition>
+                    className={cx(
+                      styles.modal,
+                      styles[animationType],
+                      getStyle(styles, camelCase("size-" + size)),
+                      { [styles.withHeaderAction]: !!renderHeaderAction },
+                      className
+                    )}
+                    id={id}
+                    data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+                    data-vibe={ComponentVibeId.MODAL}
+                    role="dialog"
+                    aria-modal
+                    aria-labelledby={ariaLabelledby || titleId}
+                    aria-describedby={ariaDescribedby || descriptionId}
+                    style={{ ...style, ...anchorVars }}
+                    tabIndex={-1}
+                  >
+                    {children}
+                    <ModalTopActions
+                      renderAction={renderHeaderAction}
+                      theme={closeButtonTheme}
+                      closeButtonAriaLabel={closeButtonAriaLabel}
+                      onClose={onClose}
+                    />
+                  </div>
+                </RemoveScroll>
+              </div>
+            </FocusLockComponent>,
+            portalTargetElement
+          )}
+        </ModalProvider>
+      </LayerProvider>
     );
   }
 );
+
+// Match previous CSSTransition `timeout={{ enter: 250, exit: 150 }}`.
+// SCSS animations: centerPopIn 150ms, anchorPopIn 200ms, fullViewIn 250ms (longest = 250ms).
+// SCSS animations: centerPopOut 100ms, anchorPopOut 150ms, fullViewOut 100ms (longest = 150ms).
+const MODAL_ENTER_MS = 250;
+const MODAL_EXIT_MS = 150;
 
 export default Modal;

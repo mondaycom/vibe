@@ -6,21 +6,6 @@ import Modal from "../Modal";
 import ModalContent from "../../ModalContent/ModalContent";
 import ModalHeader from "../../ModalHeader/ModalHeader";
 
-vi.mock("react-transition-group", () => ({
-  CSSTransition: ({
-    in: inProp,
-    children,
-    unmountOnExit
-  }: {
-    in?: boolean;
-    children: React.ReactNode;
-    unmountOnExit?: boolean;
-  }) => {
-    if (!inProp && unmountOnExit) return null;
-    return <>{children}</>;
-  }
-}));
-
 describe("Modal", () => {
   const id = "modal-id";
   const closeButtonAriaLabel = "Close modal";
