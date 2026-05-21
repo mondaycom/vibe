@@ -1,7 +1,6 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { isForwardRef } from "react-is";
 import { Dialog, type DialogEvent, DialogContentContainer } from "@vibe/dialog";
 import {
   type DialogOffset,
@@ -26,6 +25,12 @@ import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
 const CLOSE_KEYS: DialogTriggerEvent[] = ["esckey", "tab"];
+
+// Inline replacement for `react-is`'s `isForwardRef`. React tags forwardRef
+// components with the `react.forward_ref` symbol on `$$typeof`.
+const REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+const isForwardRef = (component: unknown): boolean =>
+  component != null && (component as { $$typeof?: symbol }).$$typeof === REACT_FORWARD_REF_TYPE;
 
 export interface MenuButtonProps extends VibeComponentProps {
   /**
