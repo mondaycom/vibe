@@ -18031,15 +18031,10 @@ react-dates@21.8.0:
     react-with-styles "^4.1.0"
     react-with-styles-interface-css "^6.0.0"
 
-react-day-picker@^8.10.2:
+react-day-picker@^8.10.2, react-day-picker@^8.8.0:
   version "8.10.2"
   resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.10.2.tgz#12b7893d5b1bd6ba7f055498614c1c5aaf50accd"
   integrity sha512-LK68OTbHB3oJNhl9cA0qVizzp3o26w61YSjAFkYi67N86iro32wx86kSNeFU/hq+gI8m1yzWhnomMLfZ041RzQ==
-
-react-day-picker@^8.8.0:
-  version "8.10.1"
-  resolved "https://registry.npmjs.org/react-day-picker/-/react-day-picker-8.10.1.tgz#4762ec298865919b93ec09ba69621580835b8e80"
-  integrity sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==
 
 react-docgen-typescript@^2.2.2:
   version "2.2.2"
