@@ -142,6 +142,8 @@ const List = forwardRef(
       }
     }, [updateFocusedItem]);
 
+    const listContextValue = useMemo(() => ({ updateFocusedItem }), [updateFocusedItem]);
+
     const overrideChildren = useMemo(() => {
       let override: ReactElement | ReactElement[] = Array.isArray(children) ? children : [children];
       if (renderOnlyVisibleItems) {
@@ -170,7 +172,7 @@ const List = forwardRef(
     }, [children, component, focusIndex, overrideId, renderOnlyVisibleItems]);
 
     return (
-      <ListContext.Provider value={{ updateFocusedItem }}>
+      <ListContext.Provider value={listContextValue}>
         <Component
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
           data-vibe={ComponentVibeId.LIST}
