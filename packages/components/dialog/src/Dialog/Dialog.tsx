@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { useState, useEffect, useRef, useContext, useCallback, useMemo } from "react";
+import React, { memo, useState, useEffect, useRef, useContext, useCallback, useMemo } from "react";
 import { createPortal } from "react-dom";
 import {
   useFloating,
@@ -29,7 +29,9 @@ import styles from "./Dialog.module.scss";
 import { type DialogTriggerEvent, type DialogEvent, type DialogProps } from "./Dialog.types";
 import { LayerContext, LayerProvider } from "@vibe/layer";
 
-function Dialog({
+// TODO(perf): consumers commonly pass inline `content` functions/`children`/`middleware` arrays which defeat
+// memoization. Fixing those is out of scope for this PR; memo still avoids re-renders when parents pass stable props.
+function DialogComponent({
   // Core props
   id,
   "data-testid": dataTestId,
@@ -544,5 +546,10 @@ function Dialog({
     </>
   );
 }
+
+DialogComponent.displayName = "Dialog";
+
+const Dialog = memo(DialogComponent);
+Dialog.displayName = "Dialog";
 
 export default Dialog;
