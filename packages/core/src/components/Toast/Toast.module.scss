@@ -1,3 +1,5 @@
+@import "~@vibe/style/dist/mixins";
+@import "~@vibe/style/dist/mixins/motion";
 @import "../../styles/keyframes";
 
 .toast {
@@ -17,7 +19,11 @@
   border-radius: var(--border-radius-small);
   color: var(--fixed-light-color);
   transform: translateX(-50%);
-  transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), width 200ms cubic-bezier(0, 0, 0.4, 1);
+
+  @include motion-safe {
+    transition: background-color var(--motion-productive-short) var(--motion-timing-transition),
+      width var(--motion-expressive-short) var(--motion-timing-enter);
+  }
 
   &.typeNormal {
     background-color: var(--primary-color);
@@ -69,9 +75,14 @@
 
 .actionButton.withTransition {
   opacity: 0;
-  animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
-  animation-delay: 300ms;
-  animation-fill-mode: forwards;
+
+  @include motion-safe {
+    animation: bounceIn var(--motion-productive-long) var(--motion-timing-emphasize) 300ms forwards;
+  }
+
+  @include motion-reduce {
+    opacity: 1;
+  }
 }
 
 .content {
@@ -85,19 +96,19 @@
 }
 
 .enterActive {
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-name: slideIn;
-  animation-duration: 350ms;
-  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  @include motion-safe {
+    animation: slideIn var(--motion-expressive-short) var(--motion-timing-emphasize) forwards;
+  }
 }
 
 .exitActive {
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-name: slideOut;
-  animation-duration: 350ms;
-  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  @include motion-safe {
+    animation: slideOut var(--motion-productive-long) var(--motion-timing-exit) forwards;
+  }
+
+  @include motion-reduce {
+    opacity: 0;
+  }
 }
 
 .closeButton {
@@ -105,42 +116,37 @@
 }
 
 @keyframes slideIn {
-  0% {
-    transform: translate(-50%, -100px);
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
   }
 
-  40% {
-    transform: translate(-50%, 16px);
-  }
-
-  100% {
-    transform: translate(-50%, 0px);
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
   }
 }
 
 @keyframes slideOut {
-  0% {
+  from {
     transform: translate(-50%, 0);
+    opacity: 1;
   }
 
-  100% {
-    transform: translate(-50%, -100px);
+  to {
+    transform: translate(-50%, -100%);
     opacity: 0;
   }
 }
 
 @keyframes bounceIn {
-  0% {
-    transform: scale(0.8);
+  from {
+    transform: scale(0.85);
     opacity: 0;
   }
 
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
+  to {
     transform: scale(1);
+    opacity: 1;
   }
 }
