@@ -1,6 +1,5 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { RemoveScroll } from "react-remove-scroll";
 import FocusLock from "react-focus-lock";
 import { CSSTransition } from "react-transition-group";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -16,6 +15,7 @@ import { keyCodes } from "../../../constants";
 import { createPortal } from "react-dom";
 import usePortalTarget from "../hooks/usePortalTarget/usePortalTarget";
 import useFocusEscapeTargets from "../hooks/useFocusEscapeTargets/useFocusEscapeTargets";
+import useBodyScrollLock from "../hooks/useBodyScrollLock/useBodyScrollLock";
 import { LayerProvider } from "@vibe/layer";
 
 // @ts-expect-error This is a precaution to support all possible module systems (ESM/CJS)
@@ -111,6 +111,8 @@ const Modal = forwardRef(
 
     const shouldAllowFocusEscape = useFocusEscapeTargets(allowFocusEscapeTo);
 
+    useBodyScrollLock(show);
+
     /**
      * Returning true means that the focus-lock is allowed to manage the element.
      * Returning false means that the focus-lock would surrender control to the element.
@@ -158,34 +160,33 @@ const Modal = forwardRef(
                     onClick={onBackdropClick}
                     aria-hidden
                   />
-                  <RemoveScroll forwardProps ref={modalMergedRef}>
-                    <div
-                      className={cx(
-                        styles.modal,
-                        styles[animationType],
-                        getStyle(styles, camelCase("size-" + size)),
-                        { [styles.withHeaderAction]: !!renderHeaderAction },
-                        className
-                      )}
-                      id={id}
-                      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
-                      data-vibe={ComponentVibeId.MODAL}
-                      role="dialog"
-                      aria-modal
-                      aria-labelledby={ariaLabelledby || titleId}
-                      aria-describedby={ariaDescribedby || descriptionId}
-                      style={{ ...style, ...anchorVars }}
-                      tabIndex={-1}
-                    >
-                      {children}
-                      <ModalTopActions
-                        renderAction={renderHeaderAction}
-                        theme={closeButtonTheme}
-                        closeButtonAriaLabel={closeButtonAriaLabel}
-                        onClose={onClose}
-                      />
-                    </div>
-                  </RemoveScroll>
+                  <div
+                    ref={modalMergedRef}
+                    className={cx(
+                      styles.modal,
+                      styles[animationType],
+                      getStyle(styles, camelCase("size-" + size)),
+                      { [styles.withHeaderAction]: !!renderHeaderAction },
+                      className
+                    )}
+                    id={id}
+                    data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL, id)}
+                    data-vibe={ComponentVibeId.MODAL}
+                    role="dialog"
+                    aria-modal
+                    aria-labelledby={ariaLabelledby || titleId}
+                    aria-describedby={ariaDescribedby || descriptionId}
+                    style={{ ...style, ...anchorVars }}
+                    tabIndex={-1}
+                  >
+                    {children}
+                    <ModalTopActions
+                      renderAction={renderHeaderAction}
+                      theme={closeButtonTheme}
+                      closeButtonAriaLabel={closeButtonAriaLabel}
+                      onClose={onClose}
+                    />
+                  </div>
                 </div>
               </FocusLockComponent>,
               portalTargetElement
