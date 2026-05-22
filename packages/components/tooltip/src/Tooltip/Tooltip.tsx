@@ -113,13 +113,7 @@ const globalState: { lastTooltipHideTS: number; openTooltipsCount: number } = {
   openTooltipsCount: 0
 };
 
-interface TooltipState {
-  shown: boolean;
-}
-
-// TODO(perf): consumers commonly pass inline `content` (functions/elements) which can't be deduped here.
-// Lazy content rendering below avoids the work when the tooltip isn't visible.
-export default class Tooltip extends PureComponent<TooltipProps, TooltipState> {
+export default class Tooltip extends PureComponent<TooltipProps> {
   wasShown: boolean;
   /* eslint-disable react/default-props-match-prop-types -- props inherited from DialogProps via Omit<> */
   static defaultProps = {
@@ -149,16 +143,10 @@ export default class Tooltip extends PureComponent<TooltipProps, TooltipState> {
     this.onTooltipHide = this.onTooltipHide.bind(this);
 
     this.wasShown = false;
-    this.state = { shown: !!props.shouldShowOnMount };
   }
 
   renderTooltipContent() {
-    const { theme, content, className, style, maxWidth, title, image, icon, dir, withoutDialog, open } = this.props;
-    // Lazy content rendering: skip the (potentially expensive) tooltip body unless the tooltip is
-    // actually visible. Dialog still calls this on every render, but we short-circuit early when hidden.
-    if (!withoutDialog && !this.state.shown && !open) {
-      return null;
-    }
+    const { theme, content, className, style, maxWidth, title, image, icon, dir } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -204,7 +192,6 @@ export default class Tooltip extends PureComponent<TooltipProps, TooltipState> {
       const { onTooltipShow } = this.props;
       globalState.openTooltipsCount++;
       this.wasShown = true;
-      this.setState({ shown: true });
       onTooltipShow && onTooltipShow();
     }
   }
@@ -215,7 +202,6 @@ export default class Tooltip extends PureComponent<TooltipProps, TooltipState> {
       globalState.lastTooltipHideTS = Date.now();
       globalState.openTooltipsCount--;
       this.wasShown = false;
-      this.setState({ shown: false });
       onTooltipHide && onTooltipHide();
     }
   }
