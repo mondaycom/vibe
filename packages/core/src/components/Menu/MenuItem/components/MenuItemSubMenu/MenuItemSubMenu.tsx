@@ -1,5 +1,4 @@
 import React, { useMemo, useRef } from "react";
-import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
 import { camelCase } from "es-toolkit";
 import { DialogContentContainer } from "@vibe/dialog";
@@ -66,15 +65,12 @@ const MenuItemSubMenu = ({
         nodeRef={transitionRef}
         timeout={{ appear: 150, enter: 150, exit: 100 }}
         classNames={{
-          appear: cx(styles.appear, placementClassName),
-          appearActive: cx(styles.appearActive, placementClassName),
-          enter: cx(styles.appear, placementClassName),
-          enterActive: cx(styles.enterActive, placementClassName),
-          exit: cx(styles.exit, placementClassName),
-          exitActive: cx(styles.exit, placementClassName)
+          appearActive: styles.appearActive,
+          enterActive: styles.enterActive,
+          exitActive: styles.exitActive
         }}
       >
-        <div ref={transitionRef}>
+        <div ref={transitionRef} className={placementClassName}>
           <DialogContentContainer>
             {React.cloneElement(subMenu, {
               ...subMenu?.props,

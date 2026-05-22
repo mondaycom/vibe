@@ -4,43 +4,58 @@
 // Submenu open/close animation. Mirrors the `expand` variant in DialogContent —
 // fade + scale-from-origin keyed off the floating-ui placement so the submenu
 // grows out of the parent menu item's edge.
+//
+// Uses CSS animations instead of transitions because CSSTransition+mountOnEnter
+// can skip the "from" frame when the class swap lands in a single paint —
+// keyframes fire reliably on a freshly mounted element.
 
-.appear,
-.exit {
-  @include motion-safe {
-    transition: transform var(--motion-productive-long) var(--motion-timing-enter),
-      opacity var(--motion-productive-long) var(--motion-timing-enter);
+@keyframes submenuExpandIn {
+  from {
     opacity: 0;
     transform: scale(0.92);
-
-    &.rightStart {
-      transform-origin: top left;
-    }
-    &.rightEnd {
-      transform-origin: bottom left;
-    }
-    &.leftStart {
-      transform-origin: top right;
-    }
-    &.leftEnd {
-      transform-origin: bottom right;
-    }
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-.exit {
-  @include motion-safe {
-    transition: transform var(--motion-productive-medium) var(--motion-timing-exit),
-      opacity var(--motion-productive-medium) var(--motion-timing-exit);
+@keyframes submenuExpandOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
   }
+  to {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+.rightStart {
+  transform-origin: top left;
+}
+
+.rightEnd {
+  transform-origin: bottom left;
+}
+
+.leftStart {
+  transform-origin: top right;
+}
+
+.leftEnd {
+  transform-origin: bottom right;
 }
 
 .appearActive,
 .enterActive {
   @include motion-safe {
-    transition: transform var(--motion-productive-long) var(--motion-timing-enter),
-      opacity var(--motion-productive-long) var(--motion-timing-enter);
-    opacity: 1;
-    transform: scale(1);
+    animation: submenuExpandIn var(--motion-productive-long) var(--motion-timing-enter) forwards;
+  }
+}
+
+.exitActive {
+  @include motion-safe {
+    animation: submenuExpandOut var(--motion-productive-medium) var(--motion-timing-exit) forwards;
   }
 }
