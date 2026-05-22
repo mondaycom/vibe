@@ -13,7 +13,7 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { type VibeComponentProps } from "../../types";
 import styles from "./AlertBanner.module.scss";
 import { Text } from "@vibe/typography";
-import { AlertBannerContext } from "./AlertBannerContext";
+import { AlertBannerContext, type AlertBannerContextType } from "./AlertBannerContext";
 
 type ChildrenType = ReactElement<AlertBannerButtonProps | AlertBannerLinkProps | AlertBannerTextProps>;
 
@@ -71,7 +71,7 @@ const AlertBanner = forwardRef(
       }
       return isDarkBackground ? "onInverted" : "onPrimary";
     }, [isDarkBackground, isFixedColor]);
-    const alertBannerContextValue = useMemo(() => ({ textColor }), [textColor]);
+    const alertBannerContextValue = useMemo<AlertBannerContextType>(() => ({ textColor }), [textColor]);
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren) as ReactElement[];
       const filteredChildren = allChildren.filter(
