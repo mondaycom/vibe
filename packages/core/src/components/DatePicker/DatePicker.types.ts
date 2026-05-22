@@ -1,4 +1,5 @@
 import type { VibeComponentProps } from "@vibe/shared";
+import type { Locale } from "date-fns";
 import type { Intent } from "./utils";
 
 interface DatePickerBaseProps extends VibeComponentProps {
