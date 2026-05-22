@@ -129,20 +129,26 @@ const Counter = ({
 
   // CSS-driven swap transition (replaces react-transition-group's <SwitchTransition mode="out-in">).
   // When countText changes, the displayed value exits, then the new value enters — mirroring the
-  // out-in semantics used by react-transition-group.
+  // out-in semantics used by react-transition-group. Direction reflects the count change so an
+  // increase animates upward (new from bottom) and a decrease animates downward (new from top).
   const [displayedText, setDisplayedText] = useState(countText);
   const [swapStage, setSwapStage] = useState<"idle" | "exiting" | "entering">("idle");
+  const [direction, setDirection] = useState<"up" | "down">("up");
+  const prevCountRef = useRef(count);
 
   useEffect(() => {
     if (noAnimation) {
       setDisplayedText(countText);
       setSwapStage("idle");
+      prevCountRef.current = count;
       return;
     }
     if (countText !== displayedText && swapStage !== "exiting") {
+      setDirection(count < prevCountRef.current ? "down" : "up");
+      prevCountRef.current = count;
       setSwapStage("exiting");
     }
-  }, [countText, displayedText, noAnimation, swapStage]);
+  }, [count, countText, displayedText, noAnimation, swapStage]);
 
   useEffect(() => {
     if (swapStage !== "exiting") return undefined;
@@ -161,10 +167,10 @@ const Counter = ({
 
   const animatedSpanClass =
     cx({
-      [styles.fadeEnter]: swapStage === "entering",
-      [styles.fadeEnterActive]: swapStage === "entering",
-      [styles.fadeExit]: swapStage === "exiting",
-      [styles.fadeExitActive]: swapStage === "exiting"
+      [styles.fadeEnterUp]: swapStage === "entering" && direction === "up",
+      [styles.fadeEnterDown]: swapStage === "entering" && direction === "down",
+      [styles.fadeExitUp]: swapStage === "exiting" && direction === "up",
+      [styles.fadeExitDown]: swapStage === "exiting" && direction === "down"
     }) || undefined;
 
   const counter = (
