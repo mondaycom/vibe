@@ -1,4 +1,4 @@
-import { userEvent, within } from "@storybook/test";
+import { userEvent, waitFor, within } from "@storybook/test";
 import {
   getByRole,
   getByText,
@@ -45,12 +45,14 @@ const showSubSubMenusOnHover = async canvas => {
   await userEvent.hover(
     getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_NON_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
   );
-  expect(
-    canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
-  ).not.toBeInTheDocument();
-  expect(
-    canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
-  ).not.toBeInTheDocument();
+  await waitFor(() => {
+    expect(
+      canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
+    ).not.toBeInTheDocument();
+    expect(
+      canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
+    ).not.toBeInTheDocument();
+  });
 };
 
 const showSubSubMenusWithKeyboard = async canvas => {
@@ -86,14 +88,18 @@ const showSubSubMenusWithKeyboard = async canvas => {
 
   //close sub-sub-menu - using left arrow
   await pressNavigationKey(NavigationCommand.LEFT_ARROW);
-  expect(
-    canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
-  ).not.toBeInTheDocument();
+  await waitFor(() => {
+    expect(
+      canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM, { ignore: HIDDEN_ELEMENT_SELECTOR })
+    ).not.toBeInTheDocument();
+  });
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //close sub-menu - using escape
   await userEvent.keyboard("{escape}");
-  expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM)).not.toBeInTheDocument();
+  await waitFor(() => {
+    expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM)).not.toBeInTheDocument();
+  });
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM);
 };
 
