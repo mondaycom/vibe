@@ -19,7 +19,7 @@ export default {
 
 export const Overview: Story = {
   render: args => (
-    <div style={{ width: "100%" }}>
+    <div style={{ display: "flex", justifyContent: "flex-start", width: "100%" }}>
       <ButtonGroup {...args} />
     </div>
   ),
