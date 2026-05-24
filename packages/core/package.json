@@ -106,7 +106,7 @@
     "@vibe/tooltip": "4.0.1",
     "@vibe/typography": "4.0.1",
     "browserslist-config-monday": "1.0.6",
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
     "downshift": "^9.0.8",
     "es-toolkit": "^1.39.10",
