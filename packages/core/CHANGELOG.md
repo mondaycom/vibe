@@ -3,6 +3,172 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.1...@vibe/core@4.2.2) (2026-05-24)
+
+
+### Bug Fixes
+
+* allow DatePicker dependency with React 19 ([#3361](https://github.com/mondaycom/vibe/issues/3361)) ([90a99df](https://github.com/mondaycom/vibe/commit/90a99df5b471b4d869a82793d911db3ef8192710))
+
+
+
+
+
+## [4.2.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.0...@vibe/core@4.2.1) (2026-05-13)
+
+
+### Bug Fixes
+
+* **mcp:** always use @vibe/core as import path in metadata ([#3358](https://github.com/mondaycom/vibe/issues/3358)) ([fa3483d](https://github.com/mondaycom/vibe/commit/fa3483dfa34d8649ee7f6b1a9dac6b83de45d764))
+
+
+
+
+
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.2.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.1.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.0...@vibe/core@4.0.1) (2026-04-16)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add screen reader support for color announcements ([#3346](https://github.com/mondaycom/vibe/issues/3346)) ([ed1bbb1](https://github.com/mondaycom/vibe/commit/ed1bbb1d466d544fbab6ab08198e1db026c116a9))
+
+
+
+
+
+# [4.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.0...@vibe/core@4.0.0) (2026-03-18)
+
+
+### BREAKING CHANGES
+
+This release contains breaking changes across components, APIs, and styling. Key highlights:
+
+- **Enum removal**: Removed all deprecated enum exports and static properties across 30+ components. Use string literals instead. Run `npx @vibe/codemod --migration v4` to migrate automatically.
+- **Dropdown**: Complete API rewrite replacing the react-select-based implementation with a new custom component.
+- **Dialog**: Migrated from Popper.js to Floating UI (`@floating-ui/react-dom`). The `modifiers` prop is replaced by `middleware`.
+- **AttentionBox**: New component promoted from `@vibe/core/next`. Legacy props removed; type values renamed.
+- **Icon**: Props renamed — `iconLabel` → `label`, `iconType` → `type`, `iconSize` → `size`.
+- **TipseenImage**: Removed — use `TipseenMedia` with an `<img>` child instead.
+
+For the full list of breaking changes and migration instructions, see the [v4 migration guide](https://vibe.monday.com/?path=/docs/migration-guide--docs).
+
+
+# [3.88.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.87.0...@vibe/core@3.88.0) (2026-03-11)
+
+
+### Bug Fixes
+
+* **checkbox:** safari keyboard navigation ([#3328](https://github.com/mondaycom/vibe/issues/3328)) ([8614a7b](https://github.com/mondaycom/vibe/commit/8614a7bfb85f4ce59b4765a12d418dbe705ae6e8))
+
+
+### Features
+
+* **LinearProgressBar:** add allowExceedingMax prop to support values… ([#3255](https://github.com/mondaycom/vibe/issues/3255)) ([ce68c53](https://github.com/mondaycom/vibe/commit/ce68c53deab2663b57d0da75d2c6ecb21274827f))
+
+
+
+
+
+# [3.87.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.1...@vibe/core@3.87.0) (2026-02-27)
+
+
+### Features
+
+* bump version ([#3286](https://github.com/mondaycom/vibe/issues/3286)) ([812acd8](https://github.com/mondaycom/vibe/commit/812acd8e89f21fc73d4184fe966dfa96d21ba5d3))
+
+
+
+
+
+## [3.85.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.85.0...@vibe/core@3.85.1) (2026-02-12)
+
+
+### Bug Fixes
+
+* **DropdownBoxMode:** add menuWrapperClassName ([#3253](https://github.com/mondaycom/vibe/issues/3253)) ([c05a846](https://github.com/mondaycom/vibe/commit/c05a8467ba63d1930acc58ee6b584bda9dde8c66))
+
+
+
+
+
+# [3.85.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.84.0...@vibe/core@3.85.0) (2026-02-09)
+
+
+### Bug Fixes
+
+* **Dropdown:** use vibe scroller ([#3248](https://github.com/mondaycom/vibe/issues/3248)) ([aba1ad2](https://github.com/mondaycom/vibe/commit/aba1ad28861d89bdae858bb7080175618323ffe0))
+
+
+### Features
+
+* **List:** new component ([#3240](https://github.com/mondaycom/vibe/issues/3240)) ([c9a15d6](https://github.com/mondaycom/vibe/commit/c9a15d685e586b461e56fcbb008750bf8572821e))
+
+
+
+
+
+# [3.84.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.4...@vibe/core@3.84.0) (2026-02-04)
+
+
+### Features
+
+* **BaseList:** new component ([#3212](https://github.com/mondaycom/vibe/issues/3212)) ([8372ddd](https://github.com/mondaycom/vibe/commit/8372ddde21e2357e108c1dbbda81e48f00fbc105))
+
+
+
+
+
+## [3.83.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.3...@vibe/core@3.83.4) (2026-01-28)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [3.83.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.2...@vibe/core@3.83.3) (2026-01-25)
+
+
+### Bug Fixes
+
+* **Tipseen:** hide button div when no buttons are displayed ([#3242](https://github.com/mondaycom/vibe/issues/3242)) ([e48766e](https://github.com/mondaycom/vibe/commit/e48766e3c8ec1194a0281ac6a9ec1db3a0d3c3eb))
+
+
+
+
+
 ## [3.83.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.83.1...@vibe/core@3.83.2) (2026-01-18)
 
 

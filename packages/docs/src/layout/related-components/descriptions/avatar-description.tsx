@@ -4,7 +4,7 @@ import person1 from "./assets/person1.png";
 import { Avatar } from "@vibe/core";
 
 export const AvatarDescription = () => {
-  const component = useMemo(() => <Avatar src={person1} type="img" ariaLabel="Julia Martinez" />, []);
+  const component = useMemo(() => <Avatar src={person1} type="img" aria-label="Julia Martinez" />, []);
   return (
     <RelatedComponent
       component={component}

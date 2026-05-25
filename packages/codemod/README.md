@@ -16,13 +16,13 @@ npx @vibe/codemod [options]
 
 ### `--migration` (alias: `-m`)
 
-- **Description**: Specifies which migration type to run (e.g., `v3`).
-- **Choices**: `v3`
+- **Description**: Specifies which migration type to run (e.g., `v3`, `v4`).
+- **Choices**: `v3`, `v4`
 - **Required**: Yes
 - **Example**:
 
   ```bash
-  npx @vibe/codemod --migration v3
+  npx @vibe/codemod --migration v4
   ```
 
 ### `--target` (alias: `-t`)
@@ -76,6 +76,11 @@ The following migrations are included in this CLI:
 
 - **Migration Type**: `v3` (`--migration v3`)
 - **Description**: This migration transforms components and files to comply with version 3 of @vibe/code.
+
+### `v4` Migration
+
+- **Migration Type**: `v4` (`--migration v4`)
+- **Description**: This migration transforms components and files to comply with version 4 of @vibe/core. Handles breaking changes including component API updates, type changes, and package structure modifications.
 
 ### `enums` Migration
 

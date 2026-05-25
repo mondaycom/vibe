@@ -15,23 +15,6 @@ export const UPDATE_SLIDER_SIZE_DEBOUNCE = 200;
 
 export const TOOLTIP_SHOW_DELAY = 300;
 
-/**
- * @deprecated
- */
-export enum InfixKind {
-  PREFIX = "prefix",
-  POSTFIX = "postfix"
-}
-
-/**
- * @deprecated
- */
-export enum SliderColor {
-  PRIMARY = "primary",
-  NEGATIVE = "negative",
-  POSITIVE = "positive"
-}
-
 export type SliderContextSelection = {
   max: number;
   min: number;
@@ -43,8 +26,8 @@ export type SliderContextSelection = {
 
 export type SliderContextUI = {
   active: number;
-  ariaLabel: string;
-  ariaLabelledby: string;
+  "aria-label": string;
+  "aria-labelledby": string;
   color: SliderColorType;
   disabled: boolean;
   dragging: number;

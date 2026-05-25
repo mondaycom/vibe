@@ -5,8 +5,7 @@ import person1 from "../Avatar/assets/person1.png";
 import person3 from "../Avatar/assets/person3.png";
 import person2 from "../Avatar/assets/person2.png";
 import { Attach, Email } from "@vibe/icons";
-import { Dropdown, type BaseDropdownProps, type DropdownOption } from "@vibe/core/next";
-import { Flex, Text } from "@vibe/core";
+import { Dropdown, type BaseDropdownProps, type DropdownOption, Flex, Text } from "@vibe/core";
 import { FixedSizeList as List } from "react-window";
 
 type Story = StoryObj<typeof Dropdown>;
@@ -29,7 +28,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 const meta: Meta<typeof Dropdown> = {
-  title: "Components/Dropdown [New]/Basic dropdown",
+  title: "Components/Dropdown/Basic dropdown",
   component: Dropdown,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -58,7 +57,7 @@ export const Overview: Story = {
   render: dropdownTemplate.bind({}),
   args: {
     id: "overview-dropdown",
-    ariaLabel: "Overview dropdown",
+    "aria-label": "Overview dropdown",
     placeholder: "Placeholder text here",
     clearAriaLabel: "Clear"
   },
@@ -86,7 +85,7 @@ export const Sizes: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="sizes-large"
-            ariaLabel="Large dropdown"
+            aria-label="Large dropdown"
             options={options}
             placeholder="Placeholder text here"
             label="Label"
@@ -97,7 +96,7 @@ export const Sizes: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="sizes-medium"
-            ariaLabel="Medium dropdown"
+            aria-label="Medium dropdown"
             options={options}
             placeholder="Placeholder text here"
             label="Label"
@@ -108,7 +107,7 @@ export const Sizes: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="sizes-small"
-            ariaLabel="Small dropdown"
+            aria-label="Small dropdown"
             options={options}
             placeholder="Placeholder text here"
             label="Label"
@@ -128,7 +127,7 @@ export const States: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="states-default"
-            ariaLabel="Default dropdown"
+            aria-label="Default dropdown"
             options={[]}
             placeholder="Default"
             clearAriaLabel="Clear"
@@ -137,7 +136,7 @@ export const States: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="states-disabled"
-            ariaLabel="Disabled dropdown"
+            aria-label="Disabled dropdown"
             options={[]}
             placeholder="Disabled"
             disabled
@@ -149,7 +148,7 @@ export const States: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="states-error"
-            ariaLabel="Error dropdown"
+            aria-label="Error dropdown"
             options={[]}
             placeholder="Error"
             error
@@ -159,7 +158,7 @@ export const States: Story = {
         <div style={{ width: "300px" }}>
           <Dropdown
             id="states-readonly"
-            ariaLabel="Readonly dropdown"
+            aria-label="Readonly dropdown"
             options={[]}
             placeholder="Readonly"
             readOnly

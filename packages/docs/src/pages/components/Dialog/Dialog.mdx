@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/blocks";
-import { AttentionBox, AttentionBoxLink } from "@vibe/core";
+import { AttentionBox } from "@vibe/core";
 import {
-  TipDevTipPopperJs,
+  TipDevTipFloatingUi,
   TipDevTipTechnicalPattern,
   TipDialogContentContainer,
   TipModal
@@ -29,7 +29,7 @@ import { Dialog } from "@vibe/core";
 
 <PropsTable />
 
-<TipDevTipPopperJs />
+<TipDevTipFloatingUi />
 
 ## Usage
 
@@ -45,13 +45,11 @@ import { Dialog } from "@vibe/core";
   ]}
 />
 
-<AttentionBox title="Trying to implement your own customize menu?">
-  <>
-    Please be sure that what you try implement cannot be achieved by using already implemented simpler components - such
-    as our <AttentionBoxLink href="/?path=/docs/components-menu-menu--docs" text="Menu component" />, because creating
-    an over-complicated UI can hurt user experience.
-  </>
-</AttentionBox>
+<AttentionBox
+  title="Trying to implement your own customize menu?"
+  text="Please be sure that what you try implement cannot be achieved by using already implemented simpler components - such as our Menu component, because creating an over-complicated UI can hurt user experience."
+  link={{ href: "/?path=/docs/components-menu-menu--docs", text: "Menu component" }}
+/>
 <br />
 <TipModal />
 

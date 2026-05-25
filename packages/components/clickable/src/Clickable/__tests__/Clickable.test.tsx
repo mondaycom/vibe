@@ -44,7 +44,7 @@ describe("Clickable tests", () => {
   describe("a11y", () => {
     it("should add the label", () => {
       const ariaLabel = "Lable Name";
-      const { getByLabelText } = renderComponent({ ariaLabel });
+      const { getByLabelText } = renderComponent({ "aria-label": ariaLabel });
       const element = getByLabelText(ariaLabel);
       expect(element).toBeTruthy();
     });

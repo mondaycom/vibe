@@ -2,10 +2,9 @@ import React, { type ReactElement } from "react";
 import cx from "classnames";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { NavigationChevronRight } from "@vibe/icons";
-import { BreadcrumbsBarType as BreadcrumbsBarTypeEnum } from "./BreadcrumbsConstants";
 import { type BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { type BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 import { type BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
 import { ComponentVibeId } from "../../tests/constants";
@@ -54,10 +53,4 @@ const BreadcrumbsBar = ({
   </nav>
 );
 
-interface BreadcrumbsBarStaticProps {
-  types: typeof BreadcrumbsBarTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<BreadcrumbBarProps, BreadcrumbsBarStaticProps>(BreadcrumbsBar, {
-  types: BreadcrumbsBarTypeEnum
-});
+export default BreadcrumbsBar;

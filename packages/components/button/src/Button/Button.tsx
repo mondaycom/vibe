@@ -2,23 +2,12 @@
 import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { SIZES, useMergeRef, NOOP } from "@vibe/shared";
+import { useMergeRef, NOOP } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
-import {
-  ButtonColor as ButtonColorEnum,
-  ButtonInputType as ButtonInputTypeEnum,
-  ButtonType as ButtonTypeEnum
-} from "./ButtonConstants";
 import { type ButtonColor, type ButtonInputType, type ButtonType, type ButtonSize } from "./Button.types";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import {
-  getTestId,
-  type VibeComponentProps,
-  withStaticProps,
-  ComponentDefaultTestId,
-  ComponentVibeId
-} from "@vibe/shared";
+import { getTestId, type VibeComponentProps, ComponentDefaultTestId, ComponentVibeId } from "@vibe/shared";
 import { getStyle } from "@vibe/shared";
 import styles from "./Button.module.scss";
 import { useButtonLoading } from "./helper/useButtonLoading";
@@ -69,15 +58,15 @@ export interface ButtonProps extends VibeComponentProps {
   /** adds 8px margin to the left */
   marginLeft?: boolean;
   /** element id to describe the button accordingly */
-  ariaLabeledBy?: string;
+  "aria-labelledby"?: string;
   /** aria label to provide important when providing only Icon */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /** aria for a button popup */
-  ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
+  "aria-haspopup"?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /** aria to be set if the popup is open */
-  ariaExpanded?: boolean;
+  "aria-expanded"?: boolean;
   /** aria controls - receives id for the controlled region */
-  ariaControls?: string;
+  "aria-controls"?: string;
   "aria-describedby"?: AriaAttributes["aria-describedby"];
   /**
    * aria to be used for screen reader to know if the button is hidden
@@ -130,18 +119,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       marginLeft = false,
       type = "button",
       onMouseDown = NOOP,
-      ariaLabel,
+      "aria-label": ariaLabel,
       rightFlat = false,
       leftFlat = false,
       preventClickAnimation = false,
       noSidePadding = false,
       onFocus = NOOP,
       onBlur = NOOP,
-      ariaLabeledBy,
+      "aria-labelledby": ariaLabelledBy,
       defaultTextColorOnPrimaryColor = TRANSPARENT_COLOR,
-      ariaExpanded,
-      ariaHasPopup,
-      ariaControls,
+      "aria-expanded": ariaExpanded,
+      "aria-haspopup": ariaHasPopup,
+      "aria-controls": ariaControls,
       "aria-describedby": ariaDescribedBy,
       "aria-hidden": ariaHidden,
       "aria-pressed": ariaPressed,
@@ -262,7 +251,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
-        "aria-labelledby": ariaLabeledBy,
+        "aria-labelledby": ariaLabelledBy,
         "aria-label": ariaLabel,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
@@ -288,7 +277,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onMouseDownClicked,
       disabled,
       loading,
-      ariaLabeledBy,
+      ariaLabelledBy,
       ariaLabel,
       ariaHasPopup,
       ariaExpanded,
@@ -319,9 +308,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <>
           {leftIcon ? (
             <Icon
-              iconType="font"
+              type="font"
               icon={leftIcon}
-              iconSize={iconSize(leftIcon)}
+              size={iconSize(leftIcon)}
               className={cx({
                 [styles.leftIcon]: hasRenderableChildren
               })}
@@ -331,9 +320,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {children}
           {rightIcon ? (
             <Icon
-              iconType="font"
+              type="font"
               icon={rightIcon}
-              iconSize={iconSize(rightIcon)}
+              size={iconSize(rightIcon)}
               className={cx({
                 [styles.rightIcon]: hasRenderableChildren
               })}
@@ -364,9 +353,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <span className={styles.successContent}>
             {successIcon ? (
               <Icon
-                iconType="font"
+                type="font"
                 icon={successIcon}
-                iconSize={iconSize(successIcon)}
+                size={iconSize(successIcon)}
                 className={cx({
                   [styles.leftIcon]: !!successText
                 })}
@@ -390,18 +379,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-interface ButtonStaticProps {
-  sizes: typeof SIZES;
-  colors: typeof ButtonColorEnum;
-  kinds: typeof ButtonTypeEnum;
-  types: typeof ButtonInputTypeEnum;
-  inputTags: typeof ButtonInputTypeEnum;
-}
-
-export default withStaticProps<ButtonProps, ButtonStaticProps>(Button, {
-  sizes: SIZES,
-  colors: ButtonColorEnum,
-  kinds: ButtonTypeEnum,
-  types: ButtonInputTypeEnum,
-  inputTags: ButtonInputTypeEnum
-});
+export default Button;

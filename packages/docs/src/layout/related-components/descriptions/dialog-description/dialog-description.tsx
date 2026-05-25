@@ -1,25 +1,16 @@
 import React, { useMemo } from "react";
 import { RelatedComponent } from "vibe-storybook-components";
 import { Dialog, DialogContentContainer, IconButton, Flex, Skeleton } from "@vibe/core";
+import { shift } from "@floating-ui/react-dom";
 import { Info } from "@vibe/icons";
 import styles from "./dialog-description.module.scss";
 
 export const DialogDescription = () => {
   const component = useMemo(() => {
-    const modifiers =
-      // for prevent dialog to move while scrolling
-      [
-        {
-          name: "preventOverflow",
-          options: {
-            mainAxis: false
-          }
-        }
-      ];
     return (
       <div className={styles.container}>
         <Dialog
-          modifiers={modifiers}
+          middleware={[shift({ mainAxis: false })]}
           shouldShowOnMount
           showTrigger={["click"]}
           hideTrigger={["click"]}

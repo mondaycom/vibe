@@ -43,7 +43,7 @@ describe("IconButton renders correctly", () => {
   });
 
   it("with aria label", () => {
-    const tree = renderer.create(<IconButton ariaLabel="My aria label" />).toJSON();
+    const tree = renderer.create(<IconButton aria-label="My aria label" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

@@ -4,7 +4,7 @@ import { Flex } from "@vibe/layout";
 import { Heading, Text } from "@vibe/typography";
 import { type EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { Button, type ButtonProps } from "@vibe/button";
 import { Link, type LinkProps } from "../Link";

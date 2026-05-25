@@ -5,8 +5,8 @@
 
   .header {
     width: 100%;
-    margin-block: var(--spacing-xl) var(--spacing-large);
-    padding-inline-end: calc(var(--top-actions-margin-inline) + var(--top-actions-width) + var(--spacing-medium));
+    margin-block: var(--space-32) var(--space-24);
+    padding-inline-end: calc(var(--top-actions-margin-inline) + var(--top-actions-width) + var(--space-16));
     padding-inline-start: var(--modal-inline-padding);
   }
 
@@ -21,6 +21,6 @@
   }
 
   .content {
-    padding-block-end: var(--spacing-xl);
+    padding-block-end: var(--space-32);
   }
 }

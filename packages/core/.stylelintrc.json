@@ -1,15 +1,15 @@
 {
-  "extends": ["stylelint-config-recommended-scss", "monday-ui-style/stylelint-config"],
+  "extends": ["stylelint-config-recommended-scss", "@vibe/style/stylelint-config"],
   "plugins": ["stylelint-use-logical", "stylelint-no-unsupported-browser-features"],
   "rules": {
     "no-descending-specificity": null,
-    "monday-ui-style/use-defined-css-var-when-available": [
+    "@vibe/style/use-defined-css-var-when-available": [
       true,
       {
         "severity": "warning"
       }
     ],
-    "monday-ui-style/use-new-spacing-tokens": [
+    "@vibe/style/use-new-spacing-tokens": [
       null,
       {
         "severity": "warning"

@@ -11,13 +11,13 @@ import React, {
   useState
 } from "react";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef, NOOP, getStyle } from "@vibe/shared";
 import usePrevious from "../../../hooks/usePrevious";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
-import { NOOP } from "../../../utils/function-utils";
+
 import { type TabProps } from "../Tab/Tab";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+
 import styles from "./TabList.module.scss";
 
 export interface TabListProps extends VibeComponentProps {
@@ -156,11 +156,11 @@ const TabList: FC<TabListProps> = forwardRef(
           className: cx(styles.tabListTabWrapper, child.props.className),
           tabInnerClassName: cx(styles.tabListTabInner, child.props.tabInnerClassName),
           tabIndex: shouldBeFocusable ? 0 : -1,
-          ariaControls: tabPanelIds[index],
+          "aria-controls": tabPanelIds[index],
           ref: (element: HTMLElement | null) => {
             tabRefs.current[index] = element;
           }
-        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string; ariaControls?: string });
+        } as Partial<TabProps> & { ref: React.Ref<HTMLElement>; tabInnerLabelId?: string });
       });
       return childrenToRender;
     }, [children, activeTabState, focusIndex, onSelectionAction, stretchedUnderline, tabPanelIds, id]);

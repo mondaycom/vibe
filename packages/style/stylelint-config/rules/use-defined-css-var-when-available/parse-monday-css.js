@@ -18,7 +18,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
   const ast = postcss.parse(css);
 
   const varsToCanonicalValue = {}; // css vars that are mapped to canonical values. e.g. {"--color-primary": "#131313"}
-  const canonicalValuesToVars = {}; // matching css vars for each canonical value. e.g. {"16px": ["--font-size-h3", "--spacing-medium"]}
+  const canonicalValuesToVars = {}; // matching css vars for each canonical value. e.g. {"16px": ["--font-size-h3", "--space-16"]}
   const referenceTokens = {}; // css vars that are pointing to other css vars. e.g. {"--color-primary": "--color-red"}
   const referenceTokensToCanonicalValue = {}; // maps between reference token names to canonical values. e.g. if "--font-size-h5: var(--font-size-30)" and "--font-size-30: 16px", then {"--font-size-h5": "16px"}
 
@@ -70,8 +70,8 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
  {
     padding: {
       {
-        "8px": { allowedVars: [ "--spacing-small" ] },
-        "16px": { allowedVars: [ "--spacing-medium" ] },
+        "8px": { allowedVars: [ "--space-8" ] },
+        "16px": { allowedVars: [ "--space-16" ] },
       }
     },
     "font-size":{

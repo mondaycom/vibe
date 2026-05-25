@@ -1,6 +1,6 @@
 import React, { type ReactElement, type Ref, useCallback, useMemo } from "react";
 import cx from "classnames";
-import { Flex } from "@vibe/layout";
+import { Flex, type FlexProps } from "@vibe/layout";
 import { type AvatarProps } from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
@@ -35,7 +35,7 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
   tooltipContentContainerRef
 }) => {
   const getTooltipContent = useCallback((avatarProps: AvatarProps) => {
-    return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
+    return avatarProps?.tooltipProps?.content || avatarProps?.["aria-label"];
   }, []);
 
   const { avatarItems, displayAsGrid, tooltipContainerAriaLabel } = useMemo(() => {
@@ -70,16 +70,16 @@ const AvatarGroupCounterTooltipContent: React.FC<AvatarGroupCounterTooltipConten
     ref: tooltipContentContainerRef,
     tabIndex: -1,
     role: "treegrid",
-    ariaLabel: tooltipContainerAriaLabel,
+    "aria-label": tooltipContainerAriaLabel,
     className: displayAsGrid
       ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
       : cx(styles.scrollableContainer, styles.tooltipContainer, className),
-    direction: displayAsGrid ? Flex.directions.ROW : Flex.directions.COLUMN,
-    gap: displayAsGrid ? Flex.gaps.XS : Flex.gaps.SMALL,
+    direction: displayAsGrid ? "row" : "column",
+    gap: displayAsGrid ? "xs" : "small",
     wrap: displayAsGrid
   };
 
-  return <Flex {...flexProps}>{renderedItems}</Flex>;
+  return <Flex {...(flexProps as FlexProps)}>{renderedItems}</Flex>;
 };
 
 export default AvatarGroupCounterTooltipContent;

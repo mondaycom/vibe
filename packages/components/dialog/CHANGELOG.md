@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.0...@vibe/dialog@4.0.1) (2026-04-16)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [3.0.12](https://github.com/mondaycom/vibe/compare/@vibe/dialog@3.0.11...@vibe/dialog@3.0.12) (2026-02-27)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [3.0.11](https://github.com/mondaycom/vibe/compare/@vibe/dialog@3.0.10...@vibe/dialog@3.0.11) (2026-01-28)
+
+
+### Bug Fixes
+
+* **usePopover:** fix offset when false ([#3243](https://github.com/mondaycom/vibe/issues/3243)) ([f879780](https://github.com/mondaycom/vibe/commit/f8797804acdc7fe573618098931523566a28de89))
+
+
+
+
+
 ## [3.0.10](https://github.com/mondaycom/vibe/compare/@vibe/dialog@3.0.9...@vibe/dialog@3.0.10) (2026-01-18)
 
 **Note:** Version bump only for package @vibe/dialog

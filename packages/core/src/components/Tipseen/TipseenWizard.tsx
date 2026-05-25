@@ -4,7 +4,6 @@ import Steps, { type StepsProps } from "../Steps/Steps";
 import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
 import { TipseenContext } from "./Tipseen";
-import { TipseenColor } from "./TipseenConstants";
 import { type ButtonSize, type ButtonType } from "@vibe/button";
 
 const FINISH_TEXT = "Got it";
@@ -28,7 +27,7 @@ const TipseenWizard: FC<TipseenWizardProps> = ({ id, title, onFinish, titleClass
   const overrideStepsProps = stepsProps as StepsProps;
   const color = useContext(TipseenContext);
   const buttonColor = useMemo(() => {
-    return color === TipseenColor.INVERTED ? "on-inverted-background" : "on-primary-color";
+    return color === "inverted" ? "on-inverted-background" : "on-primary-color";
   }, [color]);
 
   const nextButtonProps = useMemo(

@@ -34,7 +34,7 @@ export interface IComboboxCategory {
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, the category is only shown when searching.
    */
@@ -89,7 +89,7 @@ export interface IComboboxOption {
   /**
    * The ARIA label for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, the option belongs to a category.
    */

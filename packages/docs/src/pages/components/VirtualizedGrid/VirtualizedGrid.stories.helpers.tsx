@@ -15,7 +15,7 @@ export const itemRenderer = (item: VirtualizedGridItemType, index: number, style
     return (
       <div key={index} style={style}>
         <Text
-          color={Text.colors.FIXED_DARK}
+          color="fixedDark"
           style={{
             backgroundColor,
             height: item.height,

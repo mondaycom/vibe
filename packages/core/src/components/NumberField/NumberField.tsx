@@ -10,7 +10,7 @@ import { Icon } from "@vibe/icon";
 import NumberFieldSpinButton from "./components/NumberFieldSpinButton/NumberFieldSpinButton";
 import styles from "./NumberField.module.scss";
 import { Flex } from "@vibe/layout";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { ComponentVibeId } from "../../tests/constants";
 
 const NumberField = forwardRef(

@@ -7,8 +7,7 @@ import {
   Flex,
   useGridKeyboardNavigation,
   GridKeyboardNavigationContext,
-  useGridKeyboardNavigationContext,
-  type VibeComponent
+  useGridKeyboardNavigationContext
 } from "@vibe/core";
 import "./useGridKeyboardNavigationContext.stories.scss";
 const ELEMENT_WIDTH_PX = 72;
@@ -24,7 +23,7 @@ interface DummyNavigableGridProps {
   disabledIndexes?: number[];
   withoutBorder?: boolean;
 }
-export const DummyNavigableGrid: VibeComponent<DummyNavigableGridProps> = forwardRef(
+export const DummyNavigableGrid: React.ForwardRefExoticComponent<DummyNavigableGridProps & React.RefAttributes<HTMLElement>> = forwardRef(
   (
     { itemsCount, numberOfItemsInLine, itemPrefix = "", disabled = false, disabledIndexes = [], withoutBorder = false },
     ref: RefObject<HTMLDivElement>

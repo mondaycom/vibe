@@ -24,7 +24,7 @@ export const ColorPickerDescription = () => {
   const component = useMemo(() => {
     return (
       <div>
-        <ColorPicker colorSize={ColorPicker.colorSizes.SMALL} colorsList={COLORS_LIST} forceUseRawColorList />
+        <ColorPicker colorSize="small" colorsList={COLORS_LIST} forceUseRawColorList />
       </div>
     );
   }, []);

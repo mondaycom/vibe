@@ -1,39 +1,34 @@
 import fs from "fs";
 import path from "path";
 import parser from "@babel/parser";
-import traverse from "@babel/traverse";
-import generate from "@babel/generator";
+import _traverse from "@babel/traverse";
+import _generate from "@babel/generator";
+
+const traverse = _traverse.default ?? _traverse;
+const generate = _generate.default ?? _generate;
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const componentsDir = path.join(__dirname, "../../core/src/components");
+const componentsDir = path.join(__dirname, "../../docs/src/pages/components/");
 const outputDir = path.join(__dirname, "../dist/generated/");
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir); 
-}
 
-function getStoryFiles() {
+export function getStoryFiles() {
   const storyFiles = [];
 
   function traverseDirectory(dir) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
-    
+
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
-      
+
       if (entry.isDirectory()) {
-        if (entry.name === "__stories__") {
-          // Found stories directory, get all .stories.tsx files
-          const storyDirEntries = fs.readdirSync(fullPath, { withFileTypes: true });
-          for (const storyEntry of storyDirEntries) {
-            if (storyEntry.isFile() && (storyEntry.name.endsWith(".stories.tsx") || storyEntry.name.endsWith(".stories.js"))) {
-              storyFiles.push(path.relative(__dirname, path.join(fullPath, storyEntry.name)));
-            }
-          }
-        } else {
-          // Recursively traverse other directories
-          traverseDirectory(fullPath);
+        // Recursively traverse subdirectories
+        traverseDirectory(fullPath);
+      } else if (entry.isFile()) {
+        // Check for story files
+        if (entry.name.endsWith(".stories.tsx") || entry.name.endsWith(".stories.js")) {
+          storyFiles.push(path.relative(__dirname, fullPath));
         }
       }
     }
@@ -43,17 +38,15 @@ function getStoryFiles() {
   return storyFiles;
 }
 
-const files = getStoryFiles();
-
-function generateCodeForOneLiner(ast, constName) {
+export function generateCodeForOneLiner(ast, constName) {
   let calleeCode = null;
-  traverse.default(ast, {
+  traverse(ast, {
     VariableDeclarator(path) {
       if (path.node.id.name === constName) {
-        if (path.node.init?.callee?.name !== 'createComponentTemplate') {
-          calleeCode = "const " + generate.default(path.node).code;
+        if (path.node.init?.callee?.name !== "createComponentTemplate") {
+          calleeCode = "const " + generate(path.node).code;
         } else {
-          return calleeCode = ""
+          return (calleeCode = "");
         }
       }
     }
@@ -61,17 +54,14 @@ function generateCodeForOneLiner(ast, constName) {
   return calleeCode;
 }
 
-function extractMarkdown(file) {
-  const inputFile = path.join(
-    __dirname,
-    file
-  );
+export function extractMarkdown(file) {
+  const inputFile = path.join(__dirname, file);
   const inputFileComponentName = path.basename(inputFile).split(".")[0];
   const outputFile = path.resolve(__dirname, outputDir, inputFileComponentName + ".md");
 
   const fileContent = fs.readFileSync(inputFile, "utf-8");
 
-  console.log(`Generating markdown for ${inputFileComponentName}`)
+  console.log(`Generating markdown for ${inputFileComponentName}`);
 
   // Parse the file using Babel parser with TypeScript and JSX support
   const ast = parser.parse(fileContent, {
@@ -82,17 +72,17 @@ function extractMarkdown(file) {
   let markdown = "# Storybook Code Examples\n\n";
 
   let accordionTemplateCode = "";
-  traverse.default(ast, {
+  traverse(ast, {
     VariableDeclarator(path) {
       // console.log(path.node);
       if (path.node.id.name === "accordionTemplate" && path.node.init.type === "ArrowFunctionExpression") {
-        accordionTemplateCode = generate.default(path.node.init).code;
+        accordionTemplateCode = generate(path.node.init).code;
       }
     }
   });
 
   // Traverse the AST to find all exported story objects
-  traverse.default(ast, {
+  traverse(ast, {
     ExportNamedDeclaration(path) {
       if (path.node.declaration && path.node.declaration.type === "VariableDeclaration") {
         path.node.declaration.declarations.forEach(declarator => {
@@ -115,23 +105,24 @@ function extractMarkdown(file) {
             });
             if (renderProp) {
               // If render is a function, generate its code
-              if (renderProp.type == 'ArrowFunctionExpression') {
-                if (renderProp.body.type == 'JSXFragment' || renderProp.body.type == 'MemberExpression' || renderProp.body.type == 'JSXElement') {
-                  codeBlock = generate.default(renderProp.body).code; 
-                }
-                else if (renderProp.body.type == 'BlockStatement') {
-                  codeBlock = renderProp.body.body.map(line => generate.default(line).code).join('\n')
-                }
-                else {
+              if (renderProp.type == "ArrowFunctionExpression") {
+                if (
+                  renderProp.body.type == "JSXFragment" ||
+                  renderProp.body.type == "MemberExpression" ||
+                  renderProp.body.type == "JSXElement"
+                ) {
+                  codeBlock = generate(renderProp.body).code;
+                } else if (renderProp.body.type == "BlockStatement") {
+                  codeBlock = renderProp.body.body.map(line => generate(line).code).join("\n");
+                } else {
                   console.log(`${nameProp || storyName} is a ${renderProp.body.type}`);
-                  codeBlock = generate.default(renderProp.body).code;
+                  codeBlock = generate(renderProp.body).code;
                 }
-              } else if (renderProp.type == 'CallExpression') {
+              } else if (renderProp.type == "CallExpression") {
                 // console.log(renderProp.callee.object.name);
                 const calleeName = renderProp.callee.object.name;
-                codeBlock = generateCodeForOneLiner(ast, calleeName) 
-              }
-              else {
+                codeBlock = generateCodeForOneLiner(ast, calleeName);
+              } else {
                 console.log(`${nameProp || storyName} is a ${renderProp.type}`);
               }
             }
@@ -149,10 +140,16 @@ function extractMarkdown(file) {
   console.log(`Code samples generated for ${inputFileComponentName} at ${outputFile}`);
 }
 
-function run() {
+export function run() {
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
+  }
+  const files = getStoryFiles();
   files.forEach(file => {
     extractMarkdown(file);
   });
 }
 
-run();
+if (process.argv[1] === __filename) {
+  run();
+}

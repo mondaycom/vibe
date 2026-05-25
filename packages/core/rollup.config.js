@@ -1,9 +1,10 @@
 import * as path from "path";
+import { fileURLToPath } from "url";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
@@ -12,6 +13,7 @@ import * as fs from "fs";
 import ejs from "ejs";
 import copy from "rollup-plugin-copy";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
@@ -100,7 +102,7 @@ export default {
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
     next: path.join(SRC_PATH, "components/next.ts")
   },
-  external: [/node_modules\/(?!monday-ui-style)(.*)/],
+  external: [/node_modules\/(?!@vibe\/style)(.*)/],
   plugins: [
     ...(shouldMockModularClassnames
       ? [
@@ -176,7 +178,7 @@ export default {
     copy({
       targets: [
         {
-          src: "../../node_modules/monday-ui-style/dist/index.min.css",
+          src: "../../node_modules/@vibe/style/dist/index.min.css",
           dest: "dist/tokens",
           rename: () => "tokens.css"
         },

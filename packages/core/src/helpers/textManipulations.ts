@@ -1,4 +1,4 @@
-import { convertToArray } from "../utils/function-utils";
+import { convertToArray } from "@vibe/shared";
 
 const MIN_PRECISION = 0;
 const MAX_PRECISION = 20;
@@ -7,7 +7,7 @@ const DEFAULT_LOCAL = "en-US";
 function validateLocalSupported(local: string) {
   let isLocalSupported;
   try {
-    const options = { localeMatcher: "lookup" };
+    const options = { localeMatcher: "lookup" as const };
     isLocalSupported = !!Intl.NumberFormat.supportedLocalesOf(convertToArray(local), options).length;
   } catch (err) {
     isLocalSupported = false;

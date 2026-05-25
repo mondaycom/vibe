@@ -1,14 +1,8 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import { Clickable } from "@vibe/clickable";
-import {
-  FlexAlign as FlexAlignEnum,
-  FlexDirection as FlexDirectionEnum,
-  FlexGap as FlexGapEnum,
-  FlexJustify as FlexJustifyEnum
-} from "./FlexConstants";
 import { type FlexDirection, type FlexJustify, type FlexAlign, type FlexGap, type FlexShorthand } from "./Flex.types";
-import { type ElementContent, withStaticProps, type VibeComponentProps, getStyle, useMergeRef } from "@vibe/shared";
+import { type ElementContent, type VibeComponentProps, getStyle, useMergeRef } from "@vibe/shared";
 import styles from "./Flex.module.scss";
 import { camelCase } from "es-toolkit";
 
@@ -52,7 +46,7 @@ export interface FlexProps extends VibeComponentProps {
   /**
    * The label of the flex container for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The tab order of the element.
    */
@@ -68,7 +62,7 @@ export interface FlexProps extends VibeComponentProps {
   /**
    * ID of the element describing the flex container.
    */
-  ariaLabelledby?: string;
+  "aria-labelledby"?: string;
 }
 
 const Flex = forwardRef(
@@ -87,8 +81,8 @@ const Flex = forwardRef(
       onClick,
       onMouseDown,
       style,
-      ariaLabelledby,
-      ariaLabel,
+      "aria-labelledby": ariaLabelledby,
+      "aria-label": ariaLabel,
       tabIndex,
       "data-testid": dataTestId
     }: FlexProps,
@@ -104,7 +98,13 @@ const Flex = forwardRef(
       if (typeof gap === "number") {
         return { gap: `${gap}px` };
       }
-      return { gap: `var(--spacing-${gap})` };
+      const gapTokenMap: Record<string, string> = {
+        xs: "var(--space-4)",
+        small: "var(--space-8)",
+        medium: "var(--space-16)",
+        large: "var(--space-24)"
+      };
+      return { gap: gapTokenMap[gap] };
     }, [gap]);
 
     const flexStyle = useMemo(() => {
@@ -127,7 +127,7 @@ const Flex = forwardRef(
 
     const overrideStyle = useMemo(() => ({ ...style, ...gapStyle, ...flexStyle }), [style, gapStyle, flexStyle]);
     const onClickProps = useMemo(() => {
-      if (onClick) return { elementType, ariaLabelledby };
+      if (onClick) return { elementType, "aria-labelledby": ariaLabelledby };
       return { "aria-labelledby": ariaLabelledby };
     }, [onClick, elementType, ariaLabelledby]);
     const Element = onClick ? Clickable : elementType;
@@ -160,16 +160,4 @@ const Flex = forwardRef(
   }
 );
 
-interface FlexStaticProps {
-  justify: typeof FlexJustifyEnum;
-  align: typeof FlexAlignEnum;
-  gaps: typeof FlexGapEnum;
-  directions: typeof FlexDirectionEnum;
-}
-
-export default withStaticProps<FlexProps, FlexStaticProps>(Flex, {
-  justify: FlexJustifyEnum,
-  align: FlexAlignEnum,
-  gaps: FlexGapEnum,
-  directions: FlexDirectionEnum
-});
+export default Flex;

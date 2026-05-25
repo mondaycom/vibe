@@ -1,0 +1,142 @@
+import { Meta } from "@storybook/blocks";
+import { Board } from "@vibe/icons";
+import { ListItem, ListItemIcon, List, DialogContentContainer, Divider } from "@vibe/core";
+import { Filter, Add } from "@vibe/icons";
+import { Link, Tip, StorybookLink } from "vibe-storybook-components";
+import { TipCheckYourself } from "./List.stories.helpers";
+import * as ListStories from "./List.stories";
+
+<Meta of={ListStories} />
+
+# List
+
+<Tip title="New List Available" emoji="🚀">
+  A new List component is available with improved keyboard navigation, accessibility features, and a cleaner API. Check
+  out the <StorybookLink page="Components/List [New]">new List component</StorybookLink>.
+</Tip>
+
+Lists is a group of actionable items containing primary and supplemental actions, which are represented by icons and text.
+
+<Canvas of={ListStories.Overview} />
+
+### Import
+
+```js
+import { List } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use list component for display a list of navigable items in a column.",
+    "List purpose is usually allowing navigation in context to the navigable  content.",
+    "Your list items can be either in regular, selected or disabled state. You can control a list item's component state by its attributes."
+  ]}
+/>
+
+<TipCheckYourself />
+
+## Variants
+
+### List with categories
+
+<Canvas of={ListStories.ListWithCategories} />
+
+### List with icons
+
+<Canvas of={ListStories.ListWithIcons} />
+
+### List with avatars
+
+<Canvas of={ListStories.ListWithAvatars} />
+
+### List with virtualization optimization
+
+When you display a large number of items, you may want to render only the options shown at a given moment to allow better performance and a
+better user experience.
+
+<Canvas of={ListStories.ListWithVirtualizationOptimization} />
+
+<Tip>
+  While using virtualization optimization on your list component, please be aware your list needs to contain a constant
+  height and width for function properly
+</Tip>
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <div>
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Add} />
+                Add
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Filter} />
+                Filter
+              </ListItem>
+            </List>
+            <Divider />
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+            </List>
+          </div>
+        ),
+        description: "Use a list component to create a menu displayed on one of the various sections of your web page."
+      },
+      negative: {
+        component: (
+          <DialogContentContainer>
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Add} />
+                Add
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Filter} />
+                Filter
+              </ListItem>
+            </List>
+            <Divider />
+            <List>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+              <ListItem>
+                <ListItemIcon icon={Board} />
+                Board name
+              </ListItem>
+            </List>
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Do not use the list to implement a menu displayed inside a dialog. See{" "}
+            <StorybookLink page="Components/Menu">Menu</StorybookLink>.
+          </>
+        )
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={["Menu", "Tabs", "MultiStepIndicator"]} />

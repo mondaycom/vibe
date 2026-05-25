@@ -75,7 +75,7 @@ export const WithAdditionalAction: Story = {
       id="search-with-action"
       inputAriaLabel="Search with filter action"
       placeholder="Search with icon"
-      renderAction={<IconButton id="filter-action-button" icon={FilterIcon} ariaLabel="Filter results" size="small" />}
+      renderAction={<IconButton id="filter-action-button" icon={FilterIcon} aria-label="Filter results" size="small" />}
     />
   ),
   decorators: [withFixedWidth],

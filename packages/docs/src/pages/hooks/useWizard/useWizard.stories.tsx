@@ -4,7 +4,7 @@ import { type Decorator } from "@storybook/react";
 import styles from "./useWizard.stories.module.scss";
 
 const withUseWizardDecorator: Decorator = Story => (
-  <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+  <Flex direction="column" gap="medium">
     <Story />
   </Flex>
 );
@@ -23,11 +23,11 @@ export const Overview = {
 
     return (
       <>
-        <Heading weight={Heading.weights.MEDIUM} type={Heading.types.H3}>
+        <Heading weight="medium" type="h3">
           Active Step: {activeStep}
         </Heading>
-        <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={isFirstStep}>
+        <Flex gap="small">
+          <Button kind="tertiary" onClick={back} disabled={isFirstStep}>
             Back
           </Button>
           <Button onClick={next}>Next</Button>
@@ -46,11 +46,11 @@ export const WithInitialStep = {
 
     return (
       <>
-        <Heading weight={Heading.weights.MEDIUM} type={Heading.types.H3}>
+        <Heading weight="medium" type="h3">
           Active Step: {activeStep}
         </Heading>
-        <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={isFirstStep}>
+        <Flex gap="small">
+          <Button kind="tertiary" onClick={back} disabled={isFirstStep}>
             Back
           </Button>
           <Button onClick={next}>Next</Button>
@@ -84,8 +84,8 @@ export const WithStepsComponent = {
           activeStepIndex={activeStep}
           onChangeActiveStep={(_e, stepIndex) => goToStep(stepIndex)}
         />
-        <Flex gap={Flex.gaps.SMALL}>
-          <Button kind={Button.kinds.TERTIARY} onClick={back} disabled={isFirstStep}>
+        <Flex gap="small">
+          <Button kind="tertiary" onClick={back} disabled={isFirstStep}>
             Back
           </Button>
           <Button onClick={next}>Next</Button>

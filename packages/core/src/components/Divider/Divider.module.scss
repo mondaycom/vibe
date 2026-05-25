@@ -9,11 +9,11 @@
 .horizontal {
   height: 1px;
   width: 100%;
-  margin: var(--spacing-small) 0;
+  margin: var(--space-8) 0;
 }
 
 .vertical {
   height: 100%;
   width: 1px;
-  margin: 0 var(--spacing-xs);
+  margin: 0 var(--space-4);
 }

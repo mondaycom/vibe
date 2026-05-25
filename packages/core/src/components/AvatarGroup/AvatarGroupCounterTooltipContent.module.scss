@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .tooltipAvatarItemTitle {
   white-space: nowrap;
@@ -10,11 +10,11 @@
 
 .tooltipContainer {
   max-height: 300px;
-  padding-right: var(--spacing-medium);
+  padding-inline-end: var(--space-16);
   align-items: flex-start !important;
   overflow-x: visible;
   overflow-y: auto;
-  margin-top: var(--spacing-small);
+  margin-top: var(--space-8);
   &:focus,
   &:focus-visible,
   &.focus-visible { /* stylelint-disable-line selector-class-pattern */
@@ -24,7 +24,7 @@
 
 .tooltipGridContainer {
   max-width: 160px;
-  padding-right: 0;
+  padding-inline-end: 0;
 }
 .scrollableContainer {
   @include scroller();

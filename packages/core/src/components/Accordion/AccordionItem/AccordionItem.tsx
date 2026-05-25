@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 import { type VibeComponentProps, type ElementContent } from "../../../types";
 import { type ExpandCollapseIconPosition } from "../../ExpandCollapse/ExpandCollapse.types";
@@ -42,13 +42,13 @@ export interface AccordionItemProps extends VibeComponentProps {
    */
   contentClassName?: string;
   /**
-   * Class name applied to the expand/collapse component.
-   */
-  expandCollapseComponentClassName?: string;
-  /**
    * If true, the click event is handled during the capture phase.
    */
   captureOnClick?: boolean;
+  /**
+   * Class name applied to the expand/collapse component.
+   */
+  expandCollapseComponentClassName?: string;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = forwardRef(

@@ -4,7 +4,7 @@ import { textfieldStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let textField: TextField;
-const textFieldLocator = "#input";
+const textFieldLocator = 'input[data-testid^="text-field"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - TextField", () => {

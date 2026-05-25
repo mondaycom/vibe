@@ -149,7 +149,7 @@ export const BuiltInPageHeaderNotEditable = {
         My work
       </Heading>
       <Divider />
-      <Flex align="center" gap="small" aria-labelledby="my-work-id" style={{ marginTop: "var(--spacing-medium" }}>
+      <Flex align="center" gap="small" aria-labelledby="my-work-id" style={{ marginTop: "var(--space-16)" }}>
         <Box style={{ width: "146px" }}>
           <Search placeholder="Search" />
         </Box>

@@ -12,7 +12,7 @@ export const VirtualizedListDescription = () => {
         <div key={index} style={style}>
           <Text
             className={styles.virtualizedListItem}
-            color={Text.colors.FIXED_DARK}
+            color="fixedDark"
             style={{
               backgroundColor,
               height: item.height

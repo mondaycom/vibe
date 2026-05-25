@@ -27,23 +27,10 @@
 
 .iconStart {
   line-height: 24px;
-  margin-right: var(--sb-spacing-small);
+  margin-inline-end: var(--sb-spacing-xs);
 }
 
 .iconEnd {
   line-height: 24px;
-  margin-left: var(--sb-spacing-small);
-}
-
-@supports (margin-inline-start: initial) {
-  .iconStart {
-    line-height: 24px;
-    margin-right: 0;
-    margin-inline-end: var(--sb-spacing-xs);
-  }
-  .iconEnd {
-    line-height: 24px;
-    margin-left: 0;
-    margin-inline-start: var(--sb-spacing-xs);
-  }
+  margin-inline-start: var(--sb-spacing-xs);
 }

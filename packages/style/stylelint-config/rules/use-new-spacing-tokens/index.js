@@ -1,6 +1,6 @@
 const stylelint = require("stylelint");
 
-const ruleName = "monday-ui-style/use-new-spacing-tokens";
+const ruleName = "@vibe/style/use-new-spacing-tokens";
 const messages = stylelint.utils.ruleMessages(ruleName, {
   rejected: (_property, value, replacement) =>
     `Use new spacing tokens instead of legacy ones. Replace "${value}" with "${replacement}".`

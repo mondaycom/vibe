@@ -78,7 +78,7 @@ describe("Avatar renders correctly", () => {
   });
 
   it("renders correctly accessibility props", () => {
-    const tree = renderer.create(<Avatar tabIndex={-1} ariaHidden />).toJSON();
+    const tree = renderer.create(<Avatar tabIndex={-1} aria-hidden />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

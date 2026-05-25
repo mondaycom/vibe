@@ -1,5 +1,5 @@
-@import "~monday-ui-style/dist/mixins/typography";
-@import "~monday-ui-style/dist/mixins/states";
+@import "~@vibe/style/dist/mixins/typography";
+@import "~@vibe/style/dist/mixins/states";
 
 .clickable {
   @include clickable;

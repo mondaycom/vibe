@@ -479,7 +479,7 @@ export const TableAvatar = ({ text }: { text: string }) => (
       .join("")}
     customSize={24}
     size="small"
-    ariaLabel={text}
+    aria-label={text}
     backgroundColor="dark_purple"
   />
 );

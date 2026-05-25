@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .tooltip {
   position: relative;
@@ -16,8 +16,8 @@
   .image {
     display: block;
     position: relative;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
+    border-start-end-radius: 2px;
+    border-start-start-radius: 2px;
     padding: 2px 2px 0 2px;
     object-fit: cover;
     width: 100%;
@@ -33,13 +33,13 @@
   .content {
     word-break: break-word;
     display: inline-block;
-    padding: var(--tooltip-padding, #{var(--spacing-small) var(--spacing-medium)});
+    padding: var(--tooltip-padding, #{var(--space-8) var(--space-16)});
   }
 }
 
 .tooltip.paddingSizeMd {
   border-radius: var(--border-radius-medium);
-  padding: var(--spacing-medium);
+  padding: var(--space-16);
   @include vibe-text(text2, normal);
 }
 

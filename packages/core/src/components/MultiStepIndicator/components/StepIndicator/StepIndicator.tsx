@@ -1,5 +1,5 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle, NOOP } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
@@ -10,7 +10,7 @@ import useKeyEvent from "../../../../hooks/useKeyEvent";
 import { Icon } from "@vibe/icon";
 import { Check } from "@vibe/icons";
 import Divider from "../../../../components/Divider/Divider";
-import { NOOP } from "../../../../utils/function-utils";
+
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import { Clickable } from "@vibe/clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
@@ -55,9 +55,9 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
     <Icon
       icon={fulfilledStepIcon}
       className={classNames(styles.numberContainerTextCheckIcon)}
-      iconType={fulfilledStepIconType}
+      type={fulfilledStepIconType}
       ignoreFocusStyle
-      ariaHidden={true}
+      aria-hidden={true}
     />
   ) : (
     <>{stepNumber}</>
@@ -146,6 +146,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   // Refs
   const componentRef = useRef(null);
+  const nodeRef = useRef<HTMLSpanElement>(null);
   const prevStatusRef = useRef(status);
 
   // Callbacks for modifying animation state
@@ -203,7 +204,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
 
   return (
     <Clickable
-      tabIndex="-1"
+      tabIndex={-1}
       elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [styles.withAnimation]: statusChangeAnimationState,
@@ -222,21 +223,20 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           role="button"
         >
           <SwitchTransition mode="out-in">
-            <CSSTransition<undefined>
-              // CSSTransition needs to be specified with the generic parameter to decide type for addEndListener's callback
-              // otherwise, addEndListener cb has only `done` param (ts error)
+            <CSSTransition
+              key={status}
+              nodeRef={nodeRef}
               classNames={{
                 enter: styles.swapEnter,
                 enterActive: styles.swapEnterActive,
                 exit: styles.swapExit,
                 exitActive: styles.swapExitActive
               }}
-              addEndListener={(node: HTMLElement, done: () => void) => {
-                node.addEventListener("transitionend", done, false);
+              addEndListener={done => {
+                nodeRef.current?.addEventListener("transitionend", done, false);
               }}
-              key={status}
             >
-              <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
+              <span ref={nodeRef} className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
                 <StepCircleDisplay
                   fulfilledStepIcon={fulfilledStepIcon}
                   fulfilledStepIconType={fulfilledStepIconType}

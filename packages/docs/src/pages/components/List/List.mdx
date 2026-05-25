@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/blocks";
-import { Board } from "@vibe/icons";
-import { ListItem, ListItemIcon, List, DialogContentContainer, Divider } from "@vibe/core";
-import { Filter, Add } from "@vibe/icons";
-import { Link, Tip } from "vibe-storybook-components";
+import { Board, Add, Filter } from "@vibe/icons";
+import { List, ListItem, ListTitle } from "@vibe/core/next";
+import { DialogContentContainer, Divider, Flex } from "@vibe/core";
+import { Link, Tip, StorybookLink } from "vibe-storybook-components";
 import { TipCheckYourself } from "./List.stories.helpers";
 import * as ListStories from "./List.stories";
 
@@ -16,8 +16,10 @@ Lists is a group of actionable items containing primary and supplemental actions
 
 ### Import
 
+All the List-related components can be imported from `@vibe/core/next`.
+
 ```js
-import { List } from "@vibe/core";
+import { List, ListItem, ListTitle } from "@vibe/core/next";
 ```
 
 ## Props
@@ -29,18 +31,41 @@ import { List } from "@vibe/core";
 <UsageGuidelines
   guidelines={[
     "Use list component for display a list of navigable items in a column.",
-    "List purpose is usually allowing navigation in context to the navigable  content.",
-    "Your list items can be either in regular, selected or disabled state. You can control a list item's component state by its attributes."
+    "List purpose is usually allowing navigation in context to the navigable content.",
+    "Your list items can be either in regular, selected or disabled state. You can control a list item's component state by its attributes.",
+    "Use the ariaLabel prop to provide an accessible name for the list."
   ]}
 />
 
 <TipCheckYourself />
 
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Always provide an <code>ariaLabel</code> prop to give the list a meaningful accessible name that describes its
+      purpose (e.g., "Navigation menu", "Settings options").
+    </>,
+    <>
+      The List component provides comprehensive keyboard navigation: <strong>Arrow Up/Down</strong> to navigate between
+      items (wraps around), <strong>Home/End</strong> to jump to first/last item, <strong>PageUp/PageDown</strong> to
+      move by 10 items, and <strong>Enter/Space</strong> to activate the focused item.
+    </>,
+    <>
+      Use <code>defaultFocusIndex</code> to set which item should receive focus when the list first becomes focused.
+    </>,
+    <>
+      Use <code>onFocusChange</code> callback to track focus changes for custom focus management scenarios.
+    </>,
+    <>
+      Ensure individual <code>ListItem</code> components have descriptive <code>label</code> text. For items with only
+      icons, provide additional context through the label.
+    </>
+  ]}
+/>
+
 ## Variants
-
-### List with categories
-
-<Canvas of={ListStories.ListWithCategories} />
 
 ### List with icons
 
@@ -50,19 +75,47 @@ import { List } from "@vibe/core";
 
 <Canvas of={ListStories.ListWithAvatars} />
 
-### List with virtualization optimization
+### List with title
 
-When you display a large number of items, you may want to render only the options shown at a given moment to allow better performance and a
-better user experience.
+Use `ListTitle` to create section headers within your list. Titles are automatically skipped during keyboard navigation.
 
-<Canvas of={ListStories.ListWithVirtualizationOptimization} />
+<Canvas of={ListStories.ListWithTitle} />
 
-<Tip>
-  While using virtualization optimization on your list component, please be aware your list needs to contain a constant
-  height and width for function properly
-</Tip>
+### Sticky title
 
-## Do’s and Don’ts
+Use the `sticky` prop on `ListTitle` to keep section headers visible at the top while scrolling through a list.
+
+<Canvas of={ListStories.StickyTitle} />
+
+### Scrollable list
+
+Use `maxHeight` to create a scrollable list with a fixed height.
+
+<Canvas of={ListStories.ScrollableList} />
+
+### Sizes
+
+<Canvas of={ListStories.Sizes} />
+
+### States
+
+<Canvas of={ListStories.States} />
+
+### In dialog container
+
+<Canvas of={ListStories.InDialogContainer} />
+
+### With end elements
+
+<Canvas of={ListStories.WithEndElements} />
+
+### Virtualized list
+
+For performance optimization with large datasets (thousands of items), you can implement virtualization by composing the List components with a virtualization library. This example demonstrates using <a href="https://github.com/bvaughn/react-window" target="_blank">react-window</a> to render only the visible items.
+
+<Canvas of={ListStories.VirtualizedList} />
+
+## Do's and Don'ts
 
 <ComponentRules
   rules={[
@@ -70,26 +123,14 @@ better user experience.
       positive: {
         component: (
           <div>
-            <List>
-              <ListItem>
-                <ListItemIcon icon={Add} />
-                Add
-              </ListItem>
-              <ListItem>
-                <ListItemIcon icon={Filter} />
-                Filter
-              </ListItem>
+            <List ariaLabel="Actions">
+              <ListItem label="Add" value="add" startElement={{ type: "icon", value: Add }} />
+              <ListItem label="Filter" value="filter" startElement={{ type: "icon", value: Filter }} />
             </List>
             <Divider />
-            <List>
-              <ListItem>
-                <ListItemIcon icon={Board} />
-                Board name
-              </ListItem>
-              <ListItem>
-                <ListItemIcon icon={Board} />
-                Board name
-              </ListItem>
+            <List ariaLabel="Boards">
+              <ListItem label="Board name" value="board1" startElement={{ type: "icon", value: Board }} />
+              <ListItem label="Board name" value="board2" startElement={{ type: "icon", value: Board }} />
             </List>
           </div>
         ),
@@ -98,26 +139,14 @@ better user experience.
       negative: {
         component: (
           <DialogContentContainer>
-            <List>
-              <ListItem>
-                <ListItemIcon icon={Add} />
-                Add
-              </ListItem>
-              <ListItem>
-                <ListItemIcon icon={Filter} />
-                Filter
-              </ListItem>
+            <List ariaLabel="Actions">
+              <ListItem label="Add" value="add" startElement={{ type: "icon", value: Add }} />
+              <ListItem label="Filter" value="filter" startElement={{ type: "icon", value: Filter }} />
             </List>
             <Divider />
-            <List>
-              <ListItem>
-                <ListItemIcon icon={Board} />
-                Board name
-              </ListItem>
-              <ListItem>
-                <ListItemIcon icon={Board} />
-                Board name
-              </ListItem>
+            <List ariaLabel="Boards">
+              <ListItem label="Board name" value="board1" startElement={{ type: "icon", value: Board }} />
+              <ListItem label="Board name" value="board2" startElement={{ type: "icon", value: Board }} />
             </List>
           </DialogContentContainer>
         ),

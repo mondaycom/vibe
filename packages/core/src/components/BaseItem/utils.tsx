@@ -25,7 +25,7 @@ export function renderSideElement(
       );
 
     case "icon":
-      return <Icon className={styles.icon} icon={element.value} iconSize={20} />;
+      return <Icon className={styles.icon} icon={element.value} size={20} />;
 
     case "indent":
       return <div className={styles.indent} />;

@@ -3,6 +3,114 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.5](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.4...@vibe/docs@4.0.5) (2026-05-24)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.4](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.3...@vibe/docs@4.0.4) (2026-05-13)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.1...@vibe/docs@4.0.3) (2026-05-06)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.1...@vibe/docs@4.0.2) (2026-05-06)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.0...@vibe/docs@4.0.1) (2026-04-16)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add screen reader support for color announcements ([#3346](https://github.com/mondaycom/vibe/issues/3346)) ([ed1bbb1](https://github.com/mondaycom/vibe/commit/ed1bbb1d466d544fbab6ab08198e1db026c116a9))
+
+
+
+
+
+# [3.8.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.3...@vibe/docs@3.8.0) (2026-03-11)
+
+
+### Features
+
+* **LinearProgressBar:** add allowExceedingMax prop to support values… ([#3255](https://github.com/mondaycom/vibe/issues/3255)) ([ce68c53](https://github.com/mondaycom/vibe/commit/ce68c53deab2663b57d0da75d2c6ecb21274827f))
+
+
+
+
+
+## [3.7.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.1...@vibe/docs@3.7.3) (2026-02-27)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [3.7.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.7.0...@vibe/docs@3.7.1) (2026-02-12)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+# [3.7.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.6.0...@vibe/docs@3.7.0) (2026-02-09)
+
+
+### Features
+
+* **List:** new component ([#3240](https://github.com/mondaycom/vibe/issues/3240)) ([c9a15d6](https://github.com/mondaycom/vibe/commit/c9a15d685e586b461e56fcbb008750bf8572821e))
+
+
+
+
+
+# [3.6.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.9...@vibe/docs@3.6.0) (2026-02-04)
+
+
+### Features
+
+* **BaseList:** new component ([#3212](https://github.com/mondaycom/vibe/issues/3212)) ([8372ddd](https://github.com/mondaycom/vibe/commit/8372ddde21e2357e108c1dbbda81e48f00fbc105))
+
+
+
+
+
+## [3.5.9](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.8...@vibe/docs@3.5.9) (2026-01-28)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [3.5.8](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.7...@vibe/docs@3.5.8) (2026-01-25)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
 ## [3.5.7](https://github.com/mondaycom/vibe/compare/@vibe/docs@3.5.6...@vibe/docs@3.5.7) (2026-01-18)
 
 **Note:** Version bump only for package @vibe/docs

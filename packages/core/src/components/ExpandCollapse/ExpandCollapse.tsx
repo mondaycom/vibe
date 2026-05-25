@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useCallback, useRef, useState } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { Icon } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { DropdownChevronDown } from "@vibe/icons";
@@ -112,9 +112,9 @@ const ExpandCollapse: FC<ExpandCollapseProps> = forwardRef(
           [styles.animateIconOpen]: isExpanded,
           [styles.animateIconClose]: !isExpanded
         })}
-        iconType="svg"
+        type="svg"
         icon={DropdownChevronDown}
-        iconSize={iconSize}
+        size={iconSize}
       />
     );
 

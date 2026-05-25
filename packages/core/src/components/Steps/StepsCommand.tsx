@@ -3,14 +3,13 @@ import cx from "classnames";
 import { NavigationChevronRight, NavigationChevronLeft } from "@vibe/icons";
 import { Icon } from "@vibe/icon";
 import { Button, type ButtonProps } from "@vibe/button";
-import { NOOP } from "../../utils/function-utils";
+import { NOOP, getStyle } from "@vibe/shared";
 import { BACK_TEXT, NEXT_TEXT } from "./StepsConstants";
 import { type StepsColor } from "./Steps.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import styles from "./StepsCommand.module.scss";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../..//helpers/typesciptCssModulesHelper";
 
 export interface StepsCommandProps extends VibeComponentProps {
   /**

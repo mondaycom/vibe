@@ -14,32 +14,9 @@ const OLD_TEXT_FIELD_SIZES = {
 
 export type TextFieldSize = (typeof BASE_SIZES)[keyof typeof BASE_SIZES] | keyof typeof OLD_TEXT_FIELD_SIZES;
 
-/**
- * @deprecated
- */
-export enum TextFieldTextType {
-  TEXT = "text",
-  PASSWORD = "password",
-  SEARCH = "search",
-  DATE = "date",
-  DATE_TIME = "datetime-local",
-  NUMBER = "number",
-  TEL = "tel",
-  URL = "url",
-  EMAIL = "email"
-}
-
-/**
- * @deprecated
- */
-export enum TextFieldFeedbackState {
-  ERROR = "error",
-  SUCCESS = "success"
-}
-
 export const FEEDBACK_CLASSES = {
-  [TextFieldFeedbackState.ERROR]: styles.inputErrorValidation,
-  [TextFieldFeedbackState.SUCCESS]: styles.inputSuccessValidation
+  error: styles.inputErrorValidation,
+  success: styles.inputSuccessValidation
 };
 
 export const SIZE_MAPPER = {

@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .scrollableContainer {
   @include scroller;
@@ -7,7 +7,7 @@
 .optionsContainer {
   overflow-x: visible;
   overflow-y: auto;
-  margin-top: var(--spacing-small);
+  margin-top: var(--space-8);
 }
 
 .categoryWithOptions,
@@ -18,7 +18,7 @@
 }
 
 .categoryWithOptions {
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--space-4);
 }
 
 .categoryWithoutOptions {

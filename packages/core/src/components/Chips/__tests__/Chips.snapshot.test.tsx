@@ -65,7 +65,7 @@ describe("Chips renders correctly", () => {
       .create(
         <Chips
           readOnly
-          ariaLabel={"This is mandatory"}
+          aria-label={"This is mandatory"}
           label={
             <>
               This is mandatory <span>*</span>
