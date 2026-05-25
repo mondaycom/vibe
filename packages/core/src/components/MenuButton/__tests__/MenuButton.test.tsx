@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import MenuButton from "../MenuButton";
 import { Bolt } from "@vibe/icons";
-import Button from "../../Button/Button";
+import { Button } from "@vibe/button";
 import MenuItem from "../../Menu/MenuItem/MenuItem";
 import Menu from "../../Menu/Menu/Menu";
 import userEvent from "@testing-library/user-event";
@@ -128,7 +128,7 @@ describe("MenuButton", () => {
   describe("Click", () => {
     it("should show menu", async () => {
       const { getByLabelText } = render(
-        <MenuButton ariaLabel="Menu Button">
+        <MenuButton aria-label="Menu Button">
           <div>Menu</div>
         </MenuButton>
       );
@@ -150,7 +150,7 @@ describe("MenuButton", () => {
       "should $expected menu after clicking enter when closeMenuOnItemClick is $closeMenuOnItemClick",
       async ({ closeMenuOnItemClick }) => {
         const { getByLabelText } = render(
-          <MenuButton ariaLabel="Menu Button" closeMenuOnItemClick={closeMenuOnItemClick}>
+          <MenuButton aria-label="Menu Button" closeMenuOnItemClick={closeMenuOnItemClick}>
             <Menu>
               <MenuItem title="Menu Item" />
             </Menu>

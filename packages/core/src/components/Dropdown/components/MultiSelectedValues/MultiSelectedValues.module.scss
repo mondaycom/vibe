@@ -1,0 +1,56 @@
+.containerWrapper {
+  min-width: 1px;
+  flex-grow: 1;
+
+  &.singleChip {
+    > div:first-child {
+      min-width: 50px;
+      flex-shrink: 1;
+
+      div {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &.measuring {
+    > div:not(.hiddenChip) {
+      opacity: 0;
+    }
+  }
+}
+
+.inputAndCounterWrapper {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.inputWrapper {
+  flex-grow: 1;
+
+  input {
+    width: 100%;
+  }
+}
+
+.chipWrapperWithOverflow {
+  max-width: 100%;
+  flex-shrink: 0;
+
+  .visibleChip {
+    max-width: 100%;
+  }
+}
+
+.hiddenChip {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+.hiddenChipsDialog {
+  max-width: 192px;
+}
+.dialogChip {
+  max-width: 100%;
+}

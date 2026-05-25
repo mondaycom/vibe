@@ -1,0 +1,5 @@
+@import "~@vibe/style/dist/mixins";
+
+.visualFocus {
+  @include focus-style-css;
+}

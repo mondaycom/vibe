@@ -21,20 +21,20 @@
   @include smoothing-text;
   min-width: 18px;
   line-height: 18px;
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--space-8);
 }
 
 .sizeSmall {
   @include font-caption();
   min-width: 18px;
   line-height: 18px;
-  padding: 0 var(--spacing-small);
+  padding: 0 var(--space-8);
 }
 
 .sizeLarge {
   @include label-text();
   min-width: 24px;
-  padding: 2px var(--spacing-small);
+  padding: 2px var(--space-8);
 }
 
 .kindFill.colorPrimary {

@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useEffect, useRef } from "react";
-import Text from "../../../../Text/Text";
+import { Text } from "@vibe/typography";
 import { ComponentDefaultTestId, getTestId } from "../../../../../tests/test-ids-utils";
 import cx from "classnames";
 import { TAB_INDEX_FOCUS_WITH_JS_ONLY } from "../../MenuItemConstants";
@@ -8,7 +8,7 @@ import MenuItemSubMenu from "../MenuItemSubMenu/MenuItemSubMenu";
 import { type CloseMenuOption } from "../../../Menu/MenuConstants";
 import useMenuItemMouseEvents from "../../hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../../hooks/useMenuItemKeyboardEvents";
-import useMergeRef from "../../../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import useIsMouseEnter from "../../../../../hooks/useIsMouseEnter";
 import styles from "./BaseMenuItem.module.scss";
 import { type BaseMenuItemProps } from "./BaseMenuItem.types";

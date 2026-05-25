@@ -1,0 +1,88 @@
+export const VALID_ROLES = ["option", "listitem", "menuitem", "tab", "treeitem"];
+
+const ROLE_MAPPING: Record<string, string> = {
+  listbox: "option",
+  menu: "menuitem",
+  menubar: "menuitem",
+  tablist: "tab",
+  tree: "treeitem",
+  list: "listitem"
+};
+
+export const getChildRole = (listRole: string): string => ROLE_MAPPING[listRole] || "listitem";
+
+export const getItemId = (listId: string, index: number, customId?: string): string => {
+  return customId || `${listId}-item-${index}`;
+};
+
+export const isListItem = (element: HTMLElement | null): boolean => {
+  return element instanceof HTMLElement && VALID_ROLES.includes(element.getAttribute("role") || "");
+};
+
+export const isFocusableListItem = (element: HTMLElement | null): boolean => {
+  if (!isListItem(element)) return false;
+  return element.getAttribute("aria-disabled") !== "true";
+};
+
+const ELEMENT_MAPPING: Record<string, string> = {
+  ul: "li",
+  ol: "li",
+  nav: "a"
+};
+
+export const getItemComponentType = (listElement: string): string => ELEMENT_MAPPING[listElement] || "div";
+
+export const findAdjacentFocusableIndex = (
+  refs: (HTMLElement | null)[],
+  currentIndex: number,
+  direction: "next" | "prev",
+  shouldWrap = true
+): number | undefined => {
+  const step = direction === "next" ? 1 : -1;
+  let index = currentIndex + step;
+
+  while (index >= 0 && index < refs.length) {
+    if (isFocusableListItem(refs[index])) {
+      return index;
+    }
+    index += step;
+  }
+
+  if (shouldWrap) {
+    const startIndex = direction === "next" ? 0 : refs.length - 1;
+    index = startIndex;
+
+    while (index !== currentIndex) {
+      if (isFocusableListItem(refs[index])) {
+        return index;
+      }
+      index += step;
+
+      if (index < 0 || index >= refs.length) {
+        break;
+      }
+    }
+  }
+
+  return undefined;
+};
+
+export const findFirstFocusableIndex = (refs: (HTMLElement | null)[]): number => {
+  return refs.findIndex(isFocusableListItem);
+};
+
+export const findLastFocusableIndex = (refs: (HTMLElement | null)[]): number => {
+  for (let i = refs.length - 1; i >= 0; i--) {
+    if (isFocusableListItem(refs[i])) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+export const findSelectedItemIndex = (refs: (HTMLElement | null)[]): number => {
+  return refs.findIndex(element => {
+    if (!isListItem(element)) return false;
+    return element.getAttribute("aria-selected") === "true";
+  });
+};

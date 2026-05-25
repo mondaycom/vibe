@@ -10,6 +10,8 @@ console.log("__dirname", __dirname);
 const CACHE_FILE = path.resolve(__dirname, ".metadata-cache.json");
 console.log("CACHE_FILE", CACHE_FILE);
 
+const STORYBOOK_BASE_URL = "https://vibe.monday.com";
+
 const IS_CI = process.env.CI === "true" || process.env.CI === "True";
 
 if (IS_CI) {
@@ -50,6 +52,8 @@ type FinalOutput = Array<{
   import: string;
   parentComponent?: string;
   subComponents?: string[];
+  storyUrl?: string;
+  previewUrl?: string;
   props: Props;
 }>;
 
@@ -167,8 +171,17 @@ function resolveExportsRecursively(
     const modSpec = decl.getModuleSpecifierValue();
     if (!modSpec) continue;
 
-    const baseDir = path.dirname(sourceFile.getFilePath());
-    const matchedPaths = findMatchingPaths(baseDir, modSpec);
+    // Handle @vibe/* imports (e.g., export * from "@vibe/button")
+    let matchedPaths: string[] = [];
+    if (modSpec.startsWith("@vibe/")) {
+      const pkgName = modSpec.replace("@vibe/", "");
+      const pkgPath = path.resolve(__dirname, `../../../components/${pkgName}/src/index.ts`);
+      if (fs.existsSync(pkgPath)) matchedPaths = [pkgPath];
+    } else {
+      const baseDir = path.dirname(sourceFile.getFilePath());
+      matchedPaths = findMatchingPaths(baseDir, modSpec);
+    }
+
     const exportedSyms = getExportedSymbolsFromDecl(decl);
 
     for (const matched of matchedPaths) {
@@ -204,6 +217,12 @@ function aggregatorMain(): AggregatorRecord[] {
 
   const packageDir = path.resolve(__dirname, "../components");
   project.addSourceFilesAtPaths([`${packageDir}/**/*.ts`, `${packageDir}/**/*.tsx`]);
+
+  // Also load source files from separate component packages (e.g., @vibe/button)
+  const componentsDir = path.resolve(__dirname, "../../../components");
+  if (fs.existsSync(componentsDir)) {
+    project.addSourceFilesAtPaths([`${componentsDir}/*/src/**/*.{ts,tsx}`]);
+  }
 
   const coreIndex = path.join(packageDir, "index.ts");
   const nextIndex = path.join(packageDir, "next.ts");
@@ -375,10 +394,79 @@ function findSubComponents(filePath: string, allFiles: string[]): string[] {
     .map(f => path.basename(f, path.extname(f)));
 }
 
+interface StoryMeta {
+  storyUrl: string;
+  previewUrl?: string;
+}
+
+function toStorySlug(exportName: string): string {
+  return exportName
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+function findFirstStoryExport(content: string): string | null {
+  const re = /export\s+(?:const|function)\s+(\w+)/g;
+  let match;
+  while ((match = re.exec(content)) !== null) {
+    const name = match[1];
+    if (name !== "default" && name !== "meta" && /^[A-Z]/.test(name)) return name;
+  }
+  return null;
+}
+
+function buildStoryMap(): Map<string, StoryMeta> {
+  const docsComponentsDir = path.resolve(__dirname, "../../../docs/src/pages/components");
+  const storyMap = new Map<string, StoryMeta>();
+
+  if (!fs.existsSync(docsComponentsDir)) {
+    console.warn(`[storyMap] Docs components directory not found at ${docsComponentsDir}, skipping`);
+    return storyMap;
+  }
+
+  const titleRe = /title:\s*['"]([^'"]+)['"]/;
+  const dirs = fs.readdirSync(docsComponentsDir, { withFileTypes: true }).filter(d => d.isDirectory());
+
+  for (const dir of dirs) {
+    const dirPath = path.join(docsComponentsDir, dir.name);
+    const storyFiles = fs.readdirSync(dirPath).filter(f => f.endsWith(".stories.tsx") || f.endsWith(".stories.ts"));
+
+    for (const file of storyFiles) {
+      const content = fs.readFileSync(path.join(dirPath, file), "utf-8");
+      const match = titleRe.exec(content);
+      if (!match) continue;
+
+      const title = match[1];
+      const titleSlug = title.toLowerCase().replace(/\//g, "-").replace(/ /g, "-");
+      const componentName = title.split("/").pop()!;
+      const key = componentName.toLowerCase();
+
+      if (!storyMap.has(key)) {
+        const storyUrl = `${STORYBOOK_BASE_URL}/?path=/docs/${titleSlug}--docs`;
+        const firstStory = findFirstStoryExport(content);
+        const previewUrl = firstStory
+          ? `${STORYBOOK_BASE_URL}/iframe.html?id=${titleSlug}--${toStorySlug(
+              firstStory
+            )}&viewMode=story&shortcuts=false&singleStory=true`
+          : undefined;
+        storyMap.set(key, { storyUrl, previewUrl });
+      }
+    }
+  }
+
+  console.log(`[storyMap] Built story map: ${storyMap.size} entries`);
+  return storyMap;
+}
+
 /**
  * Merges aggregator records with docgen results and flattens the structure
  */
-function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): FinalOutput {
+function mergeResults(
+  aggregator: AggregatorRecord[],
+  docgen: DocgenResult[],
+  storyMap: Map<string, StoryMeta>
+): FinalOutput {
   const docgenMap = new Map<string, DocgenResult>();
   for (const d of docgen) {
     docgenMap.set(d.filePath, d);
@@ -401,6 +489,8 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
         }
       }
 
+      const importPath = `@vibe/core${agg.aggregator === "next" ? "/next" : ""}`;
+
       return {
         filePath: toRelativePath(agg.filePath),
         aggregator: agg.aggregator,
@@ -408,9 +498,11 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
         displayName: component.displayName,
         description: component.description,
         props: filteredProps,
-        import: `import { ${component.displayName} } from "@vibe/core${agg.aggregator === "next" ? "/next" : ""}"`,
+        import: `import { ${component.displayName} } from "${importPath}"`,
         parentComponent: getParentComponent(toRelativePath(agg.filePath)),
-        subComponents: findSubComponents(toRelativePath(agg.filePath), allFilePaths.map(toRelativePath))
+        subComponents: findSubComponents(toRelativePath(agg.filePath), allFilePaths.map(toRelativePath)),
+        storyUrl: storyMap.get(component.displayName.toLowerCase())?.storyUrl,
+        previewUrl: storyMap.get(component.displayName.toLowerCase())?.previewUrl
       };
     });
   });
@@ -467,11 +559,15 @@ async function main() {
     const docgenResults = await runReactDocgenOnFiles(finalFilePaths);
     console.log(`Successfully processed ${docgenResults.length} files`);
 
+    console.log("Building story map...");
+    const storyMap = buildStoryMap();
+
     console.log("Merging results...");
-    const finalJson = mergeResults(aggregatorRecords, docgenResults);
+    const finalJson = mergeResults(aggregatorRecords, docgenResults, storyMap);
     console.log(`Final output contains ${finalJson.length} component entries`);
 
     const outPath = path.resolve(__dirname, "../../dist/metadata.json");
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");
     console.log(`Done! Wrote metadata to: ${outPath}`);
   } catch (error) {

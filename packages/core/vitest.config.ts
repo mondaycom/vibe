@@ -1,6 +1,27 @@
 /// <reference types="vitest" />
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
+import path from "path";
+import fs from "fs";
+
+const componentsFolder = path.resolve(process.cwd(), "../components");
+
+const components = fs.readdirSync(componentsFolder).reduce((acc, component) => {
+  const componentFolderPath = path.resolve(componentsFolder, component);
+  if (fs.statSync(componentFolderPath).isDirectory()) {
+    acc[`@vibe/${component}`] = path.join(componentFolderPath, "src/index.ts");
+  }
+
+  return acc;
+}, {});
+
+// Add @vibe/base package alias
+const baseFolder = path.resolve(process.cwd(), "../base");
+const baseSrcPath = path.join(baseFolder, "src");
+
+if (fs.existsSync(baseSrcPath)) {
+  components["@vibe/base"] = path.join(baseFolder, "src/index.ts");
+}
 
 export default defineConfig({
   plugins: [
@@ -10,6 +31,13 @@ export default defineConfig({
   ],
   define: {
     "process.env.NODE_ENV": '"test"'
+  },
+  resolve: {
+    alias: {
+      "~@vibe/style": path.resolve(process.cwd(), "../../node_modules/@vibe/style"),
+      "~": path.resolve(process.cwd(), "../../node_modules"),
+      ...components
+    }
   },
   test: {
     globals: true,

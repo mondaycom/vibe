@@ -1,8 +1,9 @@
 import React, { forwardRef } from "react";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
-import Button from "../../../Button/Button";
-import { type VibeComponentProps, type SubIcon } from "../../../../types";
-import { NOOP } from "../../../../utils/function-utils";
+import { Button } from "@vibe/button";
+import { type VibeComponentProps } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
+import { NOOP } from "@vibe/shared";
 import styles from "./ColorPickerClearButton.module.scss";
 
 export interface ColorPickerClearButtonProps extends VibeComponentProps {
@@ -21,7 +22,7 @@ export interface ColorPickerClearButtonProps extends VibeComponentProps {
 }
 
 const ColorPickerClearButton = forwardRef(
-  ({ onClick, text, Icon }: ColorPickerClearButtonProps, ref: React.ForwardedRef<HTMLElement>) => {
+  ({ onClick, text, Icon }: ColorPickerClearButtonProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
     const { onSelectionAction } = useGridKeyboardNavigation({
       ref: ref as React.MutableRefObject<HTMLElement>,
       itemsCount: 1,

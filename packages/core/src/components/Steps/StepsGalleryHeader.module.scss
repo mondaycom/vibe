@@ -1,12 +1,12 @@
 .galleryHeader {
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--space-8);
   display: flex;
   align-items: center;
 
   .galleryHeaderDot {
-    margin-right: var(--spacing-small);
+    margin-inline-end: var(--space-8);
     &:last-child {
-      margin-right: 0;
+      margin-inline-end: 0;
     }
   }
 }

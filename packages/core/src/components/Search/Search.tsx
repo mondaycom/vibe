@@ -1,15 +1,15 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
-import BaseInput from "../BaseInput/BaseInput";
+import { BaseInput } from "@vibe/base";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import IconButton from "../IconButton/IconButton";
-import Icon from "../Icon/Icon";
+import { IconButton } from "@vibe/icon-button";
+import { Icon } from "@vibe/icon";
 import { type SearchProps } from "./Search.types";
-import Loader from "../Loader/Loader";
+import { Loader } from "@vibe/loader";
 import { ComponentVibeId } from "../../tests/constants";
 
 const Search = forwardRef(
@@ -37,8 +37,8 @@ const Search = forwardRef(
       onClear,
       onKeyDown,
       className,
-      ariaExpanded,
-      ariaHasPopup,
+      "aria-expanded": ariaExpanded,
+      "aria-haspopup": ariaHasPopup,
       showClearIcon = true,
       id,
       "data-testid": dataTestId
@@ -62,19 +62,14 @@ const Search = forwardRef(
     }, [disabled, clearValue, onClear]);
 
     const SearchIcon = (
-      <Icon
-        icon={searchIconName}
-        className={styles.icon}
-        iconType="font"
-        iconSize={size === "small" ? "16px" : "20px"}
-      />
+      <Icon icon={searchIconName} className={styles.icon} type="font" size={size === "small" ? "16px" : "20px"} />
     );
 
     const ClearIcon = (
       <IconButton
         className={cx(styles.icon, { [styles.empty]: !inputValue })}
         icon={clearIconName}
-        ariaLabel={clearIconLabel}
+        aria-label={clearIconLabel}
         onClick={onClearButtonClick}
         size={size === "small" ? "xs" : "small"}
         data-testid={getTestId(ComponentDefaultTestId.CLEAN_SEARCH_BUTTON, id)}

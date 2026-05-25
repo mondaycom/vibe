@@ -4,7 +4,7 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
@@ -53,7 +53,7 @@ function onwarn(message, handler) {
 export default {
   onwarn,
   output: {
-    dir: DIST_PATH,
+    dir: shouldMockModularClassnames ? path.join(DIST_PATH, "mocked_classnames") : DIST_PATH,
     indent: false,
     strict: false,
     exports: "named",
@@ -64,7 +64,7 @@ export default {
   },
   input: path.join(SRC_PATH, "index.ts"),
   external: [
-    /node_modules\/(?!monday-ui-style)(.*)/,
+    /node_modules\/(?!@vibe\/style)(.*)/,
     /@vibe\/.*/ // Externalize all @vibe packages
   ],
   plugins: [

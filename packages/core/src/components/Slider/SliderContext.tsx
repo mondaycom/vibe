@@ -1,5 +1,5 @@
 import React, { createContext, type ReactElement, useContext, useMemo, useState } from "react";
-import { createTestIdHelper } from "../../helpers/testid-helper";
+import { createTestIdHelper } from "@vibe/shared";
 import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
 import { type SliderProps } from "./Slider";
 import {
@@ -8,7 +8,7 @@ import {
   type SliderContextSelection,
   type SliderContextUI
 } from "./SliderConstants";
-import { type IconType } from "../Icon";
+import { type IconType } from "@vibe/icon";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});
@@ -48,8 +48,8 @@ export interface SliderProviderProps extends SliderProps {
 
 export function SliderProvider({
   children,
-  ariaLabel,
-  ariaLabelledby,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledby,
   color,
   "data-testid": dataTestId,
   defaultValue,
@@ -83,8 +83,8 @@ export function SliderProvider({
   const uiContextValue: SliderContextUI = useMemo(
     () => ({
       active,
-      ariaLabel,
-      ariaLabelledby,
+      "aria-label": ariaLabel,
+      "aria-labelledby": ariaLabelledby,
       color,
       disabled,
       dragging,

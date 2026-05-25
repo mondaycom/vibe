@@ -1,26 +1,24 @@
 ---
-description: "Guides the creation and modification of Storybook files specifically within the 'packages/core' package. It covers conventions, best practices, and helps answer questions about existing story implementations within 'packages/core'."
+description: "Guides the creation and modification of Storybook files specifically within the 'packages/docs' package. It covers conventions, best practices, and helps answer questions about existing story implementations within 'packages/core'."
 globs:
-  - "packages/core/**/__stories__/**/*.stories.tsx"
-  - "packages/core/**/__stories__/**/*.mdx"
-  - "packages/core/src/storybook/**"
+  - "packages/docs/**/*.stories.tsx"
+  - "packages/docs/**/*.mdx"
 alwaysApply: false
 ---
 
-# Storybook Stories for @vibe/core library
+# Storybook Stories for @vibe/docs library
 
-This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/core` library.
-
-**Storybook Scope:** Storybook is exclusively used for the `@vibe/core` library within this monorepo. Do not create stories for components or utilities in other packages. Stories should _only_ be written for UI components found in `packages/core/src/components/`. Stories for custom hooks (e.g., `useWizard`) are not to be created.
+This document outlines the rules and best practices for creating and maintaining Storybook stories for the `@vibe/docs` library.
 
 ## 1. File Structure and Naming Conventions
 
-- **Location:** Component stories **must** be co-located with their respective component. Each component that requires stories must have a `__stories__` subdirectory.
-  - Example: `packages/core/src/components/ComponentName/__stories__/`
-- **Story File:** Inside the `__stories__` directory, the main story file **must** be named after the component, using PascalCase, followed by the `.stories.tsx` extension.
-  - Example: `packages/core/src/components/ComponentName/__stories__/ComponentName.stories.tsx`
-- **MDX File:** An accompanying MDX documentation file **must** also be created in the `__stories__` directory, named after the component.
-  - Example: `packages/core/src/components/ComponentName/__stories__/ComponentName.mdx`
+- **Location:** Component stories are located in the `@vibe/docs` package, organized by component type in `packages/docs/src/pages/`.
+  - Example for components: `packages/docs/src/pages/components/ComponentName/`
+  - Example for hooks: `packages/docs/src/pages/hooks/hookName/`
+- **Story File:** The main story file **must** be named after the component, using PascalCase, followed by the `.stories.tsx` extension.
+  - Example: `packages/docs/src/pages/components/ComponentName/ComponentName.stories.tsx`
+- **MDX File:** An accompanying MDX documentation file **must** also be created in the same directory, named after the component.
+  - Example: `packages/docs/src/pages/components/ComponentName/ComponentName.mdx`
 
 ## 2. `.stories.tsx` File Structure and Content
 
@@ -41,7 +39,7 @@ The default export defines the component's metadata for Storybook.
 ```typescript
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import ComponentName from "../ComponentName"; // Adjust path as necessary
+import { ComponentName } from "@vibe/core";
 // Import other Vibe components or types if needed for stories
 
 export default {
@@ -252,7 +250,7 @@ The following is a template for `ComponentName.mdx`:
 ````mdx
 import { Meta } from "@storybook/blocks";
 import * as ComponentStories from "./ComponentName.stories"; // Import the stories
-import ComponentName from "../ComponentName";
+import { ComponentName } from "@vibe/core";
 
 <Meta of={ComponentStories} />
 

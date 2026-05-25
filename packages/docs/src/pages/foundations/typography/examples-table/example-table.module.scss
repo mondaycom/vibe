@@ -1,0 +1,23 @@
+.table {
+  $border: 1px solid var(--sb-layout-border-color);
+  width: 100%;
+  margin-block: var(--space-16) var(--space-32);
+  border-inline: $border;
+  border-block-start: $border;
+  border-spacing: 0;
+
+  th,
+  td {
+    text-align: start !important;
+    padding: var(--space-8) var(--space-16);
+    height: 40px;
+    border-bottom: $border;
+    &:not(:last-child) {
+      border-right: $border; // Adds right border to all cells except the last ones in a row
+    }
+  }
+
+  thead tr th:first-of-type {
+    width: 270px;
+  }
+}

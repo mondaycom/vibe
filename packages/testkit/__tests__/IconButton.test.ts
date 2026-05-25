@@ -4,7 +4,7 @@ import { iconButtonStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let iconButton: IconButton;
-const iconButtonLocator = 'button[data-testid="icon-button"]';
+const iconButtonLocator = 'button[data-testid^="icon-button"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - IconButton", () => {

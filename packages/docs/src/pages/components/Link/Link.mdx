@@ -1,0 +1,158 @@
+import { Meta } from "@storybook/blocks";
+import { Link } from "@vibe/core";
+import { ExternalPage, Gallery } from "@vibe/icons";
+import { TipButton } from "./Link.stories.helpers";
+import * as LinkStories from "./Link.stories";
+import Example from "./Example";
+import tipseen1 from "./assets/tipseen1.svg";
+import tipseen2 from "./assets/tipseen2.svg";
+import tipseen3 from "./assets/tipseen3.svg";
+import tipseen4 from "./assets/tipseen4.svg";
+
+<Meta of={LinkStories} />
+
+# Link
+
+Link is an actionable text component with connection to another web pages.
+
+<Canvas of={LinkStories.Overview} />
+
+### Import
+
+```js
+import { Link } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use links only as part of the text or scentence.",
+    "Use links in order to redirect people outside of the system.",
+    "Links should be short with a clear action name. read more, go to, etc..."
+  ]}
+/>
+
+<TipButton />
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use the <code>ariaLabelDescription</code> prop when the link text alone doesn't provide enough context for screen
+      readers to understand the link's purpose.
+    </>,
+    <>
+      Use <code>ariaDescribedby</code> prop to link the link to additional descriptive text that provides more context
+      about the link's destination or action.
+    </>,
+    <>
+      Use <code>ariaLabeledBy</code> prop when an external element provides the accessible name for the link. Pass the{" "}
+      <code>id</code> of that external element.
+    </>
+  ]}
+/>
+
+**Link's color on Primary**
+
+- The link on Primary surface should be `text-color-on-primary` with underline.
+
+- For hover state the cursor should transit to pointer to represent clickable area.
+
+<Example>
+  <img src={tipseen1} alt="Example of link on primary surface" />
+  <img src={tipseen2} alt="Example of link on primary surface on hover" />
+</Example>
+
+**Link's color on inverted**
+
+- The link on inverted surface should be `text-color-on-inverted` with underline.
+
+- For hover state the cursor should transit to pointer to represent clickable area.
+
+<Example>
+  <img src={tipseen3} alt="Example of link on inverted surface" />
+  <img src={tipseen4} alt="Example of link on inverted surface on hover" />
+</Example>
+
+## Variants
+
+### States
+
+<Canvas of={LinkStories.States} />
+
+### Right to left
+
+<Canvas of={LinkStories.RightToLeft} />
+
+### With icons
+
+<Canvas of={LinkStories.WithIcons} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Link text="Read more" href="https://www.monday.com" />,
+        description: "Keep the copy short and to the point."
+      },
+      negative: {
+        component: <Link text="Go to this url and read all about it" href="https://www.monday.com" />,
+        description: "Don’t write long messages that are clickable."
+      }
+    },
+    {
+      positive: {
+        component: <Link text="Read more" iconPosition="start" href="https://www.monday.com" icon={ExternalPage} />,
+        description: "Use icon from the left or right side of the link"
+      },
+      negative: {
+        component: [
+          <Link icon={Gallery} iconPosition="end" />,
+          <Link icon={ExternalPage} text="Read more" iconPosition="end" />
+        ],
+        description: "Don’t use two icons for one link."
+      }
+    },
+    {
+      positive: {
+        component: <Link text="Read more" href="https://www.monday.com" />,
+        description: "Use only one link in context in text"
+      },
+      negative: {
+        component: [
+          <Link text="Read this" href="https://www.monday.com" />,
+          <span class="monday-storybook-link_text">or</span>,
+          <Link text="this" href="https://www.monday.com" />,
+          <Link text="Nice article" href="https://www.monday.com" />
+        ],
+        description: "Don’t use multiple links near each other"
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Reference link
+
+Use this menu to allow a user to either select one or more items from the list.
+
+<Canvas of={LinkStories.ReferenceLink} />
+
+### Shortening texts
+
+Use read more to shorten long paragraphs of text
+
+<Canvas of={LinkStories.ShorteningTexts} />
+
+## Related components
+
+<RelatedComponents componentsNames={["Button", "Breadcrumbs", "Badge"]} />

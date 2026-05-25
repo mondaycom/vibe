@@ -54,7 +54,7 @@ const menuItem2Id = "menu-item-2";
 
 const renderComponent = ({ ...props } = {}) => {
   return render(
-    <Menu {...props} ariaLabel="menu">
+    <Menu {...props} aria-label="menu">
       <MenuTitle caption={menuTitleCaption} />
       <MenuItem title={menuItem1Name} onClick={menuItem1OnClickMock} id={menuItem1Id} />
       <Divider />

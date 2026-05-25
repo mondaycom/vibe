@@ -4,7 +4,6 @@
     "module": "ESNext",
     "declaration": true,
     "sourceMap": true,
-    "allowJs": true,
     "rootDir": "src",
     "allowSyntheticDefaultImports": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }]

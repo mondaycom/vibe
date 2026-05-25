@@ -1,18 +1,17 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type AriaRole, useCallback, useMemo } from "react";
 import { isNil } from "es-toolkit";
-import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
-import { AvatarSize as AvatarSizeEnum, AvatarType as AvatarTypeEnum } from "./AvatarConstants";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
-import Tooltip, { type TooltipProps } from "../Tooltip/Tooltip";
-import ClickableWrapper from "../Clickable/ClickableWrapper";
-import { type SubIcon, type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
+import { ClickableWrapper } from "@vibe/clickable";
+import { type VibeComponentProps } from "../../types";
+import { type SubIcon } from "@vibe/icon";
 import styles from "./Avatar.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
@@ -32,7 +31,7 @@ export interface AvatarProps extends VibeComponentProps {
   /**
    * The ARIA label of the avatar.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * If true, the tooltip is disabled.
    */
@@ -80,7 +79,7 @@ export interface AvatarProps extends VibeComponentProps {
   /**
    * If true, the avatar is hidden from assistive technologies.
    */
-  ariaHidden?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * If true, the avatar is disabled.
    */
@@ -126,14 +125,14 @@ const Avatar = ({
   icon,
   text,
   tooltipProps,
-  ariaLabel,
+  "aria-label": ariaLabel,
   withoutTooltip = false,
   role,
   backgroundColor = "chili-blue",
   square,
   disabled,
   tabIndex,
-  ariaHidden = false,
+  "aria-hidden": ariaHidden = false,
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
@@ -227,7 +226,7 @@ const Avatar = ({
         isClickable={!!onClick}
         clickableProps={{
           onClick: clickHandler,
-          tabIndex: "-1",
+          tabIndex: -1,
           className: styles.clickableWrapper
         }}
       >
@@ -253,7 +252,7 @@ const Avatar = ({
               src={src}
               icon={icon}
               text={text}
-              ariaLabel={ariaLabel}
+              aria-label={ariaLabel}
               role={role}
               textClassName={textClassName}
             />
@@ -265,16 +264,4 @@ const Avatar = ({
   );
 };
 
-interface AvatarStaticProps {
-  types: typeof AvatarTypeEnum;
-  sizes: typeof AvatarSizeEnum;
-  colors: typeof ElementAllowedColorEnum;
-  backgroundColors: typeof ElementAllowedColorEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<AvatarProps, AvatarStaticProps>(Avatar, {
-  types: AvatarTypeEnum,
-  sizes: AvatarSizeEnum,
-  colors: ElementAllowedColorEnum,
-  backgroundColors: ElementAllowedColorEnum
-});
+export default Avatar;

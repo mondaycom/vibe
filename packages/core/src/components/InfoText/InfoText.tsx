@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import { type InfoTextProps } from "./InfoText.types";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./InfoText.module.scss";
 
 const InfoText = forwardRef(

@@ -1,13 +1,12 @@
 import React, { forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
-import { NOOP } from "../../utils/function-utils";
-import useMergeRef from "../../hooks/useMergeRef";
+import { NOOP, useMergeRef } from "@vibe/shared";
+
 import { StepsHeader } from "./StepsHeader";
-import { StepsColor as StepsColorEnum, StepsType as StepsTypeEnum } from "./StepsConstants";
 import { type StepsColor, type StepsType } from "./Steps.types";
-import { type ButtonProps } from "../Button";
+import { type ButtonProps } from "@vibe/button";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { withStaticProps, type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
 
@@ -118,12 +117,4 @@ const Steps = forwardRef(
   }
 );
 
-interface StepsStaticProps {
-  types: typeof StepsTypeEnum;
-  colors: typeof StepsColorEnum;
-}
-
-export default withStaticProps<StepsProps, StepsStaticProps>(Steps, {
-  types: StepsTypeEnum,
-  colors: StepsColorEnum
-});
+export default Steps;

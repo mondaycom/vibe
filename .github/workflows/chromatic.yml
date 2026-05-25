@@ -11,6 +11,8 @@ jobs:
   build:
     name: Build
     uses: ./.github/workflows/build-and-upload.yml
+    with:
+      skip_release_artifacts: true
     secrets:
       npm_token: ${{ secrets.npm_token }}
 
@@ -33,7 +35,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: packages/core
+          workingDir: packages/docs
           exitOnceUploaded: true
           onlyChanged: false
           skip: ${{ needs.build.outputs.has_changes == 'false' }}

@@ -1,13 +1,12 @@
 import React, { type CSSProperties, type ReactElement } from "react";
-import Icon from "../../components/Icon/Icon";
+import { type IconType, Icon } from "@vibe/icon";
 import { type InfixKind } from "./Slider.types";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";
-import { type IconType } from "../Icon";
 
 const defaultIconProps = {
   clickable: false,
-  iconSize: 18,
+  size: 18,
   ignoreFocusStyle: true
 };
 
@@ -34,5 +33,5 @@ export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], Re
   if (typeof infix === "undefined") {
     return [false, [], null, {}];
   }
-  return [true, [], <>{infix}</>, {}];
+  return [true, [], <>{infix as ReactElement}</>, {}];
 }

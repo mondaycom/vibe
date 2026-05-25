@@ -1,0 +1,29 @@
+---
+description: "Add a new icon to @vibe/icons package from a monday.com task. Automatically downloads the SVG file and integrates it into the icons package."
+globs:
+  - "src/**/*"
+alwaysApply: false
+---
+
+# Add Icon from Monday.com Task
+
+When the user wants to add an icon from a monday.com task:
+
+1. **Extract the item ID** from the monday.com URL (last number in the path)
+2. **Use monday.com MCP tools** to get the task information and find the file attachment
+3. **Get the asset public URL** and download the SVG file
+4. **Extract and present the following information:**
+   - Task name
+   - Suggested icon name (PascalCase from task name, e.g., "Monday Vibe Logo" → "MondayVibeLogo")
+   - Task description
+   - Tags from task
+   - Icon category (Basic, Platform, or View) - determine from task name/description/tags
+5. **After data extraction is complete**, continue with the manual icon addition process (see `.cursor/rules/icon-generation-process.mdc`):
+   - Place SVG file in `src/svg/` directory
+   - Add metadata to `src/iconsMetaData.ts` using the extracted information
+   - Add before the closing `] satisfies Icon[];` bracket
+   - Add after the `// plop_marker:icon_metadata` comment
+   - Run `yarn lint && yarn build` from the package root
+   - Verify components were created successfully in `src/react/`
+
+The build process automatically generates React components and lazy loaders.

@@ -1,0 +1,12 @@
+import React from "react";
+import { StorybookLink, Tip } from "vibe-storybook-components";
+
+export const TipAmIUsingTheRightComponent = () => (
+  <Tip title="Am I using the right component?">
+    For settings that are immediately applied, consider using a{" "}
+    <StorybookLink page="Components/Toggle" size="small">
+      toggle switch
+    </StorybookLink>{" "}
+    instead.
+  </Tip>
+);

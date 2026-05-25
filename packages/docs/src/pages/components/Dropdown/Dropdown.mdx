@@ -1,0 +1,66 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import { Link, Tip, StorybookLink } from "vibe-storybook-components";
+import { Overview as BasicDropdownPreview } from "./DropdownBasicDropdown.stories";
+import { Overview as BoxModePreview } from "./DropdownBoxMode.stories";
+import do1 from "./assets/do1.png";
+import dont1 from "./assets/dont1.png";
+
+<Meta title="Components/Dropdown" />
+
+# Dropdown
+
+Select component present a list of options from which a user can select one or several.
+
+### Import
+
+```js
+import { Dropdown } from "@vibe/core";
+```
+
+### Basic dropdown
+
+The <StorybookLink page="Components/Dropdown/Basic dropdown">Basic dropdown</StorybookLink> present a popup list of options from which a user can select one or several.
+
+<Canvas of={BasicDropdownPreview} sourceState="none" />
+
+### Dropdown box mode
+
+The <StorybookLink page="Components/Dropdown/Dropdown box mode">Dropdown box mode</StorybookLink> is an always open Dropdown, with the same properties as the basic Dropdown.
+
+<Canvas of={BoxModePreview} sourceState="none" />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "When the user needs to choose one or multiple values from a fixed set of options.",
+    "When the selected value needs to be visible after selection.",
+    "When the selection is part of a form, filter, or preference setting."
+  ]}
+/>
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <img src={do1} alt="do1" style={{ width: "300px" }} />,
+        description: "Use the select when theres a need to choose one or multiple options from a predefined list."
+      },
+      negative: {
+        component: <img src={dont1} alt="dont1" style={{ width: "200px" }} />,
+        description: (
+          <>
+            Use select when the purpose of the list is to provide actions or navigation options. Use a{" "}
+            <StorybookLink page="Components/Menu">menu</StorybookLink> instead.
+          </>
+        )
+      }
+    }
+  ]}
+/>
+
+## Related components
+
+<RelatedComponents componentsNames={["Combobox", "SplitButton", "Menu"]} />

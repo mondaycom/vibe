@@ -6,7 +6,7 @@ import { StepsNumbersHeader, type StepsNumbersHeaderProps } from "./StepsNumbers
 import { FINISH_TEXT } from "./StepsConstants";
 import { type StepsType, type StepsColor } from "./Steps.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";
-import Button, { type ButtonProps } from "../Button/Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import styles from "./StepsHeader.module.scss";
 
 export interface StepsHeaderProps extends VibeComponentProps {
@@ -73,13 +73,9 @@ export const StepsHeader: FC<StepsHeaderProps> = ({
   const SubHeaderComponent: FC<StepsGalleryHeaderProps | StepsNumbersHeaderProps> =
     type === "gallery" ? StepsGalleryHeader : StepsNumbersHeader;
 
-  // TODO: [breaking] make finish button as default in next major
   const showFinishButton = useMemo(() => {
-    if (!onFinish) {
-      return;
-    }
     return activeStepIndex === stepsCount - 1;
-  }, [activeStepIndex, onFinish, stepsCount]);
+  }, [activeStepIndex, stepsCount]);
 
   return (
     <div className={cx(styles.header, className)}>

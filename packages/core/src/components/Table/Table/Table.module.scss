@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .table {
   @include scroller(6px, 6px);

@@ -1,0 +1,44 @@
+import { Meta } from "@storybook/blocks";
+import * as DatepickerStories from "./DatePicker.stories";
+
+<Meta of={DatepickerStories} />
+
+# DatePicker
+
+A simple and reusable Datepicker component
+
+<Canvas of={DatepickerStories.Overview} />
+
+### Import
+
+```js
+import { DatePicker } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={["When picking a single or range of dates is required", "Displaying past, present and future dates"]}
+/>
+
+## Variants
+
+### Single day
+
+Allows users to select a single date
+
+<Canvas of={DatepickerStories.SingleDay} />
+
+### Date range
+
+Allows users to select a date range
+
+<Canvas of={DatepickerStories.DateRange} />
+
+## Related components
+
+<RelatedComponents componentsNames={["TextField", "Dropdown", "DialogContentContainer"]} />

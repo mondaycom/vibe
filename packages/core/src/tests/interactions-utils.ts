@@ -75,6 +75,13 @@ function getWithin(canvasOrValidTestElement: HTMLElement | BoundFunctions<typeof
 export const NavigationCommand = NavigationCommandType;
 
 // External functions
+export const resetFocus = async () => {
+  const focusTrap = document.querySelector("[data-testid=focusTrap]");
+  if (focusTrap) {
+    await userEvent.click(focusTrap as HTMLElement);
+  }
+};
+
 export const interactionSuite =
   ({
     beforeEach = null,

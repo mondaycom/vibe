@@ -1,5 +1,4 @@
-import { type SubIcon } from "../../../../../types";
-import { type IconType } from "../../../../Icon";
+import { type IconType, type SubIcon } from "@vibe/icon";
 
 export interface MenuItemIconProps {
   /**
@@ -10,12 +9,6 @@ export interface MenuItemIconProps {
    * The type of icon to be used.
    */
   type?: IconType;
-  // TODO: [breaking] remove in next major
-  /**
-   * Label for the icon, used for accessibility.
-   * @deprecated This property will be removed in the next major version.
-   */
-  label?: string;
   /**
    * If true, the icon appears disabled.
    */
@@ -32,4 +25,9 @@ export interface MenuItemIconProps {
    * Additional class name for styling the icon wrapper.
    */
   wrapperClassName?: string;
+  /**
+   * If true, the icon appears on the right side.
+   * @default false
+   */
+  isRightIcon?: boolean;
 }

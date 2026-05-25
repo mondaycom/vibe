@@ -4,7 +4,7 @@ import { type StepsColor, type StepsDotAriaCurrent } from "./Steps.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import React, { type FC } from "react";
 import styles from "./StepsDot.module.scss";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 
 export interface StepsDotProps extends VibeComponentProps {
   /**
@@ -22,7 +22,7 @@ export interface StepsDotProps extends VibeComponentProps {
   /**
    * The ARIA label for the dot.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The color theme of the dot.
    */
@@ -33,7 +33,7 @@ export const StepsDot: FC<StepsDotProps> = ({
   isActive,
   onClick = NOOP,
   ariaCurrent = "step",
-  ariaLabel,
+  "aria-label": ariaLabel,
   color,
   className
 }: StepsDotProps) => {

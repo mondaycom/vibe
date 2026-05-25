@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { type VibeComponentProps } from "../../../types";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./TableCell.module.scss";
 import cx from "classnames";
 import { getTestId } from "../../../tests/test-ids-utils";

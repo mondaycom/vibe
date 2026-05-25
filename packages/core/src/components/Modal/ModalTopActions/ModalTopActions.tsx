@@ -5,7 +5,7 @@ import {
   type ModalTopActionsTheme,
   type ModalTopActionsProps
 } from "./ModalTopActions.types";
-import IconButton from "../../IconButton/IconButton";
+import { IconButton } from "@vibe/icon-button";
 import { CloseMedium } from "@vibe/icons";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 
@@ -21,13 +21,13 @@ const ModalTopActions = ({ renderAction, theme, closeButtonAriaLabel, onClose }:
     <div className={styles.actions} data-no-autofocus={true}>
       {typeof renderAction === "function" ? renderAction(buttonColor) : renderAction}
       <IconButton
-        data-testid={ComponentDefaultTestId.MODAL_NEXT_CLOSE_BUTTON}
+        data-testid={ComponentDefaultTestId.MODAL_CLOSE_BUTTON}
         icon={CloseMedium}
         onClick={onClose}
         size="small"
         kind="tertiary"
         color={buttonColor}
-        ariaLabel={closeButtonAriaLabel}
+        aria-label={closeButtonAriaLabel}
       />
     </div>
   );

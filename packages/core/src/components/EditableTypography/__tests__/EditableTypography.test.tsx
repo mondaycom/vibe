@@ -2,7 +2,7 @@ import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup, screen, within } from "@testing-library/react";
 import EditableTypography from "../EditableTypography";
-import Text from "../../Text/Text";
+import { Text } from "@vibe/typography";
 
 describe("EditableTypography - IME composition with onKeyDown", () => {
   afterEach(() => {

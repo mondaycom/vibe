@@ -1,0 +1,8 @@
+import { Meta, Markdown } from "@storybook/blocks";
+import changelog from "../../../../core/CHANGELOG.md?raw";
+
+<Meta title="Changelog" />
+
+# Changelog
+
+<Markdown>{changelog.replace("# Change Log", "")}</Markdown>

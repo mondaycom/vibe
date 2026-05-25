@@ -1,17 +1,18 @@
 import { camelCase } from "es-toolkit";
-import { getStyle } from "../../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import cx from "classnames";
 import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "react";
 import { contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
-import Icon from "../../../Icon/Icon";
-import Tooltip from "../../../Tooltip/Tooltip";
-import Clickable from "../../../Clickable/Clickable";
+import { Icon } from "@vibe/icon";
+import { Tooltip } from "@vibe/tooltip";
+import { Clickable } from "@vibe/clickable";
 import { type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
-import { type SubIcon, type VibeComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
+import { type VibeComponentProps, type ElementContent, type ColorStyle } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
@@ -59,6 +60,10 @@ export interface ColorPickerItemComponentProps extends VibeComponentProps {
    * The shape of the color item.
    */
   colorShape: ColorShapes;
+  /**
+   * Human-readable label for the color, used for screen reader announcements.
+   */
+  colorAriaLabel: string;
 }
 
 const ColorPickerItemComponent = forwardRef(
@@ -75,6 +80,8 @@ const ColorPickerItemComponent = forwardRef(
       tooltipContent,
       isActive,
       colorShape,
+      colorAriaLabel,
+      id,
       "data-testid": dataTestId
     }: ColorPickerItemComponentProps,
     _ref: React.ForwardedRef<HTMLElement>
@@ -112,6 +119,9 @@ const ColorPickerItemComponent = forwardRef(
     return (
       <Tooltip content={tooltipContent}>
         <li
+          id={id}
+          role="option"
+          aria-selected={isSelected}
           className={cx(styles.itemWrapper, {
             [styles.selectedColor]: isSelected,
             [styles.active]: isActive,
@@ -122,13 +132,14 @@ const ColorPickerItemComponent = forwardRef(
           <div className={cx(styles.feedbackIndicator)} />
           <Clickable
             ref={itemRef}
-            ariaLabel={color}
+            role="presentation"
+            aria-label={colorAriaLabel}
             className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
               [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
             })}
             style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
             onClick={onClick}
-            tabIndex="-1"
+            tabIndex={-1}
             onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
           >
             <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>

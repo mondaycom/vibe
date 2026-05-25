@@ -1,12 +1,25 @@
-import React, { forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useState } from "react";
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { type CONTENT_COLORS_VALUES } from "../../../../utils/colors-vars-map";
 import { type ColorPickerArrayValueOnly, type ColorPickerValueOnly } from "../../ColorPicker.types";
 import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
-import { type SubIcon, type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "../../../../types";
+import { type SubIcon } from "@vibe/icon";
 import styles from "./ColorPickerColorsGrid.module.scss";
 import { type ColorStyle } from "../../../../types";
+
+let colorPickerGridIdCounter = 0;
+const generateColorPickerGridId = () => `color-picker-grid-${colorPickerGridIdCounter++}`;
+
+const useColorPickerGridId = (id: string) => {
+  const [gridId, setGridId] = useState<string>();
+  useIsomorphicLayoutEffect(() => {
+    setGridId(id || generateColorPickerGridId());
+  }, [id]);
+  return gridId;
+};
 
 const formatColorNameForTooltip = (color: ColorPickerValueOnly) => {
   return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
@@ -113,13 +126,27 @@ const ColorPickerColorsGrid = forwardRef(
       getItemByIndex
     });
 
+    const gridId = useColorPickerGridId(id);
+    const getColorItemId = (index: number) => (gridId ? `${gridId}-item-${index}` : undefined);
+    const activeDescendantId = activeIndex >= 0 ? getColorItemId(activeIndex) : undefined;
+
     return (
-      <ul className={styles.colorsGrid} ref={ref} tabIndex={0} id={id} data-testid={dataTestId} role="grid">
+      <ul
+        className={styles.colorsGrid}
+        ref={ref}
+        tabIndex={0}
+        id={id}
+        data-testid={dataTestId}
+        role="listbox"
+        aria-activedescendant={activeDescendantId}
+      >
         {colorsToRender.map((color, index) => {
           return (
             <ColorPickerItemComponent
               key={color}
+              id={getColorItemId(index)}
               color={color}
+              colorAriaLabel={calculateColorTooltip(color, tooltipContentByColor)}
               onColorClicked={() => onSelectionAction(index)}
               shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
               colorStyle={colorStyle}

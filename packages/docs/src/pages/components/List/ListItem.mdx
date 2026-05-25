@@ -1,0 +1,68 @@
+import { Meta } from "@storybook/blocks";
+import { Tip, StorybookLink } from "vibe-storybook-components";
+import * as ListItemStories from "./ListItem.stories";
+
+<Meta of={ListItemStories} />
+
+# ListItem
+
+An item of a List component.
+
+<Canvas of={ListItemStories.Overview} />
+
+### Import
+
+```js
+import { List, ListItem } from "@vibe/core/next";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "ListItem uses a data-driven API with label, startElement, and endElement props.",
+    "Use startElement with type 'icon' or 'avatar' to add visual elements before the label.",
+    "Use endElement with type 'suffix' or 'icon' to add visual elements after the label.",
+    "ListItem must be used within a List component."
+  ]}
+/>
+
+## Variants
+
+### States
+
+<Canvas of={ListItemStories.States} />
+
+### List item with an icon
+
+Use `startElement` with `type: "icon"` to add an icon before the label.
+
+<Canvas of={ListItemStories.WithIcon} />
+
+### List item with an avatar
+
+Use `startElement` with `type: "avatar"` to add an avatar before the label.
+
+<Canvas of={ListItemStories.WithAvatar} />
+
+### List item with end element
+
+Use `endElement` to add content after the label, such as keyboard shortcuts.
+
+<Canvas of={ListItemStories.WithEndElement} />
+
+### With click handler
+
+Use `onClick` to handle click events on the list item.
+
+<Canvas of={ListItemStories.WithClickHandler} />
+
+### Read-only
+
+Use `readOnly` to make an item non-interactive.
+
+<Canvas of={ListItemStories.ReadOnly} />

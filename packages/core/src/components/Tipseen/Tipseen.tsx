@@ -1,29 +1,21 @@
 import { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { AnimationType as AnimationTypeEnum, HideShowEvent as HideShowEventEnum } from "../Dialog/DialogConstants";
-import { type DialogAnimationType, type DialogTriggerEvent } from "../Dialog/Dialog.types";
-import useMergeRef from "../../hooks/useMergeRef";
-import Tooltip from "../../components/Tooltip/Tooltip";
-import IconButton from "../../components/IconButton/IconButton";
+import { type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
+import { useMergeRef } from "@vibe/shared";
+import { Tooltip } from "@vibe/tooltip";
+import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import TipseenTitle from "./TipseenTitle";
-import {
-  TIPSEEN_CLOSE_BUTTON_ARIA_LABEL,
-  TipseenCloseButtonTheme as TipseenCloseButtonThemeEnum,
-  TipseenColor as TipseenColorEnum
-} from "./TipseenConstants";
+import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 import { type TipseenCloseButtonTheme, type TipseenColor } from "./Tipseen.types";
-import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
+import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type MoveBy } from "../../types/MoveBy";
-import { type Modifier } from "react-popper";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
-import Text from "../Text/Text";
+import { Text } from "@vibe/typography";
 import styles from "./Tipseen.module.scss";
-import { ButtonColor } from "../Button/ButtonConstants";
 import React from "react";
-import { type TooltipPositions } from "../Tooltip/Tooltip.types";
-import { TooltipPositions as TooltipPositionsEnum } from "../Tooltip/TooltipConstants";
+import { type TooltipPositions } from "@vibe/tooltip";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
@@ -83,6 +75,11 @@ export interface TipseenProps extends VibeComponentProps {
    */
   hideWhenReferenceHidden?: boolean;
   /**
+   * Custom Floating UI middleware for positioning logic.
+   * @see https://floating-ui.com/docs/middleware
+   */
+  middleware?: DialogMiddleware[];
+  /**
    * Class name applied to the reference wrapper element.
    */
   referenceWrapperClassName?: string;
@@ -94,11 +91,6 @@ export interface TipseenProps extends VibeComponentProps {
    * Class name applied to the Tipseen arrow.
    */
   tooltipArrowClassName?: string;
-  /**
-   * Custom Popper.js modifiers.
-   * https://popper.js.org/docs/v2/modifiers/
-   */
-  modifiers?: Array<Modifier<unknown>>;
   /**
    * The aria-label for the close button.
    */
@@ -150,10 +142,10 @@ const Tipseen = forwardRef(
       width,
       moveBy,
       hideWhenReferenceHidden = false,
+      middleware,
       referenceWrapperClassName,
       tip = true,
       tooltipArrowClassName,
-      modifiers = [],
       floating = false,
       color: colorProp,
       "data-testid": dataTestId
@@ -187,13 +179,18 @@ const Tipseen = forwardRef(
     }, [color]);
     const closeButtonColor = useMemo(() => {
       if (closeButtonTheme === "light") {
-        return color === "inverted" ? ButtonColor.ON_INVERTED_BACKGROUND : ButtonColor.ON_PRIMARY_COLOR;
+        return color === "inverted" ? "on-inverted-background" : "on-primary-color";
       } else {
         return closeButtonTheme;
       }
     }, [color, closeButtonTheme]);
 
     const TipseenWrapper = ref || id ? "div" : Fragment;
+    const wrapperProps =
+      TipseenWrapper === "div"
+        ? { ref: mergedRef, id, "data-testid": dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id) }
+        : {};
+
     const tooltipContent = (
       <div>
         <div className={cx(styles.tipseenHeader)}>
@@ -208,20 +205,20 @@ const Tipseen = forwardRef(
               kind="tertiary"
               // @ts-ignore
               color={closeButtonColor}
-              ariaLabel={overrideCloseAriaLabel}
+              aria-label={overrideCloseAriaLabel}
               icon={CloseSmall}
             />
           )}
           <TipseenTitle text={title} className={cx(styles.tipseenTitle, titleClassName)} />
         </div>
-        <Text color={textColor} type="text2" element="p" className={cx(styles.tipseenContent)}>
+        <Text color={textColor} type="text2" element="div" ellipsis={false} className={cx(styles.tipseenContent)}>
           <TipseenContext.Provider value={color}>{content}</TipseenContext.Provider>
         </Text>
       </div>
     );
 
     return (
-      <TipseenWrapper ref={mergedRef} id={id} data-testid={dataTestId || getTestId(ComponentDefaultTestId.TIPSEEN, id)}>
+      <TipseenWrapper {...wrapperProps}>
         <Tooltip
           className={cx(styles.tipseenWrapper, className, {
             [styles.tipseenWrapperWithoutCustomWidth]: !width,
@@ -244,9 +241,9 @@ const Tipseen = forwardRef(
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          middleware={middleware}
           referenceWrapperClassName={referenceWrapperClassName}
           tip={tip && !floating}
-          modifiers={modifiers}
           open={defaultDelayOpen ? delayedOpen : undefined}
           forceRenderWithoutChildren={floating}
         >
@@ -257,18 +254,4 @@ const Tipseen = forwardRef(
   }
 );
 
-interface TipseenStaticProps {
-  closeButtonThemes: typeof TipseenCloseButtonThemeEnum;
-  animationTypes: typeof AnimationTypeEnum;
-  hideShowTriggers: typeof HideShowEventEnum;
-  colors: typeof TipseenColorEnum;
-  positions: typeof TooltipPositionsEnum;
-}
-
-export default withStaticProps<TipseenProps, TipseenStaticProps>(Tipseen, {
-  closeButtonThemes: TipseenCloseButtonThemeEnum,
-  animationTypes: AnimationTypeEnum,
-  hideShowTriggers: HideShowEventEnum,
-  colors: TipseenColorEnum,
-  positions: TooltipPositionsEnum
-});
+export default Tipseen;

@@ -1,5 +1,5 @@
 import React from "react";
-import Icon, { type IconSubComponentProps } from "../Icon/Icon";
+import { Icon, type IconSubComponentProps } from "@vibe/icon";
 import { defaultIconMap } from "./ToastConstants";
 import { type ToastType } from "./Toast.types";
 
@@ -9,6 +9,6 @@ export const getIcon = (type: ToastType, icon: string | React.FC<IconSubComponen
     return icon;
   }
   return icon || defaultIconMap[type] ? (
-    <Icon iconType={icon ? "font" : "svg"} icon={icon || defaultIconMap[type]} iconSize={20} ignoreFocusStyle />
+    <Icon type={icon ? "font" : "svg"} icon={icon || defaultIconMap[type]} size={20} ignoreFocusStyle />
   ) : null;
 };

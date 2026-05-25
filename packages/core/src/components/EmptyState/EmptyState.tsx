@@ -1,13 +1,12 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import Flex from "../../components/Flex/Flex";
-import Heading from "../../components/Heading/Heading";
-import Text from "../../components/Text/Text";
+import { Flex } from "@vibe/layout";
+import { Heading, Text } from "@vibe/typography";
 import { type EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { Button, type ButtonProps } from "../Button";
+import { Button, type ButtonProps } from "@vibe/button";
 import { Link, type LinkProps } from "../Link";
 import { ComponentVibeId } from "../../tests/constants";
 

@@ -1,10 +1,11 @@
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useRef } from "react";
-import useIsOverflowing from "../../../hooks/useIsOverflowing/useIsOverflowing";
-import Tooltip from "../../../components/Tooltip/Tooltip";
+import { useIsOverflowing } from "@vibe/hooks";
+import { Tooltip } from "@vibe/tooltip";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import { type SubIcon, type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "../../../types";
+import { type SubIcon } from "@vibe/icon";
 import styles from "./BreadcrumbItem.module.scss";
 
 export interface BreadcrumbItemProps extends VibeComponentProps {

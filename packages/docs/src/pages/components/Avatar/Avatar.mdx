@@ -1,0 +1,172 @@
+import { Avatar, AvatarGroup, Flex, Counter } from "@vibe/core";
+import { Meta } from "@storybook/blocks";
+import { ComponentRules, createComponentTemplate } from "vibe-storybook-components";
+import person1 from "./assets/person1.png";
+import person2 from "./assets/person2.png";
+import person3 from "./assets/person3.png";
+import maleIcon from "./assets/maleIcon.png";
+import femaleIcon from "./assets/femaleIcon.png";
+import { TipMultipleAvatarsTogether } from "./Avatar.stories.helpers";
+import * as AvatarStories from "./Avatar.stories";
+
+<Meta of={AvatarStories} />
+
+export const avatarTemplate = createComponentTemplate(Avatar);
+
+# Avatar
+
+Avatar is a graphical representation of a person through a profile picture, image, icon, or set of initials.
+
+<Canvas of={AvatarStories.Overview} />
+
+### Import
+
+```js
+import { Avatar } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use an avatar to help a user in the platform efficiently identify another person or a team.",
+    "When there is no personal photo to show, use initials.",
+    "If an image fails to load, fall back to the default user avatar.",
+    "An avatar may contain a status icon to indicate a user’s status (working from home, busy, etc.).",
+    "Use a tooltip or dialog when hovering over the avatar to offer more information. For example: with a person’s name."
+  ]}
+/>
+
+<TipMultipleAvatarsTogether />
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Always provide an <code>ariaLabel</code> prop to describe the person or entity represented by the avatar (e.g.,
+      "John Smith", "Design Team", "Guest User"). This label is automatically used as tooltip content.
+    </>,
+    <>
+      Use the <code>role</code> prop when the avatar represents something other than a person (e.g.,{" "}
+      <code>role="img"</code> for team avatars, <code>role="button"</code> for clickable workspace avatars).
+    </>,
+    <>
+      For clickable avatars, ensure the <code>ariaLabel</code> describes the action that will occur when clicked (e.g.,
+      "Open John Smith's profile", "View Design Team details").
+    </>,
+    <>
+      Use <code>ariaHidden</code> prop appropriately when the avatar is purely decorative and provides no meaningful
+      information to screen readers.
+    </>,
+    <>
+      For avatars with badges (status indicators), ensure the <code>ariaLabel</code> includes relevant status
+      information (e.g., "John Smith (Away)", "Design Team (3 members online)").
+    </>
+  ]}
+/>
+
+## Variants
+
+### Size
+
+Avatars appear in 4 sizes: XS, Small, Medium, and Large.
+
+<Canvas of={AvatarStories.Size} />
+
+### Disabled
+
+Use when a user is inactive in the system.
+
+<Canvas of={AvatarStories.Disable} />
+
+### Avatar with text
+
+Use when a user’s image is not available, use their initials.
+
+<Canvas of={AvatarStories.AvatarWithText} />
+
+### Square avatar with icon or text
+
+Use for non-person avatars, such as a workspace or team.
+
+<Canvas of={AvatarStories.SquareAvatar} />
+
+## Do’s and Don’ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: (
+          <div className="monday-storybook-avatar_multiple">
+            <Avatar className="multiple-avatar" size="large" src={person1} type="img" />
+            <Avatar className="multiple-avatar" size="large" src={person2} type="img" />
+            <Avatar className="multiple-avatar" size="large" src={person3} type="img" />
+          </div>
+        ),
+        description: "Use consistent avatar sizes for common use cases to convey their purpose."
+      },
+      negative: {
+        component: (
+          <div className="monday-storybook-avatar_multiple-reverse">
+            <Avatar className="multiple-reverse-avatar" size="small" src={person1} type="img" />
+            <Avatar className="multiple-reverse-avatar" size="medium" src={person2} type="img" />
+            <Avatar className="multiple-reverse-avatar" size="large" src={person3} type="img" />
+          </div>
+        ),
+        description: "Avoid using a mix of avatar sizes that display together and create design imbalance."
+      }
+    },
+    {
+      positive: {
+        component: <Avatar src={maleIcon} type="img" />,
+        description: "Use branded generic avatars when a user has not set their avatar image."
+      },
+      negative: {
+        component: <Avatar src={femaleIcon} type="img" />,
+        description: "Don’t make assumptions and use gendered placeholder avatars."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+
+### Avatar with right badge
+
+Use to indicate the user’s permissions such as: Guest, owner.
+
+<Canvas of={AvatarStories.AvatarWithRightBadge} />
+
+### Avatar with left badge
+
+Use to indicate the status of a user such as: Working from home, out of office etc.
+
+<Canvas of={AvatarStories.AvatarWithLeftBadge} />
+
+### Avatar with tooltip
+
+Use to display tooltip on onHover Avatar event.
+
+<Canvas of={AvatarStories.AvatarWithTooltip} />
+
+### Clickable avatar
+
+Use to fire actions on avatar click event.
+
+<Canvas of={AvatarStories.ClickableAvatar} />
+
+### Multiple avatars
+
+To group multiple Avatars together, use the <StorybookLink page="Components/AvatarGroup">AvatarGroup</StorybookLink> component.
+
+<Canvas of={AvatarStories.MultipleAvatars} />
+
+## Related components
+
+<RelatedComponents componentsNames={["AvatarGroup", "Tooltip", "Badge"]} />

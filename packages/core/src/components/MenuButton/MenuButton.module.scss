@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 @import "../../styles/typography";
 @import "../../styles/states";
 
@@ -85,5 +85,5 @@
 }
 
 .innerText {
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--space-8);
 }

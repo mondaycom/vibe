@@ -1,8 +1,8 @@
 import React, { type CSSProperties, type RefObject, useCallback } from "react";
 import useKeyEvent from "../../hooks/useKeyEvent";
-import Flex from "../Flex/Flex";
+import { Flex } from "@vibe/layout";
 import Avatar, { type AvatarProps } from "../Avatar/Avatar";
-import ClickableWrapper from "../Clickable/ClickableWrapper";
+import { ClickableWrapper } from "@vibe/clickable";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
 import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
@@ -129,18 +129,18 @@ export const avatarRenderer = (
     <ClickableWrapper
       key={index}
       isClickable={!!avatarProps?.onClick}
-      clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: "-1" }}
+      clickableProps={{ onClick: event => avatarProps.onClick(event, avatarProps.id), tabIndex: -1 }}
     >
       <div style={overrideStyle}>
-        <Flex direction="row" gap="xs" ariaLabelledby={labelId}>
+        <Flex direction="row" gap="xs" aria-labelledby={labelId}>
           <Avatar
             {...avatarProps}
             tooltipProps={undefined}
-            ariaLabel={""}
+            aria-label={""}
             customSize={AVATAR_GROUP_COUNTER_AVATAR_SIZE}
             type={type || avatarProps?.type}
             tabIndex={-1}
-            size={Avatar.sizes.SMALL}
+            size="small"
             className={avatarGroupCounterTooltipContentStyles.tooltipAvatarItemAvatar}
           />
           {!displayAsGrid && (

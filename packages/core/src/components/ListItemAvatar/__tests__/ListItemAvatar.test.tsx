@@ -2,7 +2,6 @@ import { it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import ListItemAvatar from "../ListItemAvatar";
-import { person1 } from "../../Avatar/__stories__/assets";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ListItemAvatar />).toJSON();
@@ -10,6 +9,6 @@ it("renders correctly with empty props", () => {
 });
 
 it("renders correctly with picture", () => {
-  const tree = renderer.create(<ListItemAvatar src={person1} />).toJSON();
+  const tree = renderer.create(<ListItemAvatar src={"image-url.jpg"} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

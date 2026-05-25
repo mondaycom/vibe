@@ -3,8 +3,10 @@ export const buttonGroupStory = "/?path=/story/components-buttongroup--overview"
 export const buttonToastStory = "/?path=/story/components-toast--default-with-button";
 export const checkboxStory = "/?path=/story/components-checkbox--overview";
 export const colorPickerStory = "/?path=/story/components-colorpicker--overview";
-export const comboboxStory = "/?path=/story/components-combobox--overview";
-export const dropdownStory = "/?path=/story/components-dropdown--overview";
+export const comboboxStory = "/?path=/story/components-combobox-deprecated--overview";
+export const dropdownStory = "/?path=/story/components-dropdown-basic-dropdown--searchable";
+export const editableHeadingStory = "/?path=/story/components-editableheading--overview";
+export const editableTextStory = "/?path=/story/components-editabletext--overview";
 export const expandCollapseStory = "/?path=/story/components-expandcollapse--overview";
 export const iconButtonStory = "/?path=/story/components-iconbutton--overview";
 export const linkStory = "/?path=/story/components-link--overview";
@@ -16,7 +18,7 @@ export const loadingToastStory = "/?path=/story/components-toast--toast-with-loa
 export const menuStory = "/?path=/story/components-menu-menu--overview";
 export const menuItemStory = "/?path=/story/components-menu-menuitem--overview";
 export const menuButtonStory = "/?path=/story/components-menubutton--overview";
-export const modalStory = "/?path=/story/components-modal-new-basic-modal--overview";
+export const modalStory = "/?path=/story/components-modal-basic-modal--overview";
 export const radioButtonStory = "/?path=/story/components-radiobutton--overview";
 export const searchStory = "/?path=/story/components-search--overview";
 export const splitButtonStory = "/?path=/story/components-splitbutton--overview";

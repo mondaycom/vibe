@@ -1,9 +1,10 @@
 import * as path from "path";
+import { fileURLToPath } from "url";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import postcss from "rollup-plugin-postcss";
 import postCssImport from "postcss-import";
 import autoprefixer from "autoprefixer";
@@ -12,6 +13,7 @@ import * as fs from "fs";
 import ejs from "ejs";
 import copy from "rollup-plugin-copy";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 const ROOT_PATH = path.join(__dirname);
 const SRC_PATH = path.join(ROOT_PATH, "src");
@@ -53,6 +55,35 @@ function generateCssModulesMockName(name) {
   return name;
 }
 
+function getVibePackagesWithMockedClassNames() {
+  const packagesWithMocked = new Map();
+  const packagesRoot = path.resolve(__dirname, "..");
+
+  const scanDir = dir => {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const pkgJsonPath = path.join(dir, entry.name, "package.json");
+      if (!fs.existsSync(pkgJsonPath)) continue;
+      try {
+        const pkg = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
+        if (pkg.name?.startsWith("@vibe/") && pkg.exports?.["./mockedClassNames"]) {
+          packagesWithMocked.set(pkg.name, true);
+        }
+      } catch (e) {
+        // Skip invalid package.json
+      }
+    }
+  };
+
+  scanDir(packagesRoot);
+  scanDir(path.join(packagesRoot, "components"));
+
+  return packagesWithMocked;
+}
+
+const vibePackagesWithMocked = shouldMockModularClassnames ? getVibePackagesWithMockedClassNames() : new Map();
+
 export default {
   onwarn,
   output: {
@@ -71,8 +102,31 @@ export default {
     testIds: path.join(SRC_PATH, "tests/test-ids-utils.ts"),
     next: path.join(SRC_PATH, "components/next.ts")
   },
-  external: [/node_modules\/(?!monday-ui-style)(.*)/],
+  external: [/node_modules\/(?!@vibe\/style)(.*)/],
   plugins: [
+    ...(shouldMockModularClassnames
+      ? [
+          {
+            name: "resolve-vibe-to-mocked-entry-points",
+            resolveId: {
+              order: "pre",
+              handler(source) {
+                if (source.startsWith("@vibe/") && !source.includes("/mockedClassNames")) {
+                  const packageName = source.replace("@vibe/", "").split("/")[0];
+                  const fullPackageName = `@vibe/${packageName}`;
+
+                  if (vibePackagesWithMocked.has(fullPackageName)) {
+                    return { id: `${fullPackageName}/mockedClassNames`, external: true };
+                  }
+
+                  return { id: source, external: true };
+                }
+                return null;
+              }
+            }
+          }
+        ]
+      : []),
     commonjs(),
     nodeResolve({
       extensions: [...EXTENSIONS, ".json", ".css"]
@@ -124,7 +178,7 @@ export default {
     copy({
       targets: [
         {
-          src: "../../node_modules/monday-ui-style/dist/index.min.css",
+          src: "../../node_modules/@vibe/style/dist/index.min.css",
           dest: "dist/tokens",
           rename: () => "tokens.css"
         },

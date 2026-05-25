@@ -234,7 +234,7 @@ Components support various size variants.
 
 Components use CSS custom properties for theming:
 
-- Design tokens from Vibe's styling library (`monday-ui-style`)
+- Design tokens from Vibe's styling library (`@vibe/style`)
 - Automatic dark/light mode support
 - Consistent spacing and typography scales
 

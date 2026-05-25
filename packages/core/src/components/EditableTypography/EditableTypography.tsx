@@ -1,15 +1,14 @@
 import React, { type ElementType, forwardRef, useEffect, useRef, useState } from "react";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, useKeyboardButtonPressedFunc, useIsomorphicLayoutEffect } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";
 import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "../../constants";
-import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
-import { type TooltipProps } from "../Tooltip";
+
+import { type TooltipProps } from "@vibe/tooltip";
 import usePrevious from "../../hooks/usePrevious";
-import { type TextType, type TextWeight } from "../Text";
-import { type HeadingType, type HeadingWeight } from "../Heading";
-import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
+import { type TextType, type TextWeight } from "@vibe/typography";
+import { type HeadingType, type HeadingWeight } from "@vibe/typography";
 
 export interface EditableTypographyImplementationProps {
   /**
@@ -25,6 +24,10 @@ export interface EditableTypographyImplementationProps {
    */
   onClick?: (event: React.KeyboardEvent | React.MouseEvent) => void;
   /**
+   * Callback fired when a key is pressed inside the input/textarea element.
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  /**
    * If true, the text is read-only and cannot be edited.
    */
   readOnly?: boolean;
@@ -35,7 +38,7 @@ export interface EditableTypographyImplementationProps {
   /**
    * The label of the component for accessibility.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * Controls whether the component is in edit mode.
    */
@@ -92,8 +95,9 @@ const EditableTypography = forwardRef(
       value,
       onChange,
       onClick,
+      onKeyDown,
       readOnly = false,
-      ariaLabel = "",
+      "aria-label": ariaLabel = "",
       placeholder,
       clearable,
       typographyClassName,
@@ -187,6 +191,8 @@ const EditableTypography = forwardRef(
         handleEditModeChange(false);
         setInputValue(value);
       }
+
+      onKeyDown?.(event);
     }
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {

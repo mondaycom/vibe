@@ -1,0 +1,669 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`a. Ranges Slider: basic renderer 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Ranges Slider Active/Inactive > 01. show Tooltip when hover Start Thumb 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Ranges Slider Active/Inactive > 02. show Tooltip when hover End Thumb 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Ranges Slider Active/Inactive > 03. hide Tooltip when unhover Thumb 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Ranges Slider Active/Inactive > 04. activate Start Thumb by Tab key press 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Ranges Slider Active/Inactive > 05. activate End Thumb by Tab key press 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small focused notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small focused notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Ranges Slider Active/Inactive > 06. de-activate Thumb by Tab key press, when End Thumb focused 1`] = `
+<div
+  class="slider positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 40%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`c. Ranges Slider Key Events > 01. decrease value by Left/Down keys press 1`] = `
+<div
+  class="slider valueShown positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 23%; width: 42%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="23"
+        aria-valuetext="23%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 23%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          23%
+        </label>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          65%
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`c. Ranges Slider Key Events > 02. increase value by Right/Up keys press 1`] = `
+<div
+  class="slider valueShown positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 42%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small focused notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          25%
+        </label>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="67"
+        aria-valuetext="67%"
+        class="thumb small focused notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 67%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          67%
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`c. Ranges Slider Key Events > 03. decrease value (step 10%) by PageDown key press 1`] = `
+<div
+  class="slider valueShown positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 25%; width: 30%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="25"
+        aria-valuetext="25%"
+        class="thumb small focused notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 25%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          25%
+        </label>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="55"
+        aria-valuetext="55%"
+        class="thumb small focused notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 55%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          55%
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`c. Ranges Slider Key Events > 04. increase value (step 10%) by PageUp key pres 1`] = `
+<div
+  class="slider valueShown positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 45%; width: 20%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="45"
+        aria-valuetext="45%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 45%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          45%
+        </label>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          65%
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`c. Ranges Slider Key Events > 05. change value by keys press in Step and Label mode 1`] = `
+<div
+  class="slider valueShown positionTop"
+  data-testid="monday-slider"
+>
+  <div
+    class="infix prefix"
+    style="width: 60px;"
+  >
+    <div
+      data-testid="mock-text-field-comp"
+    >
+      {"value":"45%","className":"selectionIndicator"}
+    </div>
+  </div>
+  <div
+    class="base small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="rail small"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="track"
+      />
+      <div
+        class="filledTrack"
+        style="left: 45%; width: 20%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="45"
+        aria-valuetext="45%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 45%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          45%
+        </label>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        aria-valuetext="65%"
+        class="thumb small notDisabledThumb"
+        data-testid="monday-slider__thumb-1"
+        role="slider"
+        style="left: 65%;"
+        tabindex="0"
+      >
+        <label
+          class="label colorPrimary positionTop"
+        >
+          65%
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    class="infix postfix"
+    style="width: 60px;"
+  >
+    <div
+      data-testid="mock-text-field-comp"
+    >
+      {"value":"65%","className":"selectionIndicator"}
+    </div>
+  </div>
+</div>
+`;

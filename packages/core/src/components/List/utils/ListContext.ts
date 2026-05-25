@@ -1,5 +1,5 @@
 import React from "react";
-import { NOOP } from "../../../utils/function-utils";
+import { NOOP } from "@vibe/shared";
 
 type ListContextType = {
   /**

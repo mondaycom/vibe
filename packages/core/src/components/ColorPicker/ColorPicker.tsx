@@ -1,12 +1,11 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { BaseSizes } from "../../constants";
-import useMergeRef from "../../hooks/useMergeRef";
-import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { ColorStyle as ColorStyleEnum } from "../../utils/colors-vars-map";
+import { type BaseSizes } from "../../constants";
+import { useMergeRef, NOOP } from "@vibe/shared";
+import { DialogContentContainer } from "@vibe/dialog";
 import { NoColor } from "@vibe/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
-import { ColorShapes as ColorShapesEnum, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import {
   type ColorShapes,
   type ColorPickerSizes,
@@ -14,8 +13,9 @@ import {
   type ColorPickerArrayValueOnly
 } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { type VibeComponentProps, type SubIcon, withStaticProps } from "../../types";
-import { NOOP } from "../../utils/function-utils";
+import { type VibeComponentProps } from "../../types";
+import { type SubIcon } from "@vibe/icon";
+
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
 import { type ColorStyle } from "../../types/Colors";
@@ -132,8 +132,8 @@ const ColorPicker = forwardRef(
       <DialogContentContainer
         ref={mergedRef}
         className={cx(styles.colorPicker, styles.colorPickerDialogContent, className)}
-        ariaLabelledby="Color Picker Dialog"
-        ariaDescribedby="Pick color"
+        aria-labelledby="Color Picker Dialog"
+        aria-describedby="Pick color"
         style={{ width }}
         data-vibe={ComponentVibeId.COLOR_PICKER}
       >
@@ -163,16 +163,4 @@ const ColorPicker = forwardRef(
   }
 );
 
-interface ColorPickerStaticProps {
-  sizes: typeof BaseSizes;
-  colorStyles: typeof ColorStyleEnum;
-  colorSizes: typeof BaseSizes;
-  colorShapes: typeof ColorShapesEnum;
-}
-
-export default withStaticProps<ColorPickerProps, ColorPickerStaticProps>(ColorPicker, {
-  sizes: BaseSizes,
-  colorStyles: ColorStyleEnum,
-  colorSizes: BaseSizes,
-  colorShapes: ColorShapesEnum
-});
+export default ColorPicker;

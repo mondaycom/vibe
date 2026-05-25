@@ -1,0 +1,17 @@
+import type { CSSProperties } from "react";
+
+export type FlexAlign = "start" | "center" | "end" | "stretch" | "baseline" | "initial";
+
+export type FlexJustify = "start" | "center" | "end" | "space-around" | "space-between" | "initial";
+
+export type FlexGap = "xs" | "small" | "medium" | "large";
+
+export type FlexDirection = "row" | "column";
+
+export type FlexShorthand =
+  | CSSProperties["flex"]
+  | {
+      grow?: CSSProperties["flexGrow"];
+      shrink?: CSSProperties["flexShrink"];
+      basis?: CSSProperties["flexBasis"];
+    };

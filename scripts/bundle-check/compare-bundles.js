@@ -3,7 +3,7 @@ const path = require("path");
 const bytes = require("bytes");
 
 function extractJson(content) {
-  const jsonMatch = content.match(/\[[\s\S]*?\]/);
+  const jsonMatch = content.match(/^\[[\s\S]*\]$/m);
 
   if (!jsonMatch) {
     throw new Error("No JSON array found in content");
@@ -19,6 +19,7 @@ const base = JSON.parse(extractJson(baseContent));
 const pr = JSON.parse(extractJson(prContent));
 
 let md = "📦 **Bundle Size Analysis**\n\n";
+
 const tableHeader = "| Component | Base | PR | Diff |\n|-----------|------|----|------|\n";
 
 const baseMap = new Map();
@@ -42,7 +43,16 @@ Array.from(allComponents)
     const baseEntry = baseMap.get(componentName);
     const prEntry = prMap.get(componentName);
 
-    const displayName = path.basename(componentName, path.extname(componentName));
+    let displayName;
+    if (componentName.startsWith("packages/components/")) {
+      const packageName = componentName.split("/")[2];
+      displayName = `@vibe/${packageName}`;
+    } else if (componentName.includes("/next/")) {
+      const baseName = path.basename(componentName, path.extname(componentName));
+      displayName = `${baseName} (Next)`;
+    } else {
+      displayName = path.basename(componentName, path.extname(componentName));
+    }
 
     if (!baseEntry && prEntry) {
       // New component

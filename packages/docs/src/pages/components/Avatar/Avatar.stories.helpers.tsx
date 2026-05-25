@@ -1,0 +1,12 @@
+import React from "react";
+import { StorybookLink, Tip } from "vibe-storybook-components";
+
+export const TipMultipleAvatarsTogether = () => (
+  <Tip title="Mutiple avatars togethers?">
+    If you want to stack multiple avatars together, check out{" "}
+    <StorybookLink page="Components/AvatarGroup" size="small">
+      AvatarGroup
+    </StorybookLink>{" "}
+    component
+  </Tip>
+);

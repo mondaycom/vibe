@@ -1,15 +1,13 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import { noop as NOOP } from "es-toolkit";
-import useMergeRef from "../../../hooks/useMergeRef";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
-import Icon from "../../Icon/Icon";
+import { useMergeRef, getStyle } from "@vibe/shared";
+
+import { Icon, type IconType, type SubIcon } from "@vibe/icon";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
-import { type IconType } from "../../Icon";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import styles from "./Tab.module.scss";
-import { type SubIcon } from "../../../types/SubIcon";
-import Tooltip, { type TooltipProps } from "../../Tooltip/Tooltip";
+import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
 import { keyCodes } from "../../../constants";
 
@@ -69,7 +67,7 @@ export interface TabProps extends VibeComponentProps {
   /**
    * The id of the associated TabPanel for aria-controls attribute.
    */
-  ariaControls?: string;
+  "aria-controls"?: string;
 }
 
 const Tab: FC<TabProps> = forwardRef(
@@ -91,7 +89,7 @@ const Tab: FC<TabProps> = forwardRef(
       children,
       "data-testid": dataTestId,
       tabIndex,
-      ariaControls
+      "aria-controls": ariaControls
     }: TabProps,
     ref
   ) => {
@@ -103,11 +101,11 @@ const Tab: FC<TabProps> = forwardRef(
 
       const iconElement = (
         <Icon
-          ariaHidden={true}
-          iconType={iconType}
+          aria-hidden={true}
+          type={iconType}
           icon={icon}
           className={cx(styles.tabIcon, getStyle(styles, iconSide))}
-          iconSize={18}
+          size={18}
           ignoreFocusStyle
         />
       );

@@ -55,10 +55,7 @@ describe("Toast renders correctly", () => {
   it("with link", () => {
     const tree = renderer
       .create(
-        <Toast
-          open
-          actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 1 }]}
-        >
+        <Toast open actions={[{ type: "link", text: "Lorem ipsum", href: "https://monday.com", key: 1 }]}>
           Something Happened
         </Toast>
       )

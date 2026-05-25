@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type FC, type ForwardedRef, forwardRef } from "react";
-import Icon from "../Icon/Icon";
+import { Icon } from "@vibe/icon";
 import type VibeComponentProps from "../../types/VibeComponentProps";
 import styles from "./FieldLabel.module.scss";
 
@@ -56,7 +56,7 @@ const FieldLabel: FC<FieldLabelProps> = forwardRef(
 
     return (
       <section className={cx(styles.labelComponentWrapper, className)}>
-        <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} iconType="font" />
+        <Icon icon={icon} className={cx(styles.labelComponentIcon, iconClassName)} id={labelFor} type="font" />
         <label
           id={id}
           htmlFor={labelFor || htmlFor}
