@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import cx from "classnames";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
@@ -49,6 +49,10 @@ const TextArea = forwardRef(
 
     const [characterCount, setCharacterCount] = useState(value?.length || 0);
     const isErrorState = error || (typeof maxLength === "number" && characterCount > maxLength);
+
+    useEffect(() => {
+      setCharacterCount(value?.length || 0);
+    }, [value]);
 
     const handleOnChange = useCallback(
       (event: React.ChangeEvent<HTMLTextAreaElement>) => {
