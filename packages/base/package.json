@@ -1,6 +1,6 @@
 {
   "name": "@vibe/base",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for base components",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.0",
+    "@vibe/shared": "4.0.1",
     "@vibe/style": "4.0.0",
     "classnames": "^2.5.1"
   },

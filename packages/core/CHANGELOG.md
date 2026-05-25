@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.1...@vibe/core@4.2.2) (2026-05-24)
+
+
+### Bug Fixes
+
+* allow DatePicker dependency with React 19 ([#3361](https://github.com/mondaycom/vibe/issues/3361)) ([90a99df](https://github.com/mondaycom/vibe/commit/90a99df5b471b4d869a82793d911db3ef8192710))
+
+
+
+
+
+## [4.2.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.0...@vibe/core@4.2.1) (2026-05-13)
+
+
+### Bug Fixes
+
+* **mcp:** always use @vibe/core as import path in metadata ([#3358](https://github.com/mondaycom/vibe/issues/3358)) ([fa3483d](https://github.com/mondaycom/vibe/commit/fa3483dfa34d8649ee7f6b1a9dac6b83de45d764))
+
+
+
+
+
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.2.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.1.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.0...@vibe/core@4.0.1) (2026-04-16)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add screen reader support for color announcements ([#3346](https://github.com/mondaycom/vibe/issues/3346)) ([ed1bbb1](https://github.com/mondaycom/vibe/commit/ed1bbb1d466d544fbab6ab08198e1db026c116a9))
+
+
+
+
+
 # [4.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.0...@vibe/core@4.0.0) (2026-03-18)
 
 

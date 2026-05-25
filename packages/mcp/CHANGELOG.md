@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.1...@vibe/mcp@4.0.2) (2026-05-20)
+
+
+### Bug Fixes
+
+* trigger ([#3360](https://github.com/mondaycom/vibe/issues/3360)) ([4e6e7e4](https://github.com/mondaycom/vibe/commit/4e6e7e4a2b27eedcf87651b4c357092bce8657ec))
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.0...@vibe/mcp@4.0.1) (2026-05-20)
+
+**Note:** Version bump only for package @vibe/mcp
+
+
+
+
+
 ## [0.8.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.1...@vibe/mcp@0.8.2) (2026-02-09)
 
 

@@ -86,6 +86,7 @@ export default {
           "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src"),
           "@vibe/shared": path.resolve(__dirname, "../../shared/src"),
           "@vibe/hooks": path.resolve(__dirname, "../../hooks/src/index.ts"),
+          "@vibe/icons/meta": path.resolve(__dirname, "../../icons/src/iconsMetaData.ts"),
           "@vibe/icons": path.resolve(__dirname, "../../icons/src/react/index.ts"),
           "@vibe/core/interactionsTests": path.resolve(__dirname, "../../core/src/tests/interactions-utils.ts"),
           "@vibe/core/next": path.resolve(__dirname, "../../core/src/components/next.ts"),

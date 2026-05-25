@@ -2,15 +2,17 @@
 
 import { server, addServerTool } from "./server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { getVibeComponentMetadataTool } from "./server/tools/get-vibe-component-metadata.js";
-import { listVibePublicComponentsTool } from "./server/tools/list-vibe-public-components.js";
-import { getVibeComponentExamples } from "./server/tools/get-vibe-component-examples.js";
-import { getVibeComponentAccessibility } from "./server/tools/get-vibe-component-accessibility.js";
-import { listVibeIconsTool } from "./server/tools/list-vibe-icons.js";
-import { listVibeTokensTool } from "./server/tools/list-vibe-tokens.js";
-import { v3MigrationTool } from "./server/tools/v3-migration.js";
-import { dropdownMigrationTool } from "./server/tools/dropdown-migration.js";
-import { v4MigrationTool } from "./server/tools/v4-migration.js";
+import {
+  getVibeComponentAccessibility,
+  getVibeComponentExamples,
+  getVibeComponentMetadataTool,
+  listVibePublicComponentsTool,
+  listVibeIconsTool,
+  listVibeTokensTool,
+  v3MigrationTool,
+  dropdownMigrationTool,
+  v4MigrationTool
+} from "./server/tools/index.js";
 
 async function main() {
   const transport = new StdioServerTransport();

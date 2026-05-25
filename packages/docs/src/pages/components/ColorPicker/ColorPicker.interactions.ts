@@ -70,9 +70,13 @@ export const multiSelectionInteractionSuite = interactionSuite({
   }
 });
 
+function formatColorName(color: string) {
+  return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+}
+
 async function clickOnColor(canvas, color) {
   const element = await findColorItem(canvas, color);
-  const toClick = await within(element).findByLabelText(color);
+  const toClick = await within(element).findByLabelText(formatColorName(color));
   await userEvent.click(toClick);
 }
 
