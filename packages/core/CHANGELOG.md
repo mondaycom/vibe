@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.3](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.2...@vibe/core@4.2.3) (2026-05-25)
+
+
+### Bug Fixes
+
+* sync TextArea character count with controlled value prop changes ([#3342](https://github.com/mondaycom/vibe/issues/3342)) ([8c7b7f6](https://github.com/mondaycom/vibe/commit/8c7b7f69f54f11f19fbdb6bdcf1352022c86b9d4))
+
+
+
+
+
 ## [4.2.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.1...@vibe/core@4.2.2) (2026-05-24)
 
 
