@@ -80,7 +80,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
     "plop": "4.0.1",
-    "rollup": "^4.60.4",
+    "rollup": "^3.30.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.34.1",
