@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 import BaseItem from "../../../BaseItem/BaseItem";
 import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
@@ -30,6 +30,7 @@ const DropdownBaseList = forwardRef(
     ref: React.Ref<HTMLUListElement>
   ) => {
     const textVariant: TextType = size === "small" ? "text2" : "text1";
+    const listStyle = useMemo(() => ({ maxHeight: maxMenuHeight }), [maxMenuHeight]);
 
     const defaultContent = renderOptions ? (
       options.every(group => group.options?.length === 0) ? (
@@ -85,7 +86,7 @@ const DropdownBaseList = forwardRef(
         className={styles.wrapper}
         {...getMenuProps?.({ "aria-label": menuAriaLabel })}
         onScroll={onScroll}
-        style={{ maxHeight: maxMenuHeight }}
+        style={listStyle}
       >
         {menuRenderer && renderOptions
           ? menuRenderer({
