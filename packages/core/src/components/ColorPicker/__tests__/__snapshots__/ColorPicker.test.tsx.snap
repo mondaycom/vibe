@@ -2,8 +2,9 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  aria-describedby="Pick color"
-  aria-labelledby="Color Picker Dialog"
+  aria-describedby=""
+  aria-label="Color Picker Dialog"
+  aria-labelledby=""
   className="dialogContentContainer colorPicker colorPickerDialogContent typePopover sizeSmall"
   data-testid="dialog-content-container"
   data-vibe="ColorPicker"

@@ -45,7 +45,7 @@
   color: var(--primary-text-color);
 }
 
-.tabWrapper .tabInner:focus {
+.tabWrapper .tabInner:focus:not(:focus-visible) {
   outline: none;
 }
 
