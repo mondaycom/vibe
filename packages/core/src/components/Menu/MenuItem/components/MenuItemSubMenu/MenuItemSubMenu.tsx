@@ -1,9 +1,12 @@
 import React, { useMemo, useRef } from "react";
+import { CSSTransition } from "react-transition-group";
+import { camelCase } from "es-toolkit";
 import { DialogContentContainer } from "@vibe/dialog";
 import { useFloating, flip, type Placement } from "@floating-ui/react-dom";
 import { type MenuChild } from "../../../Menu/MenuConstants";
 import { type MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
-import { useIsomorphicLayoutEffect } from "@vibe/shared";
+import { useIsomorphicLayoutEffect, getStyle } from "@vibe/shared";
+import styles from "./MenuItemSubMenu.module.scss";
 
 const DEFAULT_FALLBACK_PLACEMENTS: Placement[] = ["right-end", "left-start", "left-end"];
 
@@ -16,6 +19,7 @@ const MenuItemSubMenu = ({
   submenuPosition
 }: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
+  const transitionRef = useRef<HTMLDivElement>(null);
 
   useIsomorphicLayoutEffect(() => {
     if (!autoFocusOnMount || !open || !childRef?.current) {
@@ -49,24 +53,36 @@ const MenuItemSubMenu = ({
     return null;
   }
 
+  const placementClassName = getStyle(styles, camelCase(actualPlacement));
+
   return (
-    <div
-      style={{ ...floatingStyles, visibility: open ? "visible" : "hidden" }}
-      ref={refs.setFloating}
-      data-popper-placement={actualPlacement}
-    >
-      {subMenu && open && (
-        <DialogContentContainer>
-          {React.cloneElement(subMenu, {
-            ...subMenu?.props,
-            isVisible: open,
-            isSubMenu: true,
-            onClose,
-            ref: childRef,
-            useDocumentEventListeners: !autoFocusOnMount
-          })}
-        </DialogContentContainer>
-      )}
+    <div style={floatingStyles} ref={refs.setFloating} data-popper-placement={actualPlacement}>
+      <CSSTransition
+        in={open}
+        appear
+        mountOnEnter
+        unmountOnExit
+        nodeRef={transitionRef}
+        timeout={{ appear: 150, enter: 150, exit: 100 }}
+        classNames={{
+          appearActive: styles.appearActive,
+          enterActive: styles.enterActive,
+          exitActive: styles.exitActive
+        }}
+      >
+        <div ref={transitionRef} className={placementClassName}>
+          <DialogContentContainer>
+            {React.cloneElement(subMenu, {
+              ...subMenu?.props,
+              isVisible: open,
+              isSubMenu: true,
+              onClose,
+              ref: childRef,
+              useDocumentEventListeners: !autoFocusOnMount
+            })}
+          </DialogContentContainer>
+        </div>
+      </CSSTransition>
     </div>
   );
 };
