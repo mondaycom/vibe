@@ -1,8 +1,7 @@
 import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
+import React, { type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { type IconSubComponentProps } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { Loader } from "@vibe/loader";
@@ -176,54 +175,82 @@ const Toast = ({
     }
   }, [children, recalculateElementWidth]);
 
+  // CSS-driven enter/exit transition (replaces react-transition-group <CSSTransition>).
+  // Mirrors the original behavior: mount when open, apply enter class on entry,
+  // keep mounted during exit (TOAST_TRANSITION_MS), apply exit class, then unmount.
+  const [transitionStage, setTransitionStage] = useState<"entering" | "entered" | "exiting" | "exited">(
+    open ? "entering" : "exited"
+  );
+
+  useEffect(() => {
+    if (open) {
+      if (transitionStage === "exited") {
+        setTransitionStage("entering");
+        return;
+      }
+      if (transitionStage === "entering") {
+        const timer = setTimeout(() => setTransitionStage("entered"), TOAST_TRANSITION_MS);
+        return () => clearTimeout(timer);
+      }
+    } else {
+      if (transitionStage === "entered" || transitionStage === "entering") {
+        setTransitionStage("exiting");
+        return;
+      }
+      if (transitionStage === "exiting") {
+        const timer = setTimeout(() => setTransitionStage("exited"), TOAST_TRANSITION_MS);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [open, transitionStage]);
+
+  if (!open && transitionStage === "exited") {
+    return null;
+  }
+
   return (
-    <CSSTransition
-      in={open}
-      nodeRef={nodeRef}
-      classNames={{ enterActive: styles.enterActive, exitActive: styles.exitActive }}
-      timeout={400}
-      unmountOnExit
+    <Text
+      ref={nodeRef}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
+      type="text2"
+      element="div"
+      color="fixedLight"
+      className={cx(classNames, {
+        [styles.enterActive]: transitionStage === "entering",
+        [styles.exitActive]: transitionStage === "exiting"
+      })}
+      role="alert"
+      aria-live="polite"
     >
-      <Text
-        ref={nodeRef}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-        type="text2"
-        element="div"
-        color="fixedLight"
-        className={classNames}
-        role="alert"
-        aria-live="polite"
-      >
-        {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-        <Flex align="center" gap="large" className={styles.content}>
-          <Flex
-            gap="medium"
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
-            className={styles.textContent}
-          >
-            <span>{children}</span>
-            {toastLinks}
-          </Flex>
-          {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          {loading && <Loader size="xs" />}
+      {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
+      <Flex align="center" gap="large" className={styles.content}>
+        <Flex gap="medium" data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)} className={styles.textContent}>
+          <span>{children}</span>
+          {toastLinks}
         </Flex>
-        {closeable && (
-          <IconButton
-            className={cx(styles.closeButton)}
-            onClick={handleClose}
-            size="small"
-            kind="tertiary"
-            color="fixed-light"
-            aria-label={closeButtonAriaLabel}
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-            icon={CloseSmall}
-            hideTooltip
-          />
-        )}
-      </Text>
-    </CSSTransition>
+        {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
+        {loading && <Loader size="xs" />}
+      </Flex>
+      {closeable && (
+        <IconButton
+          className={cx(styles.closeButton)}
+          onClick={handleClose}
+          size="small"
+          kind="tertiary"
+          color="fixed-light"
+          aria-label={closeButtonAriaLabel}
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+          icon={CloseSmall}
+          hideTooltip
+        />
+      )}
+    </Text>
   );
 };
+
+// Matches the previous CSSTransition `timeout={400}`. Animation durations in
+// Toast.module.scss are 350ms; the extra 50ms preserves the original buffer.
+const TOAST_TRANSITION_MS = 400;
 
 export default Toast;

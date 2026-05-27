@@ -3,7 +3,6 @@ import { getStyle, NOOP } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
@@ -11,6 +10,10 @@ import { type CounterColor, type CounterSize, type CounterType } from "./Counter
 import { type VibeComponentProps } from "../../types";
 import styles from "./Counter.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
+
+// SCSS uses --motion-productive-long (150ms) for transform and --motion-productive-short (70ms)
+// for opacity. We wait for the longest leg (150ms) before swapping in the new value.
+const COUNTER_SWAP_TRANSITION_MS = 150;
 
 export interface CounterProps extends VibeComponentProps {
   /**
@@ -123,6 +126,53 @@ const Counter = ({
 
   const counterId = "counter" + (id ? `-${id}` : "");
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
+
+  // CSS-driven swap transition (replaces react-transition-group's <SwitchTransition mode="out-in">).
+  // When countText changes, the displayed value exits, then the new value enters — mirroring the
+  // out-in semantics used by react-transition-group. Direction reflects the count change so an
+  // increase animates upward (new from bottom) and a decrease animates downward (new from top).
+  const [displayedText, setDisplayedText] = useState(countText);
+  const [swapStage, setSwapStage] = useState<"idle" | "exiting" | "entering">("idle");
+  const [direction, setDirection] = useState<"up" | "down">("up");
+  const prevCountRef = useRef(count);
+
+  useEffect(() => {
+    if (noAnimation) {
+      setDisplayedText(countText);
+      setSwapStage("idle");
+      prevCountRef.current = count;
+      return;
+    }
+    if (countText !== displayedText && swapStage !== "exiting") {
+      setDirection(count < prevCountRef.current ? "down" : "up");
+      prevCountRef.current = count;
+      setSwapStage("exiting");
+    }
+  }, [count, countText, displayedText, noAnimation, swapStage]);
+
+  useEffect(() => {
+    if (swapStage !== "exiting") return undefined;
+    const exitTimer = setTimeout(() => {
+      setDisplayedText(countText);
+      setSwapStage("entering");
+    }, COUNTER_SWAP_TRANSITION_MS);
+    return () => clearTimeout(exitTimer);
+  }, [swapStage, countText]);
+
+  useEffect(() => {
+    if (swapStage !== "entering") return undefined;
+    const enterTimer = setTimeout(() => setSwapStage("idle"), COUNTER_SWAP_TRANSITION_MS);
+    return () => clearTimeout(enterTimer);
+  }, [swapStage]);
+
+  const animatedSpanClass =
+    cx({
+      [styles.fadeEnterUp]: swapStage === "entering" && direction === "up",
+      [styles.fadeEnterDown]: swapStage === "entering" && direction === "down",
+      [styles.fadeExitUp]: swapStage === "exiting" && direction === "up",
+      [styles.fadeExitDown]: swapStage === "exiting" && direction === "down"
+    }) || undefined;
+
   const counter = (
     <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
       {prefix + countText}
@@ -141,29 +191,14 @@ const Counter = ({
         {noAnimation ? (
           counter
         ) : (
-          <SwitchTransition mode="out-in">
-            <CSSTransition
-              key={countText}
-              nodeRef={nodeRef}
-              classNames={{
-                enter: styles.fadeEnter,
-                enterActive: styles.fadeEnterActive,
-                exit: styles.fadeExit,
-                exitActive: styles.fadeExitActive
-              }}
-              addEndListener={done => {
-                nodeRef.current?.addEventListener("transitionend", done, false);
-              }}
-            >
-              <span
-                ref={nodeRef}
-                id={counterId}
-                data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}
-              >
-                {prefix + countText}
-              </span>
-            </CSSTransition>
-          </SwitchTransition>
+          <span
+            ref={nodeRef}
+            id={counterId}
+            data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}
+            className={animatedSpanClass}
+          >
+            {prefix + displayedText}
+          </span>
         )}
       </div>
     </span>

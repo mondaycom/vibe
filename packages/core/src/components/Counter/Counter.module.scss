@@ -79,31 +79,68 @@
 }
 
 // Animations
-/* New number enters */
-
-.fadeEnter {
-  opacity: 0;
-  transform: translateY(15px);
+@keyframes counterEnterFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.fadeEnterActive {
-  position: relative;
-  opacity: 1;
-  transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
-  transform: translateY(0);
+@keyframes counterEnterFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Old number exits */
-
-.fadeExit {
-  position: relative;
-  opacity: 1;
-  transform: translateY(0);
+@keyframes counterExitToTop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
 }
 
-.fadeExitActive {
+@keyframes counterExitToBottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+/* On increase: new number enters from below, old exits to the top */
+.fadeEnterUp {
   position: relative;
-  opacity: 0;
-  transform: translateY(-15px);
-  transition: transform var(--motion-productive-long) var(--motion-timing-exit), opacity var(--motion-productive-short);
+  animation: counterEnterFromBottom var(--motion-productive-long) var(--motion-timing-enter) forwards;
+}
+
+.fadeExitUp {
+  position: relative;
+  animation: counterExitToTop var(--motion-productive-long) var(--motion-timing-exit) forwards;
+}
+
+/* On decrease: new number enters from above, old exits to the bottom */
+.fadeEnterDown {
+  position: relative;
+  animation: counterEnterFromTop var(--motion-productive-long) var(--motion-timing-enter) forwards;
+}
+
+.fadeExitDown {
+  position: relative;
+  animation: counterExitToBottom var(--motion-productive-long) var(--motion-timing-exit) forwards;
 }
