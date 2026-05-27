@@ -9,6 +9,7 @@ import { type HeadingType, type HeadingWeight } from "./Heading.types";
 import { type TypographyAlign, type TypographyColor } from "../Typography/Typography.types";
 
 const OVERFLOW_TOLERANCE_IN_PX = 4;
+const HEADING_TYPOGRAPHY_CONTEXT_VALUE = { overflowTolerance: OVERFLOW_TOLERANCE_IN_PX };
 
 export interface HeadingProps extends TypographyProps {
   /**
@@ -39,7 +40,7 @@ const Heading = forwardRef(
     ref: React.ForwardedRef<HTMLElement>
   ) => {
     return (
-      <TypographyContext.Provider value={{ overflowTolerance: OVERFLOW_TOLERANCE_IN_PX }}>
+      <TypographyContext.Provider value={HEADING_TYPOGRAPHY_CONTEXT_VALUE}>
         <Typography
           element={type}
           ref={ref}

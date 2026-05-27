@@ -1,4 +1,4 @@
-import React, { type FC, type ReactNode, type RefObject } from "react";
+import React, { type FC, type ReactNode, type RefObject, useMemo } from "react";
 import LayerContext from "./LayerContext";
 
 export interface LayerProviderType {
@@ -13,7 +13,8 @@ export interface LayerProviderType {
 }
 
 const LayerProvider: FC<LayerProviderType> = ({ children, layerRef }) => {
-  return <LayerContext.Provider value={{ layerRef }}>{children}</LayerContext.Provider>;
+  const value = useMemo(() => ({ layerRef }), [layerRef]);
+  return <LayerContext.Provider value={value}>{children}</LayerContext.Provider>;
 };
 
 export default LayerProvider;
