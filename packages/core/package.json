@@ -14,7 +14,7 @@
   "author": "monday.com",
   "license": "MIT",
   "type": "module",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -27,23 +27,23 @@
     },
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/src/index.js",
-      "default": "./dist/src/index.js"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./interactionsTests": {
       "types": "./dist/tests/interactions-utils.d.ts",
-      "import": "./dist/src/tests/interactionsTests.js",
-      "default": "./dist/src/tests/interactionsTests.js"
+      "import": "./dist/interactionsTests.js",
+      "default": "./dist/interactionsTests.js"
     },
     "./testIds": {
       "types": "./dist/tests/test-ids-utils.d.ts",
-      "import": "./dist/src/tests/testIds.js",
-      "default": "./dist/src/tests/testIds.js"
+      "import": "./dist/testIds.js",
+      "default": "./dist/testIds.js"
     },
     "./next": {
       "types": "./dist/components/next.d.ts",
-      "import": "./dist/src/components/next.js",
-      "default": "./dist/src/components/next.js"
+      "import": "./dist/next.js",
+      "default": "./dist/next.js"
     },
     "./tokens": {
       "types": "./dist/tokens/tokens.d.ts",
