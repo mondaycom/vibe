@@ -641,6 +641,13 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
                     if (!state.styles.arrow) {
                       return state;
                     }
+                    // const reg = new RegExp(
+                    //   /translate\(([0-9].*)px, ([0-9].*)px\)/
+                    // );
+                    // const transform = state.styles.arrow.transform;
+                    // const res = reg.exec(transform);
+                    // state.styles.popper.transformOrigin = `${100 -
+                    //   res[1]}% ${100 - res[2]}%`;
                     state.styles.arrow.transform = `${state.styles.arrow.transform} rotate(45deg)`;
                     return state;
                   }
@@ -650,6 +657,10 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
               ]}
             >
               {({ placement, style, ref, arrowProps, isReferenceHidden }) => {
+                if (!this.isShown() && placement) {
+                  return null;
+                }
+
                 if (hideWhenReferenceHidden && isReferenceHidden) {
                   const event = new CustomEvent("onReferenceHidden");
                   this.hideDialog(event, "onReferenceHidden");
