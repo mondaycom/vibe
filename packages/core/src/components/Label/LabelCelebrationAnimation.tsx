@@ -98,25 +98,37 @@ function getPath({
   strokeWidth?: number;
 }) {
   const { tl, tr, br, bl } = radii;
+  // Inset every edge by half the stroke width so the 1px stroke stays fully inside the label box.
   const offset = strokeWidth / 2;
 
-  // Trace the perimeter clockwise: start on the right edge below the top-right corner,
-  // arc through each corner using that corner's own radius.
-  return `M ${width - strokeWidth / 2}, ${tr} V ${height - br} A ${br} ${br} 0 0 1 ${width - br} ${
-    height - strokeWidth / 2
-  } H ${bl + offset} A ${bl} ${bl} 0 0 1 ${strokeWidth / 2} ${height - bl} V ${
-    tl + offset
-  } A ${tl} ${tl} 0 0 1 ${tl} ${strokeWidth / 2} L ${width - tr}, ${
-    strokeWidth / 2
-  } A ${tr} ${tr} 0 0 1 ${width - strokeWidth / 2} ${tr} Z`;
+  // Trace the rounded rectangle clockwise, starting just below the top-right corner on the right
+  // edge. Each edge endpoint is inset by `offset` and each corner is a clean quarter-circle of its
+  // own radius, so the drawn length matches getPerimeter() exactly and the stroke loops smoothly.
+  return `M ${width - offset} ${offset + tr} V ${height - offset - br} A ${br} ${br} 0 0 1 ${width - offset - br} ${
+    height - offset
+  } H ${offset + bl} A ${bl} ${bl} 0 0 1 ${offset} ${height - offset - bl} V ${offset + tl} A ${tl} ${tl} 0 0 1 ${
+    offset + tl
+  } ${offset} H ${width - offset - tr} A ${tr} ${tr} 0 0 1 ${width - offset} ${offset + tr} Z`;
 }
 
-function getPerimeter({ width, height, radii }: { width: number; height: number; radii: CornerRadii }) {
+function getPerimeter({
+  width,
+  height,
+  radii,
+  strokeWidth = DEFAULT_STROKE_WIDTH
+}: {
+  width: number;
+  height: number;
+  radii: CornerRadii;
+  strokeWidth?: number;
+}) {
   const { tl, tr, br, bl } = radii;
   const totalRadius = tl + tr + br + bl;
-  // Straight segments: full perimeter minus the radius slice taken from each end of every edge.
-  const straightEdges = 2 * width + 2 * height - 2 * totalRadius;
-  // Each corner contributes a quarter-circle of its own radius.
+  // Mirror getPath(): every edge loses 2*offset to the stroke inset at its two ends (4 edges ->
+  // 4 * strokeWidth total) plus its two corner radii, and each corner adds a quarter-circle of its
+  // own radius. Keeping this equal to the drawn path length makes stroke-dasharray land exactly on
+  // the seam, so the looping stroke doesn't overshoot and jump.
+  const straightEdges = 2 * width + 2 * height - 4 * strokeWidth - 2 * totalRadius;
   const corners = (Math.PI / 2) * totalRadius;
   return straightEdges + corners;
 }
