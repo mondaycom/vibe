@@ -611,6 +611,7 @@ export default class Dialog extends PureComponent<DialogProps, DialogState> {
           }}
         </Reference>
         {isClient() &&
+          this.isShown() &&
           createPortal(
             <Popper
               placement={position as unknown as PopperJS.Placement}
