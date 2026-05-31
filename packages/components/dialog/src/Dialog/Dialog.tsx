@@ -99,8 +99,10 @@ function Dialog({
   const isOpenInternal = useDerivedStateFromProps ? isOpenProp : isOpenState;
   const isShown = isOpenInternal || open;
 
-  // Build middleware array for Floating UI
+  // Build middleware array for Floating UI — skip when closed to avoid per-render overhead
   const floatingMiddleware = useMemo<Middleware[]>(() => {
+    if (!isShown) return [];
+
     const middlewareList: Middleware[] = [];
 
     // Get user-provided middleware (filter out invalid ones)
@@ -140,7 +142,7 @@ function Dialog({
     }
 
     return middlewareList;
-  }, [moveBy.main, moveBy.secondary, tooltip, hideWhenReferenceHidden, middlewareProp]);
+  }, [isShown, moveBy.main, moveBy.secondary, tooltip, hideWhenReferenceHidden, middlewareProp]);
 
   // Configure autoUpdate for position tracking
   const whileElementsMounted = useCallback(
@@ -153,11 +155,11 @@ function Dialog({
     [observeContentResize]
   );
 
-  // Use Floating UI hook
+  // Use Floating UI hook — whileElementsMounted is omitted when closed to skip autoUpdate setup
   const { refs, floatingStyles, placement, middlewareData } = useFloating({
     placement: position as Placement,
     middleware: floatingMiddleware,
-    whileElementsMounted,
+    whileElementsMounted: isShown ? whileElementsMounted : undefined,
     elements: {
       reference: referenceElement
     }
