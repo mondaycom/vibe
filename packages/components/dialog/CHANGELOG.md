@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.13](https://github.com/mondaycom/vibe/compare/@vibe/dialog@3.0.12...@vibe/dialog@3.0.13) (2026-05-31)
+
+
+### Bug Fixes
+
+* **Dialog:** skip Popper rendering when dialog is closed ([#3380](https://github.com/mondaycom/vibe/issues/3380)) ([6a118f2](https://github.com/mondaycom/vibe/commit/6a118f2eb939aee603ef09247b38f4412c4e43d9))
+
+
+
+
+
 ## [3.0.12](https://github.com/mondaycom/vibe/compare/@vibe/dialog@3.0.11...@vibe/dialog@3.0.12) (2026-02-27)
 
 **Note:** Version bump only for package @vibe/dialog
