@@ -8,10 +8,10 @@ jobs:
     name: Validate Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Ensure running on vibe3
-        if: github.ref != 'refs/heads/vibe3'
+      - name: Ensure running on version3
+        if: github.ref != 'refs/heads/version3'
         run: |
-          echo "::error::Release v3 workflow must be triggered from the vibe3 branch. Current branch: ${{ github.ref }}"
+          echo "::error::Release v3 workflow must be triggered from the version3 branch. Current branch: ${{ github.ref }}"
           exit 1
 
   notify-release-start:
@@ -79,7 +79,7 @@ jobs:
         id: setup-npmrc
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       - name: Publish to npm with v3 dist-tag
-        run: yarn lerna publish from-package --dist-tag v3 --dry-run -y
+        run: yarn lerna publish from-package --dist-tag v3 -y
       - name: Remove .npmrc
         if: steps.setup-npmrc.outcome == 'success'
         run: rm .npmrc
