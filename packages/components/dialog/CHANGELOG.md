@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.2...@vibe/dialog@4.1.0) (2026-05-31)
+
+
+### Features
+
+* **Dialog:** skip floating-ui computation when closed ([#3379](https://github.com/mondaycom/vibe/issues/3379)) ([0893696](https://github.com/mondaycom/vibe/commit/0893696849cdb24d5eacb8bf0ac3b04e3cac6b78))
+
+
+
+
+
 ## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.1...@vibe/dialog@4.0.2) (2026-05-25)
 
 **Note:** Version bump only for package @vibe/dialog

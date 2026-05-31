@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/mondaycom/vibe/compare/@vibe/layer@4.0.2...@vibe/layer@4.0.3) (2026-05-31)
+
+**Note:** Version bump only for package @vibe/layer
+
+
+
+
+
 ## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/layer@4.0.1...@vibe/layer@4.0.2) (2026-05-25)
 
 **Note:** Version bump only for package @vibe/layer

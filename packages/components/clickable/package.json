@@ -1,6 +1,6 @@
 {
   "name": "@vibe/clickable",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for Clickable component",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.2",
+    "@vibe/shared": "4.0.3",
     "@vibe/style": "4.0.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "@vibe/config": "4.0.1",
+    "@vibe/config": "4.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
