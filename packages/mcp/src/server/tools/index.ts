@@ -1,8 +1,8 @@
 export { getVibeComponentMetadataTool } from "./get-vibe-component-metadata.js";
 export { listVibePublicComponentsTool } from "./list-vibe-public-components.js";
 export { getVibeComponentExamples } from "./get-vibe-component-examples.js";
-export { getVibeComponentAccessibility } from "./get-vibe-component-accessibility.js";
 export { listVibeIconsTool } from "./list-vibe-icons.js";
+export { getVibeComponentAccessibility } from "./get-vibe-component-accessibility.js";
 export { listVibeTokensTool } from "./list-vibe-tokens.js";
 export { v3MigrationTool } from "./v3-migration.js";
 export { dropdownMigrationTool } from "./dropdown-migration.js";
