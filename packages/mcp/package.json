@@ -14,6 +14,10 @@
   "author": "monday.com",
   "license": "MIT",
   "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./tools": "./dist/server/tools/index.js"
+  },
   "bin": "./dist/index.js",
   "files": [
     "dist"
