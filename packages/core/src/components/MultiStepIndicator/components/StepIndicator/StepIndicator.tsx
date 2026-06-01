@@ -4,7 +4,6 @@ import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-ut
 import cx from "classnames";
 import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import { Icon } from "@vibe/icon";
@@ -20,6 +19,10 @@ import { type VibeComponentProps } from "../../../../types";
 import { type SubIcon } from "@vibe/icon";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
+
+// SCSS uses --motion-productive-long (150ms) for transform and --motion-productive-short (70ms)
+// for opacity. We wait for the longest leg (150ms) before swapping to the next status.
+const STEP_INDICATOR_SWAP_TRANSITION_MS = 150;
 
 export interface StepCircleDisplayProps {
   /**
@@ -189,6 +192,40 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
     prevStatusRef.current = status;
   }, [status]);
 
+  // CSS-driven swap transition (replaces react-transition-group's <SwitchTransition mode="out-in">).
+  // When status changes, the displayed status fades out, then the new status fades in.
+  const [displayedStatus, setDisplayedStatus] = useState<StepStatus>(status);
+  const [swapStage, setSwapStage] = useState<"idle" | "exiting" | "entering">("idle");
+
+  useEffect(() => {
+    if (status !== displayedStatus && swapStage !== "exiting") {
+      setSwapStage("exiting");
+    }
+  }, [status, displayedStatus, swapStage]);
+
+  useEffect(() => {
+    if (swapStage !== "exiting") return undefined;
+    const exitTimer = setTimeout(() => {
+      setDisplayedStatus(status);
+      setSwapStage("entering");
+    }, STEP_INDICATOR_SWAP_TRANSITION_MS);
+    return () => clearTimeout(exitTimer);
+  }, [swapStage, status]);
+
+  useEffect(() => {
+    if (swapStage !== "entering") return undefined;
+    const enterTimer = setTimeout(() => setSwapStage("idle"), STEP_INDICATOR_SWAP_TRANSITION_MS);
+    return () => clearTimeout(enterTimer);
+  }, [swapStage]);
+
+  const swapClassName =
+    cx({
+      [styles.swapEnter]: swapStage === "entering",
+      [styles.swapEnterActive]: swapStage === "entering",
+      [styles.swapExit]: swapStage === "exiting",
+      [styles.swapExitActive]: swapStage === "exiting"
+    }) || undefined;
+
   const ariaLabel = useMemo(() => {
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status, titleText, stepNumber, subtitleText]);
@@ -222,31 +259,15 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({
           tabIndex={0}
           role="button"
         >
-          <SwitchTransition mode="out-in">
-            <CSSTransition
-              key={status}
-              nodeRef={nodeRef}
-              classNames={{
-                enter: styles.swapEnter,
-                enterActive: styles.swapEnterActive,
-                exit: styles.swapExit,
-                exitActive: styles.swapExitActive
-              }}
-              addEndListener={done => {
-                nodeRef.current?.addEventListener("transitionend", done, false);
-              }}
-            >
-              <span ref={nodeRef} className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
-                <StepCircleDisplay
-                  fulfilledStepIcon={fulfilledStepIcon}
-                  fulfilledStepIconType={fulfilledStepIconType}
-                  isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
-                  stepNumber={stepNumber}
-                  status={status}
-                />
-              </span>
-            </CSSTransition>
-          </SwitchTransition>
+          <span ref={nodeRef} className={cx(...getClassNamesWithSuffix("__number-container__text"), swapClassName)}>
+            <StepCircleDisplay
+              fulfilledStepIcon={fulfilledStepIcon}
+              fulfilledStepIconType={fulfilledStepIconType}
+              isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
+              stepNumber={stepNumber}
+              status={displayedStatus}
+            />
+          </span>
         </div>
         {isFollowedByDivider && isVertical && <Divider className={cx(styles.divider, stepDividerClassName)} />}
       </div>
