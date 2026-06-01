@@ -36,7 +36,7 @@
     "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx,scss}\""
   },
   "dependencies": {
-    "postcss": "8.4.31",
+    "postcss": "8.5.10",
     "postcss-scss": "^4.0.9",
     "postcss-value-parser": "4.2.0",
     "stylelint": "^14.16.1"
