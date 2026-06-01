@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.2...@vibe/mcp@0.9.0) (2026-06-01)
+
+
+### Bug Fixes
+
+* export tools ([f3b7878](https://github.com/mondaycom/vibe/commit/f3b7878729941ef5f2b48c8d94c0fd3b815ff447))
+
+
+### Features
+
+* **mcp:** export tools ([de95d43](https://github.com/mondaycom/vibe/commit/de95d43014cc718a58335e9a8448a7a00b70c6e9))
+
+
+
+
+
 ## [0.8.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.1...@vibe/mcp@0.8.2) (2026-02-09)
 
 
