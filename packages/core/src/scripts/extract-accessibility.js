@@ -2,10 +2,9 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const componentsDir = path.join(__dirname, "../../docs/src/pages/components/");
-const outputDir = path.join(__dirname, "../dist/generated/accessibility/");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const componentsDir = path.resolve(__dirname, "../../../docs/src/pages/components/");
+const outputDir = path.resolve(__dirname, "../../dist/metadata/accessibility/");
 
 export function getMdxFiles() {
   const mdxFiles = [];
@@ -22,7 +21,7 @@ export function getMdxFiles() {
       } else if (entry.isFile()) {
         // Check for MDX files
         if (entry.name.endsWith(".mdx")) {
-          mdxFiles.push(path.relative(__dirname, fullPath));
+          mdxFiles.push(fullPath);
         }
       }
     }
@@ -33,20 +32,16 @@ export function getMdxFiles() {
 }
 
 export function extractAccessibilityFromMdx(file) {
-  const inputFile = path.join(__dirname, file);
-  const inputFileComponentName = path.basename(inputFile).split(".")[0];
-  const outputFile = path.resolve(__dirname, outputDir, inputFileComponentName + ".md");
-
-  const fileContent = fs.readFileSync(inputFile, "utf-8");
-
-  console.log(`Extracting accessibility for ${inputFileComponentName}`);
+  const componentName = path.basename(file).split(".")[0];
+  const outputFile = path.join(outputDir, componentName + ".md");
+  const fileContent = fs.readFileSync(file, "utf-8");
 
   // Find accessibility section in MDX
   const lines = fileContent.split("\n");
   const accessibilityStartIndex = lines.findIndex(line => line.trim() === "## Accessibility");
 
   if (accessibilityStartIndex === -1) {
-    console.log(`No accessibility section found in ${inputFileComponentName}`);
+    console.log(`No accessibility section found in ${componentName}`);
     return;
   }
 
@@ -81,10 +76,10 @@ export function extractAccessibilityFromMdx(file) {
   // Clean up JSX/HTML content
   const cleanContent = cleanUpAccessibilityContent(rawContent);
 
-  const markdown = `# ${inputFileComponentName} - Accessibility Requirements\n\n${cleanContent}`;
+  const markdown = `# ${componentName} - Accessibility Requirements\n\n${cleanContent}`;
 
   fs.writeFileSync(outputFile, markdown, "utf-8");
-  console.log(`Accessibility extracted for ${inputFileComponentName} at ${outputFile}`);
+  console.log(`Accessibility extracted for ${componentName} at ${outputFile}`);
 }
 
 export function cleanUpAccessibilityContent(content) {
@@ -140,28 +135,24 @@ export function cleanUpAccessibilityContent(content) {
 }
 
 export function run() {
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+  if (!fs.existsSync(componentsDir)) {
+    console.error(`Components directory not found: ${componentsDir}`);
+    process.exit(1);
   }
 
-  console.log("🔍 Extracting accessibility content from MDX files...");
+  fs.mkdirSync(outputDir, { recursive: true });
 
   const mdxFiles = getMdxFiles();
-
-  if (mdxFiles.length === 0) {
-    console.log("⚠️  No MDX files found");
-    return;
-  }
-
-  console.log(`📄 Found ${mdxFiles.length} MDX files to process`);
+  console.log(`Extracting accessibility from ${mdxFiles.length} MDX files...`);
 
   mdxFiles.forEach(file => {
     extractAccessibilityFromMdx(file);
   });
 
-  console.log("✅ Accessibility extraction completed!");
+  console.log("Accessibility extraction complete");
 }
 
-if (process.argv[1] === __filename) {
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
   run();
 }

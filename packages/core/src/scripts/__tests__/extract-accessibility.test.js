@@ -5,7 +5,7 @@ import { describe, it, expect } from "vitest";
 import { cleanUpAccessibilityContent, run } from "../extract-accessibility.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const outputDir = path.join(__dirname, "../../dist/generated/accessibility/");
+const outputDir = path.resolve(__dirname, "../../../dist/metadata/accessibility/");
 
 describe("cleanUpAccessibilityContent", () => {
   describe("UsageGuidelines extraction", () => {
