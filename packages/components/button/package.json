@@ -1,6 +1,6 @@
 {
   "name": "@vibe/button",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for button components",
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "4.0.2",
-    "@vibe/icons": "4.0.2",
+    "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
