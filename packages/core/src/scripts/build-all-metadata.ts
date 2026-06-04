@@ -6,8 +6,8 @@ const coreRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 
 const scripts = [
   { name: "components metadata", cmd: "tsx src/scripts/generate-metadata.ts" },
-  { name: "examples", cmd: "node src/scripts/extract-examples.js" },
-  { name: "accessibility", cmd: "node src/scripts/extract-accessibility.js" },
+  { name: "examples", cmd: "tsx src/scripts/extract-examples.ts" },
+  { name: "accessibility", cmd: "tsx src/scripts/extract-accessibility.ts" }
 ];
 
 for (const script of scripts) {

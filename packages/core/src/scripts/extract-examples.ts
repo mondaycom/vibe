@@ -4,18 +4,19 @@ import parser from "@babel/parser";
 import _traverse from "@babel/traverse";
 import _generate from "@babel/generator";
 import { fileURLToPath } from "url";
+import type { File } from "@babel/types";
 
-const traverse = _traverse.default ?? _traverse;
-const generate = _generate.default ?? _generate;
+const traverse = (_traverse as unknown as { default: typeof _traverse }).default ?? _traverse;
+const generate = (_generate as unknown as { default: typeof _generate }).default ?? _generate;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const componentsDir = path.resolve(__dirname, "../../../docs/src/pages/components/");
 const outputDir = path.resolve(__dirname, "../../dist/metadata/examples/");
 
-function getStoryFiles() {
-  const storyFiles = [];
+function getStoryFiles(): string[] {
+  const storyFiles: string[] = [];
 
-  function traverseDirectory(dir) {
+  function traverseDirectory(dir: string): void {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
@@ -33,12 +34,13 @@ function getStoryFiles() {
   return storyFiles;
 }
 
-export function generateCodeForOneLiner(ast, constName) {
-  let calleeCode = null;
+export function generateCodeForOneLiner(ast: File, constName: string): string | null {
+  let calleeCode: string | null = null;
   traverse(ast, {
     VariableDeclarator(nodePath) {
-      if (nodePath.node.id.name === constName) {
-        if (nodePath.node.init?.callee?.name !== "createComponentTemplate") {
+      if ((nodePath.node.id as { name?: string }).name === constName) {
+        const init = nodePath.node.init as { callee?: { name?: string } } | null;
+        if (init?.callee?.name !== "createComponentTemplate") {
           calleeCode = "const " + generate(nodePath.node).code;
         } else {
           calleeCode = "";
@@ -49,7 +51,7 @@ export function generateCodeForOneLiner(ast, constName) {
   return calleeCode;
 }
 
-function extractMarkdown(file) {
+function extractMarkdown(file: string): void {
   const componentName = path.basename(file).split(".")[0];
   const outputFile = path.join(outputDir, componentName + ".md");
   const fileContent = fs.readFileSync(file, "utf-8");
@@ -65,44 +67,51 @@ function extractMarkdown(file) {
     ExportNamedDeclaration(nodePath) {
       if (nodePath.node.declaration && nodePath.node.declaration.type === "VariableDeclaration") {
         nodePath.node.declaration.declarations.forEach(declarator => {
-          const storyName = declarator.id.name;
+          const storyName = (declarator.id as { name?: string }).name ?? "";
           if (declarator.init && declarator.init.type === "ObjectExpression") {
-            let renderProp = null;
-            let nameProp = null;
+            let renderProp: { type: string; body?: unknown; callee?: { object?: { name?: string } } } | null = null;
+            let nameProp: string | null = null;
             let codeBlock = "";
 
             declarator.init.properties.forEach(prop => {
-              if (prop.key) {
-                if (prop.key.name === "render") {
-                  renderProp = prop.value;
-                }
-                if (prop.key.name === "name" && prop.value.type === "StringLiteral") {
-                  nameProp = prop.value.value;
-                }
+              if (prop.type !== "ObjectProperty") return;
+              const key = prop.key as { name?: string };
+              const value = prop.value as { type: string; value?: string };
+              if (key.name === "render") {
+                renderProp = value as typeof renderProp;
+              }
+              if (key.name === "name" && value.type === "StringLiteral") {
+                nameProp = value.value ?? null;
               }
             });
 
             if (renderProp) {
-              if (renderProp.type === "ArrowFunctionExpression") {
+              const rp = renderProp as {
+                type: string;
+                body?: { type: string; body?: unknown[] };
+                callee?: { object?: { name?: string } };
+              };
+              if (rp.type === "ArrowFunctionExpression") {
+                const body = rp.body as { type: string; body?: unknown[] };
                 if (
-                  renderProp.body.type === "JSXFragment" ||
-                  renderProp.body.type === "MemberExpression" ||
-                  renderProp.body.type === "JSXElement"
+                  body.type === "JSXFragment" ||
+                  body.type === "MemberExpression" ||
+                  body.type === "JSXElement"
                 ) {
-                  codeBlock = generate(renderProp.body).code;
-                } else if (renderProp.body.type === "BlockStatement") {
-                  codeBlock = renderProp.body.body.map(line => generate(line).code).join("\n");
+                  codeBlock = generate(body as Parameters<typeof generate>[0]).code;
+                } else if (body.type === "BlockStatement") {
+                  codeBlock = (body.body ?? []).map(line => generate(line as Parameters<typeof generate>[0]).code).join("\n");
                 } else {
-                  codeBlock = generate(renderProp.body).code;
+                  codeBlock = generate(body as Parameters<typeof generate>[0]).code;
                 }
-              } else if (renderProp.type === "CallExpression") {
-                const calleeName = renderProp.callee.object.name;
-                codeBlock = generateCodeForOneLiner(ast, calleeName);
+              } else if (rp.type === "CallExpression") {
+                const calleeName = rp.callee?.object?.name ?? "";
+                codeBlock = generateCodeForOneLiner(ast, calleeName) ?? "";
               }
             }
 
-            const displayName = nameProp || storyName;
-            if (codeBlock?.length > 0) {
+            const displayName = nameProp ?? storyName;
+            if (codeBlock.length > 0) {
               markdown += `## ${displayName}\n\n\`\`\`tsx\n${codeBlock.trim()}\n\`\`\`\n\n`;
             }
           }
@@ -114,7 +123,7 @@ function extractMarkdown(file) {
   fs.writeFileSync(outputFile, markdown, "utf-8");
 }
 
-export function run() {
+export function run(): void {
   if (!fs.existsSync(componentsDir)) {
     console.error(`Components directory not found: ${componentsDir}`);
     process.exit(1);
