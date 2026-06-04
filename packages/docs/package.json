@@ -1,6 +1,6 @@
 {
   "name": "@vibe/docs",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "private": true,
   "description": "Vibe documentation",
   "repository": {
@@ -22,7 +22,7 @@
     "chromatic:local": "chromatic -t $CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@vibe/core": "4.2.5",
+    "@vibe/core": "4.2.6",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.3",
     "@vibe/style": "4.0.0",

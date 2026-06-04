@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.6](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.5...@vibe/core@4.2.6) (2026-06-04)
+
+
+### Bug Fixes
+
+* **TextArea:** link character count to aria-describedby when showCharCount is used ([#3396](https://github.com/mondaycom/vibe/issues/3396)) ([42f7270](https://github.com/mondaycom/vibe/commit/42f727074e83f28ee06347f60b71ae248b6c57ff))
+
+
+
+
+
 ## [4.2.5](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.4...@vibe/core@4.2.5) (2026-06-03)
 
 **Note:** Version bump only for package @vibe/core
