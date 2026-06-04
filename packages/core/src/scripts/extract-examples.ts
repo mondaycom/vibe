@@ -93,14 +93,12 @@ function extractMarkdown(file: string): void {
               };
               if (rp.type === "ArrowFunctionExpression") {
                 const body = rp.body as { type: string; body?: unknown[] };
-                if (
-                  body.type === "JSXFragment" ||
-                  body.type === "MemberExpression" ||
-                  body.type === "JSXElement"
-                ) {
+                if (body.type === "JSXFragment" || body.type === "MemberExpression" || body.type === "JSXElement") {
                   codeBlock = generate(body as Parameters<typeof generate>[0]).code;
                 } else if (body.type === "BlockStatement") {
-                  codeBlock = (body.body ?? []).map(line => generate(line as Parameters<typeof generate>[0]).code).join("\n");
+                  codeBlock = (body.body ?? [])
+                    .map(line => generate(line as Parameters<typeof generate>[0]).code)
+                    .join("\n");
                 } else {
                   codeBlock = generate(body as Parameters<typeof generate>[0]).code;
                 }
