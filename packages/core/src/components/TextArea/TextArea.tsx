@@ -40,7 +40,7 @@ const TextArea = forwardRef(
   ) => {
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
-    const charCountTextId = showCharCount && typeof maxLength === "number" && `${id}-char-count`;
+    const charCountTextId = showCharCount && typeof maxLength === "number" && `${id}-allow-exceeding-max-length`;
 
     const ariaDescribedby = useMemo(
       () => [helpTextId, charCountTextId].filter(id => !!id).join(" ") || undefined,
