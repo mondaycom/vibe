@@ -40,11 +40,11 @@ const TextArea = forwardRef(
   ) => {
     const numRows = rows || DEFAULT_ROWS[size];
     const helpTextId = helpText && `${id}-help-text`;
-    const allowExceedingMaxLengthTextId = allowExceedingMaxLength && `${id}-allow-exceeding-max-length`;
+    const charCountTextId = showCharCount && typeof maxLength === "number" && `${id}-allow-exceeding-max-length`;
 
     const ariaDescribedby = useMemo(
-      () => [helpTextId, allowExceedingMaxLengthTextId].filter(id => !!id).join(" ") || undefined,
-      [helpTextId, allowExceedingMaxLengthTextId]
+      () => [helpTextId, charCountTextId].filter(id => !!id).join(" ") || undefined,
+      [helpTextId, charCountTextId]
     );
 
     const [characterCount, setCharacterCount] = useState(value?.length || 0);
@@ -110,7 +110,7 @@ const TextArea = forwardRef(
                   {characterCount}
                   {typeof maxLength === "number" && `/${maxLength}`}
                 </Text>
-                <HiddenText id={allowExceedingMaxLengthTextId} text={`${characterCount} out of ${maxLength}`} />
+                <HiddenText id={charCountTextId} text={`${characterCount} out of ${maxLength}`} />
               </>
             )}
           </Flex>
