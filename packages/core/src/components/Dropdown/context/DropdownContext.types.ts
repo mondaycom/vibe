@@ -48,6 +48,7 @@ type InheritedDropdownProps<Item extends BaseItemData<Record<string, unknown>>> 
     | "onKeyDown"
     | "onScroll"
     | "onClear"
+    | "zIndex"
   >
 >;
 
