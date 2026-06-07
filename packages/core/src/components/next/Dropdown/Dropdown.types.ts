@@ -267,6 +267,10 @@ export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>
      * If true, displays a loading indicator in the dropdown controls.
      */
     loading?: boolean;
+    /**
+     * The z-index of the dropdown menu popup. Use when the dropdown appears behind sticky or fixed elements.
+     */
+    zIndex?: number;
   } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";

@@ -7,7 +7,7 @@ import SingleSelectTrigger from "../Trigger/SingleSelectTrigger";
 import MultiSelectTrigger from "../Trigger/MultiSelectTrigger";
 
 const DropdownPopup = () => {
-  const { multi } = useDropdownContext();
+  const { multi, zIndex } = useDropdownContext();
 
   return (
     <Dialog
@@ -21,6 +21,7 @@ const DropdownPopup = () => {
       modifiers={matchWidthModifier}
       content={<Menu />}
       referenceWrapperElement="div"
+      zIndex={zIndex}
     >
       {multi ? <MultiSelectTrigger /> : <SingleSelectTrigger />}
     </Dialog>
