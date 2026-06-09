@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.6...@vibe/core@4.3.0) (2026-06-09)
+
+
+### Features
+
+* **mcp:** auto-detect Vibe version for correct metadata ([#3393](https://github.com/mondaycom/vibe/issues/3393)) ([cdea3a4](https://github.com/mondaycom/vibe/commit/cdea3a4aefa846fb064896e7d09c937bd1086fe3))
+
+
+
+
+
 ## [4.2.6](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.5...@vibe/core@4.2.6) (2026-06-04)
 
 
