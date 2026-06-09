@@ -5,7 +5,7 @@ import { describe, it, expect } from "vitest";
 import { cleanUpAccessibilityContent, run } from "../extract-accessibility.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const outputDir = path.join(__dirname, "../../dist/generated/accessibility/");
+const outputDir = path.resolve(__dirname, "../../../dist/metadata/accessibility/");
 
 describe("cleanUpAccessibilityContent", () => {
   describe("UsageGuidelines extraction", () => {
@@ -17,9 +17,7 @@ describe("cleanUpAccessibilityContent", () => {
 
       const result = cleanUpAccessibilityContent(content);
 
-      expect(result).toBe(
-        "1. Use labels for all interactive elements\n2. Ensure color contrast meets WCAG AA"
-      );
+      expect(result).toBe("1. Use labels for all interactive elements\n2. Ensure color contrast meets WCAG AA");
     });
 
     it("should extract guidelines wrapped in React fragments", () => {
@@ -114,7 +112,7 @@ describe("cleanUpAccessibilityContent", () => {
 
       const result = cleanUpAccessibilityContent(content);
 
-      expect(result).not.toMatch(/^\s*[\[\]]\s*$/m);
+      expect(result).not.toMatch(/^\s*[[\]]\s*$/m);
       expect(result).toContain("Valid content");
       expect(result).toContain("More valid content");
     });

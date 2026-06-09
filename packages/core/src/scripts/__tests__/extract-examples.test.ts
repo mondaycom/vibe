@@ -3,12 +3,13 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { describe, it, expect } from "vitest";
 import parser from "@babel/parser";
-import { generateCodeForOneLiner, run } from "../extract-code-samples.js";
+import { generateCodeForOneLiner, run } from "../extract-examples.js";
+import type { File } from "@babel/types";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const outputDir = path.join(__dirname, "../../dist/generated/");
+const outputDir = path.resolve(__dirname, "../../../dist/metadata/examples/");
 
-function parseCode(code) {
+function parseCode(code: string): File {
   return parser.parse(code, {
     sourceType: "module",
     plugins: ["typescript", "jsx"]
