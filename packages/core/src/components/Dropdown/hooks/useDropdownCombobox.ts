@@ -57,18 +57,29 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     itemToString: item => item?.label ?? "",
     itemToKey: item => (item?.value !== undefined ? String(item.value) : ""),
     isItemDisabled: item => Boolean(item.disabled),
-    initialInputValue: inputValueProp || "",
+    // Seed the input with the selected item's label so a defaultValue/value is visible (and exposed to
+    // assistive technologies) on mount, now that the selection lives inside the input rather than in an overlay.
+    initialInputValue: inputValueProp || selectedItem?.label || "",
     selectedItem: selectedItem,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     id,
     onIsOpenChange: ({ isOpen }) => {
+      // Reset the text filter when the menu closes so reopening always shows the full option list,
+      // even though the input keeps displaying the selected item's label.
+      if (!isOpen) {
+        filterOptions("");
+      }
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
 
     onInputValueChange: useCallback(
-      ({ inputValue }) => {
-        filterOptions(inputValue || "");
+      ({ inputValue, type }) => {
+        // Only filter on actual user typing. Downshift also writes the selected item's label into the
+        // input on selection/blur — those changes must not filter the list.
+        if (type === useCombobox.stateChangeTypes.InputChange) {
+          filterOptions(inputValue || "");
+        }
         onInputChange?.(inputValue);
       },
       [onInputChange, filterOptions]
@@ -105,10 +116,9 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
       switch (actionAndChanges.type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: null, isOpen: !closeMenuOnSelect };
-        case useCombobox.stateChangeTypes.InputBlur:
-        case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
-          return { ...actionAndChanges.changes, inputValue: null };
+          // Keep Downshift's default inputValue (the selected item's label) so the selection lives inside
+          // the input and is exposed to assistive technologies. Only override the open state.
+          return { ...actionAndChanges.changes, isOpen: !closeMenuOnSelect };
 
         default:
           return actionAndChanges.changes;

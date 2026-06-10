@@ -249,19 +249,20 @@ describe("DropdownNew", () => {
       }
     });
 
-    it("should show faded selected item when focused", () => {
-      const { getByPlaceholderText, container, getByText } = renderDropdown({
+    it("should keep the selected value inside the input for searchable single select", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({
         placeholder: "Select an option"
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
-      fireEvent.focus(input);
+      // The selection lives inside the input (exposed to assistive technologies), not in a visual overlay.
+      expect(input).toHaveValue("Option 1");
 
-      const selectedValue = container.querySelector(".selectedItem");
-      expect(selectedValue).toHaveClass("faded");
+      fireEvent.focus(input);
+      expect(input).toHaveValue("Option 1");
     });
 
     it("should hide selected value when typing in the input", () => {
@@ -275,7 +276,7 @@ describe("DropdownNew", () => {
       expect(queryByText("Option 1")).not.toBeInTheDocument();
     });
 
-    it("should not display indent startElement in selected value", () => {
+    it("should not display indent startElement in selected value (non-searchable overlay)", () => {
       const optionsWithIndent: DropdownListGroup<BaseItemData<Record<string, unknown>>>[] = [
         {
           label: "Group 1",
@@ -290,13 +291,12 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const { getByPlaceholderText, getByText, container } = renderDropdown({
-        options: optionsWithIndent
+      // Non-searchable single select displays the selection via the overlay, where indent must be stripped.
+      const { container } = renderDropdown({
+        options: optionsWithIndent,
+        searchable: false,
+        value: { label: "Option 1", value: "opt1", index: 0, startElement: { type: "indent" } } as any
       });
-
-      const input = getByPlaceholderText("Select an option");
-      fireEvent.click(input);
-      fireEvent.click(getByText("Option 1"));
 
       const selectedValue = container.querySelector(".selectedItem");
       expect(selectedValue).toBeInTheDocument();
