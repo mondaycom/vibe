@@ -3,123 +3,32 @@ import * as DropdownMultiSelectA11yStories from "./DropdownMultiSelectA11y.stori
 
 <Meta of={DropdownMultiSelectA11yStories} />
 
-# Multi-select — Accessibility modes
+# Multi-select accessibility
 
-The multi-select Dropdown (`multi`) provides two props that directly address assistive-technology requirements: `textInput` and `interactiveChips`. This page explains the problem each solves and when to choose one over the other.
+By default, a multi-select Dropdown renders selected items as chips **outside** the input element. The input itself stays empty at all times. Screen readers read an input's value — not the chips around it — so a field with three selections is still announced as _"blank"_ when focused. This breaks **WCAG 4.1.2 Name, Role, Value**, which requires the current value of a form control to be programmatically determinable.
 
-### Import
-
-```js
-import { Dropdown } from "@vibe/core";
-```
-
-<Canvas of={DropdownMultiSelectA11yStories.Overview} />
-
-## The problem with default multi-select
-
-In the default chip mode, selected items are rendered as visual chips **outside** the input. The input itself stays empty at all times. Because screen readers read an input's **value** — not the chips around it — a field with three selections is still announced as _"…, blank"_ when focused.
-
-This violates **WCAG 4.1.2 Name, Role, Value (Level A)**, which requires the current value of a form control to be programmatically determinable.
+We propose 2 solutions:
 
 ---
 
-## `textInput` — comma-separated value inside the input
+## Solution 1 — textInput
 
 <Canvas of={DropdownMultiSelectA11yStories.TextInputBasic} />
 
-When `textInput` is set, selected items are **not shown as chips**. Instead, their labels are joined as a comma-separated string and placed directly inside the `<input role="combobox">`:
+Instead of chips, selected labels are joined as a comma-separated string and written directly into the `<input>`. When a screen reader focuses the field it announces the full selection — _"Chip one, Chip two, combo box"_ — satisfying WCAG 4.1.2.
 
-> _"Teams, Design, Engineering, combo box"_
+When the user starts typing, the summary is temporarily replaced by the search text. On close or blur it is restored.
 
-This satisfies WCAG 4.1.2 because the value is in the input — where assistive technologies expect it.
-
-### Value exposed on mount
-
-A pre-selected `defaultValue` or controlled `value` is reflected in the input immediately, without any user interaction.
-
-<Canvas of={DropdownMultiSelectA11yStories.TextInputWithDefaultValue} />
-
-### Controlled usage
-
-<Canvas of={DropdownMultiSelectA11yStories.TextInputControlled} />
-
-### What happens while typing
-
-When the user starts typing to search, the summary is temporarily replaced by the search text. On blur or close the full summary is restored. The filter applies to the option list only — existing selections are preserved.
-
-### Trade-offs
-
-| Aspect | Behavior |
-| --- | --- |
-| Visual representation | Text only — no chips |
-| Screen reader on focus | Full selection announced (e.g. "Design, Engineering") |
-| `defaultValue` / `value` on mount | Announced immediately |
-| Individual chip removal | Not available — use the clear button or re-click items |
-
-Use `textInput` when **WCAG 4.1.2 compliance is the priority** and the chip-removal UX is not needed.
+**Use this when:** accurate screen reader announcement of the current value is the priority.
 
 ---
 
-## `interactiveChips` — chips with full keyboard navigation
+## Solution 2 — interactiveChips
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
-When `interactiveChips` is set, chips stay visible and are **keyboard-navigable**. A sighted keyboard user can reach each chip and remove it without a mouse — addressing the common accessibility gap where chips are visual-only controls.
+Chips remain visible but each one becomes a focusable, keyboard-operable control. A keyboard-only user can navigate to any chip and remove it without a mouse — something the default chip mode does not support because the chips are purely visual.
 
-### Keyboard navigation
+Keyboard navigation: press **ArrowLeft** from the input to move focus to the last chip, then **ArrowLeft / ArrowRight** to move between chips, and **Backspace** or **Delete** to remove the focused chip.
 
-<Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsKeyboardNav} />
-
-| Key | Where | Action |
-| --- | --- | --- |
-| `ArrowLeft` | Input (empty) | Move focus to the last chip |
-| `ArrowLeft` / `ArrowRight` | Focused chip | Move between chips |
-| `Backspace` / `Delete` | Focused chip | Remove that chip |
-| `Backspace` | Input (empty) | Move focus to the last chip |
-| `Enter` / `Space` / click | Any chip | No action (not a toggle in this mode — use the menu) |
-
-### Overflow — the +N badge
-
-When chips exceed the available width, a **+N badge** groups the overflow. Clicking the badge opens a dialog listing the hidden chips, each with its own remove button.
-
-<Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsWithOverflow} />
-
-### Trade-offs
-
-| Aspect | Behavior |
-| --- | --- |
-| Visual representation | Chips (same as default) |
-| Keyboard chip removal | Yes — ArrowLeft + Backspace/Delete |
-| Screen reader on focus | Input value is empty (same gap as default mode) |
-| Overflow | +N badge with dialog |
-
-Use `interactiveChips` when **keyboard-accessible chip removal** is the priority and the visual chip layout should be preserved.
-
----
-
-## Choosing between them
-
-| Need | Recommended prop |
-| --- | --- |
-| Screen reader announces the full selection on focus | `textInput` |
-| WCAG 4.1.2 compliance | `textInput` |
-| Pre-selected value readable on page load | `textInput` |
-| Users need to remove individual chips without a mouse | `interactiveChips` |
-| Chip-based visual layout must be preserved | `interactiveChips` |
-| Both requirements | Use `textInput` — combine with `onOptionRemove` and an external chip list if individual removal is also needed |
-
----
-
-## Common accessibility props
-
-These props apply to both modes (and to the default chip mode).
-
-| Prop | Purpose | Notes |
-| --- | --- | --- |
-| `label` | Visible text label, associated via `aria-labelledby` | **Preferred** accessible name. Always provide a label. |
-| `aria-label` | Accessible name when there is no visible label | Use only when a visible label is not possible. |
-| `clearAriaLabel` | Accessible name for the clear (✕) button | **Required when `clearable`.** Without it the button is an icon-only control with no name. |
-| `error` | Puts the field in an error state (`aria-invalid`) | Always pair with `helperText` describing the error — color alone fails 1.4.1. |
-| `helperText` | Descriptive text associated via `aria-describedby` | Use for instructions and error messages. |
-| `required` | Marks the field required (`aria-required`) | Pair with form-level validation. |
-| `noOptionsMessage` | Text announced when a search yields no results | Give a meaningful message (e.g. "No teams found"). |
+**Use this when:** preserving the chip layout is important and keyboard-accessible individual chip removal is needed.
