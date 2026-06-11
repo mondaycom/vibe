@@ -651,6 +651,37 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
     });
 
+    it("should label searchable input and describe it with selected item labels", () => {
+      const { getByRole, getByTestId } = renderDropdown({
+        multi: true,
+        label: "Selected options",
+        defaultValue: [
+          { label: "Option 1", value: "opt1", index: 0 },
+          { label: "Option 3", value: "opt3", index: 2 }
+        ]
+      });
+
+      const input = getByRole("combobox", { name: "Selected options" });
+      const selectedItemsDescription = getByTestId("dropdown-selected-items-description");
+
+      expect(selectedItemsDescription).toHaveTextContent("Selected items Option 1, Option 3");
+      expect(input.getAttribute("aria-labelledby")).not.toContain(selectedItemsDescription.id);
+      expect(input).toHaveAttribute("aria-describedby", selectedItemsDescription.id);
+      expect(input).not.toHaveAttribute("aria-label");
+    });
+
+    it("should not use generated downshift ids as fallback aria labels", () => {
+      const { container } = renderDropdown({
+        multi: true,
+        defaultValue: [
+          { label: "Option 1", value: "opt1", index: 0 },
+          { label: "Option 3", value: "opt3", index: 2 }
+        ]
+      });
+
+      expect(container.querySelector('[aria-label^="downshift-"]')).not.toBeInTheDocument();
+    });
+
     it("should remove an item when its chip is deleted", () => {
       const onChange = vi.fn();
       const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
