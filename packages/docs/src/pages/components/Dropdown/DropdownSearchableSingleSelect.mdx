@@ -15,6 +15,22 @@ import { Dropdown } from "@vibe/core";
 
 <Canvas of={DropdownSearchableSingleSelectStories.Overview} />
 
+## What changed
+
+Previously, selecting an option in a searchable single select **cleared the input** and rendered the selected label as a **visual overlay** on top of the empty field. Because screen readers read the input's value — not the overlay — a field with a selection was announced as blank.
+
+The behavior was changed so the selected option's label is now set as the **value of the input itself**, and the overlay was removed.
+
+| Aspect                              | Before                                  | After                       |
+| ----------------------------------- | --------------------------------------- | --------------------------- |
+| Input value after selecting         | Empty                                   | The selected label          |
+| How the selection is shown          | Visual overlay over an empty input      | Inside the input            |
+| Screen reader on focus              | _"…, blank"_                            | _"…, {selected label}"_     |
+| `defaultValue` / `value` on mount   | Shown via the overlay                   | Shown in the input          |
+| Collapsed selected value            | Rich (icon / avatar / `valueRenderer`)  | Text-only                   |
+
+This is scoped to **searchable single select**. Non-searchable single select and multi-select are unchanged.
+
 ## The core behavior: the selected value lives inside the input
 
 When an option is selected, its label is set as the **value of the `<input role="combobox">`**. It is not painted as a separate visual layer on top of an empty field.
@@ -25,8 +41,6 @@ This matters because assistive technologies read the input's value, not whatever
 - The current value is exposed on mount for `defaultValue` / controlled `value`, not only after interaction.
 
 <Canvas of={DropdownSearchableSingleSelectStories.WithDefaultValue} />
-
-> Previously the input was force-cleared after selection and the label was shown as an overlay. Screen readers announced the field as blank, which failed WCAG 4.1.2. Keeping the value in the input is the fix.
 
 ### What happens on open / reopen / type
 
@@ -40,6 +54,20 @@ This matters because assistive technologies read the input's value, not whatever
 Showing the full list on reopen (rather than filtering down to the single selected label) is intentional: it lets users browse and change their choice, and avoids a screen reader announcing _"1 of 1"_ when more options exist.
 
 > **WCAG 4.1.2 Name, Role, Value (Level A)** requires the **current value** of a form control to be programmatically determinable. Keeping the selected label in the input — rather than in a visual overlay — is what satisfies this.
+
+## Selected value display — trade-off
+
+Because the selected value now lives inside a native input (which can only hold a string), the **collapsed selected value is text-only**. Anything an option carries beyond its label is shown **in the option list** but not in the selected display:
+
+- `startElement` — leading icon / avatar / indent
+- `endElement` — trailing icon / suffix / hint text
+- a custom `valueRenderer` (applies only to **non-searchable** single select)
+
+<Canvas of={DropdownSearchableSingleSelectStories.WithIconsAndAvatars} />
+
+<Canvas of={DropdownSearchableSingleSelectStories.WithEndElements} />
+
+<Canvas of={DropdownSearchableSingleSelectStories.WithValueRenderer} />
 
 ## Accessibility-relevant props
 
@@ -76,18 +104,3 @@ Layout props such as `size` are omitted — they do not affect accessibility. Th
 | Prop          | Purpose                                  | Notes                                                                                                                                  |
 | ------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `placeholder` | Hint text shown when the field is empty. | **Not a substitute for `label`.** It disappears once a value is present and is not a reliable accessible name. Always provide `label` or `aria-label` in addition. |
-
-## Do / Don't
-
-**Do**
-
-- Provide a `label` (or `aria-label`) on every dropdown.
-- Set `clearAriaLabel` whenever the field is clearable.
-- Pair `error` with a descriptive `helperText`.
-- Provide a meaningful `noOptionsMessage`.
-
-**Don't**
-
-- Rely on `placeholder` as the field's name.
-- Convey the error state with color / `error` only, with no text.
-- Assume the visual selection is enough — the value must live in the input (this is handled by the component).

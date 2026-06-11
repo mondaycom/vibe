@@ -235,23 +235,131 @@ export const WithIconsAndAvatars: Story = {
     );
 
     return (
-      <Flex gap="large" align="start">
+      <Flex direction="column" gap="medium">
+        <Text type="text2" color="secondary">
+          Each option is preselected. The icon / avatar shows in the option list, but the collapsed selected value
+          inside the input is text-only — a native input can only hold a string.
+        </Text>
+        <Flex gap="large" align="start">
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              id="searchable-single-icons"
+              options={iconOptions as any}
+              defaultValue={iconOptions[0] as any}
+              searchable
+              label="With icons"
+              placeholder="Search an action"
+              clearAriaLabel="Clear"
+            />
+          </div>
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              id="searchable-single-avatars"
+              options={avatarOptions as any}
+              defaultValue={avatarOptions[0] as any}
+              searchable
+              label="With avatars"
+              placeholder="Search a person"
+              clearAriaLabel="Clear"
+            />
+          </div>
+        </Flex>
+      </Flex>
+    );
+  },
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { person1, person2, person3 }
+      }
+    }
+  }
+};
+
+export const WithEndElements: Story = {
+  render: () => {
+    const endIconOptions = useMemo(
+      () => [
+        { value: "email", label: "Email", endElement: { type: "icon", value: Email } },
+        { value: "attach", label: "Attach", endElement: { type: "icon", value: Attach } }
+      ],
+      []
+    );
+    const suffixOptions = useMemo(
+      () => [
+        { value: "copy", label: "Copy", endElement: { type: "suffix", value: "⌘C" } },
+        { value: "paste", label: "Paste", endElement: { type: "suffix", value: "⌘V" } }
+      ],
+      []
+    );
+
+    return (
+      <Flex direction="column" gap="medium">
+        <Text type="text2" color="secondary">
+          Trailing icons and suffix / hint text appear in the option list, but are dropped from the collapsed selected
+          value (text-only).
+        </Text>
+        <Flex gap="large" align="start">
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              id="searchable-single-end-icon"
+              options={endIconOptions as any}
+              defaultValue={endIconOptions[0] as any}
+              searchable
+              label="With end icon"
+              placeholder="Search an action"
+              clearAriaLabel="Clear"
+            />
+          </div>
+          <div style={{ width: "300px" }}>
+            <Dropdown
+              id="searchable-single-suffix"
+              options={suffixOptions as any}
+              defaultValue={suffixOptions[0] as any}
+              searchable
+              label="With suffix / hint"
+              placeholder="Search an action"
+              clearAriaLabel="Clear"
+            />
+          </div>
+        </Flex>
+      </Flex>
+    );
+  }
+};
+
+export const WithValueRenderer: Story = {
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: "julia", label: "Julia Martinez", startElement: { type: "avatar", value: person1 } },
+        { value: "sophia", label: "Sophia Johnson", startElement: { type: "avatar", value: person2 } }
+      ],
+      []
+    );
+
+    const valueRenderer = (option: DropdownOption) => (
+      <Flex gap="small" align="center">
+        <Email />
+        <Text type="text2">Custom: {option.label}</Text>
+      </Flex>
+    );
+
+    return (
+      <Flex direction="column" gap="medium">
+        <Text type="text2" color="secondary">
+          A custom <code>valueRenderer</code> is provided and the value is preselected. For searchable single select it
+          is <strong>not</strong> applied to the collapsed selected value — the input shows the plain label text only.
+          (<code>valueRenderer</code> still applies to non-searchable single select.)
+        </Text>
         <div style={{ width: "300px" }}>
           <Dropdown
-            id="searchable-single-icons"
-            options={iconOptions as any}
+            id="searchable-single-value-renderer"
+            options={options as any}
+            defaultValue={options[0] as any}
+            valueRenderer={valueRenderer}
             searchable
-            label="With icons"
-            placeholder="Search an action"
-            clearAriaLabel="Clear"
-          />
-        </div>
-        <div style={{ width: "300px" }}>
-          <Dropdown
-            id="searchable-single-avatars"
-            options={avatarOptions as any}
-            searchable
-            label="With avatars"
+            label="With valueRenderer"
             placeholder="Search a person"
             clearAriaLabel="Clear"
           />
@@ -262,7 +370,7 @@ export const WithIconsAndAvatars: Story = {
   parameters: {
     docs: {
       liveEdit: {
-        scope: { person1, person2, person3 }
+        scope: { person1, person2 }
       }
     }
   }
