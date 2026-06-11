@@ -49,14 +49,17 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       }
       onChange?.(selectedItems || []);
     },
-    onStateChange: ({ type, selectedItem: removedItem }) => {
+    onStateChange: ({ type, selectedItems: newSelectedItems }) => {
       // Notify onOptionRemove for keyboard-driven chip deletion (× button uses contextOnOptionRemove).
       if (
         (type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownBackspace ||
           type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete) &&
-        removedItem
+        newSelectedItems
       ) {
-        onOptionRemove?.(removedItem);
+        const removedItem = currentSelectedItems.find(
+          item => !newSelectedItems.some(si => si.value === item.value)
+        );
+        if (removedItem) onOptionRemove?.(removedItem);
       }
     }
   });
