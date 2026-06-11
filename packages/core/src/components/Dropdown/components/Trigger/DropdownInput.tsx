@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, type RefObject } from "react";
 import cx from "classnames";
 import { BaseInput } from "@vibe/base";
 import styles from "./Trigger.module.scss";
@@ -6,7 +6,17 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../BaseItem";
 import { Text } from "@vibe/typography";
 
-const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium" | "large"; fullWidth?: boolean }) => {
+const DropdownInput = ({
+  inputSize,
+  fullWidth,
+  onKeyDown: externalKeyDown,
+  inputRef: externalInputRef
+}: {
+  inputSize?: "small" | "medium" | "large";
+  fullWidth?: boolean;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
+  inputRef?: RefObject<HTMLInputElement>;
+}) => {
   const {
     inputValue,
     autoFocus,
@@ -23,14 +33,19 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
     isOpen,
     getDropdownProps,
     getLabelProps,
-    getInputProps
+    getInputProps,
+    interactiveChips
   } = useDropdownContext<BaseItemData>();
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const internalRef = useRef<HTMLInputElement>(null);
+  const inputRef = externalInputRef ?? internalRef;
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
-  const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction: isOpen }) : {};
+  // interactiveChips: menu is always open, so isOpen would permanently suppress Backspace chip-nav.
+  // Instead suppress only when the input has text (Backspace should delete chars, not navigate chips).
+  const preventKeyAction = interactiveChips ? !!(inputValue && inputValue.length > 0) : isOpen;
+  const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction }) : {};
 
-  return (
+return (
     <>
       {searchable ? (
         <BaseInput
@@ -39,6 +54,7 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
             "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
             placeholder: hasSelection ? "" : placeholder,
             ref: inputRef,
+            onKeyDown: externalKeyDown,
             ...multipleSelectionDropdownProps
           })}
           inputRole="combobox"
@@ -46,6 +62,7 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
           autoFocus={autoFocus}
           size={inputSize || size}
           className={cx(styles.inputWrapper, {
+            [styles.hasSelected]: !multi && selectedItem && !inputValue,
             [styles.small]: inputSize === "small",
             [styles.multi]: multi && hasSelection,
             [styles.multiSelected]: multi && hasSelection && inputSize === "small",

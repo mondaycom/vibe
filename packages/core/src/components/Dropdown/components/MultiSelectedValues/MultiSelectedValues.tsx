@@ -17,6 +17,10 @@ type MultiSelectedValuesProps<Item> = {
   disabled?: boolean;
   readOnly?: boolean;
   minVisibleCount?: number;
+  /** Extra props (tabIndex, onKeyDown, etc.) to spread on each visible chip container. */
+  getChipContainerProps?: (item: Item, index: number) => Record<string, any>;
+  /** Ref forwarded to the +N overflow Chips element, for external keyboard focus management. */
+  badgeRef?: React.Ref<HTMLDivElement>;
 };
 
 function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>({
@@ -25,7 +29,9 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
   renderInput,
   disabled,
   readOnly,
-  minVisibleCount = 0
+  minVisibleCount = 0,
+  getChipContainerProps,
+  badgeRef
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
@@ -73,17 +79,23 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
   const chipElements = useMemo(() => {
     return selectedItems.map((item, index) => {
       const isVisible = index < visibleCount;
+      const extraProps = isVisible && getChipContainerProps ? getChipContainerProps(item, index) : {};
+      const { ref: extraRef, ...extraAttrs } = extraProps;
 
       return (
         <div
           key={`dropdown-chip-visible-${item.value}`}
-          ref={itemRefs[index]}
+          ref={el => {
+            (itemRefs[index] as React.MutableRefObject<HTMLDivElement | null>).current = el;
+            if (typeof extraRef === "function") extraRef(el);
+          }}
           className={cx({
             [styles.chipWrapperWithOverflow]: minVisibleCount !== undefined,
             [styles.hiddenChip]: !isVisible
           })}
           aria-hidden={!isVisible}
           data-testid={`dropdown-chip-${item.value}`}
+          {...extraAttrs}
         >
           <DropdownChip
             item={item}
@@ -95,7 +107,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
         </div>
       );
     });
-  }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly, minVisibleCount]);
+  }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly, minVisibleCount, getChipContainerProps]);
 
   if (!selectedItems?.length) return null;
 
@@ -123,6 +135,10 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
             }}
             onKeyDown={e => {
               e.stopPropagation();
+              if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                (itemRefs[visibleCount - 1] as React.MutableRefObject<HTMLDivElement | null>)?.current?.focus();
+              }
             }}
             onMouseDown={e => {
               e.stopPropagation();
@@ -138,6 +154,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
               addKeyboardHideShowTriggersByDefault
             >
               <Chips
+                ref={badgeRef}
                 label={`+ ${hiddenCount}`}
                 readOnly
                 noMargin

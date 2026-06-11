@@ -604,16 +604,17 @@ describe("DropdownNew", () => {
 
   describe("multi-select mode", () => {
     it("should render a multi-select dropdown when the multi prop is true", () => {
-      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
-        multi: true
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        multi: true,
+        textInput: true
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
-      const option1 = getByText("Option 1");
-      fireEvent.click(option1);
-      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      fireEvent.click(getByText("Option 1"));
+      // In textInput mode selection is reflected in the input value, not as chips.
+      expect(input).toHaveValue("Option 1");
     });
 
     it("should allow selecting multiple items", () => {
@@ -636,49 +637,47 @@ describe("DropdownNew", () => {
       ]);
     });
 
-    it("should render chips for selected items", () => {
-      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
-        multi: true
+    it("should show selected items as a comma-separated summary in the input", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        multi: true,
+        textInput: true
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
       fireEvent.click(getByText("Option 3"));
 
-      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
-      expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
+      expect(input).toHaveValue("Option 1, Option 3");
     });
 
-    it("should remove an item when its chip is deleted", () => {
+    it("should remove an item when it is re-clicked in the dropdown", () => {
       const onChange = vi.fn();
-      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+      const { getByPlaceholderText, getByText } = renderDropdown({
         multi: true,
+        textInput: true,
         onChange
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
       fireEvent.click(getByText("Option 3"));
 
-      const deleteButtons = getAllByRole("button").filter(
-        button => button.getAttribute("data-testid") === "chip-close"
-      );
+      // Re-click Option 1 to deselect it.
+      fireEvent.click(getByText("Option 1"));
 
-      fireEvent.click(deleteButtons[0]);
-
-      expect(onChange).toHaveBeenLastCalledWith(
-        expect.arrayContaining([expect.not.objectContaining({ value: "opt1" })])
-      );
+      expect(onChange).toHaveBeenLastCalledWith([expect.objectContaining({ value: "opt3" })]);
+      expect(input).toHaveValue("Option 3");
     });
 
     it("should call onOptionRemove when an item is removed", () => {
       const onOptionRemove = vi.fn();
-      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+      const { getByPlaceholderText, getByText } = renderDropdown({
         multi: true,
+        textInput: true,
         onOptionRemove
       });
 
@@ -686,20 +685,19 @@ describe("DropdownNew", () => {
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
+      // Re-click to deselect.
+      fireEvent.click(getByText("Option 1"));
 
-      const deleteButtons = getAllByRole("button").filter(button =>
-        button.getAttribute("data-testid")?.includes("close")
-      );
-      fireEvent.click(deleteButtons[0]);
       expect(onOptionRemove).toHaveBeenCalledWith(expect.objectContaining({ value: "opt1", label: "Option 1" }));
     });
 
-    it("should show selected chips without counter", () => {
-      const { getByPlaceholderText, getByText, queryByTestId, getByLabelText } = renderDropdown({
-        multi: true
+    it("should show all selected items in the input value after closing", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        multi: true,
+        textInput: true
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -707,45 +705,37 @@ describe("DropdownNew", () => {
 
       fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
 
-      expect(getByLabelText("Option 1")).toBeInTheDocument();
-      expect(getByLabelText("Option 3")).toBeInTheDocument();
-
-      expect(queryByTestId("dropdown-counter")).not.toBeInTheDocument();
+      expect(input).toHaveValue("Option 1, Option 3");
     });
 
-    it("should show an overflow counter when more items are selected than can be displayed", () => {
-      const manyOptionsForCounter = [
+    it("should show all selected items as comma-separated summary in the input", () => {
+      const manyOptions = [
         {
-          label: "Overflow Group",
+          label: "Group",
           options: [
-            { label: "Chip Item 1", value: "chip1" },
-            { label: "Chip Item 2", value: "chip2" },
-            { label: "Chip Item 3", value: "chip3" }
+            { label: "Item 1", value: "item1" },
+            { label: "Item 2", value: "item2" },
+            { label: "Item 3", value: "item3" }
           ]
         }
       ];
 
-      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByText } = renderDropdown({
         multi: true,
-        options: manyOptionsForCounter
+        textInput: true,
+        options: manyOptions
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
-      fireEvent.click(getByText("Chip Item 1"));
-      fireEvent.click(getByText("Chip Item 2"));
-      fireEvent.click(getByText("Chip Item 3"));
+      fireEvent.click(getByText("Item 1"));
+      fireEvent.click(getByText("Item 2"));
+      fireEvent.click(getByText("Item 3"));
 
       fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
 
-      const counter = getByTestId("dropdown-overflow-counter");
-      expect(counter).toBeInTheDocument();
-      expect(counter).toHaveTextContent("+ 2");
-
-      expect(getByTestId("dropdown-chip-chip1")).not.toHaveAttribute("aria-hidden", "true");
-      expect(getByTestId("dropdown-chip-chip2")).toHaveAttribute("aria-hidden", "true");
-      expect(getByTestId("dropdown-chip-chip3")).toHaveAttribute("aria-hidden", "true");
+      expect(input).toHaveValue("Item 1, Item 2, Item 3");
     });
   });
 
@@ -1072,10 +1062,11 @@ describe("DropdownNew", () => {
     });
 
     it("should hide selected options from list when showSelectedOptions is false (multi select)", () => {
-      const { getByRole, getByTestId, getByPlaceholderText } = renderDropdown({
+      const { getByRole, getByPlaceholderText } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: false,
         multi: true,
+        textInput: true,
         placeholder: "Select multi"
       });
 
@@ -1084,7 +1075,7 @@ describe("DropdownNew", () => {
       let listbox = getByRole("listbox");
 
       fireEvent.click(within(listbox).getByText("Option Alpha"));
-      expect(getByTestId("dropdown-chip-alpha")).toBeInTheDocument();
+      expect(input).toHaveValue("Option Alpha");
       listbox = getByRole("listbox");
 
       expect(within(listbox).queryByText("Option Alpha")).not.toBeInTheDocument();
@@ -1092,7 +1083,7 @@ describe("DropdownNew", () => {
       expect(within(listbox).getByText("Option Gamma")).toBeInTheDocument();
 
       fireEvent.click(within(listbox).getByText("Option Gamma"));
-      expect(getByTestId("dropdown-chip-gamma")).toBeInTheDocument();
+      expect(input).toHaveValue("Option Alpha, Option Gamma");
       listbox = getByRole("listbox");
 
       expect(within(listbox).queryByText("Option Alpha")).not.toBeInTheDocument();
@@ -1101,24 +1092,25 @@ describe("DropdownNew", () => {
     });
 
     it("should keep selected options in list when showSelectedOptions is true (multi select)", () => {
-      const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByRole } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: true,
         multi: true,
+        textInput: true,
         placeholder: "Select multi true"
       });
-      const input = getByPlaceholderText("Select multi true");
+      const input = getByPlaceholderText("Select multi true") as HTMLInputElement;
       fireEvent.click(input);
       let listbox = getByRole("listbox");
 
       fireEvent.click(within(listbox).getByText("Option Alpha"));
-      expect(getByTestId("dropdown-chip-alpha")).toBeInTheDocument();
+      expect(input).toHaveValue("Option Alpha");
       listbox = getByRole("listbox");
       expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
       expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
 
       fireEvent.click(within(listbox).getByText("Option Beta"));
-      expect(getByTestId("dropdown-chip-beta")).toBeInTheDocument();
+      expect(input).toHaveValue("Option Alpha, Option Beta");
       listbox = getByRole("listbox");
       expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
       expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
@@ -1144,23 +1136,22 @@ describe("DropdownNew", () => {
     });
 
     it("should work with multi select in box mode", () => {
-      const { getByRole, getByPlaceholderText, getByTestId } = renderDropdown({
+      const { getByRole, getByPlaceholderText } = renderDropdown({
         boxMode: true,
         multi: true,
-        searchable: true
+        searchable: true,
+        textInput: true
       });
 
-      // Input should be visible
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       expect(input).toBeInTheDocument();
 
-      // Menu should be visible
       const listbox = getByRole("listbox");
       expect(listbox).toBeInTheDocument();
 
-      // Select an option
       fireEvent.click(within(listbox).getByText("Option 1"));
-      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      // In textInput mode, selection is reflected in the input value.
+      expect(input).toHaveValue("Option 1");
     });
 
     it("should hide chevron in box mode", () => {
