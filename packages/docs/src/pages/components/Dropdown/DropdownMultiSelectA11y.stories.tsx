@@ -32,7 +32,7 @@ export const TextInputBasic: Story = {
     );
 
     return (
-      <div style={{ width: "350px", marginBottom: "50px" }}>
+      <div style={{ width: "600px", marginBottom: "50px" }}>
         <Dropdown
           placeholder="Select items"
           options={options}
@@ -59,7 +59,7 @@ export const InteractiveChipsBasic: Story = {
     );
 
     return (
-      <div style={{ width: "350px", marginBottom: "50px" }}>
+      <div style={{ width: "600px", marginBottom: "50px" }}>
         <Dropdown
           placeholder="Select items"
           options={options}
