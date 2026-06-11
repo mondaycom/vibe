@@ -45,12 +45,6 @@
         flex-grow: 1;
       }
     }
-
-    &.hasSelected {
-      position: absolute;
-      inset: 0;
-      cursor: pointer;
-    }
   }
 
   .selectedItem {
@@ -74,10 +68,6 @@
     &.large {
       min-height: 48px;
       height: 48px;
-    }
-
-    &.faded {
-      opacity: 0.6;
     }
   }
 

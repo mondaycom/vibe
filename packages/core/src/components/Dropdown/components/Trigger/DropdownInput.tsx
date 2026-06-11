@@ -46,7 +46,6 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
           autoFocus={autoFocus}
           size={inputSize || size}
           className={cx(styles.inputWrapper, {
-            [styles.hasSelected]: !multi && selectedItem && !inputValue,
             [styles.small]: inputSize === "small",
             [styles.multi]: multi && hasSelection,
             [styles.multiSelected]: multi && hasSelection && inputSize === "small",

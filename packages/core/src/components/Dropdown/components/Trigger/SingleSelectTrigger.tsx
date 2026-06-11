@@ -10,12 +10,10 @@ import { getStyle } from "@vibe/shared";
 
 const SingleSelectTrigger = () => {
   const {
-    inputValue,
     selectedItem,
     searchable,
     size,
     valueRenderer,
-    isFocused,
     getToggleButtonProps,
     disabled,
     readOnly,
@@ -42,16 +40,10 @@ const SingleSelectTrigger = () => {
       >
         <DropdownInput />
 
-        {!inputValue && selectedItem && (
-          <div
-            className={cx(
-              styles.selectedItem,
-              {
-                [styles.faded]: isFocused && searchable
-              },
-              getStyle(styles, size)
-            )}
-          >
+        {/* Non-searchable single select shows the selection via this overlay. In searchable mode the
+            selected value lives inside the input itself, so the overlay must not render. */}
+        {!searchable && selectedItem && (
+          <div className={cx(styles.selectedItem, getStyle(styles, size))}>
             <BaseItem
               component="div"
               itemRenderer={valueRenderer}
