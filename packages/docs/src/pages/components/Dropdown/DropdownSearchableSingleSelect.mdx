@@ -5,102 +5,56 @@ import * as DropdownSearchableSingleSelectStories from "./DropdownSearchableSing
 
 # Searchable single select — Accessibility
 
-A single reference for the accessibility behavior and the props that affect it for the **searchable single select** Dropdown (`searchable` with a single value).
-
 ### Import
 
 ```js
 import { Dropdown } from "@vibe/core";
 ```
 
+## Overview
+
 <Canvas of={DropdownSearchableSingleSelectStories.Overview} />
 
-## What changed
+## Sizes
 
-Previously, selecting an option in a searchable single select **cleared the input** and rendered the selected label as a **visual overlay** on top of the empty field. Because screen readers read the input's value — not the overlay — a field with a selection was announced as blank.
+<Canvas of={DropdownSearchableSingleSelectStories.Sizes} />
 
-The behavior was changed so the selected option's label is now set as the **value of the input itself**, and the overlay was removed.
+## States
 
-| Aspect                              | Before                                  | After                       |
-| ----------------------------------- | --------------------------------------- | --------------------------- |
-| Input value after selecting         | Empty                                   | The selected label          |
-| How the selection is shown          | Visual overlay over an empty input      | Inside the input            |
-| Screen reader on focus              | _"…, blank"_                            | _"…, the selected label"_   |
-| `defaultValue` / `value` on mount   | Shown via the overlay                   | Shown in the input          |
-| Collapsed selected value            | Rich (icon / avatar / `valueRenderer`)  | Text-only                   |
+<Canvas of={DropdownSearchableSingleSelectStories.States} />
 
-This is scoped to **searchable single select**. Non-searchable single select and multi-select are unchanged.
-
-## The core behavior: the selected value lives inside the input
-
-When an option is selected, its label is set as the **value of the `<input role="combobox">`**. It is not painted as a separate visual layer on top of an empty field.
-
-This matters because assistive technologies read the input's value, not whatever is layered around it. With the value in the input:
-
-- Tabbing to a combobox that already has a selection announces _"Team, Engineering, combobox"_ — not _"Team, combobox, blank"_.
-- The current value is exposed on mount for `defaultValue` / controlled `value`, not only after interaction.
+## Default value
 
 <Canvas of={DropdownSearchableSingleSelectStories.WithDefaultValue} />
 
-### What happens on open / reopen / type
+## Controlled
 
-| Action                  | Behavior                                                                                                            |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Select an option        | Label is placed in the input; menu closes (default)                                                                 |
-| Reopen with a selection | The **full** option list is shown; the selected option is marked `aria-selected="true"` and highlighted             |
-| Start typing            | The list filters by the typed text                                                                                  |
-| Clear text              | The full list returns                                                                                               |
+<Canvas of={DropdownSearchableSingleSelectStories.Controlled} />
 
-Showing the full list on reopen (rather than filtering down to the single selected label) is intentional: it lets users browse and change their choice, and avoids a screen reader announcing _"1 of 1"_ when more options exist.
-
-> **WCAG 4.1.2 Name, Role, Value (Level A)** requires the **current value** of a form control to be programmatically determinable. Keeping the selected label in the input — rather than in a visual overlay — is what satisfies this.
-
-## Selected value display — trade-off
-
-Because the selected value now lives inside a native input (which can only hold a string), the **collapsed selected value is text-only**. Anything an option carries beyond its label is shown **in the option list** but not in the selected display:
-
-- `startElement` — leading icon / avatar / indent
-- `endElement` — trailing icon / suffix / hint text
-- a custom `valueRenderer` (applies only to **non-searchable** single select)
+## With icons and avatars
 
 <Canvas of={DropdownSearchableSingleSelectStories.WithIconsAndAvatars} />
 
+## With end elements
+
 <Canvas of={DropdownSearchableSingleSelectStories.WithEndElements} />
+
+## With valueRenderer
 
 <Canvas of={DropdownSearchableSingleSelectStories.WithValueRenderer} />
 
-## Accessibility-relevant props
+## With groups
 
-Layout props such as `size` are omitted — they do not affect accessibility. The props below do.
+<Canvas of={DropdownSearchableSingleSelectStories.WithGroups} />
 
-### Naming — give the field an accessible name (required for 4.1.2)
+## With tooltips
 
-| Prop             | Purpose                                                                          | Notes                                                                                                       |
-| ---------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `label`          | Visible text label, programmatically associated with the input (`aria-labelledby`). | **Preferred.** Visible to everyone and announced by screen readers.                                       |
-| `aria-label`     | Accessible name when there is **no** visible `label`.                            | Use only when a visible label is not possible.                                                              |
-| `inputAriaLabel` | Accessible name applied specifically to the inner search input.                  | Useful when the input needs a name distinct from the field label.                                           |
-| `menuAriaLabel`  | Accessible name for the option list (`listbox`).                                 | Helps orient users when the menu opens.                                                                     |
-| `clearAriaLabel` | Accessible name for the clear (✕) button.                                        | **Important.** Without it the clear button is an icon-only control with no name — a 4.1.2 failure. Always set it when `clearable`. |
+<Canvas of={DropdownSearchableSingleSelectStories.WithTooltips} />
 
-### State — communicate status to assistive tech
+## Clearable and max height
 
-| Prop        | Purpose                                                          | Notes                                                                                          |
-| ----------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `required`  | Marks the field required (`aria-required`) and shows the indicator. | Pair with form-level validation.                                                            |
-| `error`     | Puts the field in an error state (`aria-invalid`).               | **Always pair with `helperText`** describing the error — color alone is not sufficient (1.4.1). |
-| `helperText`| Descriptive text associated via `aria-describedby`.             | Use for instructions and for the error message text.                                           |
-| `disabled`  | Non-interactive, not focusable; communicated to AT.             | Removes the field from the tab order.                                                          |
-| `readOnly`  | Value is shown and announced but not editable.                  | Prefer over `disabled` when the user still needs to read the value.                            |
+<Canvas of={DropdownSearchableSingleSelectStories.ClearableAndMaxHeight} />
 
-### Feedback
+## Custom filter and no options
 
-| Prop               | Purpose                                          | Notes                                                              |
-| ------------------ | ------------------------------------------------ | ------------------------------------------------------------------ |
-| `noOptionsMessage` | Text announced when a search yields no results.  | Give a meaningful message (e.g. "No teams found"), not empty.      |
-
-### Placeholder is not a label
-
-| Prop          | Purpose                                  | Notes                                                                                                                                  |
-| ------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `placeholder` | Hint text shown when the field is empty. | **Not a substitute for `label`.** It disappears once a value is present and is not a reliable accessible name. Always provide `label` or `aria-label` in addition. |
+<Canvas of={DropdownSearchableSingleSelectStories.CustomFilterAndNoOptions} />

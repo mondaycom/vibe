@@ -175,9 +175,6 @@ export const WithDefaultValue: Story = {
     const options = useMemo(() => basicOptions, []);
     return (
       <div style={{ height: "260px", width: "300px" }}>
-        <Text type="text2" color="secondary">
-          The selected value lives inside the input, so it is exposed to screen readers on mount.
-        </Text>
         <Dropdown
           id="searchable-single-default-value"
           options={options}
@@ -235,35 +232,29 @@ export const WithIconsAndAvatars: Story = {
     );
 
     return (
-      <Flex direction="column" gap="medium">
-        <Text type="text2" color="secondary">
-          Each option is preselected. The icon / avatar shows in the option list, but the collapsed selected value
-          inside the input is text-only — a native input can only hold a string.
-        </Text>
-        <Flex gap="large" align="start">
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              id="searchable-single-icons"
-              options={iconOptions as any}
-              defaultValue={iconOptions[0] as any}
-              searchable
-              label="With icons"
-              placeholder="Search an action"
-              clearAriaLabel="Clear"
-            />
-          </div>
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              id="searchable-single-avatars"
-              options={avatarOptions as any}
-              defaultValue={avatarOptions[0] as any}
-              searchable
-              label="With avatars"
-              placeholder="Search a person"
-              clearAriaLabel="Clear"
-            />
-          </div>
-        </Flex>
+      <Flex gap="large" align="start">
+        <div style={{ width: "300px" }}>
+          <Dropdown
+            id="searchable-single-icons"
+            options={iconOptions as any}
+            defaultValue={iconOptions[0] as any}
+            searchable
+            label="With icons"
+            placeholder="Search an action"
+            clearAriaLabel="Clear"
+          />
+        </div>
+        <div style={{ width: "300px" }}>
+          <Dropdown
+            id="searchable-single-avatars"
+            options={avatarOptions as any}
+            defaultValue={avatarOptions[0] as any}
+            searchable
+            label="With avatars"
+            placeholder="Search a person"
+            clearAriaLabel="Clear"
+          />
+        </div>
       </Flex>
     );
   },
@@ -294,35 +285,29 @@ export const WithEndElements: Story = {
     );
 
     return (
-      <Flex direction="column" gap="medium">
-        <Text type="text2" color="secondary">
-          Trailing icons and suffix / hint text appear in the option list, but are dropped from the collapsed selected
-          value (text-only).
-        </Text>
-        <Flex gap="large" align="start">
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              id="searchable-single-end-icon"
-              options={endIconOptions as any}
-              defaultValue={endIconOptions[0] as any}
-              searchable
-              label="With end icon"
-              placeholder="Search an action"
-              clearAriaLabel="Clear"
-            />
-          </div>
-          <div style={{ width: "300px" }}>
-            <Dropdown
-              id="searchable-single-suffix"
-              options={suffixOptions as any}
-              defaultValue={suffixOptions[0] as any}
-              searchable
-              label="With suffix / hint"
-              placeholder="Search an action"
-              clearAriaLabel="Clear"
-            />
-          </div>
-        </Flex>
+      <Flex gap="large" align="start">
+        <div style={{ width: "300px" }}>
+          <Dropdown
+            id="searchable-single-end-icon"
+            options={endIconOptions as any}
+            defaultValue={endIconOptions[0] as any}
+            searchable
+            label="With end icon"
+            placeholder="Search an action"
+            clearAriaLabel="Clear"
+          />
+        </div>
+        <div style={{ width: "300px" }}>
+          <Dropdown
+            id="searchable-single-suffix"
+            options={suffixOptions as any}
+            defaultValue={suffixOptions[0] as any}
+            searchable
+            label="With suffix / hint"
+            placeholder="Search an action"
+            clearAriaLabel="Clear"
+          />
+        </div>
       </Flex>
     );
   }
@@ -346,25 +331,18 @@ export const WithValueRenderer: Story = {
     );
 
     return (
-      <Flex direction="column" gap="medium">
-        <Text type="text2" color="secondary">
-          A custom <code>valueRenderer</code> is provided and the value is preselected. For searchable single select it
-          is <strong>not</strong> applied to the collapsed selected value — the input shows the plain label text only.
-          (<code>valueRenderer</code> still applies to non-searchable single select.)
-        </Text>
-        <div style={{ width: "300px" }}>
-          <Dropdown
-            id="searchable-single-value-renderer"
-            options={options as any}
-            defaultValue={options[0] as any}
-            valueRenderer={valueRenderer}
-            searchable
-            label="With valueRenderer"
-            placeholder="Search a person"
-            clearAriaLabel="Clear"
-          />
-        </div>
-      </Flex>
+      <div style={{ width: "300px" }}>
+        <Dropdown
+          id="searchable-single-value-renderer"
+          options={options as any}
+          defaultValue={options[0] as any}
+          valueRenderer={valueRenderer}
+          searchable
+          label="With valueRenderer"
+          placeholder="Search a person"
+          clearAriaLabel="Clear"
+        />
+      </div>
     );
   },
   parameters: {
