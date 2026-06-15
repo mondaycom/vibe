@@ -43,6 +43,10 @@ $full-view-margin: 40px;
   box-shadow: var(--box-shadow-large);
   outline: none;
 
+  &.fixedPosition {
+    position: fixed;
+  }
+
   &.withHeaderAction {
     --top-actions-width: calc(var(--space-32) * 2);
   }
