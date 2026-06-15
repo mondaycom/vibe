@@ -40,6 +40,7 @@ const Modal = forwardRef(
       children,
       style,
       zIndex,
+      useFixedPosition = false,
       className,
       "data-testid": dataTestId,
       "aria-labelledby": ariaLabelledby,
@@ -165,6 +166,7 @@ const Modal = forwardRef(
                         styles[animationType],
                         getStyle(styles, camelCase("size-" + size)),
                         { [styles.withHeaderAction]: !!renderHeaderAction },
+                        { [styles.fixedPosition]: useFixedPosition },
                         className
                       )}
                       id={id}
