@@ -5,9 +5,15 @@ import * as DropdownMultiSelectA11yStories from "./DropdownMultiSelectA11y.stori
 
 # Multi-select accessibility
 
-By default, a multi-select Dropdown renders selected items as chips **outside** the input element. The input itself stays empty at all times. Screen readers read an input's value — not the chips around it — so a field with three selections is still announced as _"blank"_ when focused. This breaks **WCAG 4.1.2 Name, Role, Value**, which requires the current value of a form control to be programmatically determinable.
+## The problem
 
-We propose 2 solutions:
+A multi-select Dropdown shows the selected values as **chips rendered next to the input — not inside it**. The `<input>` element itself stays empty at all times.
+
+Assistive technologies announce the **value of the input**, not the chips beside it. So when a screen-reader user focuses a field that already has three items selected, it is announced as _**"blank"**_ — they have no way to know what is selected.
+
+> **The major issue:** the current value of the field is **not programmatically determinable**, which fails **WCAG 4.1.2 Name, Role, Value (Level A)**. For a screen-reader user this is a complete barrier — they cannot tell what they have selected.
+
+The two solutions below each expose the selection to assistive technology in a different way.
 
 ---
 
@@ -32,3 +38,9 @@ Chips remain visible but each one becomes a focusable, keyboard-operable control
 Keyboard navigation: press **ArrowLeft** from the input to move focus to the last chip, then **ArrowLeft / ArrowRight** to move between chips, and **Backspace** or **Delete** to remove the focused chip.
 
 **Use this when:** preserving the chip layout is important and keyboard-accessible individual chip removal is needed.
+
+### Chip overflow
+
+When there are more selections than fit, the extra chips collapse into a **"+N" counter** (controlled by `minVisibleCount`). The visible chips stay individually focusable and removable via the keyboard, and the counter communicates how many more are selected.
+
+<Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsOverflow} />
