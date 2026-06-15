@@ -88,7 +88,7 @@ export const InteractiveChipsOverflow: Story = {
     );
 
     return (
-      <div style={{ width: "320px", marginBottom: "50px" }}>
+      <div style={{ width: "350px", marginBottom: "50px" }}>
         <Dropdown
           placeholder="Select items"
           options={options}

@@ -62,9 +62,7 @@ const MultiSelectTrigger = () => {
             selectedItems={selectedItems}
             onRemove={item => contextOnOptionRemove?.(item)}
             renderInput={() => <DropdownInput inputSize="small" fullWidth />}
-            getChipContainerProps={(item, index) =>
-              getSelectedItemProps?.({ selectedItem: item, index }) ?? {}
-            }
+            getChipContainerProps={(item, index) => getSelectedItemProps?.({ selectedItem: item, index }) ?? {}}
             badgeRef={overflowBadgeRef}
             minVisibleCount={minVisibleCount}
           />
