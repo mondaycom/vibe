@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.3.0...@vibe/core@4.4.0) (2026-06-15)
+
+
+### Features
+
+* **Modal:** add useFixedPosition prop to fix RTL centering ([#3408](https://github.com/mondaycom/vibe/issues/3408)) ([a76b655](https://github.com/mondaycom/vibe/commit/a76b65502c8a8bca235f3a0635c62e1516fd0b1b))
+
+
+
+
+
 # [4.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.6...@vibe/core@4.3.0) (2026-06-09)
 
 
