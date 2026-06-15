@@ -23,10 +23,6 @@ $full-view-margin: 40px;
   transform: translate(-50%, -50%);
 }
 
-.fixedPosition {
-  position: fixed;
-}
-
 .modal {
   --top-actions-margin-inline: var(--space-24);
   --top-actions-margin-block: var(--space-24);
@@ -46,6 +42,10 @@ $full-view-margin: 40px;
   border-radius: var(--border-radius-big);
   box-shadow: var(--box-shadow-large);
   outline: none;
+
+  &.fixedPosition {
+    position: fixed;
+  }
 
   &.withHeaderAction {
     --top-actions-width: calc(var(--space-32) * 2);
