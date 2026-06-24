@@ -15,6 +15,16 @@ import { Dropdown } from "@vibe/core";
 
 <Canvas of={DropdownSearchableSingleSelectStories.Overview} />
 
+## What changed — 2026-06-24
+
+This iteration added three further accessibility fixes to the searchable dropdown:
+
+| Issue                                                                                                  | Fix                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| The combobox did not advertise the popup it controls.                                                  | Set `aria-haspopup="dialog"` on the combobox input (single and multi), matching the dialog the menu renders in.                 |
+| `helperText` rendered as a plain sibling with no link to the input, so the relationship was invisible to assistive tech (WCAG SC 1.3.1). | The helper text now has an id and is referenced from the combobox/trigger via `aria-describedby` (requires an `id` on the Dropdown). |
+| Focus was lost when an option was selected, because the input was blurred on selection.                | Focus now stays on the input after selecting an option; the menu still closes.                                                  |
+
 ## What changed
 
 Previously, selecting an option in a searchable single select **cleared the input** and rendered the selected label as a **visual overlay** on top of the empty field. Because screen readers read the input's value — not the overlay — a field with a selection was announced as blank.
@@ -30,16 +40,6 @@ The behavior was changed so the selected option's label is now set as the **valu
 | Collapsed selected value            | Rich (icon / avatar / `valueRenderer`)  | Text-only                   |
 
 This is scoped to **searchable single select**. Non-searchable single select and multi-select are unchanged.
-
-## What changed — 2026-06-24
-
-This iteration added three further accessibility fixes to the searchable dropdown:
-
-| Issue                                                                                                  | Fix                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| The combobox did not advertise the popup it controls.                                                  | Set `aria-haspopup="dialog"` on the combobox input (single and multi), matching the dialog the menu renders in.                 |
-| `helperText` rendered as a plain sibling with no link to the input, so the relationship was invisible to assistive tech (WCAG SC 1.3.1). | The helper text now has an id and is referenced from the combobox/trigger via `aria-describedby` (requires an `id` on the Dropdown). |
-| Focus was lost when an option was selected, because the input was blurred on selection.                | Focus now stays on the input after selecting an option; the menu still closes.                                                  |
 
 ## The core behavior: the selected value lives inside the input
 
