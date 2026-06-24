@@ -79,4 +79,6 @@ export interface DropdownContextProps<Item extends BaseItemData<Record<string, u
   getSelectedItemProps?: (options: { selectedItem: any; index: number }) => Record<string, any>;
   isFocused?: boolean;
   interactiveChips?: boolean;
+  /** Id of the helper text element, linked to the combobox/trigger via aria-describedby. */
+  helperTextId?: string;
 }

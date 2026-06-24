@@ -102,12 +102,13 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     ),
     onStateChange: useCallback(
       ({ type }) => {
-        // Blur input after selection via click or Enter key
+        // Keep focus on the input after selecting via click or Enter so focus is never lost
+        // (the menu still closes through the stateReducer's isOpen change).
         if (
           closeMenuOnSelect &&
           (type === useCombobox.stateChangeTypes.ItemClick || type === useCombobox.stateChangeTypes.InputKeyDownEnter)
         ) {
-          inputRef.current?.blur();
+          inputRef.current?.focus();
         }
       },
       [closeMenuOnSelect]

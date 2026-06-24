@@ -63,6 +63,55 @@ describe("DropdownNew", () => {
       expect(getByText("Option 1")).toBeVisible();
     });
 
+    it("should keep focus on the input after selecting an option", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown();
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+
+      expect(input).toHaveFocus();
+    });
+
+    it("should expose aria-haspopup=dialog on the searchable combobox", () => {
+      const { getByRole } = renderDropdown();
+
+      expect(getByRole("combobox")).toHaveAttribute("aria-haspopup", "dialog");
+    });
+
+    it("should expose aria-haspopup=dialog on the multi-select searchable combobox", () => {
+      const { getByRole } = renderDropdown({ multi: true });
+
+      expect(getByRole("combobox")).toHaveAttribute("aria-haspopup", "dialog");
+    });
+
+    it("should link the helper text to the combobox via aria-describedby (searchable)", () => {
+      const { getByRole, getByText } = renderDropdown({ id: "team-dropdown", helperText: "Search and pick a team" });
+
+      const describedById = getByRole("combobox").getAttribute("aria-describedby");
+      expect(describedById).toBeTruthy();
+      expect(getByText("Search and pick a team")).toHaveAttribute("id", describedById);
+    });
+
+    it("should link the helper text to the trigger via aria-describedby (non-searchable)", () => {
+      const { getByRole, getByText } = renderDropdown({
+        id: "team-dropdown",
+        searchable: false,
+        helperText: "Search and pick a team"
+      });
+
+      const describedById = getByRole("combobox").getAttribute("aria-describedby");
+      expect(describedById).toBeTruthy();
+      expect(getByText("Search and pick a team")).toHaveAttribute("id", describedById);
+    });
+
+    it("should not set aria-describedby when there is no helper text", () => {
+      const { getByRole } = renderDropdown();
+
+      expect(getByRole("combobox")).not.toHaveAttribute("aria-describedby");
+    });
+
     it("should be disabled when disabled prop is true", () => {
       const { getByPlaceholderText } = renderDropdown({
         disabled: true

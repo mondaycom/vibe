@@ -26,7 +26,8 @@ const MultiSelectTrigger = () => {
     getLabelProps,
     "aria-label": ariaLabel,
     minVisibleCount,
-    interactiveChips
+    interactiveChips,
+    helperTextId
   } = useDropdownContext<BaseItemData>();
 
   const showChips = selectedItems.length > 0;
@@ -115,6 +116,7 @@ const MultiSelectTrigger = () => {
               "aria-haspopup": "dialog",
               "aria-labelledby": label ? getLabelProps().id : undefined,
               "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id),
+              "aria-describedby": helperTextId,
               "aria-disabled": disabled ? "true" : undefined,
               "aria-invalid": error ? "true" : undefined,
               "aria-readonly": readOnly ? "true" : undefined

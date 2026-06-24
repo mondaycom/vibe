@@ -34,7 +34,8 @@ const DropdownInput = ({
     getDropdownProps,
     getLabelProps,
     getInputProps,
-    interactiveChips
+    interactiveChips,
+    helperTextId
   } = useDropdownContext<BaseItemData>();
 
   const internalRef = useRef<HTMLInputElement>(null);
@@ -52,6 +53,9 @@ return (
           {...getInputProps({
             "aria-labelledby": label ? getLabelProps().id : undefined,
             "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
+            "aria-describedby": helperTextId,
+            // The menu is presented in a Dialog, so the combobox advertises a dialog popup.
+            "aria-haspopup": "dialog",
             placeholder: hasSelection ? "" : placeholder,
             ref: inputRef,
             onKeyDown: externalKeyDown,

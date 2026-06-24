@@ -20,7 +20,8 @@ const SingleSelectTrigger = () => {
     error,
     label,
     getLabelProps,
-    "aria-label": ariaLabel
+    "aria-label": ariaLabel,
+    helperTextId
   } = useDropdownContext<BaseItemData>();
 
   return (
@@ -32,6 +33,7 @@ const SingleSelectTrigger = () => {
               "aria-haspopup": "dialog",
               "aria-labelledby": label ? getLabelProps().id : undefined,
               "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id),
+              "aria-describedby": helperTextId,
               "aria-disabled": disabled ? "true" : undefined,
               "aria-invalid": error ? "true" : undefined,
               "aria-readonly": readOnly ? "true" : undefined
