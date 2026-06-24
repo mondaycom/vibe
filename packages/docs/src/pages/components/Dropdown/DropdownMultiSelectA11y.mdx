@@ -7,37 +7,19 @@ import * as DropdownMultiSelectA11yStories from "./DropdownMultiSelectA11y.stori
 
 ## The problem
 
-A multi-select Dropdown shows the selected values as **chips rendered next to the input — not inside it**. The `<input>` element itself stays empty at all times.
+A multi-select Dropdown shows the selected values as **chips rendered next to the input**. By default these chips are purely visual: the only way to remove one is to click its **×** with a mouse.
 
-Assistive technologies announce the **value of the input**, not the chips beside it. So when a screen-reader user focuses a field that already has three items selected, it is announced as _**"blank"**_ — they have no way to know what is selected.
-
-> **The major issue:** the current value of the field is **not programmatically determinable**, which fails **WCAG 4.1.2 Name, Role, Value (Level A)**. For a screen-reader user this is a complete barrier — they cannot tell what they have selected.
-
-The two solutions below each expose the selection to assistive technology in a different way.
+A keyboard-only user has no way to reach an individual chip or remove it, which fails **WCAG 2.1.1 Keyboard (Level A)** — all functionality must be operable through a keyboard.
 
 ---
 
-## Solution 1 — textInput
-
-<Canvas of={DropdownMultiSelectA11yStories.TextInputBasic} />
-
-Instead of chips, selected labels are joined as a comma-separated string and written directly into the `<input>`. When a screen reader focuses the field it announces the full selection — _"Chip one, Chip two, combo box"_ — satisfying WCAG 4.1.2.
-
-When the user starts typing, the summary is temporarily replaced by the search text. On close or blur it is restored.
-
-**Use this when:** accurate screen reader announcement of the current value is the priority.
-
----
-
-## Solution 2 — interactiveChips
+## interactiveChips
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
 Chips remain visible but each one becomes a focusable, keyboard-operable control. A keyboard-only user can navigate to any chip and remove it without a mouse — something the default chip mode does not support because the chips are purely visual.
 
 Keyboard navigation: press **ArrowLeft** from the input to move focus to the last chip, then **ArrowLeft / ArrowRight** to move between chips, and **Backspace** or **Delete** to remove the focused chip.
-
-**Use this when:** preserving the chip layout is important and keyboard-accessible individual chip removal is needed.
 
 ### Chip overflow
 

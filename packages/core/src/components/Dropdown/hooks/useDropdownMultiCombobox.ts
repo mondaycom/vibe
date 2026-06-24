@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useRef } from "react";
+import { useMemo, useCallback } from "react";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { useMultipleSelection, useCombobox } from "downshift";
 import { type DropdownGroupOption } from "../Dropdown.types";
@@ -21,17 +21,10 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean,
   id?: string,
-  onOptionRemove?: (option: T) => void,
-  textInput?: boolean,
-  interactiveChips?: boolean
+  onOptionRemove?: (option: T) => void
 ) {
   // Use controlled value if provided, otherwise use internal state
   const currentSelectedItems = value !== undefined ? value : selectedItems;
-  // Used only in textInput/interactiveChips modes. The stateReducer resets selectedItem to null so
-  // onStateChange fires even on repeat clicks; this ref carries the original item across that reset.
-  const pendingToggleRef = useRef<T | null>(null);
-  // textInput only: carries the clicked item across stateReducer's selectedItem:null reset.
-  const enableToggle = textInput;
 
   const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
     options,
@@ -56,9 +49,7 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
           type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete) &&
         newSelectedItems
       ) {
-        const removedItem = currentSelectedItems.find(
-          item => !newSelectedItems.some(si => si.value === item.value)
-        );
+        const removedItem = currentSelectedItems.find(item => !newSelectedItems.some(si => si.value === item.value));
         if (removedItem) onOptionRemove?.(removedItem);
       }
     }
@@ -84,7 +75,7 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    initialInputValue: inputValueProp ?? (textInput ? currentSelectedItems.map(i => i.label).join(", ") : ""),
+    initialInputValue: inputValueProp ?? "",
     id,
     onIsOpenChange: ({ isOpen }) => {
       // Reset the text filter on any open/close change so the full list is always ready.
@@ -102,10 +93,8 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       },
       [onInputChange, filterOptions]
     ),
-    // When enableToggle (textInput), stateReducer resets selectedItem to null so this fires with
-    // null and exits early; onStateChange + pendingToggleRef handle selection instead.
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
-      if (enableToggle || !newSelectedItem) return;
+      if (!newSelectedItem) return;
       const existingItem = currentSelectedItems.find(item => item.value === newSelectedItem.value);
       if (existingItem) {
         removeSelectedItem(existingItem);
@@ -116,67 +105,25 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       onOptionSelect?.(newSelectedItem);
       filterOptions("");
     },
-    onStateChange: ({ type }) => {
-      if (!enableToggle) return;
-      if (
-        type !== useCombobox.stateChangeTypes.ItemClick &&
-        type !== useCombobox.stateChangeTypes.InputKeyDownEnter
-      )
-        return;
-
-      const clickedItem = pendingToggleRef.current;
-      pendingToggleRef.current = null;
-      if (!clickedItem) return;
-      const existingItem = currentSelectedItems.find(i => i.value === clickedItem.value);
-      if (existingItem) {
-        removeSelectedItem(existingItem);
-        onOptionRemove?.(existingItem);
-      } else {
-        addSelectedItem(clickedItem);
-      }
-      onOptionSelect?.(clickedItem);
-      filterOptions("");
-    },
     stateReducer: (state, actionAndChanges) => {
       const { type, changes } = actionAndChanges;
-      // null clears the input and restores the placeholder (original multi-select behavior).
-      // textInput mode shows a comma-separated summary instead.
-      const closedInputValue = textInput ? currentSelectedItems.map(i => i.label).join(", ") : null;
 
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
-        case useCombobox.stateChangeTypes.ItemClick: {
-          if (enableToggle) {
-            const clickedItem = changes.selectedItem;
-            pendingToggleRef.current = clickedItem ?? null;
-            const newItems = clickedItem
-              ? currentSelectedItems.some(i => i.value === clickedItem.value)
-                ? currentSelectedItems.filter(i => i.value !== clickedItem.value)
-                : [...currentSelectedItems, clickedItem]
-              : currentSelectedItems;
-            const newInputValue = textInput ? newItems.map(i => i.label).join(", ") : null;
-            return {
-              ...changes,
-              selectedItem: null,
-              inputValue: newInputValue,
-              isOpen: true,
-              highlightedIndex: (changes.selectedItem?.index as number) ?? 0
-            };
-          }
-          // Default mode: original behavior — keep the menu open, clear input to restore placeholder.
+        case useCombobox.stateChangeTypes.ItemClick:
+          // Keep the menu open and clear the input to restore the placeholder.
           return {
             ...changes,
             inputValue: null,
             isOpen: true,
             highlightedIndex: (changes.selectedItem?.index as number) ?? 0
           };
-        }
         case useCombobox.stateChangeTypes.InputBlur:
         case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
-          return { ...changes, inputValue: closedInputValue };
+          return { ...changes, inputValue: null };
         default:
           if (!changes.isOpen && state.isOpen) {
-            return { ...changes, inputValue: closedInputValue };
+            return { ...changes, inputValue: null };
           }
           return changes;
       }

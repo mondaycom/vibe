@@ -26,18 +26,13 @@ const MultiSelectTrigger = () => {
     getLabelProps,
     "aria-label": ariaLabel,
     minVisibleCount,
-    textInput,
     interactiveChips
   } = useDropdownContext<BaseItemData>();
 
-  const showChips = selectedItems.length > 0 && (!textInput || readOnly);
+  const showChips = selectedItems.length > 0;
   const overflowBadgeRef = useRef<HTMLDivElement>(null);
 
   const renderTriggerContent = () => {
-    if (textInput) {
-      return <DropdownInput />;
-    }
-
     if (interactiveChips && searchable && !readOnly) {
       if (selectedItems.length === 0) {
         return <DropdownInput />;

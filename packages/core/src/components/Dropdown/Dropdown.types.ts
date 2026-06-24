@@ -21,12 +21,6 @@ interface MultiSelectSpecifics<Item extends BaseItemData<Record<string, unknown>
    */
   onOptionRemove?: (option: Item) => void;
   /**
-   * If true, selected items are shown as a comma-separated text summary inside the input instead of chips.
-   * Satisfies WCAG 4.1.2 by exposing the combobox value to assistive technologies on focus.
-   * Only applies when searchable=true.
-   */
-  textInput?: boolean;
-  /**
    * If true, chips are always visible and support keyboard navigation: pressing Backspace or Left arrow
    * from the input moves focus to the last chip; Left/Right navigates between chips; Delete/Backspace
    * removes the focused chip. Only applies when searchable=true.

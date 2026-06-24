@@ -78,6 +78,5 @@ export interface DropdownContextProps<Item extends BaseItemData<Record<string, u
   removeSelectedItem?: (item: Item) => void;
   getSelectedItemProps?: (options: { selectedItem: any; index: number }) => Record<string, any>;
   isFocused?: boolean;
-  textInput?: boolean;
   interactiveChips?: boolean;
 }

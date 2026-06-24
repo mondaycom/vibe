@@ -36,7 +36,6 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     size = "medium",
     id,
     boxMode = false,
-    textInput,
     interactiveChips
   } = props;
 
@@ -78,9 +77,7 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     filterOption,
     showSelectedOptions,
     id,
-    onOptionRemove,
-    textInput,
-    interactiveChips
+    onOptionRemove
   );
 
   const contextValue: DropdownContextProps<Item> = {
@@ -140,7 +137,6 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     getDropdownProps,
     toggleMenu,
     loading,
-    textInput,
     interactiveChips
   };
 
