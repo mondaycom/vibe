@@ -788,6 +788,15 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-item3")).toBeInTheDocument();
     });
 
+    it("should expose the chips as a group labelled \"selected items\"", () => {
+      const { getByRole, getByPlaceholderText, getByText } = renderDropdown({ multi: true });
+
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(getByText("Option 1"));
+
+      expect(getByRole("group", { name: "selected items" })).toBeInTheDocument();
+    });
+
     describe("interactiveChips", () => {
       it("should expose a short selection summary as the combobox value", () => {
         const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
