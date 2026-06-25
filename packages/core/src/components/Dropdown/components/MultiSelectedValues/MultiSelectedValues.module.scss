@@ -3,7 +3,7 @@
   flex-grow: 1;
 
   &.singleChip {
-    > div:first-child {
+    > .chipButton:first-child {
       min-width: 50px;
       flex-shrink: 1;
 
@@ -14,7 +14,7 @@
   }
 
   &.measuring {
-    > div:not(.hiddenChip) {
+    > .chipButton:not(.hiddenChip) {
       opacity: 0;
     }
   }
@@ -30,6 +30,24 @@
 
   input {
     width: 100%;
+  }
+}
+
+.chipButton {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+
+  &:disabled {
+    cursor: default;
   }
 }
 

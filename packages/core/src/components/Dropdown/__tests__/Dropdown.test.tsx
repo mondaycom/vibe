@@ -797,6 +797,19 @@ describe("DropdownNew", () => {
       expect(getByRole("group", { name: "selected items" })).toBeInTheDocument();
     });
 
+    it("should render each chip as a single button labelled \"Remove <item>\"", () => {
+      const { getByRole, getByPlaceholderText, getByText, getByTestId } = renderDropdown({ multi: true });
+
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(getByText("Option 1"));
+
+      // The chip element itself is the remove button — no nested button inside it.
+      const chip = getByTestId("dropdown-chip-opt1");
+      expect(chip.tagName).toBe("BUTTON");
+      expect(chip).toHaveAttribute("aria-label", "Remove Option 1");
+      expect(within(chip).queryByRole("button")).not.toBeInTheDocument();
+    });
+
     describe("interactiveChips", () => {
       it("should expose a short selection summary as the combobox value", () => {
         const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
@@ -826,15 +839,15 @@ describe("DropdownNew", () => {
       });
 
       it("should update the summary when a chip is removed", () => {
-        const { getByRole, getByTestId } = renderDropdown({ multi: true, interactiveChips: true });
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
 
         fireEvent.click(getByRole("combobox"));
         fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
         fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
         expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
 
-        // Remove the first chip via its × button.
-        fireEvent.click(within(getByTestId("dropdown-chip-opt1")).getByRole("button", { name: "Remove Option 1" }));
+        // Each chip is itself a remove button.
+        fireEvent.click(getByRole("button", { name: "Remove Option 1" }));
 
         expect(getByRole("combobox")).toHaveValue("Option 3");
       });

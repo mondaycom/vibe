@@ -37,10 +37,12 @@ const getChipPropsFromItemElements = (item: BaseItemData<Record<string, unknown>
 
 interface DropdownChipProps<Item extends BaseItemData<Record<string, unknown>>> {
   item: Item;
-  onDelete: () => void;
+  onDelete?: () => void;
   disabled?: boolean;
   readOnly?: boolean;
   className?: string;
+  /** Render the chip as visual-only (no close button) — used when the chip wrapper is itself the remove button. */
+  presentational?: boolean;
 }
 
 const DropdownChip = <Item extends BaseItemData<Record<string, unknown>>>({
@@ -48,7 +50,8 @@ const DropdownChip = <Item extends BaseItemData<Record<string, unknown>>>({
   onDelete,
   disabled,
   readOnly,
-  className
+  className,
+  presentational
 }: DropdownChipProps<Item>) => {
   const chipSpecificProps = getChipPropsFromItemElements(item);
 
@@ -58,7 +61,8 @@ const DropdownChip = <Item extends BaseItemData<Record<string, unknown>>>({
       closeButtonAriaLabel={`Remove ${item.label}`}
       onDelete={onDelete}
       disabled={disabled}
-      readOnly={readOnly}
+      // presentational chips hide their own × — removal is handled by the wrapping button.
+      readOnly={presentational || readOnly}
       noMargin
       className={className}
       color={item.chipColor || "primary"}
