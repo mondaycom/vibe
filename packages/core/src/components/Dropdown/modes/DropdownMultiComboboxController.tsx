@@ -77,7 +77,8 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     filterOption,
     showSelectedOptions,
     id,
-    onOptionRemove
+    onOptionRemove,
+    interactiveChips
   );
 
   const contextValue: DropdownContextProps<Item> = {

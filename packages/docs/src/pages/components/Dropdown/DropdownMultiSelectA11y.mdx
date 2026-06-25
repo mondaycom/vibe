@@ -21,6 +21,12 @@ Chips remain visible but each one becomes a focusable, keyboard-operable control
 
 Keyboard navigation: press **ArrowLeft** from the input to move focus to the last chip, then **ArrowLeft / ArrowRight** to move between chips, and **Backspace** or **Delete** to remove the focused chip.
 
+### Selection summary in the input value
+
+`interactiveChips` also writes a short summary of the selection into the combobox's **value**, for example _"Chip one and 3 others"_, and keeps it updated as items are added or removed (via the menu, a chip's **×**, or the keyboard). Because screen readers read an input's value, the current selection is announced when the field is focused — addressing **WCAG 4.1.2 Name, Role, Value**, which the default empty input does not.
+
+> Trade-off: because the input now carries the summary, type-to-search and Backspace-to-chip are unavailable while a selection exists.
+
 ### Chip overflow
 
 When there are more selections than fit, the extra chips collapse into a **"+N" counter** (controlled by `minVisibleCount`). The visible chips stay individually focusable and removable via the keyboard, and the counter communicates how many more are selected.

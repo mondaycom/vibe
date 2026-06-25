@@ -787,6 +787,49 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-item2")).toBeInTheDocument();
       expect(getByTestId("dropdown-chip-item3")).toBeInTheDocument();
     });
+
+    describe("interactiveChips", () => {
+      it("should expose a short selection summary as the combobox value", () => {
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        expect(getByRole("combobox")).toHaveValue("Option 1");
+
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+        expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
+
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 4"));
+        expect(getByRole("combobox")).toHaveValue("Option 1 and 2 others");
+      });
+
+      it("should reflect a defaultValue in the combobox summary on mount", () => {
+        const { getByRole } = renderDropdown({
+          multi: true,
+          interactiveChips: true,
+          defaultValue: [
+            { label: "Option 1", value: "opt1" },
+            { label: "Option 3", value: "opt3" }
+          ] as any
+        });
+
+        expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
+      });
+
+      it("should update the summary when a chip is removed", () => {
+        const { getByRole, getByTestId } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+        expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
+
+        // Remove the first chip via its × button.
+        fireEvent.click(within(getByTestId("dropdown-chip-opt1")).getByRole("button", { name: "Remove Option 1" }));
+
+        expect(getByRole("combobox")).toHaveValue("Option 3");
+      });
+    });
   });
 
   describe("with custom type", () => {
