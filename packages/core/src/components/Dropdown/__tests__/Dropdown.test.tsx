@@ -797,6 +797,19 @@ describe("DropdownNew", () => {
       expect(getByRole("group", { name: "selected items" })).toBeInTheDocument();
     });
 
+    it("should set aria-selected on options reflecting the multi-select state", () => {
+      const { getByRole, getByPlaceholderText } = renderDropdown({ multi: true });
+
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+
+      const selectedOption = within(getByRole("listbox")).getByText("Option 1").closest('[role="option"]');
+      const unselectedOption = within(getByRole("listbox")).getByText("Option 3").closest('[role="option"]');
+
+      expect(selectedOption).toHaveAttribute("aria-selected", "true");
+      expect(unselectedOption).toHaveAttribute("aria-selected", "false");
+    });
+
     it("should render each chip as a single button labelled \"Remove <item>\"", () => {
       const { getByRole, getByPlaceholderText, getByText, getByTestId } = renderDropdown({ multi: true });
 
