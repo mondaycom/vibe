@@ -5,16 +5,6 @@ import * as DropdownMultiSelectA11yStories from "./DropdownMultiSelectA11y.stori
 
 # Multi-select accessibility
 
-## What changed — 2026-06-25
-
-`interactiveChips` now exposes the current selection as the combobox's **value** so screen readers announce it on focus.
-
-| Issue                                                                                                    | Fix                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The input stayed empty while chips carried the selection, so screen readers announced the focused field as blank (WCAG 4.1.2). | The combobox value now holds a short summary such as _"Chip one and 3 others"_, kept in sync across the menu, chip **×**, and keyboard removal.       |
-
-> Trade-off: because the input now carries the summary, type-to-search and Backspace-to-chip are unavailable while a selection exists.
-
 ## The problem
 
 A multi-select Dropdown shows the selected values as **chips rendered next to the input**. By default these chips are purely visual: the only way to remove one is to click its **×** with a mouse.
@@ -26,6 +16,16 @@ A keyboard-only user has no way to reach an individual chip or remove it, which 
 ## interactiveChips
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
+
+## What changed — 2026-06-25
+
+`interactiveChips` now exposes the current selection as the combobox's **value** so screen readers announce it on focus.
+
+| Issue                                                                                                    | Fix                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The input stayed empty while chips carried the selection, so screen readers announced the focused field as blank (WCAG 4.1.2). | The combobox value now holds a short summary such as _"Chip one and 3 others"_, kept in sync across the menu, chip **×**, and keyboard removal.       |
+
+> Trade-off: because the input now carries the summary, type-to-search and Backspace-to-chip are unavailable while a selection exists.
 
 Chips remain visible but each one becomes a focusable, keyboard-operable control. A keyboard-only user can navigate to any chip and remove it without a mouse — something the default chip mode does not support because the chips are purely visual.
 
