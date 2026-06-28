@@ -1,6 +1,6 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
-import { act, fireEvent, render, screen, waitFor, cleanup } from "@testing-library/react";
+import { act, fireEvent, render, screen, cleanup } from "@testing-library/react";
 import Combobox from "../Combobox";
 
 function clickValueCheckCallback(getByLabelText, onClickMock, labelText, value, numberOfCall = 1) {

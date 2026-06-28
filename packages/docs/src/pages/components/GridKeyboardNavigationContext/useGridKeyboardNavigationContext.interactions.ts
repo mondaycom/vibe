@@ -1,4 +1,5 @@
 import { expect } from "@storybook/jest";
+import { waitFor } from "@storybook/test";
 import { getByText, interactionSuite, clickElement, typeMultipleTimes, resetFocus } from "@vibe/core/interactionsTests";
 
 //NOTE: this test may fail if it runs when the storybook page isn't focused. (For example, during an HMR refresh without focusing the storybook tab)
@@ -39,7 +40,9 @@ export const useGridContextMultipleDepthsPlaySuite = interactionSuite({
 });
 
 async function assertElementWithTextToBeActive(text) {
-  const activeElements = document.getElementsByClassName("active-item");
-  expect(activeElements).toHaveLength(1);
-  expect(activeElements[0]).toHaveTextContent(text);
+  await waitFor(() => {
+    const activeElements = document.getElementsByClassName("active-item");
+    expect(activeElements).toHaveLength(1);
+    expect(activeElements[0]).toHaveTextContent(text);
+  });
 }

@@ -1,4 +1,5 @@
 import { expect } from "@storybook/jest";
+import { waitFor } from "@storybook/test";
 import {
   getByTestId,
   interactionSuite,
@@ -24,9 +25,11 @@ async function expectElementToBeNaturallyFocused(element) {
   expect(document.activeElement).toEqual(element);
 }
 async function expectElementVisuallyFocusedByText(text) {
-  const activeElements = document.getElementsByClassName(styles.visualFocus);
-  expect(activeElements).toHaveLength(1);
-  expect(activeElements[0]).toHaveTextContent(text);
+  await waitFor(() => {
+    const activeElements = document.getElementsByClassName(styles.visualFocus);
+    expect(activeElements).toHaveLength(1);
+    expect(activeElements[0]).toHaveTextContent(text);
+  });
 }
 
 async function keyboardNavAndFocusForVerticalList(canvas) {
