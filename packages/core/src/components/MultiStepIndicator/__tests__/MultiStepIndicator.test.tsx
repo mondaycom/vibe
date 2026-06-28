@@ -1,7 +1,6 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { fireEvent, render, act } from "@testing-library/react";
 import MultiStepIndicator from "../MultiStepIndicator";
 import { type Step } from "../MultiStep.types";
 

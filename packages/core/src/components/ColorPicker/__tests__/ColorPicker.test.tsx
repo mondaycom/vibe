@@ -118,8 +118,8 @@ describe("ColorPicker", () => {
     const component = colorPicker.getByLabelText(colorNameTooltip);
     act(() => {
       fireEvent.mouseOver(component);
+      vi.advanceTimersByTime(1000);
     });
-    vi.advanceTimersByTime(1000);
     const content = screen.getByText(colorNameTooltip);
     expect(content).toBeTruthy();
   });
@@ -133,8 +133,8 @@ describe("ColorPicker", () => {
     const component = colorPicker.getByLabelText(colorNameTooltip);
     act(() => {
       fireEvent.mouseOver(component);
+      vi.advanceTimersByTime(1000);
     });
-    vi.advanceTimersByTime(1000);
     const content = screen.queryByText(colorNameTooltip);
     expect(content).toBeTruthy();
   });
@@ -158,8 +158,8 @@ describe("ColorPicker", () => {
     const component = colorPicker.getByLabelText(contentByColorTooltip);
     act(() => {
       fireEvent.mouseOver(component);
+      vi.advanceTimersByTime(1000);
     });
-    vi.advanceTimersByTime(1000);
     const contentByName = screen.queryByText(colorNameTooltip);
     const expected = screen.getByText(contentByColorTooltip);
 

@@ -1,5 +1,5 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
-import { act, cleanup, renderHook, type RenderResult } from "@testing-library/react-hooks";
+import { act, cleanup, renderHook } from "@testing-library/react";
 import useSwitch, { type UseSwitchProps } from "../index";
 import { type ChangeEvent } from "react";
 
@@ -77,10 +77,10 @@ describe("useSwitch", () => {
   });
 
   function renderHookForTest(props?: UseSwitchProps) {
-    return renderHook<UseSwitchProps, ReturnType<typeof useSwitch>>(() => useSwitch(props));
+    return renderHook(() => useSwitch(props));
   }
 
-  function callOnChange(result: RenderResult<ReturnType<typeof useSwitch>>) {
+  function callOnChange(result: { current: ReturnType<typeof useSwitch> }) {
     const mockEvent = {} as ChangeEvent<HTMLInputElement>;
     act(() => {
       result.current.onChange(mockEvent);

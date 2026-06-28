@@ -45,8 +45,8 @@
   },
   "devDependencies": {
     "@vibe/config": "4.0.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },

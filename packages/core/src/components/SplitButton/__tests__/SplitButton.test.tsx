@@ -1,6 +1,6 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
@@ -44,12 +44,14 @@ const renderComponent = ({ ...props } = {}) => {
 vi.useFakeTimers();
 
 describe("SplitButton tests", () => {
-  it("opens the secondary content dialog on click", async () => {
+  it("opens the secondary content dialog on click", () => {
     const splitButtonComponent = renderComponent();
     const arrowButton = getSecondaryButton(splitButtonComponent);
-    fireEvent.click(arrowButton);
-    vi.runAllTimers();
-    const expectedSecondaryDialog = await screen.findByText(secondaryContentText, {}, { timeout: 10000 });
+    act(() => {
+      fireEvent.click(arrowButton);
+      vi.runAllTimers();
+    });
+    const expectedSecondaryDialog = screen.getByText(secondaryContentText);
     expect(expectedSecondaryDialog).toBeTruthy();
   });
 
@@ -136,7 +138,7 @@ describe("SplitButton tests", () => {
       expect(primaryButtonOnClick.mock.calls.length).toBe(1);
     });
 
-    it("opens the secondary content dialog when enter pressed on secondaryButton", async () => {
+    it("opens the secondary content dialog when enter pressed on secondaryButton", () => {
       const splitButtonComponent = renderComponent();
       const arrowButton = getSecondaryButton(splitButtonComponent);
       act(() => {
@@ -144,13 +146,13 @@ describe("SplitButton tests", () => {
         userEvent.keyboard(ENTER_KEY);
         vi.runAllTimers();
       });
-      const expectedSecondaryDialog = await screen.findByText(secondaryContentText, {});
+      const expectedSecondaryDialog = screen.getByText(secondaryContentText);
       expect(expectedSecondaryDialog).toBeTruthy();
     });
   });
 
   describe("with SplitButtonMenu", () => {
-    it("should focus on first menu item", async () => {
+    it("should focus on first menu item", () => {
       const splitButtonComponent = render(
         <SplitButton secondaryDialogContent={menuSecondaryContent}>{text}</SplitButton>
       );
@@ -158,18 +160,17 @@ describe("SplitButton tests", () => {
       act(() => {
         arrowButton.focus();
         userEvent.keyboard(ENTER_KEY);
+        vi.runAllTimers();
       });
-      vi.runAllTimers();
-      let menu;
-      await waitFor(async () => {
-        menu = await splitButtonComponent.findByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
-        expect(menu).toBeTruthy();
+      const menu = splitButtonComponent.getByTestId(getTestId(ComponentDefaultTestId.MENU, splitMenuId));
+      expect(menu).toBeTruthy();
+
+      act(() => {
+        vi.runAllTimers();
       });
 
       const firstMenuItemId = `${getTestId(ComponentDefaultTestId.MENU_ITEM)}_0`;
-      await waitFor(() => {
-        expect(splitButtonComponent.getByTestId(firstMenuItemId)).toHaveFocus();
-      });
+      expect(splitButtonComponent.getByTestId(firstMenuItemId)).toHaveFocus();
     });
   });
 });

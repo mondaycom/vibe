@@ -18,9 +18,7 @@ exports[`Chips renders correctly > renders correctly disabled chip 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
 </div>
 `;
 
@@ -69,9 +67,7 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
   <button
     aria-busy={false}
     aria-disabled={false}
@@ -131,9 +127,7 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
   <button
     aria-busy={false}
     aria-disabled={false}
@@ -217,9 +211,7 @@ exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
 </div>
 `;
 
@@ -248,9 +240,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
   <button
     aria-busy={false}
     aria-disabled={false}
@@ -327,9 +317,7 @@ exports[`Chips renders correctly > renders correctly with left icon 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
 </div>
 `;
 
@@ -351,9 +339,7 @@ exports[`Chips renders correctly > renders correctly with right avatar 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
   <div
     className="avatar large avatar right"
     data-testid="avatar"
@@ -399,9 +385,7 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
   <div
     className="customRenderer right"
   >
@@ -468,9 +452,7 @@ exports[`Chips renders correctly > renders correctly with right icon 1`] = `
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
   <svg
     aria-hidden={true}
     className="icon icon right noFocusStyle"
@@ -571,8 +553,6 @@ exports[`Chips renders correctly > renders correctly without close button 1`] = 
   <div
     className="typography primary start singleLineEllipsis text text2Normal label"
     data-testid="text"
-  >
-    
-  </div>
+  />
 </div>
 `;

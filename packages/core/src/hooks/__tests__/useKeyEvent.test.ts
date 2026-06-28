@@ -1,6 +1,5 @@
 import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
-import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import { fireEvent } from "@testing-library/react";
+import { fireEvent, renderHook, cleanup, act } from "@testing-library/react";
 import useKeyEvent from "../useKeyEvent";
 
 describe("useKeyEvent", () => {

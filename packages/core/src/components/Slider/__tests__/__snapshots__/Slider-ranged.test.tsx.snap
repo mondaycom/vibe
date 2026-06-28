@@ -361,24 +361,24 @@ exports[`c. Ranges Slider Key Events > 01. decrease value by Left/Down keys pres
       />
       <div
         class="filledTrack"
-        style="left: 23%; width: 42%;"
+        style="left: 0%; width: 65%;"
       />
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="23"
-        aria-valuetext="23%"
+        aria-valuenow="0"
+        aria-valuetext="0%"
         class="thumb small notDisabledThumb"
         data-testid="monday-slider__thumb-0"
         role="slider"
-        style="left: 23%;"
+        style="left: 0%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          23%
+          0%
         </label>
       </div>
       <div
@@ -422,42 +422,42 @@ exports[`c. Ranges Slider Key Events > 02. increase value by Right/Up keys press
       />
       <div
         class="filledTrack"
-        style="left: 25%; width: 42%;"
+        style="left: 0%; width: 66%;"
       />
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="25"
-        aria-valuetext="25%"
+        aria-valuenow="0"
+        aria-valuetext="0%"
         class="thumb small focused notDisabledThumb"
         data-testid="monday-slider__thumb-0"
         role="slider"
-        style="left: 25%;"
+        style="left: 0%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          25%
+          0%
         </label>
       </div>
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="67"
-        aria-valuetext="67%"
+        aria-valuenow="66"
+        aria-valuetext="66%"
         class="thumb small focused notDisabledThumb"
         data-testid="monday-slider__thumb-1"
         role="slider"
-        style="left: 67%;"
+        style="left: 66%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          67%
+          66%
         </label>
       </div>
     </div>
@@ -483,42 +483,42 @@ exports[`c. Ranges Slider Key Events > 03. decrease value (step 10%) by PageDown
       />
       <div
         class="filledTrack"
-        style="left: 25%; width: 30%;"
+        style="left: 0%; width: 65%;"
       />
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="25"
-        aria-valuetext="25%"
+        aria-valuenow="0"
+        aria-valuetext="0%"
         class="thumb small focused notDisabledThumb"
         data-testid="monday-slider__thumb-0"
         role="slider"
-        style="left: 25%;"
+        style="left: 0%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          25%
+          0%
         </label>
       </div>
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="55"
-        aria-valuetext="55%"
+        aria-valuenow="65"
+        aria-valuetext="65%"
         class="thumb small focused notDisabledThumb"
         data-testid="monday-slider__thumb-1"
         role="slider"
-        style="left: 55%;"
+        style="left: 65%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          55%
+          65%
         </label>
       </div>
     </div>
@@ -544,24 +544,24 @@ exports[`c. Ranges Slider Key Events > 04. increase value (step 10%) by PageUp k
       />
       <div
         class="filledTrack"
-        style="left: 45%; width: 20%;"
+        style="left: 10%; width: 55%;"
       />
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="45"
-        aria-valuetext="45%"
+        aria-valuenow="10"
+        aria-valuetext="10%"
         class="thumb small notDisabledThumb"
         data-testid="monday-slider__thumb-0"
         role="slider"
-        style="left: 45%;"
+        style="left: 10%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          45%
+          10%
         </label>
       </div>
       <div
@@ -599,7 +599,7 @@ exports[`c. Ranges Slider Key Events > 05. change value by keys press in Step an
     <div
       data-testid="mock-text-field-comp"
     >
-      {"value":"45%","className":"selectionIndicator"}
+      {"value":"10%","className":"selectionIndicator"}
     </div>
   </div>
   <div
@@ -615,24 +615,24 @@ exports[`c. Ranges Slider Key Events > 05. change value by keys press in Step an
       />
       <div
         class="filledTrack"
-        style="left: 45%; width: 20%;"
+        style="left: 10%; width: 55%;"
       />
       <div
         aria-disabled="false"
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow="45"
-        aria-valuetext="45%"
+        aria-valuenow="10"
+        aria-valuetext="10%"
         class="thumb small notDisabledThumb"
         data-testid="monday-slider__thumb-0"
         role="slider"
-        style="left: 45%;"
+        style="left: 10%;"
         tabindex="0"
       >
         <label
           class="label colorPrimary positionTop"
         >
-          45%
+          10%
         </label>
       </div>
       <div

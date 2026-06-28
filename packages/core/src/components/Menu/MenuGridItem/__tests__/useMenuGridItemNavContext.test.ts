@@ -1,5 +1,5 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
-import { cleanup, renderHook } from "@testing-library/react-hooks";
+import { cleanup, renderHook } from "@testing-library/react";
 import { NavDirections } from "../../../../hooks/useFullKeyboardListeners";
 import * as GridKeyboardNavigationContextModule from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "../useMenuGridItemNavContext";

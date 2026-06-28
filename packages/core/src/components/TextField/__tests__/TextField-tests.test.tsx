@@ -1,8 +1,7 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, cleanup, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { act } from "@testing-library/react-hooks";
 import TextField from "../TextField";
 
 const TEST_ID = "test-text-field";
@@ -70,7 +69,7 @@ describe("TextField tests", () => {
     expect(ref.current.className).toMatch("input");
   });
 
-  it("should call the debounced function after time passed (fake timers)", async () => {
+  it("should call the debounced function after time passed (fake timers)", () => {
     const { rerender } = inputComponent;
     const debounceTime = 200;
     inputComponent = rerender(
@@ -80,19 +79,17 @@ describe("TextField tests", () => {
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     userEvent.type(input, value);
     expect(onChangeStub).not.toHaveBeenCalled();
-    vi.advanceTimersByTime(debounceTime + 1);
-    await waitFor(
-      () =>
-        expect(onChangeStub).toHaveBeenCalledWith(
-          value,
-          expect.objectContaining({
-            target: expect.objectContaining({
-              value: value,
-              id: TEST_ID
-            })
-          })
-        ),
-      { timeout: debounceTime }
+    act(() => {
+      vi.advanceTimersByTime(debounceTime + 1);
+    });
+    expect(onChangeStub).toHaveBeenCalledWith(
+      value,
+      expect.objectContaining({
+        target: expect.objectContaining({
+          value: value,
+          id: TEST_ID
+        })
+      })
     );
   });
 

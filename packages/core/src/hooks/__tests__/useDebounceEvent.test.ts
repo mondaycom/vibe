@@ -1,5 +1,5 @@
 import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
-import { renderHook, cleanup, act, type RenderHookResult } from "@testing-library/react-hooks";
+import { renderHook, cleanup, act } from "@testing-library/react";
 import useDebounceEvent, { type UseDebounceResult } from "../useDebounceEvent";
 import { type ChangeEvent } from "react";
 
@@ -7,7 +7,7 @@ describe("useDebounceEvent", () => {
   const delay = 0;
   const initialStateValue = "";
   let onChangeCallbackStub: Mock;
-  let hookResult: RenderHookResult<unknown, UseDebounceResult>;
+  let hookResult: ReturnType<typeof renderHook<UseDebounceResult>>;
 
   beforeEach(() => {
     onChangeCallbackStub = vi.fn();

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { renderHook, cleanup } from "@testing-library/react-hooks";
+import { renderHook, cleanup } from "@testing-library/react";
 import { createRef } from "react";
 import useFocusEscapeTargets from "../useFocusEscapeTargets";
 import type { FocusEscapeTarget } from "../useFocusEscapeTargets.types";

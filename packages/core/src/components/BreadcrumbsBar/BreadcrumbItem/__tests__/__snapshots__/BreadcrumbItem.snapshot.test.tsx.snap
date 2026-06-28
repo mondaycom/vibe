@@ -19,9 +19,7 @@ exports[`BreadcrumbsItem renders correctly > when disabled item 1`] = `
       >
         <span
           className="breadcrumbText"
-        >
-          
-        </span>
+        />
       </span>
     </li>
   </ol>
@@ -47,9 +45,7 @@ exports[`BreadcrumbsItem renders correctly > with className 1`] = `
       >
         <span
           className="breadcrumbText"
-        >
-          
-        </span>
+        />
       </span>
     </li>
   </ol>
@@ -76,9 +72,7 @@ exports[`BreadcrumbsItem renders correctly > with current item 1`] = `
       >
         <span
           className="breadcrumbText"
-        >
-          
-        </span>
+        />
       </span>
     </li>
   </ol>
@@ -104,9 +98,7 @@ exports[`BreadcrumbsItem renders correctly > with empty props 1`] = `
       >
         <span
           className="breadcrumbText"
-        >
-          
-        </span>
+        />
       </span>
     </li>
   </ol>
@@ -147,9 +139,7 @@ exports[`BreadcrumbsItem renders correctly > with icon 1`] = `
         </svg>
         <span
           className="breadcrumbText"
-        >
-          
-        </span>
+        />
       </span>
     </li>
   </ol>

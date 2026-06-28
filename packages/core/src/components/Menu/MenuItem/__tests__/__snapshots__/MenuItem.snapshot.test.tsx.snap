@@ -107,9 +107,7 @@ exports[`Snapshots > renders correctly with custom class name 1`] = `
 >
   <div
     className="title"
-  >
-    
-  </div>
+  />
   <div
     className="container directionRow justifyStart alignCenter"
     style={
@@ -132,9 +130,7 @@ exports[`Snapshots > renders correctly with empty props 1`] = `
 >
   <div
     className="title"
-  >
-    
-  </div>
+  />
   <div
     className="container directionRow justifyStart alignCenter"
     style={

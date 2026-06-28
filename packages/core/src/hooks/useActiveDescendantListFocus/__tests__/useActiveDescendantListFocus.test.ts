@@ -1,5 +1,5 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
-import { renderHook, cleanup, act } from "@testing-library/react-hooks";
+import { renderHook, cleanup, act } from "@testing-library/react";
 import useActiveDescendantListFocus from "../../useActiveDescendantListFocus";
 import userEvent from "@testing-library/user-event";
 

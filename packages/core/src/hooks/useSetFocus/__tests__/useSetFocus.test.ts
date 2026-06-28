@@ -1,5 +1,5 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
-import { act, cleanup, renderHook } from "@testing-library/react-hooks";
+import { act, cleanup, renderHook } from "@testing-library/react";
 import useSetFocus from "../index";
 
 describe("useSetFocus", () => {
