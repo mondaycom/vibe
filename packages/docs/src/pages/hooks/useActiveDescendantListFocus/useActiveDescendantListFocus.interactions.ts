@@ -17,7 +17,8 @@ export const overviewInteractionSuite = interactionSuite({
 });
 
 async function getSearchElement(canvas) {
-  return await getByTestId(canvas, getTestId(ComponentDefaultTestId.SEARCH));
+  const searchWrapper = await getByTestId(canvas, getTestId(ComponentDefaultTestId.SEARCH));
+  return searchWrapper.querySelector("input") || searchWrapper;
 }
 
 async function expectElementToBeNaturallyFocused(element) {
