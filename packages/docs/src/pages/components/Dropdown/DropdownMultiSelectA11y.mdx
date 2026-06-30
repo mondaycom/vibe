@@ -17,6 +17,14 @@ A keyboard-only user has no way to reach an individual chip or remove it, which 
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
+## What changed — 2026-06-30 (chevron label)
+
+The expand/collapse **chevron** needs its own accessible name (WCAG 4.1.2). It was previously labelled by the option list (`aria-labelledby` → the listbox), which is not a real, computed label.
+
+| Issue                                                                           | Fix                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The chevron's `aria-labelledby` pointed at the listbox, so it had no real name. | With a visible `label`, the chevron is labelled by it (`aria-labelledby` → the `…-label` id); with no visible label it gets a real `aria-label` string from `aria-label` / `inputAriaLabel`. Applies to single and multi select. |
+
 ## What changed — 2026-06-30 (selected-items group)
 
 The selected chips are now wrapped in a labelled group, so assistive tech presents them as a single named set rather than a loose sequence of controls.

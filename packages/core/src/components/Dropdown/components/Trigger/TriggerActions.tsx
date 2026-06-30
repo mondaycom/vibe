@@ -30,25 +30,21 @@ const TriggerActions = () => {
     loading,
     clearAriaLabel,
     boxMode,
-    searchable,
     label,
     getLabelProps,
-    getInputProps,
-    getToggleButtonProps
+    "aria-label": ariaLabel,
+    inputAriaLabel
   } = useDropdownContext<BaseItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
   const iconButtonSize = sizeMap[size] || "small";
 
-  // The chevron is a focusable control, so it needs an accessible name (WCAG 4.1.2).
-  // Prefer the visible field label; when there is none, reference the combobox element
-  // itself — the searchable input or the non-searchable toggle button — which always
-  // carries a name via aria-label. Referencing the menu would name it after the option list.
-  const chevronLabelledBy = label
-    ? getLabelProps().id
-    : searchable
-    ? getInputProps?.().id
-    : getToggleButtonProps?.().id;
+  // The chevron is a focusable control, so it needs a real accessible name (WCAG 4.1.2). With a
+  // visible label, reference it (a computed name via aria-labelledby); otherwise use the field's
+  // aria-label string directly. Referencing the listbox or the input would not yield a usable label
+  // (a textbox's name computes from its value, not its label), leaving the chevron effectively unnamed.
+  const chevronLabelledBy = label ? getLabelProps().id : undefined;
+  const chevronAriaLabel = label ? undefined : ariaLabel || inputAriaLabel;
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -91,6 +87,7 @@ const TriggerActions = () => {
             aria-controls={getMenuProps().id}
             aria-expanded={isOpen}
             aria-labelledby={chevronLabelledBy}
+            aria-label={chevronAriaLabel}
             tabIndex={-1}
             onClick={() => {
               toggleMenu();

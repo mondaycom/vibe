@@ -121,12 +121,27 @@ describe("DropdownNew", () => {
       expect(getByText("Team")).toHaveAttribute("id", labelledById);
     });
 
-    it("should name the chevron after the input when there is no visible label", () => {
-      const { getByRole, container } = renderDropdown({ label: undefined, "aria-label": "Team" });
+    it("should give the chevron an aria-label when there is no visible label", () => {
+      const { container } = renderDropdown({ label: undefined, "aria-label": "Team" });
 
       const chevron = container.querySelector("button[aria-expanded]");
-      expect(chevron?.getAttribute("aria-labelledby")).toBe(getByRole("combobox").getAttribute("id"));
-      expect(getByRole("combobox")).toHaveAttribute("aria-label", "Team");
+      // No visible label to reference, so the chevron carries a real string name, not a dangling id.
+      expect(chevron).toHaveAttribute("aria-label", "Team");
+      expect(chevron).not.toHaveAttribute("aria-labelledby");
+    });
+
+    it("should name the chevron in multi-select searchable (label and aria-label)", () => {
+      const { getByText, container, rerender } = renderDropdown({ multi: true, label: "Team" });
+
+      const chevron = () => container.querySelector("button[aria-expanded]");
+      // With a visible label, the chevron is labelled by it (a computed name), not the listbox.
+      expect(chevron()?.getAttribute("aria-labelledby")).toBe(getByText("Team").getAttribute("id"));
+      expect(chevron()).not.toHaveAttribute("aria-label");
+
+      // Without a visible label, it falls back to a real aria-label string.
+      rerender(<Dropdown options={defaultOptions as any} multi searchable aria-label="Team" placeholder="x" />);
+      expect(chevron()).toHaveAttribute("aria-label", "Team");
+      expect(chevron()).not.toHaveAttribute("aria-labelledby");
     });
 
     it("should be disabled when disabled prop is true", () => {
