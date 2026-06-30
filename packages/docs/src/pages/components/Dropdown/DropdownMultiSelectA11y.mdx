@@ -17,40 +17,14 @@ A keyboard-only user has no way to reach an individual chip or remove it, which 
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
-## What changed — 2026-06-30 (Space to select)
-
-Because focus stays in the input, **Space** toggles the option the user has arrowed to — without typing a literal space into the filter.
-
-| Issue                                                                                            | Fix                                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Space always inserted a literal space, corrupting the filter text; there was no Space selection. | On Space, when an option is highlighted (`aria-activedescendant` set, i.e. the user arrowed to it), the default is prevented and that option is toggled. While typing (no highlight), Space types normally. |
-
-## What changed — 2026-06-30 (chevron label)
-
-The expand/collapse **chevron** needs its own accessible name (WCAG 4.1.2). It was previously labelled by the option list (`aria-labelledby` → the listbox), which is not a real, computed label.
-
-| Issue                                                                           | Fix                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The chevron's `aria-labelledby` pointed at the listbox, so it had no real name. | With a visible `label`, the chevron is labelled by it (`aria-labelledby` → the `…-label` id); with no visible label it gets a real `aria-label` string from `aria-label` / `inputAriaLabel`. Applies to single and multi select. |
-
-## What changed — 2026-06-30 (selected-items group)
-
-The selected chips are now wrapped in a labelled group, so assistive tech presents them as a single named set rather than a loose sequence of controls.
-
-| Issue                                                                              | Fix                                                                                                                                                       |
-| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The chips were a flat run of controls with no grouping or name to orient the user. | The chips wrapper is exposed as `role="group"` with `aria-label="selected items"`, so screen readers announce the group and its purpose when entering it. |
-
 ## What changed — 2026-06-30
 
-`interactiveChips` makes the selected chips keyboard-operable and announces the current selection to screen readers, without taking over the input's value.
+This iteration made several accessibility fixes to the multi-select dropdown:
 
-| Issue                                                                                                                          | Fix                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Chips were purely visual, so a keyboard-only user could not reach or remove an individual chip (WCAG 2.1.1).                   | Chips are focusable and keyboard-operable: **ArrowLeft** from the input moves to the last chip, **ArrowLeft / ArrowRight** move between chips, and **Backspace** or **Delete** removes the focused chip. Each chip keeps its labelled **×** (`aria-label="Remove <item>"`) for mouse users. |
-| The input stayed empty while chips carried the selection, so screen readers announced the focused field as blank (WCAG 4.1.2). | The current selection is announced via a visually hidden element referenced from the combobox with `aria-describedby`; it reads out the selected values (e.g. _"Chip one, Chip two, Chip three"_) and updates as chips are added or removed.                                                |
-
-The selection is exposed through `aria-describedby` rather than written into the input's value, so **type-to-search and Backspace-to-chip stay available** while a selection exists. The input itself stays clear for typing.
+- **Chips keyboard + selection announcement** — with `interactiveChips`, the chips are focusable and keyboard-operable (**ArrowLeft** from the input moves to the last chip, **ArrowLeft / ArrowRight** move between chips, **Backspace / Delete** removes the focused chip, each chip keeps its labelled **×**). The current selection is announced via a visually hidden element referenced from the combobox with `aria-describedby` (e.g. _"Chip one, Chip two, Chip three"_) rather than written into the input value, so **type-to-search and Backspace-to-chip stay available**.
+- **Space selects** — when an option is highlighted (`aria-activedescendant` set, i.e. the user arrowed to it), Space toggles that option instead of typing a literal space; while typing (no highlight), Space types normally.
+- **Chevron label** — the expand/collapse chevron now has a real accessible name: `aria-labelledby` → the visible `label`, or an `aria-label` string (`aria-label` / `inputAriaLabel`) when there is no visible label — never the listbox. Applies to single and multi select.
+- **Selected-items group** — the chips wrapper is exposed as `role="group"` with `aria-label="selected items"`, so screen readers present them as a single named set.
 
 This supersedes the **2026-06-25** approach below, which carried the selection in the combobox value (a short summary) and rendered each chip as a single `aria-label="Remove <item>"` button inside a `role="group"`. That made type-to-search and Backspace-to-chip unavailable while a selection existed, so the selection moved to `aria-describedby` and the chips returned to a chip + labelled **×** button.
 

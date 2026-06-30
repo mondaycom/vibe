@@ -15,22 +15,12 @@ import { Dropdown } from "@vibe/core";
 
 <Canvas of={DropdownSearchableSingleSelectStories.Overview} />
 
-## What changed — 2026-06-30 (Space to select)
-
-Because focus stays in the input, **Space** selects the option the user has arrowed to — without typing a literal space into the filter.
-
-| Issue                                                                                            | Fix                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Space always inserted a literal space, corrupting the filter text; there was no Space selection. | On Space, when an option is highlighted (`aria-activedescendant` set, i.e. the user arrowed to it), the default is prevented and that option is selected. While typing (no highlight), Space types normally. |
-
 ## What changed — 2026-06-30
 
-The expand/collapse **chevron** is a focusable control, so it needs its own accessible name (WCAG 4.1.2). It was previously labelled by the option list (`aria-labelledby` → the menu id), which named it after the listbox rather than the field.
+This iteration made two accessibility fixes to the searchable single select:
 
-| Issue                                                                                 | Fix                                                                                                                                                                                                                                                                                  |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| The chevron's `aria-labelledby` pointed at the menu, so its name was the option list. | With a visible `label`, the chevron is now labelled by it (`aria-labelledby` → the `…-label` id), so it reads as the field name (_"Team"_) rather than the menu contents.                                                                                                            |
-| `label` is optional — with no label there is no element for the chevron to reference. | When there is no `label`, the chevron gets a real `aria-label` string from the field's `aria-label` / `inputAriaLabel`. (Referencing the input would not work: a textbox's name computes from its value, not its label.) So provide an `aria-label` when no visible `label` is used. |
+- **Space selects** — because focus stays in the input, Space would type a literal space and corrupt the filter. Now, when an option is highlighted (`aria-activedescendant` set, i.e. the user arrowed to it), Space selects that option; while typing (no highlight), Space types normally.
+- **Chevron label** — the expand/collapse chevron now has a real accessible name (WCAG 4.1.2): with a visible `label` it is labelled by it (`aria-labelledby` → the `…-label` id, reading as the field name); with no visible label it gets a real `aria-label` string from `aria-label` / `inputAriaLabel`. It no longer points at the listbox (which is not a real, computed label).
 
 ## What changed — 2026-06-24
 
