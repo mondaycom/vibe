@@ -64,4 +64,10 @@ Keyboard navigation: press **ArrowLeft** from the input to move focus to the las
 
 When there are more selections than fit, the extra chips collapse into a **"+N" counter** (controlled by `minVisibleCount`). The visible chips stay individually focusable and removable via the keyboard, and the counter communicates how many more are selected.
 
+The **"+N" counter opens a dialog** listing the hidden chips. For keyboard users:
+
+- **Enter** (or click) on the counter opens the dialog.
+- Focus moves to the **first chip** in the dialog when it opens.
+- **Esc** closes the dialog and returns focus to the **"+N" counter**.
+
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsOverflow} />

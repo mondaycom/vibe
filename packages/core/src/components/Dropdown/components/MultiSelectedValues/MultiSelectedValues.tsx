@@ -1,8 +1,9 @@
-import React, { useRef, useMemo, createRef } from "react";
+import React, { useRef, useMemo, useCallback, createRef } from "react";
 import { type BaseItemData } from "../../../BaseItem";
 import { Chips } from "../../../Chips";
 import { Flex } from "@vibe/layout";
 import { DialogContentContainer, Dialog } from "@vibe/dialog";
+import { useMergeRef } from "@vibe/shared";
 import useItemsOverflow from "../../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
@@ -35,6 +36,34 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
+  // Content of the "+N" overflow dialog, and the +N badge that triggers it — used for focus management.
+  const dialogContentRef = useRef<HTMLDivElement>(null);
+  const localBadgeRef = useRef<HTMLDivElement>(null);
+  const mergedBadgeRef = useMergeRef(badgeRef, localBadgeRef);
+
+  // When the overflow dialog opens, move focus to its first control (the first chip's remove button).
+  // onDialogDidShow fires just before the content mounts, so defer focus to the next frame.
+  const handleDialogDidShow = useCallback(() => {
+    requestAnimationFrame(() => {
+      const firstFocusable = dialogContentRef.current?.querySelector<HTMLElement>(
+        "button, [href], input, [tabindex]:not([tabindex='-1'])"
+      );
+      firstFocusable?.focus();
+    });
+  }, []);
+
+  // Return focus to the +N badge when the dialog is dismissed with Esc. Defer to the next frame:
+  // onDialogDidHide fires before the dialog content unmounts, and that teardown would otherwise
+  // reset focus to <body> (the top of the page) after a synchronous focus call.
+  const handleDialogDidHide = useCallback((_event: unknown, eventName: string) => {
+    if (eventName !== "esckey") return;
+    requestAnimationFrame(() => {
+      const badge =
+        localBadgeRef.current ??
+        deductedSpaceRef.current?.querySelector<HTMLElement>('[data-testid="dropdown-overflow-counter"]');
+      badge?.focus();
+    });
+  }, []);
 
   const itemRefs = useMemo(() => selectedItems.map(() => createRef<HTMLDivElement>()), [selectedItems]);
 
@@ -58,7 +87,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
   const dialogContent = useMemo(() => {
     return () => (
       <DialogContentContainer>
-        <Flex direction="column" gap="xs" align="start" className={styles.hiddenChipsDialog}>
+        <Flex direction="column" gap="xs" align="start" ref={dialogContentRef} className={styles.hiddenChipsDialog}>
           {hiddenItems.map(item => {
             return (
               <DropdownChip
@@ -149,14 +178,18 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
             <Dialog
               content={dialogContent}
               showTrigger={["click", "enter"]}
-              hideTrigger={["clickoutside", "enter"]}
+              // "enter" is intentionally NOT a hide trigger: Enter keydown opens and the Enter keyup
+              // would otherwise immediately toggle it shut. Close via Esc or click-outside instead.
+              hideTrigger={["clickoutside"]}
               position="bottom"
               moveBy={{ main: 4 }}
               hideWhenReferenceHidden
               addKeyboardHideShowTriggersByDefault
+              onDialogDidShow={handleDialogDidShow}
+              onDialogDidHide={handleDialogDidHide}
             >
               <Chips
-                ref={badgeRef}
+                ref={mergedBadgeRef}
                 label={`+ ${hiddenCount}`}
                 readOnly
                 noMargin
