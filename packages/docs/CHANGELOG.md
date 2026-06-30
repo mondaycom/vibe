@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.11...@vibe/docs@4.1.0) (2026-06-30)
+
+
+### Features
+
+* **Chips:** add size prop with small variant ([#3409](https://github.com/mondaycom/vibe/issues/3409)) ([5ef809a](https://github.com/mondaycom/vibe/commit/5ef809a9d7b8cc49d34280df650f43cbf3d1146f))
+
+
+
+
+
 ## [4.0.11](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.10...@vibe/docs@4.0.11) (2026-06-15)
 
 **Note:** Version bump only for package @vibe/docs
