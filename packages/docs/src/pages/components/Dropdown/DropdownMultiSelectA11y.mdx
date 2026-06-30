@@ -17,15 +17,28 @@ A keyboard-only user has no way to reach an individual chip or remove it, which 
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
+## What changed — 2026-06-30
+
+`interactiveChips` makes the selected chips keyboard-operable and announces the current selection to screen readers, without taking over the input's value.
+
+| Issue                                                                                                                          | Fix                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chips were purely visual, so a keyboard-only user could not reach or remove an individual chip (WCAG 2.1.1).                   | Chips are focusable and keyboard-operable: **ArrowLeft** from the input moves to the last chip, **ArrowLeft / ArrowRight** move between chips, and **Backspace** or **Delete** removes the focused chip. Each chip keeps its labelled **×** (`aria-label="Remove <item>"`) for mouse users. |
+| The input stayed empty while chips carried the selection, so screen readers announced the focused field as blank (WCAG 4.1.2). | The current selection is announced via a visually hidden element referenced from the combobox with `aria-describedby`; it reads out the selected values (e.g. _"Chip one, Chip two, Chip three"_) and updates as chips are added or removed.                                                |
+
+The selection is exposed through `aria-describedby` rather than written into the input's value, so **type-to-search and Backspace-to-chip stay available** while a selection exists. The input itself stays clear for typing.
+
+This supersedes the **2026-06-25** approach below, which carried the selection in the combobox value (a short summary) and rendered each chip as a single `aria-label="Remove <item>"` button inside a `role="group"`. That made type-to-search and Backspace-to-chip unavailable while a selection existed, so the selection moved to `aria-describedby` and the chips returned to a chip + labelled **×** button.
+
 ## What changed — 2026-06-25
 
 Several accessibility fixes for the selected chips and the combobox value.
 
-| Issue                                                                                                    | Fix                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The input stayed empty while chips carried the selection, so screen readers announced the focused field as blank (WCAG 4.1.2). | The combobox value now holds a short summary such as _"Chip one and 3 others"_, kept in sync across the menu, chip **×**, and keyboard removal.       |
-| The selected chips had no grouping, so assistive tech read them as loose, unlabelled controls.            | The chips container is now a `role="group"` with `aria-label="selected items"`.                                                                       |
-| Each chip was a labelled `div` plus a separate **×** button — two elements per chip.                      | Each chip is now a single button with `aria-label="Remove <item>"`; activating it removes the chip.                                                   |
+| Issue                                                                                                                          | Fix                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| The input stayed empty while chips carried the selection, so screen readers announced the focused field as blank (WCAG 4.1.2). | The combobox value now holds a short summary such as _"Chip one and 3 others"_, kept in sync across the menu, chip **×**, and keyboard removal. |
+| The selected chips had no grouping, so assistive tech read them as loose, unlabelled controls.                                 | The chips container is now a `role="group"` with `aria-label="selected items"`.                                                                 |
+| Each chip was a labelled `div` plus a separate **×** button — two elements per chip.                                           | Each chip is now a single button with `aria-label="Remove <item>"`; activating it removes the chip.                                             |
 
 > Trade-off: because the input now carries the summary, type-to-search and Backspace-to-chip are unavailable while a selection exists.
 

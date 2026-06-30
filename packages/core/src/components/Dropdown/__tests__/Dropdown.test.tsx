@@ -805,15 +805,6 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-item3")).toBeInTheDocument();
     });
 
-    it('should expose the chips as a group labelled "selected items"', () => {
-      const { getByRole, getByPlaceholderText, getByText } = renderDropdown({ multi: true });
-
-      fireEvent.click(getByPlaceholderText("Select an option"));
-      fireEvent.click(getByText("Option 1"));
-
-      expect(getByRole("group", { name: "selected items" })).toBeInTheDocument();
-    });
-
     it("should set aria-selected on options reflecting the multi-select state", () => {
       const { getByRole, getByPlaceholderText } = renderDropdown({ multi: true });
 
@@ -827,59 +818,57 @@ describe("DropdownNew", () => {
       expect(unselectedOption).toHaveAttribute("aria-selected", "false");
     });
 
-    it('should render each chip as a single button labelled "Remove <item>"', () => {
+    it("should render each chip with a labelled remove (×) button", () => {
       const { getByRole, getByPlaceholderText, getByText, getByTestId } = renderDropdown({ multi: true });
 
       fireEvent.click(getByPlaceholderText("Select an option"));
       fireEvent.click(getByText("Option 1"));
 
-      // The chip element itself is the remove button — no nested button inside it.
-      const chip = getByTestId("dropdown-chip-opt1");
-      expect(chip.tagName).toBe("BUTTON");
-      expect(chip).toHaveAttribute("aria-label", "Remove Option 1");
-      expect(within(chip).queryByRole("button")).not.toBeInTheDocument();
+      // The chip's × is the remove control, labelled for screen readers.
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      expect(getByRole("button", { name: "Remove Option 1" })).toBeInTheDocument();
     });
 
     describe("interactiveChips", () => {
-      it("should expose a short selection summary as the combobox value", () => {
-        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
-
-        fireEvent.click(getByRole("combobox"));
-        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
-        expect(getByRole("combobox")).toHaveValue("Option 1");
-
-        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
-        expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
-
-        fireEvent.click(within(getByRole("listbox")).getByText("Option 4"));
-        expect(getByRole("combobox")).toHaveValue("Option 1 and 2 others");
-      });
-
-      it("should reflect a defaultValue in the combobox summary on mount", () => {
-        const { getByRole } = renderDropdown({
-          multi: true,
-          interactiveChips: true,
-          defaultValue: [
-            { label: "Option 1", value: "opt1" },
-            { label: "Option 3", value: "opt3" }
-          ] as any
-        });
-
-        expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
-      });
-
-      it("should update the summary when a chip is removed", () => {
+      it("should keep the input clear rather than stuffing the selection into its value", () => {
         const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
 
         fireEvent.click(getByRole("combobox"));
         fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
         fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
-        expect(getByRole("combobox")).toHaveValue("Option 1 and 1 other");
 
-        // Each chip is itself a remove button.
+        // The selection is announced via aria-describedby, not placed in the input value,
+        // so type-to-search and Backspace-to-chip stay available.
+        expect(getByRole("combobox")).toHaveValue("");
+      });
+
+      it("should update the announced selection when a chip is removed", () => {
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+
         fireEvent.click(getByRole("button", { name: "Remove Option 1" }));
 
-        expect(getByRole("combobox")).toHaveValue("Option 3");
+        const describedById = getByRole("combobox").getAttribute("aria-describedby");
+        const description = document.getElementById(describedById!.split(" ").pop()!);
+        expect(description).toHaveTextContent("Option 3");
+        expect(description).not.toHaveTextContent("Option 1");
+      });
+
+      it("should announce the current selection via aria-describedby on the combobox", () => {
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+
+        const combobox = getByRole("combobox");
+        const describedById = combobox.getAttribute("aria-describedby");
+        expect(describedById).toBeTruthy();
+        const description = document.getElementById(describedById!.split(" ").pop()!);
+        expect(description).toHaveTextContent("Option 1, Option 3");
       });
     });
   });

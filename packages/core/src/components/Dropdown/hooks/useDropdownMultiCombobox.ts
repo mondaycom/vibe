@@ -1,18 +1,8 @@
-import { useMemo, useCallback, useRef } from "react";
+import { useMemo, useCallback } from "react";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { useMultipleSelection, useCombobox } from "downshift";
 import { type DropdownGroupOption } from "../Dropdown.types";
 import { type BaseItemData } from "../../BaseItem";
-
-// Builds a short, screen-reader-friendly summary of the selection for the combobox value,
-// e.g. "Chip one", "Chip one and 1 other", "Chip one and 3 others".
-function buildSelectionSummary<T extends BaseItemData<Record<string, unknown>>>(items: T[]): string {
-  if (!items.length) return "";
-  const first = items[0]?.label ?? "";
-  const othersCount = items.length - 1;
-  if (othersCount === 0) return String(first);
-  return `${first} and ${othersCount} other${othersCount > 1 ? "s" : ""}`;
-}
 
 function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
@@ -31,14 +21,10 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean,
   id?: string,
-  onOptionRemove?: (option: T) => void,
-  interactiveChips?: boolean
+  onOptionRemove?: (option: T) => void
 ) {
   // Use controlled value if provided, otherwise use internal state
   const currentSelectedItems = value !== undefined ? value : selectedItems;
-  // Lets the useMultipleSelection change handler (declared before useCombobox) push the
-  // selection summary into the combobox input value.
-  const setInputValueRef = useRef<((value: string) => void) | null>(null);
 
   const { filteredOptions, filterOptions } = useDropdownFiltering<T>(
     options,
@@ -55,11 +41,6 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
         setSelectedItems(selectedItems || []);
       }
       onChange?.(selectedItems || []);
-      // Keep the combobox value in sync with the selection so it is exposed to assistive tech.
-      // Every selection change (menu, chip ×, keyboard) funnels through here.
-      if (interactiveChips) {
-        setInputValueRef.current?.(buildSelectionSummary(selectedItems || []));
-      }
     },
     onStateChange: ({ type, selectedItems: newSelectedItems }) => {
       // Notify onOptionRemove for keyboard-driven chip deletion (× button uses contextOnOptionRemove).
@@ -86,8 +67,7 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     reset: downshiftReset,
     openMenu,
     toggleMenu,
-    closeMenu,
-    setInputValue
+    closeMenu
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
@@ -95,7 +75,7 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    initialInputValue: inputValueProp ?? (interactiveChips ? buildSelectionSummary(currentSelectedItems) : ""),
+    initialInputValue: inputValueProp ?? "",
     id,
     onIsOpenChange: ({ isOpen }) => {
       // Reset the text filter on any open/close change so the full list is always ready.
@@ -140,18 +120,15 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
           };
         case useCombobox.stateChangeTypes.InputBlur:
         case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
-          return { ...changes, inputValue: interactiveChips ? buildSelectionSummary(currentSelectedItems) : null };
+          return { ...changes, inputValue: null };
         default:
           if (!changes.isOpen && state.isOpen) {
-            return { ...changes, inputValue: interactiveChips ? buildSelectionSummary(currentSelectedItems) : null };
+            return { ...changes, inputValue: null };
           }
           return changes;
       }
     }
   });
-
-  // Expose setInputValue to the useMultipleSelection change handler above.
-  setInputValueRef.current = setInputValue;
 
   const reset = useCallback(() => {
     if (value === undefined) {

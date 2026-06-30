@@ -36,7 +36,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
 
-  const itemRefs = useMemo(() => selectedItems.map(() => createRef<HTMLButtonElement>()), [selectedItems]);
+  const itemRefs = useMemo(() => selectedItems.map(() => createRef<HTMLDivElement>()), [selectedItems]);
 
   const { visibleCount, hasMeasured } = useItemsOverflow({
     containerRef,
@@ -80,30 +80,31 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
     return selectedItems.map((item, index) => {
       const isVisible = index < visibleCount;
       const extraProps = isVisible && getChipContainerProps ? getChipContainerProps(item, index) : {};
-      // Removal is handled by this button's onClick; drop downshift's own onClick (selected-item focus).
-      const { ref: extraRef, onClick: _extraOnClick, ...extraAttrs } = extraProps;
+      const { ref: extraRef, ...extraAttrs } = extraProps;
 
       return (
-        <button
+        <div
           key={`dropdown-chip-visible-${item.value}`}
-          type="button"
           ref={el => {
-            (itemRefs[index] as React.MutableRefObject<HTMLButtonElement | null>).current = el;
+            (itemRefs[index] as React.MutableRefObject<HTMLDivElement | null>).current = el;
             if (typeof extraRef === "function") extraRef(el);
           }}
-          className={cx(styles.chipButton, {
+          className={cx({
             [styles.chipWrapperWithOverflow]: minVisibleCount !== undefined,
             [styles.hiddenChip]: !isVisible
           })}
           aria-hidden={!isVisible}
-          aria-label={`Remove ${item.label}`}
           data-testid={`dropdown-chip-${item.value}`}
-          disabled={disabled || readOnly}
           {...extraAttrs}
-          onClick={() => onRemove(item)}
         >
-          <DropdownChip item={item} presentational disabled={disabled} className={styles.visibleChip} />
-        </button>
+          <DropdownChip
+            item={item}
+            onDelete={() => onRemove(item)}
+            disabled={disabled}
+            readOnly={readOnly}
+            className={styles.visibleChip}
+          />
+        </div>
       );
     });
   }, [selectedItems, visibleCount, onRemove, itemRefs, disabled, readOnly, minVisibleCount, getChipContainerProps]);
@@ -118,8 +119,6 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
       wrap={false}
       gap="xs"
       ref={containerRef}
-      role="group"
-      aria-label="selected items"
       className={cx(styles.containerWrapper, {
         [styles.singleChip]: isSingleChip,
         [styles.measuring]: !hasMeasured
@@ -138,7 +137,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
               e.stopPropagation();
               if (e.key === "ArrowLeft") {
                 e.preventDefault();
-                (itemRefs[visibleCount - 1] as React.MutableRefObject<HTMLButtonElement | null>)?.current?.focus();
+                (itemRefs[visibleCount - 1] as React.MutableRefObject<HTMLDivElement | null>)?.current?.focus();
               }
             }}
             onMouseDown={e => {
