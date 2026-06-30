@@ -119,6 +119,8 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
       wrap={false}
       gap="xs"
       ref={containerRef}
+      role="group"
+      aria-label="selected items"
       className={cx(styles.containerWrapper, {
         [styles.singleChip]: isSingleChip,
         [styles.measuring]: !hasMeasured

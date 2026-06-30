@@ -818,6 +818,15 @@ describe("DropdownNew", () => {
       expect(unselectedOption).toHaveAttribute("aria-selected", "false");
     });
 
+    it('should expose the chips wrapper as a group labelled "selected items"', () => {
+      const { getByRole, getByPlaceholderText, getByText } = renderDropdown({ multi: true });
+
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(getByText("Option 1"));
+
+      expect(getByRole("group", { name: "selected items" })).toBeInTheDocument();
+    });
+
     it("should render each chip with a labelled remove (×) button", () => {
       const { getByRole, getByPlaceholderText, getByText, getByTestId } = renderDropdown({ multi: true });
 

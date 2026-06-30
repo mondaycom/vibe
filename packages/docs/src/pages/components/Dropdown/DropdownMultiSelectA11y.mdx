@@ -17,6 +17,14 @@ A keyboard-only user has no way to reach an individual chip or remove it, which 
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
+## What changed — 2026-06-30 (selected-items group)
+
+The selected chips are now wrapped in a labelled group, so assistive tech presents them as a single named set rather than a loose sequence of controls.
+
+| Issue                                                                              | Fix                                                                                                                                                       |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The chips were a flat run of controls with no grouping or name to orient the user. | The chips wrapper is exposed as `role="group"` with `aria-label="selected items"`, so screen readers announce the group and its purpose when entering it. |
+
 ## What changed — 2026-06-30
 
 `interactiveChips` makes the selected chips keyboard-operable and announces the current selection to screen readers, without taking over the input's value.
