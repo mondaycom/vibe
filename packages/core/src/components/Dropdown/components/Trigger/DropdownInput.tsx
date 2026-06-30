@@ -27,6 +27,7 @@ const DropdownInput = ({
     selectedItem,
     selectedItems = [],
     inputAriaLabel,
+    "aria-label": ariaLabel,
     searchable,
     size,
     label,
@@ -46,13 +47,15 @@ const DropdownInput = ({
   const preventKeyAction = interactiveChips ? !!(inputValue && inputValue.length > 0) : isOpen;
   const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction }) : {};
 
-return (
+  return (
     <>
       {searchable ? (
         <BaseInput
           {...getInputProps({
             "aria-labelledby": label ? getLabelProps().id : undefined,
-            "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
+            // When there is no visible label, the input must still have a name; fall back to the
+            // field's aria-label so the input — and the chevron that points at it — are named.
+            "aria-label": inputAriaLabel || (label ? undefined : ariaLabel),
             "aria-describedby": helperTextId,
             // The menu is presented in a Dialog, so the combobox advertises a dialog popup.
             "aria-haspopup": "dialog",

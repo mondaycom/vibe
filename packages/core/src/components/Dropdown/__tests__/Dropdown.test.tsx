@@ -112,6 +112,23 @@ describe("DropdownNew", () => {
       expect(getByRole("combobox")).not.toHaveAttribute("aria-describedby");
     });
 
+    it("should name the chevron after the visible label", () => {
+      const { getByText, container } = renderDropdown({ label: "Team" });
+
+      const chevron = container.querySelector("button[aria-expanded]");
+      const labelledById = chevron?.getAttribute("aria-labelledby");
+      expect(labelledById).toBeTruthy();
+      expect(getByText("Team")).toHaveAttribute("id", labelledById);
+    });
+
+    it("should name the chevron after the input when there is no visible label", () => {
+      const { getByRole, container } = renderDropdown({ label: undefined, "aria-label": "Team" });
+
+      const chevron = container.querySelector("button[aria-expanded]");
+      expect(chevron?.getAttribute("aria-labelledby")).toBe(getByRole("combobox").getAttribute("id"));
+      expect(getByRole("combobox")).toHaveAttribute("aria-label", "Team");
+    });
+
     it("should be disabled when disabled prop is true", () => {
       const { getByPlaceholderText } = renderDropdown({
         disabled: true
@@ -788,7 +805,7 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-item3")).toBeInTheDocument();
     });
 
-    it("should expose the chips as a group labelled \"selected items\"", () => {
+    it('should expose the chips as a group labelled "selected items"', () => {
       const { getByRole, getByPlaceholderText, getByText } = renderDropdown({ multi: true });
 
       fireEvent.click(getByPlaceholderText("Select an option"));
@@ -810,7 +827,7 @@ describe("DropdownNew", () => {
       expect(unselectedOption).toHaveAttribute("aria-selected", "false");
     });
 
-    it("should render each chip as a single button labelled \"Remove <item>\"", () => {
+    it('should render each chip as a single button labelled "Remove <item>"', () => {
       const { getByRole, getByPlaceholderText, getByText, getByTestId } = renderDropdown({ multi: true });
 
       fireEvent.click(getByPlaceholderText("Select an option"));

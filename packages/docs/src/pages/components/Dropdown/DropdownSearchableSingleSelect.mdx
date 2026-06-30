@@ -15,15 +15,24 @@ import { Dropdown } from "@vibe/core";
 
 <Canvas of={DropdownSearchableSingleSelectStories.Overview} />
 
+## What changed — 2026-06-30
+
+The expand/collapse **chevron** is a focusable control, so it needs its own accessible name (WCAG 4.1.2). It was previously labelled by the option list (`aria-labelledby` → the menu id), which named it after the listbox rather than the field.
+
+| Issue                                                                                 | Fix                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The chevron's `aria-labelledby` pointed at the menu, so its name was the option list. | The chevron now references the visible `label` (e.g. `…-label`). The label is the field's name, so the chevron reads as _"Team"_ rather than the menu contents.                                                                                                       |
+| `label` is optional — with no label there is no element for the chevron to reference. | When there is no `label`, the chevron references the combobox **input** instead, and the input is given an accessible name from `inputAriaLabel` / `aria-label`. So the field must still carry an `aria-label` (or `inputAriaLabel`) when no visible `label` is used. |
+
 ## What changed — 2026-06-24
 
 This iteration added three further accessibility fixes to the searchable dropdown:
 
-| Issue                                                                                                  | Fix                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| The combobox did not advertise the popup it controls.                                                  | Set `aria-haspopup="dialog"` on the combobox input (single and multi), matching the dialog the menu renders in.                 |
+| Issue                                                                                                                                    | Fix                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| The combobox did not advertise the popup it controls.                                                                                    | Set `aria-haspopup="dialog"` on the combobox input (single and multi), matching the dialog the menu renders in.                      |
 | `helperText` rendered as a plain sibling with no link to the input, so the relationship was invisible to assistive tech (WCAG SC 1.3.1). | The helper text now has an id and is referenced from the combobox/trigger via `aria-describedby` (requires an `id` on the Dropdown). |
-| Focus was lost when an option was selected, because the input was blurred on selection.                | Focus now stays on the input after selecting an option; the menu still closes.                                                  |
+| Focus was lost when an option was selected, because the input was blurred on selection.                                                  | Focus now stays on the input after selecting an option; the menu still closes.                                                       |
 
 ## What changed
 
@@ -31,13 +40,13 @@ Previously, selecting an option in a searchable single select **cleared the inpu
 
 The behavior was changed so the selected option's label is now set as the **value of the input itself**, and the overlay was removed.
 
-| Aspect                              | Before                                  | After                       |
-| ----------------------------------- | --------------------------------------- | --------------------------- |
-| Input value after selecting         | Empty                                   | The selected label          |
-| How the selection is shown          | Visual overlay over an empty input      | Inside the input            |
-| Screen reader on focus              | _"…, blank"_                            | _"…, the selected label"_   |
-| `defaultValue` / `value` on mount   | Shown via the overlay                   | Shown in the input          |
-| Collapsed selected value            | Rich (icon / avatar / `valueRenderer`)  | Text-only                   |
+| Aspect                            | Before                                 | After                     |
+| --------------------------------- | -------------------------------------- | ------------------------- |
+| Input value after selecting       | Empty                                  | The selected label        |
+| How the selection is shown        | Visual overlay over an empty input     | Inside the input          |
+| Screen reader on focus            | _"…, blank"_                           | _"…, the selected label"_ |
+| `defaultValue` / `value` on mount | Shown via the overlay                  | Shown in the input        |
+| Collapsed selected value          | Rich (icon / avatar / `valueRenderer`) | Text-only                 |
 
 This is scoped to **searchable single select**. Non-searchable single select and multi-select are unchanged.
 
@@ -54,12 +63,12 @@ This matters because assistive technologies read the input's value, not whatever
 
 ### What happens on open / reopen / type
 
-| Action                  | Behavior                                                                                                            |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Select an option        | Label is placed in the input; menu closes (default)                                                                 |
-| Reopen with a selection | The **full** option list is shown; the selected option is marked `aria-selected="true"` and highlighted             |
-| Start typing            | The list filters by the typed text                                                                                  |
-| Clear text              | The full list returns                                                                                               |
+| Action                  | Behavior                                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- |
+| Select an option        | Label is placed in the input; menu closes (default)                                                     |
+| Reopen with a selection | The **full** option list is shown; the selected option is marked `aria-selected="true"` and highlighted |
+| Start typing            | The list filters by the typed text                                                                      |
+| Clear text              | The full list returns                                                                                   |
 
 Showing the full list on reopen (rather than filtering down to the single selected label) is intentional: it lets users browse and change their choice, and avoids a screen reader announcing _"1 of 1"_ when more options exist.
 
@@ -85,32 +94,32 @@ Layout props such as `size` are omitted — they do not affect accessibility. Th
 
 ### Naming — give the field an accessible name (required for 4.1.2)
 
-| Prop             | Purpose                                                                          | Notes                                                                                                       |
-| ---------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `label`          | Visible text label, programmatically associated with the input (`aria-labelledby`). | **Preferred.** Visible to everyone and announced by screen readers.                                       |
-| `aria-label`     | Accessible name when there is **no** visible `label`.                            | Use only when a visible label is not possible.                                                              |
-| `inputAriaLabel` | Accessible name applied specifically to the inner search input.                  | Useful when the input needs a name distinct from the field label.                                           |
-| `menuAriaLabel`  | Accessible name for the option list (`listbox`).                                 | Helps orient users when the menu opens.                                                                     |
-| `clearAriaLabel` | Accessible name for the clear (✕) button.                                        | **Important.** Without it the clear button is an icon-only control with no name — a 4.1.2 failure. Always set it when `clearable`. |
+| Prop             | Purpose                                                                             | Notes                                                                                                                              |
+| ---------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `label`          | Visible text label, programmatically associated with the input (`aria-labelledby`). | **Preferred.** Visible to everyone and announced by screen readers.                                                                |
+| `aria-label`     | Accessible name when there is **no** visible `label`.                               | Use only when a visible label is not possible.                                                                                     |
+| `inputAriaLabel` | Accessible name applied specifically to the inner search input.                     | Useful when the input needs a name distinct from the field label.                                                                  |
+| `menuAriaLabel`  | Accessible name for the option list (`listbox`).                                    | Helps orient users when the menu opens.                                                                                            |
+| `clearAriaLabel` | Accessible name for the clear (✕) button.                                           | **Important.** Without it the clear button is an icon-only control with no name — a 4.1.2 failure. Always set it when `clearable`. |
 
 ### State — communicate status to assistive tech
 
-| Prop        | Purpose                                                          | Notes                                                                                          |
-| ----------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `required`  | Marks the field required (`aria-required`) and shows the indicator. | Pair with form-level validation.                                                            |
-| `error`     | Puts the field in an error state (`aria-invalid`).               | **Always pair with `helperText`** describing the error — color alone is not sufficient (1.4.1). |
-| `helperText`| Descriptive text associated via `aria-describedby`.             | Use for instructions and for the error message text.                                           |
-| `disabled`  | Non-interactive, not focusable; communicated to AT.             | Removes the field from the tab order.                                                          |
-| `readOnly`  | Value is shown and announced but not editable.                  | Prefer over `disabled` when the user still needs to read the value.                            |
+| Prop         | Purpose                                                             | Notes                                                                                           |
+| ------------ | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `required`   | Marks the field required (`aria-required`) and shows the indicator. | Pair with form-level validation.                                                                |
+| `error`      | Puts the field in an error state (`aria-invalid`).                  | **Always pair with `helperText`** describing the error — color alone is not sufficient (1.4.1). |
+| `helperText` | Descriptive text associated via `aria-describedby`.                 | Use for instructions and for the error message text.                                            |
+| `disabled`   | Non-interactive, not focusable; communicated to AT.                 | Removes the field from the tab order.                                                           |
+| `readOnly`   | Value is shown and announced but not editable.                      | Prefer over `disabled` when the user still needs to read the value.                             |
 
 ### Feedback
 
-| Prop               | Purpose                                          | Notes                                                              |
-| ------------------ | ------------------------------------------------ | ------------------------------------------------------------------ |
-| `noOptionsMessage` | Text announced when a search yields no results.  | Give a meaningful message (e.g. "No teams found"), not empty.      |
+| Prop               | Purpose                                         | Notes                                                         |
+| ------------------ | ----------------------------------------------- | ------------------------------------------------------------- |
+| `noOptionsMessage` | Text announced when a search yields no results. | Give a meaningful message (e.g. "No teams found"), not empty. |
 
 ### Placeholder is not a label
 
-| Prop          | Purpose                                  | Notes                                                                                                                                  |
-| ------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Prop          | Purpose                                  | Notes                                                                                                                                                              |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `placeholder` | Hint text shown when the field is empty. | **Not a substitute for `label`.** It disappears once a value is present and is not a reliable accessible name. Always provide `label` or `aria-label` in addition. |
