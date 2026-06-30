@@ -16,6 +16,7 @@ import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
+import { type ChipsSize } from "./Chips.types";
 
 const CHIPS_AVATAR_SIZE = 18;
 
@@ -120,6 +121,10 @@ export interface ChipsProps extends VibeComponentProps {
    * If true, removes the default margin from the chip.
    */
   noMargin?: boolean;
+  /**
+   * The size of the chip.
+   */
+  size?: ChipsSize;
 }
 
 const Chips = forwardRef(
@@ -152,7 +157,8 @@ const Chips = forwardRef(
       leftRenderer,
       rightRenderer,
       closeButtonAriaLabel = "Remove",
-      noMargin = false
+      noMargin = false,
+      size = "medium"
     }: ChipsProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
@@ -176,7 +182,8 @@ const Chips = forwardRef(
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder,
-      [styles.noMargin]: noMargin
+      [styles.noMargin]: noMargin,
+      [styles.small]: size === "small"
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
