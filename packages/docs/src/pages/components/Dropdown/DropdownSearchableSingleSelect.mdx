@@ -15,6 +15,14 @@ import { Dropdown } from "@vibe/core";
 
 <Canvas of={DropdownSearchableSingleSelectStories.Overview} />
 
+## What changed — 2026-06-30 (Space to select)
+
+Because focus stays in the input, **Space** selects the option the user has arrowed to — without typing a literal space into the filter.
+
+| Issue                                                                                            | Fix                                                                                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Space always inserted a literal space, corrupting the filter text; there was no Space selection. | On Space, when an option is highlighted (`aria-activedescendant` set, i.e. the user arrowed to it), the default is prevented and that option is selected. While typing (no highlight), Space types normally. |
+
 ## What changed — 2026-06-30
 
 The expand/collapse **chevron** is a focusable control, so it needs its own accessible name (WCAG 4.1.2). It was previously labelled by the option list (`aria-labelledby` → the menu id), which named it after the listbox rather than the field.

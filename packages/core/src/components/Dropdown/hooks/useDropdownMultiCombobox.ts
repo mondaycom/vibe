@@ -67,7 +67,8 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     reset: downshiftReset,
     openMenu,
     toggleMenu,
-    closeMenu
+    closeMenu,
+    selectItem
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
@@ -109,8 +110,11 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       const { type, changes } = actionAndChanges;
 
       switch (type) {
+        // FunctionSelectItem (Space toggling the highlighted option, see getInputProps below) is
+        // handled the same as Enter/click selection.
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
+        case useCombobox.stateChangeTypes.FunctionSelectItem:
           // Keep the menu open and clear the input to restore the placeholder.
           return {
             ...changes,
@@ -149,7 +153,23 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
-    getInputProps,
+    getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
+      getInputProps({
+        ...options,
+        onKeyDown: event => {
+          options?.onKeyDown?.(event);
+          // Space toggles the highlighted option instead of typing a literal space. It only applies
+          // when the user has arrowed to an option (highlightedIndex set, i.e. aria-activedescendant
+          // is set); while typing/filtering there is no highlight, so Space types normally.
+          if (event.key === " " && !event.defaultPrevented && isOpen && highlightedIndex >= 0) {
+            const item = flatOptions[highlightedIndex];
+            if (item && !item.disabled) {
+              event.preventDefault();
+              selectItem(item);
+            }
+          }
+        }
+      }),
     getItemProps,
     reset,
     removeSelectedItem,

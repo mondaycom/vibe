@@ -51,7 +51,8 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     reset,
     openMenu,
     toggleMenu,
-    closeMenu
+    closeMenu,
+    selectItem
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
@@ -115,8 +116,11 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     ),
     stateReducer: (state, actionAndChanges) => {
       switch (actionAndChanges.type) {
+        // FunctionSelectItem (Space selecting the highlighted option, see getInputProps below) is
+        // handled the same as Enter/click selection.
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
+        case useCombobox.stateChangeTypes.FunctionSelectItem:
           // Keep Downshift's default inputValue (the selected item's label) so the selection lives inside
           // the input and is exposed to assistive technologies. Only override the open state.
           return { ...actionAndChanges.changes, isOpen: !closeMenuOnSelect };
@@ -135,7 +139,24 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
-    getInputProps: (options?: Parameters<typeof getInputProps>[0]) => getInputProps({ ...options, ref: inputRef }),
+    getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
+      getInputProps({
+        ...options,
+        ref: inputRef,
+        onKeyDown: event => {
+          options?.onKeyDown?.(event);
+          // Space selects the highlighted option instead of typing a literal space. It only applies
+          // when the user has arrowed to an option (highlightedIndex set, i.e. aria-activedescendant
+          // is set); while typing/filtering there is no highlight, so Space types normally.
+          if (event.key === " " && !event.defaultPrevented && isOpen && highlightedIndex >= 0) {
+            const item = flatOptions[highlightedIndex];
+            if (item && !item.disabled) {
+              event.preventDefault();
+              selectItem(item);
+            }
+          }
+        }
+      }),
     getItemProps,
     reset: () => {
       if (value === undefined) {

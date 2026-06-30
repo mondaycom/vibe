@@ -74,6 +74,43 @@ describe("DropdownNew", () => {
       expect(input).toHaveFocus();
     });
 
+    it("should select the highlighted option with Space after arrowing to it", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText } = renderDropdown({ onChange });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      // Arrow to an option so it is highlighted (aria-activedescendant is set), then press Space.
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+      fireEvent.keyDown(input, { key: " " });
+
+      expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ label: "Option 1", value: "opt1" }));
+    });
+
+    it("should toggle the highlighted option with Space in multi-select", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText } = renderDropdown({ multi: true, onChange });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+      fireEvent.keyDown(input, { key: " " });
+
+      expect(onChange).toHaveBeenCalledWith([expect.objectContaining({ label: "Option 1", value: "opt1" })]);
+    });
+
+    it("should not select on Space while typing (no option highlighted)", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText } = renderDropdown({ onChange });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      // No ArrowDown: nothing is highlighted, so Space must not select (it would type a space).
+      fireEvent.keyDown(input, { key: " " });
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
     it("should expose aria-haspopup=dialog on the searchable combobox", () => {
       const { getByRole } = renderDropdown();
 

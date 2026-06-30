@@ -17,6 +17,14 @@ A keyboard-only user has no way to reach an individual chip or remove it, which 
 
 <Canvas of={DropdownMultiSelectA11yStories.InteractiveChipsBasic} />
 
+## What changed — 2026-06-30 (Space to select)
+
+Because focus stays in the input, **Space** toggles the option the user has arrowed to — without typing a literal space into the filter.
+
+| Issue                                                                                            | Fix                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Space always inserted a literal space, corrupting the filter text; there was no Space selection. | On Space, when an option is highlighted (`aria-activedescendant` set, i.e. the user arrowed to it), the default is prevented and that option is toggled. While typing (no highlight), Space types normally. |
+
 ## What changed — 2026-06-30 (chevron label)
 
 The expand/collapse **chevron** needs its own accessible name (WCAG 4.1.2). It was previously labelled by the option list (`aria-labelledby` → the listbox), which is not a real, computed label.
