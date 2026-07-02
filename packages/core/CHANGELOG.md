@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.88.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.2...@vibe/core@3.88.3) (2026-07-02)
+
+
+### Bug Fixes
+
+* **MultiStepIndicator:** fix invisible text on dark type pending hover in light mode ([#3414](https://github.com/mondaycom/vibe/issues/3414)) ([9634ce2](https://github.com/mondaycom/vibe/commit/9634ce2d04e7f76429ea06b378322c4e2ec2eab5))
+
+
+
+
+
 ## [3.88.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.1...@vibe/core@3.88.2) (2026-06-04)
 
 
