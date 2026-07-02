@@ -226,7 +226,8 @@
 }
 
 .statusPendingNumberContainer.typeDarkNumberContainer:hover {
-  background-color: var(--text-color-on-inverted);
+  background-color: var(--inverted-color-background);
+  color: var(--text-color-on-inverted);
 }
 
 @include keyframe(step-indicatior-circle-pop-elastic) {
