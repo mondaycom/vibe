@@ -88,6 +88,8 @@ const TriggerActions = () => {
             aria-expanded={isOpen}
             aria-labelledby={chevronLabelledBy}
             aria-label={chevronAriaLabel}
+            // The accessible name is for assistive tech only — don't surface it as a hover tooltip.
+            hideTooltip
             tabIndex={-1}
             onClick={() => {
               toggleMenu();
