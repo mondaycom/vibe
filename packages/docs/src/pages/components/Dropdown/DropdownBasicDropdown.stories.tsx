@@ -176,19 +176,19 @@ export const MultiSelect: Story = {
       () => [
         {
           value: "1",
-          label: "Chip one"
+          label: "Bulbasaur"
         },
         {
           value: "2",
-          label: "Chip two"
+          label: "Charmander"
         },
         {
           value: "3",
-          label: "Chip three"
+          label: "Squirtle"
         },
         {
           value: "4",
-          label: "Chip four"
+          label: "Pikachu"
         }
       ],
       []
@@ -200,10 +200,12 @@ export const MultiSelect: Story = {
           <Text>Single line with hidden options</Text>
           <div style={{ width: "350px", marginBottom: "50px" }}>
             <Dropdown
+              label="Pokémon"
               placeholder="Single line multi state"
               defaultValue={[options[0], options[1], options[2]]}
               options={options}
               multi
+              searchable
               clearAriaLabel="Clear"
             />
           </div>

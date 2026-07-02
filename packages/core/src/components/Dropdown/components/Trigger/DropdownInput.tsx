@@ -1,12 +1,20 @@
 import React, { useRef } from "react";
 import cx from "classnames";
 import { BaseInput } from "@vibe/base";
-import styles from "./Trigger.module.scss";
+import { Text } from "@vibe/typography";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../BaseItem";
-import { Text } from "@vibe/typography";
+import styles from "./Trigger.module.scss";
 
-const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium" | "large"; fullWidth?: boolean }) => {
+const DropdownInput = ({
+  inputSize,
+  fullWidth,
+  selectedItemsDescriptionId
+}: {
+  inputSize?: "small" | "medium" | "large";
+  fullWidth?: boolean;
+  selectedItemsDescriptionId?: string;
+}) => {
   const {
     inputValue,
     autoFocus,
@@ -17,6 +25,7 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
     selectedItem,
     selectedItems = [],
     inputAriaLabel,
+    "aria-label": ariaLabel,
     searchable,
     size,
     label,
@@ -29,6 +38,7 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
   const inputRef = useRef<HTMLInputElement>(null);
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
   const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction: isOpen }) : {};
+  const inputLabel = inputAriaLabel || (label ? undefined : ariaLabel);
 
   return (
     <>
@@ -36,7 +46,8 @@ const DropdownInput = ({ inputSize, fullWidth }: { inputSize?: "small" | "medium
         <BaseInput
           {...getInputProps({
             "aria-labelledby": label ? getLabelProps().id : undefined,
-            "aria-label": inputAriaLabel || (label ? undefined : getLabelProps()?.id),
+            "aria-label": label ? undefined : inputLabel,
+            "aria-describedby": selectedItemsDescriptionId,
             placeholder: hasSelection ? "" : placeholder,
             ref: inputRef,
             ...multipleSelectionDropdownProps

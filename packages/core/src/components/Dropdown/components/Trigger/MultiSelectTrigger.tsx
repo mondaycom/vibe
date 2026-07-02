@@ -26,6 +26,8 @@ const MultiSelectTrigger = () => {
     "aria-label": ariaLabel,
     minVisibleCount
   } = useDropdownContext<BaseItemData>();
+  const selectedItemsDescriptionId =
+    searchable && selectedItems.length > 0 ? `${getLabelProps().id}-selected-items` : undefined;
 
   return (
     <Flex justify="space-between" align="center">
@@ -35,7 +37,7 @@ const MultiSelectTrigger = () => {
           ? getToggleButtonProps({
               "aria-haspopup": "dialog",
               "aria-labelledby": label ? getLabelProps().id : undefined,
-              "aria-label": ariaLabel || (label ? undefined : getLabelProps()?.id),
+              "aria-label": label ? undefined : ariaLabel,
               "aria-disabled": disabled ? "true" : undefined,
               "aria-invalid": error ? "true" : undefined,
               "aria-readonly": readOnly ? "true" : undefined
@@ -52,8 +54,19 @@ const MultiSelectTrigger = () => {
                 onRemove={item => {
                   contextOnOptionRemove?.(item);
                 }}
-                renderInput={searchable ? () => <DropdownInput inputSize="small" fullWidth /> : undefined}
+                renderInput={
+                  searchable
+                    ? () => (
+                        <DropdownInput
+                          inputSize="small"
+                          fullWidth
+                          selectedItemsDescriptionId={selectedItemsDescriptionId}
+                        />
+                      )
+                    : undefined
+                }
                 minVisibleCount={minVisibleCount}
+                selectedItemsDescriptionId={selectedItemsDescriptionId}
               />
             ) : (
               <Flex gap="xs" wrap>

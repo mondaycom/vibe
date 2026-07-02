@@ -3,6 +3,7 @@ import { type BaseItemData } from "../../../BaseItem";
 import { Chips } from "../../../Chips";
 import { Flex } from "@vibe/layout";
 import { DialogContentContainer, Dialog } from "@vibe/dialog";
+import HiddenText from "../../../HiddenText/HiddenText";
 import useItemsOverflow from "../../../../hooks/useItemsOverflow/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
@@ -17,6 +18,7 @@ type MultiSelectedValuesProps<Item> = {
   disabled?: boolean;
   readOnly?: boolean;
   minVisibleCount?: number;
+  selectedItemsDescriptionId?: string;
 };
 
 function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>({
@@ -25,7 +27,8 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
   renderInput,
   disabled,
   readOnly,
-  minVisibleCount = 0
+  minVisibleCount = 0,
+  selectedItemsDescriptionId
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
@@ -100,6 +103,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
   if (!selectedItems?.length) return null;
 
   const isSingleChip = selectedItems.length === 1;
+  const selectedItemsDescription = `Selected items ${selectedItems.map(item => item.label).join(", ")}`;
 
   return (
     <Flex
@@ -112,6 +116,13 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
         [styles.measuring]: !hasMeasured
       })}
     >
+      {selectedItemsDescriptionId && (
+        <HiddenText
+          id={selectedItemsDescriptionId}
+          text={selectedItemsDescription}
+          data-testid="dropdown-selected-items-description"
+        />
+      )}
       {chipElements}
 
       <Flex gap="xs" className={styles.inputAndCounterWrapper}>
