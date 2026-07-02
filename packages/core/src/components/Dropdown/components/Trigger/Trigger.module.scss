@@ -45,12 +45,6 @@
         flex-grow: 1;
       }
     }
-
-    &.hasSelected {
-      position: absolute;
-      inset: 0;
-      cursor: pointer;
-    }
   }
 
   .selectedItem {
@@ -74,10 +68,6 @@
     &.large {
       min-height: 48px;
       height: 48px;
-    }
-
-    &.faded {
-      opacity: 0.6;
     }
   }
 
@@ -104,4 +94,16 @@
 
 .actionsWrapper {
   padding: 0 var(--space-4);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

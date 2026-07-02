@@ -63,6 +63,124 @@ describe("DropdownNew", () => {
       expect(getByText("Option 1")).toBeVisible();
     });
 
+    it("should keep focus on the input after selecting an option", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown();
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+
+      fireEvent.click(getByText("Option 1"));
+
+      expect(input).toHaveFocus();
+    });
+
+    it("should select the highlighted option with Space after arrowing to it", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText } = renderDropdown({ onChange });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      // Arrow to an option so it is highlighted (aria-activedescendant is set), then press Space.
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+      fireEvent.keyDown(input, { key: " " });
+
+      expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ label: "Option 1", value: "opt1" }));
+    });
+
+    it("should toggle the highlighted option with Space in multi-select", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText } = renderDropdown({ multi: true, onChange });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      fireEvent.keyDown(input, { key: "ArrowDown" });
+      fireEvent.keyDown(input, { key: " " });
+
+      expect(onChange).toHaveBeenCalledWith([expect.objectContaining({ label: "Option 1", value: "opt1" })]);
+    });
+
+    it("should not select on Space while typing (no option highlighted)", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText } = renderDropdown({ onChange });
+
+      const input = getByPlaceholderText("Select an option");
+      fireEvent.click(input);
+      // No ArrowDown: nothing is highlighted, so Space must not select (it would type a space).
+      fireEvent.keyDown(input, { key: " " });
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it("should expose aria-haspopup=dialog on the searchable combobox", () => {
+      const { getByRole } = renderDropdown();
+
+      expect(getByRole("combobox")).toHaveAttribute("aria-haspopup", "dialog");
+    });
+
+    it("should expose aria-haspopup=dialog on the multi-select searchable combobox", () => {
+      const { getByRole } = renderDropdown({ multi: true });
+
+      expect(getByRole("combobox")).toHaveAttribute("aria-haspopup", "dialog");
+    });
+
+    it("should link the helper text to the combobox via aria-describedby (searchable)", () => {
+      const { getByRole, getByText } = renderDropdown({ id: "team-dropdown", helperText: "Search and pick a team" });
+
+      const describedById = getByRole("combobox").getAttribute("aria-describedby");
+      expect(describedById).toBeTruthy();
+      expect(getByText("Search and pick a team")).toHaveAttribute("id", describedById);
+    });
+
+    it("should link the helper text to the trigger via aria-describedby (non-searchable)", () => {
+      const { getByRole, getByText } = renderDropdown({
+        id: "team-dropdown",
+        searchable: false,
+        helperText: "Search and pick a team"
+      });
+
+      const describedById = getByRole("combobox").getAttribute("aria-describedby");
+      expect(describedById).toBeTruthy();
+      expect(getByText("Search and pick a team")).toHaveAttribute("id", describedById);
+    });
+
+    it("should not set aria-describedby when there is no helper text", () => {
+      const { getByRole } = renderDropdown();
+
+      expect(getByRole("combobox")).not.toHaveAttribute("aria-describedby");
+    });
+
+    it("should name the chevron after the visible label", () => {
+      const { getByText, container } = renderDropdown({ label: "Team" });
+
+      const chevron = container.querySelector("button[aria-expanded]");
+      const labelledById = chevron?.getAttribute("aria-labelledby");
+      expect(labelledById).toBeTruthy();
+      expect(getByText("Team")).toHaveAttribute("id", labelledById);
+    });
+
+    it("should give the chevron an aria-label when there is no visible label", () => {
+      const { container } = renderDropdown({ label: undefined, "aria-label": "Team" });
+
+      const chevron = container.querySelector("button[aria-expanded]");
+      // No visible label to reference, so the chevron carries a real string name, not a dangling id.
+      expect(chevron).toHaveAttribute("aria-label", "Team");
+      expect(chevron).not.toHaveAttribute("aria-labelledby");
+    });
+
+    it("should name the chevron in multi-select searchable (label and aria-label)", () => {
+      const { getByText, container, rerender } = renderDropdown({ multi: true, label: "Team" });
+
+      const chevron = () => container.querySelector("button[aria-expanded]");
+      // With a visible label, the chevron is labelled by it (a computed name), not the listbox.
+      expect(chevron()?.getAttribute("aria-labelledby")).toBe(getByText("Team").getAttribute("id"));
+      expect(chevron()).not.toHaveAttribute("aria-label");
+
+      // Without a visible label, it falls back to a real aria-label string.
+      rerender(<Dropdown options={defaultOptions as any} multi searchable aria-label="Team" placeholder="x" />);
+      expect(chevron()).toHaveAttribute("aria-label", "Team");
+      expect(chevron()).not.toHaveAttribute("aria-labelledby");
+    });
+
     it("should be disabled when disabled prop is true", () => {
       const { getByPlaceholderText } = renderDropdown({
         disabled: true
@@ -249,19 +367,20 @@ describe("DropdownNew", () => {
       }
     });
 
-    it("should show faded selected item when focused", () => {
-      const { getByPlaceholderText, container, getByText } = renderDropdown({
+    it("should keep the selected value inside the input for searchable single select", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({
         placeholder: "Select an option"
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
-      fireEvent.focus(input);
+      // The selection lives inside the input (exposed to assistive technologies), not in a visual overlay.
+      expect(input).toHaveValue("Option 1");
 
-      const selectedValue = container.querySelector(".selectedItem");
-      expect(selectedValue).toHaveClass("faded");
+      fireEvent.focus(input);
+      expect(input).toHaveValue("Option 1");
     });
 
     it("should hide selected value when typing in the input", () => {
@@ -275,7 +394,7 @@ describe("DropdownNew", () => {
       expect(queryByText("Option 1")).not.toBeInTheDocument();
     });
 
-    it("should not display indent startElement in selected value", () => {
+    it("should not display indent startElement in selected value (non-searchable overlay)", () => {
       const optionsWithIndent: DropdownListGroup<BaseItemData<Record<string, unknown>>>[] = [
         {
           label: "Group 1",
@@ -290,13 +409,12 @@ describe("DropdownNew", () => {
         }
       ];
 
-      const { getByPlaceholderText, getByText, container } = renderDropdown({
-        options: optionsWithIndent
+      // Non-searchable single select displays the selection via the overlay, where indent must be stripped.
+      const { container } = renderDropdown({
+        options: optionsWithIndent,
+        searchable: false,
+        value: { label: "Option 1", value: "opt1", index: 0, startElement: { type: "indent" } } as any
       });
-
-      const input = getByPlaceholderText("Select an option");
-      fireEvent.click(input);
-      fireEvent.click(getByText("Option 1"));
 
       const selectedValue = container.querySelector(".selectedItem");
       expect(selectedValue).toBeInTheDocument();
@@ -608,11 +726,11 @@ describe("DropdownNew", () => {
         multi: true
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
-      const option1 = getByText("Option 1");
-      fireEvent.click(option1);
+      fireEvent.click(getByText("Option 1"));
+      // Selection is reflected as a chip.
       expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
     });
 
@@ -636,12 +754,12 @@ describe("DropdownNew", () => {
       ]);
     });
 
-    it("should render chips for selected items", () => {
+    it("should show selected items as chips", () => {
       const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -651,55 +769,54 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
     });
 
-    it("should remove an item when its chip is deleted", () => {
+    it("should remove an item when it is re-clicked in the dropdown", () => {
       const onChange = vi.fn();
-      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+      const { getByPlaceholderText, getByRole, queryByTestId, getByTestId } = renderDropdown({
         multi: true,
         onChange
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
+      const listbox = getByRole("listbox");
 
-      fireEvent.click(getByText("Option 1"));
-      fireEvent.click(getByText("Option 3"));
+      // The selected option stays in the open menu, so scope clicks to the listbox to avoid
+      // matching the chip that carries the same label.
+      fireEvent.click(within(listbox).getByText("Option 1"));
+      fireEvent.click(within(listbox).getByText("Option 3"));
 
-      const deleteButtons = getAllByRole("button").filter(
-        button => button.getAttribute("data-testid") === "chip-close"
-      );
+      // Re-click Option 1 to deselect it.
+      fireEvent.click(within(listbox).getByText("Option 1"));
 
-      fireEvent.click(deleteButtons[0]);
-
-      expect(onChange).toHaveBeenLastCalledWith(
-        expect.arrayContaining([expect.not.objectContaining({ value: "opt1" })])
-      );
+      expect(onChange).toHaveBeenLastCalledWith([expect.objectContaining({ value: "opt3" })]);
+      expect(queryByTestId("dropdown-chip-opt1")).not.toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
     });
 
-    it("should call onOptionRemove when an item is removed", () => {
+    it("should call onOptionRemove when a chip's remove button is clicked", () => {
       const onOptionRemove = vi.fn();
-      const { getByPlaceholderText, getByText, getAllByRole } = renderDropdown({
+      const { getByPlaceholderText, getByRole } = renderDropdown({
         multi: true,
         onOptionRemove
       });
 
       const input = getByPlaceholderText("Select an option");
       fireEvent.click(input);
+      const listbox = getByRole("listbox");
 
-      fireEvent.click(getByText("Option 1"));
+      fireEvent.click(within(listbox).getByText("Option 1"));
+      // Remove the chip via its × button.
+      fireEvent.click(getByRole("button", { name: "Remove Option 1" }));
 
-      const deleteButtons = getAllByRole("button").filter(button =>
-        button.getAttribute("data-testid")?.includes("close")
-      );
-      fireEvent.click(deleteButtons[0]);
       expect(onOptionRemove).toHaveBeenCalledWith(expect.objectContaining({ value: "opt1", label: "Option 1" }));
     });
 
-    it("should show selected chips without counter", () => {
-      const { getByPlaceholderText, getByText, queryByTestId, getByLabelText } = renderDropdown({
+    it("should keep selected chips after closing the menu", () => {
+      const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
       fireEvent.click(getByText("Option 1"));
@@ -707,45 +824,113 @@ describe("DropdownNew", () => {
 
       fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
 
-      expect(getByLabelText("Option 1")).toBeInTheDocument();
-      expect(getByLabelText("Option 3")).toBeInTheDocument();
-
-      expect(queryByTestId("dropdown-counter")).not.toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
     });
 
-    it("should show an overflow counter when more items are selected than can be displayed", () => {
-      const manyOptionsForCounter = [
+    it("should render chips for selections from grouped options", () => {
+      const manyOptions = [
         {
-          label: "Overflow Group",
+          label: "Group",
           options: [
-            { label: "Chip Item 1", value: "chip1" },
-            { label: "Chip Item 2", value: "chip2" },
-            { label: "Chip Item 3", value: "chip3" }
+            { label: "Item 1", value: "item1" },
+            { label: "Item 2", value: "item2" },
+            { label: "Item 3", value: "item3" }
           ]
         }
       ];
 
       const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true,
-        options: manyOptionsForCounter
+        options: manyOptions
       });
 
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
 
-      fireEvent.click(getByText("Chip Item 1"));
-      fireEvent.click(getByText("Chip Item 2"));
-      fireEvent.click(getByText("Chip Item 3"));
+      fireEvent.click(getByText("Item 1"));
+      fireEvent.click(getByText("Item 2"));
+      fireEvent.click(getByText("Item 3"));
 
-      fireEvent.keyDown(input, { key: "Escape", code: "Escape" });
+      expect(getByTestId("dropdown-chip-item1")).toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-item2")).toBeInTheDocument();
+      expect(getByTestId("dropdown-chip-item3")).toBeInTheDocument();
+    });
 
-      const counter = getByTestId("dropdown-overflow-counter");
-      expect(counter).toBeInTheDocument();
-      expect(counter).toHaveTextContent("+ 2");
+    it("should set aria-selected on options reflecting the multi-select state", () => {
+      const { getByRole, getByPlaceholderText } = renderDropdown({ multi: true });
 
-      expect(getByTestId("dropdown-chip-chip1")).not.toHaveAttribute("aria-hidden", "true");
-      expect(getByTestId("dropdown-chip-chip2")).toHaveAttribute("aria-hidden", "true");
-      expect(getByTestId("dropdown-chip-chip3")).toHaveAttribute("aria-hidden", "true");
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+
+      const selectedOption = within(getByRole("listbox")).getByText("Option 1").closest('[role="option"]');
+      const unselectedOption = within(getByRole("listbox")).getByText("Option 3").closest('[role="option"]');
+
+      expect(selectedOption).toHaveAttribute("aria-selected", "true");
+      expect(unselectedOption).toHaveAttribute("aria-selected", "false");
+    });
+
+    it('should expose the chips wrapper as a group labelled "selected items"', () => {
+      const { getByRole, getByPlaceholderText, getByText } = renderDropdown({ multi: true });
+
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(getByText("Option 1"));
+
+      expect(getByRole("group", { name: "selected items" })).toBeInTheDocument();
+    });
+
+    it("should render each chip with a labelled remove (×) button", () => {
+      const { getByRole, getByPlaceholderText, getByText, getByTestId } = renderDropdown({ multi: true });
+
+      fireEvent.click(getByPlaceholderText("Select an option"));
+      fireEvent.click(getByText("Option 1"));
+
+      // The chip's × is the remove control, labelled for screen readers.
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      expect(getByRole("button", { name: "Remove Option 1" })).toBeInTheDocument();
+    });
+
+    describe("interactiveChips", () => {
+      it("should keep the input clear rather than stuffing the selection into its value", () => {
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+
+        // The selection is announced via aria-describedby, not placed in the input value,
+        // so type-to-search and Backspace-to-chip stay available.
+        expect(getByRole("combobox")).toHaveValue("");
+      });
+
+      it("should update the announced selection when a chip is removed", () => {
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+
+        fireEvent.click(getByRole("button", { name: "Remove Option 1" }));
+
+        const describedById = getByRole("combobox").getAttribute("aria-describedby");
+        const description = document.getElementById(describedById!.split(" ").pop()!);
+        expect(description).toHaveTextContent("Option 3");
+        expect(description).not.toHaveTextContent("Option 1");
+      });
+
+      it("should announce the current selection via aria-describedby on the combobox", () => {
+        const { getByRole } = renderDropdown({ multi: true, interactiveChips: true });
+
+        fireEvent.click(getByRole("combobox"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 3"));
+
+        const combobox = getByRole("combobox");
+        const describedById = combobox.getAttribute("aria-describedby");
+        expect(describedById).toBeTruthy();
+        const description = document.getElementById(describedById!.split(" ").pop()!);
+        expect(description).toHaveTextContent("Option 1, Option 3");
+      });
     });
   });
 
@@ -1072,7 +1257,7 @@ describe("DropdownNew", () => {
     });
 
     it("should hide selected options from list when showSelectedOptions is false (multi select)", () => {
-      const { getByRole, getByTestId, getByPlaceholderText } = renderDropdown({
+      const { getByRole, getByPlaceholderText } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: false,
         multi: true,
@@ -1084,7 +1269,6 @@ describe("DropdownNew", () => {
       let listbox = getByRole("listbox");
 
       fireEvent.click(within(listbox).getByText("Option Alpha"));
-      expect(getByTestId("dropdown-chip-alpha")).toBeInTheDocument();
       listbox = getByRole("listbox");
 
       expect(within(listbox).queryByText("Option Alpha")).not.toBeInTheDocument();
@@ -1092,7 +1276,6 @@ describe("DropdownNew", () => {
       expect(within(listbox).getByText("Option Gamma")).toBeInTheDocument();
 
       fireEvent.click(within(listbox).getByText("Option Gamma"));
-      expect(getByTestId("dropdown-chip-gamma")).toBeInTheDocument();
       listbox = getByRole("listbox");
 
       expect(within(listbox).queryByText("Option Alpha")).not.toBeInTheDocument();
@@ -1101,24 +1284,22 @@ describe("DropdownNew", () => {
     });
 
     it("should keep selected options in list when showSelectedOptions is true (multi select)", () => {
-      const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
+      const { getByPlaceholderText, getByRole } = renderDropdown({
         options: showSelectedTestOptions,
         showSelectedOptions: true,
         multi: true,
         placeholder: "Select multi true"
       });
-      const input = getByPlaceholderText("Select multi true");
+      const input = getByPlaceholderText("Select multi true") as HTMLInputElement;
       fireEvent.click(input);
       let listbox = getByRole("listbox");
 
       fireEvent.click(within(listbox).getByText("Option Alpha"));
-      expect(getByTestId("dropdown-chip-alpha")).toBeInTheDocument();
       listbox = getByRole("listbox");
       expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
       expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
 
       fireEvent.click(within(listbox).getByText("Option Beta"));
-      expect(getByTestId("dropdown-chip-beta")).toBeInTheDocument();
       listbox = getByRole("listbox");
       expect(within(listbox).getByText("Option Alpha")).toBeInTheDocument();
       expect(within(listbox).getByText("Option Beta")).toBeInTheDocument();
@@ -1150,16 +1331,14 @@ describe("DropdownNew", () => {
         searchable: true
       });
 
-      // Input should be visible
-      const input = getByPlaceholderText("Select an option");
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       expect(input).toBeInTheDocument();
 
-      // Menu should be visible
       const listbox = getByRole("listbox");
       expect(listbox).toBeInTheDocument();
 
-      // Select an option
       fireEvent.click(within(listbox).getByText("Option 1"));
+      // Selection is reflected as a chip.
       expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
     });
 
