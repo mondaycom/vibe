@@ -10,6 +10,8 @@ import { getStyle } from "@vibe/shared";
 
 const SingleSelectTrigger = () => {
   const {
+    inputValue,
+    isFocused,
     selectedItem,
     searchable,
     size,
@@ -21,8 +23,14 @@ const SingleSelectTrigger = () => {
     label,
     getLabelProps,
     "aria-label": ariaLabel,
-    helperTextId
+    helperTextId,
+    inlineSelectedValue
   } = useDropdownContext<BaseItemData>();
+
+  // inlineSelectedValue puts the selected label inside the input, so the overlay only renders for
+  // non-searchable single select. Without it (default), the selection is shown via the overlay —
+  // including in searchable mode, faded while the input is focused (the original behavior).
+  const showSelectedOverlay = (inlineSelectedValue ? !searchable : !inputValue) && !!selectedItem;
 
   return (
     <Flex justify="space-between" align="center">
@@ -42,10 +50,14 @@ const SingleSelectTrigger = () => {
       >
         <DropdownInput />
 
-        {/* Non-searchable single select shows the selection via this overlay. In searchable mode the
-            selected value lives inside the input itself, so the overlay must not render. */}
-        {!searchable && selectedItem && (
-          <div className={cx(styles.selectedItem, getStyle(styles, size))}>
+        {showSelectedOverlay && (
+          <div
+            className={cx(
+              styles.selectedItem,
+              { [styles.faded]: !inlineSelectedValue && isFocused && searchable },
+              getStyle(styles, size)
+            )}
+          >
             <BaseItem
               component="div"
               itemRenderer={valueRenderer}

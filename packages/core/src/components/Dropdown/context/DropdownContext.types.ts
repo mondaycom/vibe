@@ -26,6 +26,7 @@ type InheritedDropdownProps<Item extends BaseItemData<Record<string, unknown>>> 
     | "size"
     | "optionRenderer"
     | "valueRenderer"
+    | "inlineSelectedValue"
     | "menuRenderer"
     | "noOptionsMessage"
     | "placeholder"

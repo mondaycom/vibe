@@ -31,6 +31,10 @@ interface MultiSelectSpecifics<Item extends BaseItemData<Record<string, unknown>
    */
   valueRenderer?: never;
   /**
+   * Single-select only. (Not available for multi-select)
+   */
+  inlineSelectedValue?: never;
+  /**
    * The default selected values for multi-select.
    */
   defaultValue?: Item[];
@@ -65,6 +69,13 @@ interface SingleSelectSpecifics<Item extends BaseItemData<Record<string, unknown
    * The function to call to render the selected value on single select mode.
    */
   valueRenderer?: (option: Item) => React.ReactNode;
+  /**
+   * Searchable single-select only. When true, the selected option's label is shown **inside the input**
+   * (and exposed to assistive tech as the input's value) instead of as a visual overlay over an empty
+   * field. Opt-in because it changes how the collapsed selection looks (text-only, no icon/avatar/
+   * `valueRenderer`). Defaults to false (the overlay behavior).
+   */
+  inlineSelectedValue?: boolean;
   /**
    * The default selected value for single-select.
    */

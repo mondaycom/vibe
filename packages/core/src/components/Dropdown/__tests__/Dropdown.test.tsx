@@ -367,20 +367,33 @@ describe("DropdownNew", () => {
       }
     });
 
-    it("should keep the selected value inside the input for searchable single select", () => {
+    it("should keep the selected value inside the input for searchable single select (inlineSelectedValue)", () => {
       const { getByPlaceholderText, getByText } = renderDropdown({
-        placeholder: "Select an option"
+        placeholder: "Select an option",
+        inlineSelectedValue: true
       });
 
       const input = getByPlaceholderText("Select an option") as HTMLInputElement;
       fireEvent.click(input);
       fireEvent.click(getByText("Option 1"));
 
-      // The selection lives inside the input (exposed to assistive technologies), not in a visual overlay.
+      // With inlineSelectedValue, the selection lives inside the input (exposed to AT), not in an overlay.
       expect(input).toHaveValue("Option 1");
 
       fireEvent.focus(input);
       expect(input).toHaveValue("Option 1");
+    });
+
+    it("should show the selection in an overlay (not the input) by default", () => {
+      const { getByPlaceholderText, getByText } = renderDropdown({ placeholder: "Select an option" });
+
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      // Default (no inlineSelectedValue): input stays empty; the selection is shown via the overlay.
+      expect(input).toHaveValue("");
+      expect(getByText("Option 1")).toBeInTheDocument();
     });
 
     it("should hide selected value when typing in the input", () => {
