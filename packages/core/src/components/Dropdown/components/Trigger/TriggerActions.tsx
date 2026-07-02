@@ -29,11 +29,22 @@ const TriggerActions = () => {
     getMenuProps,
     loading,
     clearAriaLabel,
-    boxMode
+    boxMode,
+    label,
+    getLabelProps,
+    "aria-label": ariaLabel,
+    inputAriaLabel
   } = useDropdownContext<BaseItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
   const iconButtonSize = sizeMap[size] || "small";
+
+  // The chevron is a focusable control, so it needs a real accessible name (WCAG 4.1.2). With a
+  // visible label, reference it (a computed name via aria-labelledby); otherwise use the field's
+  // aria-label string directly. Referencing the listbox or the input would not yield a usable label
+  // (a textbox's name computes from its value, not its label), leaving the chevron effectively unnamed.
+  const chevronLabelledBy = label ? getLabelProps().id : undefined;
+  const chevronAriaLabel = label ? undefined : ariaLabel || inputAriaLabel;
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -75,7 +86,8 @@ const TriggerActions = () => {
             disabled={disabled}
             aria-controls={getMenuProps().id}
             aria-expanded={isOpen}
-            aria-labelledby={getMenuProps().id}
+            aria-labelledby={chevronLabelledBy}
+            aria-label={chevronAriaLabel}
             tabIndex={-1}
             onClick={() => {
               toggleMenu();

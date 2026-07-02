@@ -53,7 +53,11 @@ const DropdownBaseList = forwardRef(
               </li>
             )}
             {group.options.map((option, itemIndex) => {
-              const itemProps = getItemProps?.({ item: option, index: option.index }) ?? {};
+              // downshift's useCombobox sets aria-selected to mark a single item (the tracked
+              // selectedItem), which is wrong for multi-select. Drop it so BaseItem's aria-selected
+              // (derived from the full selectedItems list below) is authoritative.
+              const { "aria-selected": _downshiftAriaSelected, ...itemProps } =
+                getItemProps?.({ item: option, index: option.index }) ?? {};
               const isHighlighted =
                 highlightedIndex !== undefined && highlightedIndex === option.index && !option.disabled;
               const isSelected =
