@@ -1,6 +1,6 @@
 {
   "name": "@vibe/icon-button",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Vibe sub-package for icon button component",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "@vibe/icon": "4.0.3",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.3",
-    "@vibe/tooltip": "4.0.4",
+    "@vibe/tooltip": "4.0.5",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

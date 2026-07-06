@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.1...@vibe/core@4.5.2) (2026-07-06)
+
+
+### Bug Fixes
+
+* **Dropdown:** accessibility fixes for searchable single & multi select ([#3413](https://github.com/mondaycom/vibe/issues/3413)) ([4693f16](https://github.com/mondaycom/vibe/commit/4693f16794c3aa805751809ecb343beb7f58932c))
+
+
+
+
+
 ## [4.5.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.0...@vibe/core@4.5.1) (2026-07-01)
 
 
