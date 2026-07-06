@@ -94,9 +94,11 @@ const DropdownInput = ({
             disabled={disabled}
             readOnly={readOnly}
           />
-          <span id={selectedValueId} className={styles.visuallyHidden}>
-            {selectedValueText}
-          </span>
+          {selectedValueText && (
+            <span id={selectedValueId} className={styles.visuallyHidden}>
+              {selectedValueText}
+            </span>
+          )}
         </>
       ) : (
         <>
