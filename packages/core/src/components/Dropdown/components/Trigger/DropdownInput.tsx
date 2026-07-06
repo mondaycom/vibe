@@ -47,7 +47,6 @@ const DropdownInput = ({
     helperTextId
   } = useDropdownContext<BaseItemData>();
 
-  // Hooks first, before any derived values, to keep hook order stable.
   const internalRef = useRef<HTMLInputElement>(null);
   const selectedValueText = useMemo(() => (multi ? getSelectedValueText(selectedItems) : ""), [multi, selectedItems]);
 
