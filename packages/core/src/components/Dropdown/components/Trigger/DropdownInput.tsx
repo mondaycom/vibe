@@ -6,9 +6,7 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "../../../BaseItem";
 import { Text } from "@vibe/typography";
 
-// Builds the screen-reader announcement of the current multi-select selection (the chip labels),
-// surfaced to the combobox via aria-describedby + a visually hidden element. This is how the selected
-// chips are made accessible without depending on the chip buttons themselves carrying the semantics.
+// Screen-reader announcement of the current multi-select selection, surfaced via aria-describedby.
 function getSelectedValueText(selectedItems: BaseItemData[]): string {
   return selectedItems
     .map(item => item.label || item.value || "")
@@ -63,7 +61,6 @@ const DropdownInput = ({
   const selectedValueId = `${getLabelProps().id}-selected-value`;
   const selectedValueText = useMemo(() => (multi ? getSelectedValueText(selectedItems) : ""), [multi, selectedItems]);
 
-  // The combobox can be described by the helper text and/or the selection announcement.
   const describedBy =
     [helperTextId, selectedValueText ? selectedValueId : undefined].filter(Boolean).join(" ") || undefined;
 
@@ -74,11 +71,10 @@ const DropdownInput = ({
           <BaseInput
             {...getInputProps({
               "aria-labelledby": label ? getLabelProps().id : undefined,
-              // When there is no visible label, the input must still have a name; fall back to the
-              // field's aria-label so the input — and the chevron that points at it — are named.
+              // Fall back to the field's aria-label so the input still has a name when there's no label.
               "aria-label": inputAriaLabel || (label ? undefined : ariaLabel),
               "aria-describedby": describedBy,
-              // The menu is presented in a Dialog, so the combobox advertises a dialog popup.
+              // The menu renders in a Dialog, so the combobox advertises a dialog popup.
               "aria-haspopup": "dialog",
               placeholder: hasSelection ? "" : placeholder,
               ref: inputRef,

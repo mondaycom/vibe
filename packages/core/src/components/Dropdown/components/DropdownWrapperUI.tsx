@@ -14,8 +14,7 @@ interface DropdownWrapperUIProps<Item extends BaseItemData<Record<string, unknow
 const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(props: DropdownWrapperUIProps<Item>) => {
   const { contextValue, dropdownRef } = props;
 
-  // Link the helper text to the combobox/trigger via aria-describedby (WCAG SC 1.3.1).
-  // Derived from the consumer-provided id, matching the convention used across the design system.
+  // Id linking the helper text to the combobox/trigger via aria-describedby (WCAG SC 1.3.1).
   const helperTextId = contextValue.helperText && contextValue.id ? `${contextValue.id}-helper-text` : undefined;
 
   return (

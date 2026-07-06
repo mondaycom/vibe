@@ -36,13 +36,12 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
 }: MultiSelectedValuesProps<Item>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const deductedSpaceRef = useRef<HTMLDivElement>(null);
-  // Content of the "+N" overflow dialog, and the +N badge that triggers it — used for focus management.
   const dialogContentRef = useRef<HTMLDivElement>(null);
   const localBadgeRef = useRef<HTMLDivElement>(null);
   const mergedBadgeRef = useMergeRef(badgeRef, localBadgeRef);
 
-  // When the overflow dialog opens, move focus to its first control (the first chip's remove button).
-  // onDialogDidShow fires just before the content mounts, so defer focus to the next frame.
+  // Focus the dialog's first control on open. onDialogDidShow fires just before the content mounts,
+  // so defer to the next frame.
   const handleDialogDidShow = useCallback(() => {
     requestAnimationFrame(() => {
       const firstFocusable = dialogContentRef.current?.querySelector<HTMLElement>(
