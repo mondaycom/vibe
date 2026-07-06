@@ -19,7 +19,8 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
   onOptionSelect?: (option: T) => void,
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean,
-  id?: string
+  id?: string,
+  inlineSelectedValue?: boolean
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -51,27 +52,40 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     reset,
     openMenu,
     toggleMenu,
-    closeMenu
+    closeMenu,
+    selectItem
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
     itemToKey: item => (item?.value !== undefined ? String(item.value) : ""),
     isItemDisabled: item => Boolean(item.disabled),
-    initialInputValue: inputValueProp || "",
+    // With inlineSelectedValue, seed the input with the selected item's label so a defaultValue/value is
+    // visible (and exposed to assistive technologies) on mount. Otherwise the selection shows in an overlay.
+    initialInputValue: inputValueProp || (inlineSelectedValue ? selectedItem?.label : undefined) || "",
     selectedItem: selectedItem,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     id,
     onIsOpenChange: ({ isOpen }) => {
+      // inlineSelectedValue keeps the selected label in the input, so reset the filter on close to
+      // ensure reopening shows the full option list.
+      if (inlineSelectedValue && !isOpen) {
+        filterOptions("");
+      }
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
 
     onInputValueChange: useCallback(
-      ({ inputValue }) => {
-        filterOptions(inputValue || "");
+      ({ inputValue, type }) => {
+        // With inlineSelectedValue, downshift also writes the selected item's label into the input on
+        // selection/blur — filter only on actual typing so those writes don't filter the list. Without
+        // it the input is cleared on selection, so every change can filter (original behavior).
+        if (!inlineSelectedValue || type === useCombobox.stateChangeTypes.InputChange) {
+          filterOptions(inputValue || "");
+        }
         onInputChange?.(inputValue);
       },
-      [onInputChange, filterOptions]
+      [onInputChange, filterOptions, inlineSelectedValue]
     ),
     onSelectedItemChange: useCallback(
       ({ selectedItem }) => {
@@ -91,27 +105,36 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     ),
     onStateChange: useCallback(
       ({ type }) => {
-        // Blur input after selection via click or Enter key
+        // Keep focus on the input after selecting via click or Enter so focus is never lost
+        // (the menu still closes through the stateReducer's isOpen change).
         if (
           closeMenuOnSelect &&
           (type === useCombobox.stateChangeTypes.ItemClick || type === useCombobox.stateChangeTypes.InputKeyDownEnter)
         ) {
-          inputRef.current?.blur();
+          inputRef.current?.focus();
         }
       },
       [closeMenuOnSelect]
     ),
     stateReducer: (state, actionAndChanges) => {
-      switch (actionAndChanges.type) {
+      const { type, changes } = actionAndChanges;
+      switch (type) {
+        // FunctionSelectItem (Space selecting the highlighted option, see getInputProps below) is
+        // handled the same as Enter/click selection.
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
-          return { ...actionAndChanges.changes, inputValue: null, isOpen: !closeMenuOnSelect };
+        case useCombobox.stateChangeTypes.FunctionSelectItem:
+          // inlineSelectedValue keeps Downshift's default inputValue (the selected label) inside the
+          // input; otherwise clear it so the selection is shown via the overlay instead.
+          return inlineSelectedValue
+            ? { ...changes, isOpen: !closeMenuOnSelect }
+            : { ...changes, inputValue: null, isOpen: !closeMenuOnSelect };
         case useCombobox.stateChangeTypes.InputBlur:
         case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
-          return { ...actionAndChanges.changes, inputValue: null };
-
+          // Overlay mode clears the input on blur / controlled update; inline mode keeps the label.
+          return inlineSelectedValue ? changes : { ...changes, inputValue: null };
         default:
-          return actionAndChanges.changes;
+          return changes;
       }
     }
   });
@@ -124,7 +147,24 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
-    getInputProps: (options?: Parameters<typeof getInputProps>[0]) => getInputProps({ ...options, ref: inputRef }),
+    getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
+      getInputProps({
+        ...options,
+        ref: inputRef,
+        onKeyDown: event => {
+          options?.onKeyDown?.(event);
+          // Space selects the highlighted option instead of typing a literal space. It only applies
+          // when the user has arrowed to an option (highlightedIndex set, i.e. aria-activedescendant
+          // is set); while typing/filtering there is no highlight, so Space types normally.
+          if (event.key === " " && !event.defaultPrevented && isOpen && highlightedIndex >= 0) {
+            const item = flatOptions[highlightedIndex];
+            if (item && !item.disabled) {
+              event.preventDefault();
+              selectItem(item);
+            }
+          }
+        }
+      }),
     getItemProps,
     reset: () => {
       if (value === undefined) {
