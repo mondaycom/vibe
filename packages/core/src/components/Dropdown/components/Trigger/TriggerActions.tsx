@@ -39,8 +39,6 @@ const TriggerActions = () => {
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
   const iconButtonSize = sizeMap[size] || "small";
 
-  // The chevron needs a real accessible name (WCAG 4.1.2): the visible label via aria-labelledby, or an
-  // aria-label string when there's none. (Referencing the listbox/input wouldn't compute a usable name.)
   const chevronLabelledBy = label ? getLabelProps().id : undefined;
   const chevronAriaLabel = label ? undefined : ariaLabel || inputAriaLabel;
 
