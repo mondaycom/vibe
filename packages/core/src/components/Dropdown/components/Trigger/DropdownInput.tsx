@@ -47,7 +47,10 @@ const DropdownInput = ({
     helperTextId
   } = useDropdownContext<BaseItemData>();
 
+  // Hooks first, before any derived values, to keep hook order stable.
   const internalRef = useRef<HTMLInputElement>(null);
+  const selectedValueText = useMemo(() => (multi ? getSelectedValueText(selectedItems) : ""), [multi, selectedItems]);
+
   const inputRef = externalInputRef ?? internalRef;
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
   // interactiveChips: suppress Backspace/Arrow chip-navigation only while the input has text (so those
@@ -59,8 +62,6 @@ const DropdownInput = ({
   // single-select keeps the value inside the input). Derived from the downshift-generated label id so
   // it's unique per dropdown instance and stable across SSR/hydration (no Math.random / useId).
   const selectedValueId = `${getLabelProps().id}-selected-value`;
-  const selectedValueText = useMemo(() => (multi ? getSelectedValueText(selectedItems) : ""), [multi, selectedItems]);
-
   const describedBy =
     [helperTextId, selectedValueText ? selectedValueId : undefined].filter(Boolean).join(" ") || undefined;
 
