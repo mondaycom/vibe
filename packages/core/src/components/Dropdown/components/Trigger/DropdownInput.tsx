@@ -50,8 +50,8 @@ const DropdownInput = ({
   const internalRef = useRef<HTMLInputElement>(null);
   const inputRef = externalInputRef ?? internalRef;
   const hasSelection = multi ? selectedItems.length > 0 : !!selectedItem;
-  // interactiveChips: menu is always open, so isOpen would permanently suppress Backspace chip-nav.
-  // Instead suppress only when the input has text (Backspace should delete chars, not navigate chips).
+  // interactiveChips: suppress Backspace/Arrow chip-navigation only while the input has text (so those
+  // keys edit the text); when the input is empty they reach the chips. Default multi gates it on isOpen.
   const preventKeyAction = interactiveChips ? !!(inputValue && inputValue.length > 0) : isOpen;
   const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction }) : {};
 
