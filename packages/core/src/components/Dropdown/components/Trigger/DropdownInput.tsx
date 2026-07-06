@@ -74,7 +74,6 @@ const DropdownInput = ({
               // Fall back to the field's aria-label so the input still has a name when there's no label.
               "aria-label": inputAriaLabel || (label ? undefined : ariaLabel),
               "aria-describedby": describedBy,
-              // The menu renders in a Dialog, so the combobox advertises a dialog popup.
               "aria-haspopup": "dialog",
               placeholder: hasSelection ? "" : placeholder,
               ref: inputRef,
