@@ -57,9 +57,10 @@ const DropdownInput = ({
   const preventKeyAction = interactiveChips ? !!(inputValue && inputValue.length > 0) : isOpen;
   const multipleSelectionDropdownProps = getDropdownProps ? getDropdownProps({ preventKeyAction }) : {};
 
-  // Stable id for the visually hidden element that announces the current selection.
-  // Only needed for multi-select chips; single-select already keeps the value inside the input.
-  const selectedValueId = useRef(`dropdown-selected-${Math.random().toString(36).slice(2, 9)}`).current;
+  // Id for the visually hidden element that announces the current selection (multi-select chips only;
+  // single-select keeps the value inside the input). Derived from the downshift-generated label id so
+  // it's unique per dropdown instance and stable across SSR/hydration (no Math.random / useId).
+  const selectedValueId = `${getLabelProps().id}-selected-value`;
   const selectedValueText = useMemo(() => (multi ? getSelectedValueText(selectedItems) : ""), [multi, selectedItems]);
 
   // The combobox can be described by the helper text and/or the selection announcement.
