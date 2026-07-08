@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.88.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.3...@vibe/core@3.88.4) (2026-07-08)
+
+
+### Bug Fixes
+
+* trigger release ([235891e](https://github.com/mondaycom/vibe/commit/235891ebeb65d584c6f622acb88eafc23c6ecaff))
+
+
+
+
+
 ## [3.88.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.2...@vibe/core@3.88.3) (2026-07-02)
 
 
