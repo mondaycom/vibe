@@ -1,8 +1,8 @@
 import React, { type ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
 import { type AvatarProps } from "../Avatar/Avatar";
-import Counter from "../Counter/Counter";
 import MenuButton from "../MenuButton/MenuButton";
+import Counter from "../Counter/Counter";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
