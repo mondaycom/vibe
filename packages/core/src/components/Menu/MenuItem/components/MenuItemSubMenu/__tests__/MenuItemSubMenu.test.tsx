@@ -24,24 +24,24 @@ const MockMenuChild = React.forwardRef(({ onClose }: MenuProps, ref: React.Forwa
 Object.assign(MockMenuChild, { isMenu: true });
 
 describe("MenuItemSubMenu", () => {
-  it("should render correctly with visibility hidden when not open", () => {
+  it("should not render submenu content when not open", () => {
     const mockAnchor = document.createElement("div");
-    const { container } = render(
+    const { queryByText } = render(
       <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open={false}>
         <MockMenuChild />
       </MenuItemSubMenu>
     );
-    expect(container.firstChild).toHaveStyle("visibility: hidden");
+    expect(queryByText("Items")).not.toBeInTheDocument();
   });
 
-  it("should render correctly and become visible when open is true", () => {
+  it("should render submenu content when open is true", () => {
     const mockAnchor = document.createElement("div");
-    const { container } = render(
+    const { getByText } = render(
       <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open>
         <MockMenuChild />
       </MenuItemSubMenu>
     );
-    expect(container.firstChild).toHaveStyle("visibility: visible");
+    expect(getByText("Items")).toBeInTheDocument();
   });
 
   it("should call onClose when requested to close", () => {

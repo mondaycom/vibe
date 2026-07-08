@@ -1,3 +1,6 @@
+@import "~@vibe/style/dist/mixins";
+@import "~@vibe/style/dist/mixins/motion";
+
 $full-view-margin: 40px;
 
 .container {
@@ -117,129 +120,131 @@ $full-view-margin: 40px;
   }
 }
 
-// FROM state — must match 0% keyframes exactly to prevent flash on mount.
+// FROM state — must match keyframes exactly to prevent flash on mount.
+// Only applied under motion-safe, otherwise the modal mounts directly at rest.
 .containerEnter {
-  .overlay {
-    opacity: 0;
-  }
+  @include motion-safe {
+    .overlay {
+      opacity: 0;
+    }
 
-  .centerPop {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
+    .centerPop {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.94);
+    }
 
-  .anchorPop {
-    opacity: 0;
-    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px))) scale(0.8);
-  }
+    .anchorPop {
+      opacity: 0;
+      transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px)))
+        scale(0.94);
+    }
 
-  .fullView {
-    opacity: 0.3;
-    transform: translateY(30px);
+    .fullView {
+      opacity: 0.3;
+      transform: translateY(var(--space-24));
+    }
   }
 }
 
 .containerEnterActive {
-  .overlay {
-    opacity: 1;
-    transition: opacity 100ms cubic-bezier(0, 0, 0.4, 1);
-  }
+  @include motion-safe {
+    .overlay {
+      opacity: 1;
+      transition: opacity var(--motion-productive-medium) var(--motion-timing-enter);
+    }
 
-  .centerPop {
-    animation: centerPopIn 150ms cubic-bezier(0, 0, 0.4, 1) forwards;
-  }
+    .centerPop {
+      animation: centerPopIn var(--motion-expressive-short) var(--motion-timing-emphasize) forwards;
+    }
 
-  .anchorPop {
-    animation: anchorPopIn 200ms cubic-bezier(0, 0, 0.4, 1) forwards;
-  }
+    .anchorPop {
+      animation: anchorPopIn var(--motion-expressive-short) var(--motion-timing-emphasize) forwards;
+    }
 
-  .fullView {
-    animation: fullViewIn 250ms cubic-bezier(0, 0, 0.4, 1) forwards;
+    .fullView {
+      animation: fullViewIn var(--motion-expressive-short) var(--motion-timing-enter) forwards;
+    }
   }
 }
 
 .containerExitActive {
-  .overlay {
-    opacity: 0;
-    transition: opacity 100ms cubic-bezier(0.6, 0, 1, 1);
-  }
+  @include motion-safe {
+    .overlay {
+      opacity: 0;
+      transition: opacity var(--motion-productive-medium) var(--motion-timing-exit);
+    }
 
-  .centerPop {
-    animation: centerPopOut 100ms cubic-bezier(0.6, 0, 1, 1) forwards;
-  }
+    .centerPop {
+      animation: centerPopOut var(--motion-productive-long) var(--motion-timing-exit) forwards;
+    }
 
-  .anchorPop {
-    animation: anchorPopOut 150ms cubic-bezier(0.6, 0, 1, 1) forwards;
-  }
+    .anchorPop {
+      animation: anchorPopOut var(--motion-productive-long) var(--motion-timing-exit) forwards;
+    }
 
-  .fullView {
-    animation: fullViewOut 100ms cubic-bezier(0.6, 0, 1, 1) forwards;
+    .fullView {
+      animation: fullViewOut var(--motion-productive-medium) var(--motion-timing-exit) forwards;
+    }
   }
 }
 
 @keyframes centerPopIn {
-  0% {
+  from {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.94);
   }
 
-  50%,
-  100% {
+  to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 }
 
 @keyframes centerPopOut {
-  0%,
-  50% {
+  from {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 
-  100% {
+  to {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.94);
   }
 }
 
 @keyframes anchorPopIn {
-  0%,
-  40% {
+  from {
     opacity: 0;
-    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px))) scale(0.8);
+    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px)))
+      scale(0.94);
   }
 
-  100% {
+  to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 }
 
 @keyframes anchorPopOut {
-  0% {
+  from {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 
-  60%,
-  100% {
+  to {
     opacity: 0;
-    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px))) scale(0.8);
+    transform: translate(calc(-50% + var(--modal-start-x, 0px)), calc(-50% + var(--modal-start-y, 0px)))
+      scale(0.94);
   }
 }
 
 @keyframes fullViewIn {
-  0% {
+  from {
     opacity: 0.3;
-    transform: translateY(30px);
+    transform: translateY(var(--space-24));
   }
 
-  33% {
-    opacity: 1;
-  }
-
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -253,6 +258,6 @@ $full-view-margin: 40px;
 
   to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(var(--space-24));
   }
 }
