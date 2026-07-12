@@ -128,55 +128,59 @@ const RadioButton = forwardRef(
 
     const tooltipContent = disabled ? disabledReason : null;
 
-    return (
-      <Tooltip content={tooltipContent}>
-        <label
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
-          data-vibe={ComponentVibeId.RADIO_BUTTON}
-          className={cx(styles.radioButton, className, {
-            [styles.disabled]: disabled,
-            disabled: disabled
-          })}
-        >
-          <span className={cx(styles.inputContainer)}>
-            <input
-              className={cx(styles.input)}
-              type="radio"
-              value={value}
-              name={name}
-              autoFocus={autoFocus}
-              disabled={disabled}
-              {...checkedProps}
-              aria-label={ariaLabel}
-              aria-describedby={ariaDescribedby}
-              onChange={onSelect}
-              ref={mergedRef}
-            />
-            <span
-              data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_CONTROL, id)}
-              className={cx(styles.control, radioButtonClassName, {
-                [styles.labelAnimation]: !noLabelAnimation
-              })}
-            />
-          </span>
-          {text && (
-            <Text
-              element="span"
-              type="text2"
-              className={labelClassName}
-              data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_LABEL, id)}
-            >
-              {text}
-            </Text>
-          )}
-          {children && (
-            <Clickable onClick={onChildClick} tabIndex={childrenTabIndex}>
-              {children}
-            </Clickable>
-          )}
-        </label>
-      </Tooltip>
+    const labelElement = (
+      <label
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.RADIO_BUTTON, id)}
+        data-vibe={ComponentVibeId.RADIO_BUTTON}
+        className={cx(styles.radioButton, className, {
+          [styles.disabled]: disabled,
+          disabled: disabled
+        })}
+      >
+        <span className={cx(styles.inputContainer)}>
+          <input
+            className={cx(styles.input)}
+            type="radio"
+            value={value}
+            name={name}
+            autoFocus={autoFocus}
+            disabled={disabled}
+            {...checkedProps}
+            aria-label={ariaLabel}
+            aria-describedby={ariaDescribedby}
+            onChange={onSelect}
+            ref={mergedRef}
+          />
+          <span
+            data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_CONTROL, id)}
+            className={cx(styles.control, radioButtonClassName, {
+              [styles.labelAnimation]: !noLabelAnimation
+            })}
+          />
+        </span>
+        {text && (
+          <Text
+            element="span"
+            type="text2"
+            className={labelClassName}
+            data-testid={getTestId(ComponentDefaultTestId.RADIO_BUTTON_LABEL, id)}
+          >
+            {text}
+          </Text>
+        )}
+        {children && (
+          <Clickable onClick={onChildClick} tabIndex={childrenTabIndex}>
+            {children}
+          </Clickable>
+        )}
+      </label>
     );
+
+    if (!tooltipContent) {
+      return labelElement;
+    }
+
+    return <Tooltip content={tooltipContent}>{labelElement}</Tooltip>;
   }
 );
 
