@@ -63,9 +63,11 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
   return (
     <div dir={dir} className={styles.outerWrapper}>
       {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
-      <Tooltip {...tooltipProps} content={tooltipProps?.content}>
-        {coreDropdownElement}
-      </Tooltip>
+      {tooltipProps?.content ? (
+        <Tooltip {...tooltipProps}>{coreDropdownElement}</Tooltip>
+      ) : (
+        coreDropdownElement
+      )}
       {helperText && (
         <Text id={helperTextId} color={error ? "negative" : "secondary"} className={styles.helperText}>
           {helperText}
