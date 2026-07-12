@@ -59,34 +59,44 @@ const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   const componentRef = useRef<HTMLSpanElement>(null);
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
+  const tooltipContent = (isOverflowing || !showText) ? text : null;
+
+  const liElement = (
+    <li
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
+      className={cx(styles.breadcrumbItemWrapper, className, {
+        [styles.disabled]: disabled
+      })}
+    >
+      <BreadcrumbContent
+        ref={componentRef}
+        isClickable={isClickable}
+        link={link}
+        onClick={onClick}
+        text={text}
+        icon={icon}
+        isCurrent={isCurrent}
+        disabled={disabled}
+        showText={showText}
+      />
+    </li>
+  );
+
+  if (!tooltipContent) {
+    return liElement;
+  }
+
   return (
     <Tooltip
       disableDialogSlide={true}
       withoutDialog={false}
-      content={(isOverflowing || !showText) && text}
+      content={tooltipContent}
       showTrigger={["mouseenter"]}
       hideTrigger={["mouseleave"]}
       addKeyboardHideShowTriggersByDefault={!showText}
     >
-      <li
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_ITEM, id)}
-        className={cx(styles.breadcrumbItemWrapper, className, {
-          [styles.disabled]: disabled
-        })}
-      >
-        <BreadcrumbContent
-          ref={componentRef}
-          isClickable={isClickable}
-          link={link}
-          onClick={onClick}
-          text={text}
-          icon={icon}
-          isCurrent={isCurrent}
-          disabled={disabled}
-          showText={showText}
-        />
-      </li>
+      {liElement}
     </Tooltip>
   );
 };
