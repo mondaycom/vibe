@@ -400,19 +400,24 @@ const MenuButton = forwardRef(
       </Dialog>
     );
 
-    const tooltipNode = (tooltipChildren: React.ReactElement) => (
-      <Tooltip
-        content={tooltipContent}
-        position={tooltipPosition}
-        showTrigger="mouseenter"
-        hideTrigger={tooltipTriggers}
-        referenceWrapperClassName={tooltipReferenceClassName}
-        hideWhenReferenceHidden={hideWhenReferenceHidden}
-        {...tooltipProps}
-      >
-        {tooltipChildren}
-      </Tooltip>
-    );
+    const tooltipNode = (tooltipChildren: React.ReactElement) => {
+      if (!tooltipContent) {
+        return tooltipChildren;
+      }
+      return (
+        <Tooltip
+          content={tooltipContent}
+          position={tooltipPosition}
+          showTrigger="mouseenter"
+          hideTrigger={tooltipTriggers}
+          referenceWrapperClassName={tooltipReferenceClassName}
+          hideWhenReferenceHidden={hideWhenReferenceHidden}
+          {...tooltipProps}
+        >
+          {tooltipChildren}
+        </Tooltip>
+      );
+    };
 
     if (showTooltipOnlyOnTriggerElement) {
       return dialogNode(tooltipNode(triggerElementNode));
