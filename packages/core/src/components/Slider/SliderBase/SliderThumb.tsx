@@ -85,55 +85,65 @@ const SliderThumb: FC<SliderThumbProps> = ({ className, index = 0, onMove = NOOP
     }
   }, [focused, index]);
 
+  const tooltipContent = showValue ? null : valueText;
+
+  const thumb = (
+    <div
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledby}
+      aria-valuemax={max}
+      aria-valuemin={min}
+      aria-valuenow={value}
+      aria-valuetext={valueText}
+      aria-disabled={disabled}
+      className={cx(
+        styles.thumb,
+        getStyle(styles, color),
+        getStyle(styles, size),
+        {
+          [styles.dragging]: dragging === index,
+          [styles.focused]: focused,
+          [styles.notDisabledThumb]: !disabled
+        },
+        className
+      )}
+      data-testid={shapeTestId(`thumb-${index}`)}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onPointerDown={handlePointerDown}
+      onPointerLeave={handlePointerLeave}
+      ref={ref}
+      role="slider"
+      style={{ left: `${position}%` }}
+      tabIndex={disabled ? -1 : 0}
+    >
+      {showValue && (
+        <label
+          className={cx(
+            styles.label,
+            getStyle(styles, camelCase("color-" + valueLabelColor)),
+            getStyle(styles, camelCase("position-" + valueLabelPosition))
+          )}
+        >
+          {valueText}
+        </label>
+      )}
+    </div>
+  );
+
+  if (!tooltipContent) {
+    return thumb;
+  }
+
   return (
     <Tooltip
       open={active === index || dragging === index}
-      content={showValue ? null : valueText}
+      content={tooltipContent}
       position="top"
       showDelay={TOOLTIP_SHOW_DELAY}
       addKeyboardHideShowTriggersByDefault={false}
     >
-      <div
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledby}
-        aria-valuemax={max}
-        aria-valuemin={min}
-        aria-valuenow={value}
-        aria-valuetext={valueText}
-        aria-disabled={disabled}
-        className={cx(
-          styles.thumb,
-          getStyle(styles, color),
-          getStyle(styles, size),
-          {
-            [styles.dragging]: dragging === index,
-            [styles.focused]: focused,
-            [styles.notDisabledThumb]: !disabled
-          },
-          className
-        )}
-        data-testid={shapeTestId(`thumb-${index}`)}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onPointerDown={handlePointerDown}
-        onPointerLeave={handlePointerLeave}
-        ref={ref}
-        role="slider"
-        style={{ left: `${position}%` }}
-        tabIndex={disabled ? -1 : 0}
-      >
-        {showValue && (
-          <label
-            className={cx(
-              styles.label,
-              getStyle(styles, camelCase("color-" + valueLabelColor)),
-              getStyle(styles, camelCase("position-" + valueLabelPosition))
-            )}
-          >
-            {valueText}
-          </label>
-        )}
-      </div>
+      {thumb}
     </Tooltip>
   );
 };
