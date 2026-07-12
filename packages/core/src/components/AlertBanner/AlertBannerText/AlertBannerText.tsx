@@ -34,22 +34,31 @@ const AlertBannerText: FC<AlertBannerTextProps> = ({
     [styles.marginLeft]: marginLeft
   });
   const isOverflowing = useIsOverflowing({ ref: componentRef });
+  const tooltipContent = isOverflowing ? text : null;
+
+  const textElement = (
+    <div
+      ref={componentRef}
+      className={classNames}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_TEXT, id)}
+    >
+      <span aria-live={ariaLive}>{text}</span>
+    </div>
+  );
+
+  if (!tooltipContent) {
+    return textElement;
+  }
 
   return (
     <Tooltip
       position="bottom"
-      content={isOverflowing && text}
+      content={tooltipContent}
       showTrigger={["mouseenter"]}
       hideTrigger={["mouseleave"]}
     >
-      <div
-        ref={componentRef}
-        className={classNames}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.ALERT_BANNER_TEXT, id)}
-      >
-        <span aria-live={ariaLive}>{text}</span>
-      </div>
+      {textElement}
     </Tooltip>
   );
 };
