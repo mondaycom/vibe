@@ -126,32 +126,36 @@ const Tab: FC<TabProps> = forwardRef(
       }
     }
 
-    return (
-      <Tooltip {...tooltipProps} content={tooltipProps.content}>
-        <li
-          ref={mergedRef}
-          key={id}
-          className={cx(styles.tabWrapper, className, {
-            [styles.active]: active,
-            [styles.disabled]: disabled,
-            [styles.tabFocusVisibleInset]: focus,
-            [styles.stretchedUnderline]: stretchedUnderline
-          })}
-          id={id}
-          role="tab"
-          aria-selected={active}
-          aria-disabled={disabled}
-          aria-controls={ariaControls || undefined}
-          tabIndex={tabIndex}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
-          data-vibe={ComponentVibeId.TAB}
-          onClick={() => !disabled && onClick(value)}
-          onKeyDown={handleKeyDown}
-        >
-          <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>
-        </li>
-      </Tooltip>
+    const tab = (
+      <li
+        ref={mergedRef}
+        key={id}
+        className={cx(styles.tabWrapper, className, {
+          [styles.active]: active,
+          [styles.disabled]: disabled,
+          [styles.tabFocusVisibleInset]: focus,
+          [styles.stretchedUnderline]: stretchedUnderline
+        })}
+        id={id}
+        role="tab"
+        aria-selected={active}
+        aria-disabled={disabled}
+        aria-controls={ariaControls || undefined}
+        tabIndex={tabIndex}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
+        data-vibe={ComponentVibeId.TAB}
+        onClick={() => !disabled && onClick(value)}
+        onKeyDown={handleKeyDown}
+      >
+        <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>
+      </li>
     );
+
+    if (!tooltipProps?.content) {
+      return tab;
+    }
+
+    return <Tooltip {...tooltipProps}>{tab}</Tooltip>;
   }
 );
 
