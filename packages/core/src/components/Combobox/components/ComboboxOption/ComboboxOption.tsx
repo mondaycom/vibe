@@ -168,30 +168,38 @@ const ComboboxOption = ({
     </>
   );
 
+  const optionDiv = (
+    <div
+      ref={ref}
+      key={id || label}
+      aria-level={belongToCategory ? 2 : 1}
+      aria-selected={isActive}
+      aria-label={ariaLabel || label}
+      id={getOptionId(id, index)}
+      data-testid={getTestId(ComponentDefaultTestId.COMBOBOX_OPTION, index)}
+      onMouseEnter={onMouseEnter}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+      onMouseLeave={onMouseLeave}
+      className={cx(styles.comboboxOption, className, {
+        [styles.disabled]: disabled,
+        [styles.selected]: selected,
+        [styles.active]: isActive,
+        [styles.activeOutline]: visualFocus
+      })}
+      style={{ height: optionLineHeight }}
+    >
+      {optionRendererValue || optionValue}
+    </div>
+  );
+
+  if (!tooltipContent) {
+    return optionDiv;
+  }
+
   return (
     <Tooltip {...option.tooltipProps} content={tooltipContent} hideWhenReferenceHidden>
-      <div
-        ref={ref}
-        key={id || label}
-        aria-level={belongToCategory ? 2 : 1}
-        aria-selected={isActive}
-        aria-label={ariaLabel || label}
-        id={getOptionId(id, index)}
-        data-testid={getTestId(ComponentDefaultTestId.COMBOBOX_OPTION, index)}
-        onMouseEnter={onMouseEnter}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
-        onMouseLeave={onMouseLeave}
-        className={cx(styles.comboboxOption, className, {
-          [styles.disabled]: disabled,
-          [styles.selected]: selected,
-          [styles.active]: isActive,
-          [styles.activeOutline]: visualFocus
-        })}
-        style={{ height: optionLineHeight }}
-      >
-        {optionRendererValue || optionValue}
-      </div>
+      {optionDiv}
     </Tooltip>
   );
 };
