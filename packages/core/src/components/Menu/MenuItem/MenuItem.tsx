@@ -221,50 +221,60 @@ const MenuItem = forwardRef(
       }
     }, [label]);
 
+    const tooltipContentToShow = shouldShowTooltip ? finalTooltipContent : null;
+
+    const baseMenuItem = (
+      <BaseMenuItem
+        key={key}
+        ref={ref}
+        subMenu={children}
+        className={className}
+        disabled={disabled}
+        selected={selected}
+        {...baseMenuProps}
+      >
+        {Boolean(icon) && (
+          <MenuItemIcon
+            icon={icon}
+            type={iconType}
+            disabled={disabled}
+            selected={selected}
+            backgroundColor={iconBackgroundColor}
+            wrapperClassName={iconWrapperClassName}
+          />
+        )}
+        <div ref={titleRef} className={styles.title}>
+          {title}
+        </div>
+        <Flex gap="xs">
+          {Boolean(rightIcon) && !children && (
+            <MenuItemIcon
+              icon={rightIcon}
+              type={rightIconType}
+              disabled={disabled}
+              selected={selected}
+              backgroundColor={rightIconBackgroundColor}
+              isRightIcon={true}
+              wrapperClassName={rightIconWrapperClassName}
+            />
+          )}
+          {renderLabel}
+        </Flex>
+      </BaseMenuItem>
+    );
+
+    if (!tooltipContentToShow) {
+      return baseMenuItem;
+    }
+
     return (
       <Tooltip
-        content={shouldShowTooltip ? finalTooltipContent : null}
+        content={tooltipContentToShow}
         position={tooltipPosition}
         showDelay={tooltipShowDelay}
         {...tooltipProps}
       >
-        <BaseMenuItem
-          key={key}
-          ref={ref}
-          subMenu={children}
-          className={className}
-          disabled={disabled}
-          selected={selected}
-          {...baseMenuProps}
-        >
-          {Boolean(icon) && (
-            <MenuItemIcon
-              icon={icon}
-              type={iconType}
-              disabled={disabled}
-              selected={selected}
-              backgroundColor={iconBackgroundColor}
-              wrapperClassName={iconWrapperClassName}
-            />
-          )}
-          <div ref={titleRef} className={styles.title}>
-            {title}
-          </div>
-          <Flex gap="xs">
-            {Boolean(rightIcon) && !children && (
-              <MenuItemIcon
-                icon={rightIcon}
-                type={rightIconType}
-                disabled={disabled}
-                selected={selected}
-                backgroundColor={rightIconBackgroundColor}
-                isRightIcon={true}
-                wrapperClassName={rightIconWrapperClassName}
-              />
-            )}
-            {renderLabel}
-          </Flex>
-        </BaseMenuItem>
+        {baseMenuItem}
       </Tooltip>
     );
   }

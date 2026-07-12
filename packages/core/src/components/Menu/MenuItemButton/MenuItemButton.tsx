@@ -139,36 +139,42 @@ const MenuItemButton = ({
     useDocumentEventListeners
   });
 
-  return (
-    <Tooltip
-      content={shouldShowTooltip ? tooltipContent : null}
-      position={tooltipPosition}
-      showDelay={tooltipShowDelay}
+  const tooltipContentToShow = shouldShowTooltip ? tooltipContent : null;
+
+  const inner = (
+    <Text
+      type="text2"
+      element="li"
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
+      id={id}
+      className={cx(styles.itemButton, className)}
+      ref={mergedRef}
+      role="menuitem"
+      aria-current={isActive}
     >
-      <Text
-        type="text2"
-        element="li"
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MENU_ITEM_BUTTON, id)}
-        id={id}
-        className={cx(styles.itemButton, className)}
-        ref={mergedRef}
-        role="menuitem"
-        aria-current={isActive}
+      <Button
+        className={styles.buttonComponent}
+        active={isActive}
+        disabled={disabled}
+        leftIcon={leftIcon}
+        rightIcon={rightIcon}
+        onClick={onClickCallback}
+        kind={kind}
+        size="small"
+        blurOnMouseUp={false}
       >
-        <Button
-          className={styles.buttonComponent}
-          active={isActive}
-          disabled={disabled}
-          leftIcon={leftIcon}
-          rightIcon={rightIcon}
-          onClick={onClickCallback}
-          kind={kind}
-          size="small"
-          blurOnMouseUp={false}
-        >
-          <div className={styles.content}>{children}</div>
-        </Button>
-      </Text>
+        <div className={styles.content}>{children}</div>
+      </Button>
+    </Text>
+  );
+
+  if (!tooltipContentToShow) {
+    return inner;
+  }
+
+  return (
+    <Tooltip content={tooltipContentToShow} position={tooltipPosition} showDelay={tooltipShowDelay}>
+      {inner}
     </Tooltip>
   );
 };
