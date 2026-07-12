@@ -214,6 +214,35 @@ const Avatar = ({
     [onClick, id]
   );
 
+  const circleElement = (
+    <div
+      className={cx(
+        styles.circle,
+        getStyle(styles, camelCase("circle--" + type)),
+        {
+          [styles.disabled]: disabled,
+          [styles.square]: square,
+          [styles.withoutBorder]: withoutBorder
+        },
+        avatarContentWrapperClassName
+      )}
+      aria-hidden={ariaHidden}
+      tabIndex={overrideTabIndex}
+      style={{ ...backgroundColorStyle }}
+    >
+      <AvatarContent
+        type={type}
+        size={size}
+        src={src}
+        icon={icon}
+        text={text}
+        aria-label={ariaLabel}
+        role={role}
+        textClassName={textClassName}
+      />
+    </div>
+  );
+
   return (
     <div
       id={id}
@@ -230,35 +259,17 @@ const Avatar = ({
           className: styles.clickableWrapper
         }}
       >
-        <Tooltip showTrigger={["focus", "mouseenter"]} hideTrigger={["blur", "mouseleave"]} {...overrideTooltipProps}>
-          <div
-            className={cx(
-              styles.circle,
-              getStyle(styles, camelCase("circle--" + type)),
-              {
-                [styles.disabled]: disabled,
-                [styles.square]: square,
-                [styles.withoutBorder]: withoutBorder
-              },
-              avatarContentWrapperClassName
-            )}
-            aria-hidden={ariaHidden}
-            tabIndex={overrideTabIndex}
-            style={{ ...backgroundColorStyle }}
-          >
-            <AvatarContent
-              type={type}
-              size={size}
-              src={src}
-              icon={icon}
-              text={text}
-              aria-label={ariaLabel}
-              role={role}
-              textClassName={textClassName}
-            />
-          </div>
-          {badgesContainer}
-        </Tooltip>
+        {overrideTooltipProps?.content ? (
+          <Tooltip showTrigger={["focus", "mouseenter"]} hideTrigger={["blur", "mouseleave"]} {...overrideTooltipProps}>
+            {circleElement}
+            {badgesContainer}
+          </Tooltip>
+        ) : (
+          <>
+            {circleElement}
+            {badgesContainer}
+          </>
+        )}
       </ClickableWrapper>
     </div>
   );
