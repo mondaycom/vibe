@@ -58,36 +58,39 @@ const BaseItem = forwardRef(
     const textVariant: TextType = listItemProps.size === "small" ? "text2" : "text1";
     const Element = listItemProps.component as React.ElementType;
 
-    return (
-      <Tooltip
-        {...tooltipProps}
-        content={tooltipProps?.content}
-        position={dir === "rtl" ? "right" : "left"}
-        containerSelector="body"
+    const innerElement = (
+      <Element
+        id={listItemProps.id}
+        ref={mergedRef}
+        className={listItemClassNames}
+        role={listItemProps.role}
+        aria-selected={selected}
+        aria-disabled={disabled || undefined}
+        {...listItemProps.itemProps}
       >
-        <Element
-          id={listItemProps.id}
-          ref={mergedRef}
-          className={listItemClassNames}
-          role={listItemProps.role}
-          aria-selected={selected}
-          aria-disabled={disabled || undefined}
-          {...listItemProps.itemProps}
-        >
-          {itemRenderer ? (
-            itemRenderer(item)
-          ) : (
-            <>
-              {startElement && renderSideElement(startElement, disabled, textVariant)}
-              <Text type={textVariant} color="inherit" tooltipProps={{ containerSelector: "body" }}>
-                {label}
-              </Text>
-              {endElement && (
-                <div className={styles.endElement}>{renderSideElement(endElement, disabled, textVariant)}</div>
-              )}
-            </>
-          )}
-        </Element>
+        {itemRenderer ? (
+          itemRenderer(item)
+        ) : (
+          <>
+            {startElement && renderSideElement(startElement, disabled, textVariant)}
+            <Text type={textVariant} color="inherit" tooltipProps={{ containerSelector: "body" }}>
+              {label}
+            </Text>
+            {endElement && (
+              <div className={styles.endElement}>{renderSideElement(endElement, disabled, textVariant)}</div>
+            )}
+          </>
+        )}
+      </Element>
+    );
+
+    if (!tooltipProps?.content) {
+      return innerElement;
+    }
+
+    return (
+      <Tooltip {...tooltipProps} position={dir === "rtl" ? "right" : "left"} containerSelector="body">
+        {innerElement}
       </Tooltip>
     );
   }
