@@ -22,6 +22,13 @@ const ModalFooterBase = forwardRef(
       ...secondaryButtonProps
     } = secondaryButton || {};
 
+    const primaryButtonEl = <Button {...primaryButtonProps}>{primaryButtonText}</Button>;
+    const secondaryButtonEl = secondaryButton ? (
+      <Button {...secondaryButtonProps} kind="tertiary">
+        {secondaryButtonText}
+      </Button>
+    ) : null;
+
     return (
       <Flex
         ref={ref}
@@ -31,16 +38,17 @@ const ModalFooterBase = forwardRef(
         className={cx(styles.footer, className)}
         data-testid={dataTestId}
       >
-        <Tooltip {...primaryButtonTooltipProps} content={primaryButtonTooltipProps.content}>
-          <Button {...primaryButtonProps}>{primaryButtonText}</Button>
-        </Tooltip>
-        {secondaryButton && (
-          <Tooltip {...secondaryButtonTooltipProps} content={secondaryButtonTooltipProps.content}>
-            <Button {...secondaryButtonProps} kind="tertiary">
-              {secondaryButtonText}
-            </Button>
-          </Tooltip>
+        {primaryButtonTooltipProps.content ? (
+          <Tooltip {...primaryButtonTooltipProps}>{primaryButtonEl}</Tooltip>
+        ) : (
+          primaryButtonEl
         )}
+        {secondaryButton &&
+          (secondaryButtonTooltipProps.content ? (
+            <Tooltip {...secondaryButtonTooltipProps}>{secondaryButtonEl}</Tooltip>
+          ) : (
+            secondaryButtonEl
+          ))}
         {renderAction}
       </Flex>
     );
