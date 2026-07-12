@@ -1,6 +1,6 @@
 {
   "name": "@vibe/tooltip",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "Vibe sub-package for tooltip components",
   "repository": {
     "type": "git",
