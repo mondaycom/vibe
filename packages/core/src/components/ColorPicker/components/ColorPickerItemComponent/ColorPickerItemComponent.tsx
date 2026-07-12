@@ -116,47 +116,52 @@ const ColorPickerItemComponent = forwardRef(
 
     const shouldRenderIcon = isSelected || ColorIndicatorIcon;
     const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
-    return (
-      <Tooltip content={tooltipContent}>
-        <li
-          id={id}
-          role="option"
-          aria-selected={isSelected}
-          className={cx(styles.itemWrapper, {
-            [styles.selectedColor]: isSelected,
-            [styles.active]: isActive,
-            [styles.circle]: colorShape === "circle"
+
+    const liElement = (
+      <li
+        id={id}
+        role="option"
+        aria-selected={isSelected}
+        className={cx(styles.itemWrapper, {
+          [styles.selectedColor]: isSelected,
+          [styles.active]: isActive,
+          [styles.circle]: colorShape === "circle"
+        })}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
+      >
+        <div className={cx(styles.feedbackIndicator)} />
+        <Clickable
+          ref={itemRef}
+          role="presentation"
+          aria-label={colorAriaLabel}
+          className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
+            [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
           })}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.COLOR_PICKER_ITEM, color)}
+          style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
+          onClick={onClick}
+          tabIndex={-1}
+          onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
         >
-          <div className={cx(styles.feedbackIndicator)} />
-          <Clickable
-            ref={itemRef}
-            role="presentation"
-            aria-label={colorAriaLabel}
-            className={cx(styles.colorItem, getStyle(styles, camelCase("color-item-size-" + colorSize)), {
-              [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground
-            })}
-            style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
-            onClick={onClick}
-            tabIndex={-1}
-            onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
-          >
-            <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>
-              {shouldRenderIcon && (
-                <Icon
-                  icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
-                  className={cx({
-                    [styles.colorIconWhite]: !shouldRenderIndicatorWithoutBackground
-                  })}
-                  ignoreFocusStyle
-                />
-              )}
-            </div>
-          </Clickable>
-        </li>
-      </Tooltip>
+          <div className={cx(styles.colorIndicatorWrapper)} style={colorIndicatorWrapperStyle}>
+            {shouldRenderIcon && (
+              <Icon
+                icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
+                className={cx({
+                  [styles.colorIconWhite]: !shouldRenderIndicatorWithoutBackground
+                })}
+                ignoreFocusStyle
+              />
+            )}
+          </div>
+        </Clickable>
+      </li>
     );
+
+    if (!tooltipContent) {
+      return liElement;
+    }
+
+    return <Tooltip content={tooltipContent}>{liElement}</Tooltip>;
   }
 );
 
