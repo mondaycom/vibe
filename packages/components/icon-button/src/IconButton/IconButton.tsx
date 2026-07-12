@@ -201,42 +201,50 @@ const IconButton = forwardRef(
       return wrapperClassName ? { className: cx(wrapperClassName, styles.wrapper) } : {};
     }, [wrapperClassName]);
 
+    const button = (
+      <Button
+        onClick={onClick}
+        disabled={disabled}
+        color={color}
+        kind={kind}
+        aria-labelledby={ariaLabelledBy}
+        aria-label={buttonAriaLabel}
+        aria-haspopup={ariaHasPopup}
+        aria-expanded={ariaExpanded}
+        aria-controls={ariaControls}
+        aria-describedby={ariaDescribedBy}
+        aria-hidden={ariaHidden}
+        aria-pressed={ariaPressed}
+        ref={mergedRef}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
+        data-vibe={ComponentVibeId.ICON_BUTTON}
+        noSidePadding
+        active={active}
+        className={className}
+        style={overrideStyle}
+        insetFocus={insetFocus}
+        tabIndex={tabIndex}
+        loading={loading}
+        loaderClassName={cx(styles.loader, getStyle(styles, size))}
+      >
+        <Icon icon={icon} type="svg" size={iconSize} ignoreFocusStyle className={iconClassName} />
+      </Button>
+    );
+
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
-        <Tooltip
-          {...tooltipProps}
-          content={calculatedTooltipContent}
-          referenceWrapperClassName={styles.referenceWrapper}
-        >
-          <Button
-            onClick={onClick}
-            disabled={disabled}
-            color={color}
-            kind={kind}
-            aria-labelledby={ariaLabelledBy}
-            aria-label={buttonAriaLabel}
-            aria-haspopup={ariaHasPopup}
-            aria-expanded={ariaExpanded}
-            aria-controls={ariaControls}
-            aria-describedby={ariaDescribedBy}
-            aria-hidden={ariaHidden}
-            aria-pressed={ariaPressed}
-            ref={mergedRef}
-            id={id}
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.ICON_BUTTON, id)}
-            data-vibe={ComponentVibeId.ICON_BUTTON}
-            noSidePadding
-            active={active}
-            className={className}
-            style={overrideStyle}
-            insetFocus={insetFocus}
-            tabIndex={tabIndex}
-            loading={loading}
-            loaderClassName={cx(styles.loader, getStyle(styles, size))}
+        {calculatedTooltipContent ? (
+          <Tooltip
+            {...tooltipProps}
+            content={calculatedTooltipContent}
+            referenceWrapperClassName={styles.referenceWrapper}
           >
-            <Icon icon={icon} type="svg" size={iconSize} ignoreFocusStyle className={iconClassName} />
-          </Button>
-        </Tooltip>
+            {button}
+          </Tooltip>
+        ) : (
+          button
+        )}
       </IconButtonWrapper>
     );
   }
