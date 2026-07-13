@@ -328,6 +328,10 @@ export default class Tooltip extends PureComponent<TooltipProps> {
       return this.renderTooltipContent();
     }
 
+    if (!this.props.content) {
+      return <>{children}</>;
+    }
+
     const content = this.renderTooltipContent;
     const dialogProps = {
       ...this.props,
