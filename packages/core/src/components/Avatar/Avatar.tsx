@@ -2,7 +2,7 @@ import { camelCase } from "es-toolkit";
 import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { type AriaRole, useCallback, useMemo } from "react";
+import React, { type AriaRole, memo, useCallback, useMemo } from "react";
 import { isNil } from "es-toolkit";
 import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
@@ -114,7 +114,9 @@ export interface AvatarProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent, avatarId: string) => void;
 }
 
-const Avatar = ({
+// TODO(perf): consumers may pass inline `tooltipProps`/badge prop objects, defeating memoization at call sites.
+// Fixing those is out of scope; memo still avoids re-renders when parents pass stable props.
+const AvatarComponent = ({
   id,
   type = "text",
   className,
@@ -263,5 +265,10 @@ const Avatar = ({
     </div>
   );
 };
+
+AvatarComponent.displayName = "Avatar";
+
+const Avatar = memo(AvatarComponent);
+Avatar.displayName = "Avatar";
 
 export default Avatar;

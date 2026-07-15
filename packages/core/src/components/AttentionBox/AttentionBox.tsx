@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, memo } from "react";
 import cx from "classnames";
 import type { AttentionBoxProps, AttentionBoxRole } from "./AttentionBox.types";
 import AttentionBoxDefault from "./layouts/AttentionBoxDefault/AttentionBoxDefault";
@@ -8,7 +8,9 @@ import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { getTestId } from "../../tests/test-ids-utils";
 import styles from "./AttentionBox.module.scss";
 
-const AttentionBox = forwardRef(
+// TODO(perf): callers may pass inline `action`/`link` objects which defeat memoization.
+// Memoization helps when parents pass stable props; fixing call sites is out of scope.
+const AttentionBoxComponent = forwardRef(
   (
     {
       compact = false,
@@ -70,5 +72,10 @@ const AttentionBox = forwardRef(
     );
   }
 );
+
+AttentionBoxComponent.displayName = "AttentionBox";
+
+const AttentionBox = memo(AttentionBoxComponent);
+AttentionBox.displayName = "AttentionBox";
 
 export default AttentionBox;
