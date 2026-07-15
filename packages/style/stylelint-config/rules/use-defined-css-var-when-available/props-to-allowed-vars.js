@@ -14,9 +14,6 @@ const SPACINGS = [
 ];
 
 const BORDER_RADIUSES = [
-  "--border-radius-small",
-  "--border-radius-medium",
-  "--border-radius-big",
   "--border-radius-4",
   "--border-radius-8",
   "--border-radius-12",
