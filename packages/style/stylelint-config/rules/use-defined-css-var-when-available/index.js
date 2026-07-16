@@ -91,7 +91,7 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
           report({
             ruleName: RULE_NAME,
             result: postcssResult,
-            message: messages.expected(node.value, varReplacementsForValue), // Build the reported message
+            message: messages.expected(node.value, recommended || varReplacementsForValue), // Build the reported message
             node: decl, // Specify the reported node
             word: node.value // Which exact word caused the error? This positions the error properly
           });

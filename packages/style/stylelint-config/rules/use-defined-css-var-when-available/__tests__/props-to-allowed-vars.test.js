@@ -10,10 +10,7 @@ const ALLOWED_CSS_VARS_PREFIX_WITHOUT_MAPPING = [
   "--font-weight",
   "--font-size",
   "--font-line-height",
-  "--letter-spacing",
-  "--border-radius-small",
-  "--border-radius-medium",
-  "--border-radius-big"
+  "--letter-spacing"
 ];
 
 describe("props-to-allowed-vars", () => {

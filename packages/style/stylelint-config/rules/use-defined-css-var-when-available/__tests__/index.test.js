@@ -67,7 +67,7 @@ describe("@vibe/style/use-defined-css-var-when-available", () => {
     expect(firstWarning.column).toBe(15);
 
     expect(secondWarning.text).toBe(
-      `Expected \"16px\" to be \"var(--border-radius-16)\" (@vibe/style/use-defined-css-var-when-available)`
+      `Expected \"16px\" to be \"var(--border-radius-big)\" (@vibe/style/use-defined-css-var-when-available)`
     );
     expect(secondWarning.line).toBe(7);
     expect(secondWarning.column).toBe(18);
@@ -87,7 +87,7 @@ describe("@vibe/style/use-defined-css-var-when-available", () => {
 }
 
 #id {
-  border-radius: var(--border-radius-16) 14px;
+  border-radius: var(--border-radius-big) 14px;
 }`.trim();
 
     const contentAfterFix = fs.readFileSync(file).toString().trim();
