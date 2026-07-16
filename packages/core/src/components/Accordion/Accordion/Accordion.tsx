@@ -1,8 +1,8 @@
 import cx from "classnames";
 import React, { forwardRef, type ReactElement, useCallback, useMemo, useRef, useState } from "react";
 import { useMergeRef } from "@vibe/shared";
-import { type VibeComponentProps } from "../../../types";
 import styles from "./Accordion.module.scss";
+import { type VibeComponentProps } from "../../../types";
 import { ComponentVibeId } from "../../../tests/constants";
 
 const COMPONENT_ID = "monday-accordion";
