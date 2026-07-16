@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.6](https://github.com/mondaycom/vibe/compare/@vibe/tooltip@4.0.5...@vibe/tooltip@4.0.6) (2026-07-12)
+
+
+### Bug Fixes
+
+* **Tooltip:** skip Dialog render when content is falsy ([#3416](https://github.com/mondaycom/vibe/issues/3416)) ([23c0588](https://github.com/mondaycom/vibe/commit/23c0588eaa6c7f5a4ad8151f82dd423d627e3810))
+
+
+
+
+
+## [4.0.5](https://github.com/mondaycom/vibe/compare/@vibe/tooltip@4.0.4...@vibe/tooltip@4.0.5) (2026-07-06)
+
+**Note:** Version bump only for package @vibe/tooltip
+
+
+
+
+
 ## [4.0.4](https://github.com/mondaycom/vibe/compare/@vibe/tooltip@4.0.3...@vibe/tooltip@4.0.4) (2026-06-03)
 
 **Note:** Version bump only for package @vibe/tooltip

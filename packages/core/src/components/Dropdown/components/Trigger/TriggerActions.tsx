@@ -29,11 +29,18 @@ const TriggerActions = () => {
     getMenuProps,
     loading,
     clearAriaLabel,
-    boxMode
+    boxMode,
+    label,
+    getLabelProps,
+    "aria-label": ariaLabel,
+    inputAriaLabel
   } = useDropdownContext<BaseItemData>();
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
   const iconButtonSize = sizeMap[size] || "small";
+
+  const chevronLabelledBy = label ? getLabelProps().id : undefined;
+  const chevronAriaLabel = label ? undefined : ariaLabel || inputAriaLabel;
 
   const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -75,7 +82,10 @@ const TriggerActions = () => {
             disabled={disabled}
             aria-controls={getMenuProps().id}
             aria-expanded={isOpen}
-            aria-labelledby={getMenuProps().id}
+            aria-labelledby={chevronLabelledBy}
+            aria-label={chevronAriaLabel}
+            // The accessible name is for assistive tech only — don't surface it as a hover tooltip.
+            hideTooltip
             tabIndex={-1}
             onClick={() => {
               toggleMenu();

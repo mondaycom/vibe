@@ -1,6 +1,6 @@
 {
   "name": "@vibe/layout",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for layout components",
   "repository": {
     "type": "git",

@@ -29,6 +29,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     isFocused,
     isOpen,
     helperText,
+    helperTextId,
     dir,
     tooltipProps,
     boxMode,
@@ -66,7 +67,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
         {coreDropdownElement}
       </Tooltip>
       {helperText && (
-        <Text color={error ? "negative" : "secondary"} className={styles.helperText}>
+        <Text id={helperTextId} color={error ? "negative" : "secondary"} className={styles.helperText}>
           {helperText}
         </Text>
       )}

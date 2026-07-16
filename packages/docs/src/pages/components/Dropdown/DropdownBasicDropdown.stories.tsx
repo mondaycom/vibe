@@ -200,6 +200,8 @@ export const MultiSelect: Story = {
           <Text>Single line with hidden options</Text>
           <div style={{ width: "350px", marginBottom: "50px" }}>
             <Dropdown
+              id="multi-select-single-line"
+              aria-label="Multi select single line"
               placeholder="Single line multi state"
               defaultValue={[options[0], options[1], options[2]]}
               options={options}
@@ -212,6 +214,8 @@ export const MultiSelect: Story = {
           <Text>Multiple lines</Text>
           <div style={{ width: "350px", marginBottom: "50px" }}>
             <Dropdown
+              id="multi-select-multiline"
+              aria-label="Multi select multiple lines"
               placeholder="Multiple line multi state"
               defaultValue={[options[0], options[1], options[2]]}
               options={options}
@@ -284,19 +288,45 @@ export const DropdownWithIconOrAvatar: Story = {
         <Flex direction="column" gap="medium">
           <Text>Single value</Text>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={optionsIcons[0]} options={optionsIcons} clearAriaLabel="Clear" />
+            <Dropdown
+              id="icon-single"
+              aria-label="Icon options"
+              defaultValue={optionsIcons[0]}
+              options={optionsIcons}
+              clearAriaLabel="Clear"
+            />
           </div>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={optionsAvatar[0]} options={optionsAvatar} clearAriaLabel="Clear" />
+            <Dropdown
+              id="avatar-single"
+              aria-label="Avatar options"
+              defaultValue={optionsAvatar[0]}
+              options={optionsAvatar}
+              clearAriaLabel="Clear"
+            />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Multiple values</Text>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={[optionsIcons[0]]} options={optionsIcons} multi clearAriaLabel="Clear" />
+            <Dropdown
+              id="icon-multi"
+              aria-label="Icon options multi"
+              defaultValue={[optionsIcons[0]]}
+              options={optionsIcons}
+              multi
+              clearAriaLabel="Clear"
+            />
           </div>
           <div style={{ width: "350px", marginBottom: "10px" }}>
-            <Dropdown defaultValue={[optionsAvatar[0]]} options={optionsAvatar} multi clearAriaLabel="Clear" />
+            <Dropdown
+              id="avatar-multi"
+              aria-label="Avatar options multi"
+              defaultValue={[optionsAvatar[0]]}
+              options={optionsAvatar}
+              multi
+              clearAriaLabel="Clear"
+            />
           </div>
         </Flex>
       </Flex>
@@ -325,6 +355,8 @@ export const Searchable: Story = {
     return (
       <div style={{ width: "300px" }}>
         <Dropdown
+          id="searchable-basic"
+          aria-label="Searchable"
           placeholder={"Search an item"}
           options={options}
           searchable
@@ -385,6 +417,8 @@ export const DropdownWithGroups: Story = {
           <Text>Group by divider</Text>
           <div style={{ width: "300px" }}>
             <Dropdown
+              id="groups-divider"
+              aria-label="Group by divider"
               placeholder="Group by divider"
               options={optionsWithoutGroupLabel}
               withGroupDivider
@@ -396,13 +430,22 @@ export const DropdownWithGroups: Story = {
         <Flex direction="column" gap="medium">
           <Text>Group by category</Text>
           <div style={{ width: "300px" }}>
-            <Dropdown placeholder="Group by category" options={options} maxMenuHeight={170} clearAriaLabel="Clear" />
+            <Dropdown
+              id="groups-category"
+              aria-label="Group by category"
+              placeholder="Group by category"
+              options={options}
+              maxMenuHeight={170}
+              clearAriaLabel="Clear"
+            />
           </div>
         </Flex>
         <Flex direction="column" gap="medium">
           <Text>Group by category title sticky</Text>
           <div style={{ width: "300px" }}>
             <Dropdown
+              id="groups-sticky"
+              aria-label="Group by category title sticky"
               placeholder="Group by category title sticky"
               options={options}
               stickyGroupTitle
@@ -473,6 +516,7 @@ export const DropdownItemWithElements: Story = {
       <Flex gap="large">
         <div style={{ width: "300px" }}>
           <Dropdown
+            id="item-start-element"
             placeholder={"Start element"}
             options={startOptions}
             label="Start element"
@@ -482,6 +526,7 @@ export const DropdownItemWithElements: Story = {
         </div>
         <div style={{ width: "300px" }}>
           <Dropdown
+            id="item-end-element"
             placeholder={"End element"}
             options={endOptions}
             label="End element"
@@ -511,6 +556,7 @@ export const DropdownHideSelectedItems: Story = {
     return (
       <div style={{ width: "300px" }}>
         <Dropdown
+          id="hide-selected-items"
           placeholder={"Placeholder text here"}
           options={options}
           defaultValue={[options[0], options[2], options[3]]}
@@ -553,7 +599,13 @@ export const DropdownWithTooltips: Story = {
 
     return (
       <div style={{ width: "300px" }}>
-        <Dropdown placeholder={"Placeholder text here"} options={optionsWithTooltips} clearAriaLabel="Clear" />
+        <Dropdown
+          id="with-tooltips"
+          aria-label="With tooltips"
+          placeholder={"Placeholder text here"}
+          options={optionsWithTooltips}
+          clearAriaLabel="Clear"
+        />
       </div>
     );
   }
@@ -634,6 +686,7 @@ export const DropdownWithVirtualization: Story = {
       <Flex gap="large" align="start">
         <div style={{ width: "350px" }}>
           <Dropdown
+            id="virtualized"
             placeholder="Search"
             options={options}
             label="Virtualized"
@@ -645,6 +698,7 @@ export const DropdownWithVirtualization: Story = {
         </div>
         <div style={{ width: "350px" }}>
           <Dropdown
+            id="grouped-virtualized"
             placeholder="Search"
             options={groupedOptions}
             label="Grouped Virtualized"

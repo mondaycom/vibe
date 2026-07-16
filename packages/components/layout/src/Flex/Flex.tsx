@@ -63,6 +63,10 @@ export interface FlexProps extends VibeComponentProps {
    * ID of the element describing the flex container.
    */
   "aria-labelledby"?: string;
+  /**
+   * The ARIA role of the flex container.
+   */
+  role?: React.AriaRole;
 }
 
 const Flex = forwardRef(
@@ -83,6 +87,7 @@ const Flex = forwardRef(
       style,
       "aria-labelledby": ariaLabelledby,
       "aria-label": ariaLabel,
+      role,
       tabIndex,
       "data-testid": dataTestId
     }: FlexProps,
@@ -153,6 +158,7 @@ const Flex = forwardRef(
         onMouseDown={onMouseDown}
         style={overrideStyle}
         aria-label={ariaLabel}
+        role={role}
       >
         {children}
       </Element>

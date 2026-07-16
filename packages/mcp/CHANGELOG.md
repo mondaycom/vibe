@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.1.0...@vibe/mcp@4.1.1) (2026-07-07)
+
+
+### Bug Fixes
+
+* **mcp:** fetch component examples and accessibility from unpkg ([#3415](https://github.com/mondaycom/vibe/issues/3415)) ([a65dadf](https://github.com/mondaycom/vibe/commit/a65dadf804d077d4a2c2eee192e102d551d67516))
+
+
+
+
+
 # [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.3...@vibe/mcp@4.1.0) (2026-06-09)
 
 

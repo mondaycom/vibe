@@ -27,6 +27,25 @@
     margin: 0;
   }
 
+  &.small {
+    height: 20px;
+    padding: 0 4px;
+
+    .icon,
+    .avatar,
+    .customRenderer {
+      &.left {
+        margin-inline-end: var(--space-2);
+      }
+      &.right {
+        margin-inline-start: var(--space-2);
+      }
+      &.close {
+        margin-inline-start: var(--space-2);
+      }
+    }
+  }
+
   .label {
     @include ellipsis();
   }

@@ -20,7 +20,8 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
   onOptionSelect?: (option: T) => void,
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean,
-  id?: string
+  id?: string,
+  onOptionRemove?: (option: T) => void
 ) {
   // Use controlled value if provided, otherwise use internal state
   const currentSelectedItems = value !== undefined ? value : selectedItems;
@@ -40,6 +41,17 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
         setSelectedItems(selectedItems || []);
       }
       onChange?.(selectedItems || []);
+    },
+    onStateChange: ({ type, selectedItems: newSelectedItems }) => {
+      // Notify onOptionRemove for keyboard-driven chip deletion (× button uses contextOnOptionRemove).
+      if (
+        (type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownBackspace ||
+          type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete) &&
+        newSelectedItems
+      ) {
+        const removedItem = currentSelectedItems.find(item => !newSelectedItems.some(si => si.value === item.value));
+        if (removedItem) onOptionRemove?.(removedItem);
+      }
     }
   });
 
@@ -55,7 +67,8 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     reset: downshiftReset,
     openMenu,
     toggleMenu,
-    closeMenu
+    closeMenu,
+    selectItem
   } = useCombobox<T>({
     items: flatOptions,
     itemToString: item => item?.label ?? "",
@@ -63,20 +76,30 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     isItemDisabled: item => Boolean(item.disabled),
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
-    initialInputValue: inputValueProp || "",
+    initialInputValue: inputValueProp ?? "",
     id,
     onIsOpenChange: ({ isOpen }) => {
+      // Reset the text filter on any open/close change so the full list is always ready.
+      filterOptions("");
       isOpen ? onMenuClose?.() : onMenuOpen?.();
     },
-    onInputValueChange: ({ inputValue }) => {
-      filterOptions(inputValue || "");
-      onInputChange?.(inputValue);
-    },
+    onInputValueChange: useCallback(
+      ({ inputValue, type }) => {
+        // Only filter on actual user typing. Downshift also writes values into the input on
+        // open/close/selection — those changes must not filter the list.
+        if (type === useCombobox.stateChangeTypes.InputChange) {
+          filterOptions(inputValue || "");
+        }
+        onInputChange?.(inputValue);
+      },
+      [onInputChange, filterOptions]
+    ),
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (!newSelectedItem) return;
       const existingItem = currentSelectedItems.find(item => item.value === newSelectedItem.value);
       if (existingItem) {
         removeSelectedItem(existingItem);
+        onOptionRemove?.(existingItem);
       } else {
         addSelectedItem(newSelectedItem);
       }
@@ -84,20 +107,29 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       filterOptions("");
     },
     stateReducer: (state, actionAndChanges) => {
-      switch (actionAndChanges.type) {
+      const { type, changes } = actionAndChanges;
+
+      switch (type) {
+        // FunctionSelectItem (Space toggling the highlighted option, see getInputProps below) is
+        // handled the same as Enter/click selection.
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
+        case useCombobox.stateChangeTypes.FunctionSelectItem:
+          // Keep the menu open and clear the input to restore the placeholder.
           return {
-            ...actionAndChanges.changes,
+            ...changes,
             inputValue: null,
             isOpen: true,
-            highlightedIndex: (actionAndChanges.changes.selectedItem?.index as number) ?? 0
+            highlightedIndex: (changes.selectedItem?.index as number) ?? 0
           };
         case useCombobox.stateChangeTypes.InputBlur:
         case useCombobox.stateChangeTypes.ControlledPropUpdatedSelectedItem:
-          return { ...actionAndChanges.changes, inputValue: null };
+          return { ...changes, inputValue: null };
         default:
-          return actionAndChanges.changes;
+          if (!changes.isOpen && state.isOpen) {
+            return { ...changes, inputValue: null };
+          }
+          return changes;
       }
     }
   });
@@ -121,7 +153,23 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
-    getInputProps,
+    getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
+      getInputProps({
+        ...options,
+        onKeyDown: event => {
+          options?.onKeyDown?.(event);
+          // Space toggles the highlighted option instead of typing a literal space. It only applies
+          // when the user has arrowed to an option (highlightedIndex set, i.e. aria-activedescendant
+          // is set); while typing/filtering there is no highlight, so Space types normally.
+          if (event.key === " " && !event.defaultPrevented && isOpen && highlightedIndex >= 0) {
+            const item = flatOptions[highlightedIndex];
+            if (item && !item.disabled) {
+              event.preventDefault();
+              selectItem(item);
+            }
+          }
+        }
+      }),
     getItemProps,
     reset,
     removeSelectedItem,
