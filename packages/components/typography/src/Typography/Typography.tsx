@@ -84,23 +84,25 @@ const Typography = forwardRef(
 
     const overrideAlign = align === "inherit" ? "alignInherit" : align;
 
-    return (
-      <Tooltip {...overrideTooltipProps}>
-        {React.createElement(
-          element,
-          {
-            id,
-            style: ellipsisStyle,
-            "data-testid": dataTestId,
-            className: cx(styles.typography, styles[color], styles[overrideAlign], ellipsisClass, className),
-            ref: mergedRef,
-            role,
-            ...htmlAttributes
-          },
-          children
-        )}
-      </Tooltip>
+    const baseElement = React.createElement(
+      element,
+      {
+        id,
+        style: ellipsisStyle,
+        "data-testid": dataTestId,
+        className: cx(styles.typography, styles[color], styles[overrideAlign], ellipsisClass, className),
+        ref: mergedRef,
+        role,
+        ...htmlAttributes
+      },
+      children
     );
+
+    if (!overrideTooltipProps.content) {
+      return baseElement;
+    }
+
+    return <Tooltip {...overrideTooltipProps}>{baseElement}</Tooltip>;
   }
 );
 
