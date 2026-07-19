@@ -416,9 +416,7 @@ function mergeResults(aggregator: AggregatorRecord[], docgen: DocgenResult[]): F
         }
       }
 
-      // Determine correct import path: if file is from packages/components/{pkg}/, use @vibe/{pkg}
-      const pkgMatch = agg.filePath.match(/\/components\/([^/]+)\/src\//);
-      const importPath = pkgMatch ? `@vibe/${pkgMatch[1]}` : `@vibe/core${agg.aggregator === "next" ? "/next" : ""}`;
+      const importPath = `@vibe/core${agg.aggregator === "next" ? "/next" : ""}`;
 
       return {
         filePath: toRelativePath(agg.filePath),
