@@ -195,7 +195,10 @@ describe("Dialog tests", () => {
       const input = within(container).getByPlaceholderText("Focus Me");
       act(() => {
         input.focus();
-        input.blur();
+        vi.runAllTimers();
+      });
+      userEvent.tab();
+      act(() => {
         vi.runAllTimers();
       });
 
