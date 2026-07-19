@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.88.6](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.5...@vibe/core@3.88.6) (2026-07-19)
+
+
+### Bug Fixes
+
+* **mcp:** always use @vibe/core as import path in metadata ([#3436](https://github.com/mondaycom/vibe/issues/3436)) ([8764b80](https://github.com/mondaycom/vibe/commit/8764b806284e6bb24d93b48d56a7ad04fe9254fa))
+
+
+
+
+
 ## [3.88.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.4...@vibe/core@3.88.5) (2026-07-13)
 
 **Note:** Version bump only for package @vibe/core
