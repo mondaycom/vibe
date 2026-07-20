@@ -1,7 +1,14 @@
-import React, { useCallback, useRef } from "react";
+import type React from "react";
+import { useCallback, useRef } from "react";
 import { useEventListener } from "./useEventListener";
 import { useKeyEvent } from "./useKeyEvent";
-import { ARROW_DOWN_KEYS, ARROW_LEFT_KEYS, ARROW_RIGHT_KEYS, ARROW_UP_KEYS, NavDirections } from "../constants/navDirections";
+import {
+  ARROW_DOWN_KEYS,
+  ARROW_LEFT_KEYS,
+  ARROW_RIGHT_KEYS,
+  ARROW_UP_KEYS,
+  NavDirections
+} from "../constants/navDirections";
 
 const NAVIGATION_KEYS = [...ARROW_UP_KEYS, ...ARROW_RIGHT_KEYS, ...ARROW_DOWN_KEYS, ...ARROW_LEFT_KEYS];
 
