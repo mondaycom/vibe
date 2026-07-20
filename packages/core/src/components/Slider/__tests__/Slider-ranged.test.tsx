@@ -85,32 +85,54 @@ describe("b. Ranges Slider Active/Inactive", () => {
 describe("c. Ranges Slider Key Events", () => {
   it("01. decrease value by Left/Down keys press", () => {
     const { asFragment, elThumbStart } = renderSliderInRangeMode({ showValue: true });
-    act(() => { elThumbStart.focus(); });
-    act(() => { userEvent.keyboard("{arrowleft}"); });
-    act(() => { userEvent.keyboard("{arrowdown}"); });
+    act(() => {
+      elThumbStart.focus();
+    });
+    act(() => {
+      userEvent.keyboard("{arrowleft}");
+    });
+    act(() => {
+      userEvent.keyboard("{arrowdown}");
+    });
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it("02. increase value by Right/Up keys press", () => {
     const { asFragment, elThumbEnd } = renderSliderInRangeMode({ showValue: true });
-    act(() => { elThumbEnd.focus(); });
-    act(() => { userEvent.keyboard("{arrowright}"); });
-    act(() => { userEvent.keyboard("{arrowup}"); });
+    act(() => {
+      elThumbEnd.focus();
+    });
+    act(() => {
+      userEvent.keyboard("{arrowright}");
+    });
+    act(() => {
+      userEvent.keyboard("{arrowup}");
+    });
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it("03. decrease value (step 10%) by PageDown key press", () => {
     const { asFragment, elThumbEnd } = renderSliderInRangeMode({ showValue: true });
-    act(() => { elThumbEnd.focus(); });
-    act(() => { userEvent.keyboard("{pagedown}"); });
+    act(() => {
+      elThumbEnd.focus();
+    });
+    act(() => {
+      userEvent.keyboard("{pagedown}");
+    });
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it("04. increase value (step 10%) by PageUp key pres", () => {
     const { asFragment, elThumbStart } = renderSliderInRangeMode({ showValue: true });
-    act(() => { elThumbStart.focus(); });
-    act(() => { userEvent.keyboard("{pageup}"); });
-    act(() => { userEvent.keyboard("{pageup}"); });
+    act(() => {
+      elThumbStart.focus();
+    });
+    act(() => {
+      userEvent.keyboard("{pageup}");
+    });
+    act(() => {
+      userEvent.keyboard("{pageup}");
+    });
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -120,9 +142,15 @@ describe("c. Ranges Slider Key Events", () => {
       showValue: true,
       step: 10
     });
-    act(() => { elThumbStart.focus(); });
-    act(() => { userEvent.keyboard("{arrowright}"); });
-    act(() => { userEvent.keyboard("{arrowright}"); });
+    act(() => {
+      elThumbStart.focus();
+    });
+    act(() => {
+      userEvent.keyboard("{arrowright}");
+    });
+    act(() => {
+      userEvent.keyboard("{arrowright}");
+    });
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });
