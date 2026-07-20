@@ -131,7 +131,6 @@ export default {
     }),
     typescript({
       tsconfigOverride: {
-        compilerOptions: { preserveSymlinks: true },
         exclude: ["**/__tests__", "**/__stories__", path.join(SRC_PATH, "storybook")]
       }
     }),
