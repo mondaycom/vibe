@@ -6,7 +6,7 @@ import styles from "./TextArea.module.scss";
 import { type TextAreaProps, type TextAreaSize } from "./TextArea.types";
 import { Text } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
-import { HiddenText } from "../HiddenText";
+import { HiddenText } from "@vibe/a11y";
 
 const DEFAULT_ROWS: Record<TextAreaSize, number> = {
   small: 3,

@@ -15,7 +15,7 @@ import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { type VibeComponentProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "@vibe/tooltip";
-import { HiddenText } from "../HiddenText";
+import { HiddenText } from "@vibe/a11y";
 
 export interface TextFieldProps extends VibeComponentProps {
   /**
