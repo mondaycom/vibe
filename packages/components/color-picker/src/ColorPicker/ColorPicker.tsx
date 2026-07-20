@@ -1,7 +1,15 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { type BaseSizes } from "../../constants";
-import { useMergeRef, NOOP } from "@vibe/shared";
+import {
+  useMergeRef,
+  NOOP,
+  type BaseSizes,
+  type VibeComponentProps,
+  type ColorStyle,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId
+} from "@vibe/shared";
 import { DialogContentContainer } from "@vibe/dialog";
 import { NoColor } from "@vibe/icons";
 import ColorPickerContent from "./components/ColorPickerContent/ColorPickerContent";
@@ -13,13 +21,8 @@ import {
   type ColorPickerArrayValueOnly
 } from "./ColorPicker.types";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
-
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ColorPicker.module.scss";
-import { type ColorStyle } from "../../types/Colors";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface ColorPickerProps extends VibeComponentProps {
   /**
