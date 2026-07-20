@@ -1,6 +1,6 @@
 import type React from "react";
 import { describe, it, expect } from "vitest";
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react";
 import { useAdjacentSelectableMenuIndex } from "../useAdjacentSelectableMenuIndex";
 
 describe("useAdjacentSelectableMenuIndex", () => {

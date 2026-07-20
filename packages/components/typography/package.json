@@ -45,11 +45,11 @@
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^14.0.0",
     "@vibe/config": "4.0.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-test-renderer": "16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "typescript": "^5.9.3",
     "vitest": "^1.6.0"
   },

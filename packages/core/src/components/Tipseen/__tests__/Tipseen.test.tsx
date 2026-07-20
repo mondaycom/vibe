@@ -1,7 +1,6 @@
 import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
 import React from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { fireEvent, render, waitFor, act } from "@testing-library/react";
 import TipseenContent from "../TipseenContent";
 import Tipseen from "../Tipseen";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
@@ -59,14 +58,14 @@ describe("Snapshot tests", () => {
       );
       expect(asFragment()).toMatchSnapshot();
     });
-    it("renders correctly with dark close button theme", async () => {
+    it("renders correctly with dark close button theme", () => {
       const { asFragment } = render(
         <Tipseen content="content" showDelay={0} closeButtonTheme="dark">
           {tipseenMockChildren}
         </Tipseen>
       );
-      await waitFor(() => {
-        expect(asFragment()).toBeTruthy();
+      act(() => {
+        vi.runAllTimers();
       });
       expect(asFragment()).toMatchSnapshot();
     });

@@ -1,7 +1,6 @@
 import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
-import { render, fireEvent, screen, cleanup } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { render, fireEvent, screen, cleanup, act } from "@testing-library/react";
 import Tab, { type TabProps } from "../Tab";
 
 vi.useFakeTimers();
@@ -39,14 +38,14 @@ describe("Tab tests", () => {
       const component = screen.getByText(text);
       act(() => {
         fireEvent.mouseEnter(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
       const content = screen.getByText(tooltipContent);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
     });
   });
 

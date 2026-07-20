@@ -1,6 +1,6 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render, screen, waitFor, cleanup } from "@testing-library/react";
+import { act, fireEvent, render, screen, cleanup } from "@testing-library/react";
 import Combobox from "../Combobox";
 
 function clickValueCheckCallback(getByLabelText, onClickMock, labelText, value, numberOfCall = 1) {
@@ -50,23 +50,27 @@ describe("Combobox tests", () => {
       expect(onMouseLeaveMock.mock.calls.length).toBe(1);
     });
 
-    it("should call callback func when noResultsRenderer", async () => {
+    it("should call callback func when noResultsRenderer", () => {
       const noResRendereMock = vi.fn();
       const { getByLabelText } = render(<Combobox noResultsRenderer={noResRendereMock} options={mockOptions} />);
       const input = getByLabelText("Search for content");
       expect(noResRendereMock.mock.calls.length).toBe(0);
       fireEvent.change(input, { target: { value: "No text in option" } });
-      vi.runAllTimers();
-      await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1));
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(noResRendereMock.mock.calls.length).toBe(1);
     });
 
-    it("should display no results message", async () => {
+    it("should display no results message", () => {
       const noRes = "NO MESSAGE";
       const { getByLabelText } = render(<Combobox options={mockOptions} noResultsMessage={noRes} />);
       const input = getByLabelText("Search for content");
       fireEvent.change(input, { target: { value: "No text in option" } });
-      vi.runAllTimers();
-      await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(screen.getByText(noRes)).toBeInstanceOf(Node);
     });
 
     it("should support default filter", async () => {
@@ -82,18 +86,18 @@ describe("Combobox tests", () => {
       expect(orangeOption).toBeTruthy();
     });
 
-    it("should call onAddNew func when add new", async () => {
+    it("should call onAddNew func when add new", () => {
       const onAddMock = vi.fn();
 
       const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
       const input = getByLabelText("Search for content");
       fireEvent.change(input, { target: { value: "No text in option" } });
-      vi.runAllTimers();
-
-      await waitFor(() => {
-        fireEvent.click(screen.getByText("Add new"));
-        expect(onAddMock.mock.calls.length).toBe(1);
+      act(() => {
+        vi.runAllTimers();
       });
+
+      fireEvent.click(screen.getByText("Add new"));
+      expect(onAddMock.mock.calls.length).toBe(1);
     });
 
     it("should not call onClick for disabled option", () => {

@@ -23,7 +23,6 @@ exports[`RadioButton renders correctly > when autoFocus 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -49,7 +48,6 @@ exports[`RadioButton renders correctly > when checked 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -75,7 +73,6 @@ exports[`RadioButton renders correctly > when default checked 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -101,7 +98,6 @@ exports[`RadioButton renders correctly > when disabled 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -127,7 +123,6 @@ exports[`RadioButton renders correctly > when unchecked 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -153,7 +148,6 @@ exports[`RadioButton renders correctly > with className 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -179,7 +173,6 @@ exports[`RadioButton renders correctly > with empty props 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -205,7 +198,6 @@ exports[`RadioButton renders correctly > with name 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;
 
@@ -262,6 +254,5 @@ exports[`RadioButton renders correctly > with value 1`] = `
       data-testid="radio-button-control"
     />
   </span>
-  
 </label>
 `;

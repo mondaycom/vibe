@@ -1,5 +1,5 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
-import { cleanup, renderHook } from "@testing-library/react-hooks";
+import { cleanup, renderHook } from "@testing-library/react";
 import { useFocusGridItemByActiveStatus } from "../useFocusGridItemByActiveStatus";
 
 import * as useLastNavigationDirectionModule from "../../Menu/hooks/useLastNavigationDirection";

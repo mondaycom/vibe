@@ -197,9 +197,7 @@ exports[`Label renders correctly > line > with className 1`] = `
     <span
       className="typography inherit start singleLineEllipsis text text2Normal"
       data-testid="text"
-    >
-      
-    </span>
+    />
     <span
       className="legWrapper"
     />
@@ -279,9 +277,7 @@ exports[`Label renders correctly > with empty props 1`] = `
     <span
       className="typography inherit start singleLineEllipsis text text2Normal"
       data-testid="text"
-    >
-      
-    </span>
+    />
     <span
       className="legWrapper"
     />

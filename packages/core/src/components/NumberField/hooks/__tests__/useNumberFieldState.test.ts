@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import { vi, describe, it, expect } from "vitest";
 import useNumberFieldState, { type UseNumberFieldStateProps } from "../useNumberFieldState";
 

@@ -35,21 +35,21 @@ describe("IconButton tests", () => {
   });
 
   describe("Tooltips", () => {
-    it("should display the tooltip content", async () => {
+    it("should display the tooltip content", () => {
       const tooltipContent = "My Text";
 
       renderComponent({ tooltipContent });
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
       const content = screen.getByText(tooltipContent);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
     });
 
     it("should display the tooltip with aria label", () => {
@@ -57,14 +57,14 @@ describe("IconButton tests", () => {
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
       const content = screen.getByText(ariaLabel);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
     });
 
     it("should display not disabledReason if disabled is false", () => {
@@ -74,14 +74,14 @@ describe("IconButton tests", () => {
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
       const content = screen.queryByText(disabledReason);
       expect(content).toBeFalsy();
       act(() => {
         fireEvent.mouseLeave(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
     });
 
     it("should display disabledReason if disabled is true", () => {
@@ -91,14 +91,14 @@ describe("IconButton tests", () => {
       const component = screen.getByLabelText(ariaLabel);
       act(() => {
         fireEvent.mouseEnter(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
       const content = screen.queryByText(disabledReason);
       expect(content).toBeTruthy();
       act(() => {
         fireEvent.mouseLeave(component);
+        vi.advanceTimersByTime(1000);
       });
-      vi.advanceTimersByTime(1000);
     });
   });
 

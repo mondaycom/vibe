@@ -54,7 +54,6 @@ exports[`Combobox renders correctly > when disabled 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -114,7 +113,6 @@ exports[`Combobox renders correctly > with another noResultsMessage 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -174,7 +172,6 @@ exports[`Combobox renders correctly > with autoFocus 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -234,7 +231,6 @@ exports[`Combobox renders correctly > with className 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -294,7 +290,6 @@ exports[`Combobox renders correctly > with custom search icon 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -355,7 +350,6 @@ exports[`Combobox renders correctly > with divider 1`] = `
         type="search"
         value=""
       />
-      
     </div>
     <div
       className="scrollableContainer optionsContainer"
@@ -520,7 +514,6 @@ exports[`Combobox renders correctly > with divider and colored categories 1`] = 
         type="search"
         value=""
       />
-      
     </div>
     <div
       className="scrollableContainer optionsContainer"
@@ -694,7 +687,6 @@ exports[`Combobox renders correctly > with empty props 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -754,7 +746,6 @@ exports[`Combobox renders correctly > with id 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -842,7 +833,6 @@ exports[`Combobox renders correctly > with loading 1`] = `
           />
         </svg>
       </div>
-      
     </div>
   </div>
 </div>
@@ -902,7 +892,6 @@ exports[`Combobox renders correctly > with optionClassName 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -962,7 +951,6 @@ exports[`Combobox renders correctly > with optionLineHeight 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -1023,7 +1011,6 @@ exports[`Combobox renders correctly > with optionRenderer 1`] = `
         type="search"
         value=""
       />
-      
     </div>
     <div
       className="scrollableContainer optionsContainer"
@@ -1141,7 +1128,6 @@ exports[`Combobox renders correctly > with optionsListHeight 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -1201,7 +1187,6 @@ exports[`Combobox renders correctly > with placeholder 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>
@@ -1261,7 +1246,6 @@ exports[`Combobox renders correctly > with size 1`] = `
         type="search"
         value=""
       />
-      
     </div>
   </div>
 </div>

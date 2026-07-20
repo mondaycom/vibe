@@ -1,7 +1,7 @@
 import { vi, describe, it, expect, beforeEach, afterEach } from "vitest";
 import React from "react";
 import userEvent from "@testing-library/user-event";
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { render, screen, within, act } from "@testing-library/react";
 import Dialog, { type DialogProps } from "../Dialog";
 
 function renderVisibleDialogOnMount(dialogProps: DialogProps) {
@@ -30,26 +30,31 @@ describe("Dialog tests", () => {
       expect(onClickOutsideMock).toBeCalled();
     });
 
-    it("should not call onClickOutside callback when clicking inside the dialog", async () => {
+    it("should not call onClickOutside callback when clicking inside the dialog", () => {
       const onClickOutsideMock = vi.fn();
       renderVisibleDialogOnMount({ onClickOutside: onClickOutsideMock, content: <div>Dialog</div> });
-      const dialog = await screen.findByText("Dialog");
+      act(() => {
+        vi.runAllTimers();
+      });
+      const dialog = screen.getByText("Dialog");
       userEvent.click(dialog);
       expect(onClickOutsideMock).not.toBeCalled();
     });
 
-    it("should call onDialogDidShow callback when dialog is shown", async () => {
+    it("should call onDialogDidShow callback when dialog is shown", () => {
       const onDialogDidShowMock = vi.fn();
       renderVisibleDialogOnMount({
         onDialogDidShow: onDialogDidShowMock,
         content: <div>Dialog</div>,
         shouldCallbackOnMount: true
       });
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
       expect(onDialogDidShowMock).toBeCalled();
     });
 
-    it("should call onDialogDidHide callback when dialog is hidden", async () => {
+    it("should call onDialogDidHide callback when dialog is hidden", () => {
       const onDialogDidHideMock = vi.fn();
       const { container } = render(
         <Dialog
@@ -62,25 +67,32 @@ describe("Dialog tests", () => {
           <button type="button">Toggle</button>
         </Dialog>
       );
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
       const button = within(container).getByText("Toggle");
-      await userEvent.click(button);
-      vi.runAllTimers();
-      await waitFor(() => expect(onDialogDidHideMock).toBeCalled());
+      userEvent.click(button);
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(onDialogDidHideMock).toBeCalled();
     });
 
-    it("should call onContentClick callback when clicking inside dialog", async () => {
+    it("should call onContentClick callback when clicking inside dialog", () => {
       const onContentClickMock = vi.fn();
       renderVisibleDialogOnMount({ onContentClick: onContentClickMock, content: <div>Dialog Content</div> });
-      const dialog = await screen.findByText("Dialog Content");
-      await userEvent.click(dialog);
+      act(() => {
+        vi.runAllTimers();
+      });
+      const dialog = screen.getByText("Dialog Content");
+      userEvent.click(dialog);
       expect(onContentClickMock).toBeCalled();
     });
   });
 
   describe("Show/Hide Triggers", () => {
-    it("should show dialog on click when showTrigger is click", async () => {
+    it("should show dialog on click when showTrigger is click", () => {
       const { container } = render(
         <Dialog showTrigger={["click"]} content={<div>Dialog Content</div>}>
           <button type="button">Click Me</button>
@@ -90,13 +102,15 @@ describe("Dialog tests", () => {
       expect(screen.queryByText("Dialog Content")).not.toBeInTheDocument();
 
       const button = within(container).getByText("Click Me");
-      await userEvent.click(button);
-      vi.runAllTimers();
+      userEvent.click(button);
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Dialog Content")).toBeInTheDocument());
+      expect(screen.getByText("Dialog Content")).toBeInTheDocument();
     });
 
-    it("should show dialog on mouseenter when showTrigger is mouseenter", async () => {
+    it("should show dialog on mouseenter when showTrigger is mouseenter", () => {
       const { container } = render(
         <Dialog showTrigger={["mouseenter"]} hideTrigger={["mouseleave"]} content={<div>Hover Content</div>}>
           <div>Hover Me</div>
@@ -106,13 +120,15 @@ describe("Dialog tests", () => {
       expect(screen.queryByText("Hover Content")).not.toBeInTheDocument();
 
       const trigger = within(container).getByText("Hover Me");
-      await userEvent.hover(trigger);
-      vi.runAllTimers();
+      userEvent.hover(trigger);
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Hover Content")).toBeInTheDocument());
+      expect(screen.getByText("Hover Content")).toBeInTheDocument();
     });
 
-    it("should show dialog on focus when showTrigger is focus", async () => {
+    it("should show dialog on focus when showTrigger is focus", () => {
       const { container } = render(
         <Dialog showTrigger={["focus"]} hideTrigger={["blur"]} content={<div>Focus Content</div>}>
           <input placeholder="Focus Me" />
@@ -122,13 +138,15 @@ describe("Dialog tests", () => {
       expect(screen.queryByText("Focus Content")).not.toBeInTheDocument();
 
       const input = within(container).getByPlaceholderText("Focus Me");
-      input.focus();
-      vi.runAllTimers();
+      act(() => {
+        input.focus();
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Focus Content")).toBeInTheDocument());
+      expect(screen.getByText("Focus Content")).toBeInTheDocument();
     });
 
-    it("should hide dialog on mouseleave when hideTrigger is mouseleave", async () => {
+    it("should hide dialog on mouseleave when hideTrigger is mouseleave", () => {
       const { container } = render(
         <Dialog
           shouldShowOnMount
@@ -139,18 +157,22 @@ describe("Dialog tests", () => {
           <div>Hover Me</div>
         </Dialog>
       );
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Hover Content")).toBeInTheDocument());
+      expect(screen.getByText("Hover Content")).toBeInTheDocument();
 
       const trigger = within(container).getByText("Hover Me");
-      await userEvent.unhover(trigger);
-      vi.runAllTimers();
+      userEvent.unhover(trigger);
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.queryByText("Hover Content")).not.toBeInTheDocument());
+      expect(screen.queryByText("Hover Content")).not.toBeInTheDocument();
     });
 
-    it("should hide dialog on blur when hideTrigger is blur", async () => {
+    it("should hide dialog on blur when hideTrigger is blur", () => {
       const onDialogDidHideMock = vi.fn();
       const { container } = render(
         <Dialog
@@ -165,36 +187,47 @@ describe("Dialog tests", () => {
         </Dialog>
       );
 
-      await waitFor(() => expect(screen.getByText("Focus Content")).toBeInTheDocument());
+      act(() => {
+        vi.runAllTimers();
+      });
+      expect(screen.getByText("Focus Content")).toBeInTheDocument();
 
       const input = within(container).getByPlaceholderText("Focus Me");
-      input.focus();
+      act(() => {
+        input.focus();
+        vi.runAllTimers();
+      });
+      userEvent.tab();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      // Trigger blur by focusing something else
-      await userEvent.tab();
-
-      await waitFor(() => expect(onDialogDidHideMock).toBeCalled());
+      expect(onDialogDidHideMock).toBeCalled();
     });
   });
 
   describe("Keyboard Interactions", () => {
-    it("should hide dialog on Escape key when hideTrigger includes esckey", async () => {
+    it("should hide dialog on Escape key when hideTrigger includes esckey", () => {
       render(
         <Dialog shouldShowOnMount showTrigger={["click"]} hideTrigger={["esckey"]} content={<div>Press Escape</div>}>
           <button type="button">Toggle</button>
         </Dialog>
       );
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Press Escape")).toBeInTheDocument());
+      expect(screen.getByText("Press Escape")).toBeInTheDocument();
 
-      await userEvent.keyboard("{Escape}");
-      vi.runAllTimers();
+      userEvent.keyboard("{Escape}");
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.queryByText("Press Escape")).not.toBeInTheDocument());
+      expect(screen.queryByText("Press Escape")).not.toBeInTheDocument();
     });
 
-    it("should trigger enter event on Enter key", async () => {
+    it("should trigger enter event on Enter key", () => {
       const onDialogDidHideMock = vi.fn();
       const { container } = render(
         <Dialog
@@ -207,21 +240,27 @@ describe("Dialog tests", () => {
           <button type="button">Toggle</button>
         </Dialog>
       );
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Press Enter")).toBeInTheDocument());
+      expect(screen.getByText("Press Enter")).toBeInTheDocument();
 
       const button = within(container).getByText("Toggle");
-      button.focus();
-      await userEvent.keyboard("{Enter}");
-      vi.runAllTimers();
+      act(() => {
+        button.focus();
+      });
+      userEvent.keyboard("{Enter}");
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(onDialogDidHideMock).toBeCalled());
+      expect(onDialogDidHideMock).toBeCalled();
     });
   });
 
   describe("Delay Behavior", () => {
-    it("should respect showDelay when showing dialog", async () => {
+    it("should respect showDelay when showing dialog", () => {
       const onDialogDidShowMock = vi.fn();
       const { container } = render(
         <Dialog
@@ -235,18 +274,18 @@ describe("Dialog tests", () => {
       );
 
       const button = within(container).getByText("Click");
-      await userEvent.click(button);
+      userEvent.click(button);
 
-      // Should not show immediately
       expect(onDialogDidShowMock).not.toBeCalled();
 
-      // Advance timers by 500ms
-      vi.advanceTimersByTime(500);
+      act(() => {
+        vi.advanceTimersByTime(500);
+      });
 
-      await waitFor(() => expect(onDialogDidShowMock).toBeCalled());
+      expect(onDialogDidShowMock).toBeCalled();
     });
 
-    it("should respect hideDelay when hiding dialog", async () => {
+    it("should respect hideDelay when hiding dialog", () => {
       const onDialogDidHideMock = vi.fn();
       const { container } = render(
         <Dialog
@@ -260,21 +299,23 @@ describe("Dialog tests", () => {
           <button type="button">Click</button>
         </Dialog>
       );
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
       const button = within(container).getByText("Click");
-      await userEvent.click(button);
+      userEvent.click(button);
 
-      // Should not hide immediately
       expect(onDialogDidHideMock).not.toBeCalled();
 
-      // Advance timers by 300ms
-      vi.advanceTimersByTime(300);
+      act(() => {
+        vi.advanceTimersByTime(300);
+      });
 
-      await waitFor(() => expect(onDialogDidHideMock).toBeCalled());
+      expect(onDialogDidHideMock).toBeCalled();
     });
 
-    it("should cancel show timeout when hiding is triggered", async () => {
+    it("should cancel show timeout when hiding is triggered", () => {
       const onDialogDidShowMock = vi.fn();
       const { container } = render(
         <Dialog
@@ -290,81 +331,102 @@ describe("Dialog tests", () => {
 
       const trigger = within(container).getByText("Hover Me");
 
-      // Start hovering
-      await userEvent.hover(trigger);
-      vi.advanceTimersByTime(200);
+      userEvent.hover(trigger);
+      act(() => {
+        vi.advanceTimersByTime(200);
+      });
 
-      // Stop hovering before showDelay completes
-      await userEvent.unhover(trigger);
-      vi.runAllTimers();
+      userEvent.unhover(trigger);
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      // Should not have shown
       expect(onDialogDidShowMock).not.toBeCalled();
     });
   });
 
   describe("Controlled Mode", () => {
-    it("should show dialog when open prop is true", async () => {
+    it("should show dialog when open prop is true", () => {
       render(
         <Dialog open={true} content={<div>Controlled Open</div>}>
           <button type="button">Reference</button>
         </Dialog>
       );
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Controlled Open")).toBeInTheDocument());
+      expect(screen.getByText("Controlled Open")).toBeInTheDocument();
     });
 
-    it("should hide dialog when open prop is false", async () => {
+    it("should hide dialog when open prop is false", () => {
       const { rerender } = render(
         <Dialog open={true} content={<div>Controlled</div>}>
           <button type="button">Reference</button>
         </Dialog>
       );
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Controlled")).toBeInTheDocument());
+      expect(screen.getByText("Controlled")).toBeInTheDocument();
 
       rerender(
         <Dialog open={false} content={<div>Controlled</div>}>
           <button type="button">Reference</button>
         </Dialog>
       );
+      act(() => {
+        vi.runAllTimers();
+      });
 
       expect(screen.queryByText("Controlled")).not.toBeInTheDocument();
     });
   });
 
   describe("Positioning", () => {
-    it("should render dialog with top position", async () => {
+    it("should render dialog with top position", () => {
       renderVisibleDialogOnMount({
         position: "top",
         content: <div data-testid="dialog-content">Top Dialog</div>
       });
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      const dialogContent = await screen.findByTestId("dialog-content");
-      expect(dialogContent).toBeInTheDocument();
+      expect(screen.getByTestId("dialog-content")).toBeInTheDocument();
     });
 
-    it("should render dialog with bottom position", async () => {
+    it("should render dialog with bottom position", () => {
       renderVisibleDialogOnMount({ position: "bottom", content: <div>Bottom Dialog</div> });
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Bottom Dialog")).toBeInTheDocument());
+      expect(screen.getByText("Bottom Dialog")).toBeInTheDocument();
     });
 
-    it("should render dialog with left position", async () => {
+    it("should render dialog with left position", () => {
       renderVisibleDialogOnMount({ position: "left", content: <div>Left Dialog</div> });
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Left Dialog")).toBeInTheDocument());
+      expect(screen.getByText("Left Dialog")).toBeInTheDocument();
     });
 
-    it("should render dialog with right position", async () => {
+    it("should render dialog with right position", () => {
       renderVisibleDialogOnMount({ position: "right", content: <div>Right Dialog</div> });
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Right Dialog")).toBeInTheDocument());
+      expect(screen.getByText("Right Dialog")).toBeInTheDocument();
     });
   });
 
   describe("Disable Prop", () => {
-    it("should not show dialog when disable is true", async () => {
+    it("should not show dialog when disable is true", () => {
       const { container } = render(
         <Dialog disable={true} showTrigger={["click"]} content={<div>Disabled Dialog</div>}>
           <button type="button">Click</button>
@@ -372,38 +434,46 @@ describe("Dialog tests", () => {
       );
 
       const button = within(container).getByText("Click");
-      await userEvent.click(button);
-      vi.runAllTimers();
+      userEvent.click(button);
+      act(() => {
+        vi.runAllTimers();
+      });
 
       expect(screen.queryByText("Disabled Dialog")).not.toBeInTheDocument();
     });
   });
 
   describe("Animation", () => {
-    it("should apply expand animation by default", async () => {
+    it("should apply expand animation by default", () => {
       renderVisibleDialogOnMount({ content: <div>Animated</div> });
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Animated")).toBeInTheDocument());
+      expect(screen.getByText("Animated")).toBeInTheDocument();
     });
 
-    it("should apply opacity-and-slide animation when specified", async () => {
+    it("should apply opacity-and-slide animation when specified", () => {
       renderVisibleDialogOnMount({ animationType: "opacity-and-slide", content: <div>Slide Animated</div> });
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("Slide Animated")).toBeInTheDocument());
+      expect(screen.getByText("Slide Animated")).toBeInTheDocument();
     });
 
-    it("should prevent animation on mount when preventAnimationOnMount is true", async () => {
+    it("should prevent animation on mount when preventAnimationOnMount is true", () => {
       renderVisibleDialogOnMount({ preventAnimationOnMount: true, content: <div>No Animation</div> });
-      vi.runAllTimers();
+      act(() => {
+        vi.runAllTimers();
+      });
 
-      await waitFor(() => expect(screen.getByText("No Animation")).toBeInTheDocument());
+      expect(screen.getByText("No Animation")).toBeInTheDocument();
     });
   });
 
   describe("Event Handler Chaining", () => {
-    it("should chain onClick handlers", async () => {
+    it("should chain onClick handlers", () => {
       const dialogOnClickMock = vi.fn();
       const childOnClickMock = vi.fn();
 
@@ -416,13 +486,13 @@ describe("Dialog tests", () => {
       );
 
       const button = within(container).getByText("Click Both");
-      await userEvent.click(button);
+      userEvent.click(button);
 
       expect(dialogOnClickMock).toBeCalled();
       expect(childOnClickMock).toBeCalled();
     });
 
-    it("should chain onMouseEnter handlers", async () => {
+    it("should chain onMouseEnter handlers", () => {
       const dialogOnMouseEnterMock = vi.fn();
       const childOnMouseEnterMock = vi.fn();
 
@@ -433,7 +503,7 @@ describe("Dialog tests", () => {
       );
 
       const trigger = within(container).getByText("Hover");
-      await userEvent.hover(trigger);
+      userEvent.hover(trigger);
 
       expect(dialogOnMouseEnterMock).toBeCalled();
       expect(childOnMouseEnterMock).toBeCalled();
@@ -441,7 +511,7 @@ describe("Dialog tests", () => {
   });
 
   describe("Instant Show and Hide", () => {
-    it("should show and hide instantly when instantShowAndHide is true", async () => {
+    it("should show and hide instantly when instantShowAndHide is true", () => {
       const onDialogDidShowMock = vi.fn();
       const onDialogDidHideMock = vi.fn();
 
@@ -460,12 +530,10 @@ describe("Dialog tests", () => {
 
       const button = within(container).getByText("Toggle");
 
-      // Show
-      await userEvent.click(button);
+      userEvent.click(button);
       expect(onDialogDidShowMock).toBeCalled();
 
-      // Hide
-      await userEvent.click(button);
+      userEvent.click(button);
       expect(onDialogDidHideMock).toBeCalled();
     });
   });

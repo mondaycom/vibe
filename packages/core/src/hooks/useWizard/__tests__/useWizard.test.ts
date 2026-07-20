@@ -1,5 +1,5 @@
 import { vi, describe, it, expect } from "vitest";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import useWizard from "../useWizard";
 
 describe("useWizard", () => {

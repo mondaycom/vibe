@@ -1,7 +1,6 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
@@ -31,7 +30,7 @@ describe("BreadcrumbMenu tests", () => {
     vi.clearAllMocks();
   });
 
-  it("should open menu when clicked", async () => {
+  it("should open menu when clicked", () => {
     const { getByRole, queryByText } = render(
       <BreadcrumbsBar type="navigation">
         <BreadcrumbMenu>
@@ -50,10 +49,8 @@ describe("BreadcrumbMenu tests", () => {
       vi.runAllTimers();
     });
 
-    await waitFor(() => {
-      expect(screen.getByText("Option 1")).toBeInTheDocument();
-      expect(screen.getByText("Option 2")).toBeInTheDocument();
-    });
+    expect(screen.getByText("Option 1")).toBeInTheDocument();
+    expect(screen.getByText("Option 2")).toBeInTheDocument();
   });
 
   it("should pass onClick handlers to MenuItem", () => {

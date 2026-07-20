@@ -1,8 +1,7 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { cleanup, fireEvent, render, act } from "@testing-library/react";
 import Menu from "../Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 import MenuTitle from "../../MenuTitle/MenuTitle";

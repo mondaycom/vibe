@@ -1,7 +1,6 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { fireEvent, render, act } from "@testing-library/react";
 import Steps, { type StepsProps } from "../Steps";
 import { NEXT_TEXT, BACK_TEXT, FINISH_TEXT } from "../StepsConstants";
 
