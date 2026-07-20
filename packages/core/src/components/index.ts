@@ -2,13 +2,7 @@ export * from "./Accordion";
 export * from "./AlertBanner";
 export * from "./AttentionBox";
 // TODO: export * after removing AvatarBadge/AvatarContent exports
-export {
-  Avatar,
-  type AvatarProps,
-  type AvatarBadgeProps,
-  type AvatarType,
-  type AvatarSize
-} from "@vibe/avatar";
+export { Avatar, type AvatarProps, type AvatarBadgeProps, type AvatarType, type AvatarSize } from "@vibe/avatar";
 export * from "./AvatarGroup";
 export * from "./Badge";
 export * from "./BreadcrumbsBar";
