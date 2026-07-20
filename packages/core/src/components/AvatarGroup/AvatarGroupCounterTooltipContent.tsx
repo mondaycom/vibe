@@ -1,11 +1,11 @@
 import React, { type ReactElement, type Ref, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { Flex, type FlexProps } from "@vibe/layout";
-import { type AvatarProps } from "../Avatar/Avatar";
+import { type AvatarProps } from "@vibe/avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
 import type VibeComponentProps from "../../types/VibeComponentProps";
-import { type AvatarType } from "../Avatar/Avatar.types";
+import { type AvatarType } from "@vibe/avatar";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 export interface AvatarGroupCounterTooltipContentProps extends VibeComponentProps {

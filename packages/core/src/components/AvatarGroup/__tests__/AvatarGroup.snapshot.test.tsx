@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import AvatarGroup from "../AvatarGroup";
-import Avatar from "../../Avatar/Avatar";
+import { Avatar } from "@vibe/avatar";
 
 // Component depends on Avatar, Counter and Tooltip components
 describe("AvatarGroup renders correctly", () => {
