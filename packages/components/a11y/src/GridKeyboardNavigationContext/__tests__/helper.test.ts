@@ -36,7 +36,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
 
     it("should ignore positions in unexpected object schema", () => {
       const input = [
-        { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // this is the only valid input
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { unexpectedKey1: ELEMENT2, unexpectedKey2: ELEMENT3 },
         { topElement: ELEMENT4 },
         { bottomElement: ELEMENT3 },
@@ -63,7 +63,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
       ];
       const expected = {
         [NavDirections.RIGHT]: new Map([
-          [ELEMENT2, ELEMENT4], // ELEMENT4 is to the right of ELEMENT2...
+          [ELEMENT2, ELEMENT4],
           [ELEMENT4, ELEMENT5]
         ]),
         [NavDirections.LEFT]: new Map([
@@ -88,9 +88,9 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should throw when a circular vertical positioning is added", () => {
       const input = [
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT1 }, // invalid
-        { leftElement: ELEMENT2, rightElement: ELEMENT4 }, // valid
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 } // valid
+        { topElement: ELEMENT2, bottomElement: ELEMENT1 },
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ];
 
       expect(() => getDirectionMaps(input)).toThrowError(
@@ -101,9 +101,9 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should throw when a circular horizontal positioning is added", () => {
       const input = [
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT2 }, // invalid
-        { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // valid
-        { topElement: ELEMENT2, bottomElement: ELEMENT5 } // valid
+        { leftElement: ELEMENT4, rightElement: ELEMENT2 },
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT5 }
       ];
 
       expect(() => getDirectionMaps(input)).toThrowError(
@@ -138,12 +138,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
         { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
-      const direction = NavDirections.RIGHT;
-      const expected = ELEMENT5;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
+      expect(getOutmostElementInDirection(directionMaps, NavDirections.RIGHT)).toEqual(ELEMENT5);
     });
 
     it("should return the left-most element when there are multiple horizontal connections", () => {
@@ -153,120 +148,39 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
         { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
-      const direction = NavDirections.LEFT;
-      const expected = ELEMENT2;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
+      expect(getOutmostElementInDirection(directionMaps, NavDirections.LEFT)).toEqual(ELEMENT2);
     });
 
-    it("should return the top-most element when there are multiple horizontal connections", () => {
-      const directionMaps = getDirectionMaps([
-        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
-        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
-      ]);
-      const direction = NavDirections.UP;
-      const expected = ELEMENT1;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
-    });
-
-    it("should return the bottom-most element when there are multiple horizontal connections", () => {
-      const directionMaps = getDirectionMaps([
-        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
-        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
-      ]);
-      const direction = NavDirections.DOWN;
-      const expected = ELEMENT3;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
-    });
-
-    it("should fallback to the left-most element when asking for the BOTTOM element, and there are no vertical relations", () => {
-      const directionMaps = getDirectionMaps([
-        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
-      ]);
-      const direction = NavDirections.DOWN;
-      const expected = ELEMENT2;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
-    });
-
-    it("should fallback to the left-most element when asking for the TOP element, and there are no vertical relations", () => {
-      const directionMaps = getDirectionMaps([
-        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
-      ]);
-      const direction = NavDirections.UP;
-      const expected = ELEMENT2;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
-    });
-
-    it("should fallback to the top-most element when asking for the LEFT element, and there are no horizontal relations", () => {
+    it("should return the top-most element", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 }
       ]);
-      const direction = NavDirections.LEFT;
-      const expected = ELEMENT1;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
+      expect(getOutmostElementInDirection(directionMaps, NavDirections.UP)).toEqual(ELEMENT1);
     });
 
-    it("should fallback to the top-most element when asking for the RIGHT element, and there are no horizontal relations", () => {
+    it("should return the bottom-most element", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 }
       ]);
-      const direction = NavDirections.RIGHT;
-      const expected = ELEMENT1;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
+      expect(getOutmostElementInDirection(directionMaps, NavDirections.DOWN)).toEqual(ELEMENT3);
     });
 
-    it("should skip the bottom-most element when asking for the bottom element, and the bottom-most element is not mounted", () => {
+    it("should skip unmounted bottom-most element", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: UNMOUNTED_ELEMENT_1 }
       ]);
-      const direction = NavDirections.DOWN;
-      const expected = ELEMENT2;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
+      expect(getOutmostElementInDirection(directionMaps, NavDirections.DOWN)).toEqual(ELEMENT2);
     });
 
-    it("should skip the two right-most elements when asking for the right element, and the two right-most elements are not mounted", () => {
+    it("should skip two unmounted right-most elements", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_2 },
         { leftElement: UNMOUNTED_ELEMENT_2, rightElement: UNMOUNTED_ELEMENT_1 }
       ]);
-      const direction = NavDirections.RIGHT;
-      const expected = ELEMENT1;
-
-      const result = getOutmostElementInDirection(directionMaps, direction);
-
-      expect(result).toEqual(expected);
+      expect(getOutmostElementInDirection(directionMaps, NavDirections.RIGHT)).toEqual(ELEMENT1);
     });
   });
 
@@ -277,59 +191,38 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const directionMap = directionMaps[NavDirections.RIGHT];
-
-      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1); // ELEMENT1 isn't mapped
-
-      expect(result).toBeNull();
+      expect(getNextElementToFocusInDirection(directionMap, ELEMENT1)).toBeNull();
     });
 
     it("return null if there's only one next ref, and it is currently null", () => {
       const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_1 }]);
-      const directionMap = directionMaps[NavDirections.RIGHT];
-
-      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
-
-      expect(result).toBeNull();
+      expect(getNextElementToFocusInDirection(directionMaps[NavDirections.RIGHT], ELEMENT1)).toBeNull();
     });
 
     it("return null if there's only one next ref, and it is disabled", () => {
       const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: DISABLED_ELEMENT }]);
-      const directionMap = directionMaps[NavDirections.RIGHT];
-
-      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
-
-      expect(result).toBeNull();
+      expect(getNextElementToFocusInDirection(directionMaps[NavDirections.RIGHT], ELEMENT1)).toBeNull();
     });
 
     it("return null if there's only one next ref, and it is disabled with data-disabled='true'", () => {
       const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: DISABLED_DATASET_ELEMENT }]);
-      const directionMap = directionMaps[NavDirections.RIGHT];
-
-      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
-
-      expect(result).toBeNull();
+      expect(getNextElementToFocusInDirection(directionMaps[NavDirections.RIGHT], ELEMENT1)).toBeNull();
     });
 
     it("return the next element ref even if it has data-disabled='false'", () => {
       const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: DATASET_NOT_DISABLED_ELEMENT }]);
-      const directionMap = directionMaps[NavDirections.RIGHT];
-
-      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
-
-      expect(result).toBe(DATASET_NOT_DISABLED_ELEMENT);
+      expect(getNextElementToFocusInDirection(directionMaps[NavDirections.RIGHT], ELEMENT1)).toBe(
+        DATASET_NOT_DISABLED_ELEMENT
+      );
     });
 
-    it("return the next element ref in the given direction which is focusable, while skipping disabled or unmounted elements", () => {
+    it("return the next focusable element ref, skipping disabled or unmounted elements", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_1 },
         { leftElement: UNMOUNTED_ELEMENT_1, rightElement: DISABLED_ELEMENT },
         { leftElement: DISABLED_ELEMENT, rightElement: ELEMENT2 }
       ]);
-      const directionMap = directionMaps[NavDirections.RIGHT];
-
-      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
-
-      expect(result).toBe(ELEMENT2);
+      expect(getNextElementToFocusInDirection(directionMaps[NavDirections.RIGHT], ELEMENT1)).toBe(ELEMENT2);
     });
   });
 });

@@ -1,1 +1,1 @@
-export { default as HiddenText, type HiddenTextProps } from "./HiddenText";
+export { HiddenText, type HiddenTextProps } from "@vibe/a11y";
