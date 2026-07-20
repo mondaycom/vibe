@@ -1,6 +1,6 @@
 import React, { type ForwardedRef, forwardRef, useCallback } from "react";
 import MenuItem, { type MenuItemProps } from "./MenuItem";
-import Avatar, { type AvatarProps } from "../../Avatar/Avatar";
+import { Avatar, type AvatarProps } from "@vibe/avatar";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 
 export interface AvatarMenuItemProps extends VibeComponentProps {

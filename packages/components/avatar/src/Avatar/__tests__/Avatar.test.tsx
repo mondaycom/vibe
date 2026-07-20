@@ -3,7 +3,7 @@ import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
 import Avatar, { type AvatarProps } from "../Avatar";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId } from "@vibe/shared";
 
 const renderComponent = (props: AvatarProps) => {
   return render(<Avatar {...props} />);

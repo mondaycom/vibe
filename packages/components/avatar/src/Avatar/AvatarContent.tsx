@@ -1,11 +1,11 @@
 import { camelCase } from "es-toolkit";
 import { getStyle } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import cx from "classnames";
 import React from "react";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import { Icon, type SubIcon } from "@vibe/icon";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./AvatarContent.module.scss";
 
 export interface AvatarContentProps extends VibeComponentProps {

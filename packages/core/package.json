@@ -90,6 +90,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
+    "@vibe/avatar": "4.0.0",
     "@vibe/base": "4.0.3",
     "@vibe/button": "4.0.4",
     "@vibe/clickable": "4.0.3",

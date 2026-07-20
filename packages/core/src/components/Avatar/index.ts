@@ -1,3 +1,2 @@
-export { default as Avatar, type AvatarProps } from "./Avatar";
-
-export * from "./Avatar.types";
+// TODO: export * after separating AvatarBadge/AvatarContent as their own packages
+export { Avatar, type AvatarProps, type AvatarBadgeProps, type AvatarType, type AvatarSize } from "@vibe/avatar";
