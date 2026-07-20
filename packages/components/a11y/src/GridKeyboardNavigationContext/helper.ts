@@ -1,4 +1,4 @@
-import { NavDirections } from "../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 import {
   type DirectionMap,
   type DirectionMaps,
@@ -75,14 +75,11 @@ export const getOutmostElementInDirection = (
   direction: NavDirections
 ): GridElementRef => {
   const directionMap = directionMaps[direction];
-  const firstEntry = [...directionMap][0]; // start with any element
+  const firstEntry = [...directionMap][0];
   if (!firstEntry) {
-    // no relations were registered for this direction - fallback to a different direction
     if ([NavDirections.LEFT, NavDirections.RIGHT].includes(direction)) {
-      // there are no registered horizontal relations registered, try vertical relations. Get the top-most element.
       return getOutmostElementInDirection(directionMaps, NavDirections.UP);
     }
-    // there are no registered vertical relations registered, try horizontal relations. Get the left-most element.
     return getOutmostElementInDirection(directionMaps, NavDirections.LEFT);
   }
   const firstRef = firstEntry[0];
@@ -95,11 +92,9 @@ export const getNextElementToFocusInDirection = (
 ): null | GridElementRef => {
   const next = directionMap.get(elementRef);
   if (!next) {
-    // this is the last element on the direction map - there' nothing next
     return null;
   }
   if (!next.current || next.current.disabled || next.current.dataset?.disabled === "true") {
-    // the next element is not mounted or disabled - try the next one
     return getNextElementToFocusInDirection(directionMap, next);
   }
   return next;
@@ -110,7 +105,6 @@ function getLastFocusableElementFromElementInDirection(directionMap: DirectionMa
   let currentRef = initialRef;
 
   while (!done) {
-    // as long as there's a mounted element which in that direction, take it.
     const nextEligible = getNextElementToFocusInDirection(directionMap, currentRef);
     if (!nextEligible) {
       done = true;

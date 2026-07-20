@@ -11,7 +11,7 @@ import { Icon } from "@vibe/icon";
 import { Check } from "@vibe/icons";
 import Divider from "../../../../components/Divider/Divider";
 
-import HiddenText from "../../../../components/HiddenText/HiddenText";
+import { HiddenText } from "@vibe/a11y";
 import { Clickable } from "@vibe/clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";

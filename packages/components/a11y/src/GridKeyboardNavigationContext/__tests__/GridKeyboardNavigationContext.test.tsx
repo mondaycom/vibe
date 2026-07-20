@@ -2,7 +2,7 @@ import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { act, cleanup, renderHook } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
-import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
 
 describe("GridKeyboardNavigationContext", () => {
@@ -70,7 +70,7 @@ describe("GridKeyboardNavigationContext", () => {
       expect(fakeUpperContext.onOutboundNavigation).toHaveBeenCalledWith(wrapperRef, keyboardDirection);
     });
 
-    it("should not focus any other element when the is no last direction of keyboard navigation, after the wrapper element is focused", () => {
+    it("should not focus any other element when there is no last direction of keyboard navigation", () => {
       const positions = [
         { leftElement: ref2, rightElement: ref4 },
         { topElement: ref1, rightElement: ref3 }
@@ -90,7 +90,7 @@ describe("GridKeyboardNavigationContext", () => {
       renderHookForTest(positions, true);
 
       act(() => {
-        userEvent.keyboard("{ArrowLeft}"); // make sure there's a value for lastNavigationDirection
+        userEvent.keyboard("{ArrowLeft}");
       });
       focusWrapperElement();
 
@@ -98,13 +98,13 @@ describe("GridKeyboardNavigationContext", () => {
       expect(ref4.current.blur).not.toHaveBeenCalled();
     });
 
-    it("should focus the element in the last direction of keyboard navigation, when the wrapper element is focused", () => {
+    it("should focus the element in the last direction of keyboard navigation when the wrapper element is focused", () => {
       const positions = [{ leftElement: ref2, rightElement: ref4 }];
 
       renderHookForTest(positions);
 
       act(() => {
-        userEvent.keyboard("{ArrowLeft}"); // if the user navigated left, the right-most element should be focused
+        userEvent.keyboard("{ArrowLeft}");
       });
       focusWrapperElement();
 
@@ -127,7 +127,7 @@ describe("GridKeyboardNavigationContext", () => {
 
     function focusWrapperElement() {
       act(() => {
-        wrapperRef.current.dispatchEvent(new Event("focus")); //jsdom's .focus() isn't working as it should, so we fire our own event
+        wrapperRef.current.dispatchEvent(new Event("focus"));
       });
     }
   });

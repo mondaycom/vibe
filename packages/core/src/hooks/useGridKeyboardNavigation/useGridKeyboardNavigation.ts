@@ -1,5 +1,5 @@
 import { type MutableRefObject, type ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import { GridKeyboardNavigationContext } from "@vibe/a11y";
 import useFullKeyboardListeners, { type NavDirections } from "../../hooks/useFullKeyboardListeners";
 import { useEventListener } from "@vibe/shared";
 import {

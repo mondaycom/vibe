@@ -1,9 +1,8 @@
 import type React from "react";
 import { useMemo } from "react";
 import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
-import { useGridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import { useGridKeyboardNavigationContext, type GridElementRef } from "@vibe/a11y";
 import { type CloseMenuOption } from "../Menu/MenuConstants";
-import { type GridElementRef } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContextConstants";
 
 export const useMenuGridItemNavContext = ({
   wrapperRef,

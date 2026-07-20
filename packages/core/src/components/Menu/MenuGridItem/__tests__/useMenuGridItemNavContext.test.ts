@@ -1,7 +1,7 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import { cleanup, renderHook } from "@testing-library/react-hooks";
 import { NavDirections } from "../../../../hooks/useFullKeyboardListeners";
-import * as GridKeyboardNavigationContextModule from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import * as GridKeyboardNavigationContextModule from "@vibe/a11y";
 import { useMenuGridItemNavContext } from "../useMenuGridItemNavContext";
 
 describe("useMenuGridItemNavContext", () => {

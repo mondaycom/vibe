@@ -1,13 +1,11 @@
 import React, { useContext, useCallback, useMemo } from "react";
-import useEventListener from "../../hooks/useEventListener";
-import { useLastNavigationDirection } from "../Menu/Menu/hooks/useLastNavigationDirection";
+import { useEventListener, useLastNavigationDirection, type NavDirections } from "@vibe/shared";
 import {
   getDirectionMaps,
   getNextElementToFocusInDirection,
   getOppositeDirection,
   getOutmostElementInDirection
 } from "./helper";
-import { type NavDirections } from "../../hooks/useFullKeyboardListeners";
 import {
   type GridElementRef,
   type GridKeyboardNavigationContextType,
@@ -51,7 +49,6 @@ export const useGridKeyboardNavigationContext = (
         maybeNextElement.current?.focus();
         return;
       }
-      // nothing on that direction - try updating the upper context
       upperContext?.onOutboundNavigation(wrapperRef, direction);
     },
     [directionMaps, upperContext, wrapperRef, options.disabled]

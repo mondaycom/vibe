@@ -1,5 +1,5 @@
 import { type MutableRefObject } from "react";
-import { type NavDirections } from "../../hooks/useFullKeyboardListeners";
+import { type NavDirections } from "@vibe/shared";
 
 export type GridElementRef = MutableRefObject<HTMLElement> & { current?: HTMLElement & { disabled?: boolean } };
 export type DirectionMap = Map<GridElementRef, GridElementRef>;

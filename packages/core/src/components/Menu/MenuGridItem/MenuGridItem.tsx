@@ -1,6 +1,6 @@
 import React, { forwardRef, type ReactElement, useCallback, useRef } from "react";
 import { useMergeRef } from "@vibe/shared";
-import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext";
+import { GridKeyboardNavigationContext } from "@vibe/a11y";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";

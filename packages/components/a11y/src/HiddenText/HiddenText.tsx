@@ -1,8 +1,6 @@
 import cx from "classnames";
 import React, { useRef, forwardRef } from "react";
-import { useMergeRef } from "@vibe/shared";
-import type VibeComponentProps from "../../types/VibeComponentProps";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { useMergeRef, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import styles from "./HiddenText.module.scss";
 
 export interface HiddenTextProps extends VibeComponentProps {
