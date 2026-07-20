@@ -40,7 +40,6 @@
   "dependencies": {
     "@vibe/button": "4.0.4",
     "@vibe/clickable": "4.0.3",
-    "@vibe/core": "4.0.0",
     "@vibe/dialog": "4.1.1",
     "@vibe/icon": "4.0.3",
     "@vibe/icons": "4.1.0",
@@ -59,6 +58,7 @@
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
+    "@vibe/core": ">=4.0.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
