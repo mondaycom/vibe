@@ -5,7 +5,7 @@ import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";
 import { Text, type TextType } from "@vibe/typography";
 import cx from "classnames";
-import { Divider } from "../../../Divider";
+import { Divider } from "@vibe/divider";
 
 const DropdownBaseList = forwardRef(
   <Item extends Record<string, unknown>>(

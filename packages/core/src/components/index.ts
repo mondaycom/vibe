@@ -29,7 +29,12 @@ export {
   type DialogOffset,
   type DialogEvent
 } from "@vibe/dialog";
-export * from "./Divider";
+// TODO: export * after removing enums
+export {
+  Divider,
+  type DividerProps,
+  type DividerDirection
+} from "@vibe/divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
