@@ -1,11 +1,8 @@
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, type VibeComponentProps, ComponentVibeId, getStyle } from "@vibe/shared";
 import cx from "classnames";
 import React from "react";
 import { type DividerDirection } from "./Divider.types";
-import { getStyle } from "@vibe/shared";
-import { type VibeComponentProps } from "../../types";
 import styles from "./Divider.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface DividerProps extends VibeComponentProps {
   /**

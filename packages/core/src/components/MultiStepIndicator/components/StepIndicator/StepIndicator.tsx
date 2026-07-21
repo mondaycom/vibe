@@ -9,7 +9,7 @@ import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import { Icon } from "@vibe/icon";
 import { Check } from "@vibe/icons";
-import Divider from "../../../../components/Divider/Divider";
+import { Divider } from "@vibe/divider";
 
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import { Clickable } from "@vibe/clickable";

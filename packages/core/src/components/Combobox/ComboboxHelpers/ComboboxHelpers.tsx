@@ -2,7 +2,7 @@ import React, { type CSSProperties, type MutableRefObject, useMemo } from "react
 import cx from "classnames";
 import ComboboxOption from "../components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "../components/ComboboxCategory/ComboboxCategory";
-import Divider from "../../Divider/Divider";
+import { Divider } from "@vibe/divider";
 import {
   COMBOBOX_DIVIDER_ITEM,
   COMBOBOX_CATEGORY_ITEM,
