@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.menu:focus {
+.menu:focus:not(:focus-visible) {
   outline: none;
 }
 

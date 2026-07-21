@@ -37,7 +37,7 @@ a.breadcrumbContent:hover {
   flex-shrink: 0;
 }
 
-.breadcrumbContent:focus {
+.breadcrumbContent:focus:not(:focus-visible) {
   outline: none;
 }
 

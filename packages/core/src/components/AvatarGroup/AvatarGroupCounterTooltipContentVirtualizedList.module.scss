@@ -9,9 +9,7 @@
   display: flex;
   overflow-y: hidden;
   overflow-x: visible;
-  &:focus,
-  &:focus-visible,
-  &.focus-visible { /* stylelint-disable-line selector-class-pattern */
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 }
