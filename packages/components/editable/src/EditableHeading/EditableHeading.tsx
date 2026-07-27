@@ -1,14 +1,12 @@
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, ComponentVibeId, type VibeComponentProps } from "@vibe/shared";
 import React, { forwardRef } from "react";
 import { Heading, type HeadingType, type HeadingWeight } from "@vibe/typography";
-import { type VibeComponentProps } from "../../types";
 import styles from "./EditableHeading.module.scss";
 import { getStyle } from "@vibe/shared";
 import { camelCase } from "es-toolkit";
 import EditableTypography, {
   type EditableTypographyImplementationProps
 } from "../EditableTypography/EditableTypography";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface EditableHeadingProps extends VibeComponentProps, EditableTypographyImplementationProps {
   /**

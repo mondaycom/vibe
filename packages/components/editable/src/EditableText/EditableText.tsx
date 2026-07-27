@@ -1,6 +1,5 @@
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import React, { forwardRef } from "react";
-import { type VibeComponentProps } from "../../types";
 import styles from "./EditableText.module.scss";
 import { getStyle } from "@vibe/shared";
 import { camelCase } from "es-toolkit";
