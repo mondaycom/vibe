@@ -1,6 +1,13 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useCallback, useRef, useState } from "react";
-import { useMergeRef, type VibeComponentProps, type ElementContent, ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
+import {
+  useMergeRef,
+  type VibeComponentProps,
+  type ElementContent,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId
+} from "@vibe/shared";
 import { Icon } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { DropdownChevronDown } from "@vibe/icons";
