@@ -41,8 +41,7 @@
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.3",
     "@vibe/typography": "4.0.6",
-    "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
