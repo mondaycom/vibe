@@ -13,8 +13,7 @@ export * from "./Chips";
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "./ColorPicker";
 export * from "./Combobox";
-// TODO: export * after removing enums
-export { Counter, type CounterProps, type CounterType, type CounterColor, type CounterSize } from "@vibe/counter";
+export * from "@vibe/counter";
 export * from "./DatePicker";
 // TODO: export * after removing enums
 export {
