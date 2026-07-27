@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/react-hooks": "^7.0.2",
     "@vibe/config": "4.0.2",
     "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
