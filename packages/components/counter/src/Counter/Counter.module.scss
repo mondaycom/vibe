@@ -1,5 +1,25 @@
-@import "../../styles/typography";
-@import "../../styles/keyframes";
+@import "~@vibe/style/dist/mixins";
+
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin pop-elastic() {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.2);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .counter {
   display: inline-flex;
@@ -25,14 +45,16 @@
 }
 
 .sizeSmall {
-  @include font-caption();
+  @include vibe-text(text2, normal);
+  @include smoothing-text;
   min-width: 18px;
   line-height: 18px;
   padding: 0 var(--space-8);
 }
 
 .sizeLarge {
-  @include label-text();
+  @include smoothing-text;
+  @include vibe-text(text2, normal);
   min-width: 24px;
   padding: 2px var(--space-8);
 }

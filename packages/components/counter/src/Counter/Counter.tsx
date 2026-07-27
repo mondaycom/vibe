@@ -1,16 +1,20 @@
 import { camelCase } from "es-toolkit";
-import { getStyle, NOOP } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import {
+  getStyle,
+  NOOP,
+  ComponentDefaultTestId,
+  getTestId,
+  type VibeComponentProps,
+  ComponentVibeId,
+  useEventListener
+} from "@vibe/shared";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import useEventListener from "../../hooks/useEventListener";
-import useAfterFirstRender from "../../hooks/useAfterFirstRender";
+import useAfterFirstRender from "./hooks/useAfterFirstRender";
 
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
-import { type VibeComponentProps } from "../../types";
 import styles from "./Counter.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface CounterProps extends VibeComponentProps {
   /**

@@ -1,7 +1,7 @@
 import React, { type ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
 import { type AvatarProps } from "../Avatar/Avatar";
-import Counter from "../Counter/Counter";
+import { Counter } from "@vibe/counter";
 import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
