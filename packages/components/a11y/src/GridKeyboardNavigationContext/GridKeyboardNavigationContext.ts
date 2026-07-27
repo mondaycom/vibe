@@ -49,6 +49,7 @@ export const useGridKeyboardNavigationContext = (
         maybeNextElement.current?.focus();
         return;
       }
+      // nothing on that direction - try updating the upper context
       upperContext?.onOutboundNavigation(wrapperRef, direction);
     },
     [directionMaps, upperContext, wrapperRef, options.disabled]
