@@ -31,16 +31,7 @@ export {
 } from "@vibe/dialog";
 export * from "./Divider";
 export * from "./Dropdown";
-// TODO: export * after removing EditableTypography internal props
-export {
-  EditableHeading,
-  type EditableHeadingProps,
-  EditableText,
-  type EditableTextProps,
-  EditableTypography,
-  type EditableTypographyProps,
-  type EditableTypographyImplementationProps
-} from "@vibe/editable";
+export { EditableHeading, type EditableHeadingProps, EditableText, type EditableTextProps } from "@vibe/editable";
 export * from "./EmptyState";
 export * from "./ExpandCollapse";
 export * from "@vibe/layout";
