@@ -7,8 +7,7 @@ export * from "./Badge";
 export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
 export * from "./ButtonGroup";
-// TODO: export * after removing enums
-export { Checkbox, type CheckboxProps } from "@vibe/checkbox";
+export * from "@vibe/checkbox";
 export * from "./Chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
