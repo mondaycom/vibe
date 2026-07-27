@@ -35,7 +35,7 @@ export * from "./EditableHeading";
 export * from "./EditableText";
 export * from "./EmptyState";
 // TODO: export * after removing enums
-export { ExpandCollapse, type ExpandCollapseProps, type ExpandCollapseIconPosition } from "@vibe/expand-collapse";
+export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";
 export * from "@vibe/formatted-number";
 export * from "./GridKeyboardNavigationContext";
