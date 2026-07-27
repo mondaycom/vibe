@@ -39,8 +39,7 @@
   },
   "dependencies": {
     "@vibe/shared": "4.0.3",
-    "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
