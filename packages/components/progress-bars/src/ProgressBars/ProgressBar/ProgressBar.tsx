@@ -5,9 +5,9 @@ import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { type ProgressBarSize, type ProgressBarStyle } from "./ProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./ProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { type VibeComponentProps } from "../../../types";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
-import { getTestId } from "../../../tests/test-ids-utils";
+import { type VibeComponentProps } from "@vibe/shared";
+import { ComponentDefaultTestId, ComponentVibeId } from "@vibe/shared";
+import { getTestId } from "@vibe/shared";
 import styles from "./ProgressBar.module.scss";
 
 export interface ProgressBarProps extends VibeComponentProps {

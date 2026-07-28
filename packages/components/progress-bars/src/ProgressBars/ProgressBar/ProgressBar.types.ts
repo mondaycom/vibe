@@ -1,4 +1,4 @@
-import { type SIZES } from "../../../constants";
+import { type SIZES } from "@vibe/shared";
 
 export type ProgressBarStyle = "primary" | "secondary" | "positive" | "negative" | "warning" | "none";
 

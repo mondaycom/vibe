@@ -1,4 +1,4 @@
-import { type SIZES } from "./../../../constants/sizes";
+import { type SIZES } from "@vibe/shared";
 import cx from "classnames";
 import styles from "./ProgressBar.module.scss";
 
