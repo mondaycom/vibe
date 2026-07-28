@@ -32,7 +32,8 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
@@ -40,6 +41,7 @@
     "@vibe/icon": "4.0.3",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.3",
+    "@vibe/style": "4.0.0",
     "@vibe/typography": "4.0.6",
     "classnames": "^2.5.1"
   },
