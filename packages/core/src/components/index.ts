@@ -43,7 +43,6 @@ export * from "./HiddenText";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";
 export * from "./Info";
-// TODO: export * after removing enums
 export {
   Label,
   type LabelProps,

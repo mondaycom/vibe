@@ -41,12 +41,14 @@
     "@vibe/clickable": "4.0.3",
     "@vibe/hooks": "4.0.3",
     "@vibe/shared": "4.0.3",
+    "@vibe/style": "4.0.0",
     "@vibe/typography": "4.0.6",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@vibe/config": "4.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
