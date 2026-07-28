@@ -3,11 +3,9 @@ import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { useMergeRef } from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
 import { Text } from "@vibe/typography";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
 import { Tooltip } from "@vibe/tooltip";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./RadioButton.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface RadioButtonProps extends VibeComponentProps {
   /**
