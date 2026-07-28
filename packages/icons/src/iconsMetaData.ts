@@ -625,6 +625,13 @@ export default [
   },
 
   {
+    name: "ParentItem",
+    file: "ParentItem.svg",
+    description: "Parent item icon",
+    tags: "parent, item, subitems, hierarchy, board"
+  },
+
+  {
     name: "Gantt",
     file: "Gantt.svg",
     description: "Gantt icon",
