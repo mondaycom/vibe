@@ -1,6 +1,13 @@
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { ComponentDefaultTestId, getTestId, getStyle, useMergeRef, contentColors, type VibeComponentProps } from "@vibe/shared";
+import {
+  ComponentDefaultTestId,
+  getTestId,
+  getStyle,
+  useMergeRef,
+  contentColors,
+  type VibeComponentProps
+} from "@vibe/shared";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Text } from "@vibe/typography";
 import Leg from "./Leg";
