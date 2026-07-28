@@ -1,9 +1,8 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import { useMergeRef } from "@vibe/shared";
+import { useMergeRef, getTestId, ComponentDefaultTestId, ComponentVibeId, type VibeComponentProps } from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
 import { Text } from "@vibe/typography";
-import { type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
 import { Tooltip } from "@vibe/tooltip";
 import styles from "./RadioButton.module.scss";
 
