@@ -43,14 +43,7 @@ export * from "./HiddenText";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";
 export * from "./Info";
-export {
-  Label,
-  type LabelProps,
-  type LabelSizes,
-  type LabelKind,
-  type ContentColor,
-  type LabelColor
-} from "@vibe/label";
+export * from "@vibe/label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
 export * from "./Link";
 export * from "./List";
