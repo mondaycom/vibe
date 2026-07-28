@@ -1,20 +1,17 @@
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { getStyle, useMergeRef } from "@vibe/shared";
+import { ComponentDefaultTestId, getTestId, getStyle, useMergeRef, contentColors, type VibeComponentProps } from "@vibe/shared";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Text } from "@vibe/typography";
 import Leg from "./Leg";
 import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
-import { contentColors } from "../../utils/colors-vars-map";
-import { type VibeComponentProps } from "../../types";
 import { useClickableProps } from "@vibe/clickable";
 
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
 import { type LabelSizes } from "./Label.types";
 import { mapSizesToTextSize } from "./LabelConstants";
-import { ComponentVibeId } from "../../tests/constants";
+import { ComponentVibeId } from "@vibe/shared";
 
 export interface LabelProps extends VibeComponentProps {
   /**

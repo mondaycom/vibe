@@ -1,4 +1,4 @@
-import { type contentColors } from "../../utils/colors-vars-map";
+import { type contentColors } from "@vibe/shared";
 
 export type LabelSizes = "small" | "medium";
 
