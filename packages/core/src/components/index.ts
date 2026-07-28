@@ -58,8 +58,7 @@ export * from "./NumberField";
 export * from "./Modal";
 export * from "./MultiStepIndicator";
 export * from "./ProgressBars";
-// TODO: export * after removing enums
-export { RadioButton, type RadioButtonProps } from "@vibe/radio-button";
+export * from "@vibe/radio-button";
 export * from "./Search";
 export * from "./Skeleton";
 export * from "./Slider";
