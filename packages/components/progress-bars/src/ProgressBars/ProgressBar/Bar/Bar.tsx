@@ -1,10 +1,8 @@
 import React, { type FC, useMemo } from "react";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { getStyle, getTestId, ComponentDefaultTestId, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import { calculatePercentage } from "../ProgressBarHelpers";
-import { type VibeComponentProps } from "@vibe/shared";
 import { type ProgressBarStyle } from "../ProgressBar.types";
 import styles from "./Bar.module.scss";
 

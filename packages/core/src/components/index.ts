@@ -57,13 +57,7 @@ export * from "./MenuButton";
 export * from "./NumberField";
 export * from "./Modal";
 export * from "./MultiStepIndicator";
-// TODO: export * after removing enums
-export {
-  ProgressBar,
-  type ProgressBarProps,
-  type ProgressBarStyle,
-  type ProgressBarSize
-} from "@vibe/progress-bars";
+export { ProgressBar, type ProgressBarProps, type ProgressBarStyle, type ProgressBarSize } from "@vibe/progress-bars";
 export * from "./RadioButton";
 export * from "./Search";
 export * from "./Skeleton";
