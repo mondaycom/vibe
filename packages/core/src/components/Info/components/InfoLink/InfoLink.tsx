@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import { Link, type LinkProps } from "../../../Link";
+import { Link, type LinkProps } from "@vibe/link";
 import styles from "./InfoLink.module.scss";
 
 export type InfoLinkProps = LinkProps;

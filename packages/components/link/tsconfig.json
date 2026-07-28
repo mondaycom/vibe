@@ -1,0 +1,14 @@
+{
+  "extends": "@vibe/config/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "typeRoots": ["./node_modules/@types", "../../../node_modules/@types"],
+    "paths": {
+      "@vibe/shared": ["../../../node_modules/@vibe/shared/dist/index.d.ts"],
+      "@vibe/icon": ["../../../node_modules/@vibe/icon/dist/index.d.ts"],
+      "@vibe/style": ["../../../node_modules/@vibe/style"]
+    }
+  },
+  "include": ["src/**/*"]
+}

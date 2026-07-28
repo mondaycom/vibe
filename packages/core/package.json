@@ -99,6 +99,7 @@
     "@vibe/icon-button": "4.0.6",
     "@vibe/icons": "4.1.0",
     "@vibe/layer": "4.0.4",
+    "@vibe/link": "4.0.0",
     "@vibe/layout": "4.0.4",
     "@vibe/loader": "4.0.3",
     "@vibe/shared": "4.0.3",
