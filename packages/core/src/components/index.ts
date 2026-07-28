@@ -45,14 +45,7 @@ export * from "@vibe/icon-button";
 export * from "./Info";
 export * from "./Label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
-// TODO: export * after removing enums
-export {
-  Link,
-  type LinkProps,
-  type LinkTarget,
-  type LinkIconPosition,
-  type LinkColor
-} from "@vibe/link";
+export * from "@vibe/link";
 export * from "./List";
 export * from "./ListItem";
 export * from "./ListItemAvatar";
