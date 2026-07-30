@@ -4,6 +4,10 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    // react-dates (Vibe v3 dep) references Node's `global`; shim it for browsers.
+    global: "globalThis",
+  },
   resolve: {
     dedupe: ["react", "react-dom"],
     alias: {
