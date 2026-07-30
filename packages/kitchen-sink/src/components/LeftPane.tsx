@@ -48,17 +48,28 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         </button>
         <button
           type="button"
+          className={`left-pane-sublink${view === "theme" ? " is-active" : ""}`}
+          onClick={() => setThemeSubPage(themeSubPage)}
+        >
+          Theme
+        </button>
+        {view === "theme" &&
+          THEME_SUBPAGES.map((page) => (
+            <button
+              key={page.id}
+              type="button"
+              className={`left-pane-sublink left-pane-sublink--deep${themeSubPage === page.id ? " is-active" : ""}`}
+              onClick={() => setThemeSubPage(page.id)}
+            >
+              {page.label}
+            </button>
+          ))}
+        <button
+          type="button"
           className={`left-pane-link${view === "compare" ? " is-active" : ""}`}
           onClick={() => setView("compare")}
         >
           Compare
-        </button>
-        <button
-          type="button"
-          className={`left-pane-link${view === "theme" ? " is-active" : ""}`}
-          onClick={() => setThemeSubPage(themeSubPage)}
-        >
-          Theme
         </button>
         <button
           type="button"
@@ -67,17 +78,6 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         >
           Screens
         </button>
-        {view === "theme" &&
-          THEME_SUBPAGES.map((page) => (
-            <button
-              key={page.id}
-              type="button"
-              className={`left-pane-sublink${themeSubPage === page.id ? " is-active" : ""}`}
-              onClick={() => setThemeSubPage(page.id)}
-            >
-              {page.label}
-            </button>
-          ))}
       </nav>
       <div className="left-pane-footer" aria-hidden={collapsed}>
         {SYSTEM_THEMES.map((theme) => (

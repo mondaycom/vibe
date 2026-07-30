@@ -114,6 +114,10 @@ body {
   font-size: 13px;
 }
 
+.left-pane-sublink--deep {
+  padding-left: 38px;
+}
+
 .left-pane-link:hover,
 .left-pane-sublink:hover,
 .left-pane-theme-mode:hover {
