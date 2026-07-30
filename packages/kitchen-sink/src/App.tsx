@@ -1,0 +1,30 @@
+import { useState } from "react";
+import { AppThemeShell } from "./components/AppThemeShell";
+import { LeftPane } from "./components/LeftPane";
+import { useKitchenSink } from "./context/KitchenSinkContext";
+import { ComponentsView } from "./components/ComponentsView";
+import { CompareView } from "./components/CompareView";
+import { ThemePanel } from "./components/ThemePanel";
+
+export default function App() {
+  const { view } = useKitchenSink();
+  const [leftPaneCollapsed, setLeftPaneCollapsed] = useState(false);
+
+  return (
+    <AppThemeShell>
+      <div
+        className={`layout${leftPaneCollapsed ? " is-left-pane-collapsed" : ""}`}
+      >
+        <LeftPane
+          collapsed={leftPaneCollapsed}
+          onToggleCollapse={() => setLeftPaneCollapsed((c) => !c)}
+        />
+        <main className="main-area">
+          {view === "components" && <ComponentsView />}
+          {view === "compare" && <CompareView />}
+          {view === "theme" && <ThemePanel />}
+        </main>
+      </div>
+    </AppThemeShell>
+  );
+}

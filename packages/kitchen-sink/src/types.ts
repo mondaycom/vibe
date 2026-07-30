@@ -1,0 +1,64 @@
+import type React from "react";
+
+export type SystemTheme = "light" | "dark" | "black";
+export type AppView = "components" | "compare" | "theme";
+export type ThemeSubPage = "colors" | "radius" | "typography";
+
+export type ThemeColorOverrides = Partial<Record<SystemTheme, Record<string, string>>>;
+
+export type TokenOverrides = {
+  colors: ThemeColorOverrides;
+  radius: Record<string, string>;
+  spacing: Record<string, string>;
+  typography: Record<string, string>;
+};
+
+export type ComponentStateMap = Record<string, Record<string, unknown>>;
+
+export type AppState = {
+  view: AppView;
+  themeSubPage: ThemeSubPage;
+  systemTheme: SystemTheme;
+  tokenOverrides: TokenOverrides;
+  componentStates: ComponentStateMap;
+  focusedComponentId: string | null;
+};
+
+export const STORAGE_VERSION = 2;
+export const STORAGE_KEY = "facelift-kitchen-sink-state";
+
+export type PersistedState = {
+  version: number;
+  view: AppView;
+  themeSubPage: ThemeSubPage;
+  systemTheme: SystemTheme;
+  tokenOverrides: TokenOverrides;
+  componentStates: ComponentStateMap;
+  focusedComponentId: string | null;
+};
+
+export type ControlOption = { value: string; label: string };
+
+export type ControlDef =
+  | {
+      key: string;
+      label: string;
+      type: "select";
+      options: ControlOption[];
+    }
+  | {
+      key: string;
+      label: string;
+      type: "boolean";
+    };
+
+export interface Section {
+  id: string;
+  title: string;
+  defaultState: Record<string, unknown>;
+  controls: ControlDef[];
+  Demo: React.FC<{ state: Record<string, unknown> }>;
+}
+
+export type TokenFieldDef =
+  | { id: string; label: string; kind: "css-var"; cssVar: string; unit?: string; defaultValue: string; description?: string };
