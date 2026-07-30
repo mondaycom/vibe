@@ -5,6 +5,7 @@ import { useKitchenSink } from "./context/KitchenSinkContext";
 import { ComponentsView } from "./components/ComponentsView";
 import { CompareView } from "./components/CompareView";
 import { ThemePanel } from "./components/ThemePanel";
+import { ScreensView } from "./components/ScreensView";
 
 export default function App() {
   const { view } = useKitchenSink();
@@ -19,10 +20,11 @@ export default function App() {
           collapsed={leftPaneCollapsed}
           onToggleCollapse={() => setLeftPaneCollapsed((c) => !c)}
         />
-        <main className="main-area">
+        <main className={`main-area${view === "screens" ? " main-area--no-padding" : ""}`}>
           {view === "components" && <ComponentsView />}
           {view === "compare" && <CompareView />}
           {view === "theme" && <ThemePanel />}
+          {view === "screens" && <ScreensView />}
         </main>
       </div>
     </AppThemeShell>

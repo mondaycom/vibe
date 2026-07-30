@@ -19,6 +19,7 @@ export function createInitialAppState(): AppState {
     tokenOverrides: structuredClone(EMPTY_TOKEN_OVERRIDES),
     componentStates: mergeWithDefaults(undefined),
     focusedComponentId: "button",
+    faceliftTheme: false,
   };
 }
 
@@ -31,6 +32,7 @@ function toPersisted(state: AppState): PersistedState {
     tokenOverrides: state.tokenOverrides,
     componentStates: state.componentStates,
     focusedComponentId: state.focusedComponentId,
+    faceliftTheme: state.faceliftTheme,
   };
 }
 
@@ -69,6 +71,7 @@ export function loadPersistedState(): AppState {
       },
       componentStates: mergeWithDefaults(parsed.componentStates),
       focusedComponentId: parsed.focusedComponentId ?? base.focusedComponentId,
+      faceliftTheme: parsed.faceliftTheme ?? false,
     };
   } catch {
     return resetAndPersist();

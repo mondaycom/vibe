@@ -1,7 +1,7 @@
 import type React from "react";
 
 export type SystemTheme = "light" | "dark" | "black";
-export type AppView = "components" | "compare" | "theme";
+export type AppView = "components" | "compare" | "theme" | "screens";
 export type ThemeSubPage = "colors" | "radius" | "typography";
 
 export type ThemeColorOverrides = Partial<Record<SystemTheme, Record<string, string>>>;
@@ -22,6 +22,7 @@ export type AppState = {
   tokenOverrides: TokenOverrides;
   componentStates: ComponentStateMap;
   focusedComponentId: string | null;
+  faceliftTheme: boolean;
 };
 
 export const STORAGE_VERSION = 2;
@@ -35,6 +36,7 @@ export type PersistedState = {
   tokenOverrides: TokenOverrides;
   componentStates: ComponentStateMap;
   focusedComponentId: string | null;
+  faceliftTheme: boolean;
 };
 
 export type ControlOption = { value: string; label: string };

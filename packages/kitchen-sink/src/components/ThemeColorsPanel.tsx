@@ -52,6 +52,7 @@ function ThemeColorSection({
 
 export function ThemeColorsPanel() {
   const [activeSectionTab, setActiveSectionTab] = useState(0);
+  const { faceliftTheme, setFaceliftTheme } = useKitchenSink();
   const visibleSections =
     activeSectionTab === 0
       ? COLOR_TOKEN_SECTIONS
@@ -59,6 +60,25 @@ export function ThemeColorsPanel() {
 
   return (
     <div className="theme-page">
+      <div className="theme-mode-toggle-row">
+        <span className="theme-mode-toggle-label">Theme</span>
+        <div className="theme-mode-toggle-group">
+          <button
+            type="button"
+            className={`theme-mode-toggle-btn${!faceliftTheme ? " is-active" : ""}`}
+            onClick={() => setFaceliftTheme(false)}
+          >
+            Original
+          </button>
+          <button
+            type="button"
+            className={`theme-mode-toggle-btn${faceliftTheme ? " is-active" : ""}`}
+            onClick={() => setFaceliftTheme(true)}
+          >
+            Facelift (Glaze)
+          </button>
+        </div>
+      </div>
       <header className="theme-page-header">
         <Heading type="h2" weight="medium">
           Backgrounds, text and layout

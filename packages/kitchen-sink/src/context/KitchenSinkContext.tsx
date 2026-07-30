@@ -24,6 +24,7 @@ type KitchenSinkContextValue = AppState & {
   updateComponentState: (id: string, patch: Record<string, unknown>) => void;
   updateTokenOverrides: (patch: Partial<TokenOverrides>) => void;
   updateColorOverride: (theme: SystemTheme, key: string, value: string) => void;
+  setFaceliftTheme: (on: boolean) => void;
 };
 
 const KitchenSinkContext = createContext<KitchenSinkContextValue | null>(null);
@@ -98,6 +99,10 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
     []
   );
 
+  const setFaceliftTheme = useCallback((on: boolean) => {
+    setState((s) => ({ ...s, faceliftTheme: on }));
+  }, []);
+
   const value = useMemo(
     () => ({
       ...state,
@@ -108,6 +113,7 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       updateComponentState,
       updateTokenOverrides,
       updateColorOverride,
+      setFaceliftTheme,
     }),
     [
       state,
@@ -118,6 +124,7 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       updateComponentState,
       updateTokenOverrides,
       updateColorOverride,
+      setFaceliftTheme,
     ]
   );
 

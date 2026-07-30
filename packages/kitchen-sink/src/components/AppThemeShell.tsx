@@ -5,13 +5,14 @@ import { buildThemeConfig } from "../lib/buildThemeConfig";
 import { buildCssVarStyle } from "../lib/cssVarOverrides";
 
 export function AppThemeShell({ children }: { children: ReactNode }) {
-  const { systemTheme, tokenOverrides } = useKitchenSink();
+  const { systemTheme, tokenOverrides, faceliftTheme } = useKitchenSink();
   const themeConfig = buildThemeConfig(tokenOverrides);
-  const cssVars = buildCssVarStyle(tokenOverrides, systemTheme);
+  // Facelift theme uses CSS class variables — inline overrides would win the cascade and block them.
+  const cssVars = faceliftTheme ? {} : buildCssVarStyle(tokenOverrides, systemTheme);
 
   return (
     <ThemeProvider systemTheme={systemTheme} themeConfig={themeConfig}>
-      <div className="app-root" style={cssVars}>
+      <div className={`app-root${faceliftTheme ? " facelift-theme" : ""}`} style={cssVars}>
         {children}
       </div>
     </ThemeProvider>

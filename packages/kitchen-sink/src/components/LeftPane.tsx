@@ -60,6 +60,13 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         >
           Theme
         </button>
+        <button
+          type="button"
+          className={`left-pane-link${view === "screens" ? " is-active" : ""}`}
+          onClick={() => setView("screens")}
+        >
+          Screens
+        </button>
         {view === "theme" &&
           THEME_SUBPAGES.map((page) => (
             <button

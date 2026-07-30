@@ -2,6 +2,7 @@ import { Text } from "@vibe/core";
 import { useEffect, useId, useRef, useState } from "react";
 import type { ColorTokenDef } from "../lib/colorTokenDefinitions";
 import { formatRgba, parseColor, readComputedRgba, toHex } from "../lib/colorUtils";
+import { useKitchenSink } from "../context/KitchenSinkContext";
 
 type ThemeColorSwatchProps = {
   token: ColorTokenDef;
@@ -33,6 +34,7 @@ export function ThemeColorSwatch({
   onChange,
   onClear,
 }: ThemeColorSwatchProps) {
+  const { faceliftTheme } = useKitchenSink();
   const [editing, setEditing] = useState(false);
   const [pickerValue, setPickerValue] = useState("#0073ea");
   const [opacity, setOpacity] = useState(1);
@@ -40,9 +42,12 @@ export function ThemeColorSwatch({
   const inputId = useId();
 
   useEffect(() => {
+    // When facelift is active, inline overrides are suppressed — always read the live CSS value.
+    const effectiveValue = faceliftTheme ? "" : value;
+
     if (token.supportsAlpha) {
       const fallback = ALPHA_TOKEN_DEFAULTS[token.name] ?? { r: 0, g: 0, b: 0, a: 1 };
-      const parsed = value ? parseColor(value) : readComputedRgba(token.name, fallback);
+      const parsed = effectiveValue ? parseColor(effectiveValue) : readComputedRgba(token.name, fallback);
       if (parsed) {
         setPickerValue(toHex(parsed));
         setOpacity(parsed.a);
@@ -50,8 +55,8 @@ export function ThemeColorSwatch({
       return;
     }
 
-    setPickerValue(toPickerHex(value || readComputedTokenValue(token.name)));
-  }, [token.name, token.supportsAlpha, value]);
+    setPickerValue(toPickerHex(effectiveValue || readComputedTokenValue(token.name)));
+  }, [token.name, token.supportsAlpha, value, faceliftTheme]);
 
   const openEditor = () => {
     if (token.supportsAlpha) {

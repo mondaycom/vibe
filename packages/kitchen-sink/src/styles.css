@@ -472,3 +472,105 @@ body {
   text-align: center;
   padding: 8px;
 }
+
+/* Remove padding from main-area when showing screens view */
+.main-area--no-padding {
+  padding: 0;
+  gap: 0;
+}
+
+/* Screens view */
+.screens-view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.screens-tab-bar {
+  display: flex;
+  gap: 2px;
+  padding: 0 12px;
+  height: 48px;
+  align-items: center;
+  border-bottom: 1px solid var(--layout-border-color, #e6e9ef);
+  background: var(--secondary-background-color, #ffffff);
+  flex-shrink: 0;
+}
+
+.screens-tab {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--secondary-text-color, #676879);
+}
+
+.screens-tab:hover {
+  background: var(--primary-background-hover-color, #eff1f8);
+  color: var(--primary-text-color, #323338);
+}
+
+.screens-tab.is-active {
+  background: var(--primary-selected-color, #cce5ff);
+  color: var(--primary-text-color, #323338);
+  font-weight: 600;
+}
+
+.screens-iframe {
+  width: 100%;
+  height: calc(100vh - 48px);
+  border: none;
+  display: block;
+  flex: 1;
+}
+
+/* Facelift theme toggle */
+.theme-mode-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  border-radius: 17px;
+  background: var(--allgrey-background-color, #f6f7fb);
+}
+
+.theme-mode-toggle-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary-text-color, #676879);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  flex-shrink: 0;
+}
+
+.theme-mode-toggle-group {
+  display: flex;
+  gap: 4px;
+}
+
+.theme-mode-toggle-btn {
+  padding: 6px 16px;
+  border: 1px solid var(--ui-border-color, #c5c7d0);
+  border-radius: 6px;
+  background: var(--primary-background-color, #ffffff);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--primary-text-color, #323338);
+  transition: background 100ms ease;
+}
+
+.theme-mode-toggle-btn:hover {
+  background: var(--primary-background-hover-color, #eff1f8);
+}
+
+.theme-mode-toggle-btn.is-active {
+  background: var(--primary-color, #0073ea);
+  border-color: var(--primary-color, #0073ea);
+  color: var(--text-color-on-primary, #ffffff);
+  font-weight: 600;
+}
