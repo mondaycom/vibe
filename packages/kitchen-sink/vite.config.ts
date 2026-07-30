@@ -7,8 +7,10 @@ export default defineConfig({
   resolve: {
     dedupe: ["react", "react-dom"],
     alias: {
-      "@vibe/core/tokens": path.resolve(__dirname, "node_modules/@vibe/core/dist/tokens/tokens.css"),
-      "@vibe/core": path.resolve(__dirname, "node_modules/@vibe/core/dist/src/index.js"),
+      // Point directly at the monorepo's built packages/core so source changes
+      // (after `yarn workspace @vibe/core build`) are picked up by both apps.
+      "@vibe/core/tokens": path.resolve(__dirname, "../core/dist/tokens/tokens.css"),
+      "@vibe/core": path.resolve(__dirname, "../core/dist/src/index.js"),
       "@vibe/icons": path.resolve(__dirname, "node_modules/@vibe/icons/dist/react/index.js"),
     },
   },
