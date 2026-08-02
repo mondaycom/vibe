@@ -1,0 +1,41 @@
+/* Glaze — unified hero/composer layout across Sidekick, Agents, and Vibe */
+@mixin product-hero-glaze {
+  .root {
+    align-items: center;
+    align-self: center;
+    gap: var(--space-48);
+    padding: var(--space-48) var(--space-48);
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+  }
+
+  .heroBlock {
+    gap: var(--space-24);
+    max-width: 720px;
+  }
+
+  .hero {
+    gap: var(--space-4);
+  }
+
+  .heroTitle,
+  .heroGreeting {
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  .heroQuestion,
+  .heroSubtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--secondary-text-color);
+  }
+
+  .composerInput {
+    min-height: 88px;
+  }
+}
