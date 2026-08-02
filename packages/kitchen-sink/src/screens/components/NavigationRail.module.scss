@@ -14,22 +14,6 @@
   font-family: var(--boards-font-family);
   margin-top: 0;
   height: 100%;
-
-  :global(html.glaze) &,
-  :global(html.glaze-neue) &,
-  :global(html.warmth) & {
-    background-color: var(--primary-surface-color);
-    /* Primary icon tier on #f4f5f3 canvas — see GlazeTheme.md */
-    --icon-color: var(--glaze-icon-color-primary);
-
-    .railItemActive .railItemIcon {
-      background-color: var(--glaze-rail-selected-color);
-    }
-
-    .railItemActive:hover .railItemIcon {
-      background-color: var(--glaze-rail-selected-hover-color);
-    }
-  }
 }
 
 .railOpenButtonSlot {
