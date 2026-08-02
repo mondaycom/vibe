@@ -196,17 +196,17 @@ const Toast = ({
     >
       {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
       <Flex align="center" gap="small" className={styles.content}>
-        <div
+        <Flex
+          align="center"
+          gap="medium"
           data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
           className={styles.textContent}
         >
           <span className={styles.message}>{children}</span>
-        </div>
-        {(toastLinks || toastButtons || deprecatedAction) && (
-          <div className={styles.actions}>
-            {toastLinks}
-            {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          </div>
+          {toastLinks}
+        </Flex>
+        {(toastButtons || deprecatedAction) && (
+          <div className={styles.actions}>{toastButtons || deprecatedAction}</div>
         )}
         {loading && <Loader size="xs" />}
       </Flex>

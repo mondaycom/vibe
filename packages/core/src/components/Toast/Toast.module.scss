@@ -12,7 +12,7 @@
   width: fit-content;
   min-width: 200px;
   max-width: 356px;
-  padding: var(--space-16);
+  padding: var(--space-12) var(--space-16);
   border: 1px solid hsl(0, 0%, 93%);
   border-radius: var(--border-radius-medium);
   background-color: #fff;
@@ -80,13 +80,18 @@
 }
 
 .message {
+  min-width: 0;
+  overflow: hidden;
   font-weight: 500;
   line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .textContent {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .actions {

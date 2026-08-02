@@ -38,8 +38,13 @@ exports[`Toast renders correctly > (renders nothing) with empty props 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -109,8 +114,13 @@ exports[`Toast renders correctly > and don't renders close button if closeable=f
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -160,8 +170,13 @@ exports[`Toast renders correctly > renders nothing when open is false 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -212,8 +227,13 @@ exports[`Toast renders correctly > when icon is hidden 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -285,8 +305,13 @@ exports[`Toast renders correctly > when open is true 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -358,8 +383,13 @@ exports[`Toast renders correctly > with button 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -442,18 +472,19 @@ exports[`Toast renders correctly > with button and link 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
       >
         Something Happened
       </span>
-    </div>
-    <div
-      className="actions"
-    >
       <a
         aria-describedby=""
         aria-label=""
@@ -473,6 +504,10 @@ exports[`Toast renders correctly > with button and link 1`] = `
           Lorem ipsum
         </span>
       </a>
+    </div>
+    <div
+      className="actions"
+    >
       <button
         className="actionButton"
         data-testid="toast-button"
@@ -545,18 +580,19 @@ exports[`Toast renders correctly > with link 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
       >
         Something Happened
       </span>
-    </div>
-    <div
-      className="actions"
-    >
       <a
         aria-describedby=""
         aria-label=""
@@ -577,6 +613,9 @@ exports[`Toast renders correctly > with link 1`] = `
         </span>
       </a>
     </div>
+    <div
+      className="actions"
+    />
   </div>
   <button
     aria-label="Close"
@@ -641,8 +680,13 @@ exports[`Toast renders correctly > with loading 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
@@ -741,8 +785,13 @@ exports[`Toast renders correctly > with negative type 1`] = `
     }
   >
     <div
-      className="textContent"
+      className="container directionRow justifyStart alignCenter textContent"
       data-testid="toast-content"
+      style={
+        {
+          "gap": "var(--spacing-medium)",
+        }
+      }
     >
       <span
         className="message"
