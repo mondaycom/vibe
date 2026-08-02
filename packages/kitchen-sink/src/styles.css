@@ -579,38 +579,44 @@ body {
   font-weight: 600;
 }
 
-.component-gallery {
+.component-gallery,
+.toast-gallery {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.component-gallery-header {
+.component-gallery-header,
+.toast-gallery-header {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.component-gallery-title {
+.component-gallery-title,
+.toast-gallery-title {
   margin: 0;
   font-size: 28px;
   font-weight: 600;
   color: var(--primary-text-color, #323338);
 }
 
-.component-gallery-description {
+.component-gallery-description,
+.toast-gallery-description {
   margin: 0;
   font-size: 14px;
   color: var(--secondary-text-color, #676879);
 }
 
-.component-gallery-grid {
+.component-gallery-grid,
+.toast-gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 20px;
 }
 
-.component-gallery-item {
+.component-gallery-item,
+.toast-gallery-item {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -620,7 +626,8 @@ body {
   background: var(--secondary-background-color, #ffffff);
 }
 
-.component-gallery-item-label {
+.component-gallery-item-label,
+.toast-gallery-item-label {
   margin: 0;
   font-size: 13px;
   font-weight: 600;
@@ -629,7 +636,8 @@ body {
   letter-spacing: 0.4px;
 }
 
-.component-gallery-item-preview {
+.component-gallery-item-preview,
+.toast-gallery-item-preview {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -638,3 +646,4 @@ body {
   border-radius: var(--border-radius-small, 4px);
   background: var(--allgrey-background-color, #f6f7fb);
 }
+

@@ -3,6 +3,14 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Toast from "../Toast";
 
+vi.mock("react-dom", async () => {
+  const actual = await vi.importActual<typeof import("react-dom")>("react-dom");
+  return {
+    ...actual,
+    createPortal: (node: React.ReactNode) => node
+  };
+});
+
 vi.mock("react-transition-group", () => {
   const FakeTransition = vi.fn(({ children }) => children);
   const FakeSwitchTransition = vi.fn(({ children }) => children);

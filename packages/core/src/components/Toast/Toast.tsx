@@ -2,8 +2,9 @@ import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
+import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
-import { type IconSubComponentProps } from "@vibe/icon";
+import { Icon, type IconSubComponentProps } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { Loader } from "@vibe/loader";
 import { Flex } from "@vibe/layout";
@@ -17,7 +18,6 @@ import { NOOP } from "../../utils/function-utils";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
 import styles from "./Toast.module.scss";
-import { IconButton } from "@vibe/icon-button";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
@@ -70,6 +70,10 @@ export interface ToastProps extends VibeComponentProps {
    * The aria-label for the close button.
    */
   closeButtonAriaLabel?: string;
+  /**
+   * If true, renders the toast inline (for galleries/previews) instead of fixed at the top of the viewport.
+   */
+  inline?: boolean;
 }
 
 const Toast = ({
@@ -87,6 +91,7 @@ const Toast = ({
   className,
   id,
   closeButtonAriaLabel = "Close",
+  inline = false,
   "data-testid": dataTestId
 }: ToastProps) => {
   const ref = useRef(null);
@@ -123,8 +128,8 @@ const Toast = ({
   }, [actions, shouldShowButtonTransition]);
 
   const classNames = useMemo(
-    () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), className),
-    [type, className]
+    () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), { [styles.inline]: inline }, className),
+    [type, inline, className]
   );
 
   const handleClose = useCallback(() => {
@@ -177,7 +182,57 @@ const Toast = ({
     }
   }, [children, recalculateElementWidth]);
 
-  return (
+  const toastElement = (
+    <Text
+      ref={nodeRef}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
+      data-vibe="Toast"
+      type="text2"
+      element="div"
+      className={classNames}
+      role="alert"
+      aria-live="polite"
+    >
+      {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
+      <Flex align="center" gap="small" className={styles.content}>
+        <div
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
+          className={styles.textContent}
+        >
+          <span className={styles.message}>{children}</span>
+        </div>
+        {(toastLinks || toastButtons || deprecatedAction) && (
+          <div className={styles.actions}>
+            {toastLinks}
+            {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
+          </div>
+        )}
+        {loading && <Loader size="xs" />}
+      </Flex>
+      {closeable && (
+        <button
+          type="button"
+          className={cx(styles.closeButton)}
+          onClick={handleClose}
+          aria-label={closeButtonAriaLabel}
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+        >
+          <Icon icon={CloseSmall} iconSize={14} ignoreFocusStyle />
+        </button>
+      )}
+    </Text>
+  );
+
+  if (inline) {
+    if (!open) {
+      return null;
+    }
+
+    return toastElement;
+  }
+
+  return createPortal(
     <CSSTransition
       in={open}
       nodeRef={nodeRef}
@@ -185,45 +240,9 @@ const Toast = ({
       timeout={400}
       unmountOnExit
     >
-      <Text
-        ref={nodeRef}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-        type="text2"
-        element="div"
-        color="fixedLight"
-        className={classNames}
-        role="alert"
-        aria-live="polite"
-      >
-        {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-        <Flex align="center" gap="large" className={styles.content}>
-          <Flex
-            gap="medium"
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
-            className={styles.textContent}
-          >
-            <span>{children}</span>
-            {toastLinks}
-          </Flex>
-          {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          {loading && <Loader size="xs" />}
-        </Flex>
-        {closeable && (
-          <IconButton
-            className={cx(styles.closeButton)}
-            onClick={handleClose}
-            size="small"
-            kind="tertiary"
-            color="fixed-light"
-            ariaLabel={closeButtonAriaLabel}
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-            icon={CloseSmall}
-            hideTooltip
-          />
-        )}
-      </Text>
-    </CSSTransition>
+      {toastElement}
+    </CSSTransition>,
+    document.body
   );
 };
 

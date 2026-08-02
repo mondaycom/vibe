@@ -40,7 +40,9 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
   }, [state]);
 
   useEffect(() => {
-    if (window.location.hash === "#dropdown") {
+    if (window.location.hash === "#toast") {
+      setState((s) => ({ ...s, view: "components", componentSubPage: "toast" }));
+    } else if (window.location.hash === "#dropdown") {
       setState((s) => ({ ...s, view: "components", componentSubPage: "dropdown" }));
     }
   }, []);
