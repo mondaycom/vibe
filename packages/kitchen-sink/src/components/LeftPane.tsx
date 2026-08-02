@@ -18,9 +18,11 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
   const {
     view,
     themeSubPage,
+    componentSubPage,
     systemTheme,
     setView,
     setThemeSubPage,
+    setComponentSubPage,
     setSystemTheme,
   } = useKitchenSink();
 
@@ -45,6 +47,13 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
           onClick={() => setView("components")}
         >
           Components
+        </button>
+        <button
+          type="button"
+          className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "toast" ? " is-active" : ""}`}
+          onClick={() => setComponentSubPage("toast")}
+        >
+          Toast
         </button>
         <button
           type="button"

@@ -1,9 +1,11 @@
 .actionLink {
-  color: var(--text-color-on-primary);
+  color: currentColor;
+  font-weight: 500;
+  text-decoration: underline;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 
   &:hover {
-    color: inherit;
+    opacity: 0.8;
   }
 }

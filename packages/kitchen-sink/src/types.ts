@@ -3,6 +3,7 @@ import type React from "react";
 export type SystemTheme = "light" | "dark" | "black";
 export type AppView = "components" | "compare" | "theme" | "screens";
 export type ThemeSubPage = "colors" | "radius" | "typography";
+export type ComponentSubPage = "grid" | "toast";
 
 export type ThemeColorOverrides = Partial<Record<SystemTheme, Record<string, string>>>;
 
@@ -18,6 +19,7 @@ export type ComponentStateMap = Record<string, Record<string, unknown>>;
 export type AppState = {
   view: AppView;
   themeSubPage: ThemeSubPage;
+  componentSubPage: ComponentSubPage;
   systemTheme: SystemTheme;
   tokenOverrides: TokenOverrides;
   componentStates: ComponentStateMap;
@@ -32,6 +34,7 @@ export type PersistedState = {
   version: number;
   view: AppView;
   themeSubPage: ThemeSubPage;
+  componentSubPage?: ComponentSubPage;
   systemTheme: SystemTheme;
   tokenOverrides: TokenOverrides;
   componentStates: ComponentStateMap;
