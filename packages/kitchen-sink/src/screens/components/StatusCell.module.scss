@@ -29,18 +29,3 @@
   padding-left: var(--space-4);
   padding-right: var(--space-4);
 }
-
-/* Glaze + Warmth — inset status/priority chips */
-:global(html.glaze),
-:global(html.glaze-neue),
-:global(html.warmth) {
-  .cell {
-    padding: var(--space-2);
-    box-sizing: border-box;
-  }
-
-  .chip {
-    min-height: 0;
-    border-radius: var(--space-4);
-  }
-}

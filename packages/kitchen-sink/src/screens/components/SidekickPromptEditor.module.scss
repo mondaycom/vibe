@@ -1,9 +1,3 @@
-@use "./composerGlow" as composerGlow;
-
-@include composerGlow.composer-glow(
-  linear-gradient(100deg, #4eb7ff 0%, #9a7bff 32%, #ff7bbf 64%, #ff9a5c 100%)
-);
-
 /* Match the chat input's existing radius/size — the hero composer
    defaults use 18/16px, this one uses the smaller --border-radius-big. */
 .composerBorder {

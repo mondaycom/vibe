@@ -3,7 +3,6 @@ import {
   useEffect,
   useRef,
   useState,
-  type ReactNode,
 } from "react";
 import { Box } from "@vibe/core";
 import styles from "./App.module.scss";
@@ -21,19 +20,9 @@ import { initProduct, type ConfigProductName } from "./productConfig";
 import { AgentsViewProvider } from "./context/AgentsViewContext";
 import { SidekickViewProvider } from "./context/SidekickViewContext";
 import { AgentBuilderProvider } from "./context/AgentBuilderContext";
-import {
-  FACELIFT_TEST_NAV_ID,
-  useWorkspaceSelection,
-  WorkspaceSelectionProvider,
-} from "./context/WorkspaceSelectionContext";
+import { WorkspaceSelectionProvider } from "./context/WorkspaceSelectionContext";
 import { AgentBuilderModal } from "./components/AgentBuilderModal";
-import { FaceliftDocPage } from "./components/FaceliftDocPage";
 import type { RailItemId } from "./components/NavigationRail";
-import {
-  CURATED_FONTS,
-  DEFAULT_HEADING_FONT,
-  DEFAULT_TEXT_FONT,
-} from "./components/fontsConfig";
 import {
   buildHashRoute,
   parseHashRoute,
@@ -46,53 +35,7 @@ import {
 } from "./routing/hashRoute";
 import "./styles/globals.css";
 
-const GLAZE_NEUE_HEADING_FONT = "Hanken Grotesk";
-
-const THEME_DEFAULT_HEADING_FONTS: Partial<Record<RouteTheme, string>> = {
-  "glaze-neue": GLAZE_NEUE_HEADING_FONT,
-};
-
-function resolveRouteFont(
-  routeFont: string | null,
-  defaultFont: string,
-): string {
-  if (!routeFont) return defaultFont;
-  return routeFont;
-}
-
-function resolveHeadingFont(
-  theme: RouteTheme,
-  routeHeadingFont: string | null,
-): string {
-  if (routeHeadingFont) return routeHeadingFont;
-  return THEME_DEFAULT_HEADING_FONTS[theme] ?? DEFAULT_HEADING_FONT;
-}
-
-const loadedFonts = new Set<string>();
-function loadGoogleFont(family: string, weightsParam?: string) {
-  if (loadedFonts.has(family)) return;
-  const param =
-    weightsParam ?? `${family.replace(/\s+/g, "+")}:wght@400;500;600;700`;
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = `https://fonts.googleapis.com/css2?family=${param}&display=swap`;
-  document.head.appendChild(link);
-  loadedFonts.add(family);
-}
-
 const PRODUCT: ConfigProductName = "work_management";
-
-function WorkspaceContent({
-  renderBoardWorkspace,
-}: {
-  renderBoardWorkspace: () => ReactNode;
-}) {
-  const { selectedId } = useWorkspaceSelection();
-  if (selectedId === FACELIFT_TEST_NAV_ID) {
-    return <FaceliftDocPage />;
-  }
-  return <>{renderBoardWorkspace()}</>;
-}
 
 const THEME_CLASSES = ROUTE_THEME_CLASSES;
 const MODE_CLASSES = ROUTE_MODE_CLASSES;
@@ -129,12 +72,6 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
   const [activeMode, setActiveMode] = useState<AppMode>(hashRoute.mode);
   const [boardViewId, setBoardViewId] = useState<BoardViewId>(
     hashRoute.boardViewId,
-  );
-  const [activeHeadingFont, setActiveHeadingFont] = useState<string>(() =>
-    resolveHeadingFont(hashRoute.theme, hashRoute.headingFont),
-  );
-  const [activeTextFont, setActiveTextFont] = useState<string>(() =>
-    resolveRouteFont(hashRoute.textFont, DEFAULT_TEXT_FONT),
   );
   const [openItem, setOpenItem] = useState<Item | null>(null);
 
@@ -210,10 +147,6 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
     setBoardViewId(nextRoute.boardViewId);
     setActiveTheme(nextRoute.theme);
     setActiveMode(nextRoute.mode);
-    setActiveHeadingFont(
-      resolveHeadingFont(nextRoute.theme, nextRoute.headingFont),
-    );
-    setActiveTextFont(resolveRouteFont(nextRoute.textFont, DEFAULT_TEXT_FONT));
   }, []);
 
   useEffect(() => {
@@ -238,9 +171,6 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
   useEffect(() => {
     if (externalTheme === undefined) return;
     setActiveTheme(externalTheme);
-    if (!hashRouteRef.current.headingFont) {
-      setActiveHeadingFont(resolveHeadingFont(externalTheme, null));
-    }
     commitHashRoute({ theme: externalTheme });
   }, [externalTheme, commitHashRoute]);
 
@@ -267,30 +197,6 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
     );
     if (activeMode) document.documentElement.classList.add(activeMode);
   }, [activeMode]);
-
-  useEffect(() => {
-    const fallback = `"Figtree", "Poppins", "Inter", "Helvetica Neue", Arial, sans-serif`;
-
-    const headingCurated = CURATED_FONTS.find(
-      (f) => f.value === activeHeadingFont,
-    );
-    loadGoogleFont(activeHeadingFont, headingCurated?.googleFontParam);
-    const headingStack = `"${activeHeadingFont}", ${fallback}`;
-
-    const textCurated = CURATED_FONTS.find((f) => f.value === activeTextFont);
-    loadGoogleFont(activeTextFont, textCurated?.googleFontParam);
-    const textStack = `"${activeTextFont}", ${fallback}`;
-
-    document.documentElement.style.setProperty(
-      "--title-font-family",
-      headingStack,
-    );
-    document.documentElement.style.setProperty("--font-family", textStack);
-    document.documentElement.style.setProperty(
-      "--boards-font-family",
-      textStack,
-    );
-  }, [activeHeadingFont, activeTextFont]);
 
   const renderBoardWorkspace = () => (
     <Box className={styles.boardArea}>
@@ -326,9 +232,7 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
     </Box>
   );
 
-  const renderWorkspace = () => (
-    <WorkspaceContent renderBoardWorkspace={renderBoardWorkspace} />
-  );
+  const renderWorkspace = () => renderBoardWorkspace();
 
   return (
     <WorkspaceSelectionProvider>

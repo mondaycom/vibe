@@ -356,26 +356,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Glaze + Warmth — board refinements */
-:global(html.glaze),
-:global(html.glaze-neue),
-:global(html.warmth) {
-  .stripe,
-  .stripeRow,
-  .stripeAdd {
-    width: 3px;
-  }
-
-  .row {
-    .cellCheckbox,
-    .cellTask,
-    .cellStandard {
-      border-right: none;
-    }
-
-    .taskActions {
-      border-left: none;
-    }
-  }
-}

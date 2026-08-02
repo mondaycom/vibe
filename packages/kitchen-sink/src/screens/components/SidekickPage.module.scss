@@ -1,6 +1,3 @@
-@use "./productHeroGlaze" as heroGlaze;
-@use "./composerGlow" as composerGlow;
-
 .root {
   display: flex;
   flex-direction: column;
@@ -166,30 +163,6 @@
   text-align: center;
   line-height: 1.3;
 }
-
-:global(html.glaze),
-:global(html.glaze-neue),
-:global(html.warmth) {
-  @include heroGlaze.product-hero-glaze;
-
-  .shortcut:hover .shortcutCircle {
-    filter: none;
-    border-color: var(--ui-border-color);
-    box-shadow: var(--glaze-shadow-card);
-  }
-
-  .shortcutCircle {
-    background: var(--primary-background-color);
-    border: var(--border-width) solid var(--ui-border-color);
-    box-shadow: var(--glaze-shadow-lift);
-    color: var(--glaze-icon-color-primary);
-    --icon-color: var(--glaze-icon-color-primary);
-  }
-}
-
-@include composerGlow.composer-glow(
-  linear-gradient(100deg, #4eb7ff 0%, #9a7bff 32%, #ff7bbf 64%, #ff9a5c 100%)
-);
 
 .cardsSection {
   display: flex;

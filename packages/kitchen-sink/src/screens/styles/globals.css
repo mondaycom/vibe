@@ -68,14 +68,8 @@
   --app-scrim-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Glaze — editorial facelift: cool-neutral canvas, hairline borders, DM Sans */
+/* Glaze — editorial facelift: cool-neutral surface, hairline borders */
 :root.glaze {
-  --boards-font-family:
-    "DM Sans", system-ui, "Figtree", "Inter", "Helvetica Neue", Arial,
-    sans-serif;
-  --font-family: var(--boards-font-family);
-  --title-font-family: var(--boards-font-family);
-
   /* Primary — refined charcoal */
   --primary-color: #404643;
   --primary-hover-color: #000000;
@@ -83,7 +77,7 @@
   --primary-selected-hover-color: #e6e8e7;
   --primary-highlighted-color: #f4f5f3;
 
-  /* Surfaces — cool-neutral cast */
+  /* Surfaces — canvas via --primary-surface-color */
   --primary-background-color: #ffffff;
   --primary-background-hover-color: #f2f3f2;
   --primary-background-hover-on-secondary-color: #eaeceb;
@@ -99,52 +93,25 @@
   --disabled-background-color: #f2f3f2;
   --label-background-color: #f4f5f3;
 
-  /* Borders — cool-gray hairlines (components only, not layout shells) */
+  /* Borders */
   --layout-border-color: #e9ebea;
   --ui-border-color: #e2e4e3;
-  --glaze-input-focus-border-color: #babbbc;
 
   /* Text & icons */
   --primary-text-color: #323338;
   --secondary-text-color: #676879;
   --icon-color: #babbbc;
-  --glaze-icon-color-primary: #676879;
-  --glaze-icon-color-secondary: #babbbc;
-  --icon-hover: #676879;
   --placeholder-color: #a6a8a7;
   --link-color: #404643;
   --text-color-on-primary: #f9faf9;
   --text-color-on-inverted: #ffffff;
   --inverted-color-background: #323338;
 
-  /* Radius — controls (buttons, inputs) are uniformly 8px; layout shells use 16px */
-  --glaze-radius-control: 8px;
-  --border-radius-small: var(--glaze-radius-control);
-  --border-radius-medium: var(--glaze-radius-control);
+  /* Radius */
+  --border-radius-small: 8px;
+  --border-radius-medium: 8px;
   --border-radius-big: 14px;
 
-  /* Glaze-specific tokens */
-  --glaze-rail-selected-color: #e0e2e1;
-  --glaze-rail-selected-hover-color: #dadcdb;
-  --glaze-layout-gap: var(--space-8);
-  --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --glaze-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
-  --glaze-border-hairline: rgba(0, 0, 0, 0.04);
-  --glaze-brand-done: #00ca72;
-  --glaze-brand-working: #fdab3d;
-  --glaze-brand-stuck: #df2f4a;
-  --glaze-brand-bright-blue: #579bfc;
-  --glaze-brand-dark-blue: #007eb5;
-  --glaze-brand-dark-purple: #784bd1;
-  --glaze-brand-purple: #9d50dd;
-  --glaze-brand-lipstick: #ff5ac4;
-  --glaze-brand-sunset: #ff7575;
-  --glaze-brand-dark-orange: #ff6d3b;
-  --glaze-brand-egg-yolk: #ffcb00;
-  --glaze-brand-private: #f65f7c;
-
-  /* Scrim — cool charcoal to match glaze's editorial neutral cast */
   --app-scrim-color: rgba(50, 51, 56, 0.7);
 }
 
@@ -308,88 +275,6 @@
 
   /* Scrim — cool charcoal (Glaze) */
   --app-scrim-color: rgba(50, 51, 56, 0.7);
-}
-
-/* Glaze + Glaze Neue + Warmth — native form controls outside Vibe wrappers */
-html.glaze
-  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
-html.glaze textarea,
-html.glaze select,
-html.glaze-neue
-  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
-html.glaze-neue textarea,
-html.glaze-neue select,
-html.warmth
-  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
-html.warmth textarea,
-html.warmth select {
-  border-radius: var(--glaze-radius-control);
-}
-
-/* Glaze + Glaze Neue + Warmth — lighter focus/hover borders on inputs (Vibe defaults to --primary-color) */
-html.glaze
-  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus,
-html.glaze textarea:focus,
-html.glaze select:focus,
-html.glaze-neue
-  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus,
-html.glaze-neue textarea:focus,
-html.glaze-neue select:focus,
-html.warmth
-  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus,
-html.warmth textarea:focus,
-html.warmth select:focus {
-  border-color: var(--glaze-input-focus-border-color);
-  outline: none;
-}
-
-html.glaze [class*="wrapper"]:hover,
-html.glaze [class*="wrapper"].active,
-html.glaze [class*="wrapper"]:focus,
-html.glaze [class*="inputContainer"]:hover,
-html.glaze [class*="inputContainer"]:focus-within,
-html.glaze-neue [class*="wrapper"]:hover,
-html.glaze-neue [class*="wrapper"].active,
-html.glaze-neue [class*="wrapper"]:focus,
-html.glaze-neue [class*="inputContainer"]:hover,
-html.glaze-neue [class*="inputContainer"]:focus-within,
-html.warmth [class*="wrapper"]:hover,
-html.warmth [class*="wrapper"].active,
-html.warmth [class*="wrapper"]:focus,
-html.warmth [class*="inputContainer"]:hover,
-html.warmth [class*="inputContainer"]:focus-within {
-  --border-color: var(--glaze-input-focus-border-color);
-}
-
-/* Glaze + Glaze Neue + Warmth — text larger than 18px renders at regular weight (no bold). */
-html.glaze h1,
-html.glaze h2,
-html.glaze h3,
-html.glaze [class*="heading"][class*="_h1"],
-html.glaze [class*="heading"][class*="_h2"],
-html.glaze [class*="heading"][class*="_h3"],
-html.glaze [class*="Heading_h1"],
-html.glaze [class*="Heading_h2"],
-html.glaze [class*="Heading_h3"],
-html.glaze-neue h1,
-html.glaze-neue h2,
-html.glaze-neue h3,
-html.glaze-neue [class*="heading"][class*="_h1"],
-html.glaze-neue [class*="heading"][class*="_h2"],
-html.glaze-neue [class*="heading"][class*="_h3"],
-html.glaze-neue [class*="Heading_h1"],
-html.glaze-neue [class*="Heading_h2"],
-html.glaze-neue [class*="Heading_h3"],
-html.warmth h1,
-html.warmth h2,
-html.warmth h3,
-html.warmth [class*="heading"][class*="_h1"],
-html.warmth [class*="heading"][class*="_h2"],
-html.warmth [class*="heading"][class*="_h3"],
-html.warmth [class*="Heading_h1"],
-html.warmth [class*="Heading_h2"],
-html.warmth [class*="Heading_h3"] {
-  font-weight: 400;
 }
 
 html {
@@ -687,18 +572,12 @@ svg[class*="icon_"] {
   --primary-text-color: #e4e2de;
   --secondary-text-color: #9a9894;
   --icon-color: #6e6c68;
-  --glaze-icon-color-primary: #9a9894;
-  --glaze-icon-color-secondary: #6e6c68;
-  --icon-hover: #9a9894;
   --placeholder-color: #5a5854;
   --link-color: #d4d2ce;
   --ui-background-color: #242423;
   --ui-background-hover-color: #2a2a29;
   --ui-border-color: #343433;
   --layout-border-color: #2a2a29;
-  --glaze-input-focus-border-color: #6e6c68;
-  --glaze-rail-selected-color: #1f1f1e;
-  --glaze-rail-selected-hover-color: #232322;
   --primary-selected-color: #222221;
   --primary-selected-hover-color: #262625;
   --primary-highlighted-color: #222221;
@@ -726,18 +605,12 @@ svg[class*="icon_"] {
   --primary-text-color: #eceae6;
   --secondary-text-color: #8a8884;
   --icon-color: #5e5c58;
-  --glaze-icon-color-primary: #8a8884;
-  --glaze-icon-color-secondary: #5e5c58;
-  --icon-hover: #8a8884;
   --placeholder-color: #4a4844;
   --link-color: #e0deda;
   --ui-background-color: #121211;
   --ui-background-hover-color: #171716;
   --ui-border-color: #20201f;
   --layout-border-color: #181817;
-  --glaze-input-focus-border-color: #5e5c58;
-  --glaze-rail-selected-color: #20201f;
-  --glaze-rail-selected-hover-color: #272725;
   --primary-selected-color: #151514;
   --primary-selected-hover-color: #1a1a19;
   --primary-highlighted-color: #111110;

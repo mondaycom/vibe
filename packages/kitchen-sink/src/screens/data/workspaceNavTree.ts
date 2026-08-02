@@ -40,12 +40,6 @@ export const WORKSPACE_NAV_TREE: NavTreeNode[] = [
   },
   {
     type: "item",
-    id: "facelift-test",
-    label: "facelift test",
-    icon: "doc",
-  },
-  {
-    type: "item",
     id: "designers-meeting",
     label: "Team weekly meeting",
     icon: "board",

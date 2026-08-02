@@ -9,12 +9,6 @@
  */
 
 .facelift-theme {
-  /* Typography — Glaze uses DM Sans (app-level; not in Vibe core export) */
-  --font-family:
-    "DM Sans", system-ui, "Figtree", "Inter", "Helvetica Neue", Arial,
-    sans-serif;
-  --title-font-family: var(--font-family);
-
   --primary-color: #404643;
   --primary-hover-color: #000000;
   --primary-selected-color: #eef0ef;
