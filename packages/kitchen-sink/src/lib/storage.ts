@@ -15,6 +15,7 @@ export function createInitialAppState(): AppState {
   return {
     view: "components",
     themeSubPage: "colors",
+    componentSubPage: "grid",
     systemTheme: "light",
     tokenOverrides: structuredClone(EMPTY_TOKEN_OVERRIDES),
     componentStates: mergeWithDefaults(undefined),
@@ -28,6 +29,7 @@ function toPersisted(state: AppState): PersistedState {
     version: STORAGE_VERSION,
     view: state.view,
     themeSubPage: state.themeSubPage,
+    componentSubPage: state.componentSubPage,
     systemTheme: state.systemTheme,
     tokenOverrides: state.tokenOverrides,
     componentStates: state.componentStates,
@@ -60,6 +62,7 @@ export function loadPersistedState(): AppState {
       ...base,
       view: parsed.view ?? base.view,
       themeSubPage: normalizeThemeSubPage(parsed.themeSubPage, base.themeSubPage),
+      componentSubPage: parsed.componentSubPage ?? base.componentSubPage,
       systemTheme: parsed.systemTheme ?? base.systemTheme,
       tokenOverrides: {
         ...base.tokenOverrides,

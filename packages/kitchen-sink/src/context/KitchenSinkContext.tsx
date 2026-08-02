@@ -11,6 +11,7 @@ import { loadPersistedState, savePersistedState } from "../lib/storage";
 import type {
   AppState,
   AppView,
+  ComponentSubPage,
   SystemTheme,
   ThemeSubPage,
   TokenOverrides,
@@ -19,6 +20,7 @@ import type {
 type KitchenSinkContextValue = AppState & {
   setView: (view: AppView) => void;
   setThemeSubPage: (page: ThemeSubPage) => void;
+  setComponentSubPage: (page: ComponentSubPage) => void;
   setSystemTheme: (theme: SystemTheme) => void;
   setFocusedComponentId: (id: string | null) => void;
   updateComponentState: (id: string, patch: Record<string, unknown>) => void;
@@ -37,12 +39,26 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
     return () => window.clearTimeout(id);
   }, [state]);
 
+  useEffect(() => {
+    if (window.location.hash === "#dropdown") {
+      setState((s) => ({ ...s, view: "components", componentSubPage: "dropdown" }));
+    }
+  }, []);
+
   const setView = useCallback((view: AppView) => {
-    setState((s) => ({ ...s, view }));
+    setState((s) => ({
+      ...s,
+      view,
+      componentSubPage: view === "components" ? "grid" : s.componentSubPage,
+    }));
   }, []);
 
   const setThemeSubPage = useCallback((themeSubPage: ThemeSubPage) => {
     setState((s) => ({ ...s, view: "theme", themeSubPage }));
+  }, []);
+
+  const setComponentSubPage = useCallback((componentSubPage: ComponentSubPage) => {
+    setState((s) => ({ ...s, view: "components", componentSubPage }));
   }, []);
 
   const setSystemTheme = useCallback((systemTheme: SystemTheme) => {
@@ -108,6 +124,7 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       ...state,
       setView,
       setThemeSubPage,
+      setComponentSubPage,
       setSystemTheme,
       setFocusedComponentId,
       updateComponentState,
@@ -119,6 +136,7 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       state,
       setView,
       setThemeSubPage,
+      setComponentSubPage,
       setSystemTheme,
       setFocusedComponentId,
       updateComponentState,

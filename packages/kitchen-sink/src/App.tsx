@@ -3,12 +3,13 @@ import { AppThemeShell } from "./components/AppThemeShell";
 import { LeftPane } from "./components/LeftPane";
 import { useKitchenSink } from "./context/KitchenSinkContext";
 import { ComponentsView } from "./components/ComponentsView";
+import { DropdownGalleryView } from "./components/DropdownGalleryView";
 import { CompareView } from "./components/CompareView";
 import { ThemePanel } from "./components/ThemePanel";
 import { ScreensView } from "./components/ScreensView";
 
 export default function App() {
-  const { view } = useKitchenSink();
+  const { view, componentSubPage } = useKitchenSink();
   const [leftPaneCollapsed, setLeftPaneCollapsed] = useState(false);
 
   return (
@@ -21,7 +22,8 @@ export default function App() {
           onToggleCollapse={() => setLeftPaneCollapsed((c) => !c)}
         />
         <main className={`main-area${view === "screens" ? " main-area--no-padding" : ""}`}>
-          {view === "components" && <ComponentsView />}
+          {view === "components" && componentSubPage === "grid" && <ComponentsView />}
+          {view === "components" && componentSubPage === "dropdown" && <DropdownGalleryView />}
           {view === "compare" && <CompareView />}
           {view === "theme" && <ThemePanel />}
           {view === "screens" && <ScreensView />}
