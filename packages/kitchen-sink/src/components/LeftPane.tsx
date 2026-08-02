@@ -57,6 +57,13 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         </button>
         <button
           type="button"
+          className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "dropdown" ? " is-active" : ""}`}
+          onClick={() => setComponentSubPage("dropdown")}
+        >
+          Dropdown
+        </button>
+        <button
+          type="button"
           className={`left-pane-sublink${view === "theme" ? " is-active" : ""}`}
           onClick={() => setThemeSubPage(themeSubPage)}
         >

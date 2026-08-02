@@ -18,7 +18,9 @@
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/screens/*"]
+      "@/*": ["./src/screens/*"],
+      "@vibe/core/next": ["../core/dist/components/next.d.ts"],
+      "@vibe/core": ["../core/dist/index.d.ts"]
     }
   },
   "include": ["src"]
