@@ -1,27 +1,27 @@
-import { Button, type ButtonProps } from "@vibe/button";
-import React, { type FC } from "react";
+import React, { type ButtonHTMLAttributes, type FC } from "react";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import { getTestId } from "../../../tests/test-ids-utils";
 
-export type ToastButtonProps = ButtonProps;
+export type ToastButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const ToastButton: FC<ToastButtonProps> = ({
   className,
   id,
+  children,
   "data-testid": dataTestId,
+  type = "button",
   ...buttonProps
 }: ToastButtonProps) => {
   return (
-    <Button
+    <button
       {...buttonProps}
       id={id}
-      kind="secondary"
-      marginLeft={false}
+      type={type}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST_BUTTON, id)}
       className={className}
-      size="small"
-      color="fixed-light"
-    />
+    >
+      {children}
+    </button>
   );
 };
 

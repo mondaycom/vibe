@@ -1,131 +1,224 @@
 @import "../../styles/keyframes";
 
 .toast {
-  box-shadow: var(--box-shadow-medium);
+  position: fixed;
+  inset-block-start: var(--space-24);
+  inset-inline-start: 50%;
+  z-index: 999999999;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  min-width: 200px;
+  max-width: 356px;
+  padding: var(--space-16);
+  border: 1px solid hsl(0, 0%, 93%);
+  border-radius: var(--border-radius-medium);
+  background-color: #fff;
+  color: hsl(0, 0%, 9%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
-  margin: var(--spacing-medium);
-  position: fixed;
-  left: 50%;
-  top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--spacing-small);
-  align-items: center;
-  display: flex;
-  min-width: 200px;
-  width: auto;
-  border-radius: var(--border-radius-small);
-  color: var(--fixed-light-color);
-  transform: translateX(-50%);
-  transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), width 200ms cubic-bezier(0, 0, 0.4, 1);
+  transition:
+    transform 400ms ease,
+    opacity 400ms ease,
+    box-shadow 200ms ease;
 
   &.typeNormal {
-    background-color: var(--primary-color);
+    background-color: #fff;
+    color: hsl(0, 0%, 9%);
+    border-color: hsl(0, 0%, 93%);
   }
 
   &.typePositive {
-    background-color: var(--positive-color);
+    background-color: hsl(143, 85%, 96%);
+    color: hsl(140, 100%, 27%);
+    border-color: hsl(145, 92%, 87%);
   }
 
   &.typeNegative {
-    background-color: var(--negative-color);
+    background-color: hsl(359, 100%, 97%);
+    color: hsl(360, 100%, 45%);
+    border-color: hsl(359, 100%, 94%);
   }
 
   &.typeWarning {
-    background-color: var(--warning-color);
-    color: var(--fixed-dark-color);
-
-    .closeButton {
-      color: var(--fixed-dark-color);
-    }
-
-    .actionButton,
-    .actionLink {
-      color: var(--fixed-dark-color);
-      border-color: var(--fixed-dark-color);
-    }
+    background-color: hsl(49, 100%, 97%);
+    color: hsl(31, 92%, 45%);
+    border-color: hsl(49, 91%, 84%);
   }
 
   &.typeDark {
-    background-color: var(--inverted-color-background);
-    color: var(--text-color-on-inverted);
+    background-color: #000;
+    color: hsl(0, 0%, 99%);
+    border-color: hsl(0, 0%, 20%);
+  }
 
-    .closeButton {
-      color: var(--text-color-on-inverted);
-    }
-
-    .actionButton,
-    .actionLink {
-      color: var(--text-color-on-inverted);
-      border-color: var(--text-color-on-inverted);
-    }
+  &.inline {
+    position: relative;
+    inset: unset;
+    transform: none;
+    z-index: auto;
   }
 }
 
 .icon {
   display: flex;
-  margin-left: var(--spacing-small);
-}
-
-.actionButton.withTransition {
-  opacity: 0;
-  animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
-  animation-delay: 300ms;
-  animation-fill-mode: forwards;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: -3px;
+  margin-inline-end: 4px;
 }
 
 .content {
-  margin: 0 var(--spacing-small);
   flex: 1;
+  min-width: 0;
+}
+
+.message {
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .textContent {
-  display: inline-flex;
-  flex-grow: 1;
+  flex: 1;
+  min-width: 0;
+}
+
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-8);
+  margin-inline-start: auto;
+}
+
+.actionButton {
+  flex-shrink: 0;
+  height: 24px;
+  padding: 0 var(--space-8);
+  border: none;
+  border-radius: var(--border-radius-small);
+  background-color: hsl(0, 0%, 9%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.withTransition {
+    opacity: 0;
+    animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+.typePositive .actionButton {
+  background-color: hsl(140, 100%, 27%);
+  color: hsl(143, 85%, 96%);
+}
+
+.typeNegative .actionButton {
+  background-color: hsl(360, 100%, 45%);
+  color: hsl(359, 100%, 97%);
+}
+
+.typeWarning .actionButton {
+  background-color: hsl(31, 92%, 45%);
+  color: hsl(49, 100%, 97%);
+}
+
+.typeDark .actionButton {
+  background-color: hsl(0, 0%, 99%);
+  color: #000;
+}
+
+.actionLink {
+  flex-shrink: 0;
+  color: currentColor;
+  font-weight: 500;
+  text-decoration: underline;
+  white-space: nowrap;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .enterActive {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-name: slideIn;
-  animation-duration: 350ms;
-  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  animation-duration: 400ms;
+  animation-timing-function: ease;
 }
 
 .exitActive {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-name: slideOut;
-  animation-duration: 350ms;
-  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  animation-duration: 400ms;
+  animation-timing-function: ease;
 }
 
 .closeButton {
-  margin-left: var(--spacing-small);
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin-inline-start: var(--space-4);
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.typeDark .closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 @keyframes slideIn {
   0% {
-    transform: translate(-50%, -100px);
-  }
-
-  40% {
-    transform: translate(-50%, 16px);
+    transform: translate(-50%, -100%);
+    opacity: 0;
   }
 
   100% {
-    transform: translate(-50%, 0px);
+    transform: translate(-50%, 0);
+    opacity: 1;
   }
 }
 
 @keyframes slideOut {
   0% {
     transform: translate(-50%, 0);
+    opacity: 1;
   }
 
   100% {
-    transform: translate(-50%, -100px);
+    transform: translate(-50%, -100%);
     opacity: 0;
   }
 }
