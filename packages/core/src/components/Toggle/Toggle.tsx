@@ -117,7 +117,7 @@ const Toggle = forwardRef(
           offOverrideText={offOverrideText}
           onOverrideText={onOverrideText}
           disabled={disabled}
-          className={className}
+          className={cx(className, styles.toggleFocusTarget)}
           selectedClassName={toggleSelectedClassName}
           size={size}
         />
