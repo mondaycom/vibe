@@ -9,6 +9,11 @@ export const getIcon = (type: ToastType, icon: string | React.FC<IconSubComponen
     return icon;
   }
   return icon || defaultIconMap[type] ? (
-    <Icon iconType={icon ? "font" : "svg"} icon={icon || defaultIconMap[type]} iconSize={16} ignoreFocusStyle />
+    <Icon
+      iconType={icon ? "font" : "svg"}
+      icon={icon || defaultIconMap[type]}
+      iconSize={16}
+      ignoreFocusStyle
+    />
   ) : null;
 };

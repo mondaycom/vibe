@@ -4,7 +4,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Box } from "@vibe/core";
+import { Box, Toast } from "@vibe/core";
 import styles from "./App.module.scss";
 import { MainLayout } from "./components/MainLayout";
 import { AppMainContent } from "./components/AppMainContent";
@@ -74,6 +74,18 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
     hashRoute.boardViewId,
   );
   const [openItem, setOpenItem] = useState<Item | null>(null);
+  const [toast, setToast] = useState<{
+    open: boolean;
+    message: string;
+    type: "normal" | "positive" | "negative" | "warning" | "dark";
+  }>({ open: false, message: "", type: "positive" });
+
+  const showToast = (
+    message: string,
+    type: "normal" | "positive" | "negative" | "warning" | "dark" = "positive",
+  ) => {
+    setToast({ open: true, message, type });
+  };
 
   const commitHashRoute = useCallback((updates: Partial<HashRoute>) => {
     const nextRoute = { ...hashRouteRef.current, ...updates };
@@ -212,6 +224,7 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
         <BoardHeader
           activeViewId={boardViewId}
           onViewChange={handleBoardViewChange}
+          onNewItem={() => showToast("Item created successfully", "positive")}
         />
       </Box>
       <Box
@@ -273,6 +286,14 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
               item={openItem}
               onClose={() => setOpenItem(null)}
             />
+            <Toast
+              open={toast.open}
+              type={toast.type}
+              autoHideDuration={4000}
+              onClose={() => setToast((t) => ({ ...t, open: false }))}
+            >
+              {toast.message}
+            </Toast>
           </AgentBuilderProvider>
         </SidekickViewProvider>
       </AgentsViewProvider>

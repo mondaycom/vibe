@@ -394,6 +394,7 @@ export default function App() {
         <BoardHeader
           activeViewId={boardViewId}
           onViewChange={handleBoardViewChange}
+          onNewItem={() => showToast("Item created successfully", "positive")}
         />
       </Box>
       <Box

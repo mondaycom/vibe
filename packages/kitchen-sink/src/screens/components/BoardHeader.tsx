@@ -40,11 +40,13 @@ import {
 interface BoardHeaderProps {
   activeViewId: BoardViewId;
   onViewChange: (viewId: BoardViewId) => void;
+  onNewItem?: () => void;
 }
 
 export const BoardHeader: React.FC<BoardHeaderProps> = ({
   activeViewId,
   onViewChange,
+  onNewItem,
 }) => {
   const activeView =
     BOARD_VIEWS.find((view) => view.id === activeViewId) ?? BOARD_VIEWS[0];
@@ -167,6 +169,7 @@ export const BoardHeader: React.FC<BoardHeaderProps> = ({
               <SplitButton
                 size="small"
                 kind="primary"
+                onClick={onNewItem}
                 secondaryDialogContent={
                   <VibeMenu>
                     <MenuItem title="Secondary action" />

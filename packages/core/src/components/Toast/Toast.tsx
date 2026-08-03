@@ -4,20 +4,20 @@ import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
-import { Icon, type IconSubComponentProps } from "@vibe/icon";
+import { type IconSubComponentProps } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { Loader } from "@vibe/loader";
 import { Flex } from "@vibe/layout";
 import { CloseSmall } from "@vibe/icons";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import { ToastActionType as ToastActionTypeEnum, ToastType as ToastTypeEnum } from "./ToastConstants";
 import { type ToastType, type ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
-import { NOOP } from "../../utils/function-utils";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
-import { type VibeComponentProps, withStaticPropsWithoutForwardRef } from "../../types";
+import { NOOP, getStyle } from "@vibe/shared";
+
+import { type VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
+import { IconButton } from "@vibe/icon-button";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
@@ -71,7 +71,7 @@ export interface ToastProps extends VibeComponentProps {
    */
   closeButtonAriaLabel?: string;
   /**
-   * If true, renders the toast inline (for galleries/previews) instead of fixed at the top of the viewport.
+   * If true, renders the toast in place (for gallery previews) instead of fixed at the top.
    */
   inline?: boolean;
 }
@@ -119,13 +119,14 @@ const Toast = ({
             <ToastButton
               key={`alert-button-${index}`}
               className={cx(styles.actionButton, { [styles.withTransition]: shouldShowButtonTransition })}
+              color={type === "dark" ? "fixed-light" : "primary"}
               {...otherProps}
             >
               {content}
             </ToastButton>
           ))
       : null;
-  }, [actions, shouldShowButtonTransition]);
+  }, [actions, shouldShowButtonTransition, type]);
 
   const classNames = useMemo(
     () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), { [styles.inline]: inline }, className),
@@ -187,51 +188,48 @@ const Toast = ({
       ref={nodeRef}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-      data-vibe="Toast"
       type="text2"
       element="div"
+      color={type === "dark" ? "fixedLight" : "primary"}
       className={classNames}
       role="alert"
       aria-live="polite"
     >
       {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-      <Flex align="center" gap="small" className={styles.content}>
+      <Flex align="center" gap="medium" className={styles.content}>
         <Flex
-          align="center"
           gap="medium"
           data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
           className={styles.textContent}
         >
-          <span className={styles.message}>{children}</span>
+          <span>{children}</span>
           {toastLinks}
         </Flex>
-        {(toastButtons || deprecatedAction) && (
-          <div className={styles.actions}>{toastButtons || deprecatedAction}</div>
-        )}
+        {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
         {loading && <Loader size="xs" />}
       </Flex>
       {closeable && (
-        <button
-          type="button"
+        <IconButton
           className={cx(styles.closeButton)}
           onClick={handleClose}
+          size="xs"
+          kind="tertiary"
+          color={type === "dark" ? "fixed-light" : "primary"}
           aria-label={closeButtonAriaLabel}
           data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-        >
-          <Icon icon={CloseSmall} iconSize={14} ignoreFocusStyle />
-        </button>
+          icon={CloseSmall}
+          hideTooltip
+        />
       )}
     </Text>
   );
 
+  // Gallery / static previews: render in place, skip enter/exit animation.
   if (inline) {
-    if (!open) {
-      return null;
-    }
-
-    return toastElement;
+    return open ? toastElement : null;
   }
 
+  // Portal to body so Toast always stacks above app chrome (search, sticky headers).
   return createPortal(
     <CSSTransition
       in={open}
@@ -246,12 +244,4 @@ const Toast = ({
   );
 };
 
-interface ToastStaticProps {
-  types: typeof ToastTypeEnum;
-  actionTypes: typeof ToastActionTypeEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<ToastProps, ToastStaticProps>(Toast, {
-  types: ToastTypeEnum,
-  actionTypes: ToastActionTypeEnum
-});
+export default Toast;
