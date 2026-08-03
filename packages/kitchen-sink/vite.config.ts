@@ -21,9 +21,9 @@ export default defineConfig({
     alias: {
       // Facelift theme tokens live in @vibe/style (includes facelift-*-app-theme classes).
       "@vibe/core/tokens": path.resolve(rootDir, "../style/dist/index.min.css"),
-      // Prefer local core build when present; fall back to installed package.
-      "@vibe/core/next": path.resolve(rootDir, "node_modules/@vibe/core/dist/src/components/next.js"),
-      "@vibe/core": path.resolve(rootDir, "node_modules/@vibe/core/dist/src/index.js"),
+      // Point at local monorepo core build (Toast/Dropdown next APIs).
+      "@vibe/core/next": path.resolve(rootDir, "../core/dist/src/components/next.js"),
+      "@vibe/core": path.resolve(rootDir, "../core/dist/src/index.js"),
       "@vibe/icons": path.resolve(rootDir, "node_modules/@vibe/icons/dist/react/index.js"),
       // Deep AgentAvatar import — package barrel pulls monolith-only deps; stub locally when unavailable.
       "@mondaydotcomorg/monday-ui-components/dist/esm/monday-ui-components/src/components/AgentAvatar/AgentAvatar.js":
