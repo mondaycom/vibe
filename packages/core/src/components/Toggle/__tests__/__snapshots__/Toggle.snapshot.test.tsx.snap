@@ -23,7 +23,7 @@ exports[`Toggle renders correctly > renders correctly when disabled 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected disabled"
+    className="toggle medium toggleFocusTarget selected disabled"
     data-testid="toggle"
   />
   <span
@@ -51,7 +51,7 @@ exports[`Toggle renders correctly > renders correctly when labels are hidden 1`]
   />
   <div
     aria-hidden="true"
-    className="toggle medium selected"
+    className="toggle medium toggleFocusTarget selected"
     data-testid="toggle"
   />
 </label>
@@ -79,7 +79,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name notSelected"
+    className="toggle medium dummy-class-name toggleFocusTarget notSelected"
     data-testid="toggle"
   />
   <span
@@ -113,7 +113,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name selected"
+    className="toggle medium dummy-class-name toggleFocusTarget selected"
     data-testid="toggle"
   />
   <span
@@ -147,7 +147,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name notSelected"
+    className="toggle medium dummy-class-name toggleFocusTarget notSelected"
     data-testid="toggle"
   />
   <span
@@ -181,7 +181,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name selected"
+    className="toggle medium dummy-class-name toggleFocusTarget selected"
     data-testid="toggle"
   />
   <span
@@ -216,7 +216,7 @@ exports[`Toggle renders correctly > renders correctly with aria controls 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
+    className="toggle medium toggleFocusTarget selected"
     data-testid="toggle"
   />
   <span
@@ -250,7 +250,7 @@ exports[`Toggle renders correctly > renders correctly with empty props 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
+    className="toggle medium toggleFocusTarget selected"
     data-testid="toggle"
   />
   <span
@@ -284,7 +284,7 @@ exports[`Toggle renders correctly > renders correctly with not default offOverri
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
+    className="toggle medium toggleFocusTarget selected"
     data-testid="toggle"
   />
   <span
@@ -318,7 +318,7 @@ exports[`Toggle renders correctly > renders correctly with not default onOverrid
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
+    className="toggle medium toggleFocusTarget selected"
     data-testid="toggle"
   />
   <span
