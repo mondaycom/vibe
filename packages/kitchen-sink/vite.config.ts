@@ -17,6 +17,7 @@ export default defineConfig({
       // Point directly at the monorepo's built packages/core so source changes
       // (after `yarn workspace @vibe/core build`) are picked up by both apps.
       "@vibe/core/tokens": path.resolve(rootDir, "../core/dist/tokens/tokens.css"),
+      "@vibe/core/next": path.resolve(rootDir, "../core/dist/src/components/next.js"),
       "@vibe/core": path.resolve(rootDir, "../core/dist/src/index.js"),
       "@vibe/icons": path.resolve(rootDir, "node_modules/@vibe/icons/dist/react/index.js"),
       // Deep AgentAvatar import — package barrel pulls monolith-only deps; stub locally when unavailable.
