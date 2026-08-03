@@ -198,7 +198,7 @@ exports[`Slider renders correctly > 06. with disabled 1`] = `
     data-testid="monday-slider__base"
   >
     <div
-      class="rail small"
+      class="rail small railDisabled"
       data-testid="monday-slider__rail"
     >
       <div
