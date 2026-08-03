@@ -1,15 +1,19 @@
 import type { ThemeProviderProps } from "@vibe/core";
-import type { SystemTheme, TokenOverrides } from "../types";
+import type { SystemTheme, ThemeFamily, TokenOverrides } from "../types";
 import { pickThemeProviderColors } from "./themeColorKeys";
 
 type ThemeConfig = NonNullable<ThemeProviderProps["themeConfig"]>;
 const SYSTEM_THEMES: SystemTheme[] = ["light", "dark", "black"];
 
-export function buildThemeConfig(overrides: TokenOverrides): ThemeConfig | undefined {
+export function buildThemeConfig(
+  overrides: TokenOverrides,
+  themeFamily: ThemeFamily
+): ThemeConfig | undefined {
   const colors: ThemeConfig["colors"] = {};
+  const familyColors = overrides.colors[themeFamily] ?? {};
 
   for (const theme of SYSTEM_THEMES) {
-    const themeColors = overrides.colors[theme];
+    const themeColors = familyColors[theme];
     if (!themeColors) continue;
 
     const eligible = pickThemeProviderColors(themeColors);

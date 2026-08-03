@@ -1,6 +1,3 @@
-@use "./productHeroGlaze" as heroGlaze;
-@use "./composerGlow" as composerGlow;
-
 .root {
   --vibe-mini-home-font-family: var(--boards-font-family);
   --font-family: var(--vibe-mini-home-font-family);
@@ -778,22 +775,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-:global(html.glaze),
-:global(html.glaze-neue),
-:global(html.warmth) {
-  @include heroGlaze.product-hero-glaze;
-
-  .heroBlock {
-    margin-bottom: 0;
-  }
-
-  .composerBorder,
-  .promptChipsRow {
-    max-width: none;
-  }
-}
-
-@include composerGlow.composer-glow(
-  linear-gradient(90deg, #f0c020 12%, #ff9e52 43%, #ff74cd 65%, #ff92e8 88%)
-);
