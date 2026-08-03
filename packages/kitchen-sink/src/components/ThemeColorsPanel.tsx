@@ -15,8 +15,9 @@ function ThemeColorSection({
   description?: string;
   tokens: (typeof COLOR_TOKEN_SECTIONS)[number]["tokens"];
 }) {
-  const { systemTheme, tokenOverrides, updateColorOverride } = useKitchenSink();
-  const themeColors = tokenOverrides.colors[systemTheme] ?? {};
+  const { systemTheme, tokenOverrides, faceliftTheme, updateColorOverride } = useKitchenSink();
+  const themeFamily = faceliftTheme ? "facelift" : "original";
+  const themeColors = tokenOverrides.colors[themeFamily]?.[systemTheme] ?? {};
 
   return (
     <section key={sectionId} className="theme-section-row">
@@ -36,7 +37,7 @@ function ThemeColorSection({
           const override = themeColors[token.name];
           return (
             <ThemeColorSwatch
-              key={token.name}
+              key={`${themeFamily}-${systemTheme}-${token.name}`}
               token={token}
               value={override ?? ""}
               isOverridden={Boolean(override)}
@@ -52,7 +53,6 @@ function ThemeColorSection({
 
 export function ThemeColorsPanel() {
   const [activeSectionTab, setActiveSectionTab] = useState(0);
-  const { faceliftTheme, setFaceliftTheme } = useKitchenSink();
   const visibleSections =
     activeSectionTab === 0
       ? COLOR_TOKEN_SECTIONS
@@ -60,25 +60,6 @@ export function ThemeColorsPanel() {
 
   return (
     <div className="theme-page">
-      <div className="theme-mode-toggle-row">
-        <span className="theme-mode-toggle-label">Theme</span>
-        <div className="theme-mode-toggle-group">
-          <button
-            type="button"
-            className={`theme-mode-toggle-btn${!faceliftTheme ? " is-active" : ""}`}
-            onClick={() => setFaceliftTheme(false)}
-          >
-            Original
-          </button>
-          <button
-            type="button"
-            className={`theme-mode-toggle-btn${faceliftTheme ? " is-active" : ""}`}
-            onClick={() => setFaceliftTheme(true)}
-          >
-            Facelift (Glaze)
-          </button>
-        </div>
-      </div>
       <header className="theme-page-header">
         <Heading type="h2" weight="medium">
           Backgrounds, text and layout

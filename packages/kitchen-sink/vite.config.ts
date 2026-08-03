@@ -7,6 +7,11 @@ const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: "127.0.0.1",
+    port: 5220,
+    strictPort: true,
+  },
   define: {
     // react-dates (Vibe v3 dep) references Node's `global`; shim it for browsers.
     global: "globalThis",
@@ -14,11 +19,11 @@ export default defineConfig({
   resolve: {
     dedupe: ["react", "react-dom"],
     alias: {
-      // Point directly at the monorepo's built packages/core so source changes
-      // (after `yarn workspace @vibe/core build`) are picked up by both apps.
-      "@vibe/core/tokens": path.resolve(rootDir, "../core/dist/tokens/tokens.css"),
-      "@vibe/core/next": path.resolve(rootDir, "../core/dist/src/components/next.js"),
-      "@vibe/core": path.resolve(rootDir, "../core/dist/src/index.js"),
+      // Facelift theme tokens live in @vibe/style (includes facelift-*-app-theme classes).
+      "@vibe/core/tokens": path.resolve(rootDir, "../style/dist/index.min.css"),
+      // Prefer local core build when present; fall back to installed package.
+      "@vibe/core/next": path.resolve(rootDir, "node_modules/@vibe/core/dist/src/components/next.js"),
+      "@vibe/core": path.resolve(rootDir, "node_modules/@vibe/core/dist/src/index.js"),
       "@vibe/icons": path.resolve(rootDir, "node_modules/@vibe/icons/dist/react/index.js"),
       // Deep AgentAvatar import — package barrel pulls monolith-only deps; stub locally when unavailable.
       "@mondaydotcomorg/monday-ui-components/dist/esm/monday-ui-components/src/components/AgentAvatar/AgentAvatar.js":

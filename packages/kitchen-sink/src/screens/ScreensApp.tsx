@@ -259,6 +259,10 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
       document.documentElement.classList.remove(cls),
     );
     if (activeTheme) document.documentElement.classList.add(activeTheme);
+
+    return () => {
+      THEME_CLASSES.forEach((cls) => document.documentElement.classList.remove(cls));
+    };
   }, [activeTheme]);
 
   useEffect(() => {
@@ -266,6 +270,10 @@ export function ScreensApp({ externalTheme, externalMode }: ScreensAppProps) {
       document.documentElement.classList.remove(cls),
     );
     if (activeMode) document.documentElement.classList.add(activeMode);
+
+    return () => {
+      MODE_CLASSES.forEach((cls) => document.documentElement.classList.remove(cls));
+    };
   }, [activeMode]);
 
   useEffect(() => {

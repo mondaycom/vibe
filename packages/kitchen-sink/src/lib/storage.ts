@@ -1,9 +1,31 @@
 import { defaultComponentStates, mergeWithDefaults } from "./defaultComponentStates";
 import { EMPTY_TOKEN_OVERRIDES } from "./tokenDefinitions";
-import type { AppState, PersistedState, ThemeSubPage } from "../types";
+import type { AppState, PersistedState, ThemeColorOverrides, ThemeFamily, ThemeSubPage } from "../types";
 import { STORAGE_KEY, STORAGE_VERSION } from "../types";
 
 const VALID_THEME_SUBPAGES: ThemeSubPage[] = ["colors", "radius", "typography"];
+
+function isSystemThemeKey(key: string): key is "light" | "dark" | "black" {
+  return key === "light" || key === "dark" || key === "black";
+}
+
+function migrateColorOverrides(colors: unknown): AppState["tokenOverrides"]["colors"] {
+  if (!colors || typeof colors !== "object") {
+    return {};
+  }
+
+  const record = colors as Record<string, unknown>;
+
+  if ("original" in record || "facelift" in record) {
+    return colors as AppState["tokenOverrides"]["colors"];
+  }
+
+  if (Object.keys(record).some(isSystemThemeKey)) {
+    return { original: colors as ThemeColorOverrides };
+  }
+
+  return {};
+}
 
 function normalizeThemeSubPage(value: unknown, fallback: ThemeSubPage): ThemeSubPage {
   if (value === "spacing") return "typography";
@@ -67,7 +89,7 @@ export function loadPersistedState(): AppState {
       tokenOverrides: {
         ...base.tokenOverrides,
         ...parsed.tokenOverrides,
-        colors: parsed.tokenOverrides?.colors ?? base.tokenOverrides.colors,
+        colors: migrateColorOverrides(parsed.tokenOverrides?.colors),
         radius: parsed.tokenOverrides?.radius ?? base.tokenOverrides.radius,
         spacing: parsed.tokenOverrides?.spacing ?? base.tokenOverrides.spacing,
         typography: parsed.tokenOverrides?.typography ?? base.tokenOverrides.typography,

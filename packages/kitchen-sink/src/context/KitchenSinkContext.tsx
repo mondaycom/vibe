@@ -13,6 +13,7 @@ import type {
   AppView,
   ComponentSubPage,
   SystemTheme,
+  ThemeFamily,
   ThemeSubPage,
   TokenOverrides,
 } from "../types";
@@ -96,7 +97,9 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
   const updateColorOverride = useCallback(
     (theme: SystemTheme, key: string, value: string) => {
       setState((s) => {
-        const themeColors = { ...s.tokenOverrides.colors[theme] };
+        const themeFamily: ThemeFamily = s.faceliftTheme ? "facelift" : "original";
+        const familyColors = { ...(s.tokenOverrides.colors[themeFamily] ?? {}) };
+        const themeColors = { ...(familyColors[theme] ?? {}) };
         if (value) {
           themeColors[key] = value;
         } else {
@@ -108,7 +111,10 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
             ...s.tokenOverrides,
             colors: {
               ...s.tokenOverrides.colors,
-              [theme]: themeColors,
+              [themeFamily]: {
+                ...familyColors,
+                [theme]: themeColors,
+              },
             },
           },
         };

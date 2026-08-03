@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "@vibe/core/tokens";
-import "./styles/facelift-theme.css";
 import "./styles.css";
 import App from "./App";
 import { KitchenSinkProvider } from "./context/KitchenSinkContext";

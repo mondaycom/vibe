@@ -1,13 +1,14 @@
 import type { CSSProperties } from "react";
-import type { SystemTheme, TokenOverrides } from "../types";
+import type { SystemTheme, ThemeFamily, TokenOverrides } from "../types";
 
 export type CssVarStyle = CSSProperties & Record<`--${string}`, string>;
 
 export function buildCssVarStyle(
   overrides: TokenOverrides,
-  systemTheme: SystemTheme
+  systemTheme: SystemTheme,
+  themeFamily: ThemeFamily
 ): CssVarStyle {
-  const themeColors = overrides.colors[systemTheme] ?? {};
+  const themeColors = overrides.colors[themeFamily]?.[systemTheme] ?? {};
   const colorVars = Object.fromEntries(
     Object.entries(themeColors).map(([key, value]) => [`--${key}`, value])
   ) as CssVarStyle;
