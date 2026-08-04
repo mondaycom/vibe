@@ -1,3 +1,5 @@
+[![MCP Toplist](https://mcptoplist.com/badge/mcp.so%2Fvibe%2Fmondaycom.svg)](https://mcptoplist.com/server/mcp.so%2Fvibe%2Fmondaycom)
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png" width="300px" alt="Vibe Design System, by monday.com">
   <h1 align="center">Vibe Design System</h1>
