@@ -9,9 +9,10 @@
   left: 50%;
   top: 0;
   margin-inline: auto;
-  padding: var(--space-8);
+  padding: var(--space-12);
   align-items: center;
   display: flex;
+  gap: var(--space-12);
   min-width: 200px;
   width: auto;
   border-radius: var(--border-radius-medium);
@@ -63,18 +64,16 @@
   height: var(--space-24);
   min-width: var(--space-24);
   min-height: var(--space-24);
-  margin-inline-start: var(--space-8);
   border-radius: 50%;
   overflow: hidden;
   background-color: var(--allgrey-background-color);
-  color: var(--icon-color);
+  color: var(--primary-text-color);
 
-  // Keep glyph size/color consistent (overrides app-level svg icon-color rules).
+  // Keep glyph size consistent; color is set inline on Icon (see ToastHelpers).
   svg {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-    color: inherit;
     fill: currentColor;
   }
 }
@@ -95,7 +94,7 @@
 }
 
 .typeDark .icon {
-  background-color: var(--primary-background-hover-color);
+  background-color: var(--inverted-color-background);
   color: var(--text-color-on-inverted);
 }
 
@@ -107,8 +106,8 @@
 }
 
 .content {
-  margin: 0 var(--space-8);
   flex: 1;
+  min-width: 0;
 }
 
 .textContent {
@@ -133,7 +132,8 @@
 }
 
 .closeButton {
-  margin-inline-start: var(--space-8);
+  flex-shrink: 0;
+  margin: 0;
 }
 
 @keyframes slideIn {
