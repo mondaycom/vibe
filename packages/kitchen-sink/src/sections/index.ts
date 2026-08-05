@@ -9,6 +9,7 @@ const SECTION_ORDER = [
   "chip",
   "text-field",
   "dropdown",
+  "menu",
   "toast",
 ] as const;
 
