@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { type AriaAttributes, forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { type AriaAttributes, forwardRef, memo, useCallback, useEffect, useMemo, useRef } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { useMergeRef, NOOP } from "@vibe/shared";
@@ -93,7 +93,9 @@ export interface ButtonProps extends VibeComponentProps {
   tabIndex?: number;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+// TODO(perf): callers commonly pass inline `onClick`/`children` closures which defeat memoization.
+// Memoization here still helps when parent props are stable; consumer call sites are out of scope for this PR.
+const ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
@@ -378,5 +380,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+ButtonComponent.displayName = "Button";
+
+const Button = memo(ButtonComponent);
+Button.displayName = "Button";
 
 export default Button;
