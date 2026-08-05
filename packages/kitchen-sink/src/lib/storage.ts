@@ -1,9 +1,23 @@
+import { isComponentGalleryId } from "../components/componentGalleries";
 import { defaultComponentStates, mergeWithDefaults } from "./defaultComponentStates";
 import { EMPTY_TOKEN_OVERRIDES } from "./tokenDefinitions";
-import type { AppState, PersistedState, ThemeColorOverrides, ThemeFamily, ThemeSubPage } from "../types";
+import type {
+  AppState,
+  ComponentSubPage,
+  PersistedState,
+  ThemeColorOverrides,
+  ThemeSubPage,
+} from "../types";
 import { STORAGE_KEY, STORAGE_VERSION } from "../types";
 
 const VALID_THEME_SUBPAGES: ThemeSubPage[] = ["colors", "radius", "typography"];
+
+function normalizeComponentSubPage(value: unknown, fallback: ComponentSubPage): ComponentSubPage {
+  if (value === "grid" || (typeof value === "string" && isComponentGalleryId(value))) {
+    return value;
+  }
+  return fallback;
+}
 
 function isSystemThemeKey(key: string): key is "light" | "dark" | "black" {
   return key === "light" || key === "dark" || key === "black";
@@ -84,7 +98,7 @@ export function loadPersistedState(): AppState {
       ...base,
       view: parsed.view ?? base.view,
       themeSubPage: normalizeThemeSubPage(parsed.themeSubPage, base.themeSubPage),
-      componentSubPage: parsed.componentSubPage ?? base.componentSubPage,
+      componentSubPage: normalizeComponentSubPage(parsed.componentSubPage, base.componentSubPage),
       systemTheme: parsed.systemTheme ?? base.systemTheme,
       tokenOverrides: {
         ...base.tokenOverrides,

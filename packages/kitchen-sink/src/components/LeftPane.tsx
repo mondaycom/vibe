@@ -1,6 +1,10 @@
 import { ButtonGroup } from "@vibe/core";
 import { useKitchenSink } from "../context/KitchenSinkContext";
 import type { SystemTheme, ThemeSubPage } from "../types";
+import {
+  COMPONENT_GALLERY_LABELS,
+  COMPONENT_GALLERY_ORDER,
+} from "./componentGalleries";
 
 const THEME_FAMILY_OPTIONS = [
   { value: "original", text: "Original" },
@@ -56,20 +60,16 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         >
           Components
         </button>
-        <button
-          type="button"
-          className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "toast" ? " is-active" : ""}`}
-          onClick={() => setComponentSubPage("toast")}
-        >
-          Toast
-        </button>
-        <button
-          type="button"
-          className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "dropdown" ? " is-active" : ""}`}
-          onClick={() => setComponentSubPage("dropdown")}
-        >
-          Dropdown
-        </button>
+        {COMPONENT_GALLERY_ORDER.map((id) => (
+          <button
+            key={id}
+            type="button"
+            className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === id ? " is-active" : ""}`}
+            onClick={() => setComponentSubPage(id)}
+          >
+            {COMPONENT_GALLERY_LABELS[id]}
+          </button>
+        ))}
         <button
           type="button"
           className={`left-pane-sublink${view === "theme" ? " is-active" : ""}`}

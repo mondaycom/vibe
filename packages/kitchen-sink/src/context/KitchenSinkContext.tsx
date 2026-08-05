@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { isComponentGalleryId } from "../components/componentGalleries";
 import { loadPersistedState, savePersistedState } from "../lib/storage";
 import type {
   AppState,
@@ -41,10 +42,9 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
   }, [state]);
 
   useEffect(() => {
-    if (window.location.hash === "#toast") {
-      setState((s) => ({ ...s, view: "components", componentSubPage: "toast" }));
-    } else if (window.location.hash === "#dropdown") {
-      setState((s) => ({ ...s, view: "components", componentSubPage: "dropdown" }));
+    const hash = window.location.hash.replace(/^#/, "");
+    if (isComponentGalleryId(hash)) {
+      setState((s) => ({ ...s, view: "components", componentSubPage: hash }));
     }
   }, []);
 
