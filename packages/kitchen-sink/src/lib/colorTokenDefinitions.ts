@@ -19,8 +19,8 @@ export const COLOR_TOKEN_SECTIONS: ColorTokenSection[] = [
     tokens: [
       { name: "primary-color", description: "Use as primary color" },
       { name: "primary-hover-color", description: "Use only as hover on primary color" },
-      { name: "primary-selected-color", description: "Use to indicate selected items" },
-      { name: "primary-selected-hover-color", description: "Use only as hover on selected color" },
+      { name: "primary-selected-color", description: "Use to indicate selected items", supportsAlpha: true },
+      { name: "primary-selected-hover-color", description: "Use only as hover on selected color", supportsAlpha: true },
       { name: "primary-highlighted-color", description: "Use only as background of highlighted elements" },
     ],
   },
