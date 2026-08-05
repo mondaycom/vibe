@@ -115,7 +115,7 @@ export function ToastGalleryView() {
       <header className="toast-gallery-header">
         <h1 className="toast-gallery-title">Toast</h1>
         <p className="toast-gallery-description">
-          Original Vibe Toast baseline. Redesign one design element at a time using Vibe components.
+          All toast variations currently supported by the component.
         </p>
       </header>
       <div className="toast-gallery-grid">
