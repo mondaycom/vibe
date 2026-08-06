@@ -7,7 +7,7 @@
   display: inline-flex;
   overflow: hidden;
   height: 24px;
-  border-radius: 4px;
+  border-radius: 16px;
   padding: 0 8px;
   align-items: center;
   justify-content: center;
@@ -62,6 +62,43 @@
 
   &.defaultCursor {
     cursor: default;
+  }
+
+  &.readOnly {
+    cursor: default;
+  }
+
+  &.filterable {
+    background-color: var(--primary-selected-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+
+    &:hover:not(.disabled):not(.pressed),
+    &:active:not(.disabled):not(.pressed) {
+      background-color: var(--primary-selected-hover-color);
+      color: var(--primary-text-color);
+
+      .icon,
+      .label {
+        color: var(--primary-text-color);
+      }
+    }
+
+    &.pressed:not(.disabled) {
+      background-color: var(--primary-color);
+      color: var(--text-color-on-inverted);
+
+      .icon,
+      .label,
+      .close {
+        color: var(--text-color-on-inverted);
+      }
+    }
+
+    &.disabled {
+      background-color: var(--disabled-background-color);
+      cursor: not-allowed;
+    }
   }
 
   &.clickable {
