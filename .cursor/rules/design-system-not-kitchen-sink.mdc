@@ -1,0 +1,23 @@
+---
+description: Facelift and kitchen-sink work changes the Vibe design system itself — kitchen-sink is only a preview surface, never the source of design changes.
+alwaysApply: true
+---
+
+# Design System Changes vs Kitchen Sink
+
+## Core rule
+
+**Every design change must be made on the Vibe design system itself**, not on the kitchen-sink instance that displays it.
+
+Kitchen-sink (`packages/kitchen-sink`) is a **preview / exploration surface** for reviewing components and variants. It exists so we can see the design system while we change it. It is **not** where design work lives.
+
+## What this means in practice
+
+- Change components, tokens, styles, and APIs in the real packages (`packages/core`, `packages/components/*`, `packages/style`, etc.).
+- Use kitchen-sink to **show** those changes (gallery pages, screens, theme toggles).
+- Do **not** “fix” a visual issue by restyling or forking behavior only inside kitchen-sink demos, sections, or gallery wrappers.
+- If a kitchen-sink gallery or section needs an update, it should only reflect or exercise the design-system change — not replace it.
+
+## Why
+
+We are changing the **design system**, so consumers of `@vibe/core` (and related packages) get the new design. Kitchen-sink-only tweaks would leave the actual system unchanged.
