@@ -62,6 +62,17 @@ export function ChipsGalleryView() {
         <Chips label="With icon" color="primary" leftIcon={Email} readOnly className="chips-readonly" />
       </VariantSection>
 
+      <VariantSection title="Clickable">
+        <Chips label="Clickable" readOnly onClick={() => {}} />
+        <Chips label="With icon" leftIcon={Email} readOnly onClick={() => {}} />
+      </VariantSection>
+
+      <VariantSection title="Removable">
+        {THEME_COLORS.map(({ value, label }) => (
+          <Chips key={`removable-${value}`} label={label} color={value} onDelete={() => {}} />
+        ))}
+      </VariantSection>
+
       <VariantSection title="Filterable (primary)">
         <Chips
           label="Default"
@@ -107,12 +118,6 @@ export function ChipsGalleryView() {
         <Chips label="Disabled" disabled />
       </VariantSection>
 
-      <VariantSection title="Removable">
-        {THEME_COLORS.map(({ value, label }) => (
-          <Chips key={`removable-${value}`} label={label} color={value} onDelete={() => {}} />
-        ))}
-      </VariantSection>
-
       <VariantSection title="Icons — left">
         {THEME_COLORS.map(({ value, label }) => (
           <Chips key={`left-${value}`} label={label} color={value} leftIcon={Email} readOnly />
@@ -142,11 +147,6 @@ export function ChipsGalleryView() {
         {THEME_COLORS.map(({ value, label }) => (
           <Chips key={`border-${value}`} label={label} color={value} showBorder readOnly />
         ))}
-      </VariantSection>
-
-      <VariantSection title="Clickable">
-        <Chips label="Clickable" readOnly onClick={() => {}} />
-        <Chips label="With icon" leftIcon={Email} readOnly onClick={() => {}} />
       </VariantSection>
 
       <VariantSection title="Palette samples">
