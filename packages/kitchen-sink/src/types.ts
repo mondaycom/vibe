@@ -4,7 +4,7 @@ export type SystemTheme = "light" | "dark" | "black";
 export type ThemeFamily = "original" | "facelift";
 export type AppView = "components" | "compare" | "theme" | "screens";
 export type ThemeSubPage = "colors" | "radius" | "typography";
-export type ComponentSubPage = "grid" | "toast" | "dropdown";
+export type ComponentSubPage = "grid" | "toast" | "dropdown" | "button" | "chips";
 
 export type ThemeColorOverrides = Partial<Record<SystemTheme, Record<string, string>>>;
 

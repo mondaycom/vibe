@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { AppThemeShell } from "./components/AppThemeShell";
 import { LeftPane } from "./components/LeftPane";
 import { useKitchenSink } from "./context/KitchenSinkContext";
 import { ComponentsView } from "./components/ComponentsView";
-import { DropdownGalleryView } from "./components/DropdownGalleryView";
+import { ButtonGalleryView } from "./components/ButtonGalleryView";
+import { ChipsGalleryView } from "./components/ChipsGalleryView";
 import { ToastGalleryView } from "./components/ToastGalleryView";
 import { CompareView } from "./components/CompareView";
 import { ThemePanel } from "./components/ThemePanel";
 import { ScreensView } from "./components/ScreensView";
+
+const DropdownGalleryView = lazy(() =>
+  import("./components/DropdownGalleryView").then((m) => ({ default: m.DropdownGalleryView }))
+);
 
 export default function App() {
   const { view, componentSubPage } = useKitchenSink();
@@ -24,8 +29,14 @@ export default function App() {
         />
         <main className={`main-area${view === "screens" ? " main-area--no-padding" : ""}`}>
           {view === "components" && componentSubPage === "grid" && <ComponentsView />}
+          {view === "components" && componentSubPage === "button" && <ButtonGalleryView />}
+          {view === "components" && componentSubPage === "chips" && <ChipsGalleryView />}
           {view === "components" && componentSubPage === "toast" && <ToastGalleryView />}
-          {view === "components" && componentSubPage === "dropdown" && <DropdownGalleryView />}
+          {view === "components" && componentSubPage === "dropdown" && (
+            <Suspense fallback={<p>Loading dropdown gallery…</p>}>
+              <DropdownGalleryView />
+            </Suspense>
+          )}
           {view === "compare" && <CompareView />}
           {view === "theme" && <ThemePanel />}
           {view === "screens" && <ScreensView />}

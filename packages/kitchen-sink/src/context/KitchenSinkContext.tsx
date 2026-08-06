@@ -45,6 +45,10 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       setState((s) => ({ ...s, view: "components", componentSubPage: "toast" }));
     } else if (window.location.hash === "#dropdown") {
       setState((s) => ({ ...s, view: "components", componentSubPage: "dropdown" }));
+    } else if (window.location.hash === "#button") {
+      setState((s) => ({ ...s, view: "components", componentSubPage: "button" }));
+    } else if (window.location.hash === "#chips") {
+      setState((s) => ({ ...s, view: "components", componentSubPage: "chips" }));
     }
   }, []);
 

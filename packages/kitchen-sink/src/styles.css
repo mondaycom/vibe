@@ -674,3 +674,102 @@ body {
   border-radius: var(--border-radius-small, 4px);
   background: var(--allgrey-background-color, #f6f7fb);
 }
+
+.button-gallery,
+.chips-gallery {
+  gap: 40px;
+  max-width: 960px;
+  padding-bottom: 48px;
+}
+
+.button-gallery-section,
+.chips-gallery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.button-gallery-section-title,
+.chips-gallery-section-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--primary-text-color, #323338);
+}
+
+.button-gallery-row,
+.chips-gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.button-gallery-on-color,
+.button-gallery-on-inverted {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--border-radius-medium, 8px);
+}
+
+.button-gallery-on-color {
+  background: var(--primary-color, #0073ea);
+}
+
+.button-gallery-on-inverted {
+  background: var(--inverted-color-background, #323338);
+}
+
+[data-vibe="Chips"] {
+  border-radius: 16px !important;
+}
+
+/* Read only — no interaction affordance */
+[data-vibe="Chips"].chips-readonly {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+/* Filterable — primary theme only: default / hover / pressed */
+[data-vibe="Chips"].chips-filterable {
+  background-color: var(--primary-selected-color) !important;
+  color: var(--primary-text-color) !important;
+  cursor: pointer !important;
+  pointer-events: auto;
+}
+
+[data-vibe="Chips"].chips-filterable *:not(svg):not(path) {
+  color: var(--primary-text-color) !important;
+}
+
+[data-vibe="Chips"].chips-filterable:hover:not(.chips-filterable--pressed),
+[data-vibe="Chips"].chips-filterable:active:not(.chips-filterable--pressed) {
+  background-color: var(--primary-selected-hover-color) !important;
+  color: var(--primary-text-color) !important;
+}
+
+[data-vibe="Chips"].chips-filterable:hover:not(.chips-filterable--pressed) *:not(svg):not(path),
+[data-vibe="Chips"].chips-filterable:active:not(.chips-filterable--pressed) *:not(svg):not(path) {
+  color: var(--primary-text-color) !important;
+}
+
+[data-vibe="Chips"].chips-filterable--pressed {
+  background-color: var(--primary-color) !important;
+  color: var(--text-color-on-inverted) !important;
+}
+
+[data-vibe="Chips"].chips-filterable--pressed *:not(svg):not(path) {
+  color: var(--text-color-on-inverted) !important;
+}
+
+[data-vibe="Chips"].chips-filterable[aria-disabled="true"],
+[data-vibe="Chips"].chips-filterable--disabled {
+  background-color: var(--disabled-background-color) !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+

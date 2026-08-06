@@ -1,16 +1,24 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
+
+const localStyleTokens = path.resolve(rootDir, "../style/dist/index.min.css");
+const localCore = path.resolve(rootDir, "../core/dist/src/index.js");
+const localCoreNext = path.resolve(rootDir, "../core/dist/src/components/next.js");
+const npmTokens = path.resolve(rootDir, "node_modules/@vibe/core/dist/tokens/tokens.css");
+const npmCore = path.resolve(rootDir, "node_modules/@vibe/core/dist/src/index.js");
+const npmCoreNext = path.resolve(rootDir, "node_modules/@vibe/core/dist/src/components/next.js");
 
 export default defineConfig({
   plugins: [react()],
   server: {
     host: "127.0.0.1",
     port: 5220,
-    strictPort: true,
+    strictPort: false,
   },
   define: {
     // react-dates (Vibe v3 dep) references Node's `global`; shim it for browsers.
@@ -19,11 +27,10 @@ export default defineConfig({
   resolve: {
     dedupe: ["react", "react-dom"],
     alias: {
-      // Facelift theme tokens live in @vibe/style (includes facelift-*-app-theme classes).
-      "@vibe/core/tokens": path.resolve(rootDir, "../style/dist/index.min.css"),
-      // Point at local monorepo core build (Toast/Dropdown next APIs).
-      "@vibe/core/next": path.resolve(rootDir, "../core/dist/src/components/next.js"),
-      "@vibe/core": path.resolve(rootDir, "../core/dist/src/index.js"),
+      // Prefer local monorepo builds when present; fall back to published npm packages.
+      "@vibe/core/tokens": fs.existsSync(localStyleTokens) ? localStyleTokens : npmTokens,
+      "@vibe/core/next": fs.existsSync(localCoreNext) ? localCoreNext : npmCoreNext,
+      "@vibe/core": fs.existsSync(localCore) ? localCore : npmCore,
       "@vibe/icons": path.resolve(rootDir, "node_modules/@vibe/icons/dist/react/index.js"),
       // Deep AgentAvatar import — package barrel pulls monolith-only deps; stub locally when unavailable.
       "@mondaydotcomorg/monday-ui-components/dist/esm/monday-ui-components/src/components/AgentAvatar/AgentAvatar.js":

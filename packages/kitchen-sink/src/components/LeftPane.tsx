@@ -58,6 +58,20 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         </button>
         <button
           type="button"
+          className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "button" ? " is-active" : ""}`}
+          onClick={() => setComponentSubPage("button")}
+        >
+          Button
+        </button>
+        <button
+          type="button"
+          className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "chips" ? " is-active" : ""}`}
+          onClick={() => setComponentSubPage("chips")}
+        >
+          Chips
+        </button>
+        <button
+          type="button"
           className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === "toast" ? " is-active" : ""}`}
           onClick={() => setComponentSubPage("toast")}
         >

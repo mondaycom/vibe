@@ -18,6 +18,7 @@ import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
+import { type ChipsVariant } from "./Chips.types";
 
 const CHIPS_AVATAR_SIZE = 18;
 
@@ -27,13 +28,25 @@ export interface ChipsProps extends VibeComponentProps {
    */
   label?: ElementContent;
   /**
+   * Visual and behavioral variant of the chip.
+   * - `default` — standard chip (colors, optional remove / click)
+   * - `readOnly` — display only; no interaction
+   * - `filterable` — primary theme only; default / hover / pressed states
+   */
+  variant?: ChipsVariant;
+  /**
    * If true, the chip is disabled.
    */
   disabled?: boolean;
   /**
-   * If true, the chip is read-only and cannot be deleted.
+   * If true, the chip is read-only and cannot be deleted or interacted with.
+   * Prefer `variant="readOnly"` for new usage.
    */
   readOnly?: boolean;
+  /**
+   * When `variant="filterable"`, shows the pressed (selected) state.
+   */
+  pressed?: boolean;
   /**
    * A React element displayed on the right side.
    */
@@ -76,6 +89,7 @@ export interface ChipsProps extends VibeComponentProps {
   avatarClassName?: string;
   /**
    * The background color of the chip.
+   * Ignored when `variant="filterable"` (always primary).
    */
   color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
   /**
@@ -141,7 +155,9 @@ const Chips = forwardRef(
       leftAvatar = null,
       rightAvatar = null,
       disabled = false,
+      variant = "default",
       readOnly = false,
+      pressed = false,
       allowTextSelection = false,
       color = "primary",
       iconSize = 18,
@@ -164,15 +180,22 @@ const Chips = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
-    const hasCloseButton = !readOnly && !disabled;
+    const isFilterable = variant === "filterable";
+    const isReadOnly = !isFilterable && (readOnly || variant === "readOnly");
+    const resolvedColor = isFilterable ? "primary" : color;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
+
+    const hasCloseButton = !isReadOnly && !disabled && !isFilterable;
+    const hasClickableWrapper =
+      !isReadOnly && ((!disableClickableBehavior && (!!onClick || !!onMouseDown)) || isFilterable);
 
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
 
     const [isHovered, setIsHovered] = useState(false);
-    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+    const handleMouseEnter = useCallback(() => {
+      if (!isReadOnly) setIsHovered(true);
+    }, [isReadOnly]);
     const handleMouseLeave = useCallback(() => setIsHovered(false), []);
     const { isFocused } = useSetFocus({ ref: componentRef });
 
@@ -183,7 +206,11 @@ const Chips = forwardRef(
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder,
-      [styles.noMargin]: noMargin
+      [styles.noMargin]: noMargin,
+      [styles.readOnly]: isReadOnly,
+      [styles.defaultCursor]: isReadOnly,
+      [styles.filterable]: isFilterable,
+      [styles.pressed]: isFilterable && pressed
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
@@ -191,16 +218,19 @@ const Chips = forwardRef(
     });
 
     const backgroundColorStyle = useMemo(() => {
+      if (isFilterable) {
+        return undefined;
+      }
       let cssVar;
       if (disabled) {
         cssVar = getCSSVar("disabled-background-color");
-      } else if (hasClickableWrapper && (isHovered || isFocused)) {
-        cssVar = getElementColor(color, true, true);
+      } else if (!isReadOnly && hasClickableWrapper && (isHovered || isFocused)) {
+        cssVar = getElementColor(resolvedColor, true, true);
       } else {
-        cssVar = getElementColor(color, true);
+        cssVar = getElementColor(resolvedColor, true);
       }
       return { backgroundColor: cssVar };
-    }, [disabled, hasClickableWrapper, isHovered, isFocused, color]);
+    }, [disabled, hasClickableWrapper, isHovered, isFocused, resolvedColor, isFilterable, isReadOnly]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -214,19 +244,32 @@ const Chips = forwardRef(
 
     const onClickCallback = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (isReadOnly || disabled) {
+          return;
+        }
         if (onClick !== undefined && (e.target as HTMLElement) !== iconButtonRef.current) {
           e.preventDefault();
           onClick(e);
         }
       },
-      [onClick]
+      [onClick, isReadOnly, disabled]
+    );
+
+    const onMouseDownCallback = useCallback(
+      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (isReadOnly || disabled) {
+          return;
+        }
+        onMouseDown?.(e);
+      },
+      [onMouseDown, isReadOnly, disabled]
     );
 
     const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
-        onMouseDown,
-        disabled,
+        onMouseDown: onMouseDownCallback,
+        disabled: disabled || isReadOnly,
         id,
         "data-testid": componentDataTestId,
         ariaLabel: overrideAriaLabel,
@@ -243,15 +286,16 @@ const Chips = forwardRef(
           className: clickableClassName,
           style: backgroundColorStyle,
           onMouseEnter: handleMouseEnter,
-          onMouseLeave: handleMouseLeave
+          onMouseLeave: handleMouseLeave,
+          ...(isFilterable ? { "aria-pressed": pressed } : {})
         }
       : {
           className: overrideClassName,
           "aria-label": overrideAriaLabel,
           style: backgroundColorStyle,
           ref: mergedRef,
-          onClick: onClickCallback,
-          onMouseDown,
+          onClick: isReadOnly ? undefined : onClickCallback,
+          onMouseDown: isReadOnly ? undefined : onMouseDownCallback,
           id: id,
           "data-testid": componentDataTestId,
           onMouseEnter: handleMouseEnter,
@@ -262,7 +306,11 @@ const Chips = forwardRef(
     const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
-      <div {...wrapperProps} data-vibe={ComponentVibeId.CHIPS}>
+      <div
+        {...wrapperProps}
+        data-vibe={ComponentVibeId.CHIPS}
+        data-variant={isFilterable ? "filterable" : isReadOnly ? "readOnly" : "default"}
+      >
         {leftAvatar ? (
           <Avatar
             withoutBorder
@@ -327,9 +375,19 @@ const Chips = forwardRef(
 interface ChipsStaticProps {
   colors: typeof ElementAllowedColorEnum;
   avatarTypes: typeof AvatarTypeEnum;
+  variants: {
+    DEFAULT: "default";
+    READ_ONLY: "readOnly";
+    FILTERABLE: "filterable";
+  };
 }
 
 export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
   colors: ElementAllowedColorEnum,
-  avatarTypes: AvatarTypeEnum
+  avatarTypes: AvatarTypeEnum,
+  variants: {
+    DEFAULT: "default",
+    READ_ONLY: "readOnly",
+    FILTERABLE: "filterable"
+  }
 });
