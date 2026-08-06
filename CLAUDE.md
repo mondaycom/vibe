@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The **Vibe Design System** is monday.com's official React component library, managed as a Lerna monorepo with Yarn Workspaces. The main package `@vibe/core` provides the primary component library, while specialized packages handle icons, testing utilities, codemods, and more.
 
+## Design System vs Kitchen Sink
+
+**Every design change must be made on the Vibe design system itself**, not on the kitchen-sink instance that displays it.
+
+- Change components, tokens, styles, and APIs in the real packages (`packages/core`, `packages/components/*`, `packages/style`, etc.).
+- Use `packages/kitchen-sink` only as a **preview / exploration surface** to review variants while redesigning.
+- Do **not** fix or redesign visuals only inside kitchen-sink demos, sections, or gallery wrappers — that leaves the actual design system unchanged for consumers of `@vibe/core`.
+
 ## Development Commands
 
 ### Building and Testing
