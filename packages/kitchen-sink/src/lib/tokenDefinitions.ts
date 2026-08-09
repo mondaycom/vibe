@@ -37,6 +37,15 @@ export const TOKEN_FIELDS_BY_SUBPAGE: Record<ThemeSubPage, TokenFieldDef[]> = {
       unit: "px",
       defaultValue: "16",
     },
+    {
+      id: "radius-full",
+      label: "border-radius-full",
+      description: "Fully rounded corner radius",
+      kind: "css-var",
+      cssVar: "--border-radius-full",
+      unit: "px",
+      defaultValue: "99",
+    },
   ],
   typography: [],
 };

@@ -42,7 +42,6 @@ export function toHex(color: Pick<RgbaColor, "r" | "g" | "b">): string {
 }
 
 export function readComputedRgba(tokenName: string, fallback: RgbaColor): RgbaColor {
-  const root = document.querySelector(".app-root") ?? document.documentElement;
-  const computed = getComputedStyle(root).getPropertyValue(`--${tokenName}`).trim();
+  const computed = getComputedStyle(document.body).getPropertyValue(`--${tokenName}`).trim();
   return parseColor(computed) ?? fallback;
 }

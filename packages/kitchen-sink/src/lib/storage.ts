@@ -1,9 +1,45 @@
+import { isComponentGalleryId } from "../components/componentGalleries";
 import { defaultComponentStates, mergeWithDefaults } from "./defaultComponentStates";
 import { EMPTY_TOKEN_OVERRIDES } from "./tokenDefinitions";
-import type { AppState, PersistedState, ThemeSubPage } from "../types";
+import type {
+  AppState,
+  ComponentSubPage,
+  PersistedState,
+  ThemeColorOverrides,
+  ThemeSubPage,
+} from "../types";
 import { STORAGE_KEY, STORAGE_VERSION } from "../types";
 
 const VALID_THEME_SUBPAGES: ThemeSubPage[] = ["colors", "radius", "typography"];
+
+function normalizeComponentSubPage(value: unknown, fallback: ComponentSubPage): ComponentSubPage {
+  if (value === "grid" || (typeof value === "string" && isComponentGalleryId(value))) {
+    return value;
+  }
+  return fallback;
+}
+
+function isSystemThemeKey(key: string): key is "light" | "dark" | "black" {
+  return key === "light" || key === "dark" || key === "black";
+}
+
+function migrateColorOverrides(colors: unknown): AppState["tokenOverrides"]["colors"] {
+  if (!colors || typeof colors !== "object") {
+    return {};
+  }
+
+  const record = colors as Record<string, unknown>;
+
+  if ("original" in record || "facelift" in record) {
+    return colors as AppState["tokenOverrides"]["colors"];
+  }
+
+  if (Object.keys(record).some(isSystemThemeKey)) {
+    return { original: colors as ThemeColorOverrides };
+  }
+
+  return {};
+}
 
 function normalizeThemeSubPage(value: unknown, fallback: ThemeSubPage): ThemeSubPage {
   if (value === "spacing") return "typography";
@@ -15,6 +51,7 @@ export function createInitialAppState(): AppState {
   return {
     view: "components",
     themeSubPage: "colors",
+    componentSubPage: "grid",
     systemTheme: "light",
     tokenOverrides: structuredClone(EMPTY_TOKEN_OVERRIDES),
     componentStates: mergeWithDefaults(undefined),
@@ -28,6 +65,7 @@ function toPersisted(state: AppState): PersistedState {
     version: STORAGE_VERSION,
     view: state.view,
     themeSubPage: state.themeSubPage,
+    componentSubPage: state.componentSubPage,
     systemTheme: state.systemTheme,
     tokenOverrides: state.tokenOverrides,
     componentStates: state.componentStates,
@@ -60,11 +98,12 @@ export function loadPersistedState(): AppState {
       ...base,
       view: parsed.view ?? base.view,
       themeSubPage: normalizeThemeSubPage(parsed.themeSubPage, base.themeSubPage),
+      componentSubPage: normalizeComponentSubPage(parsed.componentSubPage, base.componentSubPage),
       systemTheme: parsed.systemTheme ?? base.systemTheme,
       tokenOverrides: {
         ...base.tokenOverrides,
         ...parsed.tokenOverrides,
-        colors: parsed.tokenOverrides?.colors ?? base.tokenOverrides.colors,
+        colors: migrateColorOverrides(parsed.tokenOverrides?.colors),
         radius: parsed.tokenOverrides?.radius ?? base.tokenOverrides.radius,
         spacing: parsed.tokenOverrides?.spacing ?? base.tokenOverrides.spacing,
         typography: parsed.tokenOverrides?.typography ?? base.tokenOverrides.typography,

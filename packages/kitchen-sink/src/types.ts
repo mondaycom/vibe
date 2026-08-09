@@ -1,13 +1,26 @@
 import type React from "react";
 
 export type SystemTheme = "light" | "dark" | "black";
+export type ThemeFamily = "original" | "facelift";
 export type AppView = "components" | "compare" | "theme" | "screens";
 export type ThemeSubPage = "colors" | "radius" | "typography";
+export type ComponentGalleryId =
+  | "icon-button"
+  | "button"
+  | "button-group"
+  | "tabs"
+  | "label"
+  | "chip"
+  | "text-field"
+  | "dropdown"
+  | "toast";
+
+export type ComponentSubPage = "grid" | ComponentGalleryId;
 
 export type ThemeColorOverrides = Partial<Record<SystemTheme, Record<string, string>>>;
 
 export type TokenOverrides = {
-  colors: ThemeColorOverrides;
+  colors: Partial<Record<ThemeFamily, ThemeColorOverrides>>;
   radius: Record<string, string>;
   spacing: Record<string, string>;
   typography: Record<string, string>;
@@ -18,6 +31,7 @@ export type ComponentStateMap = Record<string, Record<string, unknown>>;
 export type AppState = {
   view: AppView;
   themeSubPage: ThemeSubPage;
+  componentSubPage: ComponentSubPage;
   systemTheme: SystemTheme;
   tokenOverrides: TokenOverrides;
   componentStates: ComponentStateMap;
@@ -32,6 +46,7 @@ export type PersistedState = {
   version: number;
   view: AppView;
   themeSubPage: ThemeSubPage;
+  componentSubPage?: ComponentSubPage;
   systemTheme: SystemTheme;
   tokenOverrides: TokenOverrides;
   componentStates: ComponentStateMap;
@@ -60,6 +75,10 @@ export interface Section {
   defaultState: Record<string, unknown>;
   controls: ControlDef[];
   Demo: React.FC<{ state: Record<string, unknown> }>;
+}
+
+export function getThemeFamily(faceliftTheme: boolean): ThemeFamily {
+  return faceliftTheme ? "facelift" : "original";
 }
 
 export type TokenFieldDef =

@@ -21,6 +21,7 @@ export const defaultComponentStates: ComponentStateMap = {
     withTitle: false,
   },
   dropdown: { size: "medium", disabled: false, multi: false },
+  menu: { size: "medium", withIcons: false },
   toast: { type: "positive", withAction: false },
 };
 

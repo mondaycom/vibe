@@ -2,6 +2,7 @@ import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
+import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import { type IconSubComponentProps } from "@vibe/icon";
 import { Text } from "@vibe/typography";
@@ -69,6 +70,10 @@ export interface ToastProps extends VibeComponentProps {
    * The aria-label for the close button.
    */
   closeButtonAriaLabel?: string;
+  /**
+   * If true, renders the toast in place (for gallery previews) instead of fixed at the top.
+   */
+  inline?: boolean;
 }
 
 const Toast = ({
@@ -86,6 +91,7 @@ const Toast = ({
   className,
   id,
   closeButtonAriaLabel = "Close",
+  inline = false,
   "data-testid": dataTestId
 }: ToastProps) => {
   const ref = useRef(null);
@@ -113,17 +119,18 @@ const Toast = ({
             <ToastButton
               key={`alert-button-${index}`}
               className={cx(styles.actionButton, { [styles.withTransition]: shouldShowButtonTransition })}
+              color={type === "dark" ? "fixed-light" : "primary"}
               {...otherProps}
             >
               {content}
             </ToastButton>
           ))
       : null;
-  }, [actions, shouldShowButtonTransition]);
+  }, [actions, shouldShowButtonTransition, type]);
 
   const classNames = useMemo(
-    () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), className),
-    [type, className]
+    () => cx(styles.toast, getStyle(styles, camelCase("type-" + type)), { [styles.inline]: inline }, className),
+    [type, inline, className]
   );
 
   const handleClose = useCallback(() => {
@@ -176,7 +183,54 @@ const Toast = ({
     }
   }, [children, recalculateElementWidth]);
 
-  return (
+  const toastElement = (
+    <Text
+      ref={nodeRef}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
+      type="text2"
+      element="div"
+      color={type === "dark" ? "fixedLight" : "primary"}
+      className={classNames}
+      role="alert"
+      aria-live="polite"
+    >
+      {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
+      <Flex align="center" gap="medium" className={styles.content}>
+        <Flex
+          gap="medium"
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
+          className={styles.textContent}
+        >
+          <span>{children}</span>
+          {toastLinks}
+        </Flex>
+        {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
+        {loading && <Loader size="xs" />}
+      </Flex>
+      {closeable && (
+        <IconButton
+          className={cx(styles.closeButton)}
+          onClick={handleClose}
+          size="xs"
+          kind="tertiary"
+          color={type === "dark" ? "fixed-light" : "primary"}
+          aria-label={closeButtonAriaLabel}
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+          icon={CloseSmall}
+          hideTooltip
+        />
+      )}
+    </Text>
+  );
+
+  // Gallery / static previews: render in place, skip enter/exit animation.
+  if (inline) {
+    return open ? toastElement : null;
+  }
+
+  // Portal to body so Toast always stacks above app chrome (search, sticky headers).
+  return createPortal(
     <CSSTransition
       in={open}
       nodeRef={nodeRef}
@@ -184,45 +238,9 @@ const Toast = ({
       timeout={400}
       unmountOnExit
     >
-      <Text
-        ref={nodeRef}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-        type="text2"
-        element="div"
-        color="fixedLight"
-        className={classNames}
-        role="alert"
-        aria-live="polite"
-      >
-        {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-        <Flex align="center" gap="large" className={styles.content}>
-          <Flex
-            gap="medium"
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
-            className={styles.textContent}
-          >
-            <span>{children}</span>
-            {toastLinks}
-          </Flex>
-          {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          {loading && <Loader size="xs" />}
-        </Flex>
-        {closeable && (
-          <IconButton
-            className={cx(styles.closeButton)}
-            onClick={handleClose}
-            size="small"
-            kind="tertiary"
-            color="fixed-light"
-            aria-label={closeButtonAriaLabel}
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-            icon={CloseSmall}
-            hideTooltip
-          />
-        )}
-      </Text>
-    </CSSTransition>
+      {toastElement}
+    </CSSTransition>,
+    document.body
   );
 };
 

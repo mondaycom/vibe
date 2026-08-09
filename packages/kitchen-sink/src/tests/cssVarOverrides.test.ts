@@ -11,7 +11,8 @@ describe("buildCssVarStyle", () => {
         spacing: { "--space-16": "20px" },
         typography: { "--font-size-30": "18px" },
       },
-      "light"
+      "light",
+      "original"
     );
     expect(style["--border-radius-medium"]).toBe("12px");
     expect(style["--space-16"]).toBe("20px");

@@ -1,4 +1,4 @@
-@import "~@vibe/style/dist/mixins/states";
+@import "~monday-ui-style/dist/mixins/states";
 @import "../../styles/typography";
 @import "../../styles/keyframes";
 
@@ -16,47 +16,47 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-small);
-  padding: 2px var(--space-8);
+  border-radius: var(--border-radius-full);
+  padding: 2px var(--spacing-small);
   position: relative;
 
   &.small {
-    padding: 0 var(--space-4);
-    border-radius: 2px;
+    padding: 0 var(--spacing-xs);
+    border-radius: var(--border-radius-full);
   }
 }
 
 .withLeg {
-  border-start-start-radius: var(--border-radius-small);
-  border-start-end-radius: var(--border-radius-small);
-  border-end-end-radius: var(--border-radius-small);
-  border-end-start-radius: 0;
+  border-radius: var(--border-radius-full) var(--border-radius-full) var(--border-radius-full) 0;
 }
 
 .legWrapper {
   position: absolute;
   height: 8px;
   top: 100%;
-  inset-inline-start: 0;
+  left: 0;
   display: inline-flex;
 }
 
 .kindFill {
+  color: var(--primary-text-color);
+
   &.colorPrimary {
-    background-color: var(--primary-color);
+    background-color: #cce4ff;
 
     svg path {
-      fill: var(--primary-color);
+      fill: #cce4ff;
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--primary-hover-color);
+      background-color: #b8d9ff;
     }
   }
 
   &.colorDark {
     background-color: var(--inverted-color-background);
+    color: var(--text-color-on-inverted);
 
     svg path {
       fill: var(--inverted-color-background);
@@ -64,38 +64,38 @@
   }
 
   &.colorNegative {
-    background-color: var(--negative-color);
+    background-color: var(--negative-color-selected);
 
     svg path {
-      fill: var(--negative-color);
+      fill: var(--negative-color-selected);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--negative-color-hover);
+      background-color: var(--negative-color-selected-hover);
     }
   }
 
   &.colorPositive {
-    background-color: var(--positive-color);
+    background-color: var(--positive-color-selected);
 
     svg path {
-      fill: var(--positive-color);
+      fill: var(--positive-color-selected);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--positive-color-hover);
+      background-color: var(--positive-color-selected-hover);
     }
   }
 }
 
 .kindLine {
   border: 1px solid currentColor;
-  padding: 1px var(--space-8);
+  padding: 1px var(--spacing-small);
 
   .legWrapper {
-    inset-inline-start: -1px;
+    left: -1px;
     top: calc(100% + 1px);
   }
 

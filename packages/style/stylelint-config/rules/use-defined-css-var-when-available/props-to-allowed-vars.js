@@ -10,17 +10,21 @@ const SPACINGS = [
   "--space-40",
   "--space-48",
   "--space-64",
-  "--space-80"
+  "--space-80",
+  "--spacing-xs",
+  "--spacing-small",
+  "--spacing-medium",
+  "--spacing-large",
+  "--spacing-xl",
+  "--spacing-xxl",
+  "--spacing-xxxl"
 ];
 
 const BORDER_RADIUSES = [
   "--border-radius-small",
   "--border-radius-medium",
   "--border-radius-big",
-  "--border-radius-4",
-  "--border-radius-8",
-  "--border-radius-12",
-  "--border-radius-16"
+  "--border-radius-full",
 ];
 
 const BORDER_WIDTHS = ["--border-width"];
@@ -155,8 +159,16 @@ function mapPropsToAllowedVars(propNames, allowedVars, recommended = undefined) 
 // This means that if --border-radius-small or --border-radius-medium can be used while linting a rule with the property "border-radius", we will show an error
 
 const PROPS_TO_ALLOWED_VARS = {
-  ...mapPropsToAllowedVars(SPACING_PROPS, SPACINGS),
-  ...mapPropsToAllowedVars(BORDER_RADIUSES_PROPS, BORDER_RADIUSES, ["--border-radius-4", "--border-radius-8", "--border-radius-16"]),
+  ...mapPropsToAllowedVars(SPACING_PROPS, SPACINGS, [
+    "--space-4",
+    "--space-8",
+    "--space-16",
+    "--space-24",
+    "--space-32",
+    "--space-48",
+    "--space-64"
+  ]),
+    ...mapPropsToAllowedVars(BORDER_RADIUSES_PROPS, BORDER_RADIUSES),
   ...mapPropsToAllowedVars(BORDER_WIDTHS_PROPS, BORDER_WIDTHS),
   ...mapPropsToAllowedVars(BORDER_STYLES_PROPS, BORDER_STYLES),
   ...mapPropsToAllowedVars(FONT_FAMILIES_PROPS, FONT_FAMILIES, ["--title-font-family"]),

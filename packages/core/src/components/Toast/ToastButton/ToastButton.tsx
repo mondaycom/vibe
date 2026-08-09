@@ -9,6 +9,7 @@ const ToastButton: FC<ToastButtonProps> = ({
   className,
   id,
   "data-testid": dataTestId,
+  color = "primary",
   ...buttonProps
 }: ToastButtonProps) => {
   return (
@@ -19,8 +20,8 @@ const ToastButton: FC<ToastButtonProps> = ({
       marginLeft={false}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST_BUTTON, id)}
       className={className}
-      size="small"
-      color="fixed-light"
+      size="xs"
+      color={color}
     />
   );
 };

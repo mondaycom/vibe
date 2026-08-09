@@ -7,11 +7,14 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { isComponentGalleryId } from "../components/componentGalleries";
 import { loadPersistedState, savePersistedState } from "../lib/storage";
 import type {
   AppState,
   AppView,
+  ComponentSubPage,
   SystemTheme,
+  ThemeFamily,
   ThemeSubPage,
   TokenOverrides,
 } from "../types";
@@ -19,6 +22,7 @@ import type {
 type KitchenSinkContextValue = AppState & {
   setView: (view: AppView) => void;
   setThemeSubPage: (page: ThemeSubPage) => void;
+  setComponentSubPage: (page: ComponentSubPage) => void;
   setSystemTheme: (theme: SystemTheme) => void;
   setFocusedComponentId: (id: string | null) => void;
   updateComponentState: (id: string, patch: Record<string, unknown>) => void;
@@ -37,12 +41,27 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
     return () => window.clearTimeout(id);
   }, [state]);
 
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (isComponentGalleryId(hash)) {
+      setState((s) => ({ ...s, view: "components", componentSubPage: hash }));
+    }
+  }, []);
+
   const setView = useCallback((view: AppView) => {
-    setState((s) => ({ ...s, view }));
+    setState((s) => ({
+      ...s,
+      view,
+      componentSubPage: view === "components" ? "grid" : s.componentSubPage,
+    }));
   }, []);
 
   const setThemeSubPage = useCallback((themeSubPage: ThemeSubPage) => {
     setState((s) => ({ ...s, view: "theme", themeSubPage }));
+  }, []);
+
+  const setComponentSubPage = useCallback((componentSubPage: ComponentSubPage) => {
+    setState((s) => ({ ...s, view: "components", componentSubPage }));
   }, []);
 
   const setSystemTheme = useCallback((systemTheme: SystemTheme) => {
@@ -78,7 +97,9 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
   const updateColorOverride = useCallback(
     (theme: SystemTheme, key: string, value: string) => {
       setState((s) => {
-        const themeColors = { ...s.tokenOverrides.colors[theme] };
+        const themeFamily: ThemeFamily = s.faceliftTheme ? "facelift" : "original";
+        const familyColors = { ...(s.tokenOverrides.colors[themeFamily] ?? {}) };
+        const themeColors = { ...(familyColors[theme] ?? {}) };
         if (value) {
           themeColors[key] = value;
         } else {
@@ -90,7 +111,10 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
             ...s.tokenOverrides,
             colors: {
               ...s.tokenOverrides.colors,
-              [theme]: themeColors,
+              [themeFamily]: {
+                ...familyColors,
+                [theme]: themeColors,
+              },
             },
           },
         };
@@ -108,6 +132,7 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       ...state,
       setView,
       setThemeSubPage,
+      setComponentSubPage,
       setSystemTheme,
       setFocusedComponentId,
       updateComponentState,
@@ -119,6 +144,7 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
       state,
       setView,
       setThemeSubPage,
+      setComponentSubPage,
       setSystemTheme,
       setFocusedComponentId,
       updateComponentState,

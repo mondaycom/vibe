@@ -1,5 +1,15 @@
+import { ButtonGroup } from "@vibe/core";
 import { useKitchenSink } from "../context/KitchenSinkContext";
 import type { SystemTheme, ThemeSubPage } from "../types";
+import {
+  COMPONENT_GALLERY_LABELS,
+  COMPONENT_GALLERY_ORDER,
+} from "./componentGalleries";
+
+const THEME_FAMILY_OPTIONS = [
+  { value: "original", text: "Original" },
+  { value: "facelift", text: "Facelift" },
+] as const;
 
 const THEME_SUBPAGES: { id: ThemeSubPage; label: string }[] = [
   { id: "colors", label: "Colors" },
@@ -18,10 +28,14 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
   const {
     view,
     themeSubPage,
+    componentSubPage,
     systemTheme,
+    faceliftTheme,
     setView,
     setThemeSubPage,
+    setComponentSubPage,
     setSystemTheme,
+    setFaceliftTheme,
   } = useKitchenSink();
 
   return (
@@ -46,6 +60,16 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         >
           Components
         </button>
+        {COMPONENT_GALLERY_ORDER.map((id) => (
+          <button
+            key={id}
+            type="button"
+            className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === id ? " is-active" : ""}`}
+            onClick={() => setComponentSubPage(id)}
+          >
+            {COMPONENT_GALLERY_LABELS[id]}
+          </button>
+        ))}
         <button
           type="button"
           className={`left-pane-sublink${view === "theme" ? " is-active" : ""}`}
@@ -80,16 +104,32 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         </button>
       </nav>
       <div className="left-pane-footer" aria-hidden={collapsed}>
-        {SYSTEM_THEMES.map((theme) => (
-          <button
-            key={theme}
-            type="button"
-            className={`left-pane-theme-mode${systemTheme === theme ? " is-active" : ""}`}
-            onClick={() => setSystemTheme(theme)}
-          >
-            {theme.charAt(0).toUpperCase() + theme.slice(1)}
-          </button>
-        ))}
+        <div className="left-pane-footer-section">
+          <span className="left-pane-footer-label">Theme</span>
+          <ButtonGroup
+            className="left-pane-footer-button-group"
+            groupAriaLabel="Theme family"
+            options={[...THEME_FAMILY_OPTIONS]}
+            value={faceliftTheme ? "facelift" : "original"}
+            onSelect={(value) => setFaceliftTheme(value === "facelift")}
+            kind="secondary"
+            size="small"
+            fullWidth
+          />
+        </div>
+        <div className="left-pane-footer-section">
+          <span className="left-pane-footer-label">Mode</span>
+          {SYSTEM_THEMES.map((theme) => (
+            <button
+              key={theme}
+              type="button"
+              className={`left-pane-theme-mode${systemTheme === theme ? " is-active" : ""}`}
+              onClick={() => setSystemTheme(theme)}
+            >
+              {theme.charAt(0).toUpperCase() + theme.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
     </aside>
   );

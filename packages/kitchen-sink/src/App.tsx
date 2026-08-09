@@ -3,13 +3,19 @@ import { AppThemeShell } from "./components/AppThemeShell";
 import { LeftPane } from "./components/LeftPane";
 import { useKitchenSink } from "./context/KitchenSinkContext";
 import { ComponentsView } from "./components/ComponentsView";
+import { componentGalleries, isComponentGalleryId } from "./components/componentGalleries";
 import { CompareView } from "./components/CompareView";
 import { ThemePanel } from "./components/ThemePanel";
 import { ScreensView } from "./components/ScreensView";
 
 export default function App() {
-  const { view } = useKitchenSink();
+  const { view, componentSubPage } = useKitchenSink();
   const [leftPaneCollapsed, setLeftPaneCollapsed] = useState(false);
+
+  const GalleryView =
+    view === "components" && isComponentGalleryId(componentSubPage)
+      ? componentGalleries[componentSubPage]
+      : null;
 
   return (
     <AppThemeShell>
@@ -21,7 +27,8 @@ export default function App() {
           onToggleCollapse={() => setLeftPaneCollapsed((c) => !c)}
         />
         <main className={`main-area${view === "screens" ? " main-area--no-padding" : ""}`}>
-          {view === "components" && <ComponentsView />}
+          {view === "components" && componentSubPage === "grid" && <ComponentsView />}
+          {GalleryView && <GalleryView />}
           {view === "compare" && <CompareView />}
           {view === "theme" && <ThemePanel />}
           {view === "screens" && <ScreensView />}
