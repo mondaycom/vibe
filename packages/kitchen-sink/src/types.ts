@@ -2,7 +2,7 @@ import type React from "react";
 
 export type SystemTheme = "light" | "dark" | "black";
 export type ThemeFamily = "original" | "facelift";
-export type AppView = "components" | "compare" | "theme" | "screens";
+export type AppView = "components" | "theme" | "screens";
 export type ThemeSubPage = "colors" | "radius" | "typography";
 export type ComponentGalleryId =
   | "icon-button"

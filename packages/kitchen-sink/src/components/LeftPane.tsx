@@ -90,13 +90,6 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
           ))}
         <button
           type="button"
-          className={`left-pane-link${view === "compare" ? " is-active" : ""}`}
-          onClick={() => setView("compare")}
-        >
-          Compare
-        </button>
-        <button
-          type="button"
           className={`left-pane-link${view === "screens" ? " is-active" : ""}`}
           onClick={() => setView("screens")}
         >

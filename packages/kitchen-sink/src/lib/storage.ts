@@ -3,6 +3,7 @@ import { defaultComponentStates, mergeWithDefaults } from "./defaultComponentSta
 import { EMPTY_TOKEN_OVERRIDES } from "./tokenDefinitions";
 import type {
   AppState,
+  AppView,
   ComponentSubPage,
   PersistedState,
   ThemeColorOverrides,
@@ -11,6 +12,14 @@ import type {
 import { STORAGE_KEY, STORAGE_VERSION } from "../types";
 
 const VALID_THEME_SUBPAGES: ThemeSubPage[] = ["colors", "radius", "typography"];
+const VALID_VIEWS: AppView[] = ["components", "theme", "screens"];
+
+function normalizeView(value: unknown, fallback: AppView): AppView {
+  if (typeof value === "string" && VALID_VIEWS.includes(value as AppView)) {
+    return value as AppView;
+  }
+  return fallback;
+}
 
 function normalizeComponentSubPage(value: unknown, fallback: ComponentSubPage): ComponentSubPage {
   if (value === "grid" || (typeof value === "string" && isComponentGalleryId(value))) {
@@ -96,7 +105,7 @@ export function loadPersistedState(): AppState {
 
     return {
       ...base,
-      view: parsed.view ?? base.view,
+      view: normalizeView(parsed.view, base.view),
       themeSubPage: normalizeThemeSubPage(parsed.themeSubPage, base.themeSubPage),
       componentSubPage: normalizeComponentSubPage(parsed.componentSubPage, base.componentSubPage),
       systemTheme: parsed.systemTheme ?? base.systemTheme,
