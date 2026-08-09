@@ -1,6 +1,7 @@
 import { Chips } from "@vibe/core";
 import { Bolt, Email } from "@vibe/icons";
 import type { ReactNode } from "react";
+import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
 
 type ChipColor =
   | "primary"
@@ -30,30 +31,20 @@ const PALETTE_COLORS: { value: ChipColor; label: string }[] = [
   { value: "working_orange", label: "Working orange" },
 ];
 
-function VariantSection({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <section className="chips-gallery-section">
-      <h2 className="chips-gallery-section-title">{title}</h2>
-      <div className="chips-gallery-row">{children}</div>
-    </section>
-  );
-}
-
 function themeClassName(value: ChipColor, ...extra: (string | undefined)[]) {
   return [value === "info" ? "chips-theme-info" : undefined, ...extra].filter(Boolean).join(" ") || undefined;
 }
 
-export function ChipsGalleryView() {
-  return (
-    <div className="component-gallery chips-gallery">
-      <header className="component-gallery-header">
-        <h1 className="component-gallery-title">Chips</h1>
-        <p className="component-gallery-description">
-          Variants, colors, icons, borders, and interaction states.
-        </p>
-      </header>
+function ChipRow({ children }: { children: ReactNode }) {
+  return <div className="chips-gallery-row">{children}</div>;
+}
 
-      <VariantSection title="Read only">
+const chipsVariations: GalleryVariation[] = [
+  {
+    id: "read-only",
+    label: "Read only",
+    render: () => (
+      <ChipRow>
         {THEME_COLORS.map(({ value, label }) => (
           <Chips
             key={`ro-${value}`}
@@ -64,38 +55,42 @@ export function ChipsGalleryView() {
           />
         ))}
         <Chips label="With icon" color="primary" leftIcon={Email} readOnly className="chips-readonly" />
-      </VariantSection>
-
-      <VariantSection title="Clickable">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "clickable",
+    label: "Clickable",
+    render: () => (
+      <ChipRow>
         <Chips label="Clickable" readOnly onClick={() => {}} />
         <Chips label="With icon" leftIcon={Email} readOnly onClick={() => {}} />
-      </VariantSection>
-
-      <VariantSection title="Removable">
-        <Chips label="Primary" color="primary" onDelete={() => {}} />
-      </VariantSection>
-
-      <VariantSection title="Size">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "removable",
+    label: "Removable",
+    render: () => <Chips label="Primary" color="primary" onDelete={() => {}} />,
+  },
+  {
+    id: "size",
+    label: "Size",
+    render: () => (
+      <ChipRow>
         <Chips label="Medium" color="primary" readOnly />
         <Chips label="Small" color="primary" readOnly className="chips-size-small" />
         <Chips label="Medium icon" color="primary" leftIcon={Email} readOnly />
-        <Chips
-          label="Small icon"
-          color="primary"
-          leftIcon={Email}
-          readOnly
-          className="chips-size-small"
-        />
-      </VariantSection>
-
-      <VariantSection title="Filterable (primary)">
-        <Chips
-          label="Default"
-          color="primary"
-          readOnly
-          className="chips-filterable"
-          onClick={() => {}}
-        />
+        <Chips label="Small icon" color="primary" leftIcon={Email} readOnly className="chips-size-small" />
+      </ChipRow>
+    ),
+  },
+  {
+    id: "filterable-primary",
+    label: "Filterable — Primary",
+    render: () => (
+      <ChipRow>
+        <Chips label="Default" color="primary" readOnly className="chips-filterable" onClick={() => {}} />
         <Chips
           label="Hover"
           color="primary"
@@ -118,22 +113,27 @@ export function ChipsGalleryView() {
           className="chips-filterable"
           onClick={() => {}}
         />
-        <Chips
-          label="Disabled"
-          color="primary"
-          disabled
-          className="chips-filterable chips-filterable--disabled"
-        />
-      </VariantSection>
-
-      <VariantSection title="Themes">
+        <Chips label="Disabled" color="primary" disabled className="chips-filterable chips-filterable--disabled" />
+      </ChipRow>
+    ),
+  },
+  {
+    id: "themes",
+    label: "Themes",
+    render: () => (
+      <ChipRow>
         {THEME_COLORS.map(({ value, label }) => (
           <Chips key={value} label={label} color={value} readOnly className={themeClassName(value)} />
         ))}
         <Chips label="Disabled" disabled />
-      </VariantSection>
-
-      <VariantSection title="Icons — left">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "icons-left",
+    label: "Icons — Left",
+    render: () => (
+      <ChipRow>
         {THEME_COLORS.map(({ value, label }) => (
           <Chips
             key={`left-${value}`}
@@ -144,9 +144,14 @@ export function ChipsGalleryView() {
             className={themeClassName(value)}
           />
         ))}
-      </VariantSection>
-
-      <VariantSection title="Icons — right">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "icons-right",
+    label: "Icons — Right",
+    render: () => (
+      <ChipRow>
         {THEME_COLORS.map(({ value, label }) => (
           <Chips
             key={`right-${value}`}
@@ -157,9 +162,14 @@ export function ChipsGalleryView() {
             className={themeClassName(value)}
           />
         ))}
-      </VariantSection>
-
-      <VariantSection title="Icons — both">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "icons-both",
+    label: "Icons — Both sides",
+    render: () => (
+      <ChipRow>
         {THEME_COLORS.map(({ value, label }) => (
           <Chips
             key={`both-${value}`}
@@ -171,9 +181,14 @@ export function ChipsGalleryView() {
             className={themeClassName(value)}
           />
         ))}
-      </VariantSection>
-
-      <VariantSection title="With border">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "with-border",
+    label: "With border",
+    render: () => (
+      <ChipRow>
         {THEME_COLORS.map(({ value, label }) => (
           <Chips
             key={`border-${value}`}
@@ -184,13 +199,28 @@ export function ChipsGalleryView() {
             className={themeClassName(value)}
           />
         ))}
-      </VariantSection>
-
-      <VariantSection title="Palette samples">
+      </ChipRow>
+    ),
+  },
+  {
+    id: "palette-samples",
+    label: "Palette samples",
+    render: () => (
+      <ChipRow>
         {PALETTE_COLORS.map(({ value, label }) => (
           <Chips key={value} label={label} color={value} readOnly />
         ))}
-      </VariantSection>
-    </div>
+      </ChipRow>
+    ),
+  },
+];
+
+export function ChipsGalleryView() {
+  return (
+    <ComponentGallery
+      title="Chips"
+      description="All chips variations currently supported by the component."
+      variations={chipsVariations}
+    />
   );
 }
