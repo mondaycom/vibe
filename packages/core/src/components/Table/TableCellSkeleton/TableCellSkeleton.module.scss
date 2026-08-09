@@ -2,11 +2,11 @@
   height: 100%;
 
   &.longText {
-    padding-inline-end: var(--spacing-large);
+    padding-inline-end: var(--space-24);
   }
 
   &.mediumText {
-    padding-inline-end: var(--spacing-xxxl);
+    padding-inline-end: var(--space-64);
   }
 
   .tableCellSkeleton {
@@ -14,14 +14,8 @@
 
     &.circle,
     &.rectangle {
-      @supports (aspect-ratio: 1 / 1) {
-        width: auto;
-        aspect-ratio: 1 / 1;
-      }
-
-      @supports not (aspect-ratio: 1 / 1) {
-        width: 21px;
-      }
+      width: auto;
+      aspect-ratio: 1 / 1;
     }
   }
 }

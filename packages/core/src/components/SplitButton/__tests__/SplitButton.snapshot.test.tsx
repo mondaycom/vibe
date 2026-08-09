@@ -55,10 +55,7 @@ describe("SplitButton renders correctly", () => {
   it("with medium dialog padding size", () => {
     const tree = renderer
       .create(
-        <SplitButton
-          secondaryDialogContent={secondaryContent}
-          dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM}
-        >
+        <SplitButton secondaryDialogContent={secondaryContent} dialogPaddingSize="medium">
           split button
         </SplitButton>
       )

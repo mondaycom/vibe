@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type ReactElement, useEffect, useMemo, useState } from "react";
-import { SystemTheme as SystemThemeEnum, type Theme, ThemeColor as ThemeColorEnum } from "./ThemeProviderConstants";
+import { type Theme } from "./ThemeProviderConstants";
 import { type SystemTheme } from "./ThemeProvider.types";
 import {
   addSystemThemeClassNameToBody,
@@ -10,9 +10,7 @@ import {
   removeSystemThemeClassNameFromBody,
   shouldGenerateTheme
 } from "./ThemeProviderUtils";
-import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
-import { withStaticPropsWithoutForwardRef } from "../../types";
-
+import { useIsomorphicLayoutEffect } from "@vibe/shared";
 export interface ThemeProviderProps {
   /**
    * The theme configuration to apply. It consists of a `name` (a unique CSS class name added to the children)
@@ -107,12 +105,4 @@ const ThemeProvider = ({
   return <div className={cx(themeConfig?.name, themeClassSpecifier, className)}>{children}</div>;
 };
 
-interface ThemeProviderStaticProps {
-  systemThemes: typeof SystemThemeEnum;
-  colors: typeof ThemeColorEnum;
-}
-
-export default withStaticPropsWithoutForwardRef<ThemeProviderProps, ThemeProviderStaticProps>(ThemeProvider, {
-  systemThemes: SystemThemeEnum,
-  colors: ThemeColorEnum
-});
+export default ThemeProvider;

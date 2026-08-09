@@ -491,6 +491,68 @@ exports[`Chips renders correctly > renders correctly with right icon 1`] = `
 </div>
 `;
 
+exports[`Chips renders correctly > renders correctly with small size 1`] = `
+<div
+  aria-label="small chip"
+  className="chips noAnimation small"
+  data-testid="chip"
+  data-vibe="Chips"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    {
+      "backgroundColor": "var(--primary-selected-color)",
+    }
+  }
+>
+  <div
+    className="typography primary start singleLineEllipsis text text2Normal label"
+    data-testid="text"
+  >
+    small chip
+  </div>
+  <button
+    aria-busy={false}
+    aria-disabled={false}
+    aria-label="Remove"
+    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    data-testid="chip-close"
+    data-vibe="Button"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    onMouseUp={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "height": "16px",
+        "justifyContent": "center",
+        "padding": 0,
+        "width": "16px",
+      }
+    }
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      className="icon noFocusStyle"
+      data-testid="icon"
+      data-vibe="Icon"
+      fill="currentColor"
+      height="16"
+      viewBox="0 0 20 20"
+      width="16"
+    >
+      <path
+        d="M6.331 5.27a.75.75 0 0 0-1.06 1.06L8.94 10l-3.67 3.668a.75.75 0 1 0 1.06 1.06L10 11.06l3.668 3.669a.75.75 0 0 0 1.06-1.06l-3.668-3.67 3.67-3.669a.75.75 0 0 0-1.061-1.06L10 8.939l-3.669-3.67Z"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
 exports[`Chips renders correctly > renders correctly with text 1`] = `
 <div
   aria-label="text"

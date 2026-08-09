@@ -1,10 +1,3 @@
-export { default as Dialog, type DialogProps } from "./Dialog";
-export {
-  HideShowEvent as DialogTriggerEventEnum,
-  AnimationType as DialogAnimationTypeEnum,
-  DialogPosition as DialogPositionEnum,
-  DialogSize as DialogSizeEnum,
-  DialogPlacement as DialogPlacementEnum
-} from "./DialogConstants";
-export { default as usePopover } from "./usePopover";
+export { default as Dialog } from "./Dialog";
+export { DialogPlacement as DialogPlacementEnum } from "./DialogConstants";
 export * from "./Dialog.types";

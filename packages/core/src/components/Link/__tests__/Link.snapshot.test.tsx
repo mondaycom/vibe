@@ -29,18 +29,18 @@ describe("Link renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with ariaLabeledBy", () => {
-    const tree = renderer.create(<Link ariaLabeledBy="aria label link" />).toJSON();
+  it("with aria-labelledby", () => {
+    const tree = renderer.create(<Link aria-labelledby="aria label link" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("with ariaDescribedby", () => {
-    const tree = renderer.create(<Link ariaDescribedby="aria described by" />).toJSON();
+  it("with aria-describedby", () => {
+    const tree = renderer.create(<Link aria-describedby="aria described by" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("with ariaLabelDescription", () => {
-    const tree = renderer.create(<Link ariaLabelDescription="arialabel link" />).toJSON();
+  it("with aria-label", () => {
+    const tree = renderer.create(<Link aria-label="arialabel link" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

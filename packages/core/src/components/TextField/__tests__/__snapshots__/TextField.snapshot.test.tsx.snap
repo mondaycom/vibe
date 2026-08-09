@@ -459,7 +459,7 @@ exports[`TextField renders correctly > with icon 1`] = `
 </div>
 `;
 
-exports[`TextField renders correctly > with iconsNames 1`] = `
+exports[`TextField renders correctly > with iconLabel and secondaryIconLabel 1`] = `
 <div
   aria-busy={false}
   className="textField"

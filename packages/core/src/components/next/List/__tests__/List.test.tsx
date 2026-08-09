@@ -7,7 +7,7 @@ import { type ListProps } from "../List.types";
 
 function renderList(props?: Partial<ListProps>) {
   return render(
-    <List ariaLabel="Test List" {...props}>
+    <List aria-label="Test List" {...props}>
       <ListItem label="Item 1" value="1" />
       <ListItem label="Item 2" value="2" />
       <ListItem label="Item 3" value="3" />
@@ -36,7 +36,7 @@ describe("List (next)", () => {
 
     it("should render with custom element type", () => {
       render(
-        <List as="ol" ariaLabel="Ordered List">
+        <List as="ol" aria-label="Ordered List">
           <ListItem label="Item 1" value="1" />
         </List>
       );
@@ -52,7 +52,7 @@ describe("List (next)", () => {
 
   describe("accessibility", () => {
     it("should have correct aria-label", () => {
-      renderList({ ariaLabel: "Custom Label" });
+      renderList({ "aria-label": "Custom Label" });
       expect(screen.getByLabelText("Custom Label")).toBeInTheDocument();
     });
 
@@ -65,7 +65,7 @@ describe("List (next)", () => {
       render(
         <>
           <span id="description">List description</span>
-          <List ariaLabel="Test" ariaDescribedBy="description">
+          <List aria-label="Test" aria-describedby="description">
             <ListItem label="Item 1" value="1" />
           </List>
         </>
@@ -81,7 +81,7 @@ describe("List (next)", () => {
 
     it("should support custom role", () => {
       render(
-        <List ariaLabel="Menu" role="menu">
+        <List aria-label="Menu" role="menu">
           <ListItem label="Action 1" value="1" />
           <ListItem label="Action 2" value="2" />
         </List>
@@ -94,7 +94,7 @@ describe("List (next)", () => {
 
     it("should support list role", () => {
       render(
-        <List ariaLabel="Navigation" role="list">
+        <List aria-label="Navigation" role="list">
           <ListItem label="Link 1" value="1" />
           <ListItem label="Link 2" value="2" />
         </List>
@@ -208,7 +208,7 @@ describe("List (next)", () => {
   describe("sizes", () => {
     it("should render with small size", () => {
       render(
-        <List ariaLabel="Small list" size="small">
+        <List aria-label="Small list" size="small">
           <ListItem label="Item 1" value="1" />
         </List>
       );
@@ -217,7 +217,7 @@ describe("List (next)", () => {
 
     it("should render with medium size (default)", () => {
       render(
-        <List ariaLabel="Medium list" size="medium">
+        <List aria-label="Medium list" size="medium">
           <ListItem label="Item 1" value="1" />
         </List>
       );
@@ -226,7 +226,7 @@ describe("List (next)", () => {
 
     it("should render with large size", () => {
       render(
-        <List ariaLabel="Large list" size="large">
+        <List aria-label="Large list" size="large">
           <ListItem label="Item 1" value="1" />
         </List>
       );
@@ -237,7 +237,7 @@ describe("List (next)", () => {
   describe("with selected items", () => {
     it("should support selected items", () => {
       render(
-        <List ariaLabel="Test List">
+        <List aria-label="Test List">
           <ListItem label="Item 1" value="1" />
           <ListItem label="Item 2" value="2" selected />
           <ListItem label="Item 3" value="3" />
@@ -252,7 +252,7 @@ describe("List (next)", () => {
   describe("with disabled items", () => {
     it("should support disabled items", () => {
       render(
-        <List ariaLabel="Test List">
+        <List aria-label="Test List">
           <ListItem label="Item 1" value="1" />
           <ListItem label="Disabled Item" value="disabled" disabled />
           <ListItem label="Item 2" value="2" />
@@ -284,7 +284,7 @@ describe("List with wrapped items", () => {
 
   it("should render items wrapped in a custom component", () => {
     render(
-      <List ariaLabel="Test List">
+      <List aria-label="Test List">
         <ListItem label="Item 1" value="1" />
         <CustomWrapper>
           <ListItem label="Wrapped Item" value="wrapped" />
@@ -300,7 +300,7 @@ describe("List with wrapped items", () => {
 
   it("should include wrapped items in keyboard navigation", async () => {
     render(
-      <List ariaLabel="Test List">
+      <List aria-label="Test List">
         <ListItem label="Item 1" value="1" />
         <CustomWrapper>
           <ListItem label="Wrapped Item" value="wrapped" />
@@ -327,7 +327,7 @@ describe("List with wrapped items", () => {
   it("should support click on wrapped item", async () => {
     const onClick = vi.fn();
     render(
-      <List ariaLabel="Test List">
+      <List aria-label="Test List">
         <ListItem label="Item 1" value="1" />
         <CustomWrapper>
           <ListItem label="Wrapped Item" value="wrapped" onClick={onClick} />
@@ -341,7 +341,7 @@ describe("List with wrapped items", () => {
 
   it("should support selected state on wrapped item", () => {
     render(
-      <List ariaLabel="Test List">
+      <List aria-label="Test List">
         <ListItem label="Item 1" value="1" />
         <CustomWrapper>
           <ListItem label="Wrapped Item" value="wrapped" selected />
@@ -361,7 +361,7 @@ describe("List with wrapped items", () => {
     ];
 
     render(
-      <List ariaLabel="Test List">
+      <List aria-label="Test List">
         {items.map(item => (
           <ListItem key={item.value} label={item.label} value={item.value} />
         ))}
@@ -391,7 +391,7 @@ describe("ListItem", () => {
   describe("rendering", () => {
     it("should render with label", () => {
       render(
-        <List ariaLabel="Test">
+        <List aria-label="Test">
           <ListItem label="Test Label" />
         </List>
       );
@@ -403,7 +403,7 @@ describe("ListItem", () => {
     it("should call onClick when clicked", async () => {
       const onClick = vi.fn();
       render(
-        <List ariaLabel="Test">
+        <List aria-label="Test">
           <ListItem label="Clickable" onClick={onClick} />
         </List>
       );
@@ -415,7 +415,7 @@ describe("ListItem", () => {
     it("should not call onClick when disabled", async () => {
       const onClick = vi.fn();
       render(
-        <List ariaLabel="Test">
+        <List aria-label="Test">
           <ListItem label="Disabled" onClick={onClick} disabled />
         </List>
       );
@@ -427,7 +427,7 @@ describe("ListItem", () => {
     it("should call onHover when mouse enters", async () => {
       const onHover = vi.fn();
       render(
-        <List ariaLabel="Test">
+        <List aria-label="Test">
           <ListItem label="Hoverable" onHover={onHover} />
         </List>
       );
@@ -439,7 +439,7 @@ describe("ListItem", () => {
     it("should call onHover when focused via tab", async () => {
       const onHover = vi.fn();
       render(
-        <List ariaLabel="Test">
+        <List aria-label="Test">
           <ListItem label="Focusable" onHover={onHover} />
         </List>
       );
@@ -452,7 +452,7 @@ describe("ListItem", () => {
     it("should not call onHover when disabled", async () => {
       const onHover = vi.fn();
       render(
-        <List ariaLabel="Test">
+        <List aria-label="Test">
           <ListItem label="Disabled" onHover={onHover} disabled />
         </List>
       );

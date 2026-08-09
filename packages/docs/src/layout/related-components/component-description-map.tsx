@@ -33,7 +33,7 @@ import { IconsDescription } from "./descriptions/icons-description";
 import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
-import { LinearProgressBarDescription } from "./descriptions/linear-progress-bar-description";
+import { ProgressBarDescription } from "./descriptions/linear-progress-bar-description";
 import { EditableHeadingDescription } from "./descriptions/editable-heading-description";
 import { EditableTextDescription } from "./descriptions/editable-text-description";
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
@@ -102,7 +102,7 @@ const COMPONENTS_DESCRIPTIONS_ENTRIES = [
   ["Slider", <SliderDescription />],
   ["IconButton", <IconButtonDescription />],
   ["MenuButton", <MenuButtonDescription />],
-  ["LinearProgressBar", <LinearProgressBarDescription />],
+  ["ProgressBar", <ProgressBarDescription />],
   ["EditableHeading", <EditableHeadingDescription />],
   ["EditableText", <EditableTextDescription />],
   ["Heading", <HeadingDescription />],

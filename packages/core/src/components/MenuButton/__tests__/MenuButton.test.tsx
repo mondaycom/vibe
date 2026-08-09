@@ -128,7 +128,7 @@ describe("MenuButton", () => {
   describe("Click", () => {
     it("should show menu", async () => {
       const { getByLabelText } = render(
-        <MenuButton ariaLabel="Menu Button">
+        <MenuButton aria-label="Menu Button">
           <div>Menu</div>
         </MenuButton>
       );
@@ -150,7 +150,7 @@ describe("MenuButton", () => {
       "should $expected menu after clicking enter when closeMenuOnItemClick is $closeMenuOnItemClick",
       async ({ closeMenuOnItemClick }) => {
         const { getByLabelText } = render(
-          <MenuButton ariaLabel="Menu Button" closeMenuOnItemClick={closeMenuOnItemClick}>
+          <MenuButton aria-label="Menu Button" closeMenuOnItemClick={closeMenuOnItemClick}>
             <Menu>
               <MenuItem title="Menu Item" />
             </Menu>

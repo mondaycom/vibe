@@ -151,7 +151,7 @@ export const Celebration = {
         <Label id="celebration-label" text="New" kind="line" celebrationAnimation={animate} />
         <Button
           id="celebration-button"
-          ariaLabel="Trigger celebration animation"
+          aria-label="Trigger celebration animation"
           size="small"
           kind="tertiary"
           onClick={() => setAnimate(true)}

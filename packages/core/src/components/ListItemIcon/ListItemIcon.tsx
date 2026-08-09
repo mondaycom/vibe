@@ -1,12 +1,10 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, getStyle } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
-import { ListItemIconMargin as ListItemIconMarginEnum } from "./ListItemIconConstants";
-import { ListItemComponentType as ListItemComponentTypeEnum } from "../ListItem/ListItemConstants";
 import { type ListItemElement } from "../ListItem";
-import { type VibeComponentProps, withStaticProps } from "../../types";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { type VibeComponentProps } from "../../types";
+
 import styles from "./ListItemIcon.module.scss";
 import { type ListItemIconMargin } from "./ListItemIcon.types";
 
@@ -42,18 +40,10 @@ const ListItemIcon = forwardRef(
         id={id}
         aria-hidden="true"
       >
-        <Icon icon={icon} ignoreFocusStyle iconSize={LIST_ITEM_ICON_SIZE} />
+        <Icon icon={icon} ignoreFocusStyle size={LIST_ITEM_ICON_SIZE} />
       </Component>
     );
   }
 );
 
-interface ListItemIconStaticProps {
-  margin: typeof ListItemIconMarginEnum;
-  components: typeof ListItemComponentTypeEnum;
-}
-
-export default withStaticProps<ListItemIconProps, ListItemIconStaticProps>(ListItemIcon, {
-  margin: ListItemIconMarginEnum,
-  components: ListItemComponentTypeEnum
-});
+export default ListItemIcon;

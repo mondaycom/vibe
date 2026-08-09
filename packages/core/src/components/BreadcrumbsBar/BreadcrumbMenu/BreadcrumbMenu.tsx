@@ -23,12 +23,12 @@ const BreadcrumbMenu = forwardRef(
           id={menuButtonId}
           size={"xxs"}
           closeMenuOnItemClick
-          ariaLabel={"Hidden breadcrumbs menu"}
+          aria-label={"Hidden breadcrumbs menu"}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
-          ariaControls={menuId}
+          aria-controls={menuId}
           ref={ref}
         >
-          <Menu id={menuId} size={"medium"} focusItemIndexOnMount={0} ariaLabel="Expanded breadcrumbs menu">
+          <Menu id={menuId} size={"medium"} focusItemIndexOnMount={0} aria-label="Expanded breadcrumbs menu">
             {children}
           </Menu>
         </MenuButton>

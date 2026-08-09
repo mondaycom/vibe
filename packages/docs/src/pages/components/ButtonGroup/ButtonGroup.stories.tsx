@@ -1,7 +1,6 @@
 import React from "react";
 import { ButtonGroup, Flex, Text } from "@vibe/core";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
-import { createComponentTemplate } from "vibe-storybook-components";
 import { type Meta, type StoryObj } from "@storybook/react";
 
 type Story = StoryObj<typeof ButtonGroup>;
@@ -11,8 +10,6 @@ const metaSettings = createStoryMetaSettingsDecorator({
   actionPropsArray: ["onSelect"]
 });
 
-const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
-
 export default {
   title: "Components/ButtonGroup",
   component: ButtonGroup,
@@ -21,7 +18,11 @@ export default {
 } satisfies Meta<typeof ButtonGroup>;
 
 export const Overview: Story = {
-  render: buttonGroupTemplate.bind({}),
+  render: args => (
+    <div style={{ width: args.fullWidth ? "100%" : "fit-content" }}>
+      <ButtonGroup {...args} />
+    </div>
+  ),
 
   args: {
     id: "overview-button-group",
@@ -90,7 +91,7 @@ export const Tertiary: Story = {
       id="tertiary-button-group"
       groupAriaLabel="Tertiary button group"
       value={1}
-      kind={ButtonGroup.kinds.TERTIARY}
+      kind="tertiary"
       options={[
         {
           value: 1,
@@ -175,11 +176,11 @@ export const Size: Story = {
   render: () => (
     <Flex gap={60}>
       <Flex direction="column" gap={16} align="start">
-        <Text type={Text.types.TEXT1}>Medium</Text>
+        <Text type="text1">Medium</Text>
         <ButtonGroup
           id="size-medium-button-group"
           groupAriaLabel="Medium size button group"
-          size={ButtonGroup.sizes.MEDIUM}
+          size="medium"
           value={1}
           options={[
             { value: 1, text: "Alpha" },
@@ -190,11 +191,11 @@ export const Size: Story = {
         />
       </Flex>
       <Flex direction="column" gap={16} align="start">
-        <Text type={Text.types.TEXT1}>Small</Text>
+        <Text type="text1">Small</Text>
         <ButtonGroup
           id="size-small-button-group"
           groupAriaLabel="Small size button group"
-          size={ButtonGroup.sizes.SMALL}
+          size="small"
           value={1}
           options={[
             { value: 1, text: "Alpha" },
@@ -211,11 +212,11 @@ export const Size: Story = {
 export const ButtonGroupInSettings: Story = {
   render: () => (
     <Flex direction="column" gap={16} align="start">
-      <Text type={Text.types.TEXT1}>Function</Text>
+      <Text type="text1">Function</Text>
       <ButtonGroup
         id="settings-button-group"
         groupAriaLabel="Function selection button group"
-        size={ButtonGroup.sizes.SMALL}
+        size="small"
         value={1}
         options={[
           {

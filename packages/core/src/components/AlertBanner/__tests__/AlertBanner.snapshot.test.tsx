@@ -5,7 +5,7 @@ import AlertBanner from "../AlertBanner";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
-import { NOOP } from "../../../utils/function-utils";
+import { NOOP } from "@vibe/shared";
 
 describe("AlertBanner", () => {
   it("should render correctly without props", () => {
@@ -19,7 +19,7 @@ describe("AlertBanner", () => {
         <AlertBanner
           onClose={NOOP}
           backgroundColor="negative"
-          ariaLabel="lorem-banner"
+          aria-label="lorem-banner"
           className="my-lorem-ipsum-banner"
         >
           <AlertBannerText text="Lorem ipsum dolor sit amet" />

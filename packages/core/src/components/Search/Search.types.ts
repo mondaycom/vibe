@@ -61,11 +61,11 @@ export interface SearchProps extends VibeComponentProps {
   /**
    * If true, indicates that a popup is open.
    */
-  ariaExpanded?: React.AriaAttributes["aria-expanded"];
+  "aria-expanded"?: React.AriaAttributes["aria-expanded"];
   /**
    * Specifies the type of popup associated with the search input.
    */
-  ariaHasPopup?: React.AriaAttributes["aria-haspopup"];
+  "aria-haspopup"?: React.AriaAttributes["aria-haspopup"];
   /**
    * The debounce rate for input value changes.
    */

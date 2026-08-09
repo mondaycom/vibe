@@ -1,1 +1,1 @@
-import "monday-ui-style/dist/index.min.css";
+import "@vibe/style/dist/index.min.css";

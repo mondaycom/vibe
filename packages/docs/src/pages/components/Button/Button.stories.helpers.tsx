@@ -4,7 +4,7 @@ import { StorybookLink, Tip } from "vibe-storybook-components";
 export const TipIconButton = () => (
   <Tip>
     If you need to use icon as button with no text, check out{" "}
-    <StorybookLink page="Components/IconButton" size={StorybookLink.sizes.SMALL}>
+    <StorybookLink page="Components/IconButton" size="small">
       IconButton
     </StorybookLink>{" "}
     component

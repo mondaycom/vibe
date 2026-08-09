@@ -9,9 +9,9 @@ exports[`Tooltip renders correctly > with data-testid 1`] = `
   </div>
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
+    data-dialog-reference-hidden="false"
     data-testid="test"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="contentComponent top hasTooltip expandAppear expandAppearActive"
@@ -28,7 +28,6 @@ exports[`Tooltip renders correctly > with data-testid 1`] = `
       <div
         class="arrow arrow dark"
         data-placement="top"
-        style="position: absolute;"
       />
     </div>
   </span>
@@ -44,8 +43,9 @@ exports[`Tooltip renders correctly > with hideWhenReferenceHidden 1`] = `
   </div>
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
+    data-dialog-reference-hidden="false"
     data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="contentComponent top hasTooltip expandAppear expandAppearActive"
@@ -62,7 +62,6 @@ exports[`Tooltip renders correctly > with hideWhenReferenceHidden 1`] = `
       <div
         class="arrow arrow dark"
         data-placement="top"
-        style="position: absolute;"
       />
     </div>
   </span>
@@ -78,9 +77,9 @@ exports[`Tooltip renders correctly > with position 1`] = `
   </div>
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
+    data-dialog-reference-hidden="false"
     data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="contentComponent left hasTooltip expandAppear expandAppearActive"
@@ -97,7 +96,6 @@ exports[`Tooltip renders correctly > with position 1`] = `
       <div
         class="arrow arrow dark"
         data-placement="left"
-        style="position: absolute;"
       />
     </div>
   </span>
@@ -113,9 +111,9 @@ exports[`Tooltip renders correctly > with style 1`] = `
   </div>
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
+    data-dialog-reference-hidden="false"
     data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="contentComponent top hasTooltip expandAppear expandAppearActive"
@@ -133,7 +131,6 @@ exports[`Tooltip renders correctly > with style 1`] = `
       <div
         class="arrow arrow dark"
         data-placement="top"
-        style="position: absolute;"
       />
     </div>
   </span>
@@ -149,9 +146,9 @@ exports[`Tooltip renders correctly > with theme 1`] = `
   </div>
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
+    data-dialog-reference-hidden="false"
     data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="contentComponent top hasTooltip expandAppear expandAppearActive"
@@ -168,7 +165,6 @@ exports[`Tooltip renders correctly > with theme 1`] = `
       <div
         class="arrow arrow primary"
         data-placement="top"
-        style="position: absolute;"
       />
     </div>
   </span>
@@ -196,9 +192,9 @@ exports[`Tooltip renders correctly > without arrow 1`] = `
   </div>
   <span
     class="monday-style-dialog-content-wrapper contentWrapper"
-    data-popper-reference-hidden="false"
+    data-dialog-reference-hidden="false"
     data-testid="tooltip"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="contentComponent top expandAppear expandAppearActive"

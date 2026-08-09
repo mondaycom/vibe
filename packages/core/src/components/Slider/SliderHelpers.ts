@@ -60,6 +60,9 @@ export function ensureDefaultValue(
   if (ranged && !Array.isArray(defaultValue)) {
     return [min, max];
   }
+  if (Array.isArray(defaultValue)) {
+    return defaultValue;
+  }
   if (defaultValue < min) {
     return min;
   }
@@ -95,7 +98,7 @@ export function getNearest(newValue: number, ranged: boolean, value: number | nu
 export function moveToPx(offsetInPx: number, min: number, max: number, railCoords: { width: number }, step: number) {
   const valuePoints = max - min;
   const pxToValuePoints = railCoords.width / valuePoints;
-  const offsetInValuePoints = Math.round(offsetInPx / pxToValuePoints) + min;
+  const offsetInValuePoints = offsetInPx / pxToValuePoints + min;
   const newValue = Math.round(offsetInValuePoints / step) * step;
   if (newValue < min) {
     return min;

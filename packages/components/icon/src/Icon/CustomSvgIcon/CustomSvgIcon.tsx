@@ -15,17 +15,13 @@ function modifySvgCode(svg: string, color = "currentColor") {
 
 export interface CustomSvgIconProps extends VibeComponentProps {
   /**
-   * Callback fired when the icon is clicked.
-   */
-  onClick?: (event: React.MouseEvent) => void;
-  /**
    * The source URL or object of the SVG icon.
    */
   src: string | object;
   /**
    * The accessible label for the icon.
    */
-  ariaLabel?: string;
+  "aria-label"?: string;
   /**
    * The tab index of the icon for keyboard navigation.
    */
@@ -37,11 +33,7 @@ export interface CustomSvgIconProps extends VibeComponentProps {
   /**
    * If true, hides the icon from screen readers.
    */
-  ariaHidden?: boolean;
-  /**
-   * If true, makes the icon clickable.
-   */
-  clickable?: boolean;
+  "aria-hidden"?: boolean;
   /**
    * If true, replaces the `fill` attribute in the SVG with `currentColor`.
    */
@@ -50,6 +42,10 @@ export interface CustomSvgIconProps extends VibeComponentProps {
    * Overrides the default color of the icon.
    */
   customColor?: string;
+  /**
+   * The size (width and height) of the icon.
+   */
+  size?: number | string;
   /**
    * Reference to the SVG element.
    */
@@ -60,17 +56,16 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   className,
   ref,
   src,
-  onClick,
-  clickable,
-  ariaLabel,
-  ariaHidden,
+  "aria-label": ariaLabel,
+  "aria-hidden": ariaHidden,
   replaceToCurrentColor = false,
   customColor,
+  size,
   id,
   "data-testid": dataTestId
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
-    isClickable: clickable,
+    isClickable: false,
     label: ariaLabel,
     isDecorationOnly: ariaHidden
   });
@@ -101,11 +96,12 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
     <SVGComponent
       innerRef={ref}
       {...screenReaderAccessProps}
-      onClick={onClick}
       loader={PlaceHolder} // avoid flickering
       src={src}
       className={className}
       preProcessor={svgProcessor}
+      width={size}
+      height={size}
       id={id}
       data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
       data-vibe={ComponentVibeId.ICON}

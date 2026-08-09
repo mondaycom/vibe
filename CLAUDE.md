@@ -132,7 +132,7 @@ The repository includes an MCP (Model Context Protocol) server (`@vibe/mcp`) tha
 - **Rollup** for bundling with TypeScript support
 - **Independent versioning** via Lerna
 - **Metadata generation** for component documentation
-- **CSS token handling** via `monday-ui-style` package
+- **CSS token handling** via `@vibe/style` package
 
 ## Important Files and Conventions
 

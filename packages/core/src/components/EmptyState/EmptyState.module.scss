@@ -1,11 +1,11 @@
 .emptyState {
   width: 100%;
-  padding: var(--spacing-large);
+  padding: var(--space-24);
   box-sizing: border-box;
   background: var(--primary-background-color);
 
   &.compact {
-    padding: var(--spacing-medium);
+    padding: var(--space-16);
   }
 
   .content {

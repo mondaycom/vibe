@@ -4,13 +4,12 @@
   box-shadow: var(--box-shadow-medium);
   -webkit-font-smoothing: var(--font-smoothing-webkit);
   -moz-osx-font-smoothing: var(--font-smoothing-moz);
-  margin: var(--spacing-medium);
+  margin: var(--space-16);
   position: fixed;
   left: 50%;
   top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--spacing-small);
+  margin-inline: auto;
+  padding: var(--space-8);
   align-items: center;
   display: flex;
   min-width: 200px;
@@ -65,7 +64,7 @@
 
 .icon {
   display: flex;
-  margin-left: var(--spacing-small);
+  margin-inline-start: var(--space-8);
 }
 
 .actionButton.withTransition {
@@ -76,7 +75,7 @@
 }
 
 .content {
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--space-8);
   flex: 1;
 }
 
@@ -102,7 +101,7 @@
 }
 
 .closeButton {
-  margin-left: var(--spacing-small);
+  margin-inline-start: var(--space-8);
 }
 
 @keyframes slideIn {

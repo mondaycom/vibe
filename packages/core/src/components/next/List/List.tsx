@@ -13,8 +13,8 @@ const List = forwardRef(
       id,
       as = "ul",
       children,
-      ariaLabel,
-      ariaDescribedBy,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedBy,
       role = "listbox",
       size = "small",
       maxHeight,
@@ -31,8 +31,8 @@ const List = forwardRef(
         id={id}
         className={cx(styles.list, className)}
         as={as}
-        ariaLabel={ariaLabel}
-        ariaDescribedBy={ariaDescribedBy}
+        aria-label={ariaLabel}
+        aria-describedby={ariaDescribedBy}
         role={role}
         size={size}
         maxHeight={maxHeight}

@@ -10,14 +10,14 @@ export const AvatarGroupDescription = () => {
   const component = useMemo(
     () => (
       <AvatarGroup size="large" max={3}>
-        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
-        <Avatar type="img" src={person1} ariaLabel="Julia Martinez" />
-        <Avatar type="img" src={person2} ariaLabel="Sophia Johnson" />
-        <Avatar type="img" src={person3} ariaLabel="Marco DiAngelo" />
-        <Avatar type="img" src={person4} ariaLabel="Liam Caldwell" />
+        <Avatar type="img" src={person1} aria-label="Julia Martinez" />
+        <Avatar type="img" src={person2} aria-label="Sophia Johnson" />
+        <Avatar type="img" src={person3} aria-label="Marco DiAngelo" />
+        <Avatar type="img" src={person4} aria-label="Liam Caldwell" />
+        <Avatar type="img" src={person1} aria-label="Julia Martinez" />
+        <Avatar type="img" src={person2} aria-label="Sophia Johnson" />
+        <Avatar type="img" src={person3} aria-label="Marco DiAngelo" />
+        <Avatar type="img" src={person4} aria-label="Liam Caldwell" />
       </AvatarGroup>
     ),
     []

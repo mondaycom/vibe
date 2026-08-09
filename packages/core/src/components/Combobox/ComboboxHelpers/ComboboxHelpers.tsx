@@ -115,11 +115,7 @@ export function useKeyboardNavigation({
     [getOptionId, options]
   );
 
-  const {
-    visualFocusItemIndex,
-    visualFocusItemId,
-    onItemClickCallback: onOptionClick
-  } = useActiveDescendantListFocus({
+  const { visualFocusItemIndex, visualFocusItemId } = useActiveDescendantListFocus({
     defaultVisualFocusFirstIndex,
     focusedElementRef: inputRef,
     focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
@@ -129,7 +125,7 @@ export function useKeyboardNavigation({
     isIgnoreSpaceAsItemSelection: true
   });
 
-  return { visualFocusItemIndex, visualFocusItemId, onOptionClick };
+  return { visualFocusItemIndex, visualFocusItemId, onOptionClick: onClick };
 }
 export function createDividerItemObject({ categoryId }: { categoryId: string }): IComboboxItem {
   return { type: COMBOBOX_DIVIDER_ITEM, height: DIVIDER_HEIGHT, id: `${categoryId}-divider` };

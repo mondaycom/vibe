@@ -4,7 +4,7 @@ import { linkStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let link: Link;
-const linkLocator = 'a[data-testid="link"]';
+const linkLocator = 'a[data-testid^="link"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Link", () => {

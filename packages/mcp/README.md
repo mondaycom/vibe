@@ -61,7 +61,7 @@ or manually update your VSCode MCP configuration file at `.vscode/mcp.json` (cre
 
 #### Token Tool
 
-- `list-vibe-tokens`: Get a list of all available Vibe design tokens from the `monday-ui-style` package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.
+- `list-vibe-tokens`: Get a list of all available Vibe design tokens from the `@vibe/style` package. Supports optional filtering by text query, category, or limiting results. Returns token names, values, categories, and files, with optional CSS usage examples.
 
 #### Migration Tool
 

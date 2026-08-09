@@ -8,7 +8,7 @@ import React, {
   useState,
   useMemo
 } from "react";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import usePrevious from "../../../hooks/usePrevious";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";

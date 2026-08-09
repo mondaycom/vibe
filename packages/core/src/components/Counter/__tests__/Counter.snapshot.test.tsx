@@ -39,8 +39,8 @@ describe("Counter renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with ariaLabeledBy", () => {
-    const tree = renderer.create(<Counter ariaLabeledBy="aria label" />).toJSON();
+  it("with aria-labelledby", () => {
+    const tree = renderer.create(<Counter aria-labelledby="aria label" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

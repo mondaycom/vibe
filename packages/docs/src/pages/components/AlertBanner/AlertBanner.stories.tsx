@@ -49,7 +49,7 @@ export const Overview = {
   render: alertBannerTemplate.bind({}),
   args: {
     id: "overview-alert-banner",
-    ariaLabel: "Overview alert banner"
+    "aria-label": "Overview alert banner"
   },
   name: "Overview"
 };
@@ -59,23 +59,23 @@ type Story = StoryObj<typeof AlertBanner>;
 export const Types: Story = {
   render: () => (
     <Flex direction="column" gap={16}>
-      <AlertBanner id="type-primary" ariaLabel="Primary alert banner">
+      <AlertBanner id="type-primary" aria-label="Primary alert banner">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner id="type-positive" ariaLabel="Success alert banner" backgroundColor="positive">
+      <AlertBanner id="type-positive" aria-label="Success alert banner" backgroundColor="positive">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner id="type-negative" ariaLabel="Error alert banner" backgroundColor="negative">
+      <AlertBanner id="type-negative" aria-label="Error alert banner" backgroundColor="negative">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner id="type-warning" ariaLabel="Warning alert banner" backgroundColor="warning">
+      <AlertBanner id="type-warning" aria-label="Warning alert banner" backgroundColor="warning">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
-      <AlertBanner id="type-dark" ariaLabel="Dark alert banner" backgroundColor="dark">
+      <AlertBanner id="type-dark" aria-label="Dark alert banner" backgroundColor="dark">
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
       </AlertBanner>
@@ -86,7 +86,7 @@ export const Types: Story = {
 
 export const AlertBannerWithButton: Story = {
   render: () => (
-    <AlertBanner id="with-button" ariaLabel="Alert banner with action button">
+    <AlertBanner id="with-button" aria-label="Alert banner with action button">
       <AlertBannerText text="Lorem ipsum dolor sit amet" />
       <AlertBannerButton>Lorem Ipsum</AlertBannerButton>
     </AlertBanner>
@@ -96,7 +96,7 @@ export const AlertBannerWithButton: Story = {
 
 export const AlertBannerWithLink: Story = {
   render: () => (
-    <AlertBanner id="with-link" ariaLabel="Alert banner with link">
+    <AlertBanner id="with-link" aria-label="Alert banner with link">
       <AlertBannerText text="Alert banner message" />
       <AlertBannerLink text="this is a CTA" href="https://monday.com" />
     </AlertBanner>
@@ -106,7 +106,7 @@ export const AlertBannerWithLink: Story = {
 
 export const AlertBannerAsAnAnnouncement: Story = {
   render: () => (
-    <AlertBanner id="announcement" ariaLabel="Event announcement" backgroundColor="dark">
+    <AlertBanner id="announcement" aria-label="Event announcement" backgroundColor="dark">
       <AlertBannerText text="Join us at Elevate 2022" />
       <AlertBannerLink text="RSVP now" href="https://monday.com" />
     </AlertBanner>
@@ -118,7 +118,7 @@ export const AlertBannerAsAnOpportunityToUpgrade: Story = {
   render: () => (
     <AlertBanner
       id="upgrade-opportunity"
-      ariaLabel="Trial upgrade opportunity"
+      aria-label="Trial upgrade opportunity"
       onClose={() => {}}
       closeButtonAriaLabel="Close upgrade banner"
     >
@@ -131,7 +131,7 @@ export const AlertBannerAsAnOpportunityToUpgrade: Story = {
 
 export const OverflowText: Story = {
   render: () => (
-    <AlertBanner id="overflow-text" ariaLabel="Long text alert banner">
+    <AlertBanner id="overflow-text" aria-label="Long text alert banner">
       <AlertBannerText text="This is a really long alert..." />
       <AlertBannerLink text="Call to action" href="https://monday.com" />
     </AlertBanner>

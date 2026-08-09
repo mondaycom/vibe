@@ -1,6 +1,6 @@
 {
   "name": "@vibe/mcp",
-  "version": "0.9.0",
+  "version": "4.1.1",
   "description": "Vibe's MCP server to interact with the Vibe ecosystem",
   "repository": {
     "type": "git",
@@ -14,11 +14,11 @@
   "author": "monday.com",
   "license": "MIT",
   "type": "module",
+  "bin": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
     "./tools": "./dist/server/tools/index.js"
   },
-  "bin": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -26,11 +26,8 @@
     "test": "vitest --passWithNoTests",
     "start": "node dist/index.js",
     "clean": "rm -rf dist",
-    "build": "tsc && yarn run generate-boilerplate",
-    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js",
-    "generate-boilerplate": "yarn run extract-code-examples && yarn run extract-accessibility",
-    "extract-code-examples": "node scripts/extract-code-samples.js",
-    "extract-accessibility": "node scripts/extract-accessibility.js"
+    "build": "tsc",
+    "debug": "npx @modelcontextprotocol/inspector node ./dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.4",

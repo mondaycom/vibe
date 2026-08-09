@@ -3,7 +3,7 @@
 .wrapper {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--space-4);
   border-radius: var(--border-radius-small);
   color: var(--primary-text-color);
   cursor: pointer;
@@ -33,7 +33,7 @@
   }
 
   &.small {
-    padding: 6px var(--spacing-small);
+    padding: 6px var(--space-8);
   }
 
   &.medium {
@@ -54,7 +54,7 @@
   }
 
   .endElement {
-    padding-inline-start: var(--spacing-small);
+    padding-inline-start: var(--space-8);
     margin-inline-start: auto;
     display: flex;
   }

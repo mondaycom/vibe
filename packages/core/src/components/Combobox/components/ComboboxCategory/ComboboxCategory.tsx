@@ -16,7 +16,7 @@ export interface ComboboxCategoryProps {
 }
 
 const ComboboxCategory: FC<ComboboxCategoryProps> = ({ category, className }) => {
-  const { label, id, ariaLabel, color } = category;
+  const { label, id, "aria-label": ariaLabel, color } = category;
 
   if (!label) return null;
 

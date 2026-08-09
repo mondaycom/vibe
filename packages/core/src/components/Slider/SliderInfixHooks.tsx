@@ -6,7 +6,7 @@ import SelectionIndicator from "./SelectionIndicator";
 
 const defaultIconProps = {
   clickable: false,
-  iconSize: 18,
+  size: 18,
   ignoreFocusStyle: true
 };
 
@@ -33,5 +33,5 @@ export function useSliderInfixComponent(kind: InfixKind): [boolean, string[], Re
   if (typeof infix === "undefined") {
     return [false, [], null, {}];
   }
-  return [true, [], <>{infix}</>, {}];
+  return [true, [], <>{infix as ReactElement}</>, {}];
 }

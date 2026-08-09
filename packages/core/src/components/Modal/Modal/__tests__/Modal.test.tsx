@@ -6,14 +6,20 @@ import Modal from "../Modal";
 import ModalContent from "../../ModalContent/ModalContent";
 import ModalHeader from "../../ModalHeader/ModalHeader";
 
-vi.mock("framer-motion", async () => {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-  const actual = await vi.importActual<typeof import("framer-motion")>("framer-motion");
-  return {
-    ...actual,
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>
-  };
-});
+vi.mock("react-transition-group", () => ({
+  CSSTransition: ({
+    in: inProp,
+    children,
+    unmountOnExit
+  }: {
+    in?: boolean;
+    children: React.ReactNode;
+    unmountOnExit?: boolean;
+  }) => {
+    if (!inProp && unmountOnExit) return null;
+    return <>{children}</>;
+  }
+}));
 
 describe("Modal", () => {
   const id = "modal-id";

@@ -33,7 +33,7 @@ const ModalHeader = forwardRef(
         ref={ref}
         className={cx(styles.header, className)}
         id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_HEADER, id)}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_HEADER, id)}
       >
         {typeof title === "string" ? (
           <Heading id={titleId} align="inherit" type="h2" weight="medium" maxLines={2} className={styles.title}>

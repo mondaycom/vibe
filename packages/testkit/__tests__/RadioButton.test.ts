@@ -4,7 +4,7 @@ import { radioButtonStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let radioButton: RadioButton;
-const radioButtonLocator = 'label[data-testid="radio-button"]';
+const radioButtonLocator = 'label[data-testid^="radio-button"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - RadioButton", () => {

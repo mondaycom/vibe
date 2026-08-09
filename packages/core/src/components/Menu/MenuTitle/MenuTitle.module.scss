@@ -7,7 +7,7 @@
 
 .titleCaption {
   color: var(--icon-color);
-  margin: var(--spacing-small) 0;
+  margin: var(--space-8) 0;
 }
 
 .titleCaptionCenter {
@@ -18,11 +18,11 @@
 
 .titleCaptionBottom,
 .titleCaptionTop {
-  padding-left: var(--spacing-small);
+  padding-inline-start: var(--space-8);
 }
 
 .titleCaptionBottom {
-  padding-bottom: var(--spacing-small);
+  padding-bottom: var(--space-8);
 }
 
 .titleCaptionCenter::before,
@@ -33,5 +33,5 @@
   height: 1px;
   font-size: 0;
   line-height: 0;
-  margin: 0 var(--spacing-small);
+  margin: 0 var(--space-8);
 }

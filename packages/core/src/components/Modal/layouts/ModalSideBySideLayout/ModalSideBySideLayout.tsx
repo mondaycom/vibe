@@ -19,7 +19,7 @@ const ModalSideBySideLayout = forwardRef(
           ref={ref}
           className={cx(styles.layout, className)}
           id={id}
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_NEXT_SIDE_BY_SIDE_LAYOUT, id)}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_SIDE_BY_SIDE_LAYOUT, id)}
         >
           <div className={styles.header}>{header}</div>
           <ModalLayoutScrollableContent className={styles.content}>{content}</ModalLayoutScrollableContent>

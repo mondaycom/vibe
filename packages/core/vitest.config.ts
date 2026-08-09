@@ -34,7 +34,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "~monday-ui-style": path.resolve(process.cwd(), "../../node_modules/monday-ui-style"),
+      "~@vibe/style": path.resolve(process.cwd(), "../../node_modules/@vibe/style"),
       "~": path.resolve(process.cwd(), "../../node_modules"),
       ...components
     }

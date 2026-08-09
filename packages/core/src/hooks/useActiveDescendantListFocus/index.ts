@@ -109,12 +109,6 @@ function useActiveDescendantListFocus({
 
   useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex });
 
-  // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
-  // TODO: [breaking] remove backward compatibility support
-  const backwardCompatibilityCreateOnClickCallback = useCallback(
-    (itemIndex: number) => (event: React.KeyboardEvent | React.MouseEvent) => onItemClick(event, itemIndex),
-    [onItemClick]
-  );
   return {
     visualFocusItemIndex: triggeredByKeyboard.current ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggeredByKeyboard.current ? visualFocusItemId : undefined,
@@ -122,10 +116,6 @@ function useActiveDescendantListFocus({
       "aria-activedescendant": triggeredByKeyboard.current ? visualFocusItemId : undefined,
       role: focusedElementRole
     },
-    // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
-    // TODO: [breaking] remove backward compatibility support
-    onItemClickCallback: onItemClick,
-    createOnItemClickCallback: backwardCompatibilityCreateOnClickCallback,
     setVisualFocusItemId
   };
 }

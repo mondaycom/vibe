@@ -13,7 +13,7 @@ export interface TokenMetadata {
 
 export class TokenMetadataService {
   private static tokenCache: TokenMetadata[] | null = null;
-  private static readonly TOKENS_URL = "https://unpkg.com/monday-ui-style@latest/dist/index.css";
+  private static readonly TOKENS_URL = "https://unpkg.com/@vibe/style@latest/dist/index.css";
 
   /**
    * Get all design tokens from the style package

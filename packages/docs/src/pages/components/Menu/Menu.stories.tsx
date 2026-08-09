@@ -35,7 +35,7 @@ export const Sizes = {
   render: () => [
     <Flex gap="medium">
       <DialogContentContainer key="small">
-        <Menu size={Menu.sizes.SMALL}>
+        <Menu size="small">
           <MenuTitle caption="Small menu" />
           <MenuDivider />
           <MenuItem title="Menu item 1" />
@@ -44,7 +44,7 @@ export const Sizes = {
         </Menu>
       </DialogContentContainer>
       <DialogContentContainer key="md">
-        <Menu size={Menu.sizes.MEDIUM}>
+        <Menu size="medium">
           <MenuTitle caption="Medium menu" />
           <MenuDivider />
           <MenuItem title="Menu item 1" />
@@ -53,7 +53,7 @@ export const Sizes = {
         </Menu>
       </DialogContentContainer>
       <DialogContentContainer key="lg">
-        <Menu size={Menu.sizes.LARGE}>
+        <Menu size="large">
           <MenuTitle caption="Large menu" />
           <MenuDivider />
           <MenuItem title="Menu item 1" />
@@ -66,7 +66,7 @@ export const Sizes = {
   name: "Sizes",
 
   args: {
-    size: Menu.sizes.SMALL
+    size: "small"
   }
 };
 

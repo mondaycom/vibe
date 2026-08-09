@@ -30,7 +30,7 @@ describe("Counter tests", () => {
     it("should add the aria label", () => {
       const count = 3;
       const ariaLabel = "Label Name ";
-      const { getByLabelText } = render(<Counter ariaLabel={ariaLabel} count={count} />);
+      const { getByLabelText } = render(<Counter aria-label={ariaLabel} count={count} />);
       const counterComponent = getByLabelText(ariaLabel + count);
       expect(counterComponent).toBeTruthy();
     });

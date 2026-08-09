@@ -8,7 +8,7 @@ vi.useFakeTimers();
 const ariaLabel = "Button Icon";
 
 const renderComponent = (props: IconButtonProps = {}) => {
-  return render(<IconButton ariaLabel={ariaLabel} {...props} />);
+  return render(<IconButton aria-label={ariaLabel} {...props} />);
 };
 
 describe("IconButton tests", () => {

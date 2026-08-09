@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 $disabled-on-primary-color-opacity: 0.5;
 
@@ -56,21 +56,21 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .marginRight {
-  margin-right: var(--spacing-small);
+  margin-inline-end: var(--space-8);
 }
 
 .marginLeft {
-  margin-left: var(--spacing-small);
+  margin-inline-start: var(--space-8);
 }
 
 .rightFlat {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
 }
 
 .leftFlat {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
 }
 
 .button:active:not(.preventClickAnimation) {
@@ -78,17 +78,17 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .button .leftIcon {
-  margin-right: var(--spacing-small);
+  margin-inline-end: var(--space-8);
 }
 
 .button .rightIcon {
-  margin-left: var(--spacing-small);
+  margin-inline-start: var(--space-8);
 }
 
 .sizeXxs {
   @include smoothing-text;
   @include vibe-text(text2, normal);
-  padding: 2px var(--spacing-xs);
+  padding: 2px var(--space-4);
   height: 16px;
   line-height: 16px;
 }
@@ -96,7 +96,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .sizeXs {
   @include smoothing-text;
   @include vibe-text(text2, normal);
-  padding: var(--spacing-xs) var(--spacing-small);
+  padding: var(--space-4) var(--space-8);
   height: 24px;
   line-height: 21px;
 }
@@ -104,7 +104,7 @@ $disabled-on-primary-color-opacity: 0.5;
 .sizeSmall {
   @include smoothing-text;
   @include vibe-text(text2, normal);
-  padding: var(--spacing-xs) var(--spacing-small);
+  padding: var(--space-4) var(--space-8);
   height: 32px;
   line-height: 24px;
 }
@@ -116,14 +116,14 @@ $disabled-on-primary-color-opacity: 0.5;
 .sizeMedium {
   @include smoothing-text;
   @include vibe-text(text1, normal);
-  padding: var(--spacing-small) var(--spacing-medium);
+  padding: var(--space-8) var(--space-16);
   height: 40px;
 }
 
 .sizeLarge {
   @include smoothing-text;
   @include vibe-text(text1, normal);
-  padding: 12px var(--spacing-large);
+  padding: 12px var(--space-24);
   height: 48px;
 }
 
@@ -570,8 +570,7 @@ $disabled-on-primary-color-opacity: 0.5;
 }
 
 .noSidePadding {
-  padding-right: 0;
-  padding-left: 0;
+  padding-inline: 0;
 }
 
 .button.insetFocusStyle {

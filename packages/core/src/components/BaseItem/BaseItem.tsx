@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
-import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import { useMergeRef, getStyle } from "@vibe/shared";
+
 import { Text, type TextType } from "@vibe/typography";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { useListItemProps } from "./hooks/useListItemProps";

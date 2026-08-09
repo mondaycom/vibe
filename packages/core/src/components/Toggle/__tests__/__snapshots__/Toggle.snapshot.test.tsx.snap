@@ -23,8 +23,7 @@ exports[`Toggle renders correctly > renders correctly when disabled 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected disabled"
-    data-testid="toggle"
+    className="toggle medium toggleFocusTarget selected disabled"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text disabled"
@@ -51,8 +50,7 @@ exports[`Toggle renders correctly > renders correctly when labels are hidden 1`]
   />
   <div
     aria-hidden="true"
-    className="toggle medium selected"
-    data-testid="toggle"
+    className="toggle medium toggleFocusTarget selected noSpacing"
   />
 </label>
 `;
@@ -79,8 +77,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name notSelected"
-    data-testid="toggle"
+    className="toggle medium dummy-class-name toggleFocusTarget notSelected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -113,8 +110,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name selected"
-    data-testid="toggle"
+    className="toggle medium dummy-class-name toggleFocusTarget selected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -147,8 +143,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name notSelected"
-    data-testid="toggle"
+    className="toggle medium dummy-class-name toggleFocusTarget notSelected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -181,8 +176,7 @@ exports[`Toggle renders correctly > renders correctly when selection defined by 
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium dummy-class-name selected"
-    data-testid="toggle"
+    className="toggle medium dummy-class-name toggleFocusTarget selected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -216,8 +210,7 @@ exports[`Toggle renders correctly > renders correctly with aria controls 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
-    data-testid="toggle"
+    className="toggle medium toggleFocusTarget selected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -250,8 +243,7 @@ exports[`Toggle renders correctly > renders correctly with empty props 1`] = `
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
-    data-testid="toggle"
+    className="toggle medium toggleFocusTarget selected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -284,8 +276,7 @@ exports[`Toggle renders correctly > renders correctly with not default offOverri
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
-    data-testid="toggle"
+    className="toggle medium toggleFocusTarget selected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"
@@ -318,8 +309,7 @@ exports[`Toggle renders correctly > renders correctly with not default onOverrid
   </span>
   <div
     aria-hidden="true"
-    className="toggle medium selected"
-    data-testid="toggle"
+    className="toggle medium toggleFocusTarget selected"
   />
   <span
     className="typography primary start singleLineEllipsis text text2Normal text"

@@ -28,7 +28,7 @@ import CanvasWrapper from "../src/layout/canvas-wrapper/CanvasWrapper";
 import withGlobalStyle from "../src/decorators/withGlobalStyle/withGlobalStyle";
 import { PropsTable } from "../src/layout/props-table/props-table";
 import { RelatedComponentsDecorator } from "../src/layout/related-components/related-components-decorator";
-import "monday-ui-style/dist/index.min.css";
+import "@vibe/style/dist/index.min.css";
 import "vibe-storybook-components/dist/index.css";
 import { generateAutocompletion } from "storybook-addon-playground";
 import {
@@ -44,6 +44,7 @@ import Footer from "../src/layout/footer/Footer";
 import StorybookTableOfContents from "../src/layout/toc/TableOfContents";
 import { paintToConsole } from "./art";
 import FloatingObjects from "../src/pages/welcome/hero/FloatingObjects";
+import Vibe4Banner from "../src/pages/welcome/banner/Vibe4Banner";
 
 const fontLoader = async () => ({
   fonts: await document.fonts.ready // Fixing Chromatic tests flakiness - taking snapshots after fonts are loaded
@@ -70,6 +71,7 @@ const preview: Preview = {
 
         return (
           <>
+            {isWelcomePage && <Vibe4Banner />}
             {isWelcomePage && <FloatingObjects />}
             <DocsContainer context={context}>
               <Unstyled>{children}</Unstyled>
@@ -113,7 +115,7 @@ const preview: Preview = {
           "Welcome",
           "Getting Started",
           "Catalog",
-          "MCP [New]",
+          "MCP",
           "Playground",
           "Changelog",
           "Migration Guide",

@@ -14,7 +14,7 @@ export default {
 
 export const Overview: Story = {
   render: args => (
-    <BaseList {...args} ariaLabel="Example list" style={{ width: 300 }}>
+    <BaseList {...args} aria-label="Example list" style={{ width: 300 }}>
       <BaseItem
         item={{
           value: "1",
@@ -42,7 +42,7 @@ export const Overview: Story = {
 
 export const WithSelectedItem: Story = {
   render: () => (
-    <BaseList ariaLabel="List with selection" style={{ width: 300 }} size="small">
+    <BaseList aria-label="List with selection" style={{ width: 300 }} size="small">
       <BaseItem item={{ value: "1", label: "Unselected item" }} />
       <BaseItem item={{ value: "2", label: "Selected item" }} selected />
       <BaseItem item={{ value: "3", label: "Another unselected item" }} />
@@ -52,7 +52,7 @@ export const WithSelectedItem: Story = {
 
 export const WithDisabledItems: Story = {
   render: () => (
-    <BaseList ariaLabel="List with disabled items" style={{ width: 300 }}>
+    <BaseList aria-label="List with disabled items" style={{ width: 300 }}>
       <BaseItem item={{ value: "1", label: "Enabled item" }} />
       <BaseItem item={{ value: "2", label: "Disabled item", disabled: true }} />
       <BaseItem item={{ value: "3", label: "Another enabled item" }} />
@@ -62,7 +62,7 @@ export const WithDisabledItems: Story = {
 
 export const ScrollableList: Story = {
   render: () => (
-    <BaseList ariaLabel="Scrollable list" maxHeight={200} style={{ width: 300 }}>
+    <BaseList aria-label="Scrollable list" maxHeight={200} style={{ width: 300 }}>
       {Array.from({ length: 10 }, (_, i) => (
         <BaseItem key={i} item={{ value: String(i), label: `Item ${i + 1}` }} />
       ))}
@@ -77,7 +77,7 @@ export const WithFocusCallback: Story = {
     return (
       <div>
         <p style={{ marginBottom: 16 }}>Currently focused index: {focusedIndex}</p>
-        <BaseList ariaLabel="List with focus callback" onFocusChange={setFocusedIndex} style={{ width: 300 }}>
+        <BaseList aria-label="List with focus callback" onFocusChange={setFocusedIndex} style={{ width: 300 }}>
           <BaseItem
             item={{
               value: "1",
@@ -110,21 +110,21 @@ export const Sizes: Story = {
     <div style={{ display: "flex", gap: 24 }}>
       <div>
         <p style={{ marginBottom: 8 }}>Small</p>
-        <BaseList ariaLabel="Small list" size="small" style={{ width: 200 }}>
+        <BaseList aria-label="Small list" size="small" style={{ width: 200 }}>
           <BaseItem item={{ value: "1", label: "Small item 1" }} />
           <BaseItem item={{ value: "2", label: "Small item 2" }} />
         </BaseList>
       </div>
       <div>
         <p style={{ marginBottom: 8 }}>Medium</p>
-        <BaseList ariaLabel="Medium list" size="medium" style={{ width: 200 }}>
+        <BaseList aria-label="Medium list" size="medium" style={{ width: 200 }}>
           <BaseItem item={{ value: "1", label: "Medium item 1" }} />
           <BaseItem item={{ value: "2", label: "Medium item 2" }} />
         </BaseList>
       </div>
       <div>
         <p style={{ marginBottom: 8 }}>Large</p>
-        <BaseList ariaLabel="Large list" size="large" style={{ width: 200 }}>
+        <BaseList aria-label="Large list" size="large" style={{ width: 200 }}>
           <BaseItem item={{ value: "1", label: "Large item 1" }} />
           <BaseItem item={{ value: "2", label: "Large item 2" }} />
         </BaseList>
@@ -135,7 +135,7 @@ export const Sizes: Story = {
 
 export const AsMenu: Story = {
   render: () => (
-    <BaseList ariaLabel="Menu example" role="menu" style={{ width: 250 }}>
+    <BaseList aria-label="Menu example" role="menu" style={{ width: 250 }}>
       <BaseItem
         item={{
           value: "profile",
@@ -170,7 +170,7 @@ export const KeyboardNavigationWithLooping: Story = {
       <p style={{ marginBottom: 16 }}>
         Try using arrow keys to navigate. The focus will wrap from the last item to the first (and vice versa).
       </p>
-      <BaseList ariaLabel="List with keyboard navigation" style={{ width: 300 }}>
+      <BaseList aria-label="List with keyboard navigation" style={{ width: 300 }}>
         <BaseItem item={{ value: "1", label: "First item - Press ↑ to wrap to last" }} />
         <BaseItem item={{ value: "2", label: "Second item" }} />
         <BaseItem item={{ value: "3", label: "Third item" }} />
@@ -186,7 +186,7 @@ export const HomeEndNavigation: Story = {
       <p style={{ marginBottom: 16 }}>
         Press <strong>Home</strong> to jump to the first item, or <strong>End</strong> to jump to the last item.
       </p>
-      <BaseList ariaLabel="List with Home/End navigation" style={{ width: 300 }}>
+      <BaseList aria-label="List with Home/End navigation" style={{ width: 300 }}>
         {Array.from({ length: 8 }, (_, i) => (
           <BaseItem key={i} item={{ value: String(i), label: `Item ${i + 1}` }} />
         ))}
@@ -201,7 +201,7 @@ export const PageUpDownNavigation: Story = {
       <p style={{ marginBottom: 16 }}>
         Press <strong>Page Up</strong> or <strong>Page Down</strong> to move by 10 items at a time.
       </p>
-      <BaseList ariaLabel="List with PageUp/PageDown navigation" maxHeight={300} style={{ width: 300 }}>
+      <BaseList aria-label="List with PageUp/PageDown navigation" maxHeight={300} style={{ width: 300 }}>
         {Array.from({ length: 25 }, (_, i) => (
           <BaseItem key={i} item={{ value: String(i), label: `Item ${i + 1}` }} />
         ))}
@@ -214,7 +214,7 @@ export const DefaultFocusIndex: Story = {
   render: () => (
     <div>
       <p style={{ marginBottom: 16 }}>This list starts with the third item focused (defaultFocusIndex=2).</p>
-      <BaseList ariaLabel="List with default focus" defaultFocusIndex={2} style={{ width: 300 }}>
+      <BaseList aria-label="List with default focus" defaultFocusIndex={2} style={{ width: 300 }}>
         <BaseItem item={{ value: "1", label: "First item" }} />
         <BaseItem item={{ value: "2", label: "Second item" }} />
         <BaseItem item={{ value: "3", label: "Third item (initially focused)" }} />
@@ -232,7 +232,7 @@ export const WithAriaControls: Story = {
         <p style={{ marginBottom: 16 }}>
           This list controls the details panel below (using <code>aria-controls</code>).
         </p>
-        <BaseList ariaLabel="Navigation list" aria-controls={detailsId} style={{ width: 300 }}>
+        <BaseList aria-label="Navigation list" aria-controls={detailsId} style={{ width: 300 }}>
           <BaseItem
             item={{
               value: "1",

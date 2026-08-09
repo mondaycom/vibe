@@ -3,12 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.13](https://github.com/mondaycom/vibe/compare/@vibe/dialog@3.0.12...@vibe/dialog@3.0.13) (2026-05-31)
+## [4.1.1](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.0...@vibe/dialog@4.1.1) (2026-06-03)
+
+**Note:** Version bump only for package @vibe/dialog
 
 
-### Bug Fixes
 
-* **Dialog:** skip Popper rendering when dialog is closed ([#3380](https://github.com/mondaycom/vibe/issues/3380)) ([6a118f2](https://github.com/mondaycom/vibe/commit/6a118f2eb939aee603ef09247b38f4412c4e43d9))
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.2...@vibe/dialog@4.1.0) (2026-05-31)
+
+
+### Features
+
+* **Dialog:** skip floating-ui computation when closed ([#3379](https://github.com/mondaycom/vibe/issues/3379)) ([0893696](https://github.com/mondaycom/vibe/commit/0893696849cdb24d5eacb8bf0ac3b04e3cac6b78))
+
+
+
+
+
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.1...@vibe/dialog@4.0.2) (2026-05-25)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.0...@vibe/dialog@4.0.1) (2026-04-16)
+
+**Note:** Version bump only for package @vibe/dialog
 
 
 

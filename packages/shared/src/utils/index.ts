@@ -9,3 +9,4 @@ export * from "./user-agent-utils";
 export * from "./warn-deprecated";
 export * from "./typesciptCssModulesHelper";
 export * from "./screenReaderAccessHelper";
+export * from "./testid-helper";

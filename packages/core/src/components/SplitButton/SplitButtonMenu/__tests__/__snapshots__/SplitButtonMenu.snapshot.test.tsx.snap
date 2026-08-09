@@ -31,7 +31,7 @@ exports[`SplitButtonMenu > renders correctly 1`] = `
       className="container directionRow justifyStart alignCenter"
       style={
         {
-          "gap": "var(--spacing-xs)",
+          "gap": "var(--space-4)",
         }
       }
     />
@@ -54,7 +54,7 @@ exports[`SplitButtonMenu > renders correctly 1`] = `
       className="container directionRow justifyStart alignCenter"
       style={
         {
-          "gap": "var(--spacing-xs)",
+          "gap": "var(--space-4)",
         }
       }
     />

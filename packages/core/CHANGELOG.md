@@ -3,18 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.88.6](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.5...@vibe/core@3.88.6) (2026-07-19)
-
-
-### Bug Fixes
-
-* **mcp:** always use @vibe/core as import path in metadata ([#3436](https://github.com/mondaycom/vibe/issues/3436)) ([8764b80](https://github.com/mondaycom/vibe/commit/8764b806284e6bb24d93b48d56a7ad04fe9254fa))
-
-
-
-
-
-## [3.88.5](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.4...@vibe/core@3.88.5) (2026-07-13)
+## [4.5.3](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.2...@vibe/core@4.5.3) (2026-07-12)
 
 **Note:** Version bump only for package @vibe/core
 
@@ -22,45 +11,179 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.88.4](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.3...@vibe/core@3.88.4) (2026-07-08)
+## [4.5.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.1...@vibe/core@4.5.2) (2026-07-06)
 
 
 ### Bug Fixes
 
-* trigger release ([235891e](https://github.com/mondaycom/vibe/commit/235891ebeb65d584c6f622acb88eafc23c6ecaff))
+* **Dropdown:** accessibility fixes for searchable single & multi select ([#3413](https://github.com/mondaycom/vibe/issues/3413)) ([4693f16](https://github.com/mondaycom/vibe/commit/4693f16794c3aa805751809ecb343beb7f58932c))
 
 
 
 
 
-## [3.88.3](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.2...@vibe/core@3.88.3) (2026-07-02)
-
-
-### Bug Fixes
-
-* **MultiStepIndicator:** fix invisible text on dark type pending hover in light mode ([#3414](https://github.com/mondaycom/vibe/issues/3414)) ([9634ce2](https://github.com/mondaycom/vibe/commit/9634ce2d04e7f76429ea06b378322c4e2ec2eab5))
-
-
-
-
-
-## [3.88.2](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.1...@vibe/core@3.88.2) (2026-06-04)
+## [4.5.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.0...@vibe/core@4.5.1) (2026-07-01)
 
 
 ### Bug Fixes
 
-* **TextArea:** link character count to aria-describedby when showCharCount is used ([#3397](https://github.com/mondaycom/vibe/issues/3397)) ([4b3d3eb](https://github.com/mondaycom/vibe/commit/4b3d3eb1caf98a87596237287bf19fc3cacfed37))
+* **MultiStepIndicator:** fix invisible text on dark type pending hover ([#3412](https://github.com/mondaycom/vibe/issues/3412)) ([31acc6a](https://github.com/mondaycom/vibe/commit/31acc6a1d6cbd9a030ef2657d044f1ee2d89eaae))
 
 
 
 
 
-## [3.88.1](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.0...@vibe/core@3.88.1) (2026-05-31)
+# [4.5.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.4.0...@vibe/core@4.5.0) (2026-06-30)
+
+
+### Features
+
+* **Chips:** add size prop with small variant ([#3409](https://github.com/mondaycom/vibe/issues/3409)) ([5ef809a](https://github.com/mondaycom/vibe/commit/5ef809a9d7b8cc49d34280df650f43cbf3d1146f))
+
+
+
+
+
+# [4.4.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.3.0...@vibe/core@4.4.0) (2026-06-15)
+
+
+### Features
+
+* **Modal:** add useFixedPosition prop to fix RTL centering ([#3408](https://github.com/mondaycom/vibe/issues/3408)) ([a76b655](https://github.com/mondaycom/vibe/commit/a76b65502c8a8bca235f3a0635c62e1516fd0b1b))
+
+
+
+
+
+# [4.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.6...@vibe/core@4.3.0) (2026-06-09)
+
+
+### Features
+
+* **mcp:** auto-detect Vibe version for correct metadata ([#3393](https://github.com/mondaycom/vibe/issues/3393)) ([cdea3a4](https://github.com/mondaycom/vibe/commit/cdea3a4aefa846fb064896e7d09c937bd1086fe3))
+
+
+
+
+
+## [4.2.6](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.5...@vibe/core@4.2.6) (2026-06-04)
+
+
+### Bug Fixes
+
+* **TextArea:** link character count to aria-describedby when showCharCount is used ([#3396](https://github.com/mondaycom/vibe/issues/3396)) ([42f7270](https://github.com/mondaycom/vibe/commit/42f727074e83f28ee06347f60b71ae248b6c57ff))
+
+
+
+
+
+## [4.2.5](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.4...@vibe/core@4.2.5) (2026-06-03)
 
 **Note:** Version bump only for package @vibe/core
 
 
 
+
+
+## [4.2.4](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.3...@vibe/core@4.2.4) (2026-05-31)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.2.3](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.2...@vibe/core@4.2.3) (2026-05-25)
+
+
+### Bug Fixes
+
+* sync TextArea character count with controlled value prop changes ([#3342](https://github.com/mondaycom/vibe/issues/3342)) ([8c7b7f6](https://github.com/mondaycom/vibe/commit/8c7b7f69f54f11f19fbdb6bdcf1352022c86b9d4))
+
+
+
+
+
+## [4.2.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.1...@vibe/core@4.2.2) (2026-05-24)
+
+
+### Bug Fixes
+
+* allow DatePicker dependency with React 19 ([#3361](https://github.com/mondaycom/vibe/issues/3361)) ([90a99df](https://github.com/mondaycom/vibe/commit/90a99df5b471b4d869a82793d911db3ef8192710))
+
+
+
+
+
+## [4.2.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.0...@vibe/core@4.2.1) (2026-05-13)
+
+
+### Bug Fixes
+
+* **mcp:** always use @vibe/core as import path in metadata ([#3358](https://github.com/mondaycom/vibe/issues/3358)) ([fa3483d](https://github.com/mondaycom/vibe/commit/fa3483dfa34d8649ee7f6b1a9dac6b83de45d764))
+
+
+
+
+
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.2.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.1...@vibe/core@4.1.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **Slider:** support fractional step values during drag and rail click ([#3350](https://github.com/mondaycom/vibe/issues/3350)) ([abbb3d5](https://github.com/mondaycom/vibe/commit/abbb3d5aea16c3acf22f165b343b0a3c97a1bb99))
+
+
+### Features
+
+* **core:** add storyUrl and previewUrl to component metadata ([#3357](https://github.com/mondaycom/vibe/issues/3357)) ([57d9b5f](https://github.com/mondaycom/vibe/commit/57d9b5ffb669ec855c8463376e070f6e716e7f18))
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.0.0...@vibe/core@4.0.1) (2026-04-16)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add screen reader support for color announcements ([#3346](https://github.com/mondaycom/vibe/issues/3346)) ([ed1bbb1](https://github.com/mondaycom/vibe/commit/ed1bbb1d466d544fbab6ab08198e1db026c116a9))
+
+
+
+
+
+# [4.0.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.88.0...@vibe/core@4.0.0) (2026-03-18)
+
+
+### BREAKING CHANGES
+
+This release contains breaking changes across components, APIs, and styling. Key highlights:
+
+- **Enum removal**: Removed all deprecated enum exports and static properties across 30+ components. Use string literals instead. Run `npx @vibe/codemod --migration v4` to migrate automatically.
+- **Dropdown**: Complete API rewrite replacing the react-select-based implementation with a new custom component.
+- **Dialog**: Migrated from Popper.js to Floating UI (`@floating-ui/react-dom`). The `modifiers` prop is replaced by `middleware`.
+- **AttentionBox**: New component promoted from `@vibe/core/next`. Legacy props removed; type values renamed.
+- **Icon**: Props renamed — `iconLabel` → `label`, `iconType` → `type`, `iconSize` → `size`.
+- **TipseenImage**: Removed — use `TipseenMedia` with an `<img>` child instead.
+
+For the full list of breaking changes and migration instructions, see the [v4 migration guide](https://vibe.monday.com/?path=/docs/migration-guide--docs).
 
 
 # [3.88.0](https://github.com/mondaycom/vibe/compare/@vibe/core@3.87.0...@vibe/core@3.88.0) (2026-03-11)

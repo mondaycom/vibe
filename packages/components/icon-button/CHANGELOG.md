@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.7](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@3.0.6...@vibe/icon-button@3.0.7) (2026-07-13)
+## [4.0.6](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.5...@vibe/icon-button@4.0.6) (2026-07-12)
 
 **Note:** Version bump only for package @vibe/icon-button
 
@@ -11,7 +11,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.0.6](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@3.0.5...@vibe/icon-button@3.0.6) (2026-05-31)
+## [4.0.5](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.4...@vibe/icon-button@4.0.5) (2026-07-06)
+
+**Note:** Version bump only for package @vibe/icon-button
+
+
+
+
+
+## [4.0.4](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.3...@vibe/icon-button@4.0.4) (2026-06-03)
+
+**Note:** Version bump only for package @vibe/icon-button
+
+
+
+
+
+## [4.0.3](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.2...@vibe/icon-button@4.0.3) (2026-05-31)
+
+**Note:** Version bump only for package @vibe/icon-button
+
+
+
+
+
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.1...@vibe/icon-button@4.0.2) (2026-05-25)
+
+**Note:** Version bump only for package @vibe/icon-button
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.0...@vibe/icon-button@4.0.1) (2026-04-16)
 
 **Note:** Version bump only for package @vibe/icon-button
 

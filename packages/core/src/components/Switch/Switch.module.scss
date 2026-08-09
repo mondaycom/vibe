@@ -1,4 +1,4 @@
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .hidden-switch { /* stylelint-disable-line selector-class-pattern */
   @include hidden-element();

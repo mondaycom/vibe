@@ -15,9 +15,9 @@ export const Overview = {
       {
         onClick: onClick,
         id: "clickable-id",
-        ariaHidden: false,
-        ariaHasPopup: false,
-        ariaExpanded: false
+        "aria-hidden": false,
+        "aria-haspopup": false,
+        "aria-expanded": false
       },
       ref
     );

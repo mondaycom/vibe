@@ -64,7 +64,7 @@ export default {
   },
   input: path.join(SRC_PATH, "index.ts"),
   external: [
-    /node_modules\/(?!monday-ui-style)(.*)/,
+    /node_modules\/(?!@vibe\/style)(.*)/,
     /@vibe\/.*/ // Externalize all @vibe packages
   ],
   plugins: [

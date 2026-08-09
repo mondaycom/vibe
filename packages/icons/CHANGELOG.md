@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@4.0.2...@vibe/icons@4.1.0) (2026-06-03)
+
+
+### Features
+
+* **icons:** add SmartCall icon ([#3394](https://github.com/mondaycom/vibe/issues/3394)) ([429ea29](https://github.com/mondaycom/vibe/commit/429ea29ed88fd090f43d434913bbedabbf96f3d1))
+
+
+
+
+
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/icons@4.0.1...@vibe/icons@4.0.2) (2026-05-31)
+
+**Note:** Version bump only for package @vibe/icons
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/icons@4.0.0...@vibe/icons@4.0.1) (2026-05-25)
+
+**Note:** Version bump only for package @vibe/icons
+
+
+
+
+
 # [1.16.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@1.15.0...@vibe/icons@1.16.0) (2026-01-04)
 
 

@@ -3,17 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.9.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@0.8.2...@vibe/mcp@0.9.0) (2026-06-01)
+## [4.1.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.1.0...@vibe/mcp@4.1.1) (2026-07-07)
 
 
 ### Bug Fixes
 
-* export tools ([f3b7878](https://github.com/mondaycom/vibe/commit/f3b7878729941ef5f2b48c8d94c0fd3b815ff447))
+* **mcp:** fetch component examples and accessibility from unpkg ([#3415](https://github.com/mondaycom/vibe/issues/3415)) ([a65dadf](https://github.com/mondaycom/vibe/commit/a65dadf804d077d4a2c2eee192e102d551d67516))
+
+
+
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.3...@vibe/mcp@4.1.0) (2026-06-09)
 
 
 ### Features
 
-* **mcp:** export tools ([de95d43](https://github.com/mondaycom/vibe/commit/de95d43014cc718a58335e9a8448a7a00b70c6e9))
+* **mcp:** auto-detect Vibe version for correct metadata ([#3393](https://github.com/mondaycom/vibe/issues/3393)) ([cdea3a4](https://github.com/mondaycom/vibe/commit/cdea3a4aefa846fb064896e7d09c937bd1086fe3))
+
+
+
+
+
+## [4.0.3](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.2...@vibe/mcp@4.0.3) (2026-05-25)
+
+**Note:** Version bump only for package @vibe/mcp
+
+
+
+
+
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.1...@vibe/mcp@4.0.2) (2026-05-20)
+
+
+### Bug Fixes
+
+* trigger ([#3360](https://github.com/mondaycom/vibe/issues/3360)) ([4e6e7e4](https://github.com/mondaycom/vibe/commit/4e6e7e4a2b27eedcf87651b4c357092bce8657ec))
+
+
+
+
+
+## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/mcp@4.0.0...@vibe/mcp@4.0.1) (2026-05-20)
+
+**Note:** Version bump only for package @vibe/mcp
 
 
 

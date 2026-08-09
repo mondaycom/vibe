@@ -3,7 +3,7 @@ import { RelatedComponent } from "vibe-storybook-components";
 import { Skeleton } from "@vibe/core";
 
 export const SkeletonDescription = () => {
-  const component = useMemo(() => <Skeleton type={Skeleton.types.CIRCLE} />, []);
+  const component = useMemo(() => <Skeleton type="circle" />, []);
   return (
     <RelatedComponent
       component={component}

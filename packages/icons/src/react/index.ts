@@ -225,6 +225,7 @@ export {default as Show} from './Show';
 export {default as Shredder} from './Shredder';
 export {default as Shuffle} from './Shuffle';
 export {default as Signature} from './Signature';
+export {default as SmartCall} from './SmartCall';
 export {default as Sort} from './Sort';
 export {default as SortAscending} from './SortAscending';
 export {default as SortDescending} from './SortDescending';

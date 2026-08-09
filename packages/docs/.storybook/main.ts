@@ -77,14 +77,17 @@ export default {
     return mergeConfig(config, {
       resolve: {
         alias: {
-          "monday-ui-style/dist/index.min.css": path.resolve(__dirname, "../../style/src/index.scss"),
-          "monday-ui-style/dist": path.resolve(__dirname, "../../style/src"),
+          "@vibe/style/dist/index.min.css": path.resolve(__dirname, "../../style/src/index.scss"),
+          "@vibe/style/dist": path.resolve(__dirname, "../../style/src"),
           // mixins workaround for vite:
-          "~monday-ui-style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
-          "~monday-ui-style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
-          "~monday-ui-style": path.resolve(__dirname, "../../style"),
+          "~@vibe/style/dist/mixins": path.resolve(__dirname, "../../style/src/mixins"),
+          "~@vibe/style/dist/functions": path.resolve(__dirname, "../../style/src/functions"),
+          "~@vibe/style": path.resolve(__dirname, "../../style"),
           "~vibe-storybook-components": path.resolve(__dirname, "../../storybook-blocks/src"),
           "@vibe/shared": path.resolve(__dirname, "../../shared/src"),
+          "@vibe/hooks": path.resolve(__dirname, "../../hooks/src/index.ts"),
+          "@vibe/icons/meta": path.resolve(__dirname, "../../icons/src/iconsMetaData.ts"),
+          "@vibe/icons": path.resolve(__dirname, "../../icons/src/react/index.ts"),
           "@vibe/core/interactionsTests": path.resolve(__dirname, "../../core/src/tests/interactions-utils.ts"),
           "@vibe/core/next": path.resolve(__dirname, "../../core/src/components/next.ts"),
           "@vibe/core": path.resolve(__dirname, "../../core/src/index.ts"),

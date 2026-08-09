@@ -1,256 +1,188 @@
-import React, { forwardRef, useCallback, useState } from "react";
+import React, { type FC, createContext, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import moment from "moment";
-import "react-dates/initialize.js";
-import {
-  type DayOfWeekShape,
-  DayPickerRangeController,
-  DayPickerSingleDateController,
-  type DayPickerPhrases
-} from "react-dates";
-/** @ts-expect-error this is exported, but not typed */
-import { DayPickerPhrases as defaultPhrases } from "react-dates/lib/defaultPhrases.js";
-import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
-import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
-import YearPicker from "./YearPicker/YearPicker";
-import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
-import { Direction, FocusInput, type Moment, type RangeDate } from "./types";
-import { type VibeComponentProps } from "../../types";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { NOOP } from "../../utils/function-utils";
-import { useWarnDeprecated } from "../../utils/warn-deprecated";
+import { type DateRange, DayPicker as ReactDatePicker, InternalModifier as DayModifier } from "react-day-picker";
 import styles from "./DatePicker.module.scss";
-// Make sure to update when upgrading react-dates
-import "./external_datepicker.scss";
+import DatePickerHeader, { type DatePickerHeaderProps } from "./DatePickerHeader";
+import { type DatePickerProps, type DatePickerRange } from "./DatePicker.types";
+import {
+  AddToRangeEnd,
+  AddToRangeMiddle,
+  AddToRangeStart,
+  HalfRangeSelected,
+  HoveredDayExists,
+  RemoveFromRange,
+  addToRange,
+  addToRangeModifiers
+} from "./utils";
+import { RangeDayContent } from "./RangeDayContent";
+import { SingleDayContent } from "./SingleDayContent";
+import { DayContentHoverContext, DayContentHoverProvider } from "./DateContentHoverContext";
 
-export interface DatePickerProps extends VibeComponentProps {
-  /**
-   * The first day of the week to display.
-   */
-  firstDayOfWeek?: DayOfWeekShape;
-  /**
-   * The currently selected date.
-   */
-  date?: Moment;
-  /**
-   * The end date for range selection mode.
-   */
-  endDate?: Moment;
-  /**
-   * Callback fired when a date is selected.
-   */
-  onPickDate?: (date: Moment | RangeDate) => void;
-  /**
-   * If true, hides the navigation buttons.
-   */
-  hideNavigationKeys?: boolean;
-  /**
-   * If true, allows selecting days outside the current month.
-   */
-  enableOutsideDays?: boolean;
-  /**
-   * If true, displays a column with week numbers.
-   */
-  showWeekNumber?: boolean;
-  /**
-   * The size of a single day cell.
-   */
-  daySize?: number;
-  /**
-   * Function to determine if a specific day should be disabled.
-   */
-  shouldBlockDay?: (date: Moment) => boolean;
-  /**
-   * If true, enables date range selection mode.
-   */
-  range?: boolean;
-  /**
-   * Custom phrases for accessibility and aria-labels.
-   */
-  phrases?: DayPickerPhrases;
-  /**
-   * The number of months displayed in the calendar.
-   */
-  numberOfMonths?: number;
-  /**
-   * Function to determine if a specific year should be disabled.
-   */
-  shouldBlockYear?: (year: number) => boolean;
-  /**
-   * Function to determine if a specific date range should be disabled.
-   */
-  shouldBlockRange?: (date: Moment) => boolean;
-}
+export const DEFAULT_TIME = { hours: 9, minutes: 0 };
 
-const DatePicker = forwardRef(
-  (
-    {
-      id,
-      className,
-      firstDayOfWeek = WEEK_FIRST_DAY,
-      daySize = DAY_SIZE,
-      range = false,
-      shouldBlockDay,
-      shouldBlockYear,
-      numberOfMonths = 1,
-      hideNavigationKeys = false,
-      date,
-      endDate,
-      onPickDate = NOOP,
-      enableOutsideDays = false,
-      showWeekNumber = false,
-      shouldBlockRange,
-      "data-testid": dataTestId,
-      phrases
-    }: DatePickerProps,
-    ref: React.ForwardedRef<HTMLDivElement>
-  ) => {
-    useWarnDeprecated({
-      component: "DatePicker",
-      message:
-        "This component is deprecated and will be removed in the next major version. Please use DatePicker from @vibe/core/next instead."
-    });
+const MODIFIERS_CLASS_NAMES = {
+  [DayModifier.Outside]: styles.datePickerDayOutside,
+  [DayModifier.Selected]: styles.datePickerDaySelected,
+  [DayModifier.Today]: styles.datePickerDayToday,
+  [DayModifier.Disabled]: styles.datePickerDayDisabled,
+  [DayModifier.RangeStart]: styles.datePickerDayRangeStart,
+  [DayModifier.RangeEnd]: styles.datePickerDayRangeEnd,
+  [DayModifier.RangeMiddle]: styles.datePickerDayRangeMiddle,
+  [AddToRangeMiddle]: styles.datePickerAddToRangeMiddle,
+  [AddToRangeStart]: styles.datePickerAddToRangeStart,
+  [AddToRangeEnd]: styles.datePickerAddToRangeEnd,
+  [RemoveFromRange]: styles.datePickerRemoveFromRange,
+  [HoveredDayExists]: styles.datePickerHoveredDayExists,
+  [HalfRangeSelected]: styles.datePickerHalfRangeSelected
+};
 
-    const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
-    const [isMonthYearSelection, setIsMonthYearSelection] = useState(false); //show Month/Year selection dropdown
-    const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
-    const [yearFunc, setYearFunc] = useState(null);
+const DatePickerHeaderContext = createContext<DatePickerHeaderProps>({} as DatePickerHeaderProps);
 
-    const renderMonth = useCallback(
-      ({
-        month,
-        onYearSelect
-      }: {
-        month: moment.Moment;
-        onYearSelect: (currentMonth: moment.Moment, newMonthVal: string) => void;
-      }) => {
-        if (!yearFunc && onYearSelect) {
-          setYearFunc(() => onYearSelect);
-        }
-        return (
-          <DatePickerHeaderComponent
-            data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_HEADER, id)}
-            currentDate={month || moment()}
-            isMonthYearSelection={isMonthYearSelection}
-            onToggleMonthYearPicker={() => setIsMonthYearSelection(val => !val)}
-            hideNavigationKeys={hideNavigationKeys}
-          />
-        );
-      },
-      [isMonthYearSelection, dataTestId, id, hideNavigationKeys, yearFunc]
-    );
-
-    const renderDay = useCallback(
-      (day: Moment) => {
-        const weekNumber = firstDayOfWeek === 0 ? day.clone().add(1, "d").isoWeek() : day.isoWeek();
-        return (
-          <>
-            <span className={styles.calendarDayWeekNumber}>{weekNumber}</span> {day.format("D")}
-          </>
-        );
-      },
-      [firstDayOfWeek]
-    );
-
-    const changeCurrentDateFromMonthYearView = useCallback(
-      (newDate: Moment | null) => {
-        const oldDate = overrideDateForView || date;
-        setOverrideDateForView(newDate);
-        setIsMonthYearSelection(false);
-        yearFunc(oldDate, moment(newDate).year());
-      },
-      [overrideDateForView, date, yearFunc]
-    );
-
-    const renderMonthYearSelection = useCallback(() => {
-      return (
-        <YearPicker
-          data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER_YEAR_SELECTION, id)}
-          selectedDate={date}
-          isYearBlocked={shouldBlockYear}
-          changeCurrentDate={changeCurrentDateFromMonthYearView}
-        />
-      );
-    }, [dataTestId, id, overrideDateForView, date, shouldBlockYear, changeCurrentDateFromMonthYearView]);
-
-    const onDateRangeChange = useCallback(
-      (date: RangeDate) => {
-        if (!onPickDate) return;
-        if (focusedInput === FocusInput.startDate) {
-          onPickDate({ ...date, endDate: null });
-        } else {
-          onPickDate(date);
-        }
-      },
-      [focusedInput, onPickDate]
-    );
-
-    const onFocusChange = useCallback((focusedInput: FocusInput) => {
-      setFocusedInput(focusedInput || FocusInput.startDate);
-    }, []);
-
-    const mergedPhrases = { ...defaultPhrases, ...phrases };
-
-    const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
-    return (
-      <div
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.DATEPICKER, id)}
-        ref={ref}
-        id={id}
-        className={cx(styles.datepickerContainer, className, {
-          [styles.withWeekNumber]: showWeekNumber,
-          [styles.rangePickerMode]: range,
-          [styles.monthYearSelection]: isMonthYearSelection
-        })}
-        data-vibe={ComponentVibeId.DATE_PICKER}
-      >
-        {range ? (
-          <DayPickerRangeController
-            phrases={mergedPhrases}
-            renderDayContents={showWeekNumber ? renderDay : undefined}
-            firstDayOfWeek={firstDayOfWeek}
-            hideKeyboardShortcutsPanel
-            startDate={date}
-            endDate={endDate}
-            onDatesChange={onDateRangeChange}
-            focusedInput={focusedInput}
-            minimumNights={0}
-            onFocusChange={onFocusChange}
-            navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
-            navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
-            daySize={daySize}
-            isOutsideRange={shouldBlockRange}
-            isDayBlocked={shouldBlockDay}
-            renderMonthElement={renderMonth}
-            enableOutsideDays={enableOutsideDays || showWeekNumber}
-            numberOfMonths={numberOfMonths}
-            initialVisibleMonth={() => overrideDateForView || date || moment()}
-          />
-        ) : (
-          <DayPickerSingleDateController
-            phrases={mergedPhrases}
-            renderDayContents={showWeekNumber ? renderDay : undefined}
-            firstDayOfWeek={firstDayOfWeek}
-            hideKeyboardShortcutsPanel
-            onFocusChange={NOOP}
-            numberOfMonths={numberOfMonths}
-            date={date}
-            onDateChange={(date: Moment) => onPickDate(date)}
-            navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
-            navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
-            focused={true}
-            renderMonthElement={renderMonth}
-            enableOutsideDays={enableOutsideDays || showWeekNumber}
-            daySize={daySize}
-            isDayBlocked={shouldBlockDay}
-            initialVisibleMonth={() => overrideDateForView || date || moment()}
-          />
-        )}
-        {isMonthYearSelection && renderMonthYearSelection()}
-      </div>
-    );
-  }
+const Caption = () => (
+  <DatePickerHeaderContext.Consumer>{props => <DatePickerHeader {...props} />}</DatePickerHeaderContext.Consumer>
 );
+
+const DatePicker: FC<DatePickerProps> = ({
+  className,
+  dayClassName,
+  selectedDayClassName,
+  id,
+  "data-testid": dataTestId,
+  mode = "single",
+  date,
+  endDate,
+  onDateChange,
+  firstDayOfWeek = 0,
+  showWeekNumber,
+  isDateDisabled,
+  locale,
+  nextButtonAriaLabel = "Next",
+  prevButtonAriaLabel = "Previous",
+  monthSelectionAriaLabel = "Month",
+  yearSelectionAriaLabel = "Year",
+  dropdownsClassName,
+  intent = "to",
+  dialogContainerSelector
+}) => {
+  const selected = useMemo(() => (mode === "single" ? date : { from: date, to: endDate }), [date, endDate, mode]);
+  const [displayMonth, setDisplayMonth] = useState(date || new Date());
+
+  const prevDateRef = useRef<Date | undefined>();
+  const prevEndDateRef = useRef<Date | undefined>();
+  const lastChangeByInnerSelection = useRef(false);
+  useEffect(() => {
+    const dateChanged = +prevDateRef.current !== +date;
+    const endDateChanged = +prevEndDateRef.current !== +endDate;
+    const shouldSetDisplayMonth = !lastChangeByInnerSelection.current;
+
+    if (dateChanged) {
+      shouldSetDisplayMonth && date && setDisplayMonth(date);
+    } else if (endDateChanged) {
+      shouldSetDisplayMonth && endDate && setDisplayMonth(endDate);
+    }
+
+    prevDateRef.current = date;
+    prevEndDateRef.current = endDate;
+    lastChangeByInnerSelection.current = false;
+  }, [date, endDate]);
+
+  const onPickerDateChange = useCallback(
+    (newValue: Date | DateRange, selectedDay: Date) => {
+      lastChangeByInnerSelection.current = true;
+
+      if (mode === "range") {
+        const newRange = addToRange(selectedDay, selected as DateRange, intent);
+        (onDateChange as (range: DatePickerRange) => void)({ date: newRange?.from, endDate: newRange?.to });
+      } else {
+        const newDate = newValue as Date;
+        const { hours, minutes } = date ? { hours: date.getHours(), minutes: date.getMinutes() } : DEFAULT_TIME;
+        newDate.setHours(hours, minutes);
+        (onDateChange as (date: Date | undefined) => void)(newDate);
+      }
+    },
+    [date, intent, mode, onDateChange, selected]
+  );
+
+  const DatePickerHeaderContextValue = useMemo<DatePickerHeaderProps>(
+    () => ({
+      setDisplayMonth,
+      locale,
+      nextButtonAriaLabel,
+      prevButtonAriaLabel,
+      monthSelectionAriaLabel,
+      yearSelectionAriaLabel,
+      dropdownsClassName,
+      dialogContainerSelector
+    }),
+    [
+      locale,
+      monthSelectionAriaLabel,
+      nextButtonAriaLabel,
+      setDisplayMonth,
+      prevButtonAriaLabel,
+      yearSelectionAriaLabel,
+      dropdownsClassName,
+      dialogContainerSelector
+    ]
+  );
+
+  const modifiersClassNames = useMemo(
+    () => ({
+      ...MODIFIERS_CLASS_NAMES,
+      [DayModifier.Selected]: cx(MODIFIERS_CLASS_NAMES[DayModifier.Selected], selectedDayClassName)
+    }),
+    [selectedDayClassName]
+  );
+
+  const classNames = useMemo(
+    () => ({
+      months: styles.datePickerMonths,
+      head: styles.datePickerHead,
+      table: styles.datePickerTable,
+      tbody: styles.datePickerBody,
+      day: cx(styles.datePickerDay, dayClassName)
+    }),
+    [dayClassName]
+  );
+
+  return (
+    <div
+      id={id}
+      className={cx(styles.datePicker, { [styles.withWeekNumber]: showWeekNumber }, className)}
+      data-testid={dataTestId}
+      data-vibe="DatePicker"
+    >
+      <DayContentHoverProvider>
+        <DatePickerHeaderContext.Provider value={DatePickerHeaderContextValue}>
+          <DayContentHoverContext.Consumer>
+            {({ hover }) => {
+              const modifiers = addToRangeModifiers(hover, selected as DateRange, intent);
+              return (
+                <ReactDatePicker
+                  fixedWeeks
+                  showOutsideDays
+                  showWeekNumber={showWeekNumber}
+                  mode={mode as "single"} // cast to avoid type errors from ReactDatePicker
+                  required
+                  weekStartsOn={firstDayOfWeek}
+                  disabled={isDateDisabled}
+                  selected={selected as Date} // cast to avoid type errors from ReactDatePicker
+                  onSelect={onPickerDateChange}
+                  month={displayMonth}
+                  onMonthChange={setDisplayMonth}
+                  components={{ Caption, DayContent: mode === "single" ? SingleDayContent : RangeDayContent }}
+                  classNames={classNames}
+                  modifiers={modifiers}
+                  modifiersClassNames={modifiersClassNames}
+                  locale={locale}
+                />
+              );
+            }}
+          </DayContentHoverContext.Consumer>
+        </DatePickerHeaderContext.Provider>
+      </DayContentHoverProvider>
+    </div>
+  );
+};
 
 export default DatePicker;

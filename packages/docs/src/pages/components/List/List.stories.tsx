@@ -43,7 +43,7 @@ export const Overview: Story = {
   render: listTemplate,
   name: "Overview",
   args: {
-    ariaLabel: "Power ups list"
+    "aria-label": "Power ups list"
   },
   parameters: {
     docs: {
@@ -56,7 +56,7 @@ export const Overview: Story = {
 
 export const ListWithIcons: Story = {
   render: () => (
-    <List ariaLabel="List with icons">
+    <List aria-label="List with icons">
       <ListItem label="List item 1" value="list-1" startElement={{ type: "icon", value: Board }} />
       <ListItem label="List item 2" value="list-2" startElement={{ type: "icon", value: Team }} />
       <ListItem label="List item 3" value="list-3" startElement={{ type: "icon", value: ThumbsUp }} />
@@ -74,7 +74,7 @@ export const ListWithIcons: Story = {
 
 export const ListWithAvatars: Story = {
   render: () => (
-    <List ariaLabel="List with avatars">
+    <List aria-label="List with avatars">
       <ListItem label="List item 1" value="list-1" startElement={{ type: "avatar", value: person1 }} />
       <ListItem label="List item 2" value="list-2" startElement={{ type: "avatar", value: person2 }} />
       <ListItem label="List item 3" value="list-3" startElement={{ type: "avatar", value: person3 }} />
@@ -92,7 +92,7 @@ export const ListWithAvatars: Story = {
 
 export const ListWithTitle: Story = {
   render: () => (
-    <List ariaLabel="List with title">
+    <List aria-label="List with title">
       <ListTitle>Category A</ListTitle>
       <ListItem label="List item 1" value="list-1" startElement={{ type: "icon", value: Board }} />
       <ListItem label="List item 2" value="list-2" startElement={{ type: "icon", value: Team }} />
@@ -114,7 +114,7 @@ export const ListWithTitle: Story = {
 export const StickyTitle: Story = {
   render: () => (
     <DialogContentContainer style={{ width: "250px" }}>
-      <List ariaLabel="List with sticky titles" maxHeight={200}>
+      <List aria-label="List with sticky titles" maxHeight={200}>
         <ListTitle sticky>Category A</ListTitle>
         <ListItem label="List item 1" value="1" startElement={{ type: "icon", value: Board }} />
         <ListItem label="List item 2" value="2" startElement={{ type: "icon", value: Board }} />
@@ -146,7 +146,7 @@ export const StickyTitle: Story = {
 export const ScrollableList: Story = {
   render: () => (
     <DialogContentContainer style={{ width: "200px" }}>
-      <List ariaLabel="Scrollable list" maxHeight={162}>
+      <List aria-label="Scrollable list" maxHeight={162}>
         <ListItem label="List item 1" value="1" />
         <ListItem label="List item 2" value="2" />
         <ListItem label="List item 3" value="3" />
@@ -173,7 +173,7 @@ export const Sizes: Story = {
           Small
         </Text>
         <div style={{ width: 200 }}>
-          <List ariaLabel="Small list" size="small">
+          <List aria-label="Small list" size="small">
             <ListItem label="Small item 1" value="1" />
             <ListItem label="Small item 2" value="2" />
             <ListItem label="Small item 3" value="3" />
@@ -185,7 +185,7 @@ export const Sizes: Story = {
           Medium
         </Text>
         <div style={{ width: 200 }}>
-          <List ariaLabel="Medium list" size="medium">
+          <List aria-label="Medium list" size="medium">
             <ListItem label="Medium item 1" value="1" />
             <ListItem label="Medium item 2" value="2" />
             <ListItem label="Medium item 3" value="3" />
@@ -197,7 +197,7 @@ export const Sizes: Story = {
           Large
         </Text>
         <div style={{ width: 200 }}>
-          <List ariaLabel="Large list" size="large">
+          <List aria-label="Large list" size="large">
             <ListItem label="Large item 1" value="1" />
             <ListItem label="Large item 2" value="2" />
             <ListItem label="Large item 3" value="3" />
@@ -212,7 +212,7 @@ export const Sizes: Story = {
 export const States: Story = {
   render: () => (
     <Flex gap="large" align="start">
-      <List ariaLabel="States example">
+      <List aria-label="States example">
         <ListItem label="Default state" value="default" />
         <ListItem label="Disabled state" value="disabled" disabled />
         <ListItem label="Selected state" value="selected" selected />
@@ -225,7 +225,7 @@ export const States: Story = {
 export const InDialogContainer: Story = {
   render: () => (
     <DialogContentContainer style={{ width: 250 }}>
-      <List ariaLabel="List in dialog" maxHeight={200}>
+      <List aria-label="List in dialog" maxHeight={200}>
         <ListItem label="View Profile" value="profile" startElement={{ type: "icon", value: Person }} />
         <ListItem label="Settings" value="settings" startElement={{ type: "icon", value: Settings }} />
         <ListItem label="Favorites" value="favorites" startElement={{ type: "icon", value: Favorite }} />
@@ -252,7 +252,7 @@ export const WithClickHandler: Story = {
       <div>
         <p style={{ marginBottom: 16 }}>Last clicked: {lastClicked ?? "None"}</p>
         <div style={{ width: 300 }}>
-          <List ariaLabel="Clickable list">
+          <List aria-label="Clickable list">
             <ListItem label="Click me" value="1" onClick={() => setLastClicked("Item 1")} />
             <ListItem label="Or click me" value="2" onClick={() => setLastClicked("Item 2")} />
             <ListItem label="Disabled (can't click)" value="3" disabled onClick={() => setLastClicked("Item 3")} />
@@ -267,7 +267,7 @@ export const WithClickHandler: Story = {
 export const WithEndElements: Story = {
   render: () => (
     <div style={{ width: 300 }}>
-      <List ariaLabel="List with end elements">
+      <List aria-label="List with end elements">
         <ListItem
           label="Settings"
           value="1"

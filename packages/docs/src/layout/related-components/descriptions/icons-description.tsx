@@ -11,9 +11,9 @@ export const IconsDescription = () => {
     };
     return (
       <div style={style}>
-        <Icon icon={Update} iconSize={36} />
-        <Icon icon={Lines} iconSize={36} />
-        <Icon icon={Locked} iconSize={36} />
+        <Icon icon={Update} size={36} />
+        <Icon icon={Lines} size={36} />
+        <Icon icon={Locked} size={36} />
       </div>
     );
   }, []);

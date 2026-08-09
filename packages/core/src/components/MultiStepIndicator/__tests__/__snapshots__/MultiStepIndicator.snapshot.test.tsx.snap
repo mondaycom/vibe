@@ -6,6 +6,7 @@ exports[`MultiStepIndicator renders correctly > with className 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -80,6 +81,7 @@ exports[`MultiStepIndicator renders correctly > with className 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -138,6 +140,7 @@ exports[`MultiStepIndicator renders correctly > with className 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -199,6 +202,7 @@ exports[`MultiStepIndicator renders correctly > with dividerComponentClassName 1
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -273,6 +277,7 @@ exports[`MultiStepIndicator renders correctly > with dividerComponentClassName 1
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -331,6 +336,7 @@ exports[`MultiStepIndicator renders correctly > with dividerComponentClassName 1
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -399,6 +405,7 @@ exports[`MultiStepIndicator renders correctly > with fulfilledStepIcon 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -473,6 +480,7 @@ exports[`MultiStepIndicator renders correctly > with fulfilledStepIcon 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -531,6 +539,7 @@ exports[`MultiStepIndicator renders correctly > with fulfilledStepIcon 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -592,6 +601,7 @@ exports[`MultiStepIndicator renders correctly > with isFulfilledStepDisplayNumbe
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -650,6 +660,7 @@ exports[`MultiStepIndicator renders correctly > with isFulfilledStepDisplayNumbe
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -708,6 +719,7 @@ exports[`MultiStepIndicator renders correctly > with isFulfilledStepDisplayNumbe
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -769,6 +781,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeCompact clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -838,6 +851,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeCompact clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -891,6 +905,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeCompact clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -947,6 +962,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact textPlacement 
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1021,6 +1037,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact textPlacement 
     </div>
   </li>
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1079,6 +1096,7 @@ exports[`MultiStepIndicator renders correctly > with mode compact textPlacement 
     </div>
   </li>
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1140,6 +1158,7 @@ exports[`MultiStepIndicator renders correctly > with stepComponentClassName 1`] 
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular test clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1214,6 +1233,7 @@ exports[`MultiStepIndicator renders correctly > with stepComponentClassName 1`] 
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular test clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1272,6 +1292,7 @@ exports[`MultiStepIndicator renders correctly > with stepComponentClassName 1`] 
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular test clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1333,6 +1354,7 @@ exports[`MultiStepIndicator renders correctly > with steps 1`] = `
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1407,6 +1429,7 @@ exports[`MultiStepIndicator renders correctly > with steps 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1465,6 +1488,7 @@ exports[`MultiStepIndicator renders correctly > with steps 1`] = `
     data-vibe="Divider"
   />
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1526,6 +1550,7 @@ exports[`MultiStepIndicator renders correctly > with textPlacement vertical 1`] 
   data-testid="multi-step-indicator"
 >
   <li
+    aria-label="Step 1: Title - Subtitle, status: fulfilled"
     className="clickable indicator typePrimary statusFulfilled sizeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1600,6 +1625,7 @@ exports[`MultiStepIndicator renders correctly > with textPlacement vertical 1`] 
     </div>
   </li>
   <li
+    aria-label="Step 2: Active - Active Subtitle, status: active"
     className="clickable indicator typePrimary statusActive sizeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}
@@ -1658,6 +1684,7 @@ exports[`MultiStepIndicator renders correctly > with textPlacement vertical 1`] 
     </div>
   </li>
   <li
+    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
     className="clickable indicator typePrimary statusPending sizeRegular clickable textPlacementVertical disableTextSelection"
     data-testid="step-indicator"
     onClick={[Function]}

@@ -109,6 +109,12 @@ export interface ModalProps extends VibeComponentProps {
    */
   zIndex?: number;
   /**
+   * When true, the modal uses `position: fixed` for centering, anchoring it to the viewport
+   * rather than its portal container. Use this when the modal is portaled into `document.body`
+   * and the page has `direction: rtl` — the default `position: relative` centering breaks under RTL.
+   */
+  useFixedPosition?: boolean;
+  /**
    * If provided, overrides the automatically generated aria-labelledby, that is assigned when used with ModalHeader.
    */
   "aria-labelledby"?: string;

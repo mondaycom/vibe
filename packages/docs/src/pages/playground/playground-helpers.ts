@@ -31,7 +31,7 @@ const jsx = `() => {
       />
       <Flex direction="column" align="center" justify="center" gap="xs">
         <Flex align="center" gap="xs">
-          <Icon icon={VibeIcons.Labs} iconSize="16" />
+          <Icon icon={VibeIcons.Labs} size="16" />
           <Heading type="h3" align="center">
             Playground
           </Heading>
@@ -63,7 +63,7 @@ const css = `.playground {
 
 .vibe-logo {
   width: 150px;
-  margin-block-end: var(--spacing-large);
+  margin-block-end: var(--space-24);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -73,7 +73,7 @@ const css = `.playground {
 }
 
 .count-button {
-  margin-block: var(--spacing-medium);
+  margin-block: var(--space-16);
 }
 `;
 

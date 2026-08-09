@@ -12,7 +12,7 @@ describe("Link", () => {
 
   beforeEach(() => {
     onClickMock = vi.fn();
-    render(<Link text={text} onClick={onClickMock} href={href} ariaLabelDescription={ariaLabel} />);
+    render(<Link text={text} onClick={onClickMock} href={href} aria-label={ariaLabel} />);
   });
 
   describe("default props", () => {

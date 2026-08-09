@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Info, Invite } from "@vibe/icons";
-import { AttentionBox } from "@vibe/core/next";
 import {
+  AttentionBox,
   Button,
   Flex,
   Heading,
@@ -27,7 +27,7 @@ const metaSettings = createStoryMetaSettingsDecorator({
 });
 
 export default {
-  title: "Components/AttentionBox [New]",
+  title: "Components/AttentionBox",
   component: AttentionBox,
   argTypes: metaSettings.argTypes,
   decorators: metaSettings.decorators
@@ -250,7 +250,7 @@ export const AttentionBoxInsideADialogCombobox: Story = {
                 </Flex>
               </Flex>
               <Flex gap="small">
-                <Icon iconSize="32" icon={Invite} />
+                <Icon size="32" icon={Invite} />
                 <Text>Invite new board member by email</Text>
               </Flex>
               <AttentionBox text="Hold ⌘ to select more than one person or team" onClose={() => {}} />

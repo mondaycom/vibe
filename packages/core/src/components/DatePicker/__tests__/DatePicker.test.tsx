@@ -1,137 +1,132 @@
-import { vi, beforeEach, afterEach, describe, it, expect, type MockInstance } from "vitest";
+import { vi, afterEach, describe, it, expect } from "vitest";
 import React from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { render, cleanup, screen, fireEvent, waitFor } from "@testing-library/react";
+import { ja } from "date-fns/locale";
 import DatePicker from "../DatePicker";
-import moment, { type Moment } from "moment";
-import { type RangeDate } from "../types";
 
-const DATE_FORMAT = "DD/MM/YYYY";
+const renderDatePicker = props => {
+  return render(<DatePicker {...props} />);
+};
 
-export function getFirstDayOfMonthElement(container: HTMLElement) {
-  const days = container.getElementsByClassName("CalendarDay");
-  return days && days.length ? days[0] : null;
-}
-
-export function getNextWeekFirstDayElement(pivotElement: HTMLElement) {
-  const nextWeek = pivotElement.parentElement.nextElementSibling;
-  const days = nextWeek.getElementsByClassName("CalendarDay");
-  return days && days.length ? days[0] : null;
-}
-
-describe("DatePicker", () => {
-  let dateNowSpy: MockInstance;
-
-  beforeEach(() => {
-    dateNowSpy = vi.spyOn(Date, "now").mockImplementation(() => new Date("2023-05-01").getTime());
-  });
-
+describe("DatePicker tests", () => {
   afterEach(() => {
-    dateNowSpy.mockRestore();
+    cleanup();
   });
 
-  it("should call onPickDate date clicked value", () => {
-    const onSaveMock = vi.fn();
-    const { container } = render(
-      <DatePicker
-        onPickDate={() => {
-          onSaveMock();
-        }}
-      />
-    );
-
-    const element = container.querySelector(".CalendarDay");
-    fireEvent.click(element);
-    expect(onSaveMock).toHaveBeenCalledTimes(1);
+  describe("snapshot tests", () => {
+    it("renders correctly", () => {
+      const { container } = renderDatePicker({ date: new Date(1992, 2, 17) });
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it("should call onPickDate with today's date", () => {
-    let selectedDate: Moment;
-    const { container } = render(
-      <DatePicker
-        onPickDate={date => {
-          selectedDate = date as Moment;
-        }}
-      />
-    );
-    const today = moment();
-    const element = container.querySelector(".CalendarDay__today");
+  it("should render correctly with date - 3/17/92", () => {
+    renderDatePicker({ date: new Date(1992, 2, 17) });
 
-    fireEvent.click(element);
+    const selectedDay = screen.getByRole("gridcell", { name: "17" });
+    expect(selectedDay).toHaveAttribute("aria-selected", "true");
 
-    expect(today.format(DATE_FORMAT)).toBe(selectedDate.format(DATE_FORMAT));
+    // Check that Mar is displayed in the month selector (abbreviated form)
+    expect(screen.getByText("Mar")).toBeInTheDocument();
+
+    // Check that 1992 is displayed in the year selector
+    expect(screen.getByText("1992")).toBeInTheDocument();
   });
 
-  it("should call onPickDate with range date", () => {
-    const selectedRange: RangeDate = { startDate: null, endDate: null };
-    const { container } = render(
-      <DatePicker
-        range
-        onPickDate={(range: RangeDate) => {
-          selectedRange.startDate = range.startDate || selectedRange.startDate;
-          selectedRange.endDate = range.endDate || selectedRange.endDate;
-        }}
-      />
-    );
+  it("should show date", () => {
+    const date = new Date(1992, 2, 17);
+    renderDatePicker({ date });
 
-    const today = moment();
-    const tomorrow = moment().add(1, "days");
-    const todayElement = container.querySelector(".CalendarDay__today") as HTMLElement;
-    const tomorrowElement = todayElement.nextElementSibling;
+    // Check that day 17 is selected
+    const selectedDay = screen.getByRole("gridcell", { name: "17" });
+    expect(selectedDay).toHaveAttribute("aria-selected", "true");
 
-    fireEvent.click(todayElement);
-    fireEvent.click(tomorrowElement);
-
-    expect(today.format(DATE_FORMAT)).toBe(selectedRange.startDate.format(DATE_FORMAT));
-    expect(tomorrow.format(DATE_FORMAT)).toBe(selectedRange.endDate.format(DATE_FORMAT));
+    // Check that Mar and 1992 are displayed
+    expect(screen.getByText("Mar")).toBeInTheDocument();
+    expect(screen.getByText("1992")).toBeInTheDocument();
   });
 
-  it("should render 2 months", () => {
-    const { container } = render(<DatePicker range numberOfMonths={2} />);
-    const monthsElements = container.getElementsByClassName("CalendarMonth");
+  it("should change day of date", () => {
+    const date = new Date(1992, 2, 17);
+    const onDateChange = vi.fn();
+    renderDatePicker({ date, onDateChange });
 
-    expect(monthsElements.length).toBe(4);
+    // Click on day 20
+    const day20 = screen.getByRole("gridcell", { name: "20" });
+    fireEvent.click(day20);
+
+    // Verify callback was called with the new date
+    expect(onDateChange).toHaveBeenCalledWith(new Date(1992, 2, 20));
   });
 
-  it("Should open an year selection dropdown", () => {
-    const { container } = render(<DatePicker data-testid="date-picker" />);
-    const toggleButtonElement = container.querySelector("button[data-testid='date-picker-year-toggle']");
+  it("should open months picker and change displayed month", async () => {
+    const date = new Date(1992, 2, 17);
+    renderDatePicker({ date });
 
-    fireEvent.click(toggleButtonElement);
+    // Click on the month combobox to open dropdown
+    const monthCombobox = screen.getByRole("combobox", { name: "Month" });
+    fireEvent.click(monthCombobox);
 
-    const yearSelectionElement = container.querySelector("div[data-testid='date-picker-year-picker']");
-    expect(yearSelectionElement).not.toBe(null);
+    // Wait for dropdown to open and click on April
+    await waitFor(() => {
+      expect(screen.getByRole("option", { name: "Apr" })).toBeInTheDocument();
+    });
+
+    const aprilOption = screen.getByRole("option", { name: "Apr" });
+    fireEvent.click(aprilOption);
+
+    // Verify the month changed to Apr (abbreviated) and year stayed the same
+    await waitFor(() => {
+      expect(screen.getByText("Apr")).toBeInTheDocument();
+      expect(screen.getByText("1992")).toBeInTheDocument();
+    });
   });
 
-  it("Should display new dates according to year selection", async () => {
-    const dateSelected = moment("2023-05-01");
-    const { container } = render(<DatePicker date={dateSelected} data-testid="date-picker" />);
-    const toggleButtonElement = container.querySelector("button[data-testid='date-picker-year-toggle']");
+  it("should open years picker and change displayed year", async () => {
+    const date = new Date(1992, 2, 17);
+    renderDatePicker({ date });
 
-    fireEvent.click(toggleButtonElement);
+    // Click on the year combobox to open dropdown
+    const yearCombobox = screen.getByRole("combobox", { name: "Year" });
+    fireEvent.click(yearCombobox);
 
-    const newYear = await waitFor(() => container.querySelector(".pickerOption"));
-    fireEvent.click(newYear);
+    // Wait for dropdown to open and click on 1993
+    await waitFor(() => {
+      expect(screen.getByRole("option", { name: "1993" })).toBeInTheDocument();
+    });
 
-    const newDay = await waitFor(() => container.querySelector(".CalendarDay_1"));
-    expect(newDay).toBeInTheDocument();
-    expect(newDay.getAttribute("aria-label")).toContain(newYear.innerHTML);
+    const year1993Option = screen.getByRole("option", { name: "1993" });
+    fireEvent.click(year1993Option);
+
+    // Verify the year changed to 1993 and month stayed the same (Mar)
+    await waitFor(() => {
+      expect(screen.getByText("1993")).toBeInTheDocument();
+      expect(screen.getByText("Mar")).toBeInTheDocument();
+    });
   });
 
-  it("should not crash when onPickDate is not provided and a date is clicked", () => {
-    const { container } = render(<DatePicker />);
+  it("should support disabled days", () => {
+    const date = new Date(1992, 2, 17);
+    renderDatePicker({ date, isDateDisabled: d => d.getDate() === 18 });
 
-    const element = container.querySelector(".CalendarDay");
-    expect(() => {
-      fireEvent.click(element);
-    }).not.toThrow();
+    // Verify day 18 is disabled
+    const day18 = screen.getByRole("gridcell", { name: "18" });
+    expect(day18).toHaveAttribute("disabled");
+    expect(day18).toHaveClass("datePickerDayDisabled");
+
+    // Try to click on day 18 (should not work)
+    fireEvent.click(day18);
+
+    // Verify day 17 is still selected
+    const selectedDay = screen.getByRole("gridcell", { name: "17" });
+    expect(selectedDay).toHaveAttribute("aria-selected", "true");
   });
 
-  it("should not crash when onPickDate is not provided in range mode and a date is clicked", () => {
-    const { container } = render(<DatePicker range />);
+  it("should support locale", () => {
+    const date = new Date(1992, 2, 17);
+    renderDatePicker({ date, locale: ja });
 
-    const element = container.querySelector(".CalendarDay");
-    expect(() => {
-      fireEvent.click(element);
-    }).not.toThrow();
+    // Check that the month is displayed in Japanese
+    expect(screen.getByText("3月")).toBeInTheDocument();
   });
 });

@@ -1,17 +1,17 @@
 @import "../../styles/typography";
-@import "~monday-ui-style/dist/mixins";
+@import "~@vibe/style/dist/mixins";
 
 .textAreaWrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: var(--spacing-xs);
+  gap: var(--space-4);
   @include smoothing-text;
   @include vibe-text(text2, normal);
 
   .label {
     display: inline-flex;
-    gap: var(--spacing-xs);
+    gap: var(--space-4);
     color: var(--primary-text-color);
 
     &.required::after {
@@ -28,7 +28,7 @@
     }
 
     .limitText {
-      margin-left: auto;
+      margin-inline-start: auto;
     }
   }
 
@@ -36,10 +36,15 @@
     resize: vertical;
     border: 1px solid var(--ui-border-color);
     border-radius: var(--border-radius-small);
-    padding: var(--spacing-small) var(--spacing-medium);
+    padding: var(--space-8);
     outline: none;
     background-color: var(--secondary-background-color);
     color: var(--primary-text-color);
+
+    &::placeholder {
+      color: var(--placeholder-color);
+      font-weight: 400;
+    }
 
     &:hover {
       border-color: var(--primary-text-color);
@@ -56,6 +61,7 @@
     }
 
     &.large {
+      padding: var(--space-12);
       @include vibe-text(text1, normal);
     }
 
@@ -92,6 +98,10 @@
       background-color: var(--disabled-background-color);
       border-color: transparent;
       resize: none;
+
+      &::placeholder {
+        color: var(--disabled-text-color);
+      }
     }
 
     .helpText {

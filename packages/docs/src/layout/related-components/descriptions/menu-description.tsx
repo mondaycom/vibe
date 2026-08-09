@@ -8,7 +8,7 @@ export const MenuDescription = () => {
     return (
       <div>
         <DialogContentContainer>
-          <Menu size={Menu.sizes.SMALL}>
+          <Menu size="small">
             <MenuItem title="Send" icon={Email} />
             <MenuItem title="Delete" icon={Delete} />
             <MenuItem title="More info" icon={Info} />

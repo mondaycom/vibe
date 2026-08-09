@@ -4,7 +4,7 @@ import TableCell from "../TableCell/TableCell";
 import Skeleton from "../../Skeleton/Skeleton";
 import styles from "./TableCellSkeleton.module.scss";
 import { type VibeComponentProps } from "../../../types";
-import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
+import { getStyle } from "@vibe/shared";
 import { type TableLoadingStateType } from "../Table/Table";
 import { getSkeletonType } from "../Table/tableHelpers";
 import { camelCase } from "es-toolkit";

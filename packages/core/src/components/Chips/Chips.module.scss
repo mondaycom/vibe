@@ -1,7 +1,7 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 @import "../../styles/keyframes";
-@import "~monday-ui-style/dist/mixins/states";
+@import "~@vibe/style/dist/mixins/states";
 
 .chips {
   display: inline-flex;
@@ -11,7 +11,7 @@
   padding: 0 8px;
   align-items: center;
   justify-content: center;
-  margin: var(--chips-margin, #{0 var(--spacing-xs)});
+  margin: var(--chips-margin, #{0 var(--space-4)});
   user-select: none;
   @include smoothing-text;
   color: var(--primary-text-color);
@@ -27,6 +27,25 @@
     margin: 0;
   }
 
+  &.small {
+    height: 20px;
+    padding: 0 4px;
+
+    .icon,
+    .avatar,
+    .customRenderer {
+      &.left {
+        margin-inline-end: var(--space-2);
+      }
+      &.right {
+        margin-inline-start: var(--space-2);
+      }
+      &.close {
+        margin-inline-start: var(--space-2);
+      }
+    }
+  }
+
   .label {
     @include ellipsis();
   }
@@ -40,13 +59,13 @@
   .customRenderer {
     min-width: 18px;
     &.left {
-      margin-right: var(--spacing-xs);
+      margin-inline-end: var(--space-4);
     }
     &.right {
-      margin-left: var(--spacing-xs);
+      margin-inline-start: var(--space-4);
     }
     &.close {
-      margin-left: var(--spacing-xs);
+      margin-inline-start: var(--space-4);
       color: var(--primary-text-color);
     }
   }

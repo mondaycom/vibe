@@ -1,7 +1,7 @@
 import React, { forwardRef, type ReactElement, useMemo, useRef } from "react";
 import cx from "classnames";
-import useMergeRef from "../../hooks/useMergeRef";
-import useIsomorphicLayoutEffect from "../../hooks/ssr/useIsomorphicLayoutEffect";
+import { useMergeRef, useIsomorphicLayoutEffect } from "@vibe/shared";
+
 import { type BaseListProps } from "./BaseList.types";
 import {
   BaseListProvider,
@@ -21,8 +21,8 @@ const BaseList = forwardRef(
       id,
       as = "ul",
       children,
-      ariaLabel,
-      ariaDescribedBy,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
       role = "listbox",
       size = "medium",

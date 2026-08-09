@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef } from "react";
-import useMergeRef from "../../../hooks/useMergeRef";
+import { useMergeRef } from "@vibe/shared";
 import Menu, { type MenuProps } from "../../Menu/Menu/Menu";
 
 export type SplitButtonMenuProps = Omit<MenuProps, "focusItemIndexOnMount"> & { children: React.ReactNode };

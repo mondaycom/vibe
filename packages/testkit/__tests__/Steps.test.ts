@@ -4,7 +4,7 @@ import { stepsStory } from "./utils/url-helper";
 
 let frame: FrameLocator;
 let steps: Steps;
-const stepsLocator = 'div[data-testid="steps"]';
+const stepsLocator = 'div[data-testid^="steps"]';
 const frameLocator = "[id='storybook-preview-iframe']";
 
 test.describe("Testkit - Unit Tests - Steps", () => {

@@ -17,19 +17,16 @@ export default function useClickableProps(
     "data-testid": dataTestId,
     role = "button",
     tabIndex = 0,
-    ariaLabel,
-    ariaHidden,
-    ariaHasPopup,
-    ariaExpanded
+    "aria-label": ariaLabel,
+    "aria-hidden": ariaHidden,
+    "aria-haspopup": ariaHasPopup,
+    "aria-expanded": ariaExpanded
   }: ClickableProps,
   ref: React.ForwardedRef<HTMLElement>
 ) {
   const onKeyDown = useKeyboardButtonPressedFunc(onClick);
   const componentRef = useRef<HTMLElement | null>(null);
   const mergedRef = useMergeRef(ref, componentRef);
-  // Remove when ariaHasPopup is no longer a string
-  const overrideAriaHasPopup = ariaHasPopup === undefined ? undefined : !!ariaHasPopup;
-
   return {
     ref: mergedRef,
     id,
@@ -39,11 +36,11 @@ export default function useClickableProps(
     onMouseDown,
     onMouseEnter,
     onMouseLeave,
-    tabIndex: disabled ? -1 : Number(tabIndex),
+    tabIndex: disabled ? -1 : tabIndex,
     role,
     "aria-label": ariaLabel,
     "aria-hidden": ariaHidden,
-    "aria-haspopup": overrideAriaHasPopup,
+    "aria-haspopup": ariaHasPopup,
     "aria-expanded": ariaExpanded
   };
 }

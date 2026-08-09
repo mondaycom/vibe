@@ -7,6 +7,8 @@ import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
 import ColorPickerColorsGrid from "../components/ColorPickerContent/ColorPickerColorsGrid";
 
+const formatColorName = (color: string) => color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, a => a.toUpperCase());
+
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
   expect(tree).toMatchSnapshot();
@@ -29,7 +31,7 @@ describe("ColorPicker", () => {
       />
     );
 
-    const colorElementToClick = getByLabelText(colorToClick);
+    const colorElementToClick = getByLabelText(formatColorName(colorToClick));
 
     act(() => {
       fireEvent.click(colorElementToClick);
@@ -54,7 +56,7 @@ describe("ColorPicker", () => {
       />
     );
 
-    const colorElementToClick = getByLabelText(colorToClick);
+    const colorElementToClick = getByLabelText(formatColorName(colorToClick));
 
     act(() => {
       fireEvent.click(colorElementToClick);
@@ -70,8 +72,8 @@ describe("ColorPicker", () => {
 
     const { getByLabelText, queryByLabelText } = render(<ColorPicker isBlackListMode colorsList={blackListColors} />);
 
-    blackListColors.forEach(color => expect(queryByLabelText(color)).toBeNull());
-    const restOfColorsElements = restOfColors.map(color => getByLabelText(color));
+    blackListColors.forEach(color => expect(queryByLabelText(formatColorName(color))).toBeNull());
+    const restOfColorsElements = restOfColors.map(color => getByLabelText(formatColorName(color)));
 
     expect(restOfColorsElements.length).toBe(restOfColors.length);
   });
@@ -83,8 +85,8 @@ describe("ColorPicker", () => {
       <ColorPicker isBlackListMode={false} colorsList={whiteListColors} />
     );
 
-    const whiteListColorsElements = whiteListColors.map(color => getByLabelText(color));
-    restOfColors.forEach(color => expect(queryByLabelText(color)).toBeNull());
+    const whiteListColorsElements = whiteListColors.map(color => getByLabelText(formatColorName(color)));
+    restOfColors.forEach(color => expect(queryByLabelText(formatColorName(color))).toBeNull());
 
     expect(whiteListColorsElements.length).toBe(whiteListColors.length);
   });
@@ -111,10 +113,9 @@ describe("ColorPicker", () => {
 
   it("should render tooltip with color name if showColorNameTooltip is true", () => {
     const colorPicker = render(<ColorPicker showColorNameTooltip />);
-    const colorName = "done-green";
     const colorNameTooltip = "Done Green";
 
-    const component = colorPicker.getByLabelText(colorName);
+    const component = colorPicker.getByLabelText(colorNameTooltip);
     act(() => {
       fireEvent.mouseOver(component);
     });
@@ -129,7 +130,7 @@ describe("ColorPicker", () => {
     const colorList = [colorName];
     const colorPicker = render(<ColorPicker colorsList={colorList} showColorNameTooltip forceUseRawColorList />);
 
-    const component = colorPicker.getByLabelText(colorName);
+    const component = colorPicker.getByLabelText(colorNameTooltip);
     act(() => {
       fireEvent.mouseOver(component);
     });
@@ -153,7 +154,8 @@ describe("ColorPicker", () => {
       />
     );
 
-    const component = colorPicker.getByLabelText(colorName);
+    // When tooltipContentByColor has a custom label, aria-label uses that custom value
+    const component = colorPicker.getByLabelText(contentByColorTooltip);
     act(() => {
       fireEvent.mouseOver(component);
     });
