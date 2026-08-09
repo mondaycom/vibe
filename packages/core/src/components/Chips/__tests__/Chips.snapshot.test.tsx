@@ -40,6 +40,11 @@ describe("Chips renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("renders correctly with small size", () => {
+    const tree = renderer.create(<Chips size="small" label="Small" readOnly />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it("renders correctly with text", () => {
     const tree = renderer.create(<Chips label="text" />).toJSON();
     expect(tree).toMatchSnapshot();

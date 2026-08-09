@@ -10,11 +10,12 @@ type ComponentGalleryProps = {
   title: string;
   description: string;
   variations: GalleryVariation[];
+  className?: string;
 };
 
-export function ComponentGallery({ title, description, variations }: ComponentGalleryProps) {
+export function ComponentGallery({ title, description, variations, className }: ComponentGalleryProps) {
   return (
-    <div className="component-gallery">
+    <div className={["component-gallery", className].filter(Boolean).join(" ")}>
       <header className="component-gallery-header">
         <h1 className="component-gallery-title">{title}</h1>
         <p className="component-gallery-description">{description}</p>

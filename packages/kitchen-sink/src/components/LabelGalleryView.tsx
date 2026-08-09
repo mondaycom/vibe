@@ -3,14 +3,9 @@ import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
 
 const labelVariations: GalleryVariation[] = [
   {
-    id: "kind-fill",
-    label: "Kind — Fill",
+    id: "default",
+    label: "Default",
     render: () => <Label text="New" />,
-  },
-  {
-    id: "kind-line",
-    label: "Kind — Outline (line)",
-    render: () => <Label text="New" kind="line" />,
   },
   {
     id: "size-medium",
@@ -23,56 +18,29 @@ const labelVariations: GalleryVariation[] = [
     render: () => <Label text="New" size="small" />,
   },
   {
-    id: "color-primary-fill",
-    label: "Color — Primary fill",
+    id: "color-primary",
+    label: "Color — Primary",
     render: () => <Label text="New" color="primary" />,
   },
   {
-    id: "color-positive-fill",
-    label: "Color — Positive fill",
+    id: "color-positive",
+    label: "Color — Positive",
     render: () => <Label text="New" color="positive" />,
   },
   {
-    id: "color-negative-fill",
-    label: "Color — Negative fill",
+    id: "color-negative",
+    label: "Color — Negative",
     render: () => <Label text="New" color="negative" />,
   },
   {
-    id: "color-dark-fill",
-    label: "Color — Dark fill",
+    id: "color-dark",
+    label: "Color — Dark",
     render: () => <Label text="New" color="dark" />,
   },
   {
-    id: "color-primary-line",
-    label: "Color — Primary outline",
-    render: () => <Label text="New" color="primary" kind="line" />,
-  },
-  {
-    id: "color-positive-line",
-    label: "Color — Positive outline",
-    render: () => <Label text="New" color="positive" kind="line" />,
-  },
-  {
-    id: "color-negative-line",
-    label: "Color — Negative outline",
-    render: () => <Label text="New" color="negative" kind="line" />,
-  },
-  {
-    id: "color-dark-line",
-    label: "Color — Dark outline",
-    render: () => <Label text="New" color="dark" kind="line" />,
-  },
-  {
-    id: "clickable-fill",
-    label: "Clickable — Fill",
+    id: "clickable",
+    label: "Clickable",
     render: () => <Label text="New" onClick={() => {}} aria-label="Clickable new feature label" />,
-  },
-  {
-    id: "clickable-line",
-    label: "Clickable — Outline",
-    render: () => (
-      <Label text="New" kind="line" onClick={() => {}} aria-label="Clickable new feature label" />
-    ),
   },
 ];
 

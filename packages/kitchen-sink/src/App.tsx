@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { useState } from "react";
 import { AppThemeShell } from "./components/AppThemeShell";
 import { LeftPane } from "./components/LeftPane";
 import { useKitchenSink } from "./context/KitchenSinkContext";
@@ -7,10 +7,6 @@ import { componentGalleries, isComponentGalleryId } from "./components/component
 import { CompareView } from "./components/CompareView";
 import { ThemePanel } from "./components/ThemePanel";
 import { ScreensView } from "./components/ScreensView";
-
-const DropdownGalleryView = lazy(() =>
-  import("./components/DropdownGalleryView").then((m) => ({ default: m.DropdownGalleryView }))
-);
 
 export default function App() {
   const { view, componentSubPage } = useKitchenSink();

@@ -231,6 +231,8 @@ export enum StateSelectedColor {
   NEGATIVE = "negative",
   PRIMARY = "primary",
   WARNING = "warning",
+  INFO = "info",
+  /** @deprecated Use INFO instead */
   NEUTRAL = "neutral"
 }
 
@@ -241,6 +243,8 @@ export enum StateSelectedHoverColor {
   POSITIVE = "positive",
   NEGATIVE = "negative",
   PRIMARY = "primary",
+  INFO = "info",
+  /** @deprecated Use INFO instead */
   NEUTRAL = "neutral"
 }
 

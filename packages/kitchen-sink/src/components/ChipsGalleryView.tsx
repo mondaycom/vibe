@@ -7,7 +7,7 @@ type ChipColor =
   | "positive"
   | "negative"
   | "warning"
-  | "neutral"
+  | "info"
   | "done-green"
   | "bright-blue"
   | "purple"
@@ -19,7 +19,7 @@ const THEME_COLORS: { value: ChipColor; label: string }[] = [
   { value: "positive", label: "Positive" },
   { value: "negative", label: "Negative" },
   { value: "warning", label: "Warning" },
-  { value: "neutral", label: "Neutral" },
+  { value: "info", label: "Info" },
 ];
 
 const PALETTE_COLORS: { value: ChipColor; label: string }[] = [
@@ -39,6 +39,10 @@ function VariantSection({ title, children }: { title: string; children: ReactNod
   );
 }
 
+function themeClassName(value: ChipColor, ...extra: (string | undefined)[]) {
+  return [value === "info" ? "chips-theme-info" : undefined, ...extra].filter(Boolean).join(" ") || undefined;
+}
+
 export function ChipsGalleryView() {
   return (
     <div className="component-gallery chips-gallery">
@@ -56,7 +60,7 @@ export function ChipsGalleryView() {
             label={label}
             color={value}
             readOnly
-            className="chips-readonly"
+            className={themeClassName(value, "chips-readonly")}
           />
         ))}
         <Chips label="With icon" color="primary" leftIcon={Email} readOnly className="chips-readonly" />
@@ -68,9 +72,20 @@ export function ChipsGalleryView() {
       </VariantSection>
 
       <VariantSection title="Removable">
-        {THEME_COLORS.map(({ value, label }) => (
-          <Chips key={`removable-${value}`} label={label} color={value} onDelete={() => {}} />
-        ))}
+        <Chips label="Primary" color="primary" onDelete={() => {}} />
+      </VariantSection>
+
+      <VariantSection title="Size">
+        <Chips label="Medium" color="primary" readOnly />
+        <Chips label="Small" color="primary" readOnly className="chips-size-small" />
+        <Chips label="Medium icon" color="primary" leftIcon={Email} readOnly />
+        <Chips
+          label="Small icon"
+          color="primary"
+          leftIcon={Email}
+          readOnly
+          className="chips-size-small"
+        />
       </VariantSection>
 
       <VariantSection title="Filterable (primary)">
@@ -82,10 +97,10 @@ export function ChipsGalleryView() {
           onClick={() => {}}
         />
         <Chips
-          label="Hover me"
+          label="Hover"
           color="primary"
           readOnly
-          className="chips-filterable"
+          className="chips-filterable chips-filterable--hover"
           onClick={() => {}}
         />
         <Chips
@@ -113,20 +128,34 @@ export function ChipsGalleryView() {
 
       <VariantSection title="Themes">
         {THEME_COLORS.map(({ value, label }) => (
-          <Chips key={value} label={label} color={value} readOnly />
+          <Chips key={value} label={label} color={value} readOnly className={themeClassName(value)} />
         ))}
         <Chips label="Disabled" disabled />
       </VariantSection>
 
       <VariantSection title="Icons — left">
         {THEME_COLORS.map(({ value, label }) => (
-          <Chips key={`left-${value}`} label={label} color={value} leftIcon={Email} readOnly />
+          <Chips
+            key={`left-${value}`}
+            label={label}
+            color={value}
+            leftIcon={Email}
+            readOnly
+            className={themeClassName(value)}
+          />
         ))}
       </VariantSection>
 
       <VariantSection title="Icons — right">
         {THEME_COLORS.map(({ value, label }) => (
-          <Chips key={`right-${value}`} label={label} color={value} rightIcon={Bolt} readOnly />
+          <Chips
+            key={`right-${value}`}
+            label={label}
+            color={value}
+            rightIcon={Bolt}
+            readOnly
+            className={themeClassName(value)}
+          />
         ))}
       </VariantSection>
 
@@ -139,13 +168,21 @@ export function ChipsGalleryView() {
             leftIcon={Email}
             rightIcon={Bolt}
             readOnly
+            className={themeClassName(value)}
           />
         ))}
       </VariantSection>
 
       <VariantSection title="With border">
         {THEME_COLORS.map(({ value, label }) => (
-          <Chips key={`border-${value}`} label={label} color={value} showBorder readOnly />
+          <Chips
+            key={`border-${value}`}
+            label={label}
+            color={value}
+            showBorder
+            readOnly
+            className={themeClassName(value)}
+          />
         ))}
       </VariantSection>
 

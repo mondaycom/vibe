@@ -51,7 +51,7 @@ const tabsVariations: GalleryVariation[] = [
     label: "Size — Small",
     render: () => (
       <TabsContext>
-        <TabList size="small">
+        <TabList size="sm">
           <Tab>Overview</Tab>
           <Tab>Activity</Tab>
           <Tab>Settings</Tab>
@@ -75,7 +75,7 @@ const tabsVariations: GalleryVariation[] = [
     label: "Size — Medium",
     render: () => (
       <TabsContext>
-        <TabList size="medium">
+        <TabList>
           <Tab>Overview</Tab>
           <Tab>Activity</Tab>
           <Tab>Settings</Tab>
@@ -99,7 +99,7 @@ const tabsVariations: GalleryVariation[] = [
     label: "Size — Large",
     render: () => (
       <TabsContext>
-        <TabList size="large">
+        <TabList size="lg">
           <Tab>Overview</Tab>
           <Tab>Activity</Tab>
           <Tab>Settings</Tab>
@@ -175,6 +175,7 @@ const tabsVariations: GalleryVariation[] = [
 export function TabsGalleryView() {
   return (
     <ComponentGallery
+      className="tabs-gallery"
       title="Tabs"
       description="All tabs variations currently supported by the component."
       variations={tabsVariations}

@@ -117,14 +117,14 @@ $disabled-on-primary-color-opacity: 0.5;
   @include smoothing-text;
   @include vibe-text(text1, normal);
   padding: var(--spacing-small) var(--spacing-medium);
-  height: 40px;
+  height: 36px;
 }
 
 .sizeLarge {
   @include smoothing-text;
   @include vibe-text(text1, normal);
   padding: 12px var(--spacing-large);
-  height: 48px;
+  height: 40px;
 }
 
 .kindPrimary {

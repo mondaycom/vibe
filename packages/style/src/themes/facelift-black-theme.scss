@@ -14,7 +14,7 @@
   --fixed-dark-color: #323338;
   --fixed-light-color: #ffffff;
   --primary-background-color: #090908;
-  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-color: rgba(103, 104, 121, 0.3);
   --secondary-background-color: #1a1a18;
   --allgrey-background-color: #141413;
   --backdrop-color: rgba(50, 51, 56, 0.7);
@@ -42,6 +42,8 @@
   --warning-color-hover: #eaaa15;
   --warning-color-selected: #fceba1;
   --warning-color-selected-hover: #f2d973;
+  --info-color-selected: #cce4ff;
+  --info-color-selected-hover: #b8d9ff;
   --color-highlight_blue: rgba(255, 255, 255, 0.08); /* stylelint-disable-line custom-property-pattern */
   --color-basic_blue: #2b06e5; /* stylelint-disable-line custom-property-pattern */
   --color-dark_blue: #2203be; /* stylelint-disable-line custom-property-pattern */
@@ -70,6 +72,7 @@
   --border-radius-small: 8px;
   --border-radius-medium: 8px;
   --border-radius-big: 14px;
+  --border-radius-full: 99px;
   --color-grass_green: #037f4c; /* stylelint-disable-line custom-property-pattern */
   --color-grass_green-hover: #116846; /* stylelint-disable-line custom-property-pattern */
   --color-grass_green-selected: #81bfa5; /* stylelint-disable-line custom-property-pattern */

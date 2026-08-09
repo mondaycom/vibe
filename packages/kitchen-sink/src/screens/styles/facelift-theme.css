@@ -95,6 +95,7 @@
   --border-radius-small: 8px;
   --border-radius-medium: 8px;
   --border-radius-big: 14px;
+  --border-radius-full: 99px;
 
   --color-grass_green: #037f4c; /* stylelint-disable-line custom-property-pattern */
   --color-grass_green-hover: #116846; /* stylelint-disable-line custom-property-pattern */

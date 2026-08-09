@@ -96,6 +96,10 @@ export interface TextFieldProps extends VibeComponentProps {
    */
   iconName?: string | React.FunctionComponent | null;
   /**
+   * Position of the primary icon inside the text field.
+   */
+  iconPosition?: "left" | "right";
+  /**
    * The secondary icon displayed inside the text field.
    */
   secondaryIconName?: string | React.FunctionComponent | null;
@@ -234,6 +238,7 @@ const TextField = forwardRef(
       readonly = false,
       setRef = NOOP,
       iconName,
+      iconPosition = "right",
       secondaryIconName,
       id = "input",
       title = "",
@@ -386,7 +391,11 @@ const TextField = forwardRef(
       >
         <div className={cx(styles.labelWrapper)}>
           <FieldLabel labelText={title} icon={labelIconName} labelFor={id} required={required} />
-          <div className={cx(styles.inputWrapper, SIZE_MAPPER[size], validationClass)}>
+          <div
+            className={cx(styles.inputWrapper, SIZE_MAPPER[size], validationClass, {
+              [styles.inputWrapperIconLeft]: iconPosition === "left" && !!iconName
+            })}
+          >
             {/*Programatical input (tabIndex={-1}) is working fine with aria-activedescendant attribute despite the rule*/}
             {/*eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex*/}
             <input
@@ -442,7 +451,8 @@ const TextField = forwardRef(
                   className={cx(styles.iconContainer, {
                     [styles.iconContainerHasIcon]: hasIcon,
                     [styles.iconContainerActive]: isPrimary,
-                    [styles.iconContainerClickable]: isIconContainerClickable
+                    [styles.iconContainerClickable]: isIconContainerClickable,
+                    [styles.iconContainerLeft]: iconPosition === "left"
                   })}
                   onClick={onIconClickCallback}
                   tabIndex={shouldFocusOnPrimaryIcon ? "0" : "-1"}

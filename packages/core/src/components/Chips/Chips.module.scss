@@ -7,7 +7,7 @@
   display: inline-flex;
   overflow: hidden;
   height: 24px;
-  border-radius: 16px;
+  border-radius: var(--border-radius-full);
   padding: 0 8px;
   align-items: center;
   justify-content: center;
@@ -25,6 +25,16 @@
   }
   &.noMargin {
     margin: 0;
+  }
+
+  &.small {
+    height: 20px;
+
+    .icon,
+    .avatar,
+    .customRenderer {
+      min-width: 14px;
+    }
   }
 
   .label {
@@ -51,6 +61,10 @@
     }
   }
 
+  .icon {
+    color: currentColor;
+  }
+
   &.disabled {
     .icon {
       color: var(--disabled-text-color);
@@ -73,15 +87,15 @@
     color: var(--primary-text-color);
     cursor: pointer;
 
+    .icon,
+    .label {
+      color: currentColor;
+    }
+
     &:hover:not(.disabled):not(.pressed),
     &:active:not(.disabled):not(.pressed) {
       background-color: var(--primary-selected-hover-color);
       color: var(--primary-text-color);
-
-      .icon,
-      .label {
-        color: var(--primary-text-color);
-      }
     }
 
     &.pressed:not(.disabled) {
@@ -91,7 +105,7 @@
       .icon,
       .label,
       .close {
-        color: var(--text-color-on-inverted);
+        color: currentColor;
       }
     }
 

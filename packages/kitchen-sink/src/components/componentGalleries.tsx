@@ -1,14 +1,25 @@
-import type { ComponentType } from "react";
+import { lazy, Suspense, type ComponentType } from "react";
 import type { ComponentGalleryId } from "../types";
 import { ButtonGalleryView } from "./ButtonGalleryView";
 import { ButtonGroupGalleryView } from "./ButtonGroupGalleryView";
-import { ChipGalleryView } from "./ChipGalleryView";
-import { DropdownGalleryView } from "./DropdownGalleryView";
+import { ChipsGalleryView } from "./ChipsGalleryView";
 import { IconButtonGalleryView } from "./IconButtonGalleryView";
 import { LabelGalleryView } from "./LabelGalleryView";
 import { TabsGalleryView } from "./TabsGalleryView";
 import { TextFieldGalleryView } from "./TextFieldGalleryView";
 import { ToastGalleryView } from "./ToastGalleryView";
+
+const LazyDropdownGalleryView = lazy(() =>
+  import("./DropdownGalleryView").then((m) => ({ default: m.DropdownGalleryView }))
+);
+
+function DropdownGalleryEntry() {
+  return (
+    <Suspense fallback={<p className="component-gallery">Loading dropdown gallery…</p>}>
+      <LazyDropdownGalleryView />
+    </Suspense>
+  );
+}
 
 export const COMPONENT_GALLERY_ORDER: ComponentGalleryId[] = [
   "icon-button",
@@ -28,7 +39,7 @@ export const COMPONENT_GALLERY_LABELS: Record<ComponentGalleryId, string> = {
   "button-group": "Button Group",
   tabs: "Tabs",
   label: "Label",
-  chip: "Chip",
+  chip: "Chips",
   "text-field": "Text Field",
   dropdown: "Dropdown",
   toast: "Toast",
@@ -40,9 +51,9 @@ export const componentGalleries: Record<ComponentGalleryId, ComponentType> = {
   "button-group": ButtonGroupGalleryView,
   tabs: TabsGalleryView,
   label: LabelGalleryView,
-  chip: ChipGalleryView,
+  chip: ChipsGalleryView,
   "text-field": TextFieldGalleryView,
-  dropdown: DropdownGalleryView,
+  dropdown: DropdownGalleryEntry,
   toast: ToastGalleryView,
 };
 

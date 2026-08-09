@@ -18,9 +18,10 @@ import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
-import { type ChipsVariant } from "./Chips.types";
+import { type ChipsVariant, type ChipsSize } from "./Chips.types";
 
 const CHIPS_AVATAR_SIZE = 18;
+const CHIPS_AVATAR_SIZE_SMALL = 14;
 
 export interface ChipsProps extends VibeComponentProps {
   /**
@@ -47,6 +48,12 @@ export interface ChipsProps extends VibeComponentProps {
    * When `variant="filterable"`, shows the pressed (selected) state.
    */
   pressed?: boolean;
+  /**
+   * The size of the chip.
+   * - `medium` — default (24px height)
+   * - `small` — 20px height, 12px text
+   */
+  size?: ChipsSize;
   /**
    * A React element displayed on the right side.
    */
@@ -158,9 +165,10 @@ const Chips = forwardRef(
       variant = "default",
       readOnly = false,
       pressed = false,
+      size = "medium",
       allowTextSelection = false,
       color = "primary",
-      iconSize = 18,
+      iconSize,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
@@ -182,8 +190,11 @@ const Chips = forwardRef(
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
     const isFilterable = variant === "filterable";
     const isReadOnly = !isFilterable && (readOnly || variant === "readOnly");
+    const isSmall = size === "small";
     const resolvedColor = isFilterable ? "primary" : color;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
+    const resolvedIconSize = iconSize ?? (isSmall ? 14 : 18);
+    const resolvedAvatarSize = isSmall ? CHIPS_AVATAR_SIZE_SMALL : CHIPS_AVATAR_SIZE;
 
     const hasCloseButton = !isReadOnly && !disabled && !isFilterable;
     const hasClickableWrapper =
@@ -207,6 +218,7 @@ const Chips = forwardRef(
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder,
       [styles.noMargin]: noMargin,
+      [styles.small]: isSmall,
       [styles.readOnly]: isReadOnly,
       [styles.defaultCursor]: isReadOnly,
       [styles.filterable]: isFilterable,
@@ -315,7 +327,7 @@ const Chips = forwardRef(
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.left, avatarClassName)}
-            customSize={CHIPS_AVATAR_SIZE}
+            customSize={resolvedAvatarSize}
             type={leftAvatarType}
             key={id}
             {...leftAvatarProps}
@@ -326,12 +338,12 @@ const Chips = forwardRef(
             className={cx(styles.icon, styles.left, iconClassName)}
             iconType="font"
             icon={leftIcon}
-            iconSize={iconSize}
+            iconSize={resolvedIconSize}
             ignoreFocusStyle
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type="text2" className={styles.label}>
+        <Text type={isSmall ? "text3" : "text2"} className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
@@ -339,7 +351,7 @@ const Chips = forwardRef(
             className={cx(styles.icon, styles.right, iconClassName)}
             iconType="font"
             icon={rightIcon}
-            iconSize={iconSize}
+            iconSize={resolvedIconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -347,7 +359,7 @@ const Chips = forwardRef(
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.right, avatarClassName)}
-            customSize={CHIPS_AVATAR_SIZE}
+            customSize={resolvedAvatarSize}
             type={rightAvatarType}
             key={id}
             {...rightAvatarProps}
@@ -380,6 +392,10 @@ interface ChipsStaticProps {
     READ_ONLY: "readOnly";
     FILTERABLE: "filterable";
   };
+  sizes: {
+    MEDIUM: "medium";
+    SMALL: "small";
+  };
 }
 
 export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
@@ -389,5 +405,9 @@ export default withStaticProps<ChipsProps, ChipsStaticProps>(Chips, {
     DEFAULT: "default",
     READ_ONLY: "readOnly",
     FILTERABLE: "filterable"
+  },
+  sizes: {
+    MEDIUM: "medium",
+    SMALL: "small"
   }
 });
