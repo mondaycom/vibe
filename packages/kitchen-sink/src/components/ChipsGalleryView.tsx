@@ -1,6 +1,6 @@
 import { Chips } from "@vibe/core";
 import { Bolt, Email } from "@vibe/icons";
-import type { ReactNode } from "react";
+import { type ReactNode, useLayoutEffect, useRef } from "react";
 import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
 
 type ChipColor =
@@ -71,7 +71,9 @@ const chipsVariations: GalleryVariation[] = [
   {
     id: "removable",
     label: "Removable",
-    render: () => <Chips label="Primary" color="primary" onDelete={() => {}} />,
+    render: () => (
+      <Chips label="Primary" color="primary" onDelete={() => {}} className="chips-close-on-hover" />
+    ),
   },
   {
     id: "size",
@@ -216,11 +218,33 @@ const chipsVariations: GalleryVariation[] = [
 ];
 
 export function ChipsGalleryView() {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Published Chips keep the close button in-flow; lock resting width after CSS takes it out of flow
+  useLayoutEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const lockWidths = () => {
+      root.querySelectorAll<HTMLElement>('[data-vibe="Chips"]:has([data-testid$="-close"])').forEach(chip => {
+        chip.style.width = "";
+        chip.style.width = `${chip.getBoundingClientRect().width}px`;
+      });
+    };
+
+    lockWidths();
+    const frame = requestAnimationFrame(lockWidths);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   return (
-    <ComponentGallery
-      title="Chips"
-      description="All chips variations currently supported by the component."
-      variations={chipsVariations}
-    />
+    <div ref={rootRef}>
+      <ComponentGallery
+        className="chips-gallery"
+        title="Chips"
+        description="All chips variations currently supported by the component."
+        variations={chipsVariations}
+      />
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
 import { useMergeRef } from "@vibe/shared";
@@ -210,6 +210,14 @@ const Chips = forwardRef(
 
     const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
 
+    // Lock resting width (close is absolutely positioned) so hover padding truncates label instead of growing the chip
+    useLayoutEffect(() => {
+      if (!hasCloseButton || !componentRef.current) return;
+      const el = componentRef.current;
+      el.style.width = "";
+      el.style.width = `${el.getBoundingClientRect().width}px`;
+    }, [hasCloseButton, label, size, leftIcon, rightIcon, leftAvatar, rightAvatar, leftRenderer, rightRenderer]);
+
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
       [styles.noAnimation]: noAnimation,
@@ -220,7 +228,8 @@ const Chips = forwardRef(
       [styles.readOnly]: isReadOnly,
       [styles.defaultCursor]: isReadOnly,
       [styles.filterable]: isFilterable,
-      [styles.pressed]: isFilterable && pressed
+      [styles.pressed]: isFilterable && pressed,
+      [styles.withClose]: hasCloseButton
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,

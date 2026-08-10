@@ -484,6 +484,17 @@
   color: var(--secondary-text-color);
 }
 
+.treeRowBadge {
+  flex: 0 0 auto;
+  margin-inline-start: auto;
+  margin-inline-end: var(--space-8);
+  pointer-events: none;
+}
+
+.treeRowBadge + .treeRowTrailingIcon {
+  margin-inline-start: 0;
+}
+
 .treeRowLabel {
   display: block;
   flex: 1 1 auto;

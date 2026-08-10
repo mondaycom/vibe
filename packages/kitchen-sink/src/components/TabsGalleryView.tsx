@@ -7,7 +7,9 @@ import {
   TabsContext,
 } from "@vibe/core";
 import { Calendar, Chart, Table } from "@vibe/icons";
+import { useRef } from "react";
 import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
+import { useGlidingTabIndicators } from "./useGlidingTabIndicators";
 
 function Panel({ children }: { children: string }) {
   return (
@@ -173,12 +175,17 @@ const tabsVariations: GalleryVariation[] = [
 ];
 
 export function TabsGalleryView() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  useGlidingTabIndicators(rootRef);
+
   return (
-    <ComponentGallery
-      className="tabs-gallery"
-      title="Tabs"
-      description="All tabs variations currently supported by the component."
-      variations={tabsVariations}
-    />
+    <div ref={rootRef}>
+      <ComponentGallery
+        className="tabs-gallery"
+        title="Tabs"
+        description="All tabs variations currently supported by the component."
+        variations={tabsVariations}
+      />
+    </div>
   );
 }

@@ -832,99 +832,96 @@ body {
   pointer-events: none;
 }
 
-/* Label radius is on the inner .label span, not the [data-vibe] wrapper */
+/* Label — filled style: 4px radius, no stroke */
 [data-vibe="Label"] .label_df5becdf59,
 [data-vibe="Label"] [class*="label_"] {
-  border-radius: var(--border-radius-full, 99px) !important;
+  border-radius: 4px !important;
+  border: none !important;
 }
 
 [data-vibe="Label"] .label_df5becdf59.small_c6c98c47b1,
 [data-vibe="Label"] [class*="label_"][class*="small_"] {
-  border-radius: var(--border-radius-full, 99px) !important;
+  border-radius: 4px !important;
+  padding-block: 2px !important;
 }
 
 [data-vibe="Label"] .withLeg_78e0674148,
 [data-vibe="Label"] [class*="withLeg_"] {
-  border-radius: var(--border-radius-full, 99px) var(--border-radius-full, 99px)
-    var(--border-radius-full, 99px) 0 !important;
-  border-start-start-radius: var(--border-radius-full, 99px) !important;
-  border-start-end-radius: var(--border-radius-full, 99px) !important;
-  border-end-end-radius: var(--border-radius-full, 99px) !important;
+  border-radius: 4px 4px 4px 0 !important;
+  border-start-start-radius: 4px !important;
+  border-start-end-radius: 4px !important;
+  border-end-end-radius: 4px !important;
   border-end-start-radius: 0 !important;
 }
 
-/* Label fill — selected surfaces + primary text (published package still has old tokens) */
-[data-vibe="Label"] [class*="kindFill"]:not([class*="colorDark"]) {
-  color: var(--primary-text-color) !important;
+/* Fill colors + text */
+[data-vibe="Label"] [class*="kindFill"] {
+  border: none !important;
+  padding: 2px var(--spacing-small, 8px) !important;
 }
 
-[data-vibe="Label"] [class*="kindFill"]:not([class*="colorDark"]) [class*="onPrimary"],
-[data-vibe="Label"] [class*="kindFill"]:not([class*="colorDark"]) [class*="onInverted"],
-[data-vibe="Label"] [class*="kindFill"]:not([class*="colorDark"]) *:not(svg):not(path) {
-  color: var(--primary-text-color) !important;
+[data-vibe="Label"] [class*="kindFill"][class*="small"] {
+  padding: 2px var(--spacing-xs, 4px) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] {
-  background-color: #cce4ff !important;
+  background-color: #e5f1ff !important;
+}
+
+[data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] [class*="onPrimary"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] [class*="onInverted"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] *:not(svg):not(path) {
+  color: #0073ea !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] svg path {
-  fill: #cce4ff !important;
-}
-
-[data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"][class*="clickable"]:hover,
-[data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"][class*="clickable"]:active {
-  background-color: #b8d9ff !important;
+  fill: #e5f1ff !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] {
-  background-color: var(--positive-color-selected) !important;
+  background-color: #ddede4 !important;
+}
+
+[data-vibe="Label"] [class*="kindFill"][class*="colorPositive"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] [class*="onPrimary"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] [class*="onInverted"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] *:not(svg):not(path) {
+  color: var(--positive-color) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] svg path {
-  fill: var(--positive-color-selected) !important;
-}
-
-[data-vibe="Label"] [class*="kindFill"][class*="colorPositive"][class*="clickable"]:hover,
-[data-vibe="Label"] [class*="kindFill"][class*="colorPositive"][class*="clickable"]:active {
-  background-color: var(--positive-color-selected-hover) !important;
+  fill: #ddede4 !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] {
-  background-color: var(--negative-color-selected) !important;
+  background-color: #f9e1e5 !important;
+}
+
+[data-vibe="Label"] [class*="kindFill"][class*="colorNegative"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] [class*="onPrimary"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] [class*="onInverted"],
+[data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] *:not(svg):not(path) {
+  color: var(--negative-color) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] svg path {
-  fill: var(--negative-color-selected) !important;
+  fill: #f9e1e5 !important;
 }
 
-[data-vibe="Label"] [class*="kindFill"][class*="colorNegative"][class*="clickable"]:hover,
-[data-vibe="Label"] [class*="kindFill"][class*="colorNegative"][class*="clickable"]:active {
-  background-color: var(--negative-color-selected-hover) !important;
-}
-
-/* dark fill — inverted surface + text on inverted */
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] {
-  background-color: var(--inverted-color-background) !important;
-  color: var(--text-color-on-inverted) !important;
+  background-color: var(--primary-background-hover-color) !important;
 }
 
+[data-vibe="Label"] [class*="kindFill"][class*="colorDark"],
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] [class*="onPrimary"],
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] [class*="onInverted"],
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] *:not(svg):not(path) {
-  color: var(--text-color-on-inverted) !important;
+  color: var(--secondary-text-color) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] svg path {
-  fill: var(--inverted-color-background) !important;
-}
-
-[data-vibe="Label"] [class*="kindLine"][class*="colorDark"] {
-  color: var(--inverted-color-background) !important;
-}
-
-[data-vibe="Label"] [class*="kindLine"][class*="colorDark"] svg path {
-  fill: var(--inverted-color-background) !important;
+  fill: var(--primary-background-hover-color) !important;
 }
 
 /* Filterable — primary theme only: default / hover / pressed */
@@ -1006,6 +1003,49 @@ body {
   background-color: var(--info-color-selected, #cce4ff) !important;
 }
 
+/* Removable — close on hover; lock width & truncate label so chip doesn't grow */
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]),
+[data-vibe="Chips"].chips-close-on-hover {
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]) [class*="label"],
+[data-vibe="Chips"].chips-close-on-hover [class*="label"] {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]) [class*="close"],
+[data-vibe="Chips"].chips-close-on-hover [class*="close"] {
+  position: absolute !important;
+  inset-inline-end: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]):hover,
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]):focus-within,
+[data-vibe="Chips"].chips-close-on-hover:hover,
+[data-vibe="Chips"].chips-close-on-hover:focus-within {
+  padding-inline-end: 26px !important;
+}
+
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]):hover [class*="close"],
+.chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]):focus-within [class*="close"],
+[data-vibe="Chips"].chips-close-on-hover:hover [class*="close"],
+[data-vibe="Chips"].chips-close-on-hover:focus-within [class*="close"] {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 /* Tabs — remove continuous list stroke; keep selected underline only */
 .tabs-gallery [data-vibe="Tab"],
 .tabs-gallery .tabWrapper_64bb561a42 {
@@ -1032,35 +1072,56 @@ body {
   height: 40px !important;
 }
 
-/* Published Tab ::after — 2px bar, 2px gap above, 4px horizontal inset from button */
+/* Published Tab ::after — replaced by gliding selected stroke */
 .tabs-gallery [data-vibe="Tab"]::after,
 .tabs-gallery .tabWrapper_64bb561a42::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  inset-inline: 4px !important;
-  left: 4px !important;
-  right: 4px !important;
-  bottom: 0 !important;
-  top: auto !important;
-  height: 2px !important;
-  width: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  background-color: transparent !important;
-  transform: scaleX(0) !important;
-  transform-origin: center bottom !important;
-  z-index: 2 !important;
-  pointer-events: none !important;
-  box-sizing: border-box !important;
+  display: none !important;
+  content: none !important;
 }
 
-.tabs-gallery [data-vibe="Tab"][class*="active"]::after,
-.tabs-gallery [data-vibe="Tab"][aria-selected="true"]::after,
-.tabs-gallery .tabWrapper_64bb561a42.active_44e1f33c44::after {
+/*
+ * Tokens — remove this block once design system tokens are live
+ * Pattern: slide-transition (tab indicator)
+ * Tokens used: position · ease-transition · duration-long-250
+ */
+.tabs-gallery {
+  --duration-long-250: 250ms;
+  --duration-short-70: 70ms;
+  --ease-transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-linear: linear;
+}
+
+.tabs-gallery [data-testid="tab-list"],
+.tabs-gallery [class*="tabsWrapper"] {
+  position: relative !important;
+}
+
+.tabs-gallery .tabs-glide-indicator {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0;
+  width: 0;
+  height: 2px !important;
   background-color: var(--primary-text-color, #323338) !important;
-  transform: scaleX(1) !important;
+  border-radius: 1px;
+  opacity: 0;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  transition:
+    left var(--duration-long-250) var(--ease-transition),
+    width var(--duration-long-250) var(--ease-transition),
+    opacity var(--duration-short-70) var(--ease-linear);
+}
+
+.tabs-gallery .tabs-glide-indicator.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabs-gallery .tabs-glide-indicator {
+    /* Keep the state change legible, drop the movement */
+    transition: opacity var(--duration-short-70) var(--ease-linear);
+  }
 }
 
 .tabs-gallery [data-vibe="Tab"] [class*="tabInner"],
@@ -1123,5 +1184,18 @@ body {
 /* 4px gap between tab list and panels */
 .tabs-gallery [class*="tabsWrapper"] + * {
   margin-top: 4px !important;
+}
+
+/*
+ * TextField focus/active border = hover border (primary text).
+ * Match published CSS-module specificity so this wins over injected package styles.
+ */
+.textField_1072f10d5c .inputWrapper_e7231e136e .input_701407b76d:focus,
+.textField_1072f10d5c .inputWrapper_e7231e136e .input_701407b76d:active,
+.textField_1072f10d5c .inputWrapper_e7231e136e .input_701407b76d.inputActive_b69cdfec31,
+[class*="textField"] [class*="inputWrapper"] [data-vibe="TextField"]:focus,
+[class*="textField"] [class*="inputWrapper"] [data-vibe="TextField"]:active,
+[class*="textField"] [class*="inputWrapper"] [class*="inputActive"] {
+  border-color: var(--primary-text-color, #323338) !important;
 }
 

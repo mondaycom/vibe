@@ -27,6 +27,43 @@
     margin: 0;
   }
 
+  &.withClose {
+    position: relative;
+    box-sizing: border-box;
+
+    .label {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .icon.close {
+      position: absolute;
+      inset-inline-end: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus-within {
+      /* Keep overall width stable; carve space for the close control inside the chip */
+      padding-inline-end: 26px;
+
+      .icon.close {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &.small:hover,
+    &.small:focus-within {
+      padding-inline-end: 22px;
+    }
+  }
+
   &.small {
     height: 20px;
 

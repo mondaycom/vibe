@@ -13,6 +13,7 @@ import {
   Menu,
   MenuItem,
   Search,
+  Label,
   type DropdownOption,
   type AvatarProps,
 } from "@vibe/core";
@@ -1330,6 +1331,7 @@ function NavTreeItemRow({
   label,
   icon: ItemIcon,
   trailingIcon: TrailingIcon,
+  badge,
   depth,
   selected,
   onSelect,
@@ -1337,6 +1339,7 @@ function NavTreeItemRow({
   label: string;
   icon: AnyIcon;
   trailingIcon?: AnyIcon;
+  badge?: string;
   depth: number;
   selected: boolean;
   onSelect: () => void;
@@ -1356,6 +1359,9 @@ function NavTreeItemRow({
     >
       <Icon icon={ItemIcon} size={16} className={styles.treeRowIcon} />
       <span className={styles.treeRowLabel}>{label}</span>
+      {badge && (
+        <Label text={badge} color="primary" size="small" className={styles.treeRowBadge} />
+      )}
       {TrailingIcon && (
         <Icon
           icon={TrailingIcon}
@@ -1425,6 +1431,7 @@ function NavTreeNodes({
             key={node.id}
             label={node.label}
             icon={NAV_ITEM_ICONS[node.icon]}
+            badge={node.badge}
             depth={depth}
             selected={selectedItem === node.id}
             onSelect={() => onSelect(node.id)}
