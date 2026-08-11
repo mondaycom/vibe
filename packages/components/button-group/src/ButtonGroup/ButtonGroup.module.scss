@@ -1,4 +1,4 @@
-@import "../../styles/typography";
+@import "~@vibe/style/dist/mixins";
 
 .buttonGroup {
   display: flex;
@@ -6,7 +6,8 @@
 }
 
 .subTextContainer {
-  @include font-caption();
+  @include vibe-text(text2, normal);
+  @include smoothing-text;
 }
 
 .buttonsContainer {

@@ -2,7 +2,7 @@ import React from "react";
 import { isNil } from "es-toolkit";
 import { Button, type ButtonProps } from "@vibe/button";
 import { Tooltip } from "@vibe/tooltip";
-import { type MoveBy } from "../../types/MoveBy";
+import { type MoveBy } from "@vibe/shared";
 import { type TooltipPositions } from "@vibe/tooltip";
 import styles from "./ButtonGroup.module.scss";
 
