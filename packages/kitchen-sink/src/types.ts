@@ -8,6 +8,7 @@ export type ComponentGalleryId =
   | "icon-button"
   | "button"
   | "button-group"
+  | "segmented-control"
   | "tabs"
   | "label"
   | "chip"

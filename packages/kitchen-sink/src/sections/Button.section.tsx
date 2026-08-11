@@ -18,6 +18,8 @@ const controls: Section["controls"] = [
     label: "Size",
     type: "select",
     options: [
+      { value: "xxs", label: "XXS" },
+      { value: "xs", label: "XS" },
       { value: "small", label: "Small" },
       { value: "medium", label: "Medium" },
       { value: "large", label: "Large" },
@@ -57,7 +59,7 @@ const defaultState = {
 const Demo: Section["Demo"] = ({ state }) => (
   <Button
     kind={state.kind as "primary" | "secondary" | "tertiary"}
-    size={state.size as "small" | "medium" | "large"}
+    size={state.size as "xxs" | "xs" | "small" | "medium" | "large"}
     leftIcon={state.leftIcon === "left" ? Bolt : undefined}
     rightIcon={state.rightIcon === "right" ? Bolt : undefined}
     disabled={Boolean(state.disabled)}

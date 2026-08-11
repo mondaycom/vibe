@@ -107,6 +107,20 @@
   gap: var(--space-4);
 }
 
+.segmentIcon {
+  color: var(--icon-color);
+}
+
+.segment:hover .segmentIcon,
+.segment:active .segmentIcon,
+.segment[aria-checked="true"] .segmentIcon {
+  color: var(--primary-text-color);
+}
+
+.segment[aria-disabled="true"] .segmentIcon {
+  color: var(--disabled-text-color);
+}
+
 .sizeXs {
   height: 24px;
   font-size: 12px;

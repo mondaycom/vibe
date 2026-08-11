@@ -63,7 +63,7 @@ const SegmentButton = ({
       onKeyDown={onKeyDown}
     >
       <span className={styles.segmentContent}>
-        {option.icon && <Icon icon={option.icon} size={iconSize} />}
+        {option.icon && <Icon icon={option.icon} size={iconSize} className={styles.segmentIcon} />}
         {option.label}
       </span>
     </button>

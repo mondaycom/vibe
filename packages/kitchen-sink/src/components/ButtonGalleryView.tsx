@@ -1,6 +1,11 @@
 import { Button } from "@vibe/core";
 import { Bolt, Calendar } from "@vibe/icons";
+import type { ReactNode } from "react";
 import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
+
+function ButtonRow({ children }: { children: ReactNode }) {
+  return <div className="button-gallery-row">{children}</div>;
+}
 
 const buttonVariations: GalleryVariation[] = [
   {
@@ -19,19 +24,72 @@ const buttonVariations: GalleryVariation[] = [
     render: () => <Button kind="tertiary">Tertiary</Button>,
   },
   {
-    id: "size-large",
-    label: "Size — Large",
-    render: () => <Button size="large">Large</Button>,
+    id: "sizes",
+    label: "Sizes",
+    render: () => (
+      <ButtonRow>
+        <Button size="xxs">XXS</Button>
+        <Button size="xs">XS</Button>
+        <Button size="small">Small</Button>
+        <Button size="medium">Medium</Button>
+        <Button size="large">Large</Button>
+      </ButtonRow>
+    ),
   },
   {
-    id: "size-medium",
-    label: "Size — Medium",
-    render: () => <Button size="medium">Medium</Button>,
+    id: "icon-left",
+    label: "Icon — Left",
+    render: () => (
+      <ButtonRow>
+        <Button size="xxs" leftIcon={Calendar}>
+          Left
+        </Button>
+        <Button size="xs" leftIcon={Calendar}>
+          Left
+        </Button>
+        <Button size="small" leftIcon={Calendar}>
+          Left
+        </Button>
+        <Button size="medium" leftIcon={Calendar}>
+          Left
+        </Button>
+        <Button size="large" leftIcon={Calendar}>
+          Left
+        </Button>
+      </ButtonRow>
+    ),
   },
   {
-    id: "size-small",
-    label: "Size — Small",
-    render: () => <Button size="small">Small</Button>,
+    id: "icon-right",
+    label: "Icon — Right",
+    render: () => (
+      <ButtonRow>
+        <Button size="xxs" rightIcon={Calendar}>
+          Right
+        </Button>
+        <Button size="xs" rightIcon={Calendar}>
+          Right
+        </Button>
+        <Button size="small" rightIcon={Calendar}>
+          Right
+        </Button>
+        <Button size="medium" rightIcon={Calendar}>
+          Right
+        </Button>
+        <Button size="large" rightIcon={Calendar}>
+          Right
+        </Button>
+      </ButtonRow>
+    ),
+  },
+  {
+    id: "icon-both",
+    label: "Icon — Both sides",
+    render: () => (
+      <Button leftIcon={Bolt} rightIcon={Bolt}>
+        Both icons
+      </Button>
+    ),
   },
   {
     id: "disabled-primary",
@@ -70,25 +128,6 @@ const buttonVariations: GalleryVariation[] = [
     id: "color-negative",
     label: "Color — Negative",
     render: () => <Button color="negative">Negative</Button>,
-  },
-  {
-    id: "icon-left",
-    label: "Icon — Left",
-    render: () => <Button leftIcon={Calendar}>Left icon</Button>,
-  },
-  {
-    id: "icon-right",
-    label: "Icon — Right",
-    render: () => <Button rightIcon={Calendar}>Right icon</Button>,
-  },
-  {
-    id: "icon-both",
-    label: "Icon — Both sides",
-    render: () => (
-      <Button leftIcon={Bolt} rightIcon={Bolt}>
-        Both icons
-      </Button>
-    ),
   },
   {
     id: "loading",

@@ -650,6 +650,10 @@ body {
   background: var(--allgrey-background-color, #f6f7fb);
 }
 
+.segmented-control-gallery .component-gallery-item-preview {
+  background: var(--primary-background-color, #ffffff);
+}
+
 .toast-gallery-item-preview {
   display: flex;
   align-items: center;
