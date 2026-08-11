@@ -11,6 +11,7 @@ export const defaultComponentStates: ComponentStateMap = {
     loading: false,
   },
   "button-group": { kind: "primary", size: "medium", disabled: false },
+  "segmented-control": { size: "medium", fullWidth: false, disabled: false, disabledSegment: false },
   tabs: { size: "medium", activeTab: 0 },
   label: { color: "primary", size: "medium" },
   chip: { color: "primary", size: "medium", disabled: false, readOnly: true },

@@ -14,21 +14,13 @@ import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
 import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
-import {
-  FEEDBACK_CLASSES,
-  SIZE_MAPPER,
-  TextFieldAriaLabel,
-  TextFieldFeedbackState as TextFieldFeedbackStateEnum,
-  TextFieldTextType as TextFieldTextTypeEnum
-} from "./TextFieldConstants";
+import { FEEDBACK_CLASSES, SIZE_MAPPER, TextFieldAriaLabel } from "./TextFieldConstants";
 import { type TextFieldType, type TextFieldSize } from "./TextField.types";
-import { BASE_SIZES } from "../../constants/sizes";
-import useMergeRef from "../../hooks/useMergeRef";
+import { useMergeRef, NOOP } from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
 import { getTestId } from "../../tests/test-ids-utils";
-import { NOOP } from "../../utils/function-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { type VibeComponentProps, withStaticProps } from "../../types";
+import { type VibeComponentProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "@vibe/tooltip";
 import { HiddenText } from "../HiddenText";
@@ -516,14 +508,4 @@ const TextField = forwardRef(
   }
 );
 
-interface TextFieldStaticProps {
-  sizes: typeof BASE_SIZES;
-  types: typeof TextFieldTextTypeEnum;
-  feedbacks: typeof TextFieldFeedbackStateEnum;
-}
-
-export default withStaticProps<TextFieldProps, TextFieldStaticProps, unknown>(TextField, {
-  sizes: BASE_SIZES,
-  feedbacks: TextFieldFeedbackStateEnum,
-  types: TextFieldTextTypeEnum
-});
+export default TextField;

@@ -1,20 +1,17 @@
-import { ButtonGroup } from "@vibe/core";
+import { ButtonGroup, SegmentedControl } from "@vibe/core";
 import { useKitchenSink } from "../context/KitchenSinkContext";
 import type { SystemTheme, ThemeSubPage } from "../types";
-import {
-  COMPONENT_GALLERY_LABELS,
-  COMPONENT_GALLERY_ORDER,
-} from "./componentGalleries";
+import { COMPONENT_GALLERY_LABELS, COMPONENT_GALLERY_ORDER } from "./componentGalleries";
 
 const THEME_FAMILY_OPTIONS = [
-  { value: "original", text: "Original" },
-  { value: "facelift", text: "Facelift" },
+  { value: "original", label: "Original" },
+  { value: "facelift", label: "Facelift" }
 ] as const;
 
 const THEME_SUBPAGES: { id: ThemeSubPage; label: string }[] = [
   { id: "colors", label: "Colors" },
   { id: "radius", label: "Radius" },
-  { id: "typography", label: "Typography" },
+  { id: "typography", label: "Typography" }
 ];
 
 const SYSTEM_THEMES: SystemTheme[] = ["light", "dark", "black"];
@@ -35,7 +32,7 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
     setThemeSubPage,
     setComponentSubPage,
     setSystemTheme,
-    setFaceliftTheme,
+    setFaceliftTheme
   } = useKitchenSink();
 
   return (
@@ -60,11 +57,13 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
         >
           Components
         </button>
-        {COMPONENT_GALLERY_ORDER.map((id) => (
+        {COMPONENT_GALLERY_ORDER.map(id => (
           <button
             key={id}
             type="button"
-            className={`left-pane-sublink left-pane-sublink--deep${view === "components" && componentSubPage === id ? " is-active" : ""}`}
+            className={`left-pane-sublink left-pane-sublink--deep${
+              view === "components" && componentSubPage === id ? " is-active" : ""
+            }`}
             onClick={() => setComponentSubPage(id)}
           >
             {COMPONENT_GALLERY_LABELS[id]}
@@ -78,7 +77,7 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
           Theme
         </button>
         {view === "theme" &&
-          THEME_SUBPAGES.map((page) => (
+          THEME_SUBPAGES.map(page => (
             <button
               key={page.id}
               type="button"
@@ -106,20 +105,16 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
       <div className="left-pane-footer" aria-hidden={collapsed}>
         <div className="left-pane-footer-section">
           <span className="left-pane-footer-label">Theme</span>
-          <ButtonGroup
-            className="left-pane-footer-button-group"
-            groupAriaLabel="Theme family"
-            options={[...THEME_FAMILY_OPTIONS]}
-            value={faceliftTheme ? "facelift" : "original"}
-            onSelect={(value) => setFaceliftTheme(value === "facelift")}
-            kind="secondary"
+          <SegmentedControl
+            options={THEME_FAMILY_OPTIONS}
             size="small"
-            fullWidth
+            value={faceliftTheme ? "facelift" : "original"}
+            onChange={value => setFaceliftTheme(value === "facelift")}
           />
         </div>
         <div className="left-pane-footer-section">
           <span className="left-pane-footer-label">Mode</span>
-          {SYSTEM_THEMES.map((theme) => (
+          {SYSTEM_THEMES.map(theme => (
             <button
               key={theme}
               type="button"

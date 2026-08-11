@@ -50,6 +50,15 @@
     js-tokens "^4.0.0"
     picocolors "^1.1.1"
 
+"@babel/code-frame@^7.29.7":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.29.7.tgz#f2fbbfea87c44a21590ec515b778b2c26d8866e7"
+  integrity sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==
+  dependencies:
+    "@babel/helper-validator-identifier" "^7.29.7"
+    js-tokens "^4.0.0"
+    picocolors "^1.1.1"
+
 "@babel/compat-data@^7.22.6", "@babel/compat-data@^7.23.5", "@babel/compat-data@^7.24.1":
   version "7.24.1"
   resolved "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.24.1.tgz"
@@ -178,6 +187,17 @@
     "@jridgewell/gen-mapping" "^0.3.5"
     "@jridgewell/trace-mapping" "^0.3.25"
     jsesc "^2.5.1"
+
+"@babel/generator@^7.24.4", "@babel/generator@^7.29.8":
+  version "7.29.8"
+  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.29.8.tgz#4b0b887885422643339e09022148a4c4ebaa4979"
+  integrity sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg==
+  dependencies:
+    "@babel/parser" "^7.29.8"
+    "@babel/types" "^7.29.8"
+    "@jridgewell/gen-mapping" "^0.3.12"
+    "@jridgewell/trace-mapping" "^0.3.28"
+    jsesc "^3.0.2"
 
 "@babel/generator@^7.24.7":
   version "7.24.7"
@@ -336,6 +356,11 @@
   version "7.28.0"
   resolved "https://registry.npmjs.org/@babel/helper-globals/-/helper-globals-7.28.0.tgz"
   integrity sha512-+W6cISkXFa1jXsDEdYA8HeevQT/FULhxzR99pxphltZcVaugps53THCeiWA8SguxxpSp3gKPiuYfSWopkLQ4hw==
+
+"@babel/helper-globals@^7.29.7":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-globals/-/helper-globals-7.29.7.tgz#f04a96fbd8473241b1079243f5b3f03a3010ab7b"
+  integrity sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==
 
 "@babel/helper-hoist-variables@^7.22.5":
   version "7.22.5"
@@ -544,6 +569,11 @@
   resolved "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.27.1.tgz"
   integrity sha512-qMlSxKbpRlAridDExk92nSobyDdpPijUq2DW6oDnUqd0iOGxmQjyqhMIihI9+zv4LPyZdRje2cavWPbCbWm3eA==
 
+"@babel/helper-string-parser@^7.29.7":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz#7f0871d99824d23137d60f86fcf6130fd5a1b51f"
+  integrity sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==
+
 "@babel/helper-validator-identifier@^7.22.20":
   version "7.22.20"
   resolved "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.20.tgz"
@@ -563,6 +593,11 @@
   version "7.28.5"
   resolved "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.28.5.tgz"
   integrity sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==
+
+"@babel/helper-validator-identifier@^7.29.7":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz#bd87084ced0c796ec46bda492de6e83d29e89fc2"
+  integrity sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==
 
 "@babel/helper-validator-option@^7.23.5":
   version "7.23.5"
@@ -669,6 +704,13 @@
   integrity sha512-KKBU1VGYR7ORr3At5HAtUQ+TV3SzRCXmA/8OdDZiLDBIZxVyzXuztPjfLd3BV1PRAQGCMWWSHYhL0F8d5uHBDQ==
   dependencies:
     "@babel/types" "^7.28.5"
+
+"@babel/parser@^7.29.7", "@babel/parser@^7.29.8":
+  version "7.29.8"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.29.8.tgz#9653716a2f10c677b98fbc63d4bfb000c302cf17"
+  integrity sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA==
+  dependencies:
+    "@babel/types" "^7.29.8"
 
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.24.1":
   version "7.24.1"
@@ -1636,6 +1678,15 @@
     "@babel/parser" "^7.24.7"
     "@babel/types" "^7.24.7"
 
+"@babel/template@^7.29.7":
+  version "7.29.7"
+  resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.29.7.tgz#4d9d4004f645cdd304de958c725162784ecac700"
+  integrity sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==
+  dependencies:
+    "@babel/code-frame" "^7.29.7"
+    "@babel/parser" "^7.29.7"
+    "@babel/types" "^7.29.7"
+
 "@babel/traverse@^7.18.9", "@babel/traverse@^7.24.1", "@babel/traverse@^7.7.2":
   version "7.24.1"
   resolved "https://registry.npmjs.org/@babel/traverse/-/traverse-7.24.1.tgz"
@@ -1651,6 +1702,19 @@
     "@babel/types" "^7.24.0"
     debug "^4.3.1"
     globals "^11.1.0"
+
+"@babel/traverse@^7.24.4":
+  version "7.29.8"
+  resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.29.8.tgz#4111014cdc71a0f95d9471907590baa0b8a6b28a"
+  integrity sha512-I5z7H3bf/41ktsNVLtpN0wAa336HkqIHQ5BuPLEhTkt1jVSyZpeNKIzTgEWmlxjdg81R0IgUCcaE+Ok3NvrfZg==
+  dependencies:
+    "@babel/code-frame" "^7.29.7"
+    "@babel/generator" "^7.29.8"
+    "@babel/helper-globals" "^7.29.7"
+    "@babel/parser" "^7.29.8"
+    "@babel/template" "^7.29.7"
+    "@babel/types" "^7.29.8"
+    debug "^4.3.1"
 
 "@babel/traverse@^7.24.7":
   version "7.24.7"
@@ -1727,6 +1791,14 @@
   dependencies:
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.28.5"
+
+"@babel/types@^7.29.7", "@babel/types@^7.29.8":
+  version "7.29.8"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.29.8.tgz#1229eef31d85156d70fa3f4cd859376d0eaf6863"
+  integrity sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==
+  dependencies:
+    "@babel/helper-string-parser" "^7.29.7"
+    "@babel/helper-validator-identifier" "^7.29.7"
 
 "@bcoe/v8-coverage@^0.2.3":
   version "0.2.3"
@@ -4211,13 +4283,6 @@
   dependencies:
     "@vibe/icons" "^1.15.0"
 
-"@mondaydotcomorg/icons@1.51.0":
-  version "1.51.0"
-  resolved "https://registry.yarnpkg.com/@mondaydotcomorg/icons/-/icons-1.51.0.tgz#1fd67c94ac08308aa4f76001830dceff4ebd7bec"
-  integrity sha512-RL3nNOkmFROolNp6F9gcNUKCQ4FJHjS529JFWCcXVW5C5t9hIV15QwMhb3H5QnbKYlEpsBLet6TxwQTIfLIbIA==
-  dependencies:
-    "@vibe/icons" "^4.0.0"
-
 "@mondaydotcomorg/icons@1.54.0":
   version "1.54.0"
   resolved "https://registry.yarnpkg.com/@mondaydotcomorg/icons/-/icons-1.54.0.tgz#2f3c69868e6b119c014fc2395f371551abfe67d3"
@@ -4229,6 +4294,13 @@
   version "1.60.0"
   resolved "https://registry.yarnpkg.com/@mondaydotcomorg/icons/-/icons-1.60.0.tgz#55c2c80fff3e80f2a00ae63488203d23be63303e"
   integrity sha512-BWzTujZuPgncSx4/2hugW+FF/XCFNbH00q5FJAfHfiGBs10AWIFVKhdGAgixpB5ig8EbAVHKh0iySG1nlNV0PA==
+  dependencies:
+    "@vibe/icons" "^4.1.0"
+
+"@mondaydotcomorg/icons@^1.51.0":
+  version "1.60.1"
+  resolved "https://registry.yarnpkg.com/@mondaydotcomorg/icons/-/icons-1.60.1.tgz#698e58b8b7d42d6f0c9676747db3ef9835d7a240"
+  integrity sha512-evsJZ73Hlu/aDfFnXlnLuRPB5YOpP5CUQGz6XpDrQca4CjrJ8qzHqVJW1zJL965Wlh9H5cFvnqWj7ic0zSMXEw==
   dependencies:
     "@vibe/icons" "^4.1.0"
 
@@ -7957,15 +8029,6 @@
   resolved "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.7.tgz"
   integrity sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==
 
-"@types/react-dates@^21.8.3":
-  version "21.8.6"
-  resolved "https://registry.npmjs.org/@types/react-dates/-/react-dates-21.8.6.tgz"
-  integrity sha512-fDF322SOXAxstapv0/oruiPx9kY4DiiaEHYAVvXdPfQhi/hdaONsA9dFw5JBNPAWz7Niuwk+UUhxPU98h70TjA==
-  dependencies:
-    "@types/react" "*"
-    "@types/react-outside-click-handler" "*"
-    moment "^2.26.0"
-
 "@types/react-dom@*", "@types/react-dom@>=16.9.0", "@types/react-dom@^18.3.7":
   version "18.3.7"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.3.7.tgz"
@@ -7984,13 +8047,6 @@
   integrity sha512-fcPxYqcx6uLZwl+SlcHs2C/3lU2+yM9paQiVokQW5Ux4ywpHRYsfDmraSRGec+5rw3xpXR3w7usvJAoKic6fyg==
   dependencies:
     "@types/react" "^16"
-
-"@types/react-outside-click-handler@*":
-  version "1.3.3"
-  resolved "https://registry.npmjs.org/@types/react-outside-click-handler/-/react-outside-click-handler-1.3.3.tgz"
-  integrity sha512-fF7x4dHf/IPIne8kkt3rlCGuWFrWkFJmzQm4JkxSBzXJIM9WDLob++VnmGpE3ToVWrW3Xw9D5TxcUWrwqe04Gg==
-  dependencies:
-    "@types/react" "*"
 
 "@types/react-resizable@^3.0.7":
   version "3.0.7"
@@ -8675,57 +8731,55 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@vibe/base@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@vibe/base/-/base-4.0.3.tgz"
-  integrity sha512-N+sZL27fw3QOKFEk00WsXGvg3GjtOSGhy65YYGPwJR3f7qkAl7nQmBDogT+YGHaEatV1MekfDw1FLbvQKK/vaw==
+"@vibe/base@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@vibe/base/-/base-3.0.5.tgz#d15de26ea7399251a047947bd2c5cdc3cd932b32"
+  integrity sha512-e0JQWygbbRj6q85XlovXAOgkxZtoTR7I9K+OMoMvFc09xnQ1evZr8G2HF6Il8ENT/23s5O8hLJ1Ef/OzdBbp2w==
   dependencies:
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
 
-"@vibe/button@4.0.4":
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/@vibe/button/-/button-4.0.4.tgz"
-  integrity sha512-R0n8CPVpLtkdmHvT2WWTnEPx9baOkAEyiu7EYyZiHgenuoB0IXVhFIMFNp1Rcgo8apctTfNsMChTv0ACIwVqlg==
+"@vibe/button@3.0.16":
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/@vibe/button/-/button-3.0.16.tgz#6612892a8a338b603b77e2fa310df7b342ba3f45"
+  integrity sha512-fjFb7Khv86P/tk6rO8Mdg2+fwBLen98i+E6YXC2gkWcFJAvNfjkH8kZN4m0HhmaQDBQb+ESmXZdq9vZIllS3Dw==
   dependencies:
-    "@vibe/icon" "4.0.3"
-    "@vibe/loader" "4.0.3"
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
+    "@vibe/icon" "3.0.11"
+    "@vibe/loader" "3.0.11"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/clickable@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@vibe/clickable/-/clickable-4.0.3.tgz"
-  integrity sha512-VdN5rZROOHsd4Vg4jFLt6OSmVLAkosFlnF6QROBUo+z7DC3Pj90wyBa1/6UeJqV5sQIBRqSelbwH+oftfExOPQ==
+"@vibe/clickable@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@vibe/clickable/-/clickable-3.0.3.tgz#e5c0ad7e739f350326eddfa7447acf0458b363e0"
+  integrity sha512-xsMt0TpUj8Wdv62kADvq//BhXlU3YVBix4WJdcyRPBp5NRPMksIbbOiMc35WIZznO/lA9IwoE1ktFOjwx28hfw==
   dependencies:
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/core@3.85.1":
-  version "3.85.1"
-  resolved "https://registry.npmjs.org/@vibe/core/-/core-3.85.1.tgz"
-  integrity sha512-4FLmMGV8Z0N5EdfVGqx9GicA54iKozLnEYKwWhgGfu7kKgGroQTUgbOe8IBeKo9WWXyK0Ye1xOC7CyeaWwW6JA==
+"@vibe/core@^3.25.0", "@vibe/core@^3.59.0", "@vibe/core@^3.82.0", "@vibe/core@^3.85.0":
+  version "3.88.6"
+  resolved "https://registry.yarnpkg.com/@vibe/core/-/core-3.88.6.tgz#be049ef2c59e2a5339ea34c6b69d3e84d0adbe04"
+  integrity sha512-dLF2J0vftejo0z2HCmyGiorQtO52qU/XZczNbwZR96y18fiANdhb5pXWMHqA9NPaSzLVOLmUKxJ4ksfvceJmHg==
   dependencies:
+    "@floating-ui/react-dom" "^2.1.2"
     "@popperjs/core" "2.11.6"
     "@vibe/base" "3.0.5"
     "@vibe/button" "3.0.16"
     "@vibe/clickable" "3.0.3"
-    "@vibe/dialog" "3.0.11"
+    "@vibe/dialog" "3.0.13"
     "@vibe/hooks" "3.0.3"
     "@vibe/icon" "3.0.11"
-    "@vibe/icon-button" "3.0.4"
+    "@vibe/icon-button" "3.0.7"
     "@vibe/icons" "1.16.0"
     "@vibe/layer" "3.0.10"
     "@vibe/layout" "3.0.3"
     "@vibe/loader" "3.0.11"
     "@vibe/shared" "3.0.8"
-    "@vibe/tooltip" "3.0.4"
-    "@vibe/typography" "3.0.4"
+    "@vibe/tooltip" "3.0.7"
+    "@vibe/typography" "3.0.7"
     a11y-dialog "^7.5.2"
     body-scroll-lock "^4.0.0-beta.0"
     browserslist-config-monday "1.0.6"
@@ -8749,46 +8803,10 @@
     react-windowed-select "^2.0.4"
     style-inject "^0.3.0"
 
-"@vibe/core@^4.2.3", "@vibe/core@^4.5.3":
-  version "4.5.3"
-  resolved "https://registry.npmjs.org/@vibe/core/-/core-4.5.3.tgz"
-  integrity sha512-QnynGiCHE3+M9sLBFADuqZLzR2fdlMr25rE7Zho9RrGbY1DHHUDLC5XwVhTwhpTgsezJpuCmgfFY/Kq39c1THg==
-  dependencies:
-    "@floating-ui/react-dom" "^2.1.2"
-    "@vibe/base" "4.0.3"
-    "@vibe/button" "4.0.4"
-    "@vibe/clickable" "4.0.3"
-    "@vibe/dialog" "4.1.1"
-    "@vibe/hooks" "4.0.3"
-    "@vibe/icon" "4.0.3"
-    "@vibe/icon-button" "4.0.6"
-    "@vibe/icons" "4.1.0"
-    "@vibe/layer" "4.0.4"
-    "@vibe/layout" "4.0.4"
-    "@vibe/loader" "4.0.3"
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
-    "@vibe/tooltip" "4.0.6"
-    "@vibe/typography" "4.0.6"
-    browserslist-config-monday "1.0.6"
-    classnames "^2.5.1"
-    date-fns "^2.30.0"
-    downshift "^9.0.8"
-    es-toolkit "^1.39.10"
-    react-day-picker "^8.10.2"
-    react-focus-lock "^2.13.2"
-    react-inlinesvg "^4.1.3"
-    react-is "^16.9.0"
-    react-remove-scroll "^2.6.0"
-    react-transition-group "^4.4.5"
-    react-virtualized-auto-sizer "^1.0.7"
-    react-window "^1.8.7"
-    style-inject "^0.3.0"
-
-"@vibe/dialog@3.0.11":
-  version "3.0.11"
-  resolved "https://registry.npmjs.org/@vibe/dialog/-/dialog-3.0.11.tgz"
-  integrity sha512-a0Gh6NfnTtbSgIIuVJwW09Cvfh+O1V+21CQ2J1rtVqTPOCGzSKlnC+omzEnJMnnotbYYSSne8K310Y2shaorFA==
+"@vibe/dialog@3.0.13":
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/@vibe/dialog/-/dialog-3.0.13.tgz#bf5b732e4238286540c6fd615cfee5a66a60cbab"
+  integrity sha512-orI9IumQZcAWMu7uqZ2QcXsTFs5WlaaSkbhPk98+VC7DNbUP5QJyLIaX+Jf+aInCqmpN6r1IIZdDNH85Im5tlg==
   dependencies:
     "@popperjs/core" "2.11.6"
     "@vibe/hooks" "3.0.3"
@@ -8799,165 +8817,102 @@
     react-popper "^2.3.0"
     react-transition-group "^4.4.5"
 
-"@vibe/dialog@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/@vibe/dialog/-/dialog-4.1.1.tgz"
-  integrity sha512-Gh6D4LAAX8njtZ5ezrtBpRq+Ew9UmzRGG290uYRe2AnS4fuG74TVkyHPOHmYBfCr98drEBPz3V1fA1g38SItkA==
+"@vibe/hooks@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@vibe/hooks/-/hooks-3.0.3.tgz#048284a79c75a9aaddbd730dc5fdb49851a2ecf9"
+  integrity sha512-74iEe2qLdjm3enpstGtewFkrKxNACvPMtIAxgUiBZ9T28cYu5mjbtH+Lp2Gv/kNMMv3x/V3RWcn7uqjLjyKBbQ==
   dependencies:
-    "@floating-ui/react-dom" "^2.1.2"
-    "@vibe/hooks" "4.0.3"
-    "@vibe/layer" "4.0.4"
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
-    classnames "^2.5.1"
-    es-toolkit "^1.39.10"
-    react-transition-group "^4.4.5"
-
-"@vibe/hooks@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@vibe/hooks/-/hooks-4.0.3.tgz"
-  integrity sha512-W4vKiC5q6p9x0CHb+xzh0SqNEvu4vevYSvOvUySrD76DLkgbgU/VZ8cFNZne24W0V7ED93ID4Dw3FugFKyfOAQ==
-  dependencies:
-    "@vibe/shared" "4.0.3"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/icon-button@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/@vibe/icon-button/-/icon-button-3.0.4.tgz"
-  integrity sha512-lOuO2kb9MnwAx0jVlDKxYSxIOE3G6Pr9B4DA8Mdk7jYJ+ZqEwcJKMAA84rXi6iQBUOebpqv7MpS/IEc4NcV0gw==
+"@vibe/icon-button@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@vibe/icon-button/-/icon-button-3.0.7.tgz#ffc4ac7193306672041f83b1fc365defcd86f7a6"
+  integrity sha512-oy29sjexjaxF8f7ZzDhFbQFhyF0pkXx/KvuLooyNtgokQ27A99uGxjnHBivv6m9lXRNCKvtt6PrTL8UXUYBRJw==
   dependencies:
     "@vibe/button" "3.0.16"
     "@vibe/icon" "3.0.11"
     "@vibe/icons" "1.16.0"
     "@vibe/shared" "3.0.8"
-    "@vibe/tooltip" "3.0.4"
+    "@vibe/tooltip" "3.0.7"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/icon-button@4.0.6":
-  version "4.0.6"
-  resolved "https://registry.npmjs.org/@vibe/icon-button/-/icon-button-4.0.6.tgz"
-  integrity sha512-KcsojJmExaRxrGMsr1nGDesV2v5PjBf0Zd5Rov0lYN16EJRJi20cTGCG1+7BCTS+2vHIhpbYvxhEVUJfMePcNQ==
+"@vibe/icon@3.0.11":
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/@vibe/icon/-/icon-3.0.11.tgz#bb3159ec302a389d6f3e20edc36723d068f2efa5"
+  integrity sha512-4xdj++K+2e7Wy7mSeTS6aLK0rjZpwIuZZoFv6X/lE5PxR7JkA1IRiaHUyCSE9CS9W0TDGEAzN923YuFjU0ghsA==
   dependencies:
-    "@vibe/button" "4.0.4"
-    "@vibe/icon" "4.0.3"
-    "@vibe/icons" "4.1.0"
-    "@vibe/shared" "4.0.3"
-    "@vibe/tooltip" "4.0.6"
-    classnames "^2.5.1"
-    es-toolkit "^1.39.10"
-
-"@vibe/icon@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@vibe/icon/-/icon-4.0.3.tgz"
-  integrity sha512-cUacuzAL7cgRBUCa6eNNXevdV3hKYRYBTGsbQscO1cPnTIRjGahHwjzLjeBlF+Z6T2rvogLB1abSBVyOwVMPwA==
-  dependencies:
-    "@vibe/shared" "4.0.3"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
     react-inlinesvg "^4.1.3"
 
-"@vibe/icons@4.1.0", "@vibe/icons@^4.0.0", "@vibe/icons@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@vibe/icons/-/icons-4.1.0.tgz"
-  integrity sha512-xO61cHnuNDEA0SlhG6/hWA3mYsatUzcTELTk701i2cGdZw85nZ/mNn2NtfJRaHnAZ8uJuw1ZWXQ+HpvXL1X6xA==
+"@vibe/icons@1.16.0", "@vibe/icons@^1.11.1", "@vibe/icons@^1.15.0", "@vibe/icons@^1.9.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@vibe/icons/-/icons-1.16.0.tgz#89f51b2308b5f4c053f6a1e9e6fad2adca2ab1d3"
+  integrity sha512-/ljaos2zNr4NfZKLoAjOfEilWUlmvBwqh9fFN+Z1BdYW84oGZQGRdj4TJW5jyirZyJ/H6jTcutKUbJaD3Om7+w==
 
-"@vibe/layer@4.0.4":
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/@vibe/layer/-/layer-4.0.4.tgz"
-  integrity sha512-9OAFxKefKtiYHINZZBg0DUoLrUZcYSnUUnBS5+yDoGedJ4aH5f/2rOuKEO3PfkGExsfsEiGjUr3igMdSKhdNcQ==
+"@vibe/layer@3.0.10":
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/@vibe/layer/-/layer-3.0.10.tgz#656e9c33c9511d621199ad12c989bc9c8370ccb0"
+  integrity sha512-UChefl8dxp4SLadYcItRMc49AS8PEakDv05KBNxzej2vybignt0sqI98+CurC6lr+0dNRlf8x58+Gae9wy5ybQ==
   dependencies:
-    "@vibe/icon" "4.0.3"
-    "@vibe/loader" "4.0.3"
-    "@vibe/shared" "4.0.3"
+    "@vibe/icon" "3.0.11"
+    "@vibe/loader" "3.0.11"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/layout@4.0.4":
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/@vibe/layout/-/layout-4.0.4.tgz"
-  integrity sha512-Eh6/lZ3ditNPOHwS2q0fxHSavbu8ULSwp/3NIXZaNPnSinuSU6VTRNwutB1Bu2aA7hLknOjEmA3wgXDUqmAc7w==
+"@vibe/layout@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@vibe/layout/-/layout-3.0.3.tgz#0cb8f057844fc624696e5e1e13f244088e6ea354"
+  integrity sha512-9SGVKKl4IJqsqg7Yuy9aQHtqGG/wPs/7ZCK2g3Fp8ot0/yc3EjWgBQh0uP+wOVHyRaRUPfI4CdkCsVmdGJ4YFQ==
   dependencies:
-    "@vibe/clickable" "4.0.3"
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
+    "@vibe/clickable" "3.0.3"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/loader@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@vibe/loader/-/loader-4.0.3.tgz"
-  integrity sha512-cCR1UT/v9aiLfTy4guxOLv4Vi0GKxWQlnKZDYxCOpoa83P3o4uBpoC0X4dj8qtlCTFfCyYCr5G3SewC2ClARnA==
+"@vibe/loader@3.0.11":
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/@vibe/loader/-/loader-3.0.11.tgz#f73390703330369cb5886bc4d42c1df120da8556"
+  integrity sha512-F1Yn9ti0yaD08VYt0pfubfyE1yRsG8GZA41TR+0erVr/XnVlf6NA8+07pU85N06rQnp89slxlMy8Yf4AevkWDQ==
   dependencies:
-    "@vibe/shared" "4.0.3"
+    "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
 
-"@vibe/shared@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@vibe/shared/-/shared-4.0.3.tgz"
-  integrity sha512-mp3nFv7rbF3Eq3lYylKwMWKaV5+P795B0ky/IMzcmz7hCt07/6ej5sT06Q4N2HizMqMAo6lbDH3uMwfaVG0dhQ==
+"@vibe/shared@3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@vibe/shared/-/shared-3.0.8.tgz#fddb789695ee5f62a894a1930674466b210819d2"
+  integrity sha512-qjWaNylbVKbdaDi75jFpp+LmF3y74JYdaLNWf6noiMkhq0fhcPTietVrHBxYO2b0cBvm1sQbrytX5YiBk3ii2w==
   dependencies:
     es-toolkit "^1.39.10"
 
-"@vibe/style@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@vibe/style/-/style-4.0.0.tgz"
-  integrity sha512-dnb9TEcCC0ZQFvHultyM0FbxYVQQlHvRC9fjNN+wIEhOOBAgVFBP6PcRuH5PQHDyfulbKv3/SX91rHJss6quqw==
+"@vibe/tooltip@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@vibe/tooltip/-/tooltip-3.0.7.tgz#b3b922339e86240da60503ddaa7b5341e255f434"
+  integrity sha512-4VYMSFerqZ+4Q1Sta86cN09vNUHhUcO2FBk1U94LaFctKWMc16iLv6XJwWHjQHp8zZMGkHi43/NwD2jYNiub8g==
   dependencies:
-    postcss "8.4.31"
-    postcss-scss "^4.0.9"
-    postcss-value-parser "4.2.0"
-    stylelint "^14.16.1"
-
-"@vibe/tooltip@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/@vibe/tooltip/-/tooltip-3.0.4.tgz"
-  integrity sha512-4YjCaaz5oToONkE8nUAXubeKW6m3/Wm2K40kMDZda3Agdc4qiLlynT44AGByIWExJCbcVL3IqZsZ4xQjOo/Eiw==
-  dependencies:
-    "@vibe/dialog" "3.0.11"
+    "@vibe/dialog" "3.0.13"
     "@vibe/icon" "3.0.11"
     "@vibe/layout" "3.0.3"
     "@vibe/shared" "3.0.8"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
 
-"@vibe/tooltip@4.0.6":
-  version "4.0.6"
-  resolved "https://registry.npmjs.org/@vibe/tooltip/-/tooltip-4.0.6.tgz"
-  integrity sha512-vFWWzTeZgLhAYZlyk0ME5bHDikHGpJgRbl4rGpWkeCgXn1fGzzzCdgz2QnJgbb/41ddbPqUAZmqpjwjf6c/MUQ==
-  dependencies:
-    "@vibe/dialog" "4.1.1"
-    "@vibe/icon" "4.0.3"
-    "@vibe/layout" "4.0.4"
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
-    classnames "^2.5.1"
-    es-toolkit "^1.39.10"
-
-"@vibe/typography@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/@vibe/typography/-/typography-3.0.4.tgz"
-  integrity sha512-fyvsEXG7e7+U5+mbGj+RiHMyTLGyQAepsYcsd/TrqRSHyoBkmWyrlM3Hkhe+X7Du5r5fdUEudbEAC394enHT7Q==
+"@vibe/typography@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@vibe/typography/-/typography-3.0.7.tgz#272c32b5486b5fde4c9a4579133deef93bc92423"
+  integrity sha512-ezzzs9/CKM2/gadwBc33O7A8Ru9FMOjP6kpNT6QrpNebCBSKM1uBqECJ20I5/jmCDSPyvnRAjFFvItOHdFLnCw==
   dependencies:
     "@vibe/hooks" "3.0.3"
     "@vibe/shared" "3.0.8"
-    "@vibe/tooltip" "3.0.4"
+    "@vibe/tooltip" "3.0.7"
     classnames "^2.5.1"
     es-toolkit "^1.39.10"
     monday-ui-style "0.26.2"
-
-"@vibe/typography@4.0.6":
-  version "4.0.6"
-  resolved "https://registry.npmjs.org/@vibe/typography/-/typography-4.0.6.tgz"
-  integrity sha512-KVX+bWYo5CtMQ6b4FCqfmhT6bDe7ko6oDpxqtyHoBuINebEHjiFqOAnZtk7FzkOT2QmUdHoBypZH8SmalQQg3A==
-  dependencies:
-    "@vibe/hooks" "4.0.3"
-    "@vibe/shared" "4.0.3"
-    "@vibe/style" "4.0.0"
-    "@vibe/tooltip" "4.0.6"
-    classnames "^2.5.1"
-    es-toolkit "^1.39.10"
 
 "@vitejs/plugin-react@^4.3.1":
   version "4.5.2"
@@ -18857,10 +18812,20 @@ moment-timezone@^0.6.0:
   dependencies:
     moment "^2.29.4"
 
-moment@>=1.6.0, moment@^2.10.6, moment@^2.26.0, moment@^2.29.1, moment@^2.29.4, moment@^2.30.1:
+moment@>=1.6.0, moment@^2.10.6, moment@^2.29.1, moment@^2.29.4, moment@^2.30.1:
   version "2.30.1"
   resolved "https://registry.npmjs.org/moment/-/moment-2.30.1.tgz"
   integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
+
+monday-ui-style@0.26.2:
+  version "0.26.2"
+  resolved "https://registry.yarnpkg.com/monday-ui-style/-/monday-ui-style-0.26.2.tgz#2335dbf63fa988c841e55519eaf7d260c5d822e1"
+  integrity sha512-LZxjT+eqppL/m/hvxPfGdiFZ5xbv31rFkwItfuVHup8Xw3axTNgsvewDJg/Ahs0G7qcO9T7ucMIk7B440HtUJg==
+  dependencies:
+    postcss "8.4.31"
+    postcss-scss "^4.0.9"
+    postcss-value-parser "4.2.0"
+    stylelint "^14.16.1"
 
 monday-ui-style@^0.21.1:
   version "0.21.1"
@@ -24361,7 +24326,7 @@ typescript-plugin-css-modules@^5.0.1:
     stylus "^0.62.0"
     tsconfig-paths "^4.2.0"
 
-"typescript@>=3 < 6", typescript@^5.1.6:
+"typescript@>=3 < 6":
   version "5.4.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.4.3.tgz"
   integrity sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==
@@ -24392,10 +24357,10 @@ typescript@>=5.0.2, typescript@^7.0.2:
     "@typescript/typescript-win32-arm64" "7.0.2"
     "@typescript/typescript-win32-x64" "7.0.2"
 
-typescript@^4.7.3:
-  version "4.9.5"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
-  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+typescript@^5.9.3:
+  version "5.9.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.9.3.tgz#5b4f59e15310ab17a216f5d6cf53ee476ede670f"
+  integrity sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==
 
 ufo@^1.5.3:
   version "1.5.3"

@@ -19,8 +19,23 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/screens/*"],
-      "@vibe/core/next": ["../core/dist/components/next.d.ts"],
-      "@vibe/core": ["../core/dist/index.d.ts"]
+      "@vibe/core/tokens": ["../style/dist/index.min.css"],
+      "@vibe/core/next": ["../core/src/components/next.ts"],
+      "@vibe/core": ["../core/src/index.ts"],
+      "@vibe/icons": ["../icons/src/react/index.ts"],
+      "@vibe/hooks": ["../hooks/src/index.ts"],
+      "@vibe/shared": ["../shared/src/index.ts"],
+      "@vibe/base": ["../base/src/index.ts"],
+      "@vibe/button": ["../components/button/src/index.ts"],
+      "@vibe/clickable": ["../components/clickable/src/index.ts"],
+      "@vibe/dialog": ["../components/dialog/src/index.ts"],
+      "@vibe/icon": ["../components/icon/src/index.ts"],
+      "@vibe/icon-button": ["../components/icon-button/src/index.ts"],
+      "@vibe/layer": ["../components/layer/src/index.ts"],
+      "@vibe/layout": ["../components/layout/src/index.ts"],
+      "@vibe/loader": ["../components/loader/src/index.ts"],
+      "@vibe/tooltip": ["../components/tooltip/src/index.ts"],
+      "@vibe/typography": ["../components/typography/src/index.ts"]
     }
   },
   "include": ["src"]

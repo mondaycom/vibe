@@ -1,6 +1,11 @@
 import { Dropdown, Flex, Text, Toggle } from "@vibe/core";
 import type { Section } from "../types";
 
+// The control bar is pinned to the bottom, so menus must open upward. At runtime Vite aliases
+// @vibe/core to the local v3 build, whose Dropdown honors menuPlacement; the v4 types resolved
+// from node_modules don't declare it, hence the untyped spread.
+const MENU_ABOVE = { menuPlacement: "top" } as Record<string, unknown>;
+
 type Props = {
   section: Section;
   state: Record<string, unknown>;
@@ -40,6 +45,7 @@ export function ComponentControlBar({ section, state, onChange, status }: Props)
                   value={selected}
                   onChange={(opt) => onChange({ [control.key]: opt?.value })}
                   clearable={false}
+                  {...MENU_ABOVE}
                 />
               </div>
             </Flex>
