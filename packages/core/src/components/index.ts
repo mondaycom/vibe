@@ -29,7 +29,7 @@ export {
   type DialogOffset,
   type DialogEvent
 } from "@vibe/dialog";
-export * from "./Divider";
+export * from "@vibe/divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
