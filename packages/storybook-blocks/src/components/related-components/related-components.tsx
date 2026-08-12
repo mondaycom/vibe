@@ -25,8 +25,10 @@ const RelatedComponents: React.FC<RelatedComponentsProps> & { linkTargets?: type
     [componentsNames, descriptionComponentsMap],
   );
 
+  const relatedComponentsContextValue = useMemo(() => ({ linkTarget }), [linkTarget]);
+
   return (
-    <RelatedComponentsContext.Provider value={{ linkTarget }}>
+    <RelatedComponentsContext.Provider value={relatedComponentsContextValue}>
       <article className={styles.relatedComponents}>{componentsDataElements}</article>
     </RelatedComponentsContext.Provider>
   );

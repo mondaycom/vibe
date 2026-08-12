@@ -56,5 +56,5 @@ export const useGridKeyboardNavigationContext = (
     },
     [directionMaps, upperContext, wrapperRef, options.disabled]
   );
-  return { onOutboundNavigation };
+  return useMemo(() => ({ onOutboundNavigation }), [onOutboundNavigation]);
 };

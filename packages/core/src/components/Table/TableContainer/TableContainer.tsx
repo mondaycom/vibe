@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import { TableContainerProvider } from "../context/TableContainerContext/TableContainerContext";
 import { type TableContainerProps } from "./TableContainer.types";
 import { getTestId } from "../../../tests/test-ids-utils";
@@ -12,9 +12,10 @@ const TableContainer = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const menuContainerRef = useRef<HTMLDivElement>(null);
+    const tableContainerContextValue = useMemo(() => ({ menuContainerRef }), []);
 
     return (
-      <TableContainerProvider value={{ menuContainerRef }}>
+      <TableContainerProvider value={tableContainerContextValue}>
         <div
           ref={ref}
           id={id}
