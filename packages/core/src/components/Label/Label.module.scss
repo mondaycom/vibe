@@ -48,58 +48,58 @@
   }
 
   &.colorPrimary {
-    background-color: #e5f1ff;
+    background-color: rgba(204, 228, 255, 0.7); /* #CCE4FF @ 70% */
     color: #0073ea;
 
     svg path {
-      fill: #e5f1ff;
+      fill: rgba(204, 228, 255, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: #d4e8ff;
+      background-color: #cce4ff;
     }
   }
 
   &.colorDark {
-    background-color: var(--primary-background-hover-color);
+    background-color: rgba(231, 233, 239, 0.7); /* #E7E9EF @ 70% */
     color: var(--secondary-text-color);
 
     svg path {
-      fill: var(--primary-background-hover-color);
+      fill: rgba(231, 233, 239, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--primary-background-hover-color);
+      background-color: #e7e9ef;
     }
   }
 
   &.colorNegative {
-    background-color: #f9e1e5;
+    background-color: rgba(244, 195, 203, 0.7); /* #F4C3CB @ 70% */
     color: var(--negative-color);
 
     svg path {
-      fill: #f9e1e5;
+      fill: rgba(244, 195, 203, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: #f3d0d6;
+      background-color: #f4c3cb;
     }
   }
 
   &.colorPositive {
-    background-color: #ddede4;
+    background-color: rgba(187, 219, 201, 0.7); /* #BBDBC9 @ 70% */
     color: var(--positive-color);
 
     svg path {
-      fill: #ddede4;
+      fill: rgba(187, 219, 201, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: #cfe5d9;
+      background-color: #bbdbc9;
     }
   }
 

@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/screens/*"],
-      "@vibe/core/tokens": ["../style/dist/index.min.css"],
+      "@vibe/core/tokens": ["./node_modules/@vibe/core/dist/tokens/tokens.css"],
       "@vibe/core/next": ["../core/src/components/next.ts"],
       "@vibe/core": ["../core/src/index.ts"],
       "@vibe/icons": ["../icons/src/react/index.ts"],

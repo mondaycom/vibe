@@ -27,6 +27,15 @@
     margin: 0;
   }
 
+  /* Medium: 8px default; 4px on sides that have an icon */
+  &.withLeftIcon {
+    padding-inline-start: 4px;
+  }
+
+  &.withRightIcon {
+    padding-inline-end: 4px;
+  }
+
   &.withClose {
     position: relative;
     box-sizing: border-box;
@@ -66,6 +75,16 @@
 
   &.small {
     height: 20px;
+    /* Small: 4px default; 2px on sides that have an icon */
+    padding: 0 4px;
+
+    &.withLeftIcon {
+      padding-inline-start: 2px;
+    }
+
+    &.withRightIcon {
+      padding-inline-end: 2px;
+    }
 
     .icon,
     .avatar,

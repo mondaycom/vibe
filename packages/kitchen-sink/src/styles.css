@@ -5,7 +5,7 @@
 :root {
   /* Available before style package rebuild / published tokens catch up */
   --border-radius-full: 99px;
-  --info-color-selected: #cce4ff;
+  --info-color-selected: rgba(204, 228, 255, 0.7); /* #CCE4FF @ 70% */
   --info-color-selected-hover: #b8d9ff;
 }
 
@@ -826,6 +826,52 @@ body {
   fill: currentColor !important;
 }
 
+/* Chip padding by size + icon presence
+   Medium: no icons 8px; icon side 4px; both sides 4px
+   Small:  no icons 4px; icon side 2px; both sides 2px */
+.chips-gallery [data-vibe="Chips"] {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.chips-gallery [data-vibe="Chips"].chips-has-left,
+.chips-gallery [data-vibe="Chips"]:has(.left_7fa2edfc6a),
+.chips-gallery [data-vibe="Chips"]:has([class*="icon"][class*="left"]) {
+  padding-left: 4px !important;
+}
+
+.chips-gallery [data-vibe="Chips"].chips-has-right,
+.chips-gallery [data-vibe="Chips"]:has(.right_428a2f3a3b),
+.chips-gallery [data-vibe="Chips"]:has([class*="icon"][class*="right"]) {
+  padding-right: 4px !important;
+}
+
+.chips-gallery [data-vibe="Chips"].chips-size-small,
+.chips-gallery [data-vibe="Chips"].small_6b913f7642 {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+
+.chips-gallery [data-vibe="Chips"].chips-size-small.chips-has-left,
+.chips-gallery [data-vibe="Chips"].small_6b913f7642.chips-has-left,
+.chips-gallery [data-vibe="Chips"].chips-size-small:has(.left_7fa2edfc6a),
+.chips-gallery [data-vibe="Chips"].small_6b913f7642:has(.left_7fa2edfc6a),
+.chips-gallery [data-vibe="Chips"].chips-size-small:has([class*="icon"][class*="left"]),
+.chips-gallery [data-vibe="Chips"].small_6b913f7642:has([class*="icon"][class*="left"]) {
+  padding-left: 2px !important;
+}
+
+.chips-gallery [data-vibe="Chips"].chips-size-small.chips-has-right,
+.chips-gallery [data-vibe="Chips"].small_6b913f7642.chips-has-right,
+.chips-gallery [data-vibe="Chips"].chips-size-small:has(.right_428a2f3a3b),
+.chips-gallery [data-vibe="Chips"].small_6b913f7642:has(.right_428a2f3a3b),
+.chips-gallery [data-vibe="Chips"].chips-size-small:has([class*="icon"][class*="right"]),
+.chips-gallery [data-vibe="Chips"].small_6b913f7642:has([class*="icon"][class*="right"]) {
+  padding-right: 2px !important;
+}
+
 /* Read only — no interaction affordance */
 [data-vibe="Chips"].chips-readonly {
   cursor: default !important;
@@ -865,7 +911,7 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] {
-  background-color: #e5f1ff !important;
+  background-color: rgba(204, 228, 255, 0.7) !important; /* #CCE4FF @ 70% */
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"],
@@ -876,11 +922,11 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] svg path {
-  fill: #e5f1ff !important;
+  fill: rgba(204, 228, 255, 0.7) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] {
-  background-color: #ddede4 !important;
+  background-color: rgba(187, 219, 201, 0.7) !important; /* #BBDBC9 @ 70% */
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"],
@@ -891,11 +937,11 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] svg path {
-  fill: #ddede4 !important;
+  fill: rgba(187, 219, 201, 0.7) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] {
-  background-color: #f9e1e5 !important;
+  background-color: rgba(244, 195, 203, 0.7) !important; /* #F4C3CB @ 70% */
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"],
@@ -906,11 +952,11 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] svg path {
-  fill: #f9e1e5 !important;
+  fill: rgba(244, 195, 203, 0.7) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] {
-  background-color: var(--primary-background-hover-color) !important;
+  background-color: rgba(231, 233, 239, 0.7) !important; /* #E7E9EF @ 70% */
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"],
@@ -921,7 +967,7 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] svg path {
-  fill: var(--primary-background-hover-color) !important;
+  fill: rgba(231, 233, 239, 0.7) !important;
 }
 
 /* Filterable — primary theme only: default / hover / pressed */
@@ -998,9 +1044,25 @@ body {
   line-height: 16px !important;
 }
 
-/* Info theme (replaces neutral) */
+/* Theme fills @ 70% opacity */
+[data-vibe="Chips"].chips-theme-primary {
+  background-color: rgba(231, 233, 239, 0.7) !important; /* #E7E9EF */
+}
+
+[data-vibe="Chips"].chips-theme-positive {
+  background-color: rgba(187, 219, 201, 0.7) !important; /* #BBDBC9 */
+}
+
+[data-vibe="Chips"].chips-theme-negative {
+  background-color: rgba(244, 195, 203, 0.7) !important; /* #F4C3CB */
+}
+
+[data-vibe="Chips"].chips-theme-warning {
+  background-color: rgba(252, 235, 161, 0.7) !important; /* #FCEBA1 */
+}
+
 [data-vibe="Chips"].chips-theme-info {
-  background-color: var(--info-color-selected, #cce4ff) !important;
+  background-color: rgba(204, 228, 255, 0.7) !important; /* #CCE4FF */
 }
 
 /* Removable — close on hover; lock width & truncate label so chip doesn't grow */

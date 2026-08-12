@@ -218,6 +218,9 @@ const Chips = forwardRef(
       el.style.width = `${el.getBoundingClientRect().width}px`;
     }, [hasCloseButton, label, size, leftIcon, rightIcon, leftAvatar, rightAvatar, leftRenderer, rightRenderer]);
 
+    const hasLeftIcon = Boolean(leftIcon || leftAvatar || leftRenderer);
+    const hasRightIcon = Boolean(rightIcon || rightAvatar || rightRenderer);
+
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
       [styles.noAnimation]: noAnimation,
@@ -229,7 +232,9 @@ const Chips = forwardRef(
       [styles.defaultCursor]: isReadOnly,
       [styles.filterable]: isFilterable,
       [styles.pressed]: isFilterable && pressed,
-      [styles.withClose]: hasCloseButton
+      [styles.withClose]: hasCloseButton,
+      [styles.withLeftIcon]: hasLeftIcon,
+      [styles.withRightIcon]: hasRightIcon
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
