@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/base",
-  "version": "4.0.4",
-  "description": "Vibe sub-package for base components",
+  "name": "@vibe/divider",
+  "version": "4.0.1",
+  "description": "Vibe sub-package for Divider component",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "packages/base"
+    "directory": "packages/components/divider"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -39,12 +39,10 @@
   },
   "dependencies": {
     "@vibe/shared": "4.0.3",
-    "@vibe/style": "4.1.0",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
     "@vibe/config": "4.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -64,7 +62,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "../../node_modules/@vibe/config/.eslintrc.cjs"
+      "../../../node_modules/@vibe/config/.eslintrc.cjs"
     ]
   }
 }

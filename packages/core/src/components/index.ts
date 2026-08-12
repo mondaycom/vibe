@@ -6,7 +6,7 @@ export * from "./AvatarGroup";
 export * from "./Badge";
 export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
-export * from "./ButtonGroup";
+export { ButtonGroup, type ButtonGroupProps } from "@vibe/button-group";
 export * from "@vibe/checkbox";
 export * from "./Chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
@@ -29,7 +29,7 @@ export {
   type DialogOffset,
   type DialogEvent
 } from "@vibe/dialog";
-export * from "./Divider";
+export * from "@vibe/divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";

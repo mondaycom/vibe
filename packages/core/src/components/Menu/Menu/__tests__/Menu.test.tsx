@@ -6,7 +6,7 @@ import { act } from "@testing-library/react-hooks";
 import Menu from "../Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 import MenuTitle from "../../MenuTitle/MenuTitle";
-import Divider from "../../../Divider/Divider";
+import { Divider } from "@vibe/divider";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 
 describe("Snapshots", () => {
