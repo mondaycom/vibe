@@ -5,6 +5,7 @@ import { ButtonGroupGalleryView } from "./ButtonGroupGalleryView";
 import { ChipsGalleryView } from "./ChipsGalleryView";
 import { IconButtonGalleryView } from "./IconButtonGalleryView";
 import { LabelGalleryView } from "./LabelGalleryView";
+import { MenuGalleryView } from "./MenuGalleryView";
 import { SegmentedControlGalleryView } from "./SegmentedControlGalleryView";
 import { TabsGalleryView } from "./TabsGalleryView";
 import { TextFieldGalleryView } from "./TextFieldGalleryView";
@@ -30,6 +31,7 @@ export const COMPONENT_GALLERY_ORDER: ComponentGalleryId[] = [
   "tabs",
   "label",
   "chip",
+  "menu",
   "text-field",
   "dropdown",
   "toast",
@@ -43,6 +45,7 @@ export const COMPONENT_GALLERY_LABELS: Record<ComponentGalleryId, string> = {
   tabs: "Tabs",
   label: "Label",
   chip: "Chips",
+  menu: "Menu",
   "text-field": "Text Field",
   dropdown: "Dropdown",
   toast: "Toast",
@@ -56,6 +59,7 @@ export const componentGalleries: Record<ComponentGalleryId, ComponentType> = {
   tabs: TabsGalleryView,
   label: LabelGalleryView,
   chip: ChipsGalleryView,
+  menu: MenuGalleryView,
   "text-field": TextFieldGalleryView,
   dropdown: DropdownGalleryEntry,
   toast: ToastGalleryView,

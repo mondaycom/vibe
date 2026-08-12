@@ -112,6 +112,10 @@
   border: 1px solid currentColor;
   padding: 1px var(--spacing-small);
 
+  &.small {
+    padding: 0 var(--spacing-xs);
+  }
+
   .legWrapper {
     left: -1px;
     top: calc(100% + 1px);

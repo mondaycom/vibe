@@ -701,6 +701,101 @@ body {
   gap: 12px;
 }
 
+.menu-gallery-preview {
+  width: 280px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.menu-gallery-preview-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary-text-color, #676879);
+}
+
+.menu-gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.menu-gallery .component-gallery-item-preview {
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.menu-gallery .component-gallery-item:has(.menu-gallery-row) .component-gallery-item-preview {
+  min-height: auto;
+}
+
+/* Menu popover shell: 8px padding, 12px radius; items fill width with 8px radius */
+.menu-gallery {
+  --border-radius-medium: 12px;
+}
+
+.menu-gallery-shell {
+  width: 100% !important;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+  border-radius: 12px !important;
+}
+
+.menu-gallery-shell [data-vibe="Menu"],
+.menu-gallery-shell ul[role="menu"],
+.menu-gallery-shell ul {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.menu-gallery-shell [role="menuitem"],
+.menu-gallery-shell [data-testid^="menu-item"],
+.menu-gallery-shell li {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+}
+
+/* legacy class — keep in sync while HMR catches up */
+.menu-gallery-popover,
+.menu-gallery [data-testid="dialog-content-container"],
+.menu-gallery [class*="dialogContentContainer"][class*="typePopover"],
+.menu-gallery [class*="typePopover"] {
+  width: 100% !important;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+  border-radius: 12px !important;
+}
+
+.menu-gallery-popover [data-vibe="Menu"],
+.menu-gallery-popover ul[role="menu"],
+.menu-gallery-popover ul {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.menu-gallery-popover [role="menuitem"],
+.menu-gallery-popover [data-testid^="menu-item"],
+.menu-gallery-popover li {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+}
+
 .tabs-gallery-block {
   display: flex;
   flex-direction: column;
@@ -1260,4 +1355,5 @@ body {
 [class*="textField"] [class*="inputWrapper"] [class*="inputActive"] {
   border-color: var(--primary-text-color, #323338) !important;
 }
+
 
