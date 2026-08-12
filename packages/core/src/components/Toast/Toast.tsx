@@ -192,8 +192,7 @@ const Toast = ({
         element="div"
         color="fixedLight"
         className={classNames}
-        role="alert"
-        aria-live="polite"
+        role="status"
       >
         {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
         <Flex align="center" gap="large" className={styles.content}>

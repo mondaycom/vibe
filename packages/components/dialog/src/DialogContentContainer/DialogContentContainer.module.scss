@@ -1,4 +1,4 @@
-.dialogContentContainer:focus {
+.dialogContentContainer:focus:not(:focus-visible) {
   outline: none;
 }
 
