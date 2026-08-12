@@ -14,7 +14,7 @@ import {
   Menu as VibeMenu,
   MenuButton,
   MenuDivider,
-  Divider,
+  Divider
 } from "@vibe/core";
 import {
   Add,
@@ -28,14 +28,10 @@ import {
   Sort,
   Hide,
   Group,
-  Menu,
+  Menu
 } from "@mondaydotcomorg/icons";
 import { DEMO_AVATAR_1, DEMO_AVATAR_2 } from "@/demo/demoPeople";
-import {
-  BOARD_VIEWS,
-  isVibeAppView,
-  type BoardViewId,
-} from "../board/boardViews";
+import { BOARD_VIEWS, isVibeAppView, type BoardViewId } from "../board/boardViews";
 
 interface BoardHeaderProps {
   activeViewId: BoardViewId;
@@ -43,13 +39,8 @@ interface BoardHeaderProps {
   onNewItem?: () => void;
 }
 
-export const BoardHeader: React.FC<BoardHeaderProps> = ({
-  activeViewId,
-  onViewChange,
-  onNewItem,
-}) => {
-  const activeView =
-    BOARD_VIEWS.find((view) => view.id === activeViewId) ?? BOARD_VIEWS[0];
+export const BoardHeader: React.FC<BoardHeaderProps> = ({ activeViewId, onViewChange, onNewItem }) => {
+  const activeView = BOARD_VIEWS.find(view => view.id === activeViewId) ?? BOARD_VIEWS[0];
   const triggerIcon = activeView.icon;
   const [inviteOpen, setInviteOpen] = useState(false);
 
@@ -59,16 +50,8 @@ export const BoardHeader: React.FC<BoardHeaderProps> = ({
       <Flex className={styles.titleRow} justify="space-between" align="center">
         {/* Title Area */}
         <Flex className={styles.cluster} align="center" gap="small">
-          <EditableHeading
-            type="h2"
-            value="Marketing campaign"
-            className={styles.boardTitle}
-          />
-          <IconButton
-            icon={DropdownChevronDown}
-            size="small"
-            aria-label="Board options"
-          />
+          <EditableHeading type="h2" value="Marketing campaign" className={styles.boardTitle} />
+          <IconButton icon={DropdownChevronDown} size="small" aria-label="Board options" />
         </Flex>
 
         {/* Top Right Actions */}
@@ -83,26 +66,12 @@ export const BoardHeader: React.FC<BoardHeaderProps> = ({
           <Divider direction="vertical" className={styles.dividerShort} />
 
           <AvatarGroup size="small" max={3}>
-            <Avatar
-              key="a1"
-              type="img"
-              src={DEMO_AVATAR_1}
-              aria-label="User 1"
-            />
-            <Avatar
-              key="a2"
-              type="img"
-              src={DEMO_AVATAR_2}
-              aria-label="User 2"
-            />
+            <Avatar key="a1" type="img" src={DEMO_AVATAR_1} aria-label="User 1" />
+            <Avatar key="a2" type="img" src={DEMO_AVATAR_2} aria-label="User 2" />
             <Avatar key="a3" type="text" text="EF" aria-label="Guest" />
           </AvatarGroup>
 
-          <Button
-            kind="secondary"
-            size="small"
-            onClick={() => setInviteOpen(true)}
-          >
+          <Button kind="secondary" size="small" onClick={() => setInviteOpen(true)}>
             Invite / 1
           </Button>
           <IconButton icon={Menu} size="small" aria-label="More options" />
@@ -117,10 +86,7 @@ export const BoardHeader: React.FC<BoardHeaderProps> = ({
             id="board-views-menu"
             aria-label="Board views"
             closeMenuOnItemClick
-            triggerElement={({
-              className: _menuButtonClass,
-              ...triggerProps
-            }) => (
+            triggerElement={({ className: _menuButtonClass, ...triggerProps }) => (
               <Button
                 {...triggerProps}
                 className={styles.viewMenuButton}
@@ -133,13 +99,8 @@ export const BoardHeader: React.FC<BoardHeaderProps> = ({
               </Button>
             )}
           >
-            <VibeMenu
-              id="board-views-menu-list"
-              size="small"
-              focusItemIndexOnMount={0}
-              aria-label="Board views"
-            >
-              {BOARD_VIEWS.map((view) => (
+            <VibeMenu id="board-views-menu-list" size="small" focusItemIndexOnMount={0} aria-label="Board views">
+              {BOARD_VIEWS.map(view => (
                 <MenuItem
                   key={view.id}
                   title={view.label}
@@ -203,16 +164,9 @@ export const BoardHeader: React.FC<BoardHeaderProps> = ({
         </Flex>
 
         {/* Collapse Chevron */}
-        <IconButton
-          icon={DropdownChevronDown}
-          size="small"
-          aria-label="Collapse header"
-        />
+        <IconButton icon={DropdownChevronDown} size="small" aria-label="Collapse header" />
       </Flex>
-      <InviteBoardModal
-        open={inviteOpen}
-        onClose={() => setInviteOpen(false)}
-      />
+      <InviteBoardModal open={inviteOpen} onClose={() => setInviteOpen(false)} />
     </Box>
   );
 };

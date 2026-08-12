@@ -11,7 +11,6 @@ const SECTION_ORDER = [
   "dropdown",
   "menu",
   "toast",
-  "segmented-control",
 ] as const;
 
 const modules = import.meta.glob<{ default: Section }>("./*.section.tsx", {
@@ -20,9 +19,7 @@ const modules = import.meta.glob<{ default: Section }>("./*.section.tsx", {
 
 export const sections: Section[] = Object.values(modules)
   .map((mod) => mod.default)
-  .filter((section) =>
-    SECTION_ORDER.includes(section.id as (typeof SECTION_ORDER)[number])
-  )
+  .filter((section) => SECTION_ORDER.includes(section.id as (typeof SECTION_ORDER)[number]))
   .sort(
     (a, b) =>
       SECTION_ORDER.indexOf(a.id as (typeof SECTION_ORDER)[number]) -

@@ -119,8 +119,8 @@ export function SegmentedControlGalleryView() {
   return (
     <ComponentGallery
       className="segmented-control-gallery"
-      title="Segmented Control"
-      description="All segmented control variations currently supported by the component."
+      title="Button Group"
+      description="Button Group on Current uses Segmented Control — all variations currently supported by the component."
       variations={segmentedControlVariations}
     />
   );

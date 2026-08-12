@@ -1,5 +1,6 @@
 import { lazy, Suspense, type ComponentType } from "react";
-import type { ComponentGalleryId } from "../types";
+import { isCurrentVibeSource } from "../lib/vibeSource";
+import type { ComponentGalleryId, ComponentSubPage } from "../types";
 import { ButtonGalleryView } from "./ButtonGalleryView";
 import { ButtonGroupGalleryView } from "./ButtonGroupGalleryView";
 import { ChipsGalleryView } from "./ChipsGalleryView";
@@ -23,20 +24,25 @@ function DropdownGalleryEntry() {
   );
 }
 
-export const COMPONENT_GALLERY_ORDER: ComponentGalleryId[] = [
+const ALL_COMPONENT_GALLERIES: ComponentGalleryId[] = [
   "icon-button",
   "button",
   "button-group",
-  "segmented-control",
   "tabs",
   "label",
   "chip",
   "menu",
   "text-field",
   "dropdown",
-  "menu",
   "toast",
 ];
+
+export const COMPONENT_GALLERY_ORDER = ALL_COMPONENT_GALLERIES;
+
+function ButtonGroupGalleryEntry() {
+  const Gallery = isCurrentVibeSource ? SegmentedControlGalleryView : ButtonGroupGalleryView;
+  return <Gallery />;
+}
 
 export const COMPONENT_GALLERY_LABELS: Record<ComponentGalleryId, string> = {
   "icon-button": "Icon Button",
@@ -49,14 +55,13 @@ export const COMPONENT_GALLERY_LABELS: Record<ComponentGalleryId, string> = {
   menu: "Menu",
   "text-field": "Text Field",
   dropdown: "Dropdown",
-  menu: "Menu",
   toast: "Toast",
 };
 
 export const componentGalleries: Record<ComponentGalleryId, ComponentType> = {
   "icon-button": IconButtonGalleryView,
   button: ButtonGalleryView,
-  "button-group": ButtonGroupGalleryView,
+  "button-group": ButtonGroupGalleryEntry,
   "segmented-control": SegmentedControlGalleryView,
   tabs: TabsGalleryView,
   label: LabelGalleryView,
@@ -64,9 +69,20 @@ export const componentGalleries: Record<ComponentGalleryId, ComponentType> = {
   menu: MenuGalleryView,
   "text-field": TextFieldGalleryView,
   dropdown: DropdownGalleryEntry,
-  menu: MenuGalleryView,
   toast: ToastGalleryView,
 };
+
+export function migrateComponentSubPage(page: ComponentSubPage): ComponentSubPage {
+  return page === "segmented-control" ? "button-group" : page;
+}
+
+export function resolveComponentSubPage(page: unknown): ComponentSubPage {
+  if (page === "grid") return "grid";
+  if (typeof page !== "string") return "grid";
+
+  const migrated = migrateComponentSubPage(page as ComponentSubPage);
+  return isComponentGalleryId(migrated) ? migrated : "grid";
+}
 
 export function isComponentGalleryId(value: string): value is ComponentGalleryId {
   return (COMPONENT_GALLERY_ORDER as string[]).includes(value);

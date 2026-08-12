@@ -30,20 +30,3 @@
   flex-shrink: 0;
   object-fit: contain;
 }
-
-.viewMenuButton {
-  width: fit-content !important;
-  height: auto !important;
-  min-width: 0;
-  flex: 0 0 auto;
-  justify-content: flex-start;
-  transform: none;
-
-  &:hover,
-  &:focus,
-  &:focus-visible,
-  &:active {
-    background-color: transparent;
-    transform: none;
-  }
-}

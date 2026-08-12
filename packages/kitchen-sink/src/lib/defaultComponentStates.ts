@@ -10,7 +10,14 @@ export const defaultComponentStates: ComponentStateMap = {
     disabled: false,
     loading: false,
   },
-  "button-group": { kind: "primary", size: "medium", disabled: false },
+  "button-group": {
+    kind: "primary",
+    size: "medium",
+    disabled: false,
+    withIcons: false,
+    fullWidth: false,
+    disabledSegment: false,
+  },
   "segmented-control": {
     size: "medium",
     withIcons: false,

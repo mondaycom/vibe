@@ -1,7 +1,10 @@
-import { ButtonGroup } from "@vibe/core";
+import { ButtonGroup, SegmentedControl, type SegmentedControlSize } from "@vibe/core";
+import { Board, Calendar, Chart } from "@vibe/icons";
+import { useEffect, useState } from "react";
 import type { Section } from "../section";
+import { isCurrentVibeSource } from "../lib/vibeSource";
 
-const controls: Section["controls"] = [
+const buttonGroupControls: Section["controls"] = [
   {
     key: "kind",
     label: "Kind",
@@ -25,13 +28,13 @@ const controls: Section["controls"] = [
   { key: "disabled", label: "Disabled", type: "boolean" },
 ];
 
-const defaultState = {
+const buttonGroupDefaultState = {
   kind: "primary",
   size: "medium",
   disabled: false,
 };
 
-const Demo: Section["Demo"] = ({ state }) => (
+const ButtonGroupDemo: Section["Demo"] = ({ state }) => (
   <ButtonGroup
     groupAriaLabel="View options"
     options={[
@@ -46,12 +49,71 @@ const Demo: Section["Demo"] = ({ state }) => (
   />
 );
 
+const segmentedControlControls: Section["controls"] = [
+  {
+    key: "size",
+    label: "Size",
+    type: "select",
+    options: [
+      { value: "xs", label: "XS" },
+      { value: "small", label: "Small" },
+      { value: "medium", label: "Medium" },
+      { value: "large", label: "Large" },
+    ],
+  },
+  { key: "withIcons", label: "With icons", type: "boolean" },
+  { key: "fullWidth", label: "Full width", type: "boolean" },
+  { key: "disabled", label: "Disabled", type: "boolean" },
+  { key: "disabledSegment", label: "Disable last option", type: "boolean" },
+];
+
+const segmentedControlDefaultState = {
+  size: "medium",
+  withIcons: false,
+  fullWidth: false,
+  disabled: false,
+  disabledSegment: false,
+};
+
+const SegmentedControlDemo: Section["Demo"] = ({ state }) => {
+  const withIcons = Boolean(state.withIcons);
+  const [value, setValue] = useState(withIcons ? "board" : "week");
+
+  useEffect(() => {
+    setValue(withIcons ? "board" : "week");
+  }, [withIcons]);
+
+  const options = withIcons
+    ? [
+        { value: "calendar", label: "Calendar", icon: Calendar },
+        { value: "board", label: "Board", icon: Board },
+        { value: "chart", label: "Chart", icon: Chart, disabled: Boolean(state.disabledSegment) },
+      ]
+    : [
+        { value: "day", label: "Day" },
+        { value: "week", label: "Week" },
+        { value: "month", label: "Month", disabled: Boolean(state.disabledSegment) },
+      ];
+
+  return (
+    <SegmentedControl
+      ariaLabel="View options"
+      options={options}
+      value={value}
+      onChange={setValue}
+      size={state.size as SegmentedControlSize}
+      fullWidth={Boolean(state.fullWidth)}
+      disabled={Boolean(state.disabled)}
+    />
+  );
+};
+
 const section: Section = {
   id: "button-group",
   title: "Button Group",
-  defaultState,
-  controls,
-  Demo,
+  defaultState: isCurrentVibeSource ? segmentedControlDefaultState : buttonGroupDefaultState,
+  controls: isCurrentVibeSource ? segmentedControlControls : buttonGroupControls,
+  Demo: isCurrentVibeSource ? SegmentedControlDemo : ButtonGroupDemo,
 };
 
 export default section;

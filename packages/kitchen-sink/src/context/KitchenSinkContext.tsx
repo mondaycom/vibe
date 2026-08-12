@@ -7,8 +7,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { isComponentGalleryId } from "../components/componentGalleries";
+import { resolveComponentSubPage } from "../components/componentGalleries";
 import { loadPersistedState, savePersistedState } from "../lib/storage";
+import {
+  clearTransferredVibeState,
+  isCurrentVibeSource,
+  readTransferredVibeState,
+} from "../lib/vibeSource";
 import type {
   AppState,
   AppView,
@@ -18,6 +23,7 @@ import type {
   ThemeSubPage,
   TokenOverrides,
 } from "../types";
+import { STORAGE_KEY } from "../types";
 
 type KitchenSinkContextValue = AppState & {
   setView: (view: AppView) => void;
@@ -33,8 +39,36 @@ type KitchenSinkContextValue = AppState & {
 
 const KitchenSinkContext = createContext<KitchenSinkContextValue | null>(null);
 
+function readRawPersistedComponentSubPage(): unknown {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return undefined;
+
+  try {
+    return (JSON.parse(raw) as { componentSubPage?: unknown }).componentSubPage;
+  } catch {
+    return undefined;
+  }
+}
+
 export function KitchenSinkProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState(loadPersistedState);
+  const [state, setState] = useState(() => {
+    const transferred = readTransferredVibeState();
+    const initialState = transferred ?? loadPersistedState();
+    const subPageSource = transferred
+      ? transferred.componentSubPage
+      : (readRawPersistedComponentSubPage() ?? initialState.componentSubPage);
+    const componentSubPage = resolveComponentSubPage(subPageSource);
+
+    return {
+      ...initialState,
+      componentSubPage,
+      faceliftTheme: isCurrentVibeSource
+    };
+  });
+
+  useEffect(() => {
+    clearTransferredVibeState();
+  }, []);
 
   useEffect(() => {
     const id = window.setTimeout(() => savePersistedState(state), 200);
@@ -43,8 +77,9 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const hash = window.location.hash.replace(/^#/, "");
-    if (isComponentGalleryId(hash)) {
-      setState((s) => ({ ...s, view: "components", componentSubPage: hash }));
+    const componentSubPage = resolveComponentSubPage(hash);
+    if (componentSubPage !== "grid") {
+      setState((s) => ({ ...s, view: "components", componentSubPage }));
     }
   }, []);
 
@@ -61,7 +96,11 @@ export function KitchenSinkProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const setComponentSubPage = useCallback((componentSubPage: ComponentSubPage) => {
-    setState((s) => ({ ...s, view: "components", componentSubPage }));
+    setState((s) => ({
+      ...s,
+      view: "components",
+      componentSubPage: resolveComponentSubPage(componentSubPage),
+    }));
   }, []);
 
   const setSystemTheme = useCallback((systemTheme: SystemTheme) => {

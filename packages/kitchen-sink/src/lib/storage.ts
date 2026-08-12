@@ -1,4 +1,4 @@
-import { isComponentGalleryId } from "../components/componentGalleries";
+import { resolveComponentSubPage } from "../components/componentGalleries";
 import { defaultComponentStates, mergeWithDefaults } from "./defaultComponentStates";
 import { EMPTY_TOKEN_OVERRIDES } from "./tokenDefinitions";
 import type {
@@ -22,10 +22,12 @@ function normalizeView(value: unknown, fallback: AppView): AppView {
 }
 
 function normalizeComponentSubPage(value: unknown, fallback: ComponentSubPage): ComponentSubPage {
-  if (value === "grid" || (typeof value === "string" && isComponentGalleryId(value))) {
-    return value;
-  }
-  return fallback;
+  if (value === undefined || value === null) return fallback;
+
+  const resolved = resolveComponentSubPage(value);
+  // Unknown ids resolve to "grid"; keep the caller's fallback instead.
+  if (resolved === "grid" && value !== "grid") return fallback;
+  return resolved;
 }
 
 function isSystemThemeKey(key: string): key is "light" | "dark" | "black" {

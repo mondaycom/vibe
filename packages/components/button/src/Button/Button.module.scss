@@ -297,12 +297,10 @@ $disabled-on-primary-color-opacity: 0.5;
 
 .kindSecondary.colorPrimaryActive {
   background-color: var(--primary-selected-color);
-  border-color: var(--primary-color);
 }
 
 .kindSecondary.colorPrimaryActive:hover {
   background-color: var(--primary-selected-hover-color);
-  border-color: var(--primary-color);
 }
 
 .kindSecondary.colorBrandActive {

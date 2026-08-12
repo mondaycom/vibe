@@ -1,12 +1,18 @@
 import { ButtonGroup, SegmentedControl } from "@vibe/core";
 import { useKitchenSink } from "../context/KitchenSinkContext";
-import type { SystemTheme, ThemeSubPage } from "../types";
+import { isCurrentVibeSource, switchVibeSource, vibeSource } from "../lib/vibeSource";
+import type { AppState, SystemTheme, ThemeSubPage } from "../types";
 import { COMPONENT_GALLERY_LABELS, COMPONENT_GALLERY_ORDER } from "./componentGalleries";
 
-const THEME_FAMILY_OPTIONS = [
-  { value: "original", label: "Original" },
-  { value: "facelift", label: "Facelift" }
+const VIBE_SOURCE_BUTTON_GROUP_OPTIONS = [
+  { value: "original", text: "Original" },
+  { value: "current", text: "Current" }
 ] as const;
+
+const VIBE_SOURCE_SEGMENTED_OPTIONS = [
+  { value: "original", label: "Original" },
+  { value: "current", label: "Current" }
+];
 
 const THEME_SUBPAGES: { id: ThemeSubPage; label: string }[] = [
   { id: "colors", label: "Colors" },
@@ -27,13 +33,30 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
     themeSubPage,
     componentSubPage,
     systemTheme,
+    tokenOverrides,
+    componentStates,
+    focusedComponentId,
     faceliftTheme,
     setView,
     setThemeSubPage,
     setComponentSubPage,
-    setSystemTheme,
-    setFaceliftTheme
+    setSystemTheme
   } = useKitchenSink();
+
+  const currentState: AppState = {
+    view,
+    themeSubPage,
+    componentSubPage,
+    systemTheme,
+    tokenOverrides,
+    componentStates,
+    focusedComponentId,
+    faceliftTheme
+  };
+
+  const onVibeSourceChange = (value: string) => {
+    switchVibeSource(value as "original" | "current", currentState);
+  };
 
   return (
     <aside className={`left-pane${collapsed ? " is-collapsed" : ""}`}>
@@ -97,13 +120,28 @@ export function LeftPane({ collapsed, onToggleCollapse }: LeftPaneProps) {
       </nav>
       <div className="left-pane-footer" aria-hidden={collapsed}>
         <div className="left-pane-footer-section">
-          <span className="left-pane-footer-label">Theme</span>
-          <SegmentedControl
-            options={THEME_FAMILY_OPTIONS}
-            size="small"
-            value={faceliftTheme ? "facelift" : "original"}
-            onChange={value => setFaceliftTheme(value === "facelift")}
-          />
+          <span className="left-pane-footer-label">Vibe</span>
+          <div className="left-pane-footer-button-group">
+            {isCurrentVibeSource ? (
+              <SegmentedControl
+                ariaLabel="Vibe source"
+                options={VIBE_SOURCE_SEGMENTED_OPTIONS}
+                size="small"
+                fullWidth
+                value={vibeSource}
+                onChange={onVibeSourceChange}
+              />
+            ) : (
+              <ButtonGroup
+                groupAriaLabel="Vibe source"
+                options={VIBE_SOURCE_BUTTON_GROUP_OPTIONS}
+                size="small"
+                fullWidth
+                value={vibeSource}
+                onSelect={value => onVibeSourceChange(String(value))}
+              />
+            )}
+          </div>
         </div>
         <div className="left-pane-footer-section">
           <span className="left-pane-footer-label">Mode</span>

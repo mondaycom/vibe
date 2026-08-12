@@ -9,6 +9,7 @@ import {
 } from "@vibe/core";
 import { Delete, Email, Info, Invite, Settings } from "@vibe/icons";
 import type { ReactNode } from "react";
+import { isCurrentVibeSource } from "../lib/vibeSource";
 import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
 
 function MenuRow({ children }: { children: ReactNode }) {
@@ -20,8 +21,8 @@ function MenuPreview({ children, label }: { children: ReactNode; label?: string 
     <div className="menu-gallery-preview">
       {label ? <span className="menu-gallery-preview-label">{label}</span> : null}
       <DialogContentContainer
-        className="menu-gallery-shell"
-        style={{ padding: 8, borderRadius: 12 }}
+        className={isCurrentVibeSource ? "menu-gallery-shell" : undefined}
+        style={isCurrentVibeSource ? { padding: 8, borderRadius: 12 } : undefined}
       >
         {children}
       </DialogContentContainer>
@@ -39,80 +40,6 @@ const menuVariations: GalleryVariation[] = [
           <MenuItem title="Menu item 1" />
           <MenuItem title="Menu item 2" />
           <MenuItem title="Menu item 3" />
-        </Menu>
-      </MenuPreview>
-    ),
-  },
-  {
-    id: "sizes",
-    label: "Sizes",
-    render: () => (
-      <MenuRow>
-        <MenuPreview label="Small">
-          <Menu size="small">
-            <MenuTitle caption="Small menu" />
-            <MenuDivider />
-            <MenuItem title="Menu item 1" />
-            <MenuItem title="Menu item 2" disabled />
-            <MenuItem title="Menu item 3" />
-          </Menu>
-        </MenuPreview>
-        <MenuPreview label="Medium">
-          <Menu size="medium">
-            <MenuTitle caption="Medium menu" />
-            <MenuDivider />
-            <MenuItem title="Menu item 1" />
-            <MenuItem title="Menu item 2" disabled />
-            <MenuItem title="Menu item 3" />
-          </Menu>
-        </MenuPreview>
-        <MenuPreview label="Large">
-          <Menu size="large">
-            <MenuTitle caption="Large menu" />
-            <MenuDivider />
-            <MenuItem title="Menu item 1" />
-            <MenuItem title="Menu item 2" disabled />
-            <MenuItem title="Menu item 3" />
-          </Menu>
-        </MenuPreview>
-      </MenuRow>
-    ),
-  },
-  {
-    id: "icons-left",
-    label: "Icons — Left",
-    render: () => (
-      <MenuPreview>
-        <Menu>
-          <MenuItem icon={Email} title="Send" />
-          <MenuItem icon={Delete} title="Delete" />
-          <MenuItem icon={Info} title="More info" />
-        </Menu>
-      </MenuPreview>
-    ),
-  },
-  {
-    id: "icons-right",
-    label: "Icons — Right",
-    render: () => (
-      <MenuPreview>
-        <Menu>
-          <MenuItem title="Send" rightIcon={Email} />
-          <MenuItem title="Delete" rightIcon={Delete} />
-          <MenuItem title="More info" rightIcon={Info} />
-        </Menu>
-      </MenuPreview>
-    ),
-  },
-  {
-    id: "icons-both",
-    label: "Icons — Both sides",
-    render: () => (
-      <MenuPreview>
-        <Menu>
-          <MenuItem icon={Email} rightIcon={Settings} title="Send" />
-          <MenuItem icon={Delete} rightIcon={Info} title="Delete" />
-          <MenuItem icon={Info} rightIcon={Email} title="More info" />
         </Menu>
       </MenuPreview>
     ),
@@ -370,6 +297,80 @@ const menuVariations: GalleryVariation[] = [
           <MenuItemButton kind="primary" leftIcon={Invite}>
             Invite
           </MenuItemButton>
+        </Menu>
+      </MenuPreview>
+    ),
+  },
+  {
+    id: "sizes",
+    label: "Sizes",
+    render: () => (
+      <MenuRow>
+        <MenuPreview label="Small">
+          <Menu size="small">
+            <MenuTitle caption="Small menu" />
+            <MenuDivider />
+            <MenuItem title="Menu item 1" />
+            <MenuItem title="Menu item 2" disabled />
+            <MenuItem title="Menu item 3" />
+          </Menu>
+        </MenuPreview>
+        <MenuPreview label="Medium">
+          <Menu size="medium">
+            <MenuTitle caption="Medium menu" />
+            <MenuDivider />
+            <MenuItem title="Menu item 1" />
+            <MenuItem title="Menu item 2" disabled />
+            <MenuItem title="Menu item 3" />
+          </Menu>
+        </MenuPreview>
+        <MenuPreview label="Large">
+          <Menu size="large">
+            <MenuTitle caption="Large menu" />
+            <MenuDivider />
+            <MenuItem title="Menu item 1" />
+            <MenuItem title="Menu item 2" disabled />
+            <MenuItem title="Menu item 3" />
+          </Menu>
+        </MenuPreview>
+      </MenuRow>
+    ),
+  },
+  {
+    id: "icons-left",
+    label: "Icons — Left",
+    render: () => (
+      <MenuPreview>
+        <Menu>
+          <MenuItem icon={Email} title="Send" />
+          <MenuItem icon={Delete} title="Delete" />
+          <MenuItem icon={Info} title="More info" />
+        </Menu>
+      </MenuPreview>
+    ),
+  },
+  {
+    id: "icons-right",
+    label: "Icons — Right",
+    render: () => (
+      <MenuPreview>
+        <Menu>
+          <MenuItem title="Send" rightIcon={Email} />
+          <MenuItem title="Delete" rightIcon={Delete} />
+          <MenuItem title="More info" rightIcon={Info} />
+        </Menu>
+      </MenuPreview>
+    ),
+  },
+  {
+    id: "icons-both",
+    label: "Icons — Both sides",
+    render: () => (
+      <MenuPreview>
+        <Menu>
+          <MenuItem icon={Email} rightIcon={Settings} title="Send" />
+          <MenuItem icon={Delete} rightIcon={Info} title="Delete" />
+          <MenuItem icon={Info} rightIcon={Email} title="More info" />
         </Menu>
       </MenuPreview>
     ),

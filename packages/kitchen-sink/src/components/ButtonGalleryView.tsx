@@ -11,17 +11,17 @@ const buttonVariations: GalleryVariation[] = [
   {
     id: "kind-primary",
     label: "Kind — Primary",
-    render: () => <Button kind="primary">Primary</Button>,
+    render: () => <Button kind="primary">Primary</Button>
   },
   {
     id: "kind-secondary",
     label: "Kind — Secondary",
-    render: () => <Button kind="secondary">Secondary</Button>,
+    render: () => <Button kind="secondary">Secondary</Button>
   },
   {
     id: "kind-tertiary",
     label: "Kind — Tertiary",
-    render: () => <Button kind="tertiary">Tertiary</Button>,
+    render: () => <Button kind="tertiary">Tertiary</Button>
   },
   {
     id: "sizes",
@@ -33,7 +33,7 @@ const buttonVariations: GalleryVariation[] = [
         <Button size="medium">Medium</Button>
         <Button size="large">Large</Button>
       </ButtonRow>
-    ),
+    )
   },
   {
     id: "icon-left",
@@ -49,11 +49,8 @@ const buttonVariations: GalleryVariation[] = [
         <Button size="medium" leftIcon={Calendar}>
           Left
         </Button>
-        <Button size="large" leftIcon={Calendar}>
-          Left
-        </Button>
       </ButtonRow>
-    ),
+    )
   },
   {
     id: "icon-right",
@@ -69,11 +66,8 @@ const buttonVariations: GalleryVariation[] = [
         <Button size="medium" rightIcon={Calendar}>
           Right
         </Button>
-        <Button size="large" rightIcon={Calendar}>
-          Right
-        </Button>
       </ButtonRow>
-    ),
+    )
   },
   {
     id: "icon-both",
@@ -82,12 +76,12 @@ const buttonVariations: GalleryVariation[] = [
       <Button leftIcon={Bolt} rightIcon={Bolt}>
         Both icons
       </Button>
-    ),
+    )
   },
   {
     id: "disabled-primary",
     label: "Disabled — Primary",
-    render: () => <Button disabled>Primary</Button>,
+    render: () => <Button disabled>Primary</Button>
   },
   {
     id: "disabled-secondary",
@@ -96,7 +90,7 @@ const buttonVariations: GalleryVariation[] = [
       <Button kind="secondary" disabled>
         Secondary
       </Button>
-    ),
+    )
   },
   {
     id: "disabled-tertiary",
@@ -105,28 +99,28 @@ const buttonVariations: GalleryVariation[] = [
       <Button kind="tertiary" disabled>
         Tertiary
       </Button>
-    ),
+    )
   },
   {
     id: "state-active",
     label: "State — Active",
-    render: () => <Button active>Active</Button>,
+    render: () => <Button active>Active</Button>
   },
   {
     id: "color-positive",
     label: "Color — Positive",
-    render: () => <Button color="positive">Positive</Button>,
+    render: () => <Button color="positive">Positive</Button>
   },
   {
     id: "color-negative",
     label: "Color — Negative",
-    render: () => <Button color="negative">Negative</Button>,
+    render: () => <Button color="negative">Negative</Button>
   },
   {
     id: "loading",
     label: "State — Loading",
-    render: () => <Button loading>Loading</Button>,
-  },
+    render: () => <Button loading>Loading</Button>
+  }
 ];
 
 export function ButtonGalleryView() {
