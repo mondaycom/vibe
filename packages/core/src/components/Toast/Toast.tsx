@@ -1,7 +1,7 @@
 import { camelCase } from "es-toolkit";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import cx from "classnames";
-import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import { type IconSubComponentProps } from "@vibe/icon";
@@ -18,6 +18,7 @@ import { NOOP, getStyle } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import { IconButton } from "@vibe/icon-button";
+import { Tooltip } from "@vibe/tooltip";
 import usePrevious from "../../hooks/usePrevious";
 
 export interface ToastProps extends VibeComponentProps {
@@ -96,6 +97,8 @@ const Toast = ({
 }: ToastProps) => {
   const ref = useRef(null);
   const nodeRef = useRef<HTMLDivElement>(null);
+  const messageRef = useRef<HTMLSpanElement>(null);
+  const [isMessageTruncated, setIsMessageTruncated] = useState(false);
   const prevActions = usePrevious(actions?.length);
   const toastLinks = useMemo(() => {
     return actions
@@ -165,6 +168,13 @@ const Toast = ({
     };
   }, [open, autoHideDuration, setAutoHideTimer]);
 
+  useEffect(() => {
+    const el = messageRef.current;
+    if (el) {
+      setIsMessageTruncated(el.scrollWidth > el.clientWidth);
+    }
+  }, [children, open]);
+
   const iconElement = !hideIcon && getIcon(type, icon);
 
   // https://n12v.com/css-transition-to-from-auto/
@@ -183,45 +193,51 @@ const Toast = ({
     }
   }, [children, recalculateElementWidth]);
 
+  const tooltipContent = isMessageTruncated && typeof children === "string" ? children : undefined;
+
   const toastElement = (
-    <Text
-      ref={nodeRef}
-      id={id}
-      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-      type="text2"
-      element="div"
-      color={type === "dark" ? "fixedLight" : "primary"}
-      className={classNames}
-      role="alert"
-      aria-live="polite"
-    >
-      {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-      <Flex align="center" gap="medium" className={styles.content}>
-        <Flex
-          gap="medium"
-          data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
-          className={styles.textContent}
-        >
-          <span>{children}</span>
-          {toastLinks}
+    <Tooltip content={tooltipContent} position="top">
+      <Text
+        ref={nodeRef}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
+        type="text2"
+        element="div"
+        color={type === "dark" ? "fixedLight" : "primary"}
+        className={classNames}
+        role="alert"
+        aria-live="polite"
+      >
+        {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
+        <Flex align="center" gap="medium" className={styles.content}>
+          <Flex
+            gap="medium"
+            data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
+            className={styles.textContent}
+          >
+            <span ref={messageRef} className={styles.message}>
+              {children}
+            </span>
+            {toastLinks}
+          </Flex>
+          {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
+          {loading && <Loader size="xs" />}
         </Flex>
-        {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-        {loading && <Loader size="xs" />}
-      </Flex>
-      {closeable && (
-        <IconButton
-          className={cx(styles.closeButton)}
-          onClick={handleClose}
-          size="xs"
-          kind="tertiary"
-          color={type === "dark" ? "fixed-light" : "primary"}
-          aria-label={closeButtonAriaLabel}
-          data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-          icon={CloseSmall}
-          hideTooltip
-        />
-      )}
-    </Text>
+        {closeable && (
+          <IconButton
+            className={cx(styles.closeButton)}
+            onClick={handleClose}
+            size="xs"
+            kind="tertiary"
+            color={type === "dark" ? "fixed-light" : "primary"}
+            aria-label={closeButtonAriaLabel}
+            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+            icon={CloseSmall}
+            hideTooltip
+          />
+        )}
+      </Text>
+    </Tooltip>
   );
 
   // Gallery / static previews: render in place, skip enter/exit animation.
