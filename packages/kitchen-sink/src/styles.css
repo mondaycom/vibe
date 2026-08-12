@@ -784,7 +784,6 @@ body {
   padding-right: 8px !important;
 }
 
-
 .button-gallery-on-color,
 .button-gallery-on-inverted {
   display: flex;
@@ -845,8 +844,7 @@ body {
 
 [data-vibe="Label"] .withLeg_78e0674148,
 [data-vibe="Label"] [class*="withLeg_"] {
-  border-radius: var(--border-radius-full, 99px) var(--border-radius-full, 99px)
-    var(--border-radius-full, 99px) 0 !important;
+  border-radius: var(--border-radius-full, 99px) var(--border-radius-full, 99px) var(--border-radius-full, 99px) 0 !important;
   border-start-start-radius: var(--border-radius-full, 99px) !important;
   border-start-end-radius: var(--border-radius-full, 99px) !important;
   border-end-end-radius: var(--border-radius-full, 99px) !important;
@@ -952,8 +950,10 @@ body {
   color: var(--primary-text-color) !important;
 }
 
-[data-vibe="Chips"].chips-filterable:hover:not(.chips-filterable--pressed):not(.chips-filterable--hover) *:not(svg):not(path),
-[data-vibe="Chips"].chips-filterable:active:not(.chips-filterable--pressed):not(.chips-filterable--hover) *:not(svg):not(path) {
+[data-vibe="Chips"].chips-filterable:hover:not(.chips-filterable--pressed):not(.chips-filterable--hover)
+  *:not(svg):not(path),
+[data-vibe="Chips"].chips-filterable:active:not(.chips-filterable--pressed):not(.chips-filterable--hover)
+  *:not(svg):not(path) {
   color: var(--primary-text-color) !important;
 }
 
@@ -1124,4 +1124,3 @@ body {
 .tabs-gallery [class*="tabsWrapper"] + * {
   margin-top: 4px !important;
 }
-

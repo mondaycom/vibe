@@ -9,7 +9,7 @@
   --secondary-text-color: #8a8884;
   --text-color-on-inverted: #090908;
   --text-color-on-primary: #ffffff;
-  --disabled-text-color: rgba(50, 51, 56, var(--disabled-component-opacity));
+  --disabled-text-color: rgba(236, 234, 230, var(--disabled-component-opacity));
   --inverted-color-background: #e8e6e2;
   --fixed-dark-color: #323338;
   --fixed-light-color: #ffffff;
@@ -22,8 +22,8 @@
   --ui-background-color: #121211;
   --ui-background-hover-color: #171716;
   --layout-border-color: #181817;
-  --placeholder-color: #4a4844;
-  --icon-color: #5e5c58;
+  --placeholder-color: var(--secondary-text-color);
+  --icon-color: var(--secondary-text-color);
   --disabled-background-color: #121211;
   --link-color: #7e68ee;
   --brand-color: #2b06e5;
@@ -69,7 +69,7 @@
   --box-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
   --box-shadow-medium: 0px 6px 20px rgba(0, 0, 0, 0.2);
   --box-shadow-large: 0px 15px 50px rgba(0, 0, 0, 0.3);
-  --border-radius-small: 8px;
+  --border-radius-small: 6px;
   --border-radius-medium: 8px;
   --border-radius-big: 14px;
   --border-radius-full: 99px;
@@ -287,8 +287,8 @@
   --primary-background-hover-on-secondary-color: #121211;
   --modal-background-color: #090908;
   --secondary-background-color-rgb: 255, 255, 255;
-  --disabled-background-on-secondary-color: #f2f3f2;
-  --disabled-text-on-secondary-color: rgba(50, 51, 56, var(--disabled-component-opacity));
+  --disabled-background-on-secondary-color: #121211;
+  --disabled-text-on-secondary-color: rgba(236, 234, 230, var(--disabled-component-opacity));
   --ui-border-on-secondary-color: #e2e4e3;
   --layout-border-on-secondary-color: #e9ebea;
   --dark-background-color: #111110;

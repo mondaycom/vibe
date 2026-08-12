@@ -28,7 +28,6 @@ const buttonVariations: GalleryVariation[] = [
     label: "Sizes",
     render: () => (
       <ButtonRow>
-        <Button size="xxs">XXS</Button>
         <Button size="xs">XS</Button>
         <Button size="small">Small</Button>
         <Button size="medium">Medium</Button>
@@ -41,9 +40,6 @@ const buttonVariations: GalleryVariation[] = [
     label: "Icon — Left",
     render: () => (
       <ButtonRow>
-        <Button size="xxs" leftIcon={Calendar}>
-          Left
-        </Button>
         <Button size="xs" leftIcon={Calendar}>
           Left
         </Button>
@@ -64,9 +60,6 @@ const buttonVariations: GalleryVariation[] = [
     label: "Icon — Right",
     render: () => (
       <ButtonRow>
-        <Button size="xxs" rightIcon={Calendar}>
-          Right
-        </Button>
         <Button size="xs" rightIcon={Calendar}>
           Right
         </Button>

@@ -12,7 +12,6 @@ $checkbox-size: 16px;
   border-color: var(--secondary-text-color);
 }
 
-
 .wrapper {
   position: relative;
   display: flex;
@@ -159,7 +158,7 @@ $checkbox-size: 16px;
 .input:disabled + .checkbox:hover {
   cursor: not-allowed;
   background-color: var(--disabled-background-color);
-  border-color: var(--ui-border-color);
+  border-color: var(--primary-text-color);
 }
 
 .input:disabled ~ .label {

@@ -3,16 +3,17 @@
   --segment-radius: var(--border-radius-small);
 
   position: relative;
-  display: inline-flex;
-  align-items: center;
+  display: inline-grid;
+  grid-template-columns: repeat(var(--segment-count), 1fr);
+  gap: var(--space-2);
+  align-items: stretch;
   padding: var(--track-padding);
-  background: var(--ui-background-color);
+  background: var(--allgrey-background-color);
   border-radius: calc(var(--segment-radius) + var(--track-padding));
   isolation: isolate;
 }
 
 .fullWidth {
-  display: flex;
   width: 100%;
 }
 
@@ -29,8 +30,9 @@
   width: calc((100% - var(--track-padding) * 2) / var(--segment-count));
   transform: translateX(calc(var(--selected-index) * 100%));
   background: var(--primary-background-color);
+
   border-radius: var(--segment-radius);
-  box-shadow: var(--box-shadow-xs), 0 0 2px 1px var(--ui-border-color);
+  box-shadow: var(--box-shadow-xs), 0 0 3px 1px var(--ui-border-color);
   transition: transform var(--motion-expressive-short) cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -41,25 +43,22 @@
 .segment {
   position: relative;
   z-index: 1;
-  flex: 1 1 0;
-  min-width: 0;
+  gap: var(--space-4);
+  padding-inline: var(--space-12);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
-  height: 100%;
-  padding-inline: var(--space-12);
+  background-color: transparent;
   border: none;
   border-radius: var(--segment-radius);
-  background: transparent;
-  color: var(--secondary-text-color);
+  color: var(--primary-text-color);
   font: inherit;
   white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
   transition: color var(--motion-productive-long) var(--motion-timing-transition),
     background var(--motion-productive-short) var(--motion-timing-transition),
     scale var(--motion-productive-short) var(--motion-timing-transition);
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     color: var(--primary-text-color);

@@ -11,7 +11,7 @@ const Menu = <Item extends BaseItemData<Record<string, unknown>>>() => {
 
   return (
     <DialogContentContainer
-      size="none"
+      size="small"
       className={cx({ [styles.menuVisible]: isOpen, [styles.menuHidden]: !isOpen }, styles.menu, menuWrapperClassName)}
     >
       <MenuList<Item> />

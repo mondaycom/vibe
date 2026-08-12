@@ -1,12 +1,9 @@
-import * as VibeNext from "@vibe/core/next";
-import type { ComponentProps, ComponentType } from "react";
-import { Attach, Email, Mobile, Send } from "@vibe/icons";
+import { Dropdown } from "@vibe/core";
+import { Attach, Email, Mobile, Send } from "@mondaydotcomorg/icons";
+import type { ComponentProps } from "react";
 import avatar1 from "../screens/assets/31a207ddb210814d45f4e60c5afe26c81fb55207.png";
 import avatar2 from "../screens/assets/44a0d931f8b012dcfc18715f7a64847e76751825.png";
 import avatar3 from "../screens/assets/6f1e4ef08a4e8899bba87998c3410a8132536714.png";
-
-// Published @vibe/core/next may not export Dropdown yet (local next source does).
-const Dropdown = (VibeNext as { Dropdown?: ComponentType<Record<string, unknown>> }).Dropdown;
 
 type DropdownVariation = {
   id: string;
@@ -21,10 +18,10 @@ const basicOptions = [
 ];
 
 const chipOptions = [
-  { value: "1", label: "Chip one" },
-  { value: "2", label: "Chip two" },
-  { value: "3", label: "Chip three" },
-  { value: "4", label: "Chip four" },
+  { value: "done", label: "Done", chipColor: "positive" as const },
+  { value: "blocked", label: "Blocked", chipColor: "negative" as const },
+  { value: "working", label: "Working on it", chipColor: "warning" as const },
+  { value: "info", label: "Info", chipColor: "info" as const },
 ];
 
 const iconOptions = [
@@ -116,8 +113,7 @@ const peopleOptions = [
   },
 ];
 
-function DropdownPreview(props: ComponentProps<NonNullable<typeof Dropdown>>) {
-  if (!Dropdown) return null;
+function DropdownPreview(props: ComponentProps<typeof Dropdown>) {
   return (
     <div style={{ width: 300 }}>
       <Dropdown clearAriaLabel="Clear" {...props} />
@@ -447,20 +443,6 @@ const dropdownVariations: DropdownVariation[] = [
 ];
 
 export function DropdownGalleryView() {
-  if (!Dropdown) {
-    return (
-      <div className="component-gallery">
-        <header className="component-gallery-header">
-          <h1 className="component-gallery-title">Dropdown</h1>
-          <p className="component-gallery-description">
-            Next Dropdown is not available in the published @vibe/core package. Build
-            @vibe/core locally to preview this gallery.
-          </p>
-        </header>
-      </div>
-    );
-  }
-
   return (
     <div className="component-gallery">
       <header className="component-gallery-header">

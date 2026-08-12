@@ -1,5 +1,3 @@
-@import "@vibe/core/tokens";
-
 :root {
   --boards-font-family: var(
     --font-family,
@@ -306,12 +304,12 @@ body {
 }
 
 /* Invisible scrollbars — preserve scroll, hide chrome (Firefox + WebKit) */
-* {
+.main-area--no-padding * {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-*::-webkit-scrollbar {
+.main-area--no-padding *::-webkit-scrollbar {
   display: none;
 }
 

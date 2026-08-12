@@ -6,57 +6,52 @@ const iconButtonVariations: GalleryVariation[] = [
   {
     id: "kind-primary",
     label: "Kind — Primary",
-    render: () => <IconButton icon={Bolt} kind="primary" ariaLabel="Primary icon button" />,
+    render: () => <IconButton icon={Bolt} kind="primary" aria-label="Primary icon button" />
   },
   {
     id: "kind-secondary",
     label: "Kind — Secondary",
-    render: () => <IconButton icon={Bolt} kind="secondary" ariaLabel="Secondary icon button" />,
+    render: () => <IconButton icon={Bolt} kind="secondary" aria-label="Secondary icon button" />
   },
   {
     id: "kind-tertiary",
     label: "Kind — Tertiary",
-    render: () => <IconButton icon={Bolt} kind="tertiary" ariaLabel="Tertiary icon button" />,
-  },
-  {
-    id: "size-xxs",
-    label: "Size — XXS",
-    render: () => <IconButton icon={Robot} kind="secondary" size="xxs" ariaLabel="XXS icon button" />,
+    render: () => <IconButton icon={Bolt} kind="tertiary" aria-label="Tertiary icon button" />
   },
   {
     id: "size-xs",
     label: "Size — XS",
-    render: () => <IconButton icon={Robot} kind="secondary" size="xs" ariaLabel="XS icon button" />,
+    render: () => <IconButton icon={Robot} kind="secondary" size="xs" aria-label="XS icon button" />
   },
   {
     id: "size-small",
     label: "Size — Small",
-    render: () => <IconButton icon={Robot} kind="secondary" size="small" ariaLabel="Small icon button" />,
+    render: () => <IconButton icon={Robot} kind="secondary" size="small" aria-label="Small icon button" />
   },
   {
     id: "size-medium",
     label: "Size — Medium",
-    render: () => <IconButton icon={Robot} kind="secondary" size="medium" ariaLabel="Medium icon button" />,
+    render: () => <IconButton icon={Robot} kind="secondary" size="medium" aria-label="Medium icon button" />
   },
   {
     id: "size-large",
     label: "Size — Large",
-    render: () => <IconButton icon={Robot} kind="secondary" size="large" ariaLabel="Large icon button" />,
+    render: () => <IconButton icon={Robot} kind="secondary" size="large" aria-label="Large icon button" />
   },
   {
     id: "active-primary",
     label: "Active — Primary",
-    render: () => <IconButton icon={Doc} kind="primary" active ariaLabel="Active primary icon button" />,
+    render: () => <IconButton icon={Doc} kind="primary" active aria-label="Active primary icon button" />
   },
   {
     id: "active-secondary",
     label: "Active — Secondary",
-    render: () => <IconButton icon={Doc} kind="secondary" active ariaLabel="Active secondary icon button" />,
+    render: () => <IconButton icon={Doc} kind="secondary" active aria-label="Active secondary icon button" />
   },
   {
     id: "active-tertiary",
     label: "Active — Tertiary",
-    render: () => <IconButton icon={Doc} kind="tertiary" active ariaLabel="Active tertiary icon button" />,
+    render: () => <IconButton icon={Doc} kind="tertiary" active aria-label="Active tertiary icon button" />
   },
   {
     id: "disabled-primary",
@@ -67,9 +62,9 @@ const iconButtonVariations: GalleryVariation[] = [
         kind="primary"
         disabled
         disabledReason="This function is not available"
-        ariaLabel="Disabled primary icon button"
+        aria-label="Disabled primary icon button"
       />
-    ),
+    )
   },
   {
     id: "disabled-secondary",
@@ -80,9 +75,9 @@ const iconButtonVariations: GalleryVariation[] = [
         kind="secondary"
         disabled
         disabledReason="This function is not available"
-        ariaLabel="Disabled secondary icon button"
+        aria-label="Disabled secondary icon button"
       />
-    ),
+    )
   },
   {
     id: "disabled-tertiary",
@@ -93,15 +88,15 @@ const iconButtonVariations: GalleryVariation[] = [
         kind="tertiary"
         disabled
         disabledReason="This function is not available"
-        ariaLabel="Disabled tertiary icon button"
+        aria-label="Disabled tertiary icon button"
       />
-    ),
+    )
   },
   {
     id: "default-add",
     label: "Default — Add",
-    render: () => <IconButton icon={Add} ariaLabel="Add" onClick={() => {}} />,
-  },
+    render: () => <IconButton icon={Add} aria-label="Add" onClick={() => {}} />
+  }
 ];
 
 export function IconButtonGalleryView() {

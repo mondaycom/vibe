@@ -14,6 +14,7 @@ export type ComponentGalleryId =
   | "chip"
   | "text-field"
   | "dropdown"
+  | "menu"
   | "toast";
 
 export type ComponentSubPage = "grid" | ComponentGalleryId;
