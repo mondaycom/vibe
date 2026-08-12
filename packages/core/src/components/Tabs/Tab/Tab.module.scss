@@ -19,20 +19,9 @@
   }
 }
 
+/* Selected stroke is rendered once on TabList (slide-transition) */
 .tabWrapper:after {
-  display: block;
-  position: absolute;
-  /* 4px horizontal inset from the tab button edges */
-  inset-inline: 4px;
-  bottom: 0;
-  content: "";
-  height: 2px;
-  border: none;
-  background-color: var(--primary-text-color);
-  transform: scaleX(0);
-  transform-origin: center bottom;
-  z-index: 2;
-  pointer-events: none;
+  display: none;
 }
 
 .tabWrapper .tabInner {
@@ -82,11 +71,6 @@
   .tabInner .tabIcon {
     color: var(--primary-text-color);
   }
-}
-
-.tabWrapper.active:after {
-  transform: scaleX(1);
-  transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
 .tabWrapper.disabled .tabInner {

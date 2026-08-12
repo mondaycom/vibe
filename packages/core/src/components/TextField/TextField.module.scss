@@ -83,7 +83,7 @@
 .textField .inputWrapper .input:focus,
 .textField .inputWrapper .input:active,
 .textField .inputWrapper .input.inputActive {
-  border-color: var(--primary-color);
+  border-color: var(--primary-text-color);
 }
 
 .textField .inputWrapper .input::placeholder {

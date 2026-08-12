@@ -138,7 +138,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
             element="span"
             type={mapSizesToTextSize[size]}
             className={classNames}
-            color={kind === "fill" ? (color === "dark" ? "onInverted" : "primary") : color === "dark" ? "onInverted" : "onPrimary"}
+            color="primary"
             data-celebration-text={isCelebrationAnimation}
           >
             <Text

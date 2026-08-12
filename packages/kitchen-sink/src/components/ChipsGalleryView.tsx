@@ -1,6 +1,6 @@
 import { Chips } from "@vibe/core";
 import { Bolt, Email } from "@vibe/icons";
-import type { ReactNode } from "react";
+import { type ReactNode, useLayoutEffect, useRef } from "react";
 import { ComponentGallery, type GalleryVariation } from "./ComponentGallery";
 
 type ChipColor =
@@ -32,7 +32,11 @@ const PALETTE_COLORS: { value: ChipColor; label: string }[] = [
 ];
 
 function themeClassName(value: ChipColor, ...extra: (string | undefined)[]) {
-  return [value === "info" ? "chips-theme-info" : undefined, ...extra].filter(Boolean).join(" ") || undefined;
+  return [`chips-theme-${value}`, ...extra].filter(Boolean).join(" ") || undefined;
+}
+
+function chipClassName(...parts: (string | undefined | false)[]) {
+  return parts.filter(Boolean).join(" ") || undefined;
 }
 
 function ChipRow({ children }: { children: ReactNode }) {
@@ -54,7 +58,13 @@ const chipsVariations: GalleryVariation[] = [
             className={themeClassName(value, "chips-readonly")}
           />
         ))}
-        <Chips label="With icon" color="primary" leftIcon={Email} readOnly className="chips-readonly" />
+        <Chips
+          label="With icon"
+          color="primary"
+          leftIcon={Email}
+          readOnly
+          className={chipClassName("chips-readonly", "chips-has-left")}
+        />
       </ChipRow>
     ),
   },
@@ -64,14 +74,16 @@ const chipsVariations: GalleryVariation[] = [
     render: () => (
       <ChipRow>
         <Chips label="Clickable" readOnly onClick={() => {}} />
-        <Chips label="With icon" leftIcon={Email} readOnly onClick={() => {}} />
+        <Chips label="With icon" leftIcon={Email} readOnly onClick={() => {}} className="chips-has-left" />
       </ChipRow>
     ),
   },
   {
     id: "removable",
     label: "Removable",
-    render: () => <Chips label="Primary" color="primary" onDelete={() => {}} />,
+    render: () => (
+      <Chips label="Primary" color="primary" onDelete={() => {}} className="chips-close-on-hover" />
+    ),
   },
   {
     id: "size",
@@ -79,9 +91,16 @@ const chipsVariations: GalleryVariation[] = [
     render: () => (
       <ChipRow>
         <Chips label="Medium" color="primary" readOnly />
-        <Chips label="Small" color="primary" readOnly className="chips-size-small" />
-        <Chips label="Medium icon" color="primary" leftIcon={Email} readOnly />
-        <Chips label="Small icon" color="primary" leftIcon={Email} readOnly className="chips-size-small" />
+        <Chips label="Small" color="primary" size="small" readOnly className="chips-size-small" />
+        <Chips label="Medium icon" color="primary" leftIcon={Email} readOnly className="chips-has-left" />
+        <Chips
+          label="Small icon"
+          color="primary"
+          leftIcon={Email}
+          size="small"
+          readOnly
+          className={chipClassName("chips-size-small", "chips-has-left")}
+        />
       </ChipRow>
     ),
   },
@@ -110,7 +129,7 @@ const chipsVariations: GalleryVariation[] = [
           color="primary"
           leftIcon={Bolt}
           readOnly
-          className="chips-filterable"
+          className={chipClassName("chips-filterable", "chips-has-left")}
           onClick={() => {}}
         />
         <Chips label="Disabled" color="primary" disabled className="chips-filterable chips-filterable--disabled" />
@@ -141,7 +160,7 @@ const chipsVariations: GalleryVariation[] = [
             color={value}
             leftIcon={Email}
             readOnly
-            className={themeClassName(value)}
+            className={themeClassName(value, "chips-has-left")}
           />
         ))}
       </ChipRow>
@@ -159,7 +178,7 @@ const chipsVariations: GalleryVariation[] = [
             color={value}
             rightIcon={Bolt}
             readOnly
-            className={themeClassName(value)}
+            className={themeClassName(value, "chips-has-right")}
           />
         ))}
       </ChipRow>
@@ -178,7 +197,7 @@ const chipsVariations: GalleryVariation[] = [
             leftIcon={Email}
             rightIcon={Bolt}
             readOnly
-            className={themeClassName(value)}
+            className={themeClassName(value, "chips-has-left", "chips-has-right")}
           />
         ))}
       </ChipRow>
@@ -216,11 +235,33 @@ const chipsVariations: GalleryVariation[] = [
 ];
 
 export function ChipsGalleryView() {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Published Chips keep the close button in-flow; lock resting width after CSS takes it out of flow
+  useLayoutEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const lockWidths = () => {
+      root.querySelectorAll<HTMLElement>('[data-vibe="Chips"]:has([data-testid$="-close"])').forEach(chip => {
+        chip.style.width = "";
+        chip.style.width = `${chip.getBoundingClientRect().width}px`;
+      });
+    };
+
+    lockWidths();
+    const frame = requestAnimationFrame(lockWidths);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   return (
-    <ComponentGallery
-      title="Chips"
-      description="All chips variations currently supported by the component."
-      variations={chipsVariations}
-    />
+    <div ref={rootRef}>
+      <ComponentGallery
+        className="chips-gallery"
+        title="Chips"
+        description="All chips variations currently supported by the component."
+        variations={chipsVariations}
+      />
+    </div>
   );
 }

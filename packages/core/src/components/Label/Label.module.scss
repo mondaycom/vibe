@@ -16,18 +16,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-full);
+  border-radius: 4px;
   padding: 2px var(--spacing-small);
   position: relative;
 
   &.small {
-    padding: 0 var(--spacing-xs);
-    border-radius: var(--border-radius-full);
+    padding: 2px var(--spacing-xs);
+    border-radius: 4px;
   }
 }
 
 .withLeg {
-  border-radius: var(--border-radius-full) var(--border-radius-full) var(--border-radius-full) 0;
+  border-radius: 4px 4px 4px 0;
 }
 
 .legWrapper {
@@ -39,60 +39,82 @@
 }
 
 .kindFill {
-  color: var(--primary-text-color);
+  border: none;
+  background-color: transparent;
+  padding: 2px var(--spacing-small);
+
+  &.small {
+    padding: 2px var(--spacing-xs);
+  }
 
   &.colorPrimary {
-    background-color: #cce4ff;
+    background-color: rgba(204, 228, 255, 0.7); /* #CCE4FF @ 70% */
+    color: #0073ea;
 
     svg path {
-      fill: #cce4ff;
+      fill: rgba(204, 228, 255, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: #b8d9ff;
+      background-color: #cce4ff;
     }
   }
 
   &.colorDark {
-    background-color: var(--inverted-color-background);
-    color: var(--text-color-on-inverted);
+    background-color: rgba(231, 233, 239, 0.7); /* #E7E9EF @ 70% */
+    color: var(--secondary-text-color);
 
     svg path {
-      fill: var(--inverted-color-background);
+      fill: rgba(231, 233, 239, 0.7);
+    }
+
+    &.clickable:hover,
+    &.clickable:active {
+      background-color: #e7e9ef;
     }
   }
 
   &.colorNegative {
-    background-color: var(--negative-color-selected);
+    background-color: rgba(244, 195, 203, 0.7); /* #F4C3CB @ 70% */
+    color: var(--negative-color);
 
     svg path {
-      fill: var(--negative-color-selected);
+      fill: rgba(244, 195, 203, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--negative-color-selected-hover);
+      background-color: #f4c3cb;
     }
   }
 
   &.colorPositive {
-    background-color: var(--positive-color-selected);
+    background-color: rgba(187, 219, 201, 0.7); /* #BBDBC9 @ 70% */
+    color: var(--positive-color);
 
     svg path {
-      fill: var(--positive-color-selected);
+      fill: rgba(187, 219, 201, 0.7);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--positive-color-selected-hover);
+      background-color: #bbdbc9;
     }
+  }
+
+  .smallText {
+    line-height: 14px;
   }
 }
 
 .kindLine {
   border: 1px solid currentColor;
   padding: 1px var(--spacing-small);
+
+  &.small {
+    padding: 0 var(--spacing-xs);
+  }
 
   .legWrapper {
     left: -1px;
@@ -113,10 +135,10 @@
   }
 
   &.colorDark {
-    color: var(--inverted-color-background);
+    color: var(--primary-text-color);
 
     svg path {
-      fill: var(--inverted-color-background);
+      fill: var(--primary-text-color);
     }
 
     &.clickable:hover,

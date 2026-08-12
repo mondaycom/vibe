@@ -12,6 +12,7 @@ export type ComponentGalleryId =
   | "tabs"
   | "label"
   | "chip"
+  | "menu"
   | "text-field"
   | "dropdown"
   | "menu"

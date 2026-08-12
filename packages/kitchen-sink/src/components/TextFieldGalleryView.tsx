@@ -120,6 +120,7 @@ const textFieldVariations: GalleryVariation[] = [
 export function TextFieldGalleryView() {
   return (
     <ComponentGallery
+      className="text-field-gallery"
       title="Text Field"
       description="All text field variations currently supported by the component."
       variations={textFieldVariations}

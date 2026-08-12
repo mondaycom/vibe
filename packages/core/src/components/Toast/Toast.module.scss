@@ -14,6 +14,7 @@
   display: flex;
   gap: var(--space-12);
   min-width: 200px;
+  max-width: 700px;
   width: auto;
   border-radius: var(--border-radius-medium);
   color: var(--primary-text-color);
@@ -51,6 +52,8 @@
     top: auto;
     transform: none;
     margin: 0;
+    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -98,6 +101,10 @@
   color: var(--text-color-on-inverted);
 }
 
+.actionButton {
+  flex-shrink: 0;
+}
+
 .actionButton.withTransition {
   opacity: 0;
   animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
@@ -105,14 +112,30 @@
   animation-fill-mode: forwards;
 }
 
+.actionLink {
+  flex-shrink: 0;
+}
+
 .content {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .textContent {
-  display: inline-flex;
-  flex-grow: 1;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  align-items: center;
+}
+
+.message {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .enterActive {

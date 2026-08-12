@@ -70,7 +70,9 @@ export default defineConfig({
     alias: [
       ...tsconfigAliases,
       // Sass `~@vibe/style/...` / legacy `~/...` imports from component SCSS.
-      { find: "~@vibe/style", replacement: path.resolve(packagesDir, "style") },
+      // Point at the installed package (has dist/), not the local style package source (dist may be unbuilt).
+      { find: "~@vibe/style", replacement: path.resolve(rootDir, "node_modules/@vibe/style") },
+      { find: "@vibe/style", replacement: path.resolve(rootDir, "node_modules/@vibe/style") },
       { find: "~", replacement: path.resolve(repoRoot, "node_modules") },
       // Deep AgentAvatar import — package barrel pulls monolith-only deps; stub locally when unavailable.
       {

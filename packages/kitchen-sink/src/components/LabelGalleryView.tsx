@@ -37,11 +37,6 @@ const labelVariations: GalleryVariation[] = [
     label: "Color — Dark",
     render: () => <Label text="New" color="dark" />,
   },
-  {
-    id: "clickable",
-    label: "Clickable",
-    render: () => <Label text="New" onClick={() => {}} aria-label="Clickable new feature label" />,
-  },
 ];
 
 export function LabelGalleryView() {

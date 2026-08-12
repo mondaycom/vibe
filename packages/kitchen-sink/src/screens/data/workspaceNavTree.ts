@@ -6,6 +6,8 @@ export type NavTreeNode =
       id: string;
       label: string;
       icon: NavItemIcon;
+      /** Optional trailing label text (e.g. "New") */
+      badge?: string;
     }
   | {
       type: "folder";
@@ -37,6 +39,7 @@ export const WORKSPACE_NAV_TREE: NavTreeNode[] = [
     id: "marketing-campaign",
     label: "Marketing campaign",
     icon: "board",
+    badge: "New",
   },
   {
     type: "item",
