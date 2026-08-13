@@ -34,7 +34,7 @@ export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
 export * from "./EmptyState";
-export * from "./ExpandCollapse";
+export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";
 export * from "@vibe/formatted-number";
 export * from "./GridKeyboardNavigationContext";

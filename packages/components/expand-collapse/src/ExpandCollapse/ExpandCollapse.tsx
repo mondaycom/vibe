@@ -1,14 +1,18 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useCallback, useRef, useState } from "react";
-import { useMergeRef } from "@vibe/shared";
+import {
+  useMergeRef,
+  type VibeComponentProps,
+  type ElementContent,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId
+} from "@vibe/shared";
 import { Icon } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import { DropdownChevronDown } from "@vibe/icons";
-import { type VibeComponentProps, type ElementContent } from "../../types";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./ExpandCollapse.module.scss";
 import { type ExpandCollapseIconPosition } from "./ExpandCollapse.types";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface ExpandCollapseProps extends VibeComponentProps {
   /**
