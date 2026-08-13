@@ -97,6 +97,7 @@
     "@vibe/clickable": "4.0.4",
     "@vibe/dialog": "4.1.2",
     "@vibe/divider": "4.0.1",
+    "@vibe/formatted-number": "4.0.0",
     "@vibe/hooks": "4.0.3",
     "@vibe/icon": "4.0.3",
     "@vibe/icon-button": "4.0.7",

@@ -1,9 +1,8 @@
 import cx from "classnames";
 import React, { useMemo, forwardRef } from "react";
-import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
+import { formatNumber, formatNumberConsts } from "./textManipulations";
 import { validateValue } from "./FormattedNumberHelpers";
-import { type VibeComponentProps } from "../../types";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import styles from "./FormattedNumber.module.scss";
 
 export interface FormattedNumberProps extends VibeComponentProps {

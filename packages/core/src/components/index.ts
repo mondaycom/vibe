@@ -36,7 +36,7 @@ export * from "./EditableText";
 export * from "./EmptyState";
 export * from "./ExpandCollapse";
 export * from "@vibe/layout";
-export * from "./FormattedNumber";
+export * from "@vibe/formatted-number";
 export * from "./GridKeyboardNavigationContext";
 export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "./HiddenText";
