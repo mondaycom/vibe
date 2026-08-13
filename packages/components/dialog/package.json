@@ -1,6 +1,6 @@
 {
   "name": "@vibe/dialog",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Vibe sub-package for dialog components",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "@vibe/hooks": "4.0.3",
     "@vibe/layer": "4.0.4",
     "@vibe/shared": "4.0.3",
-    "@vibe/style": "4.0.0",
+    "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-transition-group": "^4.4.5"

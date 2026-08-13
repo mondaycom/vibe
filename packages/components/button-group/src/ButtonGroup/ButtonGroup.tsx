@@ -1,17 +1,21 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { camelCase } from "es-toolkit";
 import cx from "classnames";
-import { getStyle, useMergeRef } from "@vibe/shared";
-import usePrevious from "../../hooks/usePrevious";
+import {
+  getStyle,
+  useMergeRef,
+  type VibeComponentProps,
+  type MoveBy,
+  getTestId,
+  ComponentDefaultTestId,
+  ComponentVibeId
+} from "@vibe/shared";
+import usePrevious from "./usePrevious";
 
 import { type SubIcon } from "@vibe/icon";
 import { type ButtonValue } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { type ButtonType, type ButtonSize } from "@vibe/button";
-import { type VibeComponentProps } from "../../types";
-import { type MoveBy } from "../../types/MoveBy";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import styles from "./ButtonGroup.module.scss";
 import { type TooltipPositions } from "@vibe/tooltip";
 
