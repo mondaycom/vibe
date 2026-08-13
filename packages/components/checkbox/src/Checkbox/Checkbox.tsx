@@ -4,10 +4,7 @@ import { isNil, noop as NOOP } from "es-toolkit";
 import { Icon } from "@vibe/icon";
 import { Check, Remove } from "@vibe/icons";
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
-import { useMergeRef } from "@vibe/shared";
-import { type VibeComponentProps } from "../../types";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { useMergeRef, type VibeComponentProps, getTestId, ComponentDefaultTestId, ComponentVibeId } from "@vibe/shared";
 import { Text } from "@vibe/typography";
 import styles from "./Checkbox.module.scss";
 

@@ -93,6 +93,7 @@
     "@vibe/base": "4.0.4",
     "@vibe/button": "4.0.5",
     "@vibe/button-group": "4.0.1",
+    "@vibe/checkbox": "4.0.0",
     "@vibe/clickable": "4.0.4",
     "@vibe/dialog": "4.1.2",
     "@vibe/divider": "4.0.1",
