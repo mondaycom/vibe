@@ -6,8 +6,8 @@ export * from "./AvatarGroup";
 export * from "./Badge";
 export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
-export * from "./ButtonGroup";
-export * from "./Checkbox";
+export { ButtonGroup, type ButtonGroupProps } from "@vibe/button-group";
+export * from "@vibe/checkbox";
 export * from "./Chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
@@ -29,14 +29,14 @@ export {
   type DialogOffset,
   type DialogEvent
 } from "@vibe/dialog";
-export * from "./Divider";
+export * from "@vibe/divider";
 export * from "./Dropdown";
 export * from "./EditableHeading";
 export * from "./EditableText";
 export * from "./EmptyState";
-export * from "./ExpandCollapse";
+export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";
-export * from "./FormattedNumber";
+export * from "@vibe/formatted-number";
 export * from "./GridKeyboardNavigationContext";
 export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "./HiddenText";
