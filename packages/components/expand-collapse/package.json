@@ -41,8 +41,8 @@
     "@vibe/icon": "4.0.3",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.3",
-    "@vibe/style": "4.0.0",
-    "@vibe/typography": "4.0.6",
+    "@vibe/style": "4.1.0",
+    "@vibe/typography": "4.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
