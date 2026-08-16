@@ -11,7 +11,7 @@ import {
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import useAfterFirstRender from "./hooks/useAfterFirstRender";
+import { useAfterFirstRender } from "@vibe/hooks";
 
 import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
 import styles from "./Counter.module.scss";
