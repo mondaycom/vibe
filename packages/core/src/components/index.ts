@@ -58,7 +58,7 @@ export * from "./NumberField";
 export * from "./Modal";
 export * from "./MultiStepIndicator";
 export * from "@vibe/progress-bars";
-export * from "./RadioButton";
+export * from "@vibe/radio-button";
 export * from "./Search";
 export * from "./Skeleton";
 export * from "./Slider";
