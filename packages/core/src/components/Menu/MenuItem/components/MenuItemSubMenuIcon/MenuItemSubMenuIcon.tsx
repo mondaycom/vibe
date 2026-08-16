@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import Divider from "../../../../Divider/Divider";
+import { Divider } from "@vibe/divider";
 import { Icon } from "@vibe/icon";
 import { Flex } from "@vibe/layout";
 import { IconButton } from "@vibe/icon-button";
