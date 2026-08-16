@@ -107,6 +107,12 @@ const toastVariations: ToastVariation[] = [
     message: "General message toast",
     props: { type: "normal", hideIcon: true },
   },
+  {
+    id: "truncated",
+    label: "Truncated (hover for full text)",
+    message: "This is a very long toast message that will get truncated and show a tooltip on hover",
+    props: { type: "normal", actions: [{ type: "button", content: "Undo" }] },
+  },
 ];
 
 export function ToastGalleryView() {

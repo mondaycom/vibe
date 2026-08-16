@@ -16,14 +16,20 @@
   min-width: 200px;
   max-width: 700px;
   width: auto;
-  border-radius: var(--border-radius-medium);
+  // TODO: replace with token once a 12px border-radius token exists
+  border-radius: 12px;
   color: var(--primary-text-color);
   background-color: var(--primary-background-color);
-  z-index: 100000;
+  z-index: var(--toast-z-index, 100000);
   transform: translateX(-50%);
   transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), width 200ms cubic-bezier(0, 0, 0.4, 1);
 
-  &.typeNormal,
+  &.typeNormal {
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    box-shadow: var(--box-shadow-xs), 0 0 2px 1px var(--ui-border-color);
+  }
+
   &.typePositive,
   &.typeNegative,
   &.typeWarning {

@@ -196,48 +196,48 @@ const Toast = ({
   const tooltipContent = isMessageTruncated && typeof children === "string" ? children : undefined;
 
   const toastElement = (
-    <Tooltip content={tooltipContent} position="top">
-      <Text
-        ref={nodeRef}
-        id={id}
-        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
-        type="text2"
-        element="div"
-        color={type === "dark" ? "fixedLight" : "primary"}
-        className={classNames}
-        role="alert"
-        aria-live="polite"
-      >
-        {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
-        <Flex align="center" gap="medium" className={styles.content}>
-          <Flex
-            gap="medium"
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
-            className={styles.textContent}
-          >
+    <Text
+      ref={nodeRef}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.TOAST, id)}
+      type="text2"
+      element="div"
+      color={type === "dark" ? "fixedLight" : "primary"}
+      className={classNames}
+      role="alert"
+      aria-live="polite"
+    >
+      {iconElement && <div className={cx(styles.icon)}>{iconElement}</div>}
+      <Flex align="center" gap="medium" className={styles.content}>
+        <Flex
+          gap="medium"
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CONTENT)}
+          className={styles.textContent}
+        >
+          <Tooltip content={tooltipContent} position="top" zIndex={100001}>
             <span ref={messageRef} className={styles.message}>
               {children}
             </span>
-            {toastLinks}
-          </Flex>
-          {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
-          {loading && <Loader size="xs" />}
+          </Tooltip>
+          {toastLinks}
         </Flex>
-        {closeable && (
-          <IconButton
-            className={cx(styles.closeButton)}
-            onClick={handleClose}
-            size="xs"
-            kind="tertiary"
-            color={type === "dark" ? "fixed-light" : "primary"}
-            aria-label={closeButtonAriaLabel}
-            data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
-            icon={CloseSmall}
-            hideTooltip
-          />
-        )}
-      </Text>
-    </Tooltip>
+        {(toastButtons || deprecatedAction) && (toastButtons || deprecatedAction)}
+        {loading && <Loader size="xs" />}
+      </Flex>
+      {closeable && (
+        <IconButton
+          className={cx(styles.closeButton)}
+          onClick={handleClose}
+          size="xs"
+          kind="tertiary"
+          color={type === "dark" ? "fixed-light" : "primary"}
+          aria-label={closeButtonAriaLabel}
+          data-testid={getTestId(ComponentDefaultTestId.TOAST_CLOSE_BUTTON)}
+          icon={CloseSmall}
+          hideTooltip
+        />
+      )}
+    </Text>
   );
 
   // Gallery / static previews: render in place, skip enter/exit animation.
