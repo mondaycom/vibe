@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "4.5.7",
+  "version": "4.5.8",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -103,10 +103,10 @@
     "@vibe/icon": "4.0.3",
     "@vibe/icon-button": "4.0.7",
     "@vibe/icons": "4.1.0",
-    "@vibe/label": "4.0.0",
+    "@vibe/label": "4.0.1",
     "@vibe/layer": "4.0.4",
     "@vibe/layout": "4.0.5",
-    "@vibe/link": "4.0.0",
+    "@vibe/link": "4.0.1",
     "@vibe/loader": "4.0.3",
     "@vibe/progress-bars": "4.0.1",
     "@vibe/radio-button": "4.0.0",
