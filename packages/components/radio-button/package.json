@@ -38,10 +38,10 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/clickable": "4.0.3",
+    "@vibe/clickable": "4.0.4",
     "@vibe/shared": "4.0.3",
-    "@vibe/tooltip": "4.0.6",
-    "@vibe/typography": "4.0.6",
+    "@vibe/tooltip": "4.0.7",
+    "@vibe/typography": "4.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
