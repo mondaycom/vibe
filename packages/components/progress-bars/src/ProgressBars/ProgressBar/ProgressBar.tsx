@@ -1,13 +1,10 @@
 import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
-import { getStyle } from "@vibe/shared";
+import { getStyle, getTestId, ComponentDefaultTestId, ComponentVibeId, type VibeComponentProps } from "@vibe/shared";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { type ProgressBarSize, type ProgressBarStyle } from "./ProgressBar.types";
 import { calculatePercentage, getProgressBarClassNames } from "./ProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import { type VibeComponentProps } from "../../../types";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
-import { getTestId } from "../../../tests/test-ids-utils";
 import styles from "./ProgressBar.module.scss";
 
 export interface ProgressBarProps extends VibeComponentProps {
