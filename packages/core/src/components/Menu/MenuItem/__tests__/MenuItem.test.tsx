@@ -3,7 +3,7 @@ import React from "react";
 import { render, waitFor, fireEvent, act, within } from "@testing-library/react";
 import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
-import { Label } from "../../../Label";
+import { Label } from "@vibe/label";
 
 const title = "Menu Item";
 

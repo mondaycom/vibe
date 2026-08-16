@@ -3,7 +3,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import EmptyState from "../EmptyState";
 import { Button } from "@vibe/button";
-import Link from "../../../components/Link/Link";
+import { Link } from "@vibe/link";
 
 describe("EmptyState component", () => {
   const mockOnClick = vi.fn();
