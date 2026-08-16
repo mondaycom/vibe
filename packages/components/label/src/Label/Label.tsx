@@ -6,19 +6,18 @@ import {
   getStyle,
   useMergeRef,
   contentColors,
+  ComponentVibeId,
   type VibeComponentProps
 } from "@vibe/shared";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Text } from "@vibe/typography";
 import Leg from "./Leg";
-import { type LabelColor, type LabelKind, type ContentColor } from "./Label.types";
+import { type LabelColor, type LabelKind, type ContentColor, type LabelSizes } from "./Label.types";
 import { useClickableProps } from "@vibe/clickable";
 
 import styles from "./Label.module.scss";
 import LabelCelebrationAnimation from "./LabelCelebrationAnimation";
-import { type LabelSizes } from "./Label.types";
 import { mapSizesToTextSize } from "./LabelConstants";
-import { ComponentVibeId } from "@vibe/shared";
 
 export interface LabelProps extends VibeComponentProps {
   /**
