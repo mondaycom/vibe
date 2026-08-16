@@ -103,6 +103,7 @@
     "@vibe/icon": "4.0.3",
     "@vibe/icon-button": "4.0.7",
     "@vibe/icons": "4.1.0",
+    "@vibe/label": "4.0.0",
     "@vibe/layer": "4.0.4",
     "@vibe/layout": "4.0.5",
     "@vibe/loader": "4.0.3",

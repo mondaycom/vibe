@@ -43,7 +43,7 @@ export * from "./HiddenText";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";
 export * from "./Info";
-export * from "./Label";
+export * from "@vibe/label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
 export * from "./Link";
 export * from "./List";

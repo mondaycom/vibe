@@ -1,6 +1,5 @@
 @import "~@vibe/style/dist/mixins/states";
-@import "../../styles/typography";
-@import "../../styles/keyframes";
+@import "~@vibe/style/dist/mixins/typography";
 
 .clickableWrapper {
   @include clickable;
