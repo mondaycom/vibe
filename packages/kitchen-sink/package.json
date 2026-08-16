@@ -7,7 +7,6 @@
     "dev": "node scripts/dev.mjs",
     "dev:current": "vite --port 5220 --strictPort",
     "dev:original": "vite --config vite.original.config.ts --mode original",
-    "build": "tsc --noEmit && vite build",
     "build:current": "vite build",
     "build:original": "vite build --config vite.original.config.ts --mode original",
     "check": "tsc --noEmit && vite build",
