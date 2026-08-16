@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo } from "react";
 import { Check } from "@vibe/icons";
 import { type SubIcon } from "@vibe/icon";
-import Divider from "../../components/Divider/Divider";
+import { Divider } from "@vibe/divider";
 import { NOOP } from "@vibe/shared";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";

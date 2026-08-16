@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
-import Divider from "../../Divider/Divider";
+import { Divider } from "@vibe/divider";
 import { type VibeComponentProps } from "../../../types";
 import styles from "./MenuDivider.module.scss";
 
