@@ -5,8 +5,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
-const packagesDir = path.resolve(rootDir, "..");
-const repoRoot = path.resolve(packagesDir, "..");
+const repoRoot = path.resolve(rootDir, "../..");
+const packagesDir = path.resolve(repoRoot, "packages");
 
 type Tsconfig = {
   compilerOptions?: {
