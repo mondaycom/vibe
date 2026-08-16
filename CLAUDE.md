@@ -8,7 +8,7 @@ The **Vibe Design System** is monday.com's official React component library, man
 
 ## Node.js Version
 
-This repo requires **Node.js v22**. Always run `nvm use` (or `nvm use 22`) before any dev/build commands. The `.nvmrc` in `app/kitchen-sink/` pins v22. Running on v20 will cause a `styleText` crash from `rolldown`.
+This repo requires **Node.js v22**. Always run `nvm use` (or `nvm use 22`) before any dev/build commands. The `.nvmrc` in `apps/kitchen-sink/` pins v22. Running on v20 will cause a `styleText` crash from `rolldown`.
 
 ## Development Commands
 
@@ -139,10 +139,10 @@ The repository includes an MCP (Model Context Protocol) server (`@vibe/mcp`) tha
 - **CSS token handling** via `@vibe/style` package
 
 ### Kitchen Sink Vibe Sources
-- **Original** must resolve `@vibe/*` component code from the pinned npm packages in `app/kitchen-sink/published-vibe/node_modules`; never alias it to workspace source or apply Current-only component overrides.
+- **Original** must resolve `@vibe/*` component code from the pinned npm packages in `apps/kitchen-sink/published-vibe/node_modules`; never alias it to workspace source or apply Current-only component overrides.
 - **Current** resolves `@vibe/*` from local workspace source and keeps the existing kitchen-sink development overrides.
-- Keep the two runtimes isolated. Verify source-related changes with both `npm run build:original` and `npm run build:current` from `app/kitchen-sink`.
-- Kitchen-sink lives in `app/` (not `packages/`) so it is excluded from the root Yarn workspace and CI installs. Run `yarn install` inside `app/kitchen-sink` before first use.
+- Keep the two runtimes isolated. Verify source-related changes with both `npm run build:original` and `npm run build:current` from `apps/kitchen-sink`.
+- Kitchen-sink lives in `app/` (not `packages/`) so it is excluded from the root Yarn workspace and CI installs. Run `yarn install` inside `apps/kitchen-sink` before first use.
 
 ## Important Files and Conventions
 
