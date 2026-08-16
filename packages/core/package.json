@@ -106,6 +106,7 @@
     "@vibe/label": "4.0.0",
     "@vibe/layer": "4.0.4",
     "@vibe/layout": "4.0.5",
+    "@vibe/link": "4.0.0",
     "@vibe/loader": "4.0.3",
     "@vibe/progress-bars": "4.0.1",
     "@vibe/shared": "4.0.3",

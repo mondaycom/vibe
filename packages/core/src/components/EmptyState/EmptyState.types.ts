@@ -1,5 +1,5 @@
 import type React from "react";
-import { type LinkProps } from "../Link/Link";
+import { type LinkProps } from "@vibe/link";
 import { type VibeComponentProps } from "src/types";
 import { type ButtonProps, type ButtonType } from "@vibe/button";
 

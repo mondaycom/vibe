@@ -45,7 +45,7 @@ export * from "@vibe/icon-button";
 export * from "./Info";
 export * from "@vibe/label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
-export * from "./Link";
+export * from "@vibe/link";
 export * from "./List";
 export * from "./ListItem";
 export * from "./ListItemAvatar";

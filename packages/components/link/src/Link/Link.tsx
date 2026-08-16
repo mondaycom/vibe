@@ -1,14 +1,11 @@
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, ComponentVibeId, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import { NOOP, getStyle } from "@vibe/shared";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { type LinkColor, type LinkIconPosition, type LinkTarget } from "./Link.types";
-import { type VibeComponentProps } from "../../types";
 import styles from "./Link.module.scss";
-
 import { camelCase } from "es-toolkit";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface LinkProps extends VibeComponentProps {
   /**
