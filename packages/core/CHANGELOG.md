@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.8](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.7...@vibe/core@4.5.8) (2026-08-16)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
 ## [4.5.7](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.6...@vibe/core@4.5.7) (2026-08-16)
 
 **Note:** Version bump only for package @vibe/core
