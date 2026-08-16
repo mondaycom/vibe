@@ -1,0 +1,11 @@
+2026-08-16 12:57:41 ERROR Arduino not found
+2026-08-16 13:00:01 ERROR Arduino not found
+2026-08-16 13:00:17 ERROR Arduino not found
+2026-08-16 13:00:28 ERROR Arduino not found
+2026-08-16 13:02:58 ERROR Arduino not found
+2026-08-16 13:25:31 ERROR Arduino not found
+2026-08-16 13:25:50 ERROR Arduino not found
+2026-08-16 13:27:33 ERROR Arduino not found
+2026-08-16 13:27:41 ERROR Arduino not found
+2026-08-16 13:32:02 ERROR Arduino not found
+2026-08-16 13:32:19 ERROR Arduino not found
