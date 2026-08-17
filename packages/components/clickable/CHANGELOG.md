@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/mondaycom/vibe/compare/@vibe/clickable@4.0.3...@vibe/clickable@4.0.4) (2026-08-11)
+
+**Note:** Version bump only for package @vibe/clickable
+
+
+
+
+
 ## [4.0.3](https://github.com/mondaycom/vibe/compare/@vibe/clickable@4.0.2...@vibe/clickable@4.0.3) (2026-05-31)
 
 **Note:** Version bump only for package @vibe/clickable
