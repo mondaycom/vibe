@@ -37,7 +37,11 @@
     }
   }
 
+  &:hover:not(.disabled) {
+    background-color: var(--primary-background-hover-color);
+  }
+
   &.selected:not(.disabled) {
-    background-color: var(--primary-selected-color);
+    background-color: var(--primary-background-hover-color);
   }
 }
