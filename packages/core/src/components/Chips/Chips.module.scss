@@ -139,7 +139,7 @@
   }
 
   &.filterable {
-    background-color: var(--primary-selected-color);
+    background-color: var(--ui-background-color);
     color: var(--primary-text-color);
     cursor: pointer;
 
@@ -150,7 +150,7 @@
 
     &:hover:not(.disabled):not(.pressed),
     &:active:not(.disabled):not(.pressed) {
-      background-color: var(--primary-selected-hover-color);
+      background-color: var(--ui-background-hover-color);
       color: var(--primary-text-color);
     }
 

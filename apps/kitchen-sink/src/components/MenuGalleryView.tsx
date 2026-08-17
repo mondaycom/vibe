@@ -76,8 +76,8 @@ const menuVariations: GalleryVariation[] = [
     render: () => (
       <MenuPreview>
         <Menu>
-          <MenuItem title="Inbox" label={<Label text="New" kind="line" size="small" />} />
-          <MenuItem title="Updates" label={<Label text="3" kind="line" size="small" />} />
+          <MenuItem title="Inbox" label={<Label text="New" size="small" />} />
+          <MenuItem title="Updates" />
           <MenuItem title="Settings" icon={Settings} />
         </Menu>
       </MenuPreview>
@@ -284,7 +284,7 @@ const menuVariations: GalleryVariation[] = [
         <Menu>
           <MenuTitle caption="Workspace" />
           <MenuDivider />
-          <MenuItem icon={Email} title="Invite members" label={<Label text="New" kind="line" size="small" />} />
+          <MenuItem icon={Email} title="Invite members" label={<Label text="New" size="small" />} />
           <MenuItem icon={Settings} title="Settings">
             <Menu>
               <MenuItem title="General" />

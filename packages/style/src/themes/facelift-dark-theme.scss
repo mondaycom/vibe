@@ -5,6 +5,10 @@
   --primary-selected-hover-color: rgba(255, 255, 255, 0.12);
   --primary-highlighted-color: #180d4f;
   --primary-surface-color: #222221;
+  --surface-primary-color: var(--primary-highlighted-color);
+  --surface-positive-color: var(--positive-color-selected);
+  --surface-negative-color: var(--negative-color-selected);
+  --surface-warning-color: var(--warning-color-selected);
   --primary-text-color: #e4e2de;
   --secondary-text-color: #9a9894;
   --text-color-on-inverted: #1a1a19;

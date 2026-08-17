@@ -62,7 +62,7 @@
   background-color: var(--secondary-background-color);
   border: 1px solid;
   border-color: var(--ui-border-color);
-  border-radius: var(--border-radius-small);
+  border-radius: 8px; /* facelift: 8px input radius */
   transition: border-color var(--motion-productive-medium) ease-in;
   padding: var(--space-8) var(--space-4) var(--space-8) var(--space-12);
   white-space: nowrap;
@@ -83,7 +83,7 @@
 .textField .inputWrapper .input:focus,
 .textField .inputWrapper .input:active,
 .textField .inputWrapper .input.inputActive {
-  border-color: var(--primary-text-color);
+  border-color: var(--primary-color);
 }
 
 .textField .inputWrapper .input::placeholder {

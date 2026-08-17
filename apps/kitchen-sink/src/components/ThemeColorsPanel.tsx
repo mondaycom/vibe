@@ -79,6 +79,7 @@ export function ThemeColorsPanel() {
           <Tab>All</Tab>
           <Tab>Primary colors</Tab>
           <Tab>Text colors</Tab>
+          <Tab>Status colors</Tab>
           <Tab>Utility</Tab>
           <Tab>Backgrounds</Tab>
         </TabList>

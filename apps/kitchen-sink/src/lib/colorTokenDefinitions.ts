@@ -36,6 +36,18 @@ export const COLOR_TOKEN_SECTIONS: ColorTokenSection[] = [
     ],
   },
   {
+    id: "status",
+    title: "Status colors",
+    tokens: [
+      { name: "positive-color", description: "Primary positive / success color" },
+      { name: "positive-color-selected", description: "Selected state for positive color", supportsAlpha: true },
+      { name: "negative-color", description: "Primary negative / error color" },
+      { name: "negative-color-selected", description: "Selected state for negative color", supportsAlpha: true },
+      { name: "warning-color", description: "Primary warning color" },
+      { name: "warning-color-selected", description: "Selected state for warning color", supportsAlpha: true },
+    ],
+  },
+  {
     id: "utility",
     title: "Utility",
     tokens: [
@@ -79,12 +91,33 @@ export const COLOR_TOKEN_SECTIONS: ColorTokenSection[] = [
         showBorder: true,
       },
       { name: "ui-background-color", description: "Background color for ui elements and components" },
+      { name: "ui-background-hover-color", description: "Use only as hover on ui background color" },
       {
         name: "disabled-background-color",
         description: "Use as background for disabled elements",
         showBorder: true,
       },
       { name: "primary-surface-color", description: "Use this as the surface of the main layout appearance" },
+      {
+        name: "surface-primary-color",
+        description: "Primary surface / tinted background",
+        showBorder: true,
+      },
+      {
+        name: "surface-positive-color",
+        description: "Positive surface / tinted background",
+        showBorder: true,
+      },
+      {
+        name: "surface-negative-color",
+        description: "Negative surface / tinted background",
+        showBorder: true,
+      },
+      {
+        name: "surface-warning-color",
+        description: "Warning surface / tinted background",
+        showBorder: true,
+      },
     ],
   },
 ];

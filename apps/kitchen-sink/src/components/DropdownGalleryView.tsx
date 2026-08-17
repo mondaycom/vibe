@@ -116,7 +116,7 @@ const peopleOptions = [
 function DropdownPreview(props: ComponentProps<typeof Dropdown>) {
   return (
     <div style={{ width: 300 }}>
-      <Dropdown clearAriaLabel="Clear" {...props} />
+      <Dropdown clearAriaLabel="Clear" size="small" {...props} />
     </div>
   );
 }
@@ -228,6 +228,7 @@ const dropdownVariations: DropdownVariation[] = [
           defaultValue={[chipOptions[0]!, chipOptions[1]!, chipOptions[2]!]}
           options={chipOptions}
           multi
+          size="small"
           clearAriaLabel="Clear"
         />
       </div>
@@ -244,6 +245,7 @@ const dropdownVariations: DropdownVariation[] = [
           options={chipOptions}
           multi
           multiline
+          size="small"
           clearAriaLabel="Clear"
         />
       </div>
@@ -435,6 +437,7 @@ const dropdownVariations: DropdownVariation[] = [
           searchable
           boxMode
           multi
+          size="small"
           clearAriaLabel="Clear"
         />
       </div>

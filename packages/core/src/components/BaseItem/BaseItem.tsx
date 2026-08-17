@@ -6,6 +6,8 @@ import { Text, type TextType } from "@vibe/typography";
 import { type BaseItemData, type BaseItemProps } from "./BaseItem.types";
 import { useListItemProps } from "./hooks/useListItemProps";
 import { Tooltip } from "@vibe/tooltip";
+import { Icon } from "@vibe/icon";
+import { Check } from "@vibe/icons";
 import { renderSideElement } from "./utils";
 import styles from "./BaseItem.module.scss";
 
@@ -38,6 +40,7 @@ const BaseItem = forwardRef(
     }, [listItemProps]);
 
     const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
+    const showSelectedCheck = selected && !readOnly;
 
     const listItemClassNames = useMemo(
       () =>
@@ -82,8 +85,19 @@ const BaseItem = forwardRef(
               <Text type={textVariant} color="inherit" tooltipProps={{ containerSelector: "body" }}>
                 {label}
               </Text>
-              {endElement && (
-                <div className={styles.endElement}>{renderSideElement(endElement, disabled, textVariant)}</div>
+              {(endElement || showSelectedCheck) && (
+                <div className={styles.endElement}>
+                  {endElement && renderSideElement(endElement, disabled, textVariant)}
+                  {showSelectedCheck && (
+                    <Icon
+                      icon={Check}
+                      size={20}
+                      className={styles.selectedCheck}
+                      ignoreFocusStyle
+                      aria-hidden
+                    />
+                  )}
+                </div>
               )}
             </>
           )}

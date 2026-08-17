@@ -5,6 +5,10 @@
   --primary-selected-hover-color: rgba(0, 0, 0, 0.08);
   --primary-highlighted-color: #eaebff;
   --primary-surface-color: #f6f4f1;
+  --surface-primary-color: var(--primary-highlighted-color);
+  --surface-positive-color: var(--positive-color-selected);
+  --surface-negative-color: var(--negative-color-selected);
+  --surface-warning-color: var(--warning-color-selected);
   --primary-text-color: #323338;
   --secondary-text-color: #676879;
   --text-color-on-inverted: #ffffff;
@@ -20,7 +24,7 @@
   --backdrop-color: rgba(50, 51, 56, 0.7);
   --ui-border-color: #e2e4e3;
   --ui-background-color: #f2f3f2;
-  --ui-background-hover-color: #eaeceb;
+  --ui-background-hover-color: #dfdbd8;
   --layout-border-color: #e9ebea;
   --placeholder-color: var(--secondary-text-color);
   --icon-color: var(--secondary-text-color);

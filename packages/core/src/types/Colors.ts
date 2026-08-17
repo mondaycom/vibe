@@ -1,19 +1,19 @@
 import { contentColors } from "../utils/colors-vars-map";
 
 const MapStateSelectedColor = {
-  positive: "--positive-color-selected",
-  negative: "--negative-color-selected",
-  primary: "--primary-selected-color",
-  warning: "--warning-color-selected",
-  info: "--info-color-selected",
+  positive: "--surface-positive-color",
+  negative: "--surface-negative-color",
+  primary: "--ui-background-color",
+  warning: "--surface-warning-color",
+  info: "--surface-primary-color",
   /** @deprecated Use `info` instead */
-  neutral: "--info-color-selected"
+  neutral: "--surface-primary-color"
 };
 
 const MapStateSelectedHoverColor = {
   positive: "--positive-color-selected-hover",
   negative: "--negative-color-selected-hover",
-  primary: "--primary-selected-hover-color",
+  primary: "--ui-background-hover-color",
   warning: "--warning-color-selected-hover",
   info: "--info-color-selected-hover",
   /** @deprecated Use `info` instead */
