@@ -5,6 +5,12 @@
   --primary-selected-hover-color: #0d2e65;
   --primary-highlighted-color: #0d2753;
   --primary-surface-color: #181b34;
+  --info-color-selected: #cce4ff;
+  --info-color-selected-hover: #b8d9ff;
+  --surface-primary-color: var(--primary-highlighted-color, var(--info-color-selected));
+  --surface-positive-color: var(--positive-color-selected);
+  --surface-negative-color: var(--negative-color-selected);
+  --surface-warning-color: var(--warning-color-selected);
 
   --primary-text-color: #d5d8df;
   --secondary-text-color: #9699a6;
