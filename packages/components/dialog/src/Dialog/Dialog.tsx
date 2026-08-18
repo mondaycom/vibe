@@ -53,6 +53,7 @@ function Dialog({
   disable = false,
   open = false,
   isOpen: isOpenProp,
+  positioningActive = true,
   useDerivedStateFromProps = false,
   animationType = "expand",
   preventAnimationOnMount = false,
@@ -99,9 +100,17 @@ function Dialog({
   const isOpenInternal = useDerivedStateFromProps ? isOpenProp : isOpenState;
   const isShown = isOpenInternal || open;
 
-  // Build middleware array for Floating UI — skip when closed to avoid per-render overhead
+  // Whether Floating UI should actively track position (autoUpdate + middleware). `positioningActive`
+  // defaults to true but is always gated by `isShown`, so consumers that don't set it behave exactly
+  // as before (positioning runs only while shown). A consumer that keeps the dialog permanently
+  // mounted (e.g. Dropdown, which must keep downshift's menu element in the DOM) can pass its own
+  // "is really open" state here to avoid an always-on autoUpdate/ResizeObserver per instance —
+  // costly when many are rendered together.
+  const isPositioningActive = isShown && positioningActive;
+
+  // Build middleware array for Floating UI — skip when positioning is inactive to avoid overhead
   const floatingMiddleware = useMemo<Middleware[]>(() => {
-    if (!isShown) return [];
+    if (!isPositioningActive) return [];
 
     const middlewareList: Middleware[] = [];
 
@@ -142,7 +151,7 @@ function Dialog({
     }
 
     return middlewareList;
-  }, [isShown, moveBy.main, moveBy.secondary, tooltip, hideWhenReferenceHidden, middlewareProp]);
+  }, [isPositioningActive, moveBy.main, moveBy.secondary, tooltip, hideWhenReferenceHidden, middlewareProp]);
 
   // Configure autoUpdate for position tracking
   const whileElementsMounted = useCallback(
@@ -155,11 +164,11 @@ function Dialog({
     [observeContentResize]
   );
 
-  // Use Floating UI hook — whileElementsMounted is omitted when closed to skip autoUpdate setup
+  // Use Floating UI hook — whileElementsMounted is omitted when positioning is inactive to skip autoUpdate setup
   const { refs, floatingStyles, placement, middlewareData } = useFloating({
     placement: position as Placement,
     middleware: floatingMiddleware,
-    whileElementsMounted: isShown ? whileElementsMounted : undefined,
+    whileElementsMounted: isPositioningActive ? whileElementsMounted : undefined,
     elements: {
       reference: referenceElement
     }

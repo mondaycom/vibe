@@ -149,6 +149,19 @@ export interface DialogProps extends VibeComponentProps {
    */
   isOpen?: boolean;
   /**
+   * Controls whether Floating UI actively tracks the dialog's position (autoUpdate +
+   * ResizeObserver + scroll listeners + middleware). Defaults to `true` and is always gated by
+   * the dialog's shown state, so leaving it `undefined` preserves the existing behavior exactly
+   * (position is tracked only while the dialog is shown).
+   *
+   * Set this to `false` (or your own "is really open" state) when the dialog is kept permanently
+   * mounted (e.g. via `open`) but its content is only visible some of the time, so position
+   * tracking runs only while visible. This avoids one always-on autoUpdate/ResizeObserver per
+   * instance, which is costly when many such dialogs are rendered together (e.g. dropdowns in a
+   * table).
+   */
+  positioningActive?: boolean;
+  /**
    * CSS class names that, when present on target, prevent showing the dialog.
    */
   showTriggerIgnoreClass?: string | string[];
