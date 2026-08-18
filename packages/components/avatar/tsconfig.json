@@ -2,7 +2,7 @@
   "extends": "@vibe/config/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src",
+    "rootDir": "src"
   },
   "include": ["src/**/*"]
 }
