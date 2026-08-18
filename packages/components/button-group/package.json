@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@vibe/button": "4.0.5",
+    "@vibe/hooks": "4.0.4",
     "@vibe/icon": "4.0.3",
     "@vibe/shared": "4.0.3",
     "@vibe/style": "4.1.0",

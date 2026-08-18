@@ -10,7 +10,7 @@ import {
   ComponentDefaultTestId,
   ComponentVibeId
 } from "@vibe/shared";
-import usePrevious from "./usePrevious";
+import { usePrevious } from "@vibe/hooks";
 
 import { type SubIcon } from "@vibe/icon";
 import { type ButtonValue } from "./ButtonGroupConstants";
