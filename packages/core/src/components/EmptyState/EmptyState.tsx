@@ -7,7 +7,7 @@ import styles from "./EmptyState.module.scss";
 import { getStyle } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { Button, type ButtonProps } from "@vibe/button";
-import { Link, type LinkProps } from "../Link";
+import { Link, type LinkProps } from "@vibe/link";
 import { ComponentVibeId } from "../../tests/constants";
 
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(

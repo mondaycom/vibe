@@ -1,0 +1,37 @@
+import { ComponentDefaultTestId, getTestId, type VibeComponentProps, ComponentVibeId, getStyle } from "@vibe/shared";
+import cx from "classnames";
+import React from "react";
+import { type DividerDirection } from "./Divider.types";
+import styles from "./Divider.module.scss";
+
+export interface DividerProps extends VibeComponentProps {
+  /**
+   * The direction of the divider.
+   */
+  direction?: DividerDirection;
+  /**
+   * If true, removes margin from the divider.
+   */
+  withoutMargin?: boolean;
+}
+
+const Divider = ({
+  className = undefined,
+  withoutMargin = false,
+  direction = "horizontal",
+  id,
+  "data-testid": dataTestId
+}: DividerProps) => {
+  return (
+    <div
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.DIVIDER, id)}
+      data-vibe={ComponentVibeId.DIVIDER}
+      className={cx(styles.divider, className, getStyle(styles, direction), {
+        [styles.withoutMargin]: withoutMargin
+      })}
+    />
+  );
+};
+
+export default Divider;

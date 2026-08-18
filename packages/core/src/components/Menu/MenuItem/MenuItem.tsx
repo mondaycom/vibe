@@ -4,7 +4,7 @@ import { type IconType, type SubIcon } from "@vibe/icon";
 import { useIsOverflowing } from "@vibe/hooks";
 import { type VibeComponentProps } from "../../../types";
 import { type CloseMenuOption, type MenuChild } from "../Menu/MenuConstants";
-import Label from "../../Label/Label";
+import { Label } from "@vibe/label";
 import styles from "./MenuItem.module.scss";
 import BaseMenuItem from "./components/BaseMenuItem/BaseMenuItem";
 import MenuItemIcon from "./components/MenuItemIcon/MenuItemIcon";
