@@ -1500,8 +1500,9 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
           >
             <div
               aria-label="Primary"
-              className="chips chips multiselect-chip-multi-line noAnimation"
+              className="chips chips multiselect-chip-multi-line noAnimation withClose"
               data-testid="value-container-chip"
+              data-variant="default"
               data-vibe="Chips"
               id="primary"
               onClick={[Function]}
@@ -1510,7 +1511,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               onMouseLeave={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--primary-selected-color)",
+                  "backgroundColor": "var(--ui-background-color)",
                 }
               }
             >
@@ -1561,8 +1562,9 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
             </div>
             <div
               aria-label="Positive"
-              className="chips chips multiselect-chip-multi-line noAnimation"
+              className="chips chips multiselect-chip-multi-line noAnimation withClose"
               data-testid="value-container-chip"
+              data-variant="default"
               data-vibe="Chips"
               id="positive"
               onClick={[Function]}
@@ -1571,7 +1573,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               onMouseLeave={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--positive-color-selected)",
+                  "backgroundColor": "var(--surface-positive-color)",
                 }
               }
             >
@@ -1625,8 +1627,9 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
             >
               <div
                 aria-label="Negative"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="chips chips multiselect-chip-multi-line noAnimation withClose"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="negative"
                 onClick={[Function]}
@@ -1635,7 +1638,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--negative-color-selected)",
+                    "backgroundColor": "var(--surface-negative-color)",
                   }
                 }
               >
@@ -2336,8 +2339,9 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="chips chips multiselect-chip-multi-line noAnimation withClose withLeftIcon"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="ocean"
                 onClick={[Function]}
@@ -2346,7 +2350,7 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--primary-selected-color)",
+                    "backgroundColor": "var(--ui-background-color)",
                   }
                 }
               >
@@ -2570,8 +2574,9 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="chips chips multiselect-chip-multi-line noAnimation withClose withLeftIcon"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="ocean"
                 onClick={[Function]}
@@ -2580,7 +2585,7 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--primary-selected-color)",
+                    "backgroundColor": "var(--ui-background-color)",
                   }
                 }
               >
@@ -2932,6 +2937,7 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
               aria-label="Ocean"
               className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
               data-testid="value-container-chip"
+              data-variant="default"
               data-vibe="Chips"
               id="ocean"
               onClick={[Function]}
@@ -2958,6 +2964,7 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
                 aria-label="Blue"
                 className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="blue"
                 onClick={[Function]}
@@ -3103,17 +3110,16 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
+              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect readOnly defaultCursor"
               data-testid="value-container-chip"
+              data-variant="readOnly"
               data-vibe="Chips"
               id="ocean"
-              onClick={[Function]}
-              onMouseDown={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--primary-selected-color)",
+                  "backgroundColor": "var(--ui-background-color)",
                 }
               }
             >
@@ -3129,17 +3135,16 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
+                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect readOnly defaultCursor"
                 data-testid="value-container-chip"
+                data-variant="readOnly"
                 data-vibe="Chips"
                 id="blue"
-                onClick={[Function]}
-                onMouseDown={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--primary-selected-color)",
+                    "backgroundColor": "var(--ui-background-color)",
                   }
                 }
               >
