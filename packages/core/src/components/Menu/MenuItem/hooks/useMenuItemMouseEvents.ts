@@ -1,6 +1,6 @@
 import { type RefObject } from "react";
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
-import usePrevious from "../../../../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 import { useIsomorphicLayoutEffect } from "@vibe/shared";
 
 export default function useMenuItemMouseEvents({

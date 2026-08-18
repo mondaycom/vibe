@@ -98,6 +98,7 @@
     "@vibe/counter": "4.0.1",
     "@vibe/dialog": "4.1.3",
     "@vibe/divider": "4.0.1",
+    "@vibe/editable": "4.0.0",
     "@vibe/expand-collapse": "4.0.2",
     "@vibe/formatted-number": "4.0.1",
     "@vibe/hooks": "4.0.4",
