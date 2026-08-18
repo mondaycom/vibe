@@ -31,7 +31,7 @@ export {
 } from "@vibe/dialog";
 export * from "@vibe/divider";
 export * from "./Dropdown";
-export { EditableHeading, type EditableHeadingProps, EditableText, type EditableTextProps } from "@vibe/editable";
+export * from "@vibe/editable";
 export * from "./EmptyState";
 export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";
