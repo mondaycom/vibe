@@ -1,9 +1,8 @@
 export { default as useKeyEvent } from "./useKeyEvent";
 export { default as useEventListener } from "./useEventListener";
 export { default as useDebounceEvent } from "./useDebounceEvent";
-export { useAfterFirstRender, useClickOutside, useIsOverflowing, useResizeObserver } from "@vibe/hooks";
+export { useAfterFirstRender, useClickOutside, useIsOverflowing, usePrevious, useResizeObserver } from "@vibe/hooks";
 export { default as useTimeout } from "./useTimeout";
-export { default as usePrevious } from "./usePrevious";
 export { default as useSetFocus } from "./useSetFocus";
 export { default as useIsMouseOver } from "./useIsMouseOver";
 export { default as useHover } from "./useHover/useHover";

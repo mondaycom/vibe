@@ -6,7 +6,7 @@ import styles from "./EditableTypography.module.scss";
 import { keyCodes } from "@vibe/shared";
 
 import { type TooltipProps } from "@vibe/tooltip";
-import usePrevious from "../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 import { type TextType, type TextWeight } from "@vibe/typography";
 import { type HeadingType, type HeadingWeight } from "@vibe/typography";
 

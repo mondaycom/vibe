@@ -38,6 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@vibe/hooks": "4.0.4",
     "@vibe/shared": "4.0.3",
     "@vibe/style": "4.1.0",
     "@vibe/tooltip": "4.0.8",
