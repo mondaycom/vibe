@@ -1,9 +1,5 @@
 .actionLink {
-  color: var(--text-color-on-primary);
+  color: var(--link-color);
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
-
-  &:hover {
-    color: inherit;
-  }
 }

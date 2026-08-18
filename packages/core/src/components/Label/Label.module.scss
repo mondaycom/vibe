@@ -17,12 +17,12 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-small);
-  padding: 2px var(--spacing-small);
+  padding: var(--space-2) var(--spacing-small);
   position: relative;
 
   &.small {
-    padding: 0 var(--spacing-xs);
-    border-radius: 2px;
+    padding: var(--space-2) var(--spacing-xs);
+    border-radius: var(--border-radius-small);
   }
 }
 
@@ -39,57 +39,82 @@
 }
 
 .kindFill {
+  border: none;
+  background-color: transparent;
+  padding: var(--space-2) var(--spacing-small);
+
+  &.small {
+    padding: var(--space-2) var(--spacing-xs);
+  }
+
   &.colorPrimary {
-    background-color: var(--primary-color);
+    background-color: var(--surface-primary-color);
+    color: var(--primary-color);
 
     svg path {
-      fill: var(--primary-color);
+      fill: var(--surface-primary-color);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--primary-hover-color);
+      background-color: var(--surface-primary-color);
     }
   }
 
   &.colorDark {
-    background-color: var(--inverted-color-background);
+    background-color: var(--ui-background-color);
+    color: var(--primary-text-color);
 
     svg path {
-      fill: var(--inverted-color-background);
+      fill: var(--ui-background-color);
+    }
+
+    &.clickable:hover,
+    &.clickable:active {
+      background-color: var(--ui-background-color);
     }
   }
 
   &.colorNegative {
-    background-color: var(--negative-color);
+    background-color: var(--surface-negative-color);
+    color: var(--negative-color);
 
     svg path {
-      fill: var(--negative-color);
+      fill: var(--surface-negative-color);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--negative-color-hover);
+      background-color: var(--surface-negative-color);
     }
   }
 
   &.colorPositive {
-    background-color: var(--positive-color);
+    background-color: var(--surface-positive-color);
+    color: var(--positive-color);
 
     svg path {
-      fill: var(--positive-color);
+      fill: var(--surface-positive-color);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--positive-color-hover);
+      background-color: var(--surface-positive-color);
     }
+  }
+
+  .smallText {
+    line-height: 14px;
   }
 }
 
 .kindLine {
   border: 1px solid currentColor;
   padding: 1px var(--spacing-small);
+
+  &.small {
+    padding: 0 var(--spacing-xs);
+  }
 
   .legWrapper {
     left: -1px;
@@ -110,10 +135,10 @@
   }
 
   &.colorDark {
-    color: var(--inverted-color-background);
+    color: var(--primary-text-color);
 
     svg path {
-      fill: var(--inverted-color-background);
+      fill: var(--primary-text-color);
     }
 
     &.clickable:hover,

@@ -54,7 +54,7 @@ const MenuItemSubMenu = ({
       ref={popperElementRef}
     >
       {subMenu && open && (
-        <DialogContentContainer>
+        <DialogContentContainer size="none">
           {React.cloneElement(subMenu, {
             ...subMenu?.props,
             isVisible: open,

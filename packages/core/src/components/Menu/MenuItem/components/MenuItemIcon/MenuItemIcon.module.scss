@@ -1,4 +1,7 @@
 .iconWrapper {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
   margin-right: var(--spacing-small);
 
   &.rightIcon {
