@@ -1,19 +1,22 @@
-import { camelCase } from "es-toolkit";
-import { getStyle } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { camelCase, isNil } from "es-toolkit";
+import {
+  getStyle,
+  getElementColor,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  type ElementAllowedColor,
+  type VibeComponentProps
+} from "@vibe/shared";
 import cx from "classnames";
 import React, { type AriaRole, useCallback, useMemo } from "react";
-import { isNil } from "es-toolkit";
-import { type ElementAllowedColor, getElementColor } from "@vibe/shared";
 import { type AvatarSize, type AvatarType } from "./Avatar.types";
 import AvatarBadge, { type AvatarBadgeProps } from "./AvatarBadge";
 import AvatarContent from "./AvatarContent";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { ClickableWrapper } from "@vibe/clickable";
-import { type VibeComponentProps } from "@vibe/shared";
 import { type SubIcon } from "@vibe/icon";
 import styles from "./Avatar.module.scss";
-import { ComponentVibeId } from "@vibe/shared";
 
 export interface AvatarProps extends VibeComponentProps {
   /**

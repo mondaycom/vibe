@@ -1,13 +1,10 @@
 import React from "react";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { getStyle, ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
-import { Icon, CustomSvgIcon } from "@vibe/icon";
+import { Icon, CustomSvgIcon, type SubIcon } from "@vibe/icon";
 import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
-import { type VibeComponentProps } from "@vibe/shared";
-import { type SubIcon } from "@vibe/icon";
 import { ClickableWrapper } from "@vibe/clickable";
 
 export interface AvatarBadgeProps extends VibeComponentProps {
