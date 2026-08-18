@@ -165,9 +165,7 @@ const Label = forwardRef<HTMLElement, LabelProps>(
       text,
       isLegIncluded,
       size,
-      backgroundColorStyle,
-      kind,
-      color
+      backgroundColorStyle
     ]);
 
     // Celebration animation is applied only for line kind

@@ -24,14 +24,7 @@ type ContentColor = (typeof contentColors)[number];
 type StateSelectedColorKeys = keyof typeof MapStateSelectedColor;
 type StateSelectedHoverColorKeys = keyof typeof MapStateSelectedHoverColor;
 
-export type ElementAllowedColor =
-  | ContentColor
-  | "positive"
-  | "negative"
-  | "primary"
-  | "warning"
-  | "info"
-  | "neutral";
+export type ElementAllowedColor = ContentColor | "positive" | "negative" | "primary" | "warning" | "info" | "neutral";
 
 export function getElementColor(
   colorValue: ContentColor | StateSelectedColorKeys | StateSelectedHoverColorKeys,
