@@ -1,6 +1,6 @@
 import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import { renderHook } from "@testing-library/react-hooks";
-import useAfterFirstRender from "../";
+import useAfterFirstRender from "../index";
 
 describe("useAfterFirstRender", () => {
   it("should initially set isAfterFirstRender to false", () => {

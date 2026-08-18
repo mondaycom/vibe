@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/label",
-  "version": "4.0.2",
-  "description": "Vibe sub-package for Label component",
+  "name": "@vibe/counter",
+  "version": "4.0.1",
+  "description": "Vibe sub-package for Counter component",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "packages/components/label"
+    "directory": "packages/components/counter"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -38,18 +38,18 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/clickable": "4.0.4",
     "@vibe/hooks": "4.0.4",
     "@vibe/shared": "4.0.3",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.8",
     "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10"
+    "es-toolkit": "^1.39.10",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
+    "@types/react-transition-group": "^4.4.5",
     "@vibe/config": "4.0.2",
+    "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
