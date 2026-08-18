@@ -1,6 +1,6 @@
 {
   "name": "@vibe/expand-collapse",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Vibe sub-package for ExpandCollapse component",
   "repository": {
     "type": "git",
@@ -42,7 +42,7 @@
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.3",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.7",
+    "@vibe/typography": "4.0.8",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
