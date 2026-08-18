@@ -322,13 +322,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonContent = useMemo(
       () => (
         <>
-          {leftIcon ? (
-            <Icon iconType="font" icon={leftIcon} iconSize={iconSize(leftIcon)} ignoreFocusStyle />
-          ) : null}
+          {leftIcon ? <Icon iconType="font" icon={leftIcon} iconSize={iconSize(leftIcon)} ignoreFocusStyle /> : null}
           {children}
-          {rightIcon ? (
-            <Icon iconType="font" icon={rightIcon} iconSize={iconSize(rightIcon)} ignoreFocusStyle />
-          ) : null}
+          {rightIcon ? <Icon iconType="font" icon={rightIcon} iconSize={iconSize(rightIcon)} ignoreFocusStyle /> : null}
         </>
       ),
       [children, iconSize, leftIcon, rightIcon]
