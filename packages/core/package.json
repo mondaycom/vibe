@@ -95,6 +95,7 @@
     "@vibe/button-group": "4.0.1",
     "@vibe/checkbox": "4.0.1",
     "@vibe/clickable": "4.0.4",
+    "@vibe/counter": "4.0.0",
     "@vibe/dialog": "4.1.2",
     "@vibe/divider": "4.0.1",
     "@vibe/expand-collapse": "4.0.1",
