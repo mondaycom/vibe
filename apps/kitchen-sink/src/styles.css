@@ -9,40 +9,6 @@
  * should show the pre-facelift look, which is the point of the comparison.
  */
 
-/*
- * Facelift PRIMARIES (Figma 684:115861), applied as a project override rather than
- * in the design system, so several themes can be retuned without republishing Vibe
- * — the same pattern as mf-topbar's src/styles/themes/warmth.css.
- *
- * Only the base colours are set. Everything derived follows automatically:
- *   --surface-*                 color-mix of these at 12%
- *   --text-on-surface-primary   var(--primary-color)
- * Warning and --primary-text-color are untouched, per the design.
- *
- * Qualified with `body` on purpose. AppThemeShell puts the theme class on <body>,
- * and the package defines `.facelift-*-app-theme` at the same one-class specificity.
- * In dev nothing is treeshaken and the package CSS is injected after this file (App
- * imports @vibe/core), so an unqualified selector would lose the tie on source order.
- */
-body.facelift-light-app-theme,
-body.facelift-dark-app-theme,
-body.facelift-black-app-theme {
-  --primary-color: #3543fc;
-  --primary-hover-color: #2434e8;
-  --brand-color: #3543fc;
-  --brand-hover-color: #2434e8;
-  --link-color: #3543fc;
-
-  --positive-color: #166d30;
-  --positive-color-hover: #1a7e38;
-  --negative-color: #cd0026;
-  --negative-color-hover: #b50020;
-}
-
-.facelift-light-app-theme {
-  --ui-background-hover-color: #dfdbd8;
-}
-
 body {
   margin: 0;
   font-family: Figtree, Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
