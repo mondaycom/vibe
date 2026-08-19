@@ -5,16 +5,18 @@
   --primary-selected-hover-color: #0d2e65;
   --primary-highlighted-color: #0b2858;
   --primary-surface-color: #111111;
+  --info-color: #0073ea;
   --info-color-selected: #cce4ff;
   --info-color-selected-hover: #b8d9ff;
-  /* Semantic surfaces — 60% of the base colour, per Facelift "surface colors" (Figma 630:106200).
-     color-mix keeps them derived, so overriding a base token flows through. */
-  --surface-primary: color-mix(in srgb, var(--primary-selected-color) 60%, transparent);
-  --surface-positive: color-mix(in srgb, var(--positive-color-selected) 60%, transparent);
-  --surface-negative: color-mix(in srgb, var(--negative-color-selected) 60%, transparent);
-  --surface-warning: color-mix(in srgb, var(--warning-color-selected) 60%, transparent);
-  --surface-neutral: color-mix(in srgb, var(--ui-background-color) 60%, transparent);
-  --surface-info: color-mix(in srgb, var(--info-color-selected) 60%, transparent);
+  /* Semantic surfaces — the semantic's own colour at 12% (Facelift "surface colors").
+     color-mix keeps them derived: each theme's --primary-color etc. flows straight
+     through, so facelift's indigo primary yields an indigo surface for free. */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 12%, transparent);
+  --surface-positive: color-mix(in srgb, var(--positive-color) 12%, transparent);
+  --surface-negative: color-mix(in srgb, var(--negative-color) 12%, transparent);
+  --surface-warning: color-mix(in srgb, var(--warning-color) 12%, transparent);
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 12%, transparent);
+  --surface-info: color-mix(in srgb, var(--info-color) 12%, transparent);
   --text-on-surface-primary: var(--primary-color);
   --text-on-surface-positive: var(--positive-color);
   --text-on-surface-negative: var(--negative-color);
