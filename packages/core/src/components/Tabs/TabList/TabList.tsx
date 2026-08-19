@@ -75,6 +75,7 @@ const TabList: FC<TabListProps> = forwardRef(
     const ulRef = useRef<HTMLUListElement>(null);
     const indicatorRef = useRef<HTMLSpanElement>(null);
     const indicatorReadyRef = useRef(false);
+    const lastGeometryRef = useRef<{ left: number; width: number } | null>(null);
 
     const [activeTabState, setActiveTabState] = useState<number>(activeTabId);
     const [indicatorVisible, setIndicatorVisible] = useState(false);
@@ -159,6 +160,16 @@ const TabList: FC<TabListProps> = forwardRef(
         const toLeft = tabRect.left - wrapperRect.left + wrapper.scrollLeft + SELECTED_INDICATOR_INSET_PX;
         const toWidth = Math.max(0, tabRect.width - SELECTED_INDICATOR_INSET_PX * 2);
 
+        // A non-animated update that lands on the geometry we already applied would only
+        // cancel an in-flight glide. ResizeObserver.observe() always fires one such callback,
+        // so bail out unless the target actually moved.
+        const lastGeometry = lastGeometryRef.current;
+        if (!animate && lastGeometry && lastGeometry.left === toLeft && lastGeometry.width === toWidth) {
+          setIndicatorVisible(true);
+          return;
+        }
+        lastGeometryRef.current = { left: toLeft, width: toWidth };
+
         const prefersReducedMotion =
           typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const shouldAnimate = animate && indicatorReadyRef.current && !prefersReducedMotion;
@@ -181,6 +192,10 @@ const TabList: FC<TabListProps> = forwardRef(
       [activeTabState]
     );
 
+    // Lets the ResizeObserver stay subscribed across tab changes.
+    const updateSelectedIndicatorRef = useRef(updateSelectedIndicator);
+    updateSelectedIndicatorRef.current = updateSelectedIndicator;
+
     useLayoutEffect(() => {
       updateSelectedIndicator(true);
     }, [activeTabState, children, size, tabType, updateSelectedIndicator]);
@@ -190,7 +205,7 @@ const TabList: FC<TabListProps> = forwardRef(
       if (!wrapper || typeof ResizeObserver === "undefined") return;
 
       const resizeObserver = new ResizeObserver(() => {
-        updateSelectedIndicator(false);
+        updateSelectedIndicatorRef.current(false);
       });
       resizeObserver.observe(wrapper);
       Object.values(tabRefs.current).forEach(tab => {
@@ -198,7 +213,7 @@ const TabList: FC<TabListProps> = forwardRef(
       });
 
       return () => resizeObserver.disconnect();
-    }, [children, updateSelectedIndicator]);
+    }, [children]);
 
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
