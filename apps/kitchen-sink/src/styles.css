@@ -2,26 +2,12 @@
   box-sizing: border-box;
 }
 
-:root {
-  /* Available before style package rebuild / published tokens catch up */
-  --border-radius-full: 99px;
-  --info-color-selected: rgba(204, 228, 255, 0.7); /* #CCE4FF @ 70% */
-  --info-color-selected-hover: #b8d9ff;
-  --surface-primary-color: var(--primary-highlighted-color, var(--info-color-selected));
-  --surface-positive-color: var(--positive-color-selected);
-  --surface-negative-color: var(--negative-color-selected);
-  --surface-warning-color: var(--warning-color-selected);
-}
-
-/* Facelift surface tokens — until @vibe/style rebuild ships them */
-.facelift-light-app-theme,
-.facelift-dark-app-theme,
-.facelift-black-app-theme {
-  --surface-primary-color: var(--primary-highlighted-color);
-  --surface-positive-color: var(--positive-color-selected);
-  --surface-negative-color: var(--negative-color-selected);
-  --surface-warning-color: var(--warning-color-selected);
-}
+/*
+ * The surface tokens (--surface-* / --text-on-surface-*) now ship in the style
+ * package, so the Current pane picks them up from the workspace build. They are
+ * deliberately NOT polyfilled here: the Original pane running published Vibe 3
+ * should show the pre-facelift look, which is the point of the comparison.
+ */
 
 .facelift-light-app-theme {
   --ui-background-hover-color: #dfdbd8;
@@ -1039,7 +1025,7 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] {
-  background-color: var(--surface-primary-color) !important;
+  background-color: var(--surface-primary, var(--primary-selected-color)) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"],
@@ -1050,11 +1036,11 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPrimary"] svg path {
-  fill: var(--surface-primary-color) !important;
+  fill: var(--surface-primary, var(--primary-selected-color)) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] {
-  background-color: var(--surface-positive-color) !important;
+  background-color: var(--surface-positive, var(--positive-color-selected)) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"],
@@ -1065,11 +1051,11 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorPositive"] svg path {
-  fill: var(--surface-positive-color) !important;
+  fill: var(--surface-positive, var(--positive-color-selected)) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] {
-  background-color: var(--surface-negative-color) !important;
+  background-color: var(--surface-negative, var(--negative-color-selected)) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"],
@@ -1080,7 +1066,7 @@ body {
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorNegative"] svg path {
-  fill: var(--surface-negative-color) !important;
+  fill: var(--surface-negative, var(--negative-color-selected)) !important;
 }
 
 [data-vibe="Label"] [class*="kindFill"][class*="colorDark"] {
@@ -1180,19 +1166,19 @@ body {
 }
 
 [data-vibe="Chips"].chips-theme-positive {
-  background-color: var(--surface-positive-color) !important;
+  background-color: var(--surface-positive, var(--positive-color-selected)) !important;
 }
 
 [data-vibe="Chips"].chips-theme-negative {
-  background-color: var(--surface-negative-color) !important;
+  background-color: var(--surface-negative, var(--negative-color-selected)) !important;
 }
 
 [data-vibe="Chips"].chips-theme-warning {
-  background-color: var(--surface-warning-color) !important;
+  background-color: var(--surface-warning, var(--warning-color-selected)) !important;
 }
 
 [data-vibe="Chips"].chips-theme-info {
-  background-color: var(--surface-primary-color) !important;
+  background-color: var(--surface-primary, var(--primary-selected-color)) !important;
 }
 
 /* Removable — close on hover; lock width & truncate label so chip doesn't grow */

@@ -1,13 +1,12 @@
 import { contentColors } from "../utils/colors-vars-map";
 
 const MapStateSelectedColor = {
-  positive: "--surface-positive-color",
-  negative: "--surface-negative-color",
-  primary: "--ui-background-color",
-  warning: "--surface-warning-color",
-  info: "--surface-primary-color",
-  /** @deprecated Use `info` instead */
-  neutral: "--surface-primary-color"
+  positive: "--surface-positive",
+  negative: "--surface-negative",
+  primary: "--surface-primary",
+  warning: "--surface-warning",
+  info: "--surface-info",
+  neutral: "--surface-neutral"
 };
 
 const MapStateSelectedHoverColor = {
@@ -16,8 +15,17 @@ const MapStateSelectedHoverColor = {
   primary: "--ui-background-hover-color",
   warning: "--warning-color-selected-hover",
   info: "--info-color-selected-hover",
-  /** @deprecated Use `info` instead */
-  neutral: "--info-color-selected-hover"
+  neutral: "--ui-background-hover-color"
+};
+
+/** Text colour paired with each semantic surface. */
+export const MapOnSurfaceTextColor = {
+  positive: "--text-on-surface-positive",
+  negative: "--text-on-surface-negative",
+  primary: "--text-on-surface-primary",
+  warning: "--text-on-surface-warning",
+  info: "--text-on-surface-info",
+  neutral: "--text-on-surface-neutral"
 };
 
 type ContentColor = (typeof contentColors)[number];
@@ -51,6 +59,17 @@ export function getElementColor(
     return `var(${MapStateSelectedColor[colorValue as StateSelectedColorKeys]})`;
   }
   return colorValue;
+}
+
+/**
+ * Text colour that pairs with a semantic surface. Returns `undefined` for content
+ * colors, which have no on-surface pairing and keep the default text colour.
+ */
+export function getOnSurfaceTextColor(colorValue: string): string | undefined {
+  if (Object.keys(MapOnSurfaceTextColor).includes(colorValue)) {
+    return `var(${MapOnSurfaceTextColor[colorValue as keyof typeof MapOnSurfaceTextColor]})`;
+  }
+  return undefined;
 }
 
 export type ColorStyle = "regular" | "hover" | "selected";

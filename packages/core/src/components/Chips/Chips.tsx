@@ -4,7 +4,7 @@ import { Icon } from "@vibe/icon";
 import { useMergeRef } from "@vibe/shared";
 import { CloseSmall } from "@vibe/icons";
 import { getCSSVar } from "../../services/themes";
-import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
+import { type ElementAllowedColor, getElementColor, getOnSurfaceTextColor } from "../../types/Colors";
 import { Avatar, type AvatarType } from "@vibe/avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
@@ -252,7 +252,9 @@ const Chips = forwardRef(
       } else {
         cssVar = getElementColor(resolvedColor, true);
       }
-      return { backgroundColor: cssVar };
+      // Semantic colors pair their surface with a matching text colour; content colors
+      // have no pairing and keep the default text colour. Disabled has its own.
+      return { backgroundColor: cssVar, color: disabled ? undefined : getOnSurfaceTextColor(resolvedColor) };
     }, [disabled, hasClickableWrapper, isHovered, isFocused, resolvedColor, isFilterable, isReadOnly]);
 
     const onDeleteCallback = useCallback(

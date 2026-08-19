@@ -5,10 +5,22 @@
   --primary-selected-hover-color: #0d2e65;
   --primary-highlighted-color: #0b2858;
   --primary-surface-color: #111111;
-  --surface-primary-color: var(--primary-highlighted-color, var(--info-color-selected));
-  --surface-positive-color: var(--positive-color-selected);
-  --surface-negative-color: var(--negative-color-selected);
-  --surface-warning-color: var(--warning-color-selected);
+  --info-color-selected: #cce4ff;
+  --info-color-selected-hover: #b8d9ff;
+  /* Semantic surfaces — 60% of the base colour, per Facelift "surface colors" (Figma 630:106200).
+     color-mix keeps them derived, so overriding a base token flows through. */
+  --surface-primary: color-mix(in srgb, var(--primary-selected-color) 60%, transparent);
+  --surface-positive: color-mix(in srgb, var(--positive-color-selected) 60%, transparent);
+  --surface-negative: color-mix(in srgb, var(--negative-color-selected) 60%, transparent);
+  --surface-warning: color-mix(in srgb, var(--warning-color-selected) 60%, transparent);
+  --surface-neutral: color-mix(in srgb, var(--ui-background-color) 60%, transparent);
+  --surface-info: color-mix(in srgb, var(--info-color-selected) 60%, transparent);
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
 
   --primary-text-color: #eeeeee;
   --secondary-text-color: #aaaaaa;
