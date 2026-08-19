@@ -22,7 +22,7 @@ import {
   getOnItemsRenderedData,
   isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
-import usePrevious from "../../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import { useMergeRef, NOOP } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";

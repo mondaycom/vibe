@@ -1,7 +1,7 @@
 import { type EndElement, type StartElement } from "./BaseItem.types";
 import { Text, type TextType } from "@vibe/typography";
 import React from "react";
-import Avatar from "../Avatar/Avatar";
+import { Avatar } from "@vibe/avatar";
 import styles from "./BaseItem.module.scss";
 import { Icon } from "@vibe/icon";
 

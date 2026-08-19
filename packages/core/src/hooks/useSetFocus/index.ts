@@ -1,6 +1,6 @@
 import { type RefObject, useCallback, useEffect, useState } from "react";
 import useEventListener from "../useEventListener";
-import usePrevious from "../../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 
 // TODO: [breaking] rename to useFocus? and maybe change signature to be like useHover?
 export default function useSetFocus({

@@ -1,6 +1,9 @@
 @use "sass:math";
 @import "~@vibe/style/dist/mixins";
-@import "../../components/Avatar/AvatarConstants";
+$avatar-size-large: 50px;
+$avatar-size-medium: 32px;
+$avatar-size-small: 28px;
+$avatar-size-xs: 20px;
 
 .counterContainer.counterContainer {
   background: var(--ui-background-color);

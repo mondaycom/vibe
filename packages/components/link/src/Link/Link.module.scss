@@ -1,0 +1,45 @@
+@import "~@vibe/style/dist/mixins";
+
+.link {
+  display: flex;
+  align-items: center;
+  color: var(--link-color);
+  @include vibe-text(text2, normal);
+  @include smoothing-text;
+  text-decoration: none;
+  writing-mode: horizontal-tb;
+  @include focus-style();
+
+  &.colorOnPrimary {
+    color: var(--text-color-on-primary);
+  }
+
+  &.colorOnInverted {
+    color: var(--text-color-on-inverted);
+  }
+}
+
+.link:hover .text {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.link.inlineText {
+  display: inline-flex;
+  align-items: unset;
+}
+
+.link.inheritFontSize {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.iconStart {
+  line-height: 24px;
+  margin-inline-end: var(--space-4);
+}
+
+.iconEnd {
+  line-height: 24px;
+  margin-inline-start: var(--space-4);
+}
