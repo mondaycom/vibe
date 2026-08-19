@@ -85,7 +85,7 @@ function MultiSelectedValues<Item extends BaseItemData<Record<string, unknown>>>
 
   const dialogContent = useMemo(() => {
     return () => (
-      <DialogContentContainer>
+      <DialogContentContainer size="none">
         <Flex direction="column" gap="xs" align="start" ref={dialogContentRef} className={styles.hiddenChipsDialog}>
           {hiddenItems.map(item => {
             return (

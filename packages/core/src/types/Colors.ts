@@ -1,26 +1,37 @@
 import { contentColors } from "../utils/colors-vars-map";
 
 const MapStateSelectedColor = {
-  positive: "--positive-color-selected",
-  negative: "--negative-color-selected",
-  primary: "--primary-selected-color",
-  warning: "--warning-color-selected",
-  neutral: "--ui-background-color"
+  positive: "--surface-positive-color",
+  negative: "--surface-negative-color",
+  primary: "--ui-background-color",
+  warning: "--surface-warning-color",
+  info: "--surface-primary-color",
+  /** @deprecated Use `info` instead */
+  neutral: "--surface-primary-color"
 };
 
 const MapStateSelectedHoverColor = {
   positive: "--positive-color-selected-hover",
   negative: "--negative-color-selected-hover",
-  primary: "--primary-selected-hover-color",
+  primary: "--ui-background-hover-color",
   warning: "--warning-color-selected-hover",
-  neutral: "--ui-background-hover-color"
+  info: "--info-color-selected-hover",
+  /** @deprecated Use `info` instead */
+  neutral: "--info-color-selected-hover"
 };
 
 type ContentColor = (typeof contentColors)[number];
 type StateSelectedColorKeys = keyof typeof MapStateSelectedColor;
 type StateSelectedHoverColorKeys = keyof typeof MapStateSelectedHoverColor;
 
-export type ElementAllowedColor = ContentColor | "positive" | "negative" | "primary" | "warning" | "neutral";
+export type ElementAllowedColor =
+  | ContentColor
+  | "positive"
+  | "negative"
+  | "primary"
+  | "warning"
+  | "info"
+  | "neutral";
 
 export function getElementColor(
   colorValue: ContentColor | StateSelectedColorKeys | StateSelectedHoverColorKeys,

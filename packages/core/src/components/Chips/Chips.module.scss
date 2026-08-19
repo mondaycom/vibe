@@ -7,11 +7,11 @@
   display: inline-flex;
   overflow: hidden;
   height: 24px;
-  border-radius: 4px;
+  border-radius: var(--border-radius-full);
   padding: 0 8px;
   align-items: center;
   justify-content: center;
-  margin: var(--chips-margin, #{0 var(--space-4)});
+  margin: var(--chips-margin, #{0 var(--spacing-xs)});
   user-select: none;
   @include smoothing-text;
   color: var(--primary-text-color);
@@ -27,22 +27,69 @@
     margin: 0;
   }
 
+  /* Medium: 8px default; 4px on sides that have an icon */
+  &.withLeftIcon {
+    padding-inline-start: 4px;
+  }
+
+  &.withRightIcon {
+    padding-inline-end: 4px;
+  }
+
+  &.withClose {
+    position: relative;
+    box-sizing: border-box;
+
+    .label {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .icon.close {
+      position: absolute;
+      inset-inline-end: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus-within {
+      /* Keep overall width stable; carve space for the close control inside the chip */
+      padding-inline-end: 26px;
+
+      .icon.close {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &.small:hover,
+    &.small:focus-within {
+      padding-inline-end: 22px;
+    }
+  }
+
   &.small {
     height: 20px;
+    /* Small: 4px default; 2px on sides that have an icon */
     padding: 0 4px;
+
+    &.withLeftIcon {
+      padding-inline-start: 2px;
+    }
+
+    &.withRightIcon {
+      padding-inline-end: 2px;
+    }
 
     .icon,
     .avatar,
     .customRenderer {
-      &.left {
-        margin-inline-end: var(--space-2);
-      }
-      &.right {
-        margin-inline-start: var(--space-2);
-      }
-      &.close {
-        margin-inline-start: var(--space-2);
-      }
+      min-width: 14px;
     }
   }
 
@@ -59,15 +106,19 @@
   .customRenderer {
     min-width: 18px;
     &.left {
-      margin-inline-end: var(--space-4);
+      margin-right: var(--spacing-xs);
     }
     &.right {
-      margin-inline-start: var(--space-4);
+      margin-left: var(--spacing-xs);
     }
     &.close {
-      margin-inline-start: var(--space-4);
+      margin-left: var(--spacing-xs);
       color: var(--primary-text-color);
     }
+  }
+
+  .icon {
+    color: currentColor;
   }
 
   &.disabled {
@@ -81,6 +132,43 @@
 
   &.defaultCursor {
     cursor: default;
+  }
+
+  &.readOnly {
+    cursor: default;
+  }
+
+  &.filterable {
+    background-color: var(--ui-background-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+
+    .icon,
+    .label {
+      color: currentColor;
+    }
+
+    &:hover:not(.disabled):not(.pressed),
+    &:active:not(.disabled):not(.pressed) {
+      background-color: var(--ui-background-hover-color);
+      color: var(--primary-text-color);
+    }
+
+    &.pressed:not(.disabled) {
+      background-color: var(--primary-color);
+      color: var(--text-color-on-inverted);
+
+      .icon,
+      .label,
+      .close {
+        color: currentColor;
+      }
+    }
+
+    &.disabled {
+      background-color: var(--disabled-background-color);
+      cursor: not-allowed;
+    }
   }
 
   &.clickable {

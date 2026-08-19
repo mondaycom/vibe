@@ -21,7 +21,10 @@ const THEME_PATTERNS = {
   "light-app-theme": [":root", ".light-app-theme", ".default-app-theme"],
   "dark-app-theme": [".dark-app-theme"],
   "black-app-theme": [".black-app-theme"],
-  "hacker_theme-app-theme": [".hacker_theme-app-theme"]
+  "hacker_theme-app-theme": [".hacker_theme-app-theme"],
+  "facelift-light-app-theme": [".facelift-light-app-theme"],
+  "facelift-dark-app-theme": [".facelift-dark-app-theme"],
+  "facelift-black-app-theme": [".facelift-black-app-theme"]
 };
 
 async function generateColors(): Promise<void> {

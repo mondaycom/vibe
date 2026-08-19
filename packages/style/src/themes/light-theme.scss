@@ -7,6 +7,10 @@
   --primary-selected-hover-color: #aed4fc;
   --primary-highlighted-color: #f0f7ff;
   --primary-surface-color: #eceff8;
+  --surface-primary-color: var(--primary-highlighted-color, var(--info-color-selected));
+  --surface-positive-color: var(--positive-color-selected);
+  --surface-negative-color: var(--negative-color-selected);
+  --surface-warning-color: var(--warning-color-selected);
 
   --primary-text-color: #323338;
   --secondary-text-color: #676879;

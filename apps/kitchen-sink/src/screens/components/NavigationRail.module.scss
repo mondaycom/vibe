@@ -1,0 +1,160 @@
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 4.5rem;
+  min-width: 4.5rem;
+  padding: 0 var(--space-4);
+  gap: 0;
+  align-self: stretch;
+  min-height: 0;
+  background-color: var(--primary-surface-color);
+  border-top-left-radius: 0;
+  font-family: var(--boards-font-family);
+  margin-top: 0;
+  height: 100%;
+}
+
+.railOpenButtonSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-4);
+  width: 58px;
+  height: 58px;
+  padding: calc(var(--space-4) + var(--space-2)) 0 var(--space-4);
+  flex: 0 0 auto;
+}
+
+.railOpenButton {
+  width: var(--space-32);
+  height: var(--space-32);
+  min-width: var(--space-32);
+  flex: 0 0 auto;
+  border-radius: var(--border-radius-medium);
+  color: var(--icon-color);
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    border-radius: var(--border-radius-medium);
+    color: var(--icon-color);
+  }
+}
+
+.railOpenButtonLabelSpacer {
+  display: block;
+  width: 100%;
+  height: calc(var(--space-16) - var(--space-4));
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.railNavIcon {
+  display: block;
+  width: var(--space-20);
+  height: var(--space-20);
+  flex: 0 0 auto;
+}
+
+.railItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.railItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-4);
+  width: 58px;
+  height: 64px;
+  padding: calc(var(--space-4) + var(--space-2)) 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  outline: none;
+
+  &:hover:not(.railItemActive) .railItemIcon {
+    background-color: var(--primary-background-hover-color);
+    color: var(--icon-color);
+  }
+
+  &:focus-visible .railItemIcon {
+    box-shadow: 0 0 0 var(--border-width) var(--primary-color);
+  }
+}
+
+.railItemActive {
+  background-color: transparent;
+}
+
+.railItemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-32);
+  height: var(--space-32);
+  flex-shrink: 0;
+  color: var(--icon-color);
+  border-radius: var(--border-radius-medium);
+  transition:
+    background-color var(--motion-productive-short) ease,
+    color var(--motion-productive-short) ease;
+}
+
+.svgIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.railItemActive .railItemIcon {
+  background-color: var(--primary-selected-color);
+  color: var(--primary-text-color);
+}
+
+.railItemActive:hover .railItemIcon {
+  background-color: var(--primary-selected-hover-color);
+  color: var(--primary-text-color);
+}
+
+.railItemLabel {
+  display: block;
+  width: 100%;
+  font-family: var(--boards-font-family);
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-normal);
+  line-height: var(--space-16);
+  text-align: center;
+  color: var(--secondary-text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.railItemActive .railItemLabel {
+  color: var(--primary-text-color);
+  font-weight: var(--font-weight-medium);
+}
+
+.railDivider {
+  display: block;
+  width: calc(var(--space-32) + var(--space-8));
+  height: var(--border-width);
+  margin: calc(var(--space-8) + var(--space-4)) 0 var(--space-4);
+  flex-shrink: 0;
+  background-color: var(--layout-border-color);
+}

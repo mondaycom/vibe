@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
 import { useMergeRef } from "@vibe/shared";
@@ -15,9 +15,10 @@ import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
-import { type ChipsSize } from "./Chips.types";
+import { type ChipsVariant, type ChipsSize } from "./Chips.types";
 
 const CHIPS_AVATAR_SIZE = 18;
+const CHIPS_AVATAR_SIZE_SMALL = 14;
 
 export interface ChipsProps extends VibeComponentProps {
   /**
@@ -25,13 +26,31 @@ export interface ChipsProps extends VibeComponentProps {
    */
   label?: ElementContent;
   /**
+   * Visual and behavioral variant of the chip.
+   * - `default` — standard chip (colors, optional remove / click)
+   * - `readOnly` — display only; no interaction
+   * - `filterable` — primary theme only; default / hover / pressed states
+   */
+  variant?: ChipsVariant;
+  /**
    * If true, the chip is disabled.
    */
   disabled?: boolean;
   /**
-   * If true, the chip is read-only and cannot be deleted.
+   * If true, the chip is read-only and cannot be deleted or interacted with.
+   * Prefer `variant="readOnly"` for new usage.
    */
   readOnly?: boolean;
+  /**
+   * When `variant="filterable"`, shows the pressed (selected) state.
+   */
+  pressed?: boolean;
+  /**
+   * The size of the chip.
+   * - `medium` — default (24px height)
+   * - `small` — 20px height, 12px text
+   */
+  size?: ChipsSize;
   /**
    * A React element displayed on the right side.
    */
@@ -74,6 +93,7 @@ export interface ChipsProps extends VibeComponentProps {
   avatarClassName?: string;
   /**
    * The background color of the chip.
+   * Ignored when `variant="filterable"` (always primary).
    */
   color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
   /**
@@ -103,11 +123,15 @@ export interface ChipsProps extends VibeComponentProps {
   /**
    * The label of the chip for accessibility.
    */
-  "aria-label"?: string;
+  ariaLabel?: string;
   /**
    * If true, indicates that the chip has a popup.
    */
-  "aria-haspopup"?: boolean;
+  ariaHasPopup?: boolean;
+  /**
+   * If true, disables all click behaviors.
+   */
+  disableClickableBehavior?: boolean;
   /**
    * If true, displays a border around the chip.
    */
@@ -120,10 +144,6 @@ export interface ChipsProps extends VibeComponentProps {
    * If true, removes the default margin from the chip.
    */
   noMargin?: boolean;
-  /**
-   * The size of the chip.
-   */
-  size?: ChipsSize;
 }
 
 const Chips = forwardRef(
@@ -139,42 +159,66 @@ const Chips = forwardRef(
       leftAvatar = null,
       rightAvatar = null,
       disabled = false,
+      variant = "default",
       readOnly = false,
+      pressed = false,
+      size = "medium",
       allowTextSelection = false,
       color = "primary",
-      iconSize = 18,
+      iconSize,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
       noAnimation = true,
-      "aria-label": ariaLabel,
-      "aria-haspopup": ariaHasPopup = false,
+      ariaLabel,
+      ariaHasPopup = false,
       "data-testid": dataTestId,
+      disableClickableBehavior = false,
       leftAvatarType = "img",
       rightAvatarType = "img",
       showBorder = false,
       leftRenderer,
       rightRenderer,
       closeButtonAriaLabel = "Remove",
-      noMargin = false,
-      size = "medium"
+      noMargin = false
     }: ChipsProps,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = !!onClick || !!onMouseDown;
-    const hasCloseButton = !readOnly && !disabled;
+    const isFilterable = variant === "filterable";
+    const isReadOnly = !isFilterable && (readOnly || variant === "readOnly");
+    const isSmall = size === "small";
+    const resolvedColor = isFilterable ? "primary" : color;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
+    const resolvedIconSize = iconSize ?? (isSmall ? 14 : 18);
+    const resolvedAvatarSize = isSmall ? CHIPS_AVATAR_SIZE_SMALL : CHIPS_AVATAR_SIZE;
+
+    const hasCloseButton = !isReadOnly && !disabled && !isFilterable;
+    const hasClickableWrapper =
+      !isReadOnly && ((!disableClickableBehavior && (!!onClick || !!onMouseDown)) || isFilterable);
 
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
 
     const [isHovered, setIsHovered] = useState(false);
-    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+    const handleMouseEnter = useCallback(() => {
+      if (!isReadOnly) setIsHovered(true);
+    }, [isReadOnly]);
     const handleMouseLeave = useCallback(() => setIsHovered(false), []);
     const { isFocused } = useSetFocus({ ref: componentRef });
 
     const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
+
+    // Lock resting width (close is absolutely positioned) so hover padding truncates label instead of growing the chip
+    useLayoutEffect(() => {
+      if (!hasCloseButton || !componentRef.current) return;
+      const el = componentRef.current;
+      el.style.width = "";
+      el.style.width = `${el.getBoundingClientRect().width}px`;
+    }, [hasCloseButton, label, size, leftIcon, rightIcon, leftAvatar, rightAvatar, leftRenderer, rightRenderer]);
+
+    const hasLeftIcon = Boolean(leftIcon || leftAvatar || leftRenderer);
+    const hasRightIcon = Boolean(rightIcon || rightAvatar || rightRenderer);
 
     const overrideClassName = cx(styles.chips, className, {
       [styles.disabled]: disabled,
@@ -182,7 +226,14 @@ const Chips = forwardRef(
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder,
       [styles.noMargin]: noMargin,
-      [styles.small]: size === "small"
+      [styles.small]: isSmall,
+      [styles.readOnly]: isReadOnly,
+      [styles.defaultCursor]: isReadOnly,
+      [styles.filterable]: isFilterable,
+      [styles.pressed]: isFilterable && pressed,
+      [styles.withClose]: hasCloseButton,
+      [styles.withLeftIcon]: hasLeftIcon,
+      [styles.withRightIcon]: hasRightIcon
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
@@ -190,16 +241,19 @@ const Chips = forwardRef(
     });
 
     const backgroundColorStyle = useMemo(() => {
+      if (isFilterable) {
+        return undefined;
+      }
       let cssVar;
       if (disabled) {
         cssVar = getCSSVar("disabled-background-color");
-      } else if (hasClickableWrapper && (isHovered || isFocused)) {
-        cssVar = getElementColor(color, true, true);
+      } else if (!isReadOnly && hasClickableWrapper && (isHovered || isFocused)) {
+        cssVar = getElementColor(resolvedColor, true, true);
       } else {
-        cssVar = getElementColor(color, true);
+        cssVar = getElementColor(resolvedColor, true);
       }
       return { backgroundColor: cssVar };
-    }, [disabled, hasClickableWrapper, isHovered, isFocused, color]);
+    }, [disabled, hasClickableWrapper, isHovered, isFocused, resolvedColor, isFilterable, isReadOnly]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -213,25 +267,38 @@ const Chips = forwardRef(
 
     const onClickCallback = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (isReadOnly || disabled) {
+          return;
+        }
         if (onClick !== undefined && (e.target as HTMLElement) !== iconButtonRef.current) {
           e.preventDefault();
           onClick(e);
         }
       },
-      [onClick]
+      [onClick, isReadOnly, disabled]
+    );
+
+    const onMouseDownCallback = useCallback(
+      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (isReadOnly || disabled) {
+          return;
+        }
+        onMouseDown?.(e);
+      },
+      [onMouseDown, isReadOnly, disabled]
     );
 
     const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
-        onMouseDown,
-        disabled,
+        onMouseDown: onMouseDownCallback,
+        disabled: disabled || isReadOnly,
         id,
         "data-testid": componentDataTestId,
-        "aria-label": overrideAriaLabel,
-        "aria-hidden": false,
-        "aria-haspopup": ariaHasPopup,
-        "aria-expanded": false
+        ariaLabel: overrideAriaLabel,
+        ariaHidden: false,
+        ariaHasPopup,
+        ariaExpanded: false
       },
       mergedRef
     );
@@ -242,15 +309,16 @@ const Chips = forwardRef(
           className: clickableClassName,
           style: backgroundColorStyle,
           onMouseEnter: handleMouseEnter,
-          onMouseLeave: handleMouseLeave
+          onMouseLeave: handleMouseLeave,
+          ...(isFilterable ? { "aria-pressed": pressed } : {})
         }
       : {
           className: overrideClassName,
           "aria-label": overrideAriaLabel,
           style: backgroundColorStyle,
           ref: mergedRef,
-          onClick: onClickCallback,
-          onMouseDown,
+          onClick: isReadOnly ? undefined : onClickCallback,
+          onMouseDown: isReadOnly ? undefined : onMouseDownCallback,
           id: id,
           "data-testid": componentDataTestId,
           onMouseEnter: handleMouseEnter,
@@ -261,12 +329,16 @@ const Chips = forwardRef(
     const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
-      <div {...wrapperProps} data-vibe={ComponentVibeId.CHIPS}>
+      <div
+        {...wrapperProps}
+        data-vibe={ComponentVibeId.CHIPS}
+        data-variant={isFilterable ? "filterable" : isReadOnly ? "readOnly" : "default"}
+      >
         {leftAvatar ? (
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.left, avatarClassName)}
-            customSize={CHIPS_AVATAR_SIZE}
+            customSize={resolvedAvatarSize}
             type={leftAvatarType}
             key={id}
             {...leftAvatarProps}
@@ -275,22 +347,22 @@ const Chips = forwardRef(
         {leftIcon ? (
           <Icon
             className={cx(styles.icon, styles.left, iconClassName)}
-            type="font"
+            iconType="font"
             icon={leftIcon}
-            size={iconSize}
+            iconSize={resolvedIconSize}
             ignoreFocusStyle
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type="text2" className={styles.label}>
+        <Text type={isSmall ? "text3" : "text2"} className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
           <Icon
             className={cx(styles.icon, styles.right, iconClassName)}
-            type="font"
+            iconType="font"
             icon={rightIcon}
-            size={iconSize}
+            iconSize={resolvedIconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -298,7 +370,7 @@ const Chips = forwardRef(
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.right, avatarClassName)}
-            customSize={CHIPS_AVATAR_SIZE}
+            customSize={resolvedAvatarSize}
             type={rightAvatarType}
             key={id}
             {...rightAvatarProps}
@@ -310,7 +382,7 @@ const Chips = forwardRef(
             size="xxs"
             color="on-primary-color"
             className={cx(styles.icon, styles.close)}
-            aria-label={closeButtonAriaLabel}
+            ariaLabel={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}

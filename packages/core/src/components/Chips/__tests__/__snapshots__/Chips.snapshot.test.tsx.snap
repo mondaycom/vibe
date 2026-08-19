@@ -35,7 +35,7 @@ exports[`Chips renders correctly > renders correctly with a custom label 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -62,7 +62,7 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--negative-color-selected)",
+      "backgroundColor": "var(--surface-negative-color)",
     }
   }
 >
@@ -124,7 +124,7 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -186,7 +186,7 @@ exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -234,7 +234,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -303,7 +303,7 @@ exports[`Chips renders correctly > renders correctly with left icon 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -344,7 +344,7 @@ exports[`Chips renders correctly > renders correctly with right avatar 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -392,7 +392,7 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -461,7 +461,7 @@ exports[`Chips renders correctly > renders correctly with right icon 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -502,7 +502,7 @@ exports[`Chips renders correctly > renders correctly with small size 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -564,7 +564,7 @@ exports[`Chips renders correctly > renders correctly with text 1`] = `
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >
@@ -626,7 +626,7 @@ exports[`Chips renders correctly > renders correctly without close button 1`] = 
   onMouseLeave={[Function]}
   style={
     {
-      "backgroundColor": "var(--primary-selected-color)",
+      "backgroundColor": "var(--ui-background-color)",
     }
   }
 >

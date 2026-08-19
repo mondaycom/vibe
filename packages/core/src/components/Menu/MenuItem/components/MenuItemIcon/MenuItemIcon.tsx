@@ -32,7 +32,7 @@ const MenuItemIcon = ({
       icon={icon}
       className={cx(styles.icon, { [styles.selected]: !disabled && selected })}
       ignoreFocusStyle
-      size={18}
+      size={20}
     />
   </Flex>
 );
