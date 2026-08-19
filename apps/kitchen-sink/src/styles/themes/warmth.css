@@ -105,6 +105,11 @@ body.facelift-light-app-theme {
 
   /* Scrim — neutral charcoal with a faint warm tint */
   --app-scrim-color: rgba(58, 52, 49, 0.55);
+
+  /* RGB companions (for rgba() usage) */
+  --primary-selected-color-rgb: 238, 236, 235;
+  --primary-background-color-rgb: 255, 254, 252;
+  --secondary-background-color-rgb: 255, 254, 252;
 }
 
 /* ============================== DARK ================================ */
@@ -117,13 +122,13 @@ body.facelift-dark-app-theme {
   --primary-hover-color: #8a9aff;
   --text-color-on-primary: #1a1716;
   --text-color-on-inverted: #1a1716;
-  --primary-background-color: #1a1716;
+  --primary-background-color: #262322;
   --primary-background-hover-color: rgba(255, 255, 255, 0.05);
   --primary-background-hover-on-secondary-color: #2a2422;
-  --primary-surface-color: #221d1c;
-  --secondary-background-color: #1e1a19;
-  --allgrey-background-color: #1c1817;
-  --grey-background-color: #1a1716;
+  --primary-surface-color: #2e2928;
+  --secondary-background-color: #342f2e;
+  --allgrey-background-color: #282423;
+  --grey-background-color: #262322;
   --dark-background-color: #221d1c;
   --modal-background-color: #1a1716;
   --dialog-background-color: #201c1b;
@@ -148,6 +153,11 @@ body.facelift-dark-app-theme {
   --primary-selected-color: #2a2a3e;
   --primary-selected-hover-color: #2f2f4a;
   --primary-highlighted-color: #221d1c;
+
+  /* RGB companions */
+  --primary-selected-color-rgb: 42, 42, 62;
+  --primary-background-color-rgb: 38, 35, 34;
+  --secondary-background-color-rgb: 52, 47, 46;
 }
 
 /* ============================== BLACK ================================ */
@@ -160,13 +170,13 @@ body.facelift-black-app-theme {
   --primary-hover-color: #a4b0ff;
   --text-color-on-primary: #0a0807;
   --text-color-on-inverted: #0a0807;
-  --primary-background-color: #0a0807;
+  --primary-background-color: #151211;
   --primary-background-hover-color: rgba(255, 255, 255, 0.04);
   --primary-background-hover-on-secondary-color: #14110f;
-  --primary-surface-color: #120f0e;
-  --secondary-background-color: #0e0c0b;
-  --allgrey-background-color: #0c0a09;
-  --grey-background-color: #0a0807;
+  --primary-surface-color: #1d1a19;
+  --secondary-background-color: #23211f;
+  --allgrey-background-color: #171514;
+  --grey-background-color: #151211;
   --dark-background-color: #120f0e;
   --modal-background-color: #0a0807;
   --dialog-background-color: #110e0d;
@@ -191,5 +201,10 @@ body.facelift-black-app-theme {
   --primary-selected-color: #161830;
   --primary-selected-hover-color: #1c1f3a;
   --primary-highlighted-color: #120f0e;
+
+  /* RGB companions */
+  --primary-selected-color-rgb: 22, 24, 48;
+  --primary-background-color-rgb: 21, 18, 17;
+  --secondary-background-color-rgb: 35, 33, 31;
 }
 
