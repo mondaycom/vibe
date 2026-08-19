@@ -381,7 +381,7 @@ const Chips = forwardRef(
           <IconButton
             size="xxs"
             className={cx(styles.icon, styles.close)}
-            ariaLabel={closeButtonAriaLabel}
+            aria-label={closeButtonAriaLabel}
             hideTooltip
             icon={CloseSmall}
             onClick={onDeleteCallback}
