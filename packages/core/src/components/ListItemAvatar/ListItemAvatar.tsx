@@ -2,7 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { useMergeRef } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";
-import Avatar from "../Avatar/Avatar";
+import { Avatar } from "@vibe/avatar";
 import { type ListItemElement } from "../ListItem";
 import styles from "./ListItemAvatar.module.scss";
 
