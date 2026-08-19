@@ -1,14 +1,5 @@
 import cx from "classnames";
-import React, {
-  ChangeEvent,
-  type ChangeEventHandler,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { type ChangeEventHandler, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
@@ -19,13 +10,12 @@ import { type TextFieldType, type TextFieldSize } from "./TextField.types";
 import { useMergeRef, NOOP } from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
 import { getTestId } from "../../tests/test-ids-utils";
+
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { type VibeComponentProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "@vibe/tooltip";
 import { HiddenText } from "../HiddenText";
-
-const EMPTY_OBJECT = { primary: "", secondary: "" };
 
 export interface TextFieldProps extends VibeComponentProps {
   /**
@@ -86,7 +76,7 @@ export interface TextFieldProps extends VibeComponentProps {
   /**
    * The primary icon displayed inside the text field.
    */
-  iconName?: string | React.FunctionComponent | null;
+  icon?: string | React.FunctionComponent | null;
   /**
    * Position of the primary icon inside the text field.
    */
@@ -140,12 +130,13 @@ export interface TextFieldProps extends VibeComponentProps {
    */
   activeDescendant?: string;
   /**
-   * Icon labels for accessibility.
+   * Accessible label for the primary icon.
    */
-  iconsNames?: {
-    primary: string;
-    secondary: string;
-  };
+  iconLabel?: string;
+  /**
+   * Accessible label for the secondary icon.
+   */
+  secondaryIconLabel?: string;
   /**
    * The type of the text field.
    */
@@ -229,7 +220,7 @@ const TextField = forwardRef(
       disabled = false,
       readonly = false,
       setRef = NOOP,
-      iconName,
+      icon: iconName,
       iconPosition = "right",
       secondaryIconName,
       id = "input",
@@ -244,7 +235,8 @@ const TextField = forwardRef(
       inputAriaLabel,
       searchResultsContainerId = "",
       activeDescendant = "",
-      iconsNames = EMPTY_OBJECT,
+      iconLabel,
+      secondaryIconLabel,
       type = "text",
       maxLength = null,
       allowExceedingMaxLength = false,
@@ -354,7 +346,7 @@ const TextField = forwardRef(
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnPrimaryIcon =
-      (onIconClick !== NOOP || iconsNames.primary || iconTooltipContent) && inputValue && iconName.length && isPrimary;
+      (onIconClick !== NOOP || iconLabel || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength ? `${id}-allow-exceeding-max-length-text` : undefined;
 
@@ -369,8 +361,8 @@ const TextField = forwardRef(
 
     const isIconContainerClickable = onIconClick !== NOOP || clearOnIconClick;
 
-    const primaryIconLabel = iconsNames.primary || iconTooltipContent;
-    const secondaryIconLabel = iconsNames.secondary || secondaryTooltipContent;
+    const primaryIconAriaLabel = iconLabel || iconTooltipContent;
+    const secondaryIconAriaLabel = secondaryIconLabel || secondaryTooltipContent;
 
     return (
       <div
@@ -447,14 +439,14 @@ const TextField = forwardRef(
                     [styles.iconContainerLeft]: iconPosition === "left"
                   })}
                   onClick={onIconClickCallback}
-                  tabIndex={shouldFocusOnPrimaryIcon ? "0" : "-1"}
-                  ariaLabel={primaryIconLabel}
+                  tabIndex={shouldFocusOnPrimaryIcon ? 0 : -1}
+                  aria-label={primaryIconAriaLabel}
                 >
                   <Icon
                     icon={iconName}
                     className={cx(styles.icon)}
-                    iconType="font"
-                    iconSize={size === "small" ? "16px" : "18px"}
+                    type="font"
+                    size={size === "small" ? "16px" : "18px"}
                   />
                 </Clickable>
               </Tooltip>
@@ -472,15 +464,15 @@ const TextField = forwardRef(
                     [styles.iconContainerClickable]: isIconContainerClickable
                   })}
                   onClick={onIconClickCallback}
-                  tabIndex={shouldFocusOnSecondaryIcon ? "0" : "-1"}
+                  tabIndex={shouldFocusOnSecondaryIcon ? 0 : -1}
                   data-testid={secondaryDataTestId || getTestId(ComponentDefaultTestId.TEXT_FIELD_SECONDARY_BUTTON, id)}
-                  ariaLabel={secondaryIconLabel}
+                  aria-label={secondaryIconAriaLabel}
                 >
                   <Icon
                     icon={secondaryIconName}
                     className={cx(styles.icon)}
-                    iconType="font"
-                    iconSize={size === "small" ? "16px" : "18px"}
+                    type="font"
+                    size={size === "small" ? "16px" : "18px"}
                   />
                 </Clickable>
               </Tooltip>
