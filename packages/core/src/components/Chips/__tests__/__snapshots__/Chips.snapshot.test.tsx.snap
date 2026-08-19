@@ -17,7 +17,7 @@ exports[`Chips renders correctly > renders correctly disabled chip 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -42,7 +42,7 @@ exports[`Chips renders correctly > renders correctly with a custom label 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     This is mandatory 
@@ -70,7 +70,7 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -79,7 +79,7 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -133,7 +133,7 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -142,7 +142,7 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -220,7 +220,7 @@ exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
     </div>
   </div>
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -252,7 +252,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
     </div>
   </div>
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -261,7 +261,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -332,7 +332,7 @@ exports[`Chips renders correctly > renders correctly with left icon 1`] = `
     />
   </svg>
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -357,7 +357,7 @@ exports[`Chips renders correctly > renders correctly with right avatar 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -406,7 +406,7 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -422,7 +422,7 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -476,7 +476,7 @@ exports[`Chips renders correctly > renders correctly with right icon 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -580,7 +580,7 @@ exports[`Chips renders correctly > renders correctly with text 1`] = `
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     text
@@ -589,7 +589,7 @@ exports[`Chips renders correctly > renders correctly with text 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -643,7 +643,7 @@ exports[`Chips renders correctly > renders correctly without close button 1`] = 
   }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
