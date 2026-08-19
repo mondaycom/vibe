@@ -1,8 +1,7 @@
 import React, { type CSSProperties, type ReactElement, type Ref, useMemo } from "react";
 import { VirtualizedList, type VirtualizedListItem } from "../VirtualizedList";
 import type VibeComponentProps from "../../types/VibeComponentProps";
-import { type AvatarType } from "@vibe/avatar";
-import { type AvatarProps } from "@vibe/avatar";
+import { type AvatarProps, type AvatarType } from "@vibe/avatar";
 import { type ElementContent } from "../../types";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 

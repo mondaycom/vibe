@@ -1,13 +1,12 @@
 import React, { type ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
-import { type AvatarProps } from "@vibe/avatar";
+import { type AvatarProps, type AvatarSize, type AvatarType } from "@vibe/avatar";
 import { Counter } from "@vibe/counter";
 import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
 import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import type VibeComponentProps from "../../types/VibeComponentProps";
-import { type AvatarSize, type AvatarType } from "@vibe/avatar";
 import { getStyle } from "@vibe/shared";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
 import { type TooltipProps } from "@vibe/tooltip";
