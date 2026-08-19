@@ -20,7 +20,8 @@ const BORDER_RADIUSES = [
   "--border-radius-4",
   "--border-radius-8",
   "--border-radius-12",
-  "--border-radius-16"
+  "--border-radius-16",
+  "--border-radius-full"
 ];
 
 const BORDER_WIDTHS = ["--border-width"];
