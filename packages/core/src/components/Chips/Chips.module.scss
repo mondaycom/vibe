@@ -116,16 +116,10 @@
     }
   }
 
-  /* Icons track the chip's text colour, which for semantic colors is
-     --text-on-surface-* (set inline on the root). */
+  /* Icons and the close IconButton track the chip's colour, which for semantic colors
+     is --text-on-surface-* (set inline on the root). This beats IconButton's own
+     `.kindTertiary { color: --primary-text-color }` on specificity. */
   .icon {
-    color: currentColor;
-  }
-
-  /* The close control is an IconButton, whose own .kindTertiary.colorOnPrimaryColor
-     rule sets white at two-class specificity. Three classes to beat it deterministically
-     rather than relying on stylesheet order. */
-  .icon.close {
     color: currentColor;
   }
 

@@ -1517,7 +1517,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Primary
@@ -1526,7 +1526,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
-                className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                 data-testid="value-container-chip-close"
                 data-vibe="Button"
                 onBlur={[Function]}
@@ -1580,7 +1580,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Positive
@@ -1589,7 +1589,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
-                className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                 data-testid="value-container-chip-close"
                 data-vibe="Button"
                 onBlur={[Function]}
@@ -1646,7 +1646,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 }
               >
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Negative
@@ -1655,7 +1655,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
-                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                  className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="value-container-chip-close"
                   data-vibe="Button"
                   onBlur={[Function]}
@@ -2383,7 +2383,7 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                   </div>
                 </div>
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Ocean
@@ -2392,7 +2392,7 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
-                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                  className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="value-container-chip-close"
                   data-vibe="Button"
                   onBlur={[Function]}
@@ -2612,7 +2612,7 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
                   />
                 </svg>
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Ocean
@@ -2621,7 +2621,7 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
-                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                  className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="value-container-chip-close"
                   data-vibe="Button"
                   onBlur={[Function]}
@@ -2957,7 +2957,7 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
               }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Ocean
@@ -2985,7 +2985,7 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
                 }
               >
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Blue
@@ -3132,7 +3132,7 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
               }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Ocean
@@ -3158,7 +3158,7 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
                 }
               >
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Blue

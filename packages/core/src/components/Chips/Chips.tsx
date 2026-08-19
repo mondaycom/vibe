@@ -359,7 +359,10 @@ const Chips = forwardRef(
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type={isSmall ? "text3" : "text2"} className={styles.label}>
+        {/* `inherit` so the label follows the chip's colour (--text-on-surface-* for semantic
+            colors, set inline on the root). Text's default would pin --primary-text-color and
+            leave the label out of step with the icons, which use currentColor. */}
+        <Text type={isSmall ? "text3" : "text2"} color="inherit" className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
@@ -385,7 +388,6 @@ const Chips = forwardRef(
         {hasCloseButton && (
           <IconButton
             size="xxs"
-            color="on-primary-color"
             className={cx(styles.icon, styles.close)}
             ariaLabel={closeButtonAriaLabel}
             hideTooltip
