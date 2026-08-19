@@ -13,9 +13,8 @@
  * `.facelift-*-app-theme` at the same one-class specificity, and in dev its CSS is
  * injected after this file, so an unqualified selector would lose on source order.
  *
- * Only base tokens are set for light mode. Dark/black also set explicit
- * --surface-* / --text-on-surface-* overrides because transparent color-mix
- * and light-theme text values don't read on dark backgrounds.
+ * Only base tokens are set for light mode. Dark/black set explicit --surface-*
+ * overrides: 8% semantic tint on solid fill (--primary-background-color).
  */
 
 /* ============================== LIGHT ============================== */
@@ -127,13 +126,13 @@ body.facelift-dark-app-theme {
   --primary-surface-color: #383432;
   --dark-background-color: #2c2826;
   --grey-background-color: #2c2826;
-  --allgrey-background-color: #302c2a;
+  --allgrey-background-color: #2e2a28;
   --primary-background-color: #2c2826;
   --primary-background-hover-color: rgba(255, 255, 255, 0.08);
-  --primary-background-hover-on-secondary-color: #484442;
-  --secondary-background-color: #44403e;
-  --ui-background-color: #403c3a;
-  --ui-background-hover-color: #4a4644;
+  --primary-background-hover-on-secondary-color: #363230;
+  --secondary-background-color: #302c2a;
+  --ui-background-color: #34302e;
+  --ui-background-hover-color: #3a3634;
   --modal-background-color: #2c2826;
   --dialog-background-color: #32302e;
   --disabled-background-color: #302c2a;
@@ -156,13 +155,13 @@ body.facelift-dark-app-theme {
   --primary-selected-hover-color: #524e4c;
   --primary-highlighted-color: #32302e;
 
-  /* Semantic surfaces — mix against card bg so tints read on dark */
-  --surface-primary: color-mix(in srgb, var(--primary-color) 16%, var(--primary-background-color));
-  --surface-positive: color-mix(in srgb, var(--positive-color) 16%, var(--primary-background-color));
-  --surface-negative: color-mix(in srgb, var(--negative-color) 16%, var(--primary-background-color));
-  --surface-warning: color-mix(in srgb, var(--warning-color) 16%, var(--primary-background-color));
-  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 12%, var(--primary-background-color));
-  --surface-info: color-mix(in srgb, var(--primary-color) 16%, var(--primary-background-color));
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --text-on-surface-primary: var(--primary-color);
   --text-on-surface-positive: var(--positive-color);
   --text-on-surface-negative: var(--negative-color);
@@ -173,7 +172,7 @@ body.facelift-dark-app-theme {
   /* RGB companions */
   --primary-selected-color-rgb: 72, 68, 66;
   --primary-background-color-rgb: 44, 40, 38;
-  --secondary-background-color-rgb: 68, 64, 62;
+  --secondary-background-color-rgb: 48, 44, 42;
 }
 
 /* ============================== BLACK ================================ */
@@ -194,10 +193,10 @@ body.facelift-black-app-theme {
   --allgrey-background-color: #0a0807;
   --primary-background-color: #0f0d0c;
   --primary-background-hover-color: rgba(255, 255, 255, 0.07);
-  --primary-background-hover-on-secondary-color: #302c2a;
-  --secondary-background-color: #34302e;
-  --ui-background-color: #2e2a28;
-  --ui-background-hover-color: #383432;
+  --primary-background-hover-on-secondary-color: #171514;
+  --secondary-background-color: #131110;
+  --ui-background-color: #171514;
+  --ui-background-hover-color: #1b1918;
   --modal-background-color: #060504;
   --dialog-background-color: #0a0807;
   --disabled-background-color: #0c0a09;
@@ -220,13 +219,13 @@ body.facelift-black-app-theme {
   --primary-selected-hover-color: #3a3634;
   --primary-highlighted-color: #0a0807;
 
-  /* Semantic surfaces — mix against card bg so tints read on black */
-  --surface-primary: color-mix(in srgb, var(--primary-color) 16%, var(--primary-background-color));
-  --surface-positive: color-mix(in srgb, var(--positive-color) 16%, var(--primary-background-color));
-  --surface-negative: color-mix(in srgb, var(--negative-color) 16%, var(--primary-background-color));
-  --surface-warning: color-mix(in srgb, var(--warning-color) 16%, var(--primary-background-color));
-  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 12%, var(--primary-background-color));
-  --surface-info: color-mix(in srgb, var(--primary-color) 16%, var(--primary-background-color));
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --text-on-surface-primary: var(--primary-color);
   --text-on-surface-positive: var(--positive-color);
   --text-on-surface-negative: var(--negative-color);
@@ -237,6 +236,6 @@ body.facelift-black-app-theme {
   /* RGB companions */
   --primary-selected-color-rgb: 48, 44, 42;
   --primary-background-color-rgb: 15, 13, 12;
-  --secondary-background-color-rgb: 52, 48, 46;
+  --secondary-background-color-rgb: 19, 17, 16;
 }
 
