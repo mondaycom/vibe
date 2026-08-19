@@ -1,0 +1,195 @@
+/*
+ * Warmth theme — token overrides for the kitchen sink.
+ *
+ * A port of mf-topbar/src/styles/themes/warmth.css. Values are copied verbatim
+ * from that file (itself sourced from Figma "Facelift — Vibe to Sense" → colors,
+ * node 684:115861) so the kitchen sink and mf-topbar render the same palette.
+ * Keep the two in sync; only the selectors differ.
+ *
+ * mf-topbar puts `.warmth` on <html> and relies on the host's light/dark/black
+ * class on <body>. The kitchen sink's AppThemeShell instead puts
+ * `facelift-<mode>-app-theme` on <body>, so the selectors are rewritten to match.
+ * They stay qualified with `body`: the style package defines
+ * `.facelift-*-app-theme` at the same one-class specificity, and in dev its CSS is
+ * injected after this file, so an unqualified selector would lose on source order.
+ *
+ * Only base tokens are set. Anything derived follows on its own — the six
+ * --surface-* are color-mix of these at 12%, and --text-on-surface-primary is
+ * var(--primary-color).
+ */
+
+/* ============================== LIGHT ============================== */
+/*
+ * Surface / border / hover overrides from Figma
+ * Facelift — Vibe to Sense → colors (684:115861)
+ * https://www.figma.com/design/KjthywmxSm5hyCSa1Ln4tA/Facelift---Vibe-to-Sense?node-id=684-115861
+ */
+body.facelift-light-app-theme {
+  --boards-font-family: 'DM Sans', system-ui, 'Figtree', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family: var(--boards-font-family);
+  --title-font-family: var(--boards-font-family);
+
+  /* Primary — vibrant blue-indigo */
+  --primary-color: #3543fc;
+  --primary-hover-color: #2434e8;
+
+  /* Semantic */
+  --positive-color: #166d30;
+  --positive-color-hover: #1a7e38;
+  --negative-color: #cd0026;
+  --negative-color-hover: #b50020;
+  --primary-selected-color: #eeeceb;
+  --primary-selected-hover-color: #e8e6e6;
+  --primary-highlighted-color: #f6f4f1;
+
+  /* Surfaces — Figma light overrides */
+  --primary-background-color: #fffefc; /* surface color (card) */
+  --primary-background-hover-color: #eeeceb; /* hover/active color */
+  --primary-background-hover-on-secondary-color: #e8e6e6; /* hover/active on surface */
+  --primary-surface-color: #f6f4f1; /* layout surface color */
+  --secondary-background-color: #fffefc; /* surface color (card) */
+  --allgrey-background-color: #f6f4f1;
+  --grey-background-color: #f6f4f1;
+  --ui-background-color: #ece8e3; /* ui background color */
+  --ui-background-hover-color: #e8e6e6;
+  --dark-background-color: #f6f4f1;
+  --modal-background-color: #fffefc;
+  --dialog-background-color: #fffefc;
+  --disabled-background-color: #eeeceb;
+  --label-background-color: #f6f4f1;
+
+  /* Borders — Figma light overrides */
+  --layout-border-color: #edeaea; /* layout border color */
+  --ui-border-color: #dcd6d8; /* ui border color */
+  --glaze-input-focus-border-color: #dad8da; /* ui border color 2 */
+
+  /* Text & icons — warm charcoal + brown-grey */
+  --primary-text-color: #323338;
+  --secondary-text-color: #5d5552;
+  --icon-color: #b5acaa;
+  --glaze-icon-color-primary: #635c5a;
+  --glaze-icon-color-secondary: #b5acaa;
+  --icon-hover: #574f4d;
+  --placeholder-color: #a89e9b;
+  --link-color: #3543fc;
+  --text-color-on-primary: #ffffff;
+  --text-color-on-inverted: #ffffff;
+  --inverted-color-background: #323338;
+
+  /* Radius — matches Glaze */
+  --glaze-radius-control: 8px;
+  --border-radius-small: var(--glaze-radius-control);
+  --border-radius-medium: var(--glaze-radius-control);
+  --border-radius-big: 14px;
+
+  /* Shared Glaze tokens — warm-shifted rail selection, identical shadows/brand */
+  --glaze-rail-selected-color: #e6e1de;
+  --glaze-rail-selected-hover-color: #ddd7d3;
+  --glaze-layout-gap: var(--space-8);
+  --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --glaze-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --glaze-border-hairline: rgba(0, 0, 0, 0.04);
+  --glaze-brand-done: #00ca72;
+  --glaze-brand-working: #fdab3d;
+  --glaze-brand-stuck: #df2f4a;
+  --glaze-brand-bright-blue: #579bfc;
+  --glaze-brand-dark-blue: #007eb5;
+  --glaze-brand-dark-purple: #784bd1;
+  --glaze-brand-purple: #9d50dd;
+  --glaze-brand-lipstick: #ff5ac4;
+  --glaze-brand-sunset: #ff7575;
+  --glaze-brand-dark-orange: #ff6d3b;
+  --glaze-brand-egg-yolk: #ffcb00;
+  --glaze-brand-private: #f65f7c;
+
+  /* Scrim — neutral charcoal with a faint warm tint */
+  --app-scrim-color: rgba(58, 52, 49, 0.55);
+}
+
+/* ============================== DARK ================================ */
+body.facelift-dark-app-theme {
+  --positive-color: #2aad52;
+  --positive-color-hover: #35c060;
+  --negative-color: #e8003a;
+  --negative-color-hover: #f52050;
+  --primary-color: #7080ff;
+  --primary-hover-color: #8a9aff;
+  --text-color-on-primary: #1a1716;
+  --text-color-on-inverted: #1a1716;
+  --primary-background-color: #1a1716;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.05);
+  --primary-background-hover-on-secondary-color: #2a2422;
+  --primary-surface-color: #221d1c;
+  --secondary-background-color: #1e1a19;
+  --allgrey-background-color: #1c1817;
+  --grey-background-color: #1a1716;
+  --dark-background-color: #221d1c;
+  --modal-background-color: #1a1716;
+  --dialog-background-color: #201c1b;
+  --disabled-background-color: #221d1c;
+  --label-background-color: #28221f;
+  --inverted-color-background: #ece4e2;
+  --primary-text-color: #ece4e2;
+  --secondary-text-color: #a89e9b;
+  --icon-color: #7a6e6a;
+  --glaze-icon-color-primary: #a89e9b;
+  --glaze-icon-color-secondary: #7a6e6a;
+  --icon-hover: #a89e9b;
+  --placeholder-color: #645a57;
+  --link-color: #8a9aff;
+  --ui-background-color: #2a2422;
+  --ui-background-hover-color: #322a27;
+  --ui-border-color: #3a322f;
+  --layout-border-color: #2e2724;
+  --glaze-input-focus-border-color: #7a6e6a;
+  --glaze-rail-selected-color: #241f1d;
+  --glaze-rail-selected-hover-color: #2a2422;
+  --primary-selected-color: #2a2a3e;
+  --primary-selected-hover-color: #2f2f4a;
+  --primary-highlighted-color: #221d1c;
+}
+
+/* ============================== BLACK ================================ */
+body.facelift-black-app-theme {
+  --positive-color: #35c060;
+  --positive-color-hover: #42d06e;
+  --negative-color: #f03050;
+  --negative-color-hover: #f85070;
+  --primary-color: #8b97ff;
+  --primary-hover-color: #a4b0ff;
+  --text-color-on-primary: #0a0807;
+  --text-color-on-inverted: #0a0807;
+  --primary-background-color: #0a0807;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-on-secondary-color: #14110f;
+  --primary-surface-color: #120f0e;
+  --secondary-background-color: #0e0c0b;
+  --allgrey-background-color: #0c0a09;
+  --grey-background-color: #0a0807;
+  --dark-background-color: #120f0e;
+  --modal-background-color: #0a0807;
+  --dialog-background-color: #110e0d;
+  --disabled-background-color: #14110f;
+  --label-background-color: #181412;
+  --inverted-color-background: #efe7e5;
+  --primary-text-color: #efe7e5;
+  --secondary-text-color: #948a87;
+  --icon-color: #645a57;
+  --glaze-icon-color-primary: #948a87;
+  --glaze-icon-color-secondary: #645a57;
+  --icon-hover: #948a87;
+  --placeholder-color: #4d4441;
+  --link-color: #a4b0ff;
+  --ui-background-color: #14110f;
+  --ui-background-hover-color: #1a1614;
+  --ui-border-color: #221d1b;
+  --layout-border-color: #1a1614;
+  --glaze-input-focus-border-color: #645a57;
+  --glaze-rail-selected-color: #1c1816;
+  --glaze-rail-selected-hover-color: #221d1b;
+  --primary-selected-color: #161830;
+  --primary-selected-hover-color: #1c1f3a;
+  --primary-highlighted-color: #120f0e;
+}
+
