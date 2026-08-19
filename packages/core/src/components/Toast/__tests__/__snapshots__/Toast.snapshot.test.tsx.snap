@@ -17,6 +17,11 @@ exports[`Toast renders correctly > (renders nothing) with empty props 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -32,7 +37,7 @@ exports[`Toast renders correctly > (renders nothing) with empty props 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -41,16 +46,19 @@ exports[`Toast renders correctly > (renders nothing) with empty props 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span />
+      <span
+        className="message"
+      />
     </div>
   </div>
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -105,6 +113,11 @@ exports[`Toast renders correctly > and don't renders close button if closeable=f
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -120,7 +133,7 @@ exports[`Toast renders correctly > and don't renders close button if closeable=f
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -129,11 +142,13 @@ exports[`Toast renders correctly > and don't renders close button if closeable=f
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -158,6 +173,11 @@ exports[`Toast renders correctly > renders nothing when open is false 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -173,7 +193,7 @@ exports[`Toast renders correctly > renders nothing when open is false 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -182,11 +202,13 @@ exports[`Toast renders correctly > renders nothing when open is false 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -194,6 +216,7 @@ exports[`Toast renders correctly > renders nothing when open is false 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -242,7 +265,7 @@ exports[`Toast renders correctly > when icon is hidden 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -251,11 +274,13 @@ exports[`Toast renders correctly > when icon is hidden 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -263,6 +288,7 @@ exports[`Toast renders correctly > when icon is hidden 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -317,6 +343,11 @@ exports[`Toast renders correctly > when open is true 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -332,7 +363,7 @@ exports[`Toast renders correctly > when open is true 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -341,11 +372,13 @@ exports[`Toast renders correctly > when open is true 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -353,6 +386,7 @@ exports[`Toast renders correctly > when open is true 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -407,6 +441,11 @@ exports[`Toast renders correctly > with button 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -422,7 +461,7 @@ exports[`Toast renders correctly > with button 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -431,11 +470,13 @@ exports[`Toast renders correctly > with button 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -458,6 +499,7 @@ exports[`Toast renders correctly > with button 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -512,6 +554,11 @@ exports[`Toast renders correctly > with button and link 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -527,7 +574,7 @@ exports[`Toast renders correctly > with button and link 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -536,11 +583,13 @@ exports[`Toast renders correctly > with button and link 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
       <a
@@ -582,6 +631,7 @@ exports[`Toast renders correctly > with button and link 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -636,6 +686,11 @@ exports[`Toast renders correctly > with link 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -651,7 +706,7 @@ exports[`Toast renders correctly > with link 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -660,11 +715,13 @@ exports[`Toast renders correctly > with link 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
       <a
@@ -691,6 +748,7 @@ exports[`Toast renders correctly > with link 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -745,6 +803,11 @@ exports[`Toast renders correctly > with loading 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--primary-text-color)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -760,7 +823,7 @@ exports[`Toast renders correctly > with loading 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -769,11 +832,13 @@ exports[`Toast renders correctly > with loading 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -808,6 +873,7 @@ exports[`Toast renders correctly > with loading 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"
@@ -862,6 +928,11 @@ exports[`Toast renders correctly > with negative type 1`] = `
       data-vibe="Icon"
       fill="currentColor"
       height="16"
+      style={
+        {
+          "color": "var(--text-color-on-primary)",
+        }
+      }
       viewBox="0 0 20 20"
       width="16"
     >
@@ -877,7 +948,7 @@ exports[`Toast renders correctly > with negative type 1`] = `
     className="container directionRow justifyStart alignCenter content"
     style={
       {
-        "gap": "var(--spacing-medium)",
+        "gap": "var(--space-16)",
       }
     }
   >
@@ -886,11 +957,13 @@ exports[`Toast renders correctly > with negative type 1`] = `
       data-testid="toast-content"
       style={
         {
-          "gap": "var(--spacing-medium)",
+          "gap": "var(--space-16)",
         }
       }
     >
-      <span>
+      <span
+        className="message"
+      >
         Something Happened
       </span>
     </div>
@@ -898,6 +971,7 @@ exports[`Toast renders correctly > with negative type 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Close"
     className="closeButton button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="toast-close-button"
     data-vibe="Button"

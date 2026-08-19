@@ -58,6 +58,7 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
@@ -114,6 +115,7 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
@@ -266,6 +268,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
@@ -421,6 +424,7 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
@@ -511,6 +515,7 @@ exports[`Chips renders correctly > renders correctly with small size 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
@@ -584,6 +589,7 @@ exports[`Chips renders correctly > renders correctly with text 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
