@@ -121,9 +121,15 @@
   --font-family: var(--boards-font-family);
   --title-font-family: var(--boards-font-family);
 
-  /* Primary — Wiz-inspired vibrant blue */
-  --primary-color: #2d5bff;
-  --primary-hover-color: #1f47e0;
+  /* Primary — vibrant blue-indigo */
+  --primary-color: #3543fc;
+  --primary-hover-color: #2434e8;
+
+  /* Semantic */
+  --positive-color: #166d30;
+  --positive-color-hover: #1a7e38;
+  --negative-color: #cd0026;
+  --negative-color-hover: #b50020;
   --primary-selected-color: #ebe6e3;
   --primary-selected-hover-color: #e2dcd8;
   --primary-highlighted-color: #f5f4f2;
@@ -150,17 +156,17 @@
   --glaze-input-focus-border-color: #b0a6a2;
 
   /* Text & icons — warm charcoal + brown-grey */
-  --primary-text-color: #302b2a;
+  --primary-text-color: #323338;
   --secondary-text-color: #5d5552;
   --icon-color: #b5acaa;
   --glaze-icon-color-primary: #635c5a;
   --glaze-icon-color-secondary: #b5acaa;
   --icon-hover: #574f4d;
   --placeholder-color: #a89e9b;
-  --link-color: #2d5bff;
+  --link-color: #3543fc;
   --text-color-on-primary: #ffffff;
   --text-color-on-inverted: #ffffff;
-  --inverted-color-background: #302b2a;
+  --inverted-color-background: #323338;
 
   /* Radius — match Glaze */
   --glaze-radius-control: 8px;
@@ -616,8 +622,12 @@ svg[class*="icon_"] {
 
 /* Warmth — dark mode */
 :root.warmth.dark-app-theme {
-  --primary-color: #6e8eff;
-  --primary-hover-color: #8aa3ff;
+  --positive-color: #2aad52;
+  --positive-color-hover: #35c060;
+  --negative-color: #e8003a;
+  --negative-color-hover: #f52050;
+  --primary-color: #7080ff;
+  --primary-hover-color: #8a9aff;
   --text-color-on-primary: #1a1716;
   --text-color-on-inverted: #1a1716;
   --primary-background-color: #1a1716;
@@ -640,7 +650,7 @@ svg[class*="icon_"] {
   --glaze-icon-color-secondary: #7a6e6a;
   --icon-hover: #a89e9b;
   --placeholder-color: #645a57;
-  --link-color: #8aa3ff;
+  --link-color: #8a9aff;
   --ui-background-color: #2a2422;
   --ui-background-hover-color: #322a27;
   --ui-border-color: #3a322f;
@@ -655,8 +665,12 @@ svg[class*="icon_"] {
 
 /* Warmth — black mode */
 :root.warmth.black-app-theme {
-  --primary-color: #8aa3ff;
-  --primary-hover-color: #a6b8ff;
+  --positive-color: #35c060;
+  --positive-color-hover: #42d06e;
+  --negative-color: #f03050;
+  --negative-color-hover: #f85070;
+  --primary-color: #8b97ff;
+  --primary-hover-color: #a4b0ff;
   --text-color-on-primary: #0a0807;
   --text-color-on-inverted: #0a0807;
   --primary-background-color: #0a0807;
@@ -679,7 +693,7 @@ svg[class*="icon_"] {
   --glaze-icon-color-secondary: #645a57;
   --icon-hover: #948a87;
   --placeholder-color: #4d4441;
-  --link-color: #a6b8ff;
+  --link-color: #a4b0ff;
   --ui-background-color: #14110f;
   --ui-background-hover-color: #1a1614;
   --ui-border-color: #221d1b;
