@@ -1,6 +1,6 @@
 import type React from "react";
 import { useMemo } from "react";
-import { type NavDirections } from "@vibe/shared";
+import { NavDirections } from "@vibe/shared";
 import { useGridKeyboardNavigationContext, type GridElementRef } from "@vibe/a11y";
 import { type CloseMenuOption } from "../Menu/MenuConstants";
 

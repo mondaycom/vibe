@@ -1,6 +1,6 @@
 import type React from "react";
 import { useEffect, useMemo } from "react";
-import { useLastNavigationDirection } from "../Menu/hooks/useLastNavigationDirection";
+import { useLastNavigationDirection } from "@vibe/shared";
 
 export const useFocusGridItemByActiveStatus = ({
   wrapperRef,

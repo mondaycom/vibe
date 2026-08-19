@@ -2,7 +2,7 @@ import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import { cleanup, renderHook } from "@testing-library/react-hooks";
 import { useFocusGridItemByActiveStatus } from "../useFocusGridItemByActiveStatus";
 
-import * as useLastNavigationDirectionModule from "../../Menu/hooks/useLastNavigationDirection";
+import * as useLastNavigationDirectionModule from "@vibe/shared";
 
 describe("useFocusGridItemByActiveStatus", () => {
   let element, childElement, wrapperRef, childRef;

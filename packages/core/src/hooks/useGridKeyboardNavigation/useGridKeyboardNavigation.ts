@@ -1,12 +1,11 @@
 import { type MutableRefObject, type ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { GridKeyboardNavigationContext } from "@vibe/a11y";
 import useFullKeyboardListeners, { type NavDirections } from "../../hooks/useFullKeyboardListeners";
-import { useEventListener } from "@vibe/shared";
+import { useEventListener, useLastNavigationDirection } from "@vibe/shared";
 import {
   calcActiveIndexAfterArrowNavigation,
   getActiveIndexFromInboundNavigation
 } from "./gridKeyboardNavigationHelper";
-import { useLastNavigationDirection } from "../../components/Menu/Menu/hooks/useLastNavigationDirection";
 
 const NO_ACTIVE_INDEX = -1;
 
