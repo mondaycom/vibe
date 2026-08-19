@@ -1294,7 +1294,7 @@ body {
   left: 0;
   width: 0;
   height: 2px !important;
-  background-color: var(--primary-text-color, #323338) !important;
+  background-color: var(--primary-color, #0073ea) !important;
   border-radius: 1px;
   opacity: 0;
   z-index: 2 !important;
