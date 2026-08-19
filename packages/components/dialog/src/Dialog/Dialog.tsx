@@ -100,12 +100,8 @@ function Dialog({
   const isOpenInternal = useDerivedStateFromProps ? isOpenProp : isOpenState;
   const isShown = isOpenInternal || open;
 
-  // Whether Floating UI should actively track position (autoUpdate + middleware). `positioningActive`
-  // defaults to true but is always gated by `isShown`, so consumers that don't set it behave exactly
-  // as before (positioning runs only while shown). A consumer that keeps the dialog permanently
-  // mounted (e.g. Dropdown, which must keep downshift's menu element in the DOM) can pass its own
-  // "is really open" state here to avoid an always-on autoUpdate/ResizeObserver per instance —
-  // costly when many are rendered together.
+  // Floating UI position tracking; gated by `isShown` so the default (`positioningActive: true`)
+  // matches the previous behavior.
   const isPositioningActive = isShown && positioningActive;
 
   // Build middleware array for Floating UI — skip when positioning is inactive to avoid overhead
@@ -164,7 +160,7 @@ function Dialog({
     [observeContentResize]
   );
 
-  // Use Floating UI hook — whileElementsMounted is omitted when positioning is inactive to skip autoUpdate setup
+  // Use Floating UI hook — whileElementsMounted is omitted when positioning is inactive to skip autoUpdate
   const { refs, floatingStyles, placement, middlewareData } = useFloating({
     placement: position as Placement,
     middleware: floatingMiddleware,

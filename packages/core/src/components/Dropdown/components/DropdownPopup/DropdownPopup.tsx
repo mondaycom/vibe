@@ -13,10 +13,7 @@ const DropdownPopup = () => {
     <Dialog
       open
       useDerivedStateFromProps
-      // Perf-only: the menu Dialog is always mounted (`open`) so downshift's menu element stays in
-      // the DOM. `positioningActive` gates Floating UI so autoUpdate/ResizeObserver run only while
-      // the menu is actually open, instead of always — critical when many dropdowns render together
-      // (e.g. a virtualized table). This does not affect the dialog's open/close behavior.
+      // Keep the menu mounted for downshift, but only run Floating UI while it's open.
       positioningActive={isOpen}
       position="bottom-start"
       moveBy={{ main: 4, secondary: 0 }}
