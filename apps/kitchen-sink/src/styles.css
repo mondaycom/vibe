@@ -1161,26 +1161,10 @@ body {
   line-height: 16px !important;
 }
 
-/* Theme fills — surface / UI background tokens */
-[data-vibe="Chips"].chips-theme-primary {
-  background-color: var(--ui-background-color) !important;
-}
-
-[data-vibe="Chips"].chips-theme-positive {
-  background-color: var(--surface-positive, var(--positive-color-selected)) !important;
-}
-
-[data-vibe="Chips"].chips-theme-negative {
-  background-color: var(--surface-negative, var(--negative-color-selected)) !important;
-}
-
-[data-vibe="Chips"].chips-theme-warning {
-  background-color: var(--surface-warning, var(--warning-color-selected)) !important;
-}
-
-[data-vibe="Chips"].chips-theme-info {
-  background-color: var(--surface-primary, var(--primary-selected-color)) !important;
-}
+/* Theme fills are the component's job now: Chips styles its semantic colors with
+   `color-*` classes off --surface-*, so the gallery just passes `color` and these
+   !important overrides are gone. They were only ever needed because the fill used
+   to be an inline style, which nothing but !important can outrank. */
 
 /* Removable — close on hover; lock width & truncate label so chip doesn't grow */
 .chips-gallery [data-vibe="Chips"]:has([data-testid$="-close"]),

@@ -54,6 +54,11 @@ export function getElementColor(
   return colorValue;
 }
 
+/** True for the semantic colors (which have a surface), false for content colors. */
+export function isSemanticElementColor(colorValue: string): colorValue is StateSelectedColorKeys {
+  return Object.keys(MapStateSelectedColor).includes(colorValue);
+}
+
 /**
  * Text colour that pairs with a semantic surface. Returns `undefined` for content
  * colors, which have no on-surface pairing and keep the default text colour.

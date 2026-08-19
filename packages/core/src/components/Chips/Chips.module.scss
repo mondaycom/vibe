@@ -15,7 +15,18 @@
   user-select: none;
   @include smoothing-text;
   color: var(--primary-text-color);
+  /* The fill comes from --chips-surface: semantic colors set it via the color-* classes
+     below, content colors pass it in as an inline custom property. Keeping
+     `background-color` itself in CSS means hover is a plain :hover rule (no React state)
+     and consumers can override the fill without !important. */
+  background-color: var(--chips-surface);
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
+
+  &.clickable:hover,
+  &.clickable:focus-within {
+    background-color: var(--chips-surface-hover, var(--chips-surface));
+  }
+
   &.border {
     border: 1px solid var(--primary-background-color);
   }
@@ -123,7 +134,49 @@
     color: currentColor;
   }
 
+  /* Semantic colors: surface + its paired text, same `color-*` class pattern Label uses.
+     Hover keeps the existing *-color-selected-hover tokens. */
+  &.colorPrimary {
+    --chips-surface: var(--surface-primary);
+    --chips-surface-hover: var(--ui-background-hover-color);
+    color: var(--text-on-surface-primary);
+  }
+
+  &.colorPositive {
+    --chips-surface: var(--surface-positive);
+    --chips-surface-hover: var(--positive-color-selected-hover);
+    color: var(--text-on-surface-positive);
+  }
+
+  &.colorNegative {
+    --chips-surface: var(--surface-negative);
+    --chips-surface-hover: var(--negative-color-selected-hover);
+    color: var(--text-on-surface-negative);
+  }
+
+  &.colorWarning {
+    --chips-surface: var(--surface-warning);
+    --chips-surface-hover: var(--warning-color-selected-hover);
+    color: var(--text-on-surface-warning);
+  }
+
+  &.colorInfo {
+    --chips-surface: var(--surface-info);
+    --chips-surface-hover: var(--info-color-selected-hover);
+    color: var(--text-on-surface-info);
+  }
+
+  &.colorNeutral {
+    --chips-surface: var(--surface-neutral);
+    --chips-surface-hover: var(--ui-background-hover-color);
+    color: var(--text-on-surface-neutral);
+  }
+
+  /* After the color-* classes so it wins the tie on equal specificity. */
   &.disabled {
+    --chips-surface: var(--disabled-background-color);
+    --chips-surface-hover: var(--disabled-background-color);
+
     .icon {
       color: var(--disabled-text-color);
     }

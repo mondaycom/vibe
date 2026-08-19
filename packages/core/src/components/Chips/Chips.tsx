@@ -1,11 +1,12 @@
-import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef } from "react";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall } from "@vibe/icons";
-import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
-import { type ElementAllowedColor, getElementColor, getOnSurfaceTextColor } from "../../types/Colors";
+import { type ElementAllowedColor, getElementColor, isSemanticElementColor } from "../../types/Colors";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
@@ -14,7 +15,6 @@ import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
-import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
@@ -203,13 +203,6 @@ const Chips = forwardRef(
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
 
-    const [isHovered, setIsHovered] = useState(false);
-    const handleMouseEnter = useCallback(() => {
-      if (!isReadOnly) setIsHovered(true);
-    }, [isReadOnly]);
-    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
-    const { isFocused } = useSetFocus({ ref: componentRef });
-
     const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
 
     // Lock resting width (close is absolutely positioned) so hover padding truncates label instead of growing the chip
@@ -223,7 +216,15 @@ const Chips = forwardRef(
     const hasLeftIcon = Boolean(leftIcon || leftAvatar || leftRenderer);
     const hasRightIcon = Boolean(rightIcon || rightAvatar || rightRenderer);
 
-    const overrideClassName = cx(styles.chips, className, {
+    // Semantic colors are styled by class (same `color-*` pattern as Label), so the fill
+    // lives in CSS and consumers can override it without !important. `filterable` owns its
+    // own fill, so it opts out.
+    const semanticColorClassName =
+      !isFilterable && isSemanticElementColor(resolvedColor)
+        ? getStyle(styles, camelCase("color-" + resolvedColor))
+        : undefined;
+
+    const overrideClassName = cx(styles.chips, className, semanticColorClassName, {
       [styles.disabled]: disabled,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
@@ -243,22 +244,21 @@ const Chips = forwardRef(
       [styles.disableTextSelection]: !allowTextSelection
     });
 
-    const backgroundColorStyle = useMemo(() => {
-      if (isFilterable) {
+    /**
+     * Content colors (there are ~40) can't reasonably each get a class, so they pass their
+     * palette in as custom properties and CSS applies them. That keeps `background-color`
+     * out of the inline style, so hover is a plain `:hover` rule rather than React state,
+     * and consumers can restyle a chip with ordinary specificity.
+     */
+    const contentColorStyle = useMemo(() => {
+      if (isFilterable || disabled || semanticColorClassName) {
         return undefined;
       }
-      let cssVar;
-      if (disabled) {
-        cssVar = getCSSVar("disabled-background-color");
-      } else if (!isReadOnly && hasClickableWrapper && (isHovered || isFocused)) {
-        cssVar = getElementColor(resolvedColor, true, true);
-      } else {
-        cssVar = getElementColor(resolvedColor, true);
-      }
-      // Semantic colors pair their surface with a matching text colour; content colors
-      // have no pairing and keep the default text colour. Disabled has its own.
-      return { backgroundColor: cssVar, color: disabled ? undefined : getOnSurfaceTextColor(resolvedColor) };
-    }, [disabled, hasClickableWrapper, isHovered, isFocused, resolvedColor, isFilterable, isReadOnly]);
+      // No --chips-surface-hover: content colors have no `--color-*-selected-hover` token,
+      // so getElementColor ignores the hover palette for them. The CSS falls back to the
+      // resting fill, which is what the previous JS hover branch also produced.
+      return { "--chips-surface": getElementColor(resolvedColor, true) } as React.CSSProperties;
+    }, [disabled, resolvedColor, isFilterable, semanticColorClassName]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -312,22 +312,18 @@ const Chips = forwardRef(
           ...clickableProps,
           ref: mergedRef,
           className: clickableClassName,
-          style: backgroundColorStyle,
-          onMouseEnter: handleMouseEnter,
-          onMouseLeave: handleMouseLeave,
+          style: contentColorStyle,
           ...(isFilterable ? { "aria-pressed": pressed } : {})
         }
       : {
           className: overrideClassName,
           "aria-label": overrideAriaLabel,
-          style: backgroundColorStyle,
+          style: contentColorStyle,
           ref: mergedRef,
           onClick: isReadOnly ? undefined : onClickCallback,
           onMouseDown: isReadOnly ? undefined : onMouseDownCallback,
           id: id,
-          "data-testid": componentDataTestId,
-          onMouseEnter: handleMouseEnter,
-          onMouseLeave: handleMouseLeave
+          "data-testid": componentDataTestId
         };
 
     const leftAvatarProps = leftAvatarType === "text" ? { text: leftAvatar } : { src: leftAvatar };
