@@ -1,6 +1,6 @@
 {
   "name": "@vibe/hooks",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Vibe sub-package for React hooks",
   "repository": {
     "type": "git",
