@@ -65,4 +65,32 @@ describe("Chips tests", () => {
     render(<Chips className={className} label={label} variant="filterable" pressed />);
     expect(screen.getByTestId(defaultTestId)).toHaveAttribute("aria-pressed", "true");
   });
+
+  describe("fill", () => {
+    it("Should style a semantic color by class, with no inline fill to override", () => {
+      render(<Chips label={label} color="negative" />);
+      const chip = screen.getByTestId(defaultTestId);
+      expect(chip).toHaveClass("colorNegative");
+      expect(chip.style.backgroundColor).toBe("");
+      expect(chip.style.getPropertyValue("--chips-surface")).toBe("");
+    });
+
+    it("Should pass a content color's palette in as custom properties", () => {
+      render(<Chips label={label} color="lipstick" />);
+      const chip = screen.getByTestId(defaultTestId);
+      expect(chip.className).not.toMatch(/color[A-Z]/);
+      expect(chip.style.getPropertyValue("--chips-surface")).toBe("var(--color-lipstick-selected)");
+      // Content colors have no `--color-*-selected-hover` token, so no hover fill is set and
+      // the CSS falls back to the resting one.
+      expect(chip.style.getPropertyValue("--chips-surface-hover")).toBe("");
+      expect(chip.style.backgroundColor).toBe("");
+    });
+
+    it("Should leave the fill to CSS when disabled", () => {
+      render(<Chips label={label} color="negative" disabled />);
+      const chip = screen.getByTestId(defaultTestId);
+      expect(chip).toHaveClass("disabled");
+      expect(chip.style.getPropertyValue("--chips-surface")).toBe("");
+    });
+  });
 });
