@@ -7,12 +7,14 @@ import SingleSelectTrigger from "../Trigger/SingleSelectTrigger";
 import MultiSelectTrigger from "../Trigger/MultiSelectTrigger";
 
 const DropdownPopup = () => {
-  const { multi } = useDropdownContext();
+  const { multi, isOpen } = useDropdownContext();
 
   return (
     <Dialog
       open
       useDerivedStateFromProps
+      // Keep the menu mounted for downshift, but only run Floating UI while it's open.
+      positioningActive={isOpen}
       position="bottom-start"
       moveBy={{ main: 4, secondary: 0 }}
       observeContentResize={true}
