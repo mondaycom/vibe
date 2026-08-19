@@ -47,59 +47,61 @@
     padding: var(--space-2) var(--spacing-xs);
   }
 
+  /* Each semantic pairs a --surface-* fill with its --text-on-surface-* text.
+     The leg (svg path) is filled with the surface so it reads as part of the label. */
   &.colorPrimary {
-    background-color: var(--surface-primary-color);
-    color: var(--primary-color);
+    background-color: var(--surface-primary);
+    color: var(--text-on-surface-primary);
 
     svg path {
-      fill: var(--surface-primary-color);
+      fill: var(--surface-primary);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--surface-primary-color);
+      background-color: var(--surface-primary);
     }
   }
 
   &.colorDark {
-    background-color: var(--ui-background-color);
-    color: var(--primary-text-color);
+    background-color: var(--surface-neutral);
+    color: var(--text-on-surface-neutral);
 
     svg path {
-      fill: var(--ui-background-color);
+      fill: var(--surface-neutral);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--ui-background-color);
+      background-color: var(--surface-neutral);
     }
   }
 
   &.colorNegative {
-    background-color: var(--surface-negative-color);
-    color: var(--negative-color);
+    background-color: var(--surface-negative);
+    color: var(--text-on-surface-negative);
 
     svg path {
-      fill: var(--surface-negative-color);
+      fill: var(--surface-negative);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--surface-negative-color);
+      background-color: var(--surface-negative);
     }
   }
 
   &.colorPositive {
-    background-color: var(--surface-positive-color);
-    color: var(--positive-color);
+    background-color: var(--surface-positive);
+    color: var(--text-on-surface-positive);
 
     svg path {
-      fill: var(--surface-positive-color);
+      fill: var(--surface-positive);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--surface-positive-color);
+      background-color: var(--surface-positive);
     }
   }
 

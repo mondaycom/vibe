@@ -1511,7 +1511,8 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               onMouseLeave={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--ui-background-color)",
+                  "backgroundColor": "var(--surface-primary)",
+                  "color": "var(--text-on-surface-primary)",
                 }
               }
             >
@@ -1573,7 +1574,8 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
               onMouseLeave={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--surface-positive-color)",
+                  "backgroundColor": "var(--surface-positive)",
+                  "color": "var(--text-on-surface-positive)",
                 }
               }
             >
@@ -1638,7 +1640,8 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--surface-negative-color)",
+                    "backgroundColor": "var(--surface-negative)",
+                    "color": "var(--text-on-surface-negative)",
                   }
                 }
               >
@@ -2350,7 +2353,8 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--ui-background-color)",
+                    "backgroundColor": "var(--surface-primary)",
+                    "color": "var(--text-on-surface-primary)",
                   }
                 }
               >
@@ -2585,7 +2589,8 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--ui-background-color)",
+                    "backgroundColor": "var(--surface-primary)",
+                    "color": "var(--text-on-surface-primary)",
                   }
                 }
               >
@@ -2947,6 +2952,7 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
               style={
                 {
                   "backgroundColor": undefined,
+                  "color": undefined,
                 }
               }
             >
@@ -2974,6 +2980,7 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
                 style={
                   {
                     "backgroundColor": undefined,
+                    "color": undefined,
                   }
                 }
               >
@@ -3119,7 +3126,8 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
               onMouseLeave={[Function]}
               style={
                 {
-                  "backgroundColor": "var(--ui-background-color)",
+                  "backgroundColor": "var(--surface-primary)",
+                  "color": "var(--text-on-surface-primary)",
                 }
               }
             >
@@ -3144,7 +3152,8 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
                 onMouseLeave={[Function]}
                 style={
                   {
-                    "backgroundColor": "var(--ui-background-color)",
+                    "backgroundColor": "var(--surface-primary)",
+                    "color": "var(--text-on-surface-primary)",
                   }
                 }
               >

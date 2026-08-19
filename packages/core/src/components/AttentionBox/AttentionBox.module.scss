@@ -44,26 +44,27 @@
   color: var(--primary-text-color);
 }
 
+/* Semantic surfaces, per Facelift "surface colors" (Figma 630:106200). */
 .typePrimary {
   color: var(--primary-text-color);
-  background-color: var(--primary-selected-color);
+  background-color: var(--surface-primary);
 }
 
 .typeDanger {
-  background-color: var(--negative-color-selected);
+  background-color: var(--surface-negative);
 }
 
 .typeSuccess {
-  background-color: var(--positive-color-selected);
+  background-color: var(--surface-positive);
 }
 
 .typeDark {
-  background-color: var(--ui-background-color);
+  background-color: var(--surface-neutral);
   color: var(--primary-text-color);
 }
 
 .typeWarning {
-  background-color: var(--warning-color-selected);
+  background-color: var(--surface-warning);
   color: var(--primary-text-color);
 }
 
