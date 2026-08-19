@@ -113,11 +113,19 @@
     }
     &.close {
       margin-left: var(--spacing-xs);
-      color: var(--primary-text-color);
     }
   }
 
+  /* Icons track the chip's text colour, which for semantic colors is
+     --text-on-surface-* (set inline on the root). */
   .icon {
+    color: currentColor;
+  }
+
+  /* The close control is an IconButton, whose own .kindTertiary.colorOnPrimaryColor
+     rule sets white at two-class specificity. Three classes to beat it deterministically
+     rather than relying on stylesheet order. */
+  .icon.close {
     color: currentColor;
   }
 
