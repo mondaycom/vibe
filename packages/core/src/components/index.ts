@@ -36,7 +36,12 @@ export * from "./EmptyState";
 export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";
 export * from "@vibe/formatted-number";
-export * from "@vibe/a11y";
+export {
+  HiddenText,
+  type HiddenTextProps,
+  useGridKeyboardNavigationContext,
+  GridKeyboardNavigationContext
+} from "@vibe/a11y";
 export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";
