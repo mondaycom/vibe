@@ -100,8 +100,7 @@ function Dialog({
   const isOpenInternal = useDerivedStateFromProps ? isOpenProp : isOpenState;
   const isShown = isOpenInternal || open;
 
-  // Floating UI position tracking; gated by `isShown` so the default (`positioningActive: true`)
-  // matches the previous behavior.
+  // Floating UI tracking, gated by `isShown` so the default (`positioningActive: true`) is unchanged.
   const isPositioningActive = isShown && positioningActive;
 
   // Build middleware array for Floating UI — skip when positioning is inactive to avoid overhead
