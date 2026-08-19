@@ -1,7 +1,7 @@
 export * from "./Accordion";
 export * from "./AlertBanner";
 export * from "./AttentionBox";
-export * from "./Avatar";
+export * from "@vibe/avatar";
 export * from "./AvatarGroup";
 export * from "./Badge";
 export * from "./BreadcrumbsBar";
@@ -31,8 +31,7 @@ export {
 } from "@vibe/dialog";
 export * from "@vibe/divider";
 export * from "./Dropdown";
-export * from "./EditableHeading";
-export * from "./EditableText";
+export * from "@vibe/editable";
 export * from "./EmptyState";
 export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";

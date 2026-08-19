@@ -3,7 +3,7 @@ import type React from "react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import useKeyEvent, { type UseKeyEventArgs } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
-import usePrevious from "../usePrevious";
+import { usePrevious } from "@vibe/hooks";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
 import useListenFocusTriggers from "../useListenFocusTriggers";
 

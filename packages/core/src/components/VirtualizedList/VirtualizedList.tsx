@@ -20,7 +20,7 @@ import {
   type VariableSizeList
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import usePrevious from "../../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import { useMergeRef } from "@vibe/shared";
 import {
