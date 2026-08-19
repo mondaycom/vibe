@@ -77,6 +77,10 @@ export const colorsMap = [
     color: "--warning-color-selected-hover",
     description: "Use to indicate hover state on a warning-selected items"
   },
+  {
+    color: "--info-color",
+    description: "Use to indicate an informational action/state; stays blue when the brand primary does not"
+  },
   // semantic surfaces
   {
     color: "--surface-primary",

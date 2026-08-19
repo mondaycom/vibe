@@ -5,14 +5,15 @@
   --primary-selected-hover-color: rgba(255, 255, 255, 0.12);
   --primary-highlighted-color: #180d4f;
   --primary-surface-color: #222221;
-  /* Semantic surfaces — 60% of the base colour, per Facelift "surface colors" (Figma 630:106200).
-     color-mix keeps them derived, so overriding a base token flows through. */
-  --surface-primary: color-mix(in srgb, #d4daff 60%, transparent);
-  --surface-positive: color-mix(in srgb, var(--positive-color-selected) 60%, transparent);
-  --surface-negative: color-mix(in srgb, var(--negative-color-selected) 60%, transparent);
-  --surface-warning: color-mix(in srgb, var(--warning-color-selected) 60%, transparent);
-  --surface-neutral: color-mix(in srgb, var(--ui-background-color) 60%, transparent);
-  --surface-info: color-mix(in srgb, var(--info-color-selected) 60%, transparent);
+  /* Semantic surfaces — the semantic's own colour at 12% (Facelift "surface colors").
+     color-mix keeps them derived: each theme's --primary-color etc. flows straight
+     through, so facelift's indigo primary yields an indigo surface for free. */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 12%, transparent);
+  --surface-positive: color-mix(in srgb, var(--positive-color) 12%, transparent);
+  --surface-negative: color-mix(in srgb, var(--negative-color) 12%, transparent);
+  --surface-warning: color-mix(in srgb, var(--warning-color) 12%, transparent);
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 12%, transparent);
+  --surface-info: color-mix(in srgb, var(--info-color) 12%, transparent);
   --text-on-surface-primary: #3543fc;
   --text-on-surface-positive: #006138;
   --text-on-surface-negative: #aa2237;
@@ -56,6 +57,7 @@
   --warning-color-hover: #eaaa15;
   --warning-color-selected: #fceba1;
   --warning-color-selected-hover: #f2d973;
+  --info-color: #0073ea;
   --info-color-selected: #cce4ff;
   --info-color-selected-hover: #b8d9ff;
   --color-highlight_blue: rgba(255, 255, 255, 0.08); /* stylelint-disable-line custom-property-pattern */
