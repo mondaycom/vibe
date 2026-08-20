@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.10](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.9...@vibe/icon-button@4.0.10) (2026-08-19)
+
+**Note:** Version bump only for package @vibe/icon-button
+
+
+
+
+
 ## [4.0.9](https://github.com/mondaycom/vibe/compare/@vibe/icon-button@4.0.8...@vibe/icon-button@4.0.9) (2026-08-19)
 
 **Note:** Version bump only for package @vibe/icon-button

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/radio-button",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for RadioButton component",
   "repository": {
     "type": "git",
@@ -40,8 +40,8 @@
   "dependencies": {
     "@vibe/clickable": "4.0.4",
     "@vibe/shared": "4.0.3",
-    "@vibe/tooltip": "4.0.9",
-    "@vibe/typography": "4.0.9",
+    "@vibe/tooltip": "4.0.10",
+    "@vibe/typography": "4.0.10",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
