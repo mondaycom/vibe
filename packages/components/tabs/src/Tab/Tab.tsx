@@ -1,7 +1,15 @@
 import cx from "classnames";
 import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import { noop as NOOP } from "es-toolkit";
-import { useMergeRef, getStyle, type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVibeId, keyCodes } from "@vibe/shared";
+import {
+  useMergeRef,
+  getStyle,
+  type VibeComponentProps,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  keyCodes
+} from "@vibe/shared";
 
 import { Icon, type IconType, type SubIcon } from "@vibe/icon";
 import styles from "./Tab.module.scss";
