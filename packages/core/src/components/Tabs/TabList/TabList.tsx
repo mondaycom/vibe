@@ -10,7 +10,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
+import { useGridKeyboardNavigation } from "@vibe/a11y";
 import { useMergeRef, NOOP, getStyle } from "@vibe/shared";
 import { usePrevious } from "@vibe/hooks";
 import type VibeComponentProps from "../../../types/VibeComponentProps";

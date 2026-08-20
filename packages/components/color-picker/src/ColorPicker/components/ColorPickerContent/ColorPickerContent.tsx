@@ -17,7 +17,7 @@ import {
   type ColorPickerArrayValueOnly
 } from "../../ColorPicker.types";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "@vibe/core";
+import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "@vibe/a11y";
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
 import { type SubIcon } from "@vibe/icon";

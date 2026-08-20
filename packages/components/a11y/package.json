@@ -46,6 +46,7 @@
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@vibe/config": "4.0.2",
+    "es-toolkit": "^1.39.10",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

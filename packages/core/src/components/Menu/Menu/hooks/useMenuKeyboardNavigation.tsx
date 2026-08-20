@@ -1,13 +1,6 @@
 import type React from "react";
 import { useCallback, useMemo } from "react";
-import {
-  ARROW_DOWN_KEYS,
-  ARROW_UP_KEYS,
-  ENTER_KEYS,
-  HOME_KEYS,
-  END_KEYS,
-  NavDirections
-} from "../../../../hooks/useFullKeyboardListeners";
+import { ARROW_DOWN_KEYS, ARROW_UP_KEYS, ENTER_KEYS, HOME_KEYS, END_KEYS, NavDirections } from "@vibe/shared";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
 export default function useMenuKeyboardNavigation({

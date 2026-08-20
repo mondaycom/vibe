@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { useGridKeyboardNavigation } from "@vibe/core";
+import { useGridKeyboardNavigation } from "@vibe/a11y";
 import { Button } from "@vibe/button";
 import { type VibeComponentProps, NOOP } from "@vibe/shared";
 import { type SubIcon } from "@vibe/icon";

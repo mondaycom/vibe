@@ -1,4 +1,4 @@
-import { NavDirections } from "../useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 
 export function getActiveIndexFromInboundNavigation({
   direction,

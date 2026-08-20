@@ -6,7 +6,7 @@ export { default as useTimeout } from "./useTimeout";
 export { default as useSetFocus } from "./useSetFocus";
 export { default as useIsMouseOver } from "./useIsMouseOver";
 export { default as useHover } from "./useHover/useHover";
-export { default as useGridKeyboardNavigation } from "./useGridKeyboardNavigation/useGridKeyboardNavigation";
+export { useGridKeyboardNavigation } from "@vibe/a11y";
 export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
