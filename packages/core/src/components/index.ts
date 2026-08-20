@@ -11,7 +11,7 @@ export * from "@vibe/checkbox";
 export * from "./Chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
-export * from "./ColorPicker";
+export * from "@vibe/color-picker";
 export * from "./Combobox";
 export * from "@vibe/counter";
 export * from "./DatePicker";

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { NavDirections } from "../../useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 import {
   calcActiveIndexAfterArrowNavigation,
   getActiveIndexFromInboundNavigation

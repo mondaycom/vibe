@@ -1,4 +1,4 @@
-import { type CONTENT_COLORS_VALUES } from "../../utils/colors-vars-map";
+import { type CONTENT_COLORS_VALUES } from "@vibe/shared";
 
 export type ColorShapes = "square" | "circle";
 

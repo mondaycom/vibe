@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { render, fireEvent, act, screen } from "@testing-library/react";
 import { difference as _difference } from "es-toolkit";
 import ColorPicker from "../ColorPicker";
-import { contentColors } from "../../../utils/colors-vars-map";
+import { contentColors } from "@vibe/shared";
 import ColorPickerColorsGrid from "../components/ColorPickerContent/ColorPickerColorsGrid";
 
 const formatColorName = (color: string) => color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, a => a.toUpperCase());

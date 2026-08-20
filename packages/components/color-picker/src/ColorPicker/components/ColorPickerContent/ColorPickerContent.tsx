@@ -1,7 +1,13 @@
 import { difference as _difference, intersection as _intersection } from "es-toolkit";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
-import { BaseSizes } from "../../../../constants";
-import { type CONTENT_COLORS_VALUES, contentColors } from "../../../../utils/colors-vars-map";
+import {
+  BaseSizes,
+  type CONTENT_COLORS_VALUES,
+  contentColors,
+  type VibeComponentProps,
+  type ColorStyle,
+  useMergeRef
+} from "@vibe/shared";
 import { NoColor } from "@vibe/icons";
 import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import {
@@ -14,10 +20,7 @@ import { calculateColorPickerWidth } from "../../services/ColorPickerStyleServic
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "@vibe/a11y";
 import ColorPickerClearButton from "./ColorPickerClearButton";
 import ColorPickerColorsGrid from "./ColorPickerColorsGrid";
-import { type VibeComponentProps } from "../../../../types";
 import { type SubIcon } from "@vibe/icon";
-import { useMergeRef } from "@vibe/shared";
-import { type ColorStyle } from "../../../../types";
 
 export interface ColorPickerContentProps extends VibeComponentProps {
   /**

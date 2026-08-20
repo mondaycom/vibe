@@ -1,4 +1,4 @@
-import { type BaseSizes, SIZES } from "../../constants/sizes";
+import { type BaseSizes, SIZES } from "@vibe/shared";
 
 export const DEFAULT_NUMBER_OF_COLORS_IN_LINE = 5;
 

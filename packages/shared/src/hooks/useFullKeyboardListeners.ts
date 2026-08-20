@@ -1,18 +1,17 @@
 import { type MutableRefObject, useCallback, useEffect, useMemo } from "react";
 import { noop } from "es-toolkit";
-import useKeyEvent from "./useKeyEvent";
+import { useKeyEvent } from "./useKeyEvent";
 import { type KeyboardEventCallback } from "../types/events";
-import { NavDirections, ARROW_DOWN_KEYS, ARROW_UP_KEYS, ARROW_RIGHT_KEYS, ARROW_LEFT_KEYS } from "@vibe/shared";
+import {
+  NavDirections,
+  ARROW_DOWN_KEYS,
+  ARROW_UP_KEYS,
+  ARROW_RIGHT_KEYS,
+  ARROW_LEFT_KEYS
+} from "../constants/navDirections";
+import { SELECTION_KEYS, ESCAPE_KEYS, END_KEYS, HOME_KEYS } from "../constants/keyCodes";
 
-export { NavDirections, ARROW_DOWN_KEYS, ARROW_UP_KEYS, ARROW_RIGHT_KEYS, ARROW_LEFT_KEYS };
-
-export const SELECTION_KEYS = ["Enter", " "];
-export const ENTER_KEYS = ["Enter"];
-export const ESCAPE_KEYS = ["Escape"];
-export const END_KEYS = ["End"];
-export const HOME_KEYS = ["Home"];
-
-export default function useFullKeyboardListeners({
+export function useFullKeyboardListeners({
   ref, // the reference for the component that listens to keyboard
   onSelectionKey = noop,
   onArrowNavigation = noop,

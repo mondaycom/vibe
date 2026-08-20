@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/a11y",
-  "version": "4.0.1",
-  "description": "Vibe sub-package for accessibility components",
+  "name": "@vibe/color-picker",
+  "version": "4.0.0",
+  "description": "Vibe sub-package for ColorPicker component",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "packages/components/a11y"
+    "directory": "packages/components/color-picker"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -38,15 +38,20 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@vibe/a11y": "4.0.1",
+    "@vibe/button": "4.0.6",
+    "@vibe/clickable": "4.0.5",
+    "@vibe/dialog": "4.1.6",
+    "@vibe/icon": "4.0.4",
+    "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.4",
-    "classnames": "^2.5.1"
+    "@vibe/tooltip": "4.0.11",
+    "classnames": "^2.5.1",
+    "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0",
     "@vibe/config": "4.0.2",
-    "es-toolkit": "^1.39.10",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
