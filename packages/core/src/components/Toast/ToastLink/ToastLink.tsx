@@ -2,7 +2,7 @@
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import cx from "classnames";
 import React, { type FC } from "react";
-import Link, { type LinkProps } from "../../Link/Link";
+import { Link, type LinkProps } from "@vibe/link";
 import styles from "./ToastLink.module.scss";
 
 export type ToastLinkProps = LinkProps;

@@ -11,7 +11,7 @@ import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
-import usePrevious from "../../../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 import { type ElementContent, type VibeComponentProps } from "../../../types";
 
 import { getTestId } from "../../../tests/test-ids-utils";

@@ -5,7 +5,7 @@ import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalBasicLayout.module.scss";
 import { type ModalBasicLayoutProps } from "./ModalBasicLayout.types";
 import { Flex } from "@vibe/layout";
-import Divider from "../../../Divider/Divider";
+import { Divider } from "@vibe/divider";
 import ModalFooterShadow from "../ModalFooterShadow";
 import ModalLayoutScrollableContent from "../ModalLayoutScrollableContent";
 import useLayoutScrolledContent from "../useLayoutScrolledContent";

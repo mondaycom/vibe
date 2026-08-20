@@ -6,10 +6,9 @@ import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
 import { type BadgeAlignments, type BadgeAnchor, type BadgeType } from "./Badge.types";
 import Indicator, { type IndicatorProps } from "./Indicator/Indicator";
-import Counter, { type CounterProps } from "../Counter/Counter";
+import { Counter, type CounterProps, type CounterColor } from "@vibe/counter";
 
 import { type IndicatorColor } from "./Indicator/Indicator.types";
-import { type CounterColor } from "../Counter/Counter.types";
 import styles from "./Badge.module.scss";
 import { type VibeComponentProps } from "../../types";
 

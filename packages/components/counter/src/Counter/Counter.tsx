@@ -1,0 +1,177 @@
+import { camelCase } from "es-toolkit";
+import {
+  getStyle,
+  NOOP,
+  ComponentDefaultTestId,
+  getTestId,
+  type VibeComponentProps,
+  ComponentVibeId,
+  useEventListener
+} from "@vibe/shared";
+import cx from "classnames";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+import { useAfterFirstRender } from "@vibe/hooks";
+
+import { type CounterColor, type CounterSize, type CounterType } from "./Counter.types";
+import styles from "./Counter.module.scss";
+
+export interface CounterProps extends VibeComponentProps {
+  /**
+   * The ID of the element describing the counter.
+   */
+  "aria-labelledby"?: string;
+  /**
+   * Class name applied to the counter element.
+   */
+  counterClassName?: string;
+  /**
+   * The numeric value displayed in the counter.
+   */
+  count?: number;
+  /**
+   * The label of the counter for accessibility.
+   */
+  "aria-label"?: string;
+  /**
+   * The size of the counter.
+   */
+  size?: CounterSize;
+  /**
+   * The visual style of the counter.
+   */
+  kind?: CounterType;
+  /**
+   * The color of the counter.
+   */
+  color?: CounterColor;
+  /**
+   * The maximum number of digits displayed before truncation.
+   */
+  maxDigits?: number;
+  /**
+   * Text prepended to the counter value.
+   */
+  prefix?: string;
+  /**
+   * Callback fired when the counter is clicked.
+   */
+  onMouseDown?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  /**
+   * If true, disables counter animations.
+   */
+  noAnimation?: boolean;
+}
+
+const Counter = ({
+  className,
+  counterClassName,
+  count = 0,
+  size = "large",
+  kind = "fill",
+  color = "primary",
+  maxDigits = 3,
+  "aria-labelledby": ariaLabelledBy = "",
+  "aria-label": ariaLabel = "",
+  id = "",
+  prefix = "",
+  onMouseDown = NOOP,
+  noAnimation = false,
+  "data-testid": dataTestId
+}: CounterProps) => {
+  const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const nodeRef = useRef<HTMLSpanElement>(null);
+
+  const setCountChangedAnimationActive = useCallback(() => {
+    setCountChangeAnimationState(true);
+  }, [setCountChangeAnimationState]);
+
+  const setCountChangedAnimationNotActive = useCallback(() => {
+    setCountChangeAnimationState(false);
+  }, [setCountChangeAnimationState]);
+
+  useEventListener({
+    eventName: "animationend",
+    callback: setCountChangedAnimationNotActive,
+    ref
+  });
+
+  const isAfterFirstRender = useAfterFirstRender();
+
+  useEffect(() => {
+    if (isAfterFirstRender.current) {
+      setCountChangedAnimationActive();
+    }
+  }, [count, isAfterFirstRender, setCountChangedAnimationActive]);
+
+  useEffect(() => {
+    if (maxDigits <= 0) {
+      console.error("Max digits must be a positive number");
+    }
+  }, [maxDigits]);
+
+  const classNames = useMemo(() => {
+    return cx(
+      styles.counter,
+      getStyle(styles, camelCase("size-" + size)),
+      getStyle(styles, camelCase("kind-" + kind)),
+      getStyle(styles, camelCase("color-" + color)),
+      {
+        [styles.withAnimation]: countChangeAnimationState
+      },
+      counterClassName
+    );
+  }, [size, kind, color, countChangeAnimationState, counterClassName]);
+
+  const counterId = "counter" + (id ? `-${id}` : "");
+  const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
+  const counter = (
+    <span id={counterId} data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}>
+      {prefix + countText}
+    </span>
+  );
+
+  return (
+    <span
+      className={className}
+      aria-label={`${ariaLabel} ${countText}`}
+      aria-labelledby={ariaLabelledBy}
+      onMouseDown={onMouseDown}
+      data-vibe={ComponentVibeId.COUNTER}
+    >
+      <div className={classNames} aria-label={countText} ref={ref}>
+        {noAnimation ? (
+          counter
+        ) : (
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={countText}
+              nodeRef={nodeRef}
+              classNames={{
+                enter: styles.fadeEnter,
+                enterActive: styles.fadeEnterActive,
+                exit: styles.fadeExit,
+                exitActive: styles.fadeExitActive
+              }}
+              addEndListener={done => {
+                nodeRef.current?.addEventListener("transitionend", done, false);
+              }}
+            >
+              <span
+                ref={nodeRef}
+                id={counterId}
+                data-testid={dataTestId || getTestId(ComponentDefaultTestId.COUNTER, id)}
+              >
+                {prefix + countText}
+              </span>
+            </CSSTransition>
+          </SwitchTransition>
+        )}
+      </div>
+    </span>
+  );
+};
+
+export default Counter;

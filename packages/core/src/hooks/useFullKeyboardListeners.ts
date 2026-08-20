@@ -2,18 +2,10 @@ import { type MutableRefObject, useCallback, useEffect, useMemo } from "react";
 import { noop } from "es-toolkit";
 import useKeyEvent from "./useKeyEvent";
 import { type KeyboardEventCallback } from "../types/events";
+import { NavDirections, ARROW_DOWN_KEYS, ARROW_UP_KEYS, ARROW_RIGHT_KEYS, ARROW_LEFT_KEYS } from "@vibe/shared";
 
-export enum NavDirections {
-  UP = "up",
-  DOWN = "down",
-  LEFT = "left",
-  RIGHT = "right"
-}
+export { NavDirections, ARROW_DOWN_KEYS, ARROW_UP_KEYS, ARROW_RIGHT_KEYS, ARROW_LEFT_KEYS };
 
-export const ARROW_DOWN_KEYS = ["ArrowDown"];
-export const ARROW_UP_KEYS = ["ArrowUp"];
-export const ARROW_RIGHT_KEYS = ["ArrowRight"];
-export const ARROW_LEFT_KEYS = ["ArrowLeft"];
 export const SELECTION_KEYS = ["Enter", " "];
 export const ENTER_KEYS = ["Enter"];
 export const ESCAPE_KEYS = ["Escape"];

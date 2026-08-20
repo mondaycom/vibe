@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.5](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.4...@vibe/dialog@4.1.5) (2026-08-19)
+
+
+### Performance Improvements
+
+* **Dialog:** add positioningActive to gate Floating UI position tracking ([#3465](https://github.com/mondaycom/vibe/issues/3465)) ([f6150b4](https://github.com/mondaycom/vibe/commit/f6150b4628877261eb0e19184494d27a0ffdcd7b))
+
+
+
+
+
+## [4.1.4](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.3...@vibe/dialog@4.1.4) (2026-08-19)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.3](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.2...@vibe/dialog@4.1.3) (2026-08-18)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.2](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.1...@vibe/dialog@4.1.2) (2026-08-11)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
 ## [4.1.1](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.0...@vibe/dialog@4.1.1) (2026-06-03)
 
 **Note:** Version bump only for package @vibe/dialog

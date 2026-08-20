@@ -17,7 +17,7 @@ import { NOOP, getStyle } from "@vibe/shared";
 import { type VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import { IconButton } from "@vibe/icon-button";
-import usePrevious from "../../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 
 export interface ToastProps extends VibeComponentProps {
   /**
