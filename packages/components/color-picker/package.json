@@ -38,14 +38,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/a11y": "4.0.0",
-    "@vibe/button": "4.0.5",
-    "@vibe/clickable": "4.0.4",
-    "@vibe/dialog": "4.1.5",
-    "@vibe/icon": "4.0.3",
+    "@vibe/a11y": "4.0.1",
+    "@vibe/button": "4.0.6",
+    "@vibe/clickable": "4.0.5",
+    "@vibe/dialog": "4.1.6",
+    "@vibe/icon": "4.0.4",
     "@vibe/icons": "4.1.0",
-    "@vibe/shared": "4.0.3",
-    "@vibe/tooltip": "4.0.10",
+    "@vibe/shared": "4.0.4",
+    "@vibe/tooltip": "4.0.11",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

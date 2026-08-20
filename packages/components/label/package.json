@@ -1,6 +1,6 @@
 {
   "name": "@vibe/label",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Vibe sub-package for Label component",
   "repository": {
     "type": "git",
@@ -38,11 +38,11 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/clickable": "4.0.4",
-    "@vibe/hooks": "4.0.5",
-    "@vibe/shared": "4.0.3",
+    "@vibe/clickable": "4.0.5",
+    "@vibe/hooks": "4.0.6",
+    "@vibe/shared": "4.0.4",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.10",
+    "@vibe/typography": "4.0.11",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
