@@ -1,8 +1,7 @@
 import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
-import { useMergeRef } from "@vibe/shared";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { useMergeRef, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
+
 import styles from "./TabPanel.module.scss";
 
 export interface TabPanelProps extends VibeComponentProps {

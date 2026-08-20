@@ -11,12 +11,11 @@ import React, {
   useState
 } from "react";
 import { useGridKeyboardNavigation } from "@vibe/a11y";
-import { useMergeRef, NOOP, getStyle } from "@vibe/shared";
-import { usePrevious } from "@vibe/hooks";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
+import { useMergeRef, NOOP, getStyle, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import usePrevious from "../hooks/usePrevious";
 
 import { type TabProps } from "../Tab/Tab";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+
 
 import styles from "./TabList.module.scss";
 

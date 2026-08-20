@@ -117,6 +117,7 @@
     "@vibe/radio-button": "4.0.5",
     "@vibe/shared": "4.0.5",
     "@vibe/style": "4.1.0",
+    "@vibe/tabs": "4.0.0",
     "@vibe/tooltip": "4.0.12",
     "@vibe/typography": "4.0.12",
     "browserslist-config-monday": "1.0.6",
