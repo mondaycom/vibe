@@ -52,7 +52,7 @@
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
     "typescript": "^5.9.3",
-    "vitest": "^1.6.0"
+    "vitest": "^3.2.6"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
