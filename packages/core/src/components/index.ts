@@ -59,12 +59,7 @@ export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
 export * from "./Search";
 // TODO: export * after removing enums
-export {
-  Skeleton,
-  type SkeletonProps,
-  type SkeletonType,
-  type SkeletonSizeType
-} from "@vibe/skeleton";
+export { Skeleton, type SkeletonProps, type SkeletonType, type SkeletonSizeType } from "@vibe/skeleton";
 export * from "./Slider";
 export * from "./SplitButton";
 export * from "./Steps";
