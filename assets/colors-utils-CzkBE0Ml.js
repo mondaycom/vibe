@@ -1,0 +1,1 @@
+import{c as l}from"./colors-vars-map-DuPRA0tY.js";const s={contentColors:l,getMondayColorAsStyle:(t,r="regular",o=!0)=>`${o?"var(":""}--color-${t}${r!=="regular"?`-${r}`:""}${o?")":""}`};export{s as C};
