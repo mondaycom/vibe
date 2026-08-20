@@ -16,7 +16,6 @@ import { usePrevious } from "@vibe/hooks";
 
 import { type TabProps } from "../Tab/Tab";
 
-
 import styles from "./TabList.module.scss";
 
 export interface TabListProps extends VibeComponentProps {

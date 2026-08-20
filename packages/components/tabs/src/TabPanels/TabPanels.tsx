@@ -5,8 +5,6 @@ import { useMergeRef, getStyle, type VibeComponentProps, ComponentDefaultTestId,
 import { type TabPanelsAnimationDirection } from "./TabPanels.types";
 import { type TabPanelProps } from "../TabPanel/TabPanel";
 
-
-
 import styles from "./TabPanels.module.scss";
 
 export interface TabPanelsProps extends VibeComponentProps {
