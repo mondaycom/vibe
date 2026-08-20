@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import TableCell from "../TableCell/TableCell";
-import Skeleton from "../../Skeleton/Skeleton";
+import { Skeleton } from "@vibe/skeleton";
 import styles from "./TableCellSkeleton.module.scss";
 import { type VibeComponentProps } from "../../../types";
 import { getStyle } from "@vibe/shared";

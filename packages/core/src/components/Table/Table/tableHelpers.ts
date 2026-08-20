@@ -4,7 +4,7 @@ import { type TableColumn, type TableLoadingStateType } from "./Table";
 import { Sort } from "@vibe/icons";
 import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import { SortAscending, SortDescending } from "@vibe/icons";
-import { type SkeletonType } from "../../../components/Skeleton/Skelton.types";
+import { type SkeletonType } from "@vibe/skeleton";
 export function generateWidth(width: TableColumn["width"]): string {
   if (typeof width === "number") {
     return `${width}px`;
