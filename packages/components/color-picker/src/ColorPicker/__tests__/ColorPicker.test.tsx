@@ -1,10 +1,4 @@
 import { vi, describe, it, expect } from "vitest";
-
-vi.mock("react-inlinesvg", () => ({
-  default: ({ src, ...props }: { src: string; [key: string]: unknown }) =>
-    React.createElement("div", { "data-testid": "mock-svg", "data-src": src, ...props })
-}));
-
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act, screen } from "@testing-library/react";
