@@ -14,8 +14,7 @@ import React, { useRef, useCallback, useMemo, forwardRef, useEffect } from "reac
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Tooltip } from "@vibe/tooltip";
 import { Clickable } from "@vibe/clickable";
-import { type ColorPickerValueOnly } from "../../ColorPicker.types";
-import { type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
+import { type ColorPickerValueOnly, type ColorShapes, type ColorPickerSizes } from "../../ColorPicker.types";
 import styles from "./ColorPickerItemComponent.module.scss";
 
 export interface ColorPickerItemComponentProps extends VibeComponentProps {
