@@ -1,0 +1,22 @@
+{
+  "name": "facelift-kitchen-sink-published-vibe",
+  "private": true,
+  "dependencies": {
+    "@vibe/base": "3.0.5",
+    "@vibe/button": "3.0.16",
+    "@vibe/clickable": "3.0.3",
+    "@vibe/core": "3.88.6",
+    "@vibe/dialog": "3.0.13",
+    "@vibe/hooks": "3.0.3",
+    "@vibe/icon": "3.0.11",
+    "@vibe/icon-button": "3.0.7",
+    "@vibe/icons": "1.16.0",
+    "@vibe/layer": "3.0.10",
+    "@vibe/layout": "3.0.3",
+    "@vibe/loader": "3.0.11",
+    "@vibe/shared": "3.0.8",
+    "@vibe/tooltip": "3.0.7",
+    "@vibe/typography": "3.0.7",
+    "monday-ui-style": "0.26.2"
+  }
+}

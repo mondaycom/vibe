@@ -1,0 +1,29 @@
+.boardArea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  min-width: 0;
+  padding-right: 0;
+  overflow-x: auto;
+  overflow-y: visible;
+  position: relative;
+}
+
+.boardHeaderSticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.boardGroups {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-background-color);
+}
+
+.vibeAppContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background-color: var(--primary-background-color);
+}

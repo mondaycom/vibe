@@ -1,11 +1,12 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef } from "react";
+import { camelCase } from "es-toolkit";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
 import useMergeRef from "../../hooks/useMergeRef";
 import { CloseSmall } from "@vibe/icons";
-import { getCSSVar } from "../../services/themes";
 import { ElementAllowedColor as ElementAllowedColorEnum } from "../../utils/colors-vars-map";
-import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
+import { type ElementAllowedColor, getElementColor, isSemanticElementColor } from "../../types/Colors";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
@@ -14,12 +15,13 @@ import { AvatarType as AvatarTypeEnum } from "../Avatar/AvatarConstants";
 import { type AvatarType } from "../Avatar";
 import { type ElementContent, type VibeComponentProps, withStaticProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
-import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
 import { ComponentVibeId } from "../../tests/constants";
+import { type ChipsVariant, type ChipsSize } from "./Chips.types";
 
 const CHIPS_AVATAR_SIZE = 18;
+const CHIPS_AVATAR_SIZE_SMALL = 14;
 
 export interface ChipsProps extends VibeComponentProps {
   /**
@@ -27,13 +29,31 @@ export interface ChipsProps extends VibeComponentProps {
    */
   label?: ElementContent;
   /**
+   * Visual and behavioral variant of the chip.
+   * - `default` — standard chip (colors, optional remove / click)
+   * - `readOnly` — display only; no interaction
+   * - `filterable` — primary theme only; default / hover / pressed states
+   */
+  variant?: ChipsVariant;
+  /**
    * If true, the chip is disabled.
    */
   disabled?: boolean;
   /**
-   * If true, the chip is read-only and cannot be deleted.
+   * If true, the chip is read-only and cannot be deleted or interacted with.
+   * Prefer `variant="readOnly"` for new usage.
    */
   readOnly?: boolean;
+  /**
+   * When `variant="filterable"`, shows the pressed (selected) state.
+   */
+  pressed?: boolean;
+  /**
+   * The size of the chip.
+   * - `medium` — default (24px height)
+   * - `small` — 20px height, 12px text
+   */
+  size?: ChipsSize;
   /**
    * A React element displayed on the right side.
    */
@@ -76,6 +96,7 @@ export interface ChipsProps extends VibeComponentProps {
   avatarClassName?: string;
   /**
    * The background color of the chip.
+   * Ignored when `variant="filterable"` (always primary).
    */
   color?: Exclude<ElementAllowedColor, "dark_indigo" | "blackish">;
   /**
@@ -141,10 +162,13 @@ const Chips = forwardRef(
       leftAvatar = null,
       rightAvatar = null,
       disabled = false,
+      variant = "default",
       readOnly = false,
+      pressed = false,
+      size = "medium",
       allowTextSelection = false,
       color = "primary",
-      iconSize = 18,
+      iconSize,
       onDelete = (_id: string, _e: React.MouseEvent<HTMLSpanElement>) => {},
       onMouseDown,
       onClick,
@@ -164,43 +188,77 @@ const Chips = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const componentDataTestId = dataTestId || getTestId(ComponentDefaultTestId.CHIP, id);
-    const hasClickableWrapper = (!!onClick || !!onMouseDown) && !disableClickableBehavior;
-    const hasCloseButton = !readOnly && !disabled;
+    const isFilterable = variant === "filterable";
+    const isReadOnly = !isFilterable && (readOnly || variant === "readOnly");
+    const isSmall = size === "small";
+    const resolvedColor = isFilterable ? "primary" : color;
     const overrideAriaLabel = ariaLabel || (typeof label === "string" && label) || "";
+    const resolvedIconSize = iconSize ?? (isSmall ? 14 : 18);
+    const resolvedAvatarSize = isSmall ? CHIPS_AVATAR_SIZE_SMALL : CHIPS_AVATAR_SIZE;
+
+    const hasCloseButton = !isReadOnly && !disabled && !isFilterable;
+    const hasClickableWrapper =
+      !isReadOnly && ((!disableClickableBehavior && (!!onClick || !!onMouseDown)) || isFilterable);
 
     const iconButtonRef = useRef(null);
     const componentRef = useRef(null);
 
-    const [isHovered, setIsHovered] = useState(false);
-    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
-    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
-    const { isFocused } = useSetFocus({ ref: componentRef });
-
     const mergedRef = useMergeRef<HTMLDivElement>(ref, componentRef);
 
-    const overrideClassName = cx(styles.chips, className, {
+    // Lock resting width (close is absolutely positioned) so hover padding truncates label instead of growing the chip
+    useLayoutEffect(() => {
+      if (!hasCloseButton || !componentRef.current) return;
+      const el = componentRef.current;
+      el.style.width = "";
+      el.style.width = `${el.getBoundingClientRect().width}px`;
+    }, [hasCloseButton, label, size, leftIcon, rightIcon, leftAvatar, rightAvatar, leftRenderer, rightRenderer]);
+
+    const hasLeftIcon = Boolean(leftIcon || leftAvatar || leftRenderer);
+    const hasRightIcon = Boolean(rightIcon || rightAvatar || rightRenderer);
+
+    // Semantic colors are styled by class (same `color-*` pattern as Label), so the fill
+    // lives in CSS and consumers can override it without !important. `filterable` owns its
+    // own fill, so it opts out.
+    const semanticColorClassName =
+      !isFilterable && isSemanticElementColor(resolvedColor)
+        ? getStyle(styles, camelCase("color-" + resolvedColor))
+        : undefined;
+
+    const overrideClassName = cx(styles.chips, className, semanticColorClassName, {
       [styles.disabled]: disabled,
       [styles.noAnimation]: noAnimation,
       [styles.withUserSelect]: allowTextSelection,
       [styles.border]: showBorder,
-      [styles.noMargin]: noMargin
+      [styles.noMargin]: noMargin,
+      [styles.small]: isSmall,
+      [styles.readOnly]: isReadOnly,
+      [styles.defaultCursor]: isReadOnly,
+      [styles.filterable]: isFilterable,
+      [styles.pressed]: isFilterable && pressed,
+      [styles.withClose]: hasCloseButton,
+      [styles.withLeftIcon]: hasLeftIcon,
+      [styles.withRightIcon]: hasRightIcon
     });
     const clickableClassName = cx(styles.clickable, overrideClassName, {
       [styles.disabled]: disabled,
       [styles.disableTextSelection]: !allowTextSelection
     });
 
-    const backgroundColorStyle = useMemo(() => {
-      let cssVar;
-      if (disabled) {
-        cssVar = getCSSVar("disabled-background-color");
-      } else if (hasClickableWrapper && (isHovered || isFocused)) {
-        cssVar = getElementColor(color, true, true);
-      } else {
-        cssVar = getElementColor(color, true);
+    /**
+     * Content colors (there are ~40) can't reasonably each get a class, so they pass their
+     * palette in as custom properties and CSS applies them. That keeps `background-color`
+     * out of the inline style, so hover is a plain `:hover` rule rather than React state,
+     * and consumers can restyle a chip with ordinary specificity.
+     */
+    const contentColorStyle = useMemo(() => {
+      if (isFilterable || disabled || semanticColorClassName) {
+        return undefined;
       }
-      return { backgroundColor: cssVar };
-    }, [disabled, hasClickableWrapper, isHovered, isFocused, color]);
+      // No --chips-surface-hover: content colors have no `--color-*-selected-hover` token,
+      // so getElementColor ignores the hover palette for them. The CSS falls back to the
+      // resting fill, which is what the previous JS hover branch also produced.
+      return { "--chips-surface": getElementColor(resolvedColor, true) } as React.CSSProperties;
+    }, [disabled, resolvedColor, isFilterable, semanticColorClassName]);
 
     const onDeleteCallback = useCallback(
       (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
@@ -214,19 +272,32 @@ const Chips = forwardRef(
 
     const onClickCallback = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (isReadOnly || disabled) {
+          return;
+        }
         if (onClick !== undefined && (e.target as HTMLElement) !== iconButtonRef.current) {
           e.preventDefault();
           onClick(e);
         }
       },
-      [onClick]
+      [onClick, isReadOnly, disabled]
+    );
+
+    const onMouseDownCallback = useCallback(
+      (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (isReadOnly || disabled) {
+          return;
+        }
+        onMouseDown?.(e);
+      },
+      [onMouseDown, isReadOnly, disabled]
     );
 
     const clickableProps = useClickableProps(
       {
         onClick: onClickCallback,
-        onMouseDown,
-        disabled,
+        onMouseDown: onMouseDownCallback,
+        disabled: disabled || isReadOnly,
         id,
         "data-testid": componentDataTestId,
         ariaLabel: overrideAriaLabel,
@@ -241,33 +312,34 @@ const Chips = forwardRef(
           ...clickableProps,
           ref: mergedRef,
           className: clickableClassName,
-          style: backgroundColorStyle,
-          onMouseEnter: handleMouseEnter,
-          onMouseLeave: handleMouseLeave
+          style: contentColorStyle,
+          ...(isFilterable ? { "aria-pressed": pressed } : {})
         }
       : {
           className: overrideClassName,
           "aria-label": overrideAriaLabel,
-          style: backgroundColorStyle,
+          style: contentColorStyle,
           ref: mergedRef,
-          onClick: onClickCallback,
-          onMouseDown,
+          onClick: isReadOnly ? undefined : onClickCallback,
+          onMouseDown: isReadOnly ? undefined : onMouseDownCallback,
           id: id,
-          "data-testid": componentDataTestId,
-          onMouseEnter: handleMouseEnter,
-          onMouseLeave: handleMouseLeave
+          "data-testid": componentDataTestId
         };
 
     const leftAvatarProps = leftAvatarType === "text" ? { text: leftAvatar } : { src: leftAvatar };
     const rightAvatarProps = leftAvatarType === "text" ? { text: rightAvatar } : { src: rightAvatar };
 
     return (
-      <div {...wrapperProps} data-vibe={ComponentVibeId.CHIPS}>
+      <div
+        {...wrapperProps}
+        data-vibe={ComponentVibeId.CHIPS}
+        data-variant={isFilterable ? "filterable" : isReadOnly ? "readOnly" : "default"}
+      >
         {leftAvatar ? (
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.left, avatarClassName)}
-            customSize={CHIPS_AVATAR_SIZE}
+            customSize={resolvedAvatarSize}
             type={leftAvatarType}
             key={id}
             {...leftAvatarProps}
@@ -278,12 +350,15 @@ const Chips = forwardRef(
             className={cx(styles.icon, styles.left, iconClassName)}
             iconType="font"
             icon={leftIcon}
-            iconSize={iconSize}
+            iconSize={resolvedIconSize}
             ignoreFocusStyle
           />
         ) : null}
         {leftRenderer && <div className={cx(styles.customRenderer, styles.left)}>{leftRenderer}</div>}
-        <Text type="text2" className={styles.label}>
+        {/* `inherit` so the label follows the chip's colour (--text-on-surface-* for semantic
+            colors, set inline on the root). Text's default would pin --primary-text-color and
+            leave the label out of step with the icons, which use currentColor. */}
+        <Text type={isSmall ? "text3" : "text2"} color="inherit" className={styles.label}>
           {label}
         </Text>
         {rightIcon ? (
@@ -291,7 +366,7 @@ const Chips = forwardRef(
             className={cx(styles.icon, styles.right, iconClassName)}
             iconType="font"
             icon={rightIcon}
-            iconSize={iconSize}
+            iconSize={resolvedIconSize}
             ignoreFocusStyle
           />
         ) : null}
@@ -299,7 +374,7 @@ const Chips = forwardRef(
           <Avatar
             withoutBorder
             className={cx(styles.avatar, styles.right, avatarClassName)}
-            customSize={CHIPS_AVATAR_SIZE}
+            customSize={resolvedAvatarSize}
             type={rightAvatarType}
             key={id}
             {...rightAvatarProps}
@@ -309,7 +384,6 @@ const Chips = forwardRef(
         {hasCloseButton && (
           <IconButton
             size="xxs"
-            color="on-primary-color"
             className={cx(styles.icon, styles.close)}
             ariaLabel={closeButtonAriaLabel}
             hideTooltip
