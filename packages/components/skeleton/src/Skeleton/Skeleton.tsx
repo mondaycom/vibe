@@ -1,11 +1,9 @@
 import React from "react";
 import { camelCase } from "es-toolkit";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, getStyle, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import { SKELETON_CUSTOM_SIZE } from "./SkeletonConstants";
 import { type SkeletonType, type SkeletonSizeType } from "./Skelton.types";
-import { getStyle } from "@vibe/shared";
-import { type VibeComponentProps } from "../../types";
 import styles from "./Skeleton.module.scss";
 
 export interface SkeletonProps extends VibeComponentProps {

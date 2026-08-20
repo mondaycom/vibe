@@ -58,7 +58,7 @@ export * from "./MultiStepIndicator";
 export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
 export * from "./Search";
-export * from "./Skeleton";
+export * from "@vibe/skeleton";
 export * from "./Slider";
 export * from "./SplitButton";
 export * from "./Steps";
