@@ -63,20 +63,7 @@ export * from "./Slider";
 export * from "./SplitButton";
 export * from "./Steps";
 export * from "./Table";
-// TODO: export * after removing enums
-export {
-  Tab,
-  type TabProps,
-  TabList,
-  type TabListProps,
-  TabPanel,
-  type TabPanelProps,
-  TabPanels,
-  type TabPanelsProps,
-  type TabPanelsAnimationDirection,
-  TabsContext,
-  type TabsContextProps
-} from "@vibe/tabs";
+export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "./TextArea";
 export * from "./TextField";
