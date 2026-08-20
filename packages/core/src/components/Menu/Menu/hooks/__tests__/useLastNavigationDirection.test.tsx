@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { renderHook, act } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
-import { NavDirections } from "../../../../../hooks/useFullKeyboardListeners";
-import { useLastNavigationDirection } from "../useLastNavigationDirection";
+import { NavDirections, useLastNavigationDirection } from "@vibe/shared";
 
 describe("useLastNavigationDirection", () => {
   it("should return undefined when no direction key was pressed yet", () => {

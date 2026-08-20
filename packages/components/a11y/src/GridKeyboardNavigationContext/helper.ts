@@ -1,4 +1,4 @@
-import { NavDirections } from "../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 import {
   type DirectionMap,
   type DirectionMaps,

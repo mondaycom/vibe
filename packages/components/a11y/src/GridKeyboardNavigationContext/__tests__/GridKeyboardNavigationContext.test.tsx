@@ -2,7 +2,7 @@ import { vi, beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { act, cleanup, renderHook } from "@testing-library/react-hooks";
 import userEvent from "@testing-library/user-event";
-import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
 
 describe("GridKeyboardNavigationContext", () => {

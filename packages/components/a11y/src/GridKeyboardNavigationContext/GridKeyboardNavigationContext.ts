@@ -1,13 +1,11 @@
 import React, { useContext, useCallback, useMemo } from "react";
-import useEventListener from "../../hooks/useEventListener";
-import { useLastNavigationDirection } from "../Menu/Menu/hooks/useLastNavigationDirection";
+import { useEventListener, useLastNavigationDirection, type NavDirections } from "@vibe/shared";
 import {
   getDirectionMaps,
   getNextElementToFocusInDirection,
   getOppositeDirection,
   getOutmostElementInDirection
 } from "./helper";
-import { type NavDirections } from "../../hooks/useFullKeyboardListeners";
 import {
   type GridElementRef,
   type GridKeyboardNavigationContextType,

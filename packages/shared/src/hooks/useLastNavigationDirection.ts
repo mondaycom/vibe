@@ -1,19 +1,19 @@
+import type React from "react";
 import { useCallback, useRef } from "react";
-import useEventListener from "../../../../hooks/useEventListener";
+import { useEventListener } from "./useEventListener";
+import { useKeyEvent } from "./useKeyEvent";
 import {
   ARROW_DOWN_KEYS,
   ARROW_LEFT_KEYS,
   ARROW_RIGHT_KEYS,
   ARROW_UP_KEYS,
   NavDirections
-} from "../../../../hooks/useFullKeyboardListeners";
-import useKeyEvent from "../../../../hooks/useKeyEvent";
+} from "../constants/navDirections";
 
 const NAVIGATION_KEYS = [...ARROW_UP_KEYS, ...ARROW_RIGHT_KEYS, ...ARROW_DOWN_KEYS, ...ARROW_LEFT_KEYS];
 
 export const useLastNavigationDirection = () => {
   const documentRef = useRef(document);
-
   const lastNavigationDirectionRef = useRef<NavDirections>();
 
   const setLastNavigationDirection = useCallback((dir: NavDirections) => {
@@ -21,7 +21,8 @@ export const useLastNavigationDirection = () => {
   }, []);
 
   const onKeyEvent = useCallback(
-    ({ key }: KeyboardEvent) => {
+    (event: KeyboardEvent | React.KeyboardEvent) => {
+      const { key } = event;
       if (ARROW_UP_KEYS.includes(key)) {
         setLastNavigationDirection(NavDirections.UP);
       } else if (ARROW_RIGHT_KEYS.includes(key)) {

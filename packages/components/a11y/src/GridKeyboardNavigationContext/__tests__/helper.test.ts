@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { NavDirections } from "../../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "@vibe/shared";
 import {
   getOppositeDirection,
   getDirectionMaps,
