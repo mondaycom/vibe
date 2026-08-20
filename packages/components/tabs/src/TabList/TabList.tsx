@@ -12,7 +12,7 @@ import React, {
 } from "react";
 import { useGridKeyboardNavigation } from "@vibe/a11y";
 import { useMergeRef, NOOP, getStyle, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
-import usePrevious from "../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 
 import { type TabProps } from "../Tab/Tab";
 

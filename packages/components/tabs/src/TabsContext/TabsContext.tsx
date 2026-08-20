@@ -9,7 +9,7 @@ import React, {
   useMemo
 } from "react";
 import { useMergeRef, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
-import usePrevious from "../hooks/usePrevious";
+import { usePrevious } from "@vibe/hooks";
 
 export interface TabsContextProps extends VibeComponentProps {
   /**
