@@ -8,6 +8,7 @@ import { Flex } from "@vibe/layout";
 import TriggerActions from "./TriggerActions";
 import { getStyle } from "@vibe/shared";
 
+// Renders the trigger for single-select dropdowns (searchable and non-searchable).
 const SingleSelectTrigger = () => {
   const {
     inputValue,
