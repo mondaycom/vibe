@@ -1,0 +1,15 @@
+// Wrap any non-essential animation or movement transition in `motion-safe`
+// so users with `prefers-reduced-motion: reduce` get a static experience.
+// `motion-reduce` is for the rare case where you need an explicit alternative
+// (e.g. swap a slide for an instant opacity change).
+@mixin motion-safe {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin motion-reduce {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

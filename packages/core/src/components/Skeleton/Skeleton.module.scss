@@ -1,20 +1,25 @@
+@import "~@vibe/style/dist/mixins";
+@import "~@vibe/style/dist/mixins/motion";
 @import "SkeletonVariables";
 
 @mixin shine-animation() {
   overflow: hidden;
-  animation-duration: 0.8s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-name: shine;
-  animation-timing-function: steps(10, end);
 
-  @keyframes shine {
-    0% {
-      opacity: 0.4;
-    }
-    100% {
-      opacity: 1;
-    }
+  @include motion-safe {
+    animation: shine 0.8s steps(10, end) infinite alternate;
+  }
+
+  @include motion-reduce {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

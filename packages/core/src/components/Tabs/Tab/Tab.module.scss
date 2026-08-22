@@ -1,4 +1,5 @@
 @import "~@vibe/style/dist/mixins";
+@import "~@vibe/style/dist/mixins/motion";
 @import "../../../styles/states";
 @import "../../../styles/typography";
 
@@ -66,7 +67,10 @@
 
 .tabWrapper.active:after {
   transform: scaleX(1);
-  transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
+
+  @include motion-safe {
+    transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
+  }
 }
 
 .tabWrapper.disabled .tabInner {

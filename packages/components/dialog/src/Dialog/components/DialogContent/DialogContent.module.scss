@@ -1,4 +1,5 @@
 @import "~@vibe/style/dist/mixins";
+@import "~@vibe/style/dist/mixins/motion";
 
 .contentWrapper {
   outline: 0;
@@ -53,121 +54,147 @@
 }
 
 // Animations
+//
+// Two flavors driven by Dialog's `animationType` prop:
+//   - opacity-and-slide: fade + 16px translate from origin (default for popovers)
+//   - expand: scale-from-origin + fade (used by Tooltip, Menu submenus)
+//
+// Both are gated on `prefers-reduced-motion: no-preference`. Reduced-motion
+// users get the popover at rest immediately with no transition.
 
 $translate-minus-px: calc(var(--space-16) * -1);
 
 .opacitySlideAppear {
-  opacity: 0;
+  @include motion-safe {
+    opacity: 0;
 
-  &.top {
-    transform: translateY(var(--space-16));
-  }
+    &.top {
+      transform: translateY(var(--space-16));
+    }
 
-  &.right {
-    transform: translateX($translate-minus-px);
-  }
+    &.right {
+      transform: translateX($translate-minus-px);
+    }
 
-  &.bottom {
-    transform: translateY($translate-minus-px);
-  }
+    &.bottom {
+      transform: translateY($translate-minus-px);
+    }
 
-  &.left {
-    transform: translateX(var(--space-16));
+    &.left {
+      transform: translateX(var(--space-16));
+    }
   }
 }
 
 .opacitySlideAppearActive {
-  transition: opacity 0.2s ease, transform 0.2s ease-out;
-  opacity: 1;
   pointer-events: none;
 
-  &.top,
-  &.bottom {
-    transform: translateY(0);
-  }
+  @include motion-safe {
+    transition: opacity var(--motion-productive-long) var(--motion-timing-enter),
+      transform var(--motion-productive-long) var(--motion-timing-enter);
+    opacity: 1;
 
-  &.right,
-  &.left {
-    transform: translateX(0);
+    &.top,
+    &.bottom {
+      transform: translateY(0);
+    }
+
+    &.right,
+    &.left {
+      transform: translateX(0);
+    }
   }
 }
 
 .expandAppear,
 .expandExit {
-  transition: transform 0.1s $expand-animation-timing;
-  &.top,
-  &.topStart,
-  &.topEnd {
-    transform-origin: bottom center;
-    transform: scale(0.8);
-    &.edgeBottom {
-      transform-origin: bottom left;
-    }
-    &.edgeTop {
-      transform-origin: bottom right;
-    }
-  }
+  @include motion-safe {
+    transition: transform var(--motion-productive-long) var(--motion-timing-enter),
+      opacity var(--motion-productive-long) var(--motion-timing-enter);
+    opacity: 0;
 
-  &.right,
-  &.rightStart,
-  &.rightEnd {
-    transform-origin: left;
-    transform: scale(0.8);
-    &.edgeBottom {
-      transform-origin: top left;
+    &.top,
+    &.topStart,
+    &.topEnd {
+      transform-origin: bottom center;
+      transform: scale(0.92);
+      &.edgeBottom {
+        transform-origin: bottom left;
+      }
+      &.edgeTop {
+        transform-origin: bottom right;
+      }
     }
-    &.edgeTop {
-      transform-origin: bottom left;
-    }
-  }
 
-  &.bottom,
-  &.bottomStart,
-  &.bottomEnd {
-    transform-origin: top;
-    transform: scale(0.8);
-    &.edgeBottom {
-      transform-origin: top left;
+    &.right,
+    &.rightStart,
+    &.rightEnd {
+      transform-origin: left;
+      transform: scale(0.92);
+      &.edgeBottom {
+        transform-origin: top left;
+      }
+      &.edgeTop {
+        transform-origin: bottom left;
+      }
     }
-    &.edgeTop {
-      transform-origin: top right;
-    }
-  }
 
-  &.left,
-  &.leftStart,
-  &.leftEnd {
-    transform-origin: right;
-    transform: scale(0.8);
-    &.edgeBottom {
-      transform-origin: top right;
+    &.bottom,
+    &.bottomStart,
+    &.bottomEnd {
+      transform-origin: top;
+      transform: scale(0.92);
+      &.edgeBottom {
+        transform-origin: top left;
+      }
+      &.edgeTop {
+        transform-origin: top right;
+      }
     }
-    &.edgeTop {
-      transform-origin: bottom right;
+
+    &.left,
+    &.leftStart,
+    &.leftEnd {
+      transform-origin: right;
+      transform: scale(0.92);
+      &.edgeBottom {
+        transform-origin: top right;
+      }
+      &.edgeTop {
+        transform-origin: bottom right;
+      }
     }
   }
 }
 
 .expandExit {
-  transition: transform 0.1s $expand-animation-timing;
+  @include motion-safe {
+    transition: transform var(--motion-productive-medium) var(--motion-timing-exit),
+      opacity var(--motion-productive-medium) var(--motion-timing-exit);
+  }
 }
 
 .expandAppearActive {
-  transition: transform 0.1s $expand-animation-timing;
   pointer-events: none;
 
-  &.top,
-  &.topStart,
-  &.topEnd,
-  &.bottom,
-  &.bottomStart,
-  &.bottomEnd,
-  &.right,
-  &.rightStart,
-  &.rightEnd,
-  &.left,
-  &.leftStart,
-  &.leftEnd {
-    transform: scale(1);
+  @include motion-safe {
+    transition: transform var(--motion-productive-long) var(--motion-timing-enter),
+      opacity var(--motion-productive-long) var(--motion-timing-enter);
+    opacity: 1;
+
+    &.top,
+    &.topStart,
+    &.topEnd,
+    &.bottom,
+    &.bottomStart,
+    &.bottomEnd,
+    &.right,
+    &.rightStart,
+    &.rightEnd,
+    &.left,
+    &.leftStart,
+    &.leftEnd {
+      transform: scale(1);
+    }
   }
 }
