@@ -6,11 +6,14 @@
 }
 
 .disabled {
-  * {
-    pointer-events: none;
-  }
   cursor: not-allowed !important;
   opacity: var(--disabled-component-opacity);
+}
+
+// Disable interaction on the rail (and, via inherited pointer-events, its entire
+// subtree) while keeping the root interactive so its `not-allowed` cursor still shows.
+.railDisabled {
+  pointer-events: none;
 }
 
 .small {
