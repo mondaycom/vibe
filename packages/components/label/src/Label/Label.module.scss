@@ -15,86 +15,110 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-small);
-  padding: 2px var(--space-8);
+  border-radius: 4px;
+  padding: 2px var(--spacing-small);
   position: relative;
 
   &.small {
-    padding: 0 var(--space-4);
-    border-radius: 2px;
+    padding: 2px var(--spacing-xs);
+    border-radius: 4px;
   }
 }
 
 .withLeg {
-  border-start-start-radius: var(--border-radius-small);
-  border-start-end-radius: var(--border-radius-small);
-  border-end-end-radius: var(--border-radius-small);
-  border-end-start-radius: 0;
+  border-radius: 4px 4px 4px 0;
 }
 
 .legWrapper {
   position: absolute;
   height: 8px;
   top: 100%;
-  inset-inline-start: 0;
+  left: 0;
   display: inline-flex;
 }
 
 .kindFill {
+  border: none;
+  background-color: transparent;
+  padding: 2px var(--spacing-small);
+
+  &.small {
+    padding: 2px var(--spacing-xs);
+  }
+
+  /* Each semantic pairs a --surface-* fill with its --text-on-surface-* text.
+     The leg (svg path) is filled with the surface so it reads as part of the label. */
   &.colorPrimary {
-    background-color: var(--primary-color);
+    background-color: var(--surface-primary);
+    color: var(--text-on-surface-primary);
 
     svg path {
-      fill: var(--primary-color);
+      fill: var(--surface-primary);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--primary-hover-color);
+      background-color: var(--surface-primary);
     }
   }
 
   &.colorDark {
-    background-color: var(--inverted-color-background);
+    background-color: var(--surface-neutral);
+    color: var(--text-on-surface-neutral);
 
     svg path {
-      fill: var(--inverted-color-background);
+      fill: var(--surface-neutral);
+    }
+
+    &.clickable:hover,
+    &.clickable:active {
+      background-color: var(--surface-neutral);
     }
   }
 
   &.colorNegative {
-    background-color: var(--negative-color);
+    background-color: var(--surface-negative);
+    color: var(--text-on-surface-negative);
 
     svg path {
-      fill: var(--negative-color);
+      fill: var(--surface-negative);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--negative-color-hover);
+      background-color: var(--surface-negative);
     }
   }
 
   &.colorPositive {
-    background-color: var(--positive-color);
+    background-color: var(--surface-positive);
+    color: var(--text-on-surface-positive);
 
     svg path {
-      fill: var(--positive-color);
+      fill: var(--surface-positive);
     }
 
     &.clickable:hover,
     &.clickable:active {
-      background-color: var(--positive-color-hover);
+      background-color: var(--surface-positive);
     }
+  }
+
+  .smallText {
+    line-height: 14px;
   }
 }
 
 .kindLine {
   border: 1px solid currentColor;
-  padding: 1px var(--space-8);
+  padding: 1px var(--spacing-small);
+
+  &.small {
+    padding: 0 var(--spacing-xs);
+  }
 
   .legWrapper {
-    inset-inline-start: -1px;
+    left: -1px;
     top: calc(100% + 1px);
   }
 
@@ -112,10 +136,10 @@
   }
 
   &.colorDark {
-    color: var(--inverted-color-background);
+    color: var(--primary-text-color);
 
     svg path {
-      fill: var(--inverted-color-background);
+      fill: var(--primary-text-color);
     }
 
     &.clickable:hover,

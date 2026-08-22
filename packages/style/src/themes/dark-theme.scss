@@ -3,8 +3,28 @@
   --primary-hover-color: #0060b9;
   --primary-selected-color: #133774;
   --primary-selected-hover-color: #0d2e65;
-  --primary-highlighted-color: #0d2753;
-  --primary-surface-color: #181b34;
+  --primary-highlighted-color: #323648;
+  --primary-surface-color: #363952;
+  --info-color: #0073ea;
+  --info-color-selected: #cce4ff;
+  --info-color-selected-hover: #b8d9ff;
+  /* Semantic surfaces — the semantic's own colour at 8% over the theme background
+     (Facelift "surface colors"). Opaque, not translucent: a translucent surface
+     picks up whatever sits behind it, so nested surfaces compounded.
+     color-mix keeps them derived: each theme's --primary-color etc. flows straight
+     through, so facelift's indigo primary yields an indigo surface for free. */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--info-color) 8%, var(--primary-background-color));
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
 
   --primary-text-color: #d5d8df;
   --secondary-text-color: #9699a6;
@@ -16,19 +36,19 @@
   --fixed-dark-color: #323338;
   --fixed-light-color: #ffffff;
 
-  --primary-background-color: #181b34;
+  --primary-background-color: #2a2e40;
   --primary-background-hover-color: rgba(103, 104, 121, 0.3);
-  --secondary-background-color: #30324e;
-  --allgrey-background-color: #30324e;
+  --secondary-background-color: #363a50;
+  --allgrey-background-color: #363a50;
   --backdrop-color: rgba(41, 47, 76, 0.7);
   --ui-border-color: #797e93;
-  --ui-background-color: #434660;
-  --ui-background-hover-color: #35384d;
-  --layout-border-color: #4b4e69;
+  --ui-background-color: #484e68;
+  --ui-background-hover-color: #404660;
+  --layout-border-color: #525870;
 
   --placeholder-color: #c3c6d4;
   --icon-color: #c3c6d4;
-  --disabled-background-color: #3c3f59;
+  --disabled-background-color: #404660;
   --link-color: #69a7ef;
 
   --brand-color: #0073ea;

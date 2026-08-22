@@ -193,6 +193,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       [onMouseDown, disabled, loading, success]
     );
 
+    const hasRenderableChildren = useMemo(() => React.Children.toArray(children).some(Boolean), [children]);
+
     const classNames = useMemo(() => {
       const calculatedColor = success ? "positive" : color;
       return cx(
@@ -212,7 +214,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           [styles.preventClickAnimation]: preventClickAnimation,
           [styles.noSidePadding]: noSidePadding,
           [styles.disabled]: disabled,
-          [styles.insetFocusStyle]: insetFocus
+          [styles.insetFocusStyle]: insetFocus,
+          [styles.hasLeftIcon]: !!leftIcon && hasRenderableChildren,
+          [styles.hasRightIcon]: !!rightIcon && hasRenderableChildren
         }
       );
     }, [
@@ -222,6 +226,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       kind,
       active,
+      leftIcon,
+      rightIcon,
+      hasRenderableChildren,
       activeButtonClassName,
       marginRight,
       marginLeft,
@@ -301,37 +308,19 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       [size]
     );
 
-    const hasRenderableChildren = useMemo(() => React.Children.toArray(children).some(Boolean), [children]);
-
     const buttonContent = useMemo(
       () => (
         <>
           {leftIcon ? (
-            <Icon
-              type="font"
-              icon={leftIcon}
-              size={iconSize(leftIcon)}
-              className={cx({
-                [styles.leftIcon]: hasRenderableChildren
-              })}
-              ignoreFocusStyle
-            />
+            <Icon type="font" icon={leftIcon} size={iconSize(leftIcon)} ignoreFocusStyle />
           ) : null}
           {children}
           {rightIcon ? (
-            <Icon
-              type="font"
-              icon={rightIcon}
-              size={iconSize(rightIcon)}
-              className={cx({
-                [styles.rightIcon]: hasRenderableChildren
-              })}
-              ignoreFocusStyle
-            />
+            <Icon type="font" icon={rightIcon} size={iconSize(rightIcon)} ignoreFocusStyle />
           ) : null}
         </>
       ),
-      [children, hasRenderableChildren, iconSize, leftIcon, rightIcon]
+      [children, iconSize, leftIcon, rightIcon]
     );
 
     if (loading) {
@@ -352,15 +341,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         <button {...buttonProps} key={`${id}-success`}>
           <span className={styles.successContent}>
             {successIcon ? (
-              <Icon
-                type="font"
-                icon={successIcon}
-                size={iconSize(successIcon)}
-                className={cx({
-                  [styles.leftIcon]: !!successText
-                })}
-                ignoreFocusStyle
-              />
+              <Icon type="font" icon={successIcon} size={iconSize(successIcon)} ignoreFocusStyle />
             ) : null}
             {successText}
           </span>

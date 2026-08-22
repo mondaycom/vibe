@@ -1,1 +1,3 @@
-export type ChipsSize = "small" | "medium";
+export type ChipsVariant = "default" | "readOnly" | "filterable";
+
+export type ChipsSize = "medium" | "small";

@@ -16,7 +16,7 @@
 
 .typePopover {
   box-shadow: var(--box-shadow-medium);
-  border-radius: var(--border-radius-medium);
+  border-radius: 12px;
   background-color: var(--secondary-background-color);
 
   :global(.dark-app-theme) &,

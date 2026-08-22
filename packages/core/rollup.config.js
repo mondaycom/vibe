@@ -130,6 +130,7 @@ export default {
       extensions: [...EXTENSIONS, ".json", ".css"]
     }),
     typescript({
+      check: false,
       tsconfigOverride: {
         exclude: ["**/__tests__", "**/__stories__", path.join(SRC_PATH, "storybook")]
       }

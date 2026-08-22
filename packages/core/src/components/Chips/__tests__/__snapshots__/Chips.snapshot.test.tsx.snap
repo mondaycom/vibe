@@ -3,20 +3,15 @@
 exports[`Chips renders correctly > renders correctly disabled chip 1`] = `
 <div
   aria-label=""
-  className="chips disabled noAnimation"
+  className="chips colorPrimary disabled noAnimation"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": undefined,
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -26,21 +21,14 @@ exports[`Chips renders correctly > renders correctly disabled chip 1`] = `
 
 exports[`Chips renders correctly > renders correctly with a custom label 1`] = `
 <div
-  aria-label="This is mandatory"
-  className="chips noAnimation"
+  aria-label=""
+  className="chips colorPrimary noAnimation readOnly defaultCursor"
   data-testid="chip"
+  data-variant="readOnly"
   data-vibe="Chips"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     This is mandatory 
@@ -54,20 +42,15 @@ exports[`Chips renders correctly > renders correctly with a custom label 1`] = `
 exports[`Chips renders correctly > renders correctly with color 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorNegative noAnimation withClose"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--negative-color-selected)",
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -76,7 +59,7 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -116,20 +99,15 @@ exports[`Chips renders correctly > renders correctly with color 1`] = `
 exports[`Chips renders correctly > renders correctly with empty props 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation withClose"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -138,7 +116,7 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -175,20 +153,61 @@ exports[`Chips renders correctly > renders correctly with empty props 1`] = `
 </div>
 `;
 
+exports[`Chips renders correctly > renders correctly with filterable pressed state 1`] = `
+<div
+  aria-pressed={true}
+  className="clickable chips noAnimation filterable pressed disableTextSelection"
+  data-testid="chip"
+  data-variant="filterable"
+  data-vibe="Chips"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="typography inherit start singleLineEllipsis text text2Normal label"
+    data-testid="text"
+  >
+    Filter
+  </div>
+</div>
+`;
+
+exports[`Chips renders correctly > renders correctly with filterable variant 1`] = `
+<div
+  aria-pressed={false}
+  className="clickable chips noAnimation filterable disableTextSelection"
+  data-testid="chip"
+  data-variant="filterable"
+  data-vibe="Chips"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="typography inherit start singleLineEllipsis text text2Normal label"
+    data-testid="text"
+  >
+    Filter
+  </div>
+</div>
+`;
+
 exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation readOnly defaultCursor withLeftIcon"
   data-testid="chip"
+  data-variant="readOnly"
   data-vibe="Chips"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
 >
   <div
     className="avatar large avatar left"
@@ -215,7 +234,7 @@ exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
     </div>
   </div>
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -226,17 +245,12 @@ exports[`Chips renders correctly > renders correctly with left avatar 1`] = `
 exports[`Chips renders correctly > renders correctly with left custom renderer 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation withClose withLeftIcon"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
     className="customRenderer left"
@@ -246,7 +260,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
     </div>
   </div>
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -255,7 +269,7 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -295,17 +309,10 @@ exports[`Chips renders correctly > renders correctly with left custom renderer 1
 exports[`Chips renders correctly > renders correctly with left icon 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation readOnly defaultCursor withLeftIcon"
   data-testid="chip"
+  data-variant="readOnly"
   data-vibe="Chips"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
 >
   <svg
     aria-hidden={true}
@@ -313,9 +320,9 @@ exports[`Chips renders correctly > renders correctly with left icon 1`] = `
     data-testid="icon"
     data-vibe="Icon"
     fill="currentColor"
-    height="18"
+    height="16"
     viewBox="0 0 20 20"
-    width="18"
+    width="16"
   >
     <path
       clipRule="evenodd"
@@ -325,7 +332,7 @@ exports[`Chips renders correctly > renders correctly with left icon 1`] = `
     />
   </svg>
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -333,23 +340,33 @@ exports[`Chips renders correctly > renders correctly with left icon 1`] = `
 </div>
 `;
 
+exports[`Chips renders correctly > renders correctly with readOnly variant 1`] = `
+<div
+  aria-label="Read only"
+  className="chips colorPrimary noAnimation readOnly defaultCursor"
+  data-testid="chip"
+  data-variant="readOnly"
+  data-vibe="Chips"
+>
+  <div
+    className="typography inherit start singleLineEllipsis text text2Normal label"
+    data-testid="text"
+  >
+    Read only
+  </div>
+</div>
+`;
+
 exports[`Chips renders correctly > renders correctly with right avatar 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation readOnly defaultCursor withRightIcon"
   data-testid="chip"
+  data-variant="readOnly"
   data-vibe="Chips"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -384,20 +401,15 @@ exports[`Chips renders correctly > renders correctly with right avatar 1`] = `
 exports[`Chips renders correctly > renders correctly with right custom renderer 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation withClose withRightIcon"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -413,7 +425,7 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -453,20 +465,13 @@ exports[`Chips renders correctly > renders correctly with right custom renderer 
 exports[`Chips renders correctly > renders correctly with right icon 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation readOnly defaultCursor withRightIcon"
   data-testid="chip"
+  data-variant="readOnly"
   data-vibe="Chips"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
@@ -477,9 +482,9 @@ exports[`Chips renders correctly > renders correctly with right icon 1`] = `
     data-testid="icon"
     data-vibe="Icon"
     fill="currentColor"
-    height="18"
+    height="16"
     viewBox="0 0 20 20"
-    width="18"
+    width="16"
   >
     <path
       clipRule="evenodd"
@@ -494,20 +499,15 @@ exports[`Chips renders correctly > renders correctly with right icon 1`] = `
 exports[`Chips renders correctly > renders correctly with small size 1`] = `
 <div
   aria-label="small chip"
-  className="chips noAnimation small"
+  className="chips colorPrimary noAnimation small withClose"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text3Normal label"
     data-testid="text"
   >
     small chip
@@ -516,7 +516,7 @@ exports[`Chips renders correctly > renders correctly with small size 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -553,23 +553,35 @@ exports[`Chips renders correctly > renders correctly with small size 1`] = `
 </div>
 `;
 
+exports[`Chips renders correctly > renders correctly with small size 2`] = `
+<div
+  aria-label="Small"
+  className="chips colorPrimary noAnimation small readOnly defaultCursor"
+  data-testid="chip"
+  data-variant="readOnly"
+  data-vibe="Chips"
+>
+  <div
+    className="typography inherit start singleLineEllipsis text text3Normal label"
+    data-testid="text"
+  >
+    Small
+  </div>
+</div>
+`;
+
 exports[`Chips renders correctly > renders correctly with text 1`] = `
 <div
   aria-label="text"
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation withClose"
   data-testid="chip"
+  data-variant="default"
   data-vibe="Chips"
   onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
+  onMouseDown={[Function]}
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     text
@@ -578,7 +590,7 @@ exports[`Chips renders correctly > renders correctly with text 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="Remove"
-    className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+    className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
     data-testid="chip-close"
     data-vibe="Button"
     onBlur={[Function]}
@@ -618,20 +630,13 @@ exports[`Chips renders correctly > renders correctly with text 1`] = `
 exports[`Chips renders correctly > renders correctly without close button 1`] = `
 <div
   aria-label=""
-  className="chips noAnimation"
+  className="chips colorPrimary noAnimation readOnly defaultCursor"
   data-testid="chip"
+  data-variant="readOnly"
   data-vibe="Chips"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  style={
-    {
-      "backgroundColor": "var(--primary-selected-color)",
-    }
-  }
 >
   <div
-    className="typography primary start singleLineEllipsis text text2Normal label"
+    className="typography inherit start singleLineEllipsis text text2Normal label"
     data-testid="text"
   >
     
