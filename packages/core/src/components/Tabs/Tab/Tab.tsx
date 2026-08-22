@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { type FC, forwardRef, type ReactElement, useRef } from "react";
+import React, { type FC, forwardRef, type ReactElement, useCallback, useRef } from "react";
 import { noop as NOOP } from "es-toolkit";
 import { useMergeRef, getStyle } from "@vibe/shared";
 
@@ -10,6 +10,8 @@ import styles from "./Tab.module.scss";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { ComponentVibeId } from "../../../tests/constants";
 import { keyCodes } from "../../../constants";
+
+const EMPTY_TOOLTIP_PROPS = Object.freeze({}) as Partial<TooltipProps>;
 
 export interface TabProps extends VibeComponentProps {
   /**
@@ -82,7 +84,7 @@ const Tab: FC<TabProps> = forwardRef(
       focus = false,
       stretchedUnderline = false,
       onClick = NOOP,
-      tooltipProps = {} as TooltipProps,
+      tooltipProps = EMPTY_TOOLTIP_PROPS,
       icon,
       iconType,
       iconSide = "left",
@@ -119,12 +121,19 @@ const Tab: FC<TabProps> = forwardRef(
       return [...childrenArray, iconElement];
     }
 
-    function handleKeyDown(event: React.KeyboardEvent) {
-      if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
-        event.preventDefault();
-        !disabled && onClick(value);
-      }
-    }
+    const handleKeyDown = useCallback(
+      (event: React.KeyboardEvent) => {
+        if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
+          event.preventDefault();
+          !disabled && onClick(value);
+        }
+      },
+      [disabled, onClick, value]
+    );
+
+    const handleClick = useCallback(() => {
+      !disabled && onClick(value);
+    }, [disabled, onClick, value]);
 
     return (
       <Tooltip {...tooltipProps} content={tooltipProps.content}>
@@ -145,7 +154,7 @@ const Tab: FC<TabProps> = forwardRef(
           tabIndex={tabIndex}
           data-testid={dataTestId || getTestId(ComponentDefaultTestId.TAB, id)}
           data-vibe={ComponentVibeId.TAB}
-          onClick={() => !disabled && onClick(value)}
+          onClick={handleClick}
           onKeyDown={handleKeyDown}
         >
           <div className={cx(styles.tabInner, tabInnerClassName)}>{renderIconAndChildren()}</div>

@@ -9,6 +9,11 @@ import { Tooltip } from "@vibe/tooltip";
 import { renderSideElement } from "./utils";
 import styles from "./BaseItem.module.scss";
 
+const EMPTY_ITEM_PROPS: Record<string, unknown> = Object.freeze({});
+const EMPTY_TOOLTIP_PROPS = Object.freeze({}) as NonNullable<BaseItemData["tooltipProps"]>;
+const EMPTY_ITEM = Object.freeze({}) as BaseItemData;
+const TEXT_TOOLTIP_PROPS = Object.freeze({ containerSelector: "body" }) as { containerSelector: string };
+
 const BaseItem = forwardRef(
   <Item extends Record<string, unknown>>(
     {
@@ -23,8 +28,8 @@ const BaseItem = forwardRef(
       index: _index,
       dir = "auto",
       itemRenderer,
-      itemProps = {},
-      item = {} as BaseItemData<Item>
+      itemProps = EMPTY_ITEM_PROPS,
+      item = EMPTY_ITEM as BaseItemData<Item>
     }: BaseItemProps<Item>,
     ref: React.Ref<HTMLElement>
   ) => {
@@ -37,7 +42,7 @@ const BaseItem = forwardRef(
       listItemProps.refCallback?.(internalRef.current);
     }, [listItemProps]);
 
-    const { label = "", disabled = false, startElement, endElement, tooltipProps = {} } = item;
+    const { label = "", disabled = false, startElement, endElement, tooltipProps = EMPTY_TOOLTIP_PROPS } = item;
 
     const listItemClassNames = useMemo(
       () =>
@@ -79,7 +84,7 @@ const BaseItem = forwardRef(
           ) : (
             <>
               {startElement && renderSideElement(startElement, disabled, textVariant)}
-              <Text type={textVariant} color="inherit" tooltipProps={{ containerSelector: "body" }}>
+              <Text type={textVariant} color="inherit" tooltipProps={TEXT_TOOLTIP_PROPS}>
                 {label}
               </Text>
               {endElement && (

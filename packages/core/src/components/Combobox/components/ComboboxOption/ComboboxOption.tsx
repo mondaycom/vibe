@@ -158,6 +158,8 @@ const ComboboxOption = ({
 
   const optionRendererValue = useMemo(() => optionRenderer && optionRenderer(option), [optionRenderer, option]);
 
+  const optionStyle = useMemo(() => ({ height: optionLineHeight }), [optionLineHeight]);
+
   const optionValue = (
     <>
       {leftIcon && renderIcon(leftIcon, leftIconType, styles.left)}
@@ -188,7 +190,7 @@ const ComboboxOption = ({
           [styles.active]: isActive,
           [styles.activeOutline]: visualFocus
         })}
-        style={{ height: optionLineHeight }}
+        style={optionStyle}
       >
         {optionRendererValue || optionValue}
       </div>

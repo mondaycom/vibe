@@ -21,6 +21,7 @@ import styles from "./ComboboxHelpers.module.scss";
 
 const DIVIDER_HEIGHT = 17;
 const CATEGORY_HEIGHT = 32;
+const DIVIDER_STYLE = { height: DIVIDER_HEIGHT };
 
 export function useItemsData({
   categories,
@@ -238,8 +239,11 @@ export function comboboxItemRenderer({
 }
 
 export function dividerItemRenderer({ id, height }: { id: string; height: number }) {
+  // Height is always DIVIDER_HEIGHT in production — use hoisted style to avoid per-render allocation.
+  // Fall back to a fresh object only if a non-default height is somehow provided.
+  const style = height === DIVIDER_HEIGHT ? DIVIDER_STYLE : { height };
   return (
-    <div className={styles.dividerContainer} style={{ height: height }}>
+    <div className={styles.dividerContainer} style={style}>
       <Divider className={styles.divider} key={id} />
     </div>
   );
