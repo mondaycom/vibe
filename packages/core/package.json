@@ -121,6 +121,7 @@
     "@vibe/tabs": "4.0.1",
     "@vibe/text-with-highlight": "4.0.1",
     "@vibe/theme-provider": "4.0.1",
+    "@vibe/toggle": "4.0.0",
     "@vibe/tooltip": "4.0.12",
     "@vibe/typography": "4.0.12",
     "browserslist-config-monday": "1.0.6",

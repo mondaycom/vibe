@@ -1,4 +1,4 @@
-@import "../../styles/states";
+@import "~@vibe/style/dist/mixins";
 
 // Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css,
 // we hide the checkbox and draw a new one instead.

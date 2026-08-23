@@ -3,11 +3,9 @@ import cx from "classnames";
 import { noop as NOOP } from "es-toolkit";
 import Switch from "../Switch/Switch";
 import { MockToggle } from "./MockToggle";
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
 import styles from "./Toggle.module.scss";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { type ToggleSize } from "./Toggle.types";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface ToggleProps extends VibeComponentProps {
   /**
