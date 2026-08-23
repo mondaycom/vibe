@@ -43,6 +43,7 @@
     "@vibe/icon": "4.0.5",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.5",
+    "@vibe/style": "4.1.0",
     "@vibe/tooltip": "4.0.12",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
