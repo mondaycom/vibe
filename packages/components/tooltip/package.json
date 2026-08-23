@@ -1,6 +1,6 @@
 {
   "name": "@vibe/tooltip",
-  "version": "4.0.12",
+  "version": "4.0.13",
   "description": "Vibe sub-package for tooltip components",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/dialog": "4.1.7",
+    "@vibe/dialog": "4.1.8",
     "@vibe/icon": "4.0.5",
     "@vibe/layout": "4.0.7",
     "@vibe/shared": "4.0.5",
