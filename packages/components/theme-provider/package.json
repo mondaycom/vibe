@@ -32,7 +32,8 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
@@ -42,7 +43,9 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
+    "@vibe/button": "4.0.7",
     "@vibe/config": "4.0.2",
+    "@vibe/layout": "4.0.7",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

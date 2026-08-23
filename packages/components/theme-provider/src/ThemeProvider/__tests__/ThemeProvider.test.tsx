@@ -3,6 +3,8 @@ import { generateThemeCssOverride } from "../ThemeProviderUtils";
 import { render } from "@testing-library/react";
 import React from "react";
 import { ThemeProvider } from "../../index";
+import { Button } from "@vibe/button";
+import { Flex } from "@vibe/layout";
 
 const THEME_NAME = "test-theme-name";
 const ADDITIONAL_STRING_SELECTOR = "test-random-string-selector";
@@ -14,9 +16,9 @@ describe("ThemeProvider tests", () => {
     };
     const { getByTestId } = render(
       <ThemeProvider themeConfig={themeConfig} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
-        <div data-testid={"container"}>
-          <button data-testid={"button"} />
-        </div>
+        <Flex data-testid={"container"}>
+          <Button data-testid={"button"} />
+        </Flex>
       </ThemeProvider>
     );
 
@@ -31,9 +33,9 @@ describe("ThemeProvider tests", () => {
     const themeConfig = null;
     const { getByTestId } = render(
       <ThemeProvider themeConfig={themeConfig} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
-        <div data-testid={"container"}>
-          <button data-testid={"button"} />
-        </div>
+        <Flex data-testid={"container"}>
+          <Button data-testid={"button"} />
+        </Flex>
       </ThemeProvider>
     );
 
