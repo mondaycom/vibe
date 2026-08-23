@@ -1,1 +1,0 @@
-import{c as t,C as l}from"./Chips-B5nut4Fz.js";const s={modes:l,contentColors:t,getMondayColorAsStyle:(e,o="regular",r=!0)=>`${r?"var(":""}--color-${e}${o!=="regular"?`-${o}`:""}${r?")":""}`},a=Object.freeze(s);export{a as C};
