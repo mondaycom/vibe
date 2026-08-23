@@ -1,0 +1,12 @@
+{
+  "extends": "@vibe/config/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "paths": {
+      "@vibe/*": ["../../../node_modules/@vibe/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "../../../node_modules/@types"]
+  },
+  "include": ["src/**/*"]
+}

@@ -75,7 +75,14 @@ export * from "./Toast";
 export { Toggle, type ToggleProps } from "@vibe/toggle";
 // TODO: export * after removing enums
 export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
-export * from "./TransitionView";
+export {
+  TransitionView,
+  type TransitionViewProps,
+  type TransitionViewDirection,
+  SlideTransition,
+  type SlideTransitionProps,
+  type SlideDirection
+} from "@vibe/transitions";
 export * from "./VirtualizedGrid";
 export * from "./VirtualizedList";
 
