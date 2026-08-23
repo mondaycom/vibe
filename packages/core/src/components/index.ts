@@ -67,7 +67,7 @@ export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "./TextArea";
 export * from "./TextField";
-export * from "./TextWithHighlight";
+export * from "@vibe/text-with-highlight";
 export * from "./ThemeProvider";
 export * from "./Tipseen";
 export * from "./Toast";
