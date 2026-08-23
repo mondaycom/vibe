@@ -1,7 +1,7 @@
 import ToggleText from "./ToggleText";
 import cx from "classnames";
 import React, { type FC } from "react";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type { VibeComponentProps } from "@vibe/shared";
 import styles from "./MockToggle.module.scss";
 import { type ToggleSize } from "./Toggle.types";
 import { getStyle } from "@vibe/shared";

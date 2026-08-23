@@ -71,7 +71,8 @@ export * from "@vibe/text-with-highlight";
 export * from "@vibe/theme-provider";
 export * from "./Tipseen";
 export * from "./Toast";
-export * from "./Toggle";
+// TODO: export * after removing enums
+export { Toggle, type ToggleProps } from "@vibe/toggle";
 // TODO: export * after removing enums
 export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
 export * from "./TransitionView";
