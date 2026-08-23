@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { generateThemeCssOverride } from "../ThemeProviderUtils";
 import { render } from "@testing-library/react";
 import React from "react";
-import { ThemeProvider, Button, Flex } from "../../index";
+import { ThemeProvider } from "../../index";
 
 const THEME_NAME = "test-theme-name";
 const ADDITIONAL_STRING_SELECTOR = "test-random-string-selector";
@@ -14,9 +14,9 @@ describe("ThemeProvider tests", () => {
     };
     const { getByTestId } = render(
       <ThemeProvider themeConfig={themeConfig} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
-        <Flex data-testid={"container"}>
-          <Button data-testid={"button"} />
-        </Flex>
+        <div data-testid={"container"}>
+          <button data-testid={"button"} />
+        </div>
       </ThemeProvider>
     );
 
@@ -31,9 +31,9 @@ describe("ThemeProvider tests", () => {
     const themeConfig = null;
     const { getByTestId } = render(
       <ThemeProvider themeConfig={themeConfig} themeClassSpecifier={ADDITIONAL_STRING_SELECTOR}>
-        <Flex data-testid={"container"}>
-          <Button data-testid={"button"} />
-        </Flex>
+        <div data-testid={"container"}>
+          <button data-testid={"button"} />
+        </div>
       </ThemeProvider>
     );
 

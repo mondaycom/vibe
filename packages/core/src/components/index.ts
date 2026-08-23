@@ -68,7 +68,7 @@ export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typo
 export * from "./TextArea";
 export * from "./TextField";
 export * from "@vibe/text-with-highlight";
-export * from "./ThemeProvider";
+export * from "@vibe/theme-provider";
 export * from "./Tipseen";
 export * from "./Toast";
 export * from "./Toggle";
