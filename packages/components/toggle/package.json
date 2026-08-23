@@ -32,14 +32,15 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.3",
-    "@vibe/style": "4.0.0",
-    "@vibe/typography": "4.0.6",
+    "@vibe/shared": "4.0.5",
+    "@vibe/style": "4.1.0",
+    "@vibe/typography": "4.0.12",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
@@ -47,7 +48,6 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@vibe/config": "4.0.2",
-    "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
