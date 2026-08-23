@@ -1,5 +1,5 @@
 export * from "./Accordion";
-export * from "./AlertBanner";
+export * from "@vibe/alert-banner";
 export * from "./AttentionBox";
 export * from "@vibe/avatar";
 export * from "./AvatarGroup";

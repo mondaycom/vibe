@@ -1,4 +1,4 @@
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import cx from "classnames";
 import { Button, type ButtonProps } from "@vibe/button";
 import React, { type FC } from "react";
