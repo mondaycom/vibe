@@ -240,7 +240,7 @@ exports[`AlertBanner > should render with correctly with multiple elements 1`] =
           aria-describedby=""
           aria-label=""
           aria-labelledby=""
-          className="link_8c260d6ee3"
+          className="link colorPrimary"
           data-testid="link"
           data-vibe="Link"
           href="https://monday.com"
@@ -250,7 +250,7 @@ exports[`AlertBanner > should render with correctly with multiple elements 1`] =
           target="_blank"
         >
           <span
-            className="text_ba6b355dea bannerLink bannerLinkTextColorOnPrimary"
+            className="text bannerLink bannerLinkTextColorOnPrimary"
           >
             Lorem ipsum
           </span>
@@ -478,7 +478,7 @@ exports[`AlertBanner > should render with correctly with text and link 1`] = `
           aria-describedby=""
           aria-label=""
           aria-labelledby=""
-          className="link_8c260d6ee3"
+          className="link colorPrimary"
           data-testid="link"
           data-vibe="Link"
           href="https://monday.com"
@@ -488,7 +488,7 @@ exports[`AlertBanner > should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="text_ba6b355dea bannerLink bannerLinkTextColorOnPrimary"
+            className="text bannerLink bannerLinkTextColorOnPrimary"
           >
             Lorem ipsum
           </span>
