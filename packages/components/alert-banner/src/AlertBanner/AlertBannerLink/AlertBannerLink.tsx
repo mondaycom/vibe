@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import React, { type FC, useContext } from "react";
 import { Link, type LinkProps } from "@vibe/link";
 import styles from "./AlertBannerLink.module.scss";

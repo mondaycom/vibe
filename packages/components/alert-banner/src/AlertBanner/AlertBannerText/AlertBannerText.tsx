@@ -1,9 +1,8 @@
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import React, { type FC, useRef } from "react";
 import { Tooltip } from "@vibe/tooltip";
 import { useIsOverflowing } from "@vibe/hooks";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
 
 import styles from "./AlertBannerText.module.scss";
 
