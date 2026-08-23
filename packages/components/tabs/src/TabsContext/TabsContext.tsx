@@ -8,10 +8,8 @@ import React, {
   useState,
   useMemo
 } from "react";
-import { useMergeRef } from "@vibe/shared";
+import { useMergeRef, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import { usePrevious } from "@vibe/hooks";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 
 export interface TabsContextProps extends VibeComponentProps {
   /**
