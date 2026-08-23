@@ -22,14 +22,14 @@ import {
 import AutoSizer from "react-virtualized-auto-sizer";
 import { usePrevious } from "@vibe/hooks";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
-import { useMergeRef } from "@vibe/shared";
 import {
   easeInOutQuint,
   getMaxOffset,
   getNormalizedItems,
   getOnItemsRenderedData,
-  isLayoutDirectionScrollbarVisible
-} from "../../services/virtualized-service";
+  isLayoutDirectionScrollbarVisible,
+  useMergeRef
+} from "@vibe/shared";
 import { getTestId } from "../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../tests/constants";
 import { type VibeComponentProps } from "../../types";
