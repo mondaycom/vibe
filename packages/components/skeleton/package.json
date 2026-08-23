@@ -1,6 +1,6 @@
 {
   "name": "@vibe/skeleton",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for Skeleton component",
   "repository": {
     "type": "git",
