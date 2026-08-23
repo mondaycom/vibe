@@ -1,1 +1,0 @@
-import{c as t,C as l}from"./Chips-Cvh3KGX2.js";const s={modes:l,contentColors:t,getMondayColorAsStyle:(e,o="regular",r=!0)=>`${r?"var(":""}--color-${e}${o!=="regular"?`-${o}`:""}${r?")":""}`},a=Object.freeze(s);export{a as C};
