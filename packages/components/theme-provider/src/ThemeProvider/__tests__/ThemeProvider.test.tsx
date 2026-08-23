@@ -2,7 +2,9 @@ import { describe, it, expect } from "vitest";
 import { generateThemeCssOverride } from "../ThemeProviderUtils";
 import { render } from "@testing-library/react";
 import React from "react";
-import { ThemeProvider, Button, Flex } from "../../index";
+import { ThemeProvider } from "../../index";
+import { Button } from "@vibe/button";
+import { Flex } from "@vibe/layout";
 
 const THEME_NAME = "test-theme-name";
 const ADDITIONAL_STRING_SELECTOR = "test-random-string-selector";
