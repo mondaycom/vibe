@@ -11,7 +11,6 @@ import React, {
   useRef,
   useState
 } from "react";
-import { noop as NOOP } from "es-toolkit";
 import {
   type ScrollDirection,
   VariableSizeList as List,
@@ -20,48 +19,25 @@ import {
   type VariableSizeList
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import { useMergeRef, useIsomorphicLayoutEffect } from "@vibe/shared";
-import { throttle } from "es-toolkit";
+import { usePrevious, useThrottledCallback } from "@vibe/hooks";
 import {
-  easeInOutQuint,
-  getMaxOffset,
+  useMergeRef,
+  NOOP,
+  getTestId,
+  ComponentDefaultTestId,
   getNormalizedItems,
+  getMaxOffset,
   getOnItemsRenderedData,
-  isLayoutDirectionScrollbarVisible
-} from "./virtualized-service";
-import { getTestId } from "./test-ids-utils";
-import { ComponentDefaultTestId } from "./constants";
-import { type VibeComponentProps } from "./types";
+  isLayoutDirectionScrollbarVisible,
+  easeInOutQuint,
+  type VibeComponentProps
+} from "@vibe/shared";
 import styles from "./VirtualizedList.module.scss";
 import {
   type VirtualizedListItem,
   type VirtualizedListLayout,
   type VirtualizedListScrollDirection
 } from "./VirtualizedList.types";
-
-function usePrevious<Type>(value: Type): Type {
-  const ref = useRef(undefined);
-  useIsomorphicLayoutEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
-function useThrottledCallback(
-  callback: (...args: Array<unknown>) => void,
-  { wait, trailing = true }: { wait: number; trailing: boolean },
-  dependencies: Array<unknown>
-) {
-  const throttledFunction = useMemo(() => {
-    const edges: ("leading" | "trailing")[] = trailing ? ["leading", "trailing"] : ["leading"];
-    return throttle(callback, wait, { edges });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wait, trailing, ...dependencies]);
-
-  const throttledCallback = useCallback(throttledFunction, [throttledFunction]);
-
-  return throttledCallback;
-}
 
 export interface VirtualizedListProps extends VibeComponentProps {
   /**
