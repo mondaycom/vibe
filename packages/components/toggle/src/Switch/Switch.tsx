@@ -1,6 +1,6 @@
 import React, { type ChangeEvent, forwardRef, type ReactElement, useMemo } from "react";
 import cx from "classnames";
-import useSwitch from "./useSwitch";
+import { useSwitch } from "@vibe/hooks";
 import { type VibeComponentProps, ComponentVibeId } from "@vibe/shared";
 import { type MockToggleProps } from "../Toggle/MockToggle";
 import styles from "./Switch.module.scss";
