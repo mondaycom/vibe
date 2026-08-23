@@ -1,11 +1,11 @@
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { useIsOverflowing } from "@vibe/hooks";
 import { useIsomorphicLayoutEffect, useMergeRef } from "@vibe/shared";
 
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import type { VibeComponentProps } from "@vibe/shared";
 import styles from "./TextWithHighlight.module.scss";
 
 const getTextPart = (
