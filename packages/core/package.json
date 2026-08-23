@@ -116,6 +116,7 @@
     "@vibe/progress-bars": "4.0.3",
     "@vibe/radio-button": "4.0.5",
     "@vibe/shared": "4.0.5",
+    "@vibe/skeleton": "4.0.0",
     "@vibe/style": "4.1.0",
     "@vibe/tabs": "4.0.0",
     "@vibe/tooltip": "4.0.12",
