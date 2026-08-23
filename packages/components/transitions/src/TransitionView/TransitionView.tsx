@@ -1,10 +1,9 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import { type TransitionViewProps } from "./TransitionView.types";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import styles from "./TransitionView.module.scss";
-import SlideTransition from "../SlideTransition/SlideTransition";
+import { SlideTransition } from "../SlideTransition";
 
 const TransitionView = forwardRef(
   (
