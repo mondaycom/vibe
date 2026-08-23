@@ -1,6 +1,6 @@
 {
   "name": "@vibe/virtualized-grid",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Vibe sub-package for VirtualizedGrid component",
   "repository": {
     "type": "git",
@@ -32,13 +32,15 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.3",
-    "@vibe/style": "4.0.0",
+    "@vibe/hooks": "4.0.8",
+    "@vibe/shared": "4.0.5",
+    "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-virtualized-auto-sizer": "^1.0.7",
