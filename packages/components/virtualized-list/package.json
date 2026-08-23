@@ -40,6 +40,7 @@
   "dependencies": {
     "@vibe/hooks": "4.0.8",
     "@vibe/shared": "4.0.5",
+    "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",
     "react-virtualized-auto-sizer": "^1.0.7",
     "react-window": "^1.8.7"
