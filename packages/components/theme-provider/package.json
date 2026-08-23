@@ -1,6 +1,6 @@
 {
   "name": "@vibe/theme-provider",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for ThemeProvider component",
   "repository": {
     "type": "git",
