@@ -76,7 +76,12 @@ export { Toggle, type ToggleProps } from "@vibe/toggle";
 // TODO: export * after removing enums
 export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
 export * from "@vibe/transitions";
-export * from "./VirtualizedGrid";
+// TODO: export * after removing enums
+export {
+  VirtualizedGrid,
+  type VirtualizedGridProps,
+  type VirtualizedGridItemType
+} from "@vibe/virtualized-grid";
 export * from "./VirtualizedList";
 
 export type { TypographyColor, TypographyAlign } from "@vibe/typography";
