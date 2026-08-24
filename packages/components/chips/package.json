@@ -38,16 +38,15 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/avatar": "4.0.5",
-    "@vibe/clickable": "4.0.6",
-    "@vibe/icon": "4.0.5",
-    "@vibe/icon-button": "4.0.13",
+    "@vibe/avatar": "4.0.6",
+    "@vibe/clickable": "4.0.7",
+    "@vibe/icon": "4.0.6",
+    "@vibe/icon-button": "4.0.14",
     "@vibe/icons": "4.1.0",
-    "@vibe/shared": "4.0.5",
+    "@vibe/shared": "4.0.6",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.13",
-    "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10"
+    "@vibe/typography": "4.0.14",
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
