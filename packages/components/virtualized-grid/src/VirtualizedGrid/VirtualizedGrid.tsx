@@ -17,17 +17,17 @@ import {
   type GridOnItemsRenderedProps
 } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
+import { usePrevious, useThrottledCallback } from "@vibe/hooks";
 import {
   getNormalizedItems,
   getOnItemsRenderedData,
-  isLayoutDirectionScrollbarVisible
-} from "../../services/virtualized-service";
-import { usePrevious } from "@vibe/hooks";
-import useThrottledCallback from "../../hooks/useThrottledCallback";
-import { useMergeRef, NOOP } from "@vibe/shared";
-import { type VibeComponentProps } from "../../types";
-
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+  isLayoutDirectionScrollbarVisible,
+  useMergeRef,
+  NOOP,
+  type VibeComponentProps,
+  ComponentDefaultTestId,
+  getTestId
+} from "@vibe/shared";
 import styles from "./VirtualizedGrid.module.scss";
 import { type VirtualizedGridItemType as ItemType } from "./VirtualizedGrid.types";
 

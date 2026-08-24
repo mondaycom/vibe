@@ -4,3 +4,4 @@ export { default as useIsOverflowing } from "./useIsOverflowing";
 export { default as usePrevious } from "./usePrevious";
 export { default as useResizeObserver } from "./useResizeObserver";
 export { default as useSwitch } from "./useSwitch";
+export { default as useThrottledCallback } from "./useThrottledCallback";
