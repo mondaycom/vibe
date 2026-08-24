@@ -1,7 +1,6 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import { useMergeRef } from "@vibe/shared";
+import { useMergeRef, type VibeComponentProps, type ElementContent } from "@vibe/shared";
 import { ExpandCollapse, type ExpandCollapseIconPosition } from "@vibe/expand-collapse";
-import { type VibeComponentProps, type ElementContent } from "../../../types";
 
 export interface AccordionItemProps extends VibeComponentProps {
   /**
