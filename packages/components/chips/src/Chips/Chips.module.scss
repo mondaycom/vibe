@@ -1,7 +1,23 @@
-@import "../../styles/typography";
-@import "../../styles/states";
-@import "../../styles/keyframes";
-@import "~@vibe/style/dist/mixins/states";
+@import "~@vibe/style/dist/mixins";
+
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin pop-in-emphasized() {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .chips {
   display: inline-flex;

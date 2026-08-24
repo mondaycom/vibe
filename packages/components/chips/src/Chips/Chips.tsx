@@ -1,21 +1,43 @@
-import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import React, { type RefObject, forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
-import { useMergeRef } from "@vibe/shared";
+import {
+  useMergeRef,
+  useEventListener,
+  ComponentDefaultTestId,
+  getTestId,
+  type ElementContent,
+  ComponentVibeId,
+  type ElementAllowedColor,
+  getElementColor,
+  type VibeComponentProps
+} from "@vibe/shared";
 import { CloseSmall } from "@vibe/icons";
-import { getCSSVar } from "../../services/themes";
-import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { Avatar, type AvatarType } from "@vibe/avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
-import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 import { type ChipsSize } from "./Chips.types";
+
+function getCSSVar(varName: string, fallback?: string) {
+  const fb = fallback ? `, ${fallback}` : "";
+  try {
+    if (window.CSS && window.CSS.supports && window.CSS.supports("color", "var(--fake-var)")) {
+      return `var(--${varName}${fb})`;
+    }
+  } catch (e) {
+    // ignore
+  }
+}
+
+function useSetFocus({ ref }: { ref: RefObject<HTMLElement> }) {
+  const [isFocused, setIsFocused] = useState(false);
+  useEventListener({ eventName: "focus", ref, callback: () => setIsFocused(true) });
+  useEventListener({ eventName: "blur", ref, callback: () => setIsFocused(false) });
+  return { isFocused };
+}
 
 const CHIPS_AVATAR_SIZE = 18;
 

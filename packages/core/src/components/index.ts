@@ -8,7 +8,7 @@ export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
 export { ButtonGroup, type ButtonGroupProps } from "@vibe/button-group";
 export * from "@vibe/checkbox";
-export * from "./Chips";
+export * from "@vibe/chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "@vibe/color-picker";
