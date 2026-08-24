@@ -1,6 +1,6 @@
 {
   "name": "@vibe/virtualized-list",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for VirtualizedList component",
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "4.0.8",
-    "@vibe/shared": "4.0.5",
+    "@vibe/hooks": "4.0.9",
+    "@vibe/shared": "4.0.6",
     "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",
     "react-virtualized-auto-sizer": "^1.0.7",
@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@types/react-window": "^1.8.5",
     "@types/react-virtualized-auto-sizer": "^1.0.1",
+    "@types/react-window": "^1.8.5",
     "@vibe/config": "4.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
