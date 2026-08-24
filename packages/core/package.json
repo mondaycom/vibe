@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "4.5.17",
+  "version": "4.5.18",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -91,9 +91,9 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@vibe/a11y": "4.0.3",
-    "@vibe/accordion": "4.0.0",
+    "@vibe/accordion": "4.0.1",
     "@vibe/alert-banner": "4.0.2",
-    "@vibe/attention-box": "4.0.0",
+    "@vibe/attention-box": "4.0.1",
     "@vibe/avatar": "4.0.6",
     "@vibe/base": "4.0.7",
     "@vibe/button": "4.0.8",
