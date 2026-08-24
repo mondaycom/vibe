@@ -93,6 +93,7 @@
     "@vibe/a11y": "4.0.3",
     "@vibe/accordion": "4.0.0",
     "@vibe/alert-banner": "4.0.2",
+    "@vibe/attention-box": "4.0.0",
     "@vibe/avatar": "4.0.6",
     "@vibe/base": "4.0.7",
     "@vibe/button": "4.0.8",

@@ -1,6 +1,6 @@
 export * from "@vibe/accordion";
 export * from "@vibe/alert-banner";
-export * from "./AttentionBox";
+export * from "@vibe/attention-box";
 export * from "@vibe/avatar";
 export * from "./AvatarGroup";
 export * from "./Badge";
