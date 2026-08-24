@@ -1,2 +1,2 @@
 export { default as AttentionBox } from "./AttentionBox";
-export * from "./AttentionBox.types";
+export type { AttentionBoxProps, AttentionBoxType } from "./AttentionBox.types";
