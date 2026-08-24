@@ -4,8 +4,7 @@ import type { AttentionBoxProps, AttentionBoxRole } from "./AttentionBox.types";
 import AttentionBoxDefault from "./layouts/AttentionBoxDefault/AttentionBoxDefault";
 import AttentionBoxCompact from "./layouts/AttentionBoxCompact/AttentionBoxCompact";
 import { resolveAttentionBoxIcon } from "./utils/iconUtils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, ComponentVibeId, getTestId } from "@vibe/shared";
 import styles from "./AttentionBox.module.scss";
 
 const AttentionBox = forwardRef(
