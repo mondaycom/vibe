@@ -2,7 +2,7 @@ import React, { type CSSProperties, type ReactElement, useCallback, useMemo } fr
 import cx from "classnames";
 import ListItem, { type ListItemProps } from "../../../components/ListItem/ListItem";
 import ListTitle, { type ListTitleProps } from "../../ListTitle/ListTitle";
-import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
+import { VirtualizedList } from "@vibe/virtualized-list";
 import type VibeComponentProps from "../../../types/VibeComponentProps";
 import { type ListItemIconProps } from "../../ListItemIcon/ListItemIcon";
 import styles from "./VirtualizedListItems.module.scss";

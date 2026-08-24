@@ -1,7 +1,7 @@
 import React, { type CSSProperties, forwardRef, type RefObject, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import { comboboxItemRenderer } from "../../ComboboxHelpers/ComboboxHelpers";
-import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
+import { VirtualizedList } from "@vibe/virtualized-list";
 import {
   COMBOBOX_CATEGORY_ITEM,
   COMBOBOX_OPTION_ITEM,

@@ -77,7 +77,7 @@ export { Toggle, type ToggleProps } from "@vibe/toggle";
 export { Tooltip, type TooltipProps, type TooltipPositions, type TooltipTheme } from "@vibe/tooltip";
 export * from "@vibe/transitions";
 export * from "@vibe/virtualized-grid";
-export * from "./VirtualizedList";
+export * from "@vibe/virtualized-list";
 
 export type { TypographyColor, TypographyAlign } from "@vibe/typography";
 

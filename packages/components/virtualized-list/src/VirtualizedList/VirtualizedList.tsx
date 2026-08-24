@@ -11,7 +11,6 @@ import React, {
   useRef,
   useState
 } from "react";
-import { noop as NOOP } from "es-toolkit";
 import {
   type ScrollDirection,
   VariableSizeList as List,
@@ -22,16 +21,17 @@ import {
 import AutoSizer from "react-virtualized-auto-sizer";
 import { usePrevious, useThrottledCallback } from "@vibe/hooks";
 import {
-  easeInOutQuint,
-  getMaxOffset,
+  useMergeRef,
+  NOOP,
+  getTestId,
+  ComponentDefaultTestId,
   getNormalizedItems,
+  getMaxOffset,
   getOnItemsRenderedData,
   isLayoutDirectionScrollbarVisible,
-  useMergeRef
+  easeInOutQuint,
+  type VibeComponentProps
 } from "@vibe/shared";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponentProps } from "../../types";
 import styles from "./VirtualizedList.module.scss";
 import {
   type VirtualizedListItem,
