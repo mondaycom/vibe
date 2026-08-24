@@ -1,7 +1,14 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { useMergeRef, getStyle, getTestId, ComponentDefaultTestId, ComponentVibeId, type VibeComponentProps } from "@vibe/shared";
+import {
+  useMergeRef,
+  getStyle,
+  getTestId,
+  ComponentDefaultTestId,
+  ComponentVibeId,
+  type VibeComponentProps
+} from "@vibe/shared";
 import { type BadgeAlignments, type BadgeAnchor, type BadgeType } from "./Badge.types";
 import Indicator, { type IndicatorProps } from "./Indicator/Indicator";
 import { Counter, type CounterProps, type CounterColor } from "@vibe/counter";

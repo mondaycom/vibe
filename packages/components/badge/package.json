@@ -1,6 +1,6 @@
 {
   "name": "@vibe/badge",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Vibe sub-package for Badge component",
   "repository": {
     "type": "git",
@@ -32,20 +32,20 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/counter": "4.0.5",
-    "@vibe/shared": "4.0.5",
+    "@vibe/counter": "4.0.6",
+    "@vibe/shared": "4.0.6",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "4.0.2",
-    "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
