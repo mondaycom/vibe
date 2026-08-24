@@ -1,5 +1,4 @@
-// TODO: export * after removing enums
-export { Accordion, type AccordionProps, AccordionItem, type AccordionItemProps } from "@vibe/accordion";
+export * from "@vibe/accordion";
 export * from "@vibe/alert-banner";
 export * from "./AttentionBox";
 export * from "@vibe/avatar";

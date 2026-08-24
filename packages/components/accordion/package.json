@@ -32,20 +32,19 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && mock_classnames=on rollup -c",
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
     "test": "vitest run",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@vibe/expand-collapse": "4.0.7",
-    "@vibe/shared": "4.0.3",
-    "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10"
+    "@vibe/shared": "4.0.5",
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "4.0.2",
-    "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",
