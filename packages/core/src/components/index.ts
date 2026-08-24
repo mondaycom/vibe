@@ -1,4 +1,4 @@
-export * from "./Accordion";
+export * from "@vibe/accordion";
 export * from "@vibe/alert-banner";
 export * from "./AttentionBox";
 export * from "@vibe/avatar";

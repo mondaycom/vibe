@@ -91,6 +91,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@vibe/a11y": "4.0.3",
+    "@vibe/accordion": "4.0.0",
     "@vibe/alert-banner": "4.0.2",
     "@vibe/avatar": "4.0.6",
     "@vibe/base": "4.0.7",
