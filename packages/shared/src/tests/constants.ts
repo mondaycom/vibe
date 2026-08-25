@@ -127,7 +127,8 @@ export enum ComponentDefaultTestId {
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
   TABLE_ROW = "table-row",
-  TABLE_ROW_MENU = "table-row-menu"
+  TABLE_ROW_MENU = "table-row-menu",
+  INFO = "info"
 }
 
 export enum NavigationCommand {
@@ -195,5 +196,6 @@ export enum ComponentVibeId {
   TOGGLE = "Toggle",
   TOOLTIP = "Tooltip",
   VIRTUALIZED_GRID = "VirtualizedGrid",
-  VIRTUALIZED_LIST = "VirtualizedList"
+  VIRTUALIZED_LIST = "VirtualizedList",
+  INFO = "Info"
 }
