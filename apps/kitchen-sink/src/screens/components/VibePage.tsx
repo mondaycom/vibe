@@ -80,7 +80,7 @@ export function VibePage() {
       <div className={styles.heroBlock}>
         <div className={styles.hero}>
           <Heading type="h1" weight="normal" className={styles.heroTitle}>
-            Build your ideas with Vibe
+            Hey Naama
           </Heading>
         </div>
 
