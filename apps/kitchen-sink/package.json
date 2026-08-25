@@ -32,6 +32,8 @@
     "@vibe/style": "4.0.0",
     "@vibe/tooltip": "4.0.6",
     "@vibe/typography": "4.0.6",
+    "es-toolkit": "^1.51.0",
+    "monday-ui-style": "0.26.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

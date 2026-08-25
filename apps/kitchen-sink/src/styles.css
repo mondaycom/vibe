@@ -769,7 +769,7 @@ body {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
-  border-radius: 8px !important;
+  border-radius: var(--border-radius-medium, 8px) !important;
 }
 
 /* legacy class — keep in sync while HMR catches up */
@@ -800,7 +800,7 @@ body {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
-  border-radius: 8px !important;
+  border-radius: var(--border-radius-medium, 8px) !important;
 }
 
 .tabs-gallery-block {

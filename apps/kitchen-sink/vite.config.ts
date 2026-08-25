@@ -66,8 +66,15 @@ export default defineConfig({
   },
   resolve: {
     // Prefer a single React copy across workspace packages.
-    dedupe: ["react", "react-dom"],
+    // Also dedupe deps imported by aliased @vibe/* sources — Vite resolves those
+    // from packages/core (etc.), which walks up to vibe/ (no node_modules) instead
+    // of apps/kitchen-sink/node_modules.
+    dedupe: ["react", "react-dom", "es-toolkit"],
     alias: [
+      {
+        find: "es-toolkit",
+        replacement: path.resolve(rootDir, "node_modules/es-toolkit"),
+      },
       ...tsconfigAliases,
       // Sass `~@vibe/style/...` / legacy `~/...` imports from component SCSS.
       // Resolve to the installed package (has built `dist/mixins`); local `packages/style`

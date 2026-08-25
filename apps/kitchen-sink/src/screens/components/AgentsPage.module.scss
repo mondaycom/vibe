@@ -42,20 +42,17 @@
   -webkit-text-fill-color: transparent;
 }
 
-.composerBorder {
+.composerShell {
   width: 100%;
-  padding: 1.5px;
-  border-radius: 18px;
-  background: linear-gradient(120deg, #2bd4c8 0%, #6c4bff 60%, #b83cff 100%);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 10px 28px rgba(76, 75, 255, 0.12);
 }
 
 .composerWrap {
   border-radius: 16px;
   background: var(--primary-background-color);
   overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
 }
 
 .composerInput {

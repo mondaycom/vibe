@@ -1,9 +1,19 @@
 /* Match the chat input's existing radius/size — the hero composer
-   defaults use 18/16px, this one uses the smaller --border-radius-big. */
-.composerBorder {
+   defaults use 16px; this one uses a smaller radius via StrokeSpotlight. */
+.composerShell {
+  width: 100%;
+  z-index: 2;
+}
+
+.composerWrap {
   width: 100%;
   border-radius: var(--border-radius-big);
-  z-index: 2;
+  background-color: var(--primary-background-color);
+  min-height: 100px;
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
 }
 
 .editor {

@@ -37,27 +37,18 @@
   color: var(--secondary-text-color);
 }
 
-/* Rainbow gradient border around the composer (matches production). */
-.composerBorder {
+/* Shell for StrokeSpotlight (animated stroke replaces static gradient border). */
+.composerShell {
   width: 100%;
-  padding: 1.5px;
-  border-radius: 18px;
-  background: linear-gradient(
-    100deg,
-    #4eb7ff 0%,
-    #9a7bff 32%,
-    #ff7bbf 64%,
-    #ff9a5c 100%
-  );
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 10px 28px rgba(120, 110, 255, 0.1);
 }
 
 .composerWrap {
   border-radius: 16px;
   background: var(--primary-background-color);
   overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
 }
 
 .composerInput {

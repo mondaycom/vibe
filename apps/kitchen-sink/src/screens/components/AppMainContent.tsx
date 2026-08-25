@@ -25,6 +25,7 @@ import { AgentsPage } from "./AgentsPage";
 import { ManageAgentsPage } from "./ManageAgentsPage";
 import { VibePage } from "./VibePage";
 import { NotetakerPage } from "./NotetakerPage";
+import { HomeModesPage } from "./HomeModesPage";
 
 type ProductIcon = React.FC<{ size?: string | number; className?: string }>;
 
@@ -289,6 +290,8 @@ export function AppMainContent({
   switch (activeRailItem) {
     case "workspace":
       return <>{renderWorkspace()}</>;
+    case "home-modes":
+      return <HomeModesPage />;
     case "sidekick":
       if (sidekickView === "chat") {
         return (

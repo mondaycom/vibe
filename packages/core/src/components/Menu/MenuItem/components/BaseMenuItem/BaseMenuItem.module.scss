@@ -15,13 +15,7 @@
   align-items: center;
   overflow: visible;
   border: 1px solid transparent;
-<<<<<<< HEAD
-  border-radius: 8px;
-||||||| parent of faccf634f (style: use border-radius-small on ListItem and BaseMenuItem)
-  border-radius: var(--border-radius-medium);
-=======
   border-radius: var(--border-radius-small);
->>>>>>> faccf634f (style: use border-radius-small on ListItem and BaseMenuItem)
   outline: none;
 
   &.splitMenuItem {

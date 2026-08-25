@@ -155,6 +155,25 @@ interface UtilityPanelState {
 }
 
 const UTILITY_PANEL_STATES: Record<UtilityPanelId, UtilityPanelState> = {
+  "home-modes": {
+    title: "Home",
+    menuLabel: "Home menu",
+    primaryAction: "New chat",
+    primaryActionIcon: "edit",
+    searchPlaceholder: "Search conversations",
+    navSections: [
+      {
+        title: "All chats",
+        simpleList: true,
+        rows: SIDEKICK_CHATS.map((chat) => ({
+          label: chat.title,
+          chatId: chat.id,
+        })),
+      },
+    ],
+    contentSections: [],
+    footerActions: ["Settings", "Give feedback"],
+  },
   sidekick: {
     title: "Sidekick",
     menuLabel: "Sidekick menu",
@@ -403,6 +422,7 @@ const UTILITY_PANEL_STATES: Record<UtilityPanelId, UtilityPanelState> = {
 };
 
 const PANEL_TONE_CLASSES: Record<UtilityPanelId, string> = {
+  "home-modes": styles.panelToneSidekick,
   sidekick: styles.panelToneSidekick,
   agents: styles.panelToneAgents,
   vibe: styles.panelToneVibe,
