@@ -52,18 +52,7 @@ export * from "./ListTitle";
 export * from "@vibe/loader";
 export * from "./Menu";
 export * from "./MenuButton";
-export {
-  TextField,
-  type TextFieldProps,
-  type TextFieldType,
-  type TextFieldFeedbackState,
-  type TextFieldSize,
-  TextArea,
-  type TextAreaSize,
-  type TextAreaProps,
-  NumberField,
-  type NumberFieldProps
-} from "@vibe/text-inputs";
+export * from "@vibe/text-inputs";
 export * from "./Modal";
 export * from "./MultiStepIndicator";
 export * from "@vibe/progress-bars";
