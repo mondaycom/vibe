@@ -1,20 +1,25 @@
 import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { Icon } from "@vibe/icon";
-import { useMergeRef } from "@vibe/shared";
+import {
+  useMergeRef,
+  ComponentDefaultTestId,
+  getTestId,
+  type ElementContent,
+  ComponentVibeId,
+  type ElementAllowedColor,
+  getElementColor,
+  getCSSVar,
+  type VibeComponentProps
+} from "@vibe/shared";
+import { useSetFocus } from "@vibe/hooks";
 import { CloseSmall } from "@vibe/icons";
-import { getCSSVar } from "../../services/themes";
-import { type ElementAllowedColor, getElementColor } from "../../types/Colors";
 import { Avatar, type AvatarType } from "@vibe/avatar";
 import { IconButton } from "@vibe/icon-button";
 import { Text } from "@vibe/typography";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
-import useSetFocus from "../../hooks/useSetFocus";
 import { useClickableProps } from "@vibe/clickable";
 import styles from "./Chips.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 import { type ChipsSize } from "./Chips.types";
 
 const CHIPS_AVATAR_SIZE = 18;

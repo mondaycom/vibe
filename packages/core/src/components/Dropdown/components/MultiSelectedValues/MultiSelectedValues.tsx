@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, useCallback, createRef } from "react";
 import { type BaseItemData } from "../../../BaseItem";
-import { Chips } from "../../../Chips";
+import { Chips } from "@vibe/chips";
 import { Flex } from "@vibe/layout";
 import { DialogContentContainer, Dialog } from "@vibe/dialog";
 import { useMergeRef } from "@vibe/shared";

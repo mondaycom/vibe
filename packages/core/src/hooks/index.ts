@@ -7,10 +7,10 @@ export {
   useIsOverflowing,
   usePrevious,
   useResizeObserver,
+  useSetFocus,
   useSwitch
 } from "@vibe/hooks";
 export { default as useTimeout } from "./useTimeout";
-export { default as useSetFocus } from "./useSetFocus";
 export { default as useIsMouseOver } from "./useIsMouseOver";
 export { default as useHover } from "./useHover/useHover";
 export { useGridKeyboardNavigation } from "@vibe/a11y";

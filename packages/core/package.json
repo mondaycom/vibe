@@ -100,6 +100,7 @@
     "@vibe/button": "4.0.8",
     "@vibe/button-group": "4.0.8",
     "@vibe/checkbox": "4.0.8",
+    "@vibe/chips": "4.0.0",
     "@vibe/clickable": "4.0.7",
     "@vibe/color-picker": "4.0.3",
     "@vibe/counter": "4.0.6",

@@ -2,8 +2,7 @@ import { vi, describe, it, expect } from "vitest";
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import Chips from "../Chips";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
 
 describe("Chips tests", () => {
   const label = "Chip";

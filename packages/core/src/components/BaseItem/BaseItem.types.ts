@@ -2,7 +2,7 @@ import { type ReactNode, type AriaRole } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../types";
 import { type TooltipProps } from "@vibe/tooltip";
-import { type ChipsProps } from "../Chips";
+import { type ChipsProps } from "@vibe/chips";
 import { type SubIcon } from "@vibe/icon";
 
 export type BaseItemSizes = "small" | "medium" | "large";
