@@ -24,7 +24,8 @@ import {
 } from "../data/vibeHome";
 import { PROMPT_CHIPS } from "../data/promptChips";
 import mondayVibeLogo from "../assets/vibe-logo-colored.png";
-import { useCursorGlow } from "../hooks/useCursorGlow";
+import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
+import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
 import styles from "./VibePage.module.scss";
 
 const MAX_NAMED_CHIPS = 2;
@@ -73,7 +74,6 @@ function PaletteIcon() {
 
 export function VibePage() {
   const [isPlanMode, setIsPlanMode] = React.useState(false);
-  const composerRef = useCursorGlow<HTMLDivElement>();
 
   return (
     <Box className={styles.root}>
@@ -84,68 +84,82 @@ export function VibePage() {
           </Heading>
         </div>
 
-        <div ref={composerRef} className={styles.composerBorder}>
-          <div className={styles.composerWrap}>
-            <textarea
-              className={styles.composerInput}
-              aria-label="Describe a Vibe app"
-              placeholder="Describe your new application"
-            />
-            <Flex
-              align="center"
-              justify="space-between"
-              className={styles.composerFooter}
-            >
-              <Flex align="center" className={styles.promptActionsLeft}>
-                <Tooltip content="Attach, discuss, theme, and connect boards">
-                  <span className={styles.compactActionsAnchor}>
-                    <IconButton
-                      className={styles.compactActionsButton}
-                      icon={Add}
-                      size="small"
-                      kind="tertiary"
-                      aria-label="More prompt actions"
-                    />
-                  </span>
-                </Tooltip>
-                <Button
-                  className={styles.modelButton}
-                  kind="tertiary"
-                  size="small"
-                  rightIcon={DropdownChevronDown}
-                >
-                  Model
-                </Button>
-              </Flex>
-              <Flex align="center" className={styles.promptActionsRight}>
-                <div
-                  className={styles.planToggleWrapper}
-                  data-testid="plan-mode-toggle"
-                >
-                  <Toggle
-                    id="vibe-plan-mode-toggle"
-                    aria-label="Plan"
-                    isSelected={isPlanMode}
-                    onChange={(value) => setIsPlanMode(value)}
+        <div className={styles.composerShell}>
+          <StrokeSpotlight
+            palette="vibe"
+            spread={40}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={1.5}
+            glowBlur={12}
+          >
+            <div className={styles.composerWrap}>
+              <textarea
+                className={styles.composerInput}
+                aria-label="Describe a Vibe app"
+                placeholder="Describe your new application"
+              />
+              <Flex
+                align="center"
+                justify="space-between"
+                className={styles.composerFooter}
+              >
+                <Flex align="center" className={styles.promptActionsLeft}>
+                  <Tooltip content="Attach, discuss, theme, and connect boards">
+                    <span
+                      className={styles.compactActionsAnchor}
+                      {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                    >
+                      <IconButton
+                        className={styles.compactActionsButton}
+                        icon={Add}
+                        size="small"
+                        kind="tertiary"
+                        aria-label="More prompt actions"
+                      />
+                    </span>
+                  </Tooltip>
+                  <Button
+                    className={styles.modelButton}
+                    kind="tertiary"
                     size="small"
-                    offOverrideText="Plan"
-                    onOverrideText=""
-                    className={styles.planToggle}
-                    toggleSelectedClassName={styles.planToggleSelected}
-                  />
-                </div>
-                <Button
-                  className={styles.submitButton}
-                  kind="primary"
-                  color="inverted"
-                  size="small"
-                  aria-label="Submit"
-                >
-                  <MoveArrowUp size={20} />
-                </Button>
+                    rightIcon={DropdownChevronDown}
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  >
+                    Model
+                  </Button>
+                </Flex>
+                <Flex align="center" className={styles.promptActionsRight}>
+                  <div
+                    className={styles.planToggleWrapper}
+                    data-testid="plan-mode-toggle"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  >
+                    <Toggle
+                      id="vibe-plan-mode-toggle"
+                      aria-label="Plan"
+                      isSelected={isPlanMode}
+                      onChange={(value) => setIsPlanMode(value)}
+                      size="small"
+                      offOverrideText="Plan"
+                      onOverrideText=""
+                      className={styles.planToggle}
+                      toggleSelectedClassName={styles.planToggleSelected}
+                    />
+                  </div>
+                  <Button
+                    className={styles.submitButton}
+                    kind="primary"
+                    color="inverted"
+                    size="small"
+                    aria-label="Submit"
+                  >
+                    <MoveArrowUp size={20} />
+                  </Button>
+                </Flex>
               </Flex>
-            </Flex>
-          </div>
+            </div>
+          </StrokeSpotlight>
         </div>
 
         <div className={styles.promptChipsRow}>

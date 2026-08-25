@@ -53,29 +53,20 @@
   line-height: 40px;
 }
 
-/* ---- Composer (matches Sidekick / Agents pattern) ---- */
+/* ---- Composer (StrokeSpotlight animated stroke) ---- */
 
-.composerBorder {
+.composerShell {
   width: 100%;
   max-width: 620px;
-  padding: 1.5px;
-  border-radius: 18px;
-  background: linear-gradient(
-    90deg,
-    #f0c020 12%,
-    #ff9e52 43%,
-    #ff74cd 65%,
-    #ff92e8 88%
-  );
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.04),
-    0 10px 28px rgba(184, 60, 255, 0.12);
 }
 
 .composerWrap {
   border-radius: 16px;
   background: var(--primary-background-color);
   overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
 }
 
 .composerInput {

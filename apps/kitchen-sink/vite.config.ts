@@ -66,8 +66,15 @@ export default defineConfig({
   },
   resolve: {
     // Prefer a single React copy across workspace packages.
-    dedupe: ["react", "react-dom"],
+    // Also dedupe deps imported by aliased @vibe/* sources — Vite resolves those
+    // from packages/core (etc.), which walks up to vibe/ (no node_modules) instead
+    // of apps/kitchen-sink/node_modules.
+    dedupe: ["react", "react-dom", "es-toolkit"],
     alias: [
+      {
+        find: "es-toolkit",
+        replacement: path.resolve(rootDir, "node_modules/es-toolkit"),
+      },
       ...tsconfigAliases,
       // Sass `~monday-ui-style/...` / legacy `~/...` imports from component SCSS.
       // On Vibe 3 the style package is published as `monday-ui-style`. Point at the

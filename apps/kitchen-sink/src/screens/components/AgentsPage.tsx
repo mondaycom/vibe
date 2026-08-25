@@ -10,7 +10,8 @@ import {
 } from "@mondaydotcomorg/icons";
 import { PromptChip } from "./AppMainContent";
 import { useAgentBuilder } from "../context/AgentBuilderContext";
-import { useCursorGlow } from "../hooks/useCursorGlow";
+import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
+import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
 import agentElena from "../assets/agents/elena-wide.png";
 import agentSarah from "../assets/agents/sarah-wide.png";
 import agentBrittany from "../assets/agents/brittany-wide.png";
@@ -54,7 +55,6 @@ export function AgentsPage() {
   const [carouselOffset, setCarouselOffset] = useState(0);
   const visibleCards = AGENT_CARDS.slice(carouselOffset, carouselOffset + 2);
   const { openConfig } = useAgentBuilder();
-  const composerRef = useCursorGlow<HTMLDivElement>();
 
   return (
     <Box className={styles.root}>
@@ -87,43 +87,61 @@ export function AgentsPage() {
           </Text>
         </div>
 
-        <div ref={composerRef} className={styles.composerBorder}>
-          <div className={styles.composerWrap}>
-            <textarea
-              className={styles.composerInput}
-              aria-label="Describe a new agent"
-              placeholder="Analyzes customer feedback and routes it to the right team..."
-            />
-            <Flex
-              align="center"
-              justify="space-between"
-              className={styles.composerFooter}
-            >
-              <Flex align="center" gap="xs">
-                <Button kind="tertiary" size="small">
-                  + Add context
-                </Button>
-                <IconButton
-                  icon={Microphone}
-                  size="small"
-                  kind="tertiary"
-                  aria-label="Voice input"
-                />
+        <div className={styles.composerShell}>
+          <StrokeSpotlight
+            palette="default"
+            spread={40}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={1.5}
+            glowBlur={12}
+          >
+            <div className={styles.composerWrap}>
+              <textarea
+                className={styles.composerInput}
+                aria-label="Describe a new agent"
+                placeholder="Analyzes customer feedback and routes it to the right team..."
+              />
+              <Flex
+                align="center"
+                justify="space-between"
+                className={styles.composerFooter}
+              >
+                <Flex align="center" gap="xs">
+                  <Button
+                    kind="tertiary"
+                    size="small"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  >
+                    + Add context
+                  </Button>
+                  <IconButton
+                    icon={Microphone}
+                    size="small"
+                    kind="tertiary"
+                    aria-label="Voice input"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  />
+                </Flex>
+                <Flex align="center" gap="xs">
+                  <Button
+                    kind="tertiary"
+                    size="small"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  >
+                    AI model ▾
+                  </Button>
+                  <IconButton
+                    icon={MoveArrowUp}
+                    kind="primary"
+                    color="primary"
+                    size="small"
+                    aria-label="Send message"
+                  />
+                </Flex>
               </Flex>
-              <Flex align="center" gap="xs">
-                <Button kind="tertiary" size="small">
-                  AI model ▾
-                </Button>
-                <IconButton
-                  icon={MoveArrowUp}
-                  kind="primary"
-                  color="primary"
-                  size="small"
-                  aria-label="Send message"
-                />
-              </Flex>
-            </Flex>
-          </div>
+            </div>
+          </StrokeSpotlight>
         </div>
 
         <Flex className={styles.chips}>

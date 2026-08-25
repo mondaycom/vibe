@@ -7,7 +7,7 @@ import {
   type AgentConfigData,
 } from "../context/AgentBuilderContext";
 import styles from "./AgentBuilderOnboarding.module.scss";
-import { useCursorGlow } from "../hooks/useCursorGlow";
+import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
 
 const C_TEXT = "var(--primary-text-color)";
 const C_SUB = "var(--secondary-text-color)";
@@ -294,7 +294,6 @@ export function AgentBuilderOnboarding({ agent }: { agent: AgentConfigData }) {
   const [typedText, setTypedText] = useState("");
   const [showContent, setShowContent] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const composerRef = useCursorGlow<HTMLDivElement>();
 
   const fullGreeting = `Nice to meet you 👋`;
 
@@ -602,7 +601,16 @@ export function AgentBuilderOnboarding({ agent }: { agent: AgentConfigData }) {
                   borderRadius: "16px 16px 0 0",
                 }}
               >
-                <div ref={composerRef} className={styles.composerBorder}>
+                <div className={styles.composerShell}>
+                  <StrokeSpotlight
+                    palette="default"
+                    spread={40}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={1.5}
+                    glowBlur={12}
+                    radius={12}
+                  >
                   <div className={styles.composerWrap}>
                     <div
                       style={{
@@ -749,6 +757,7 @@ export function AgentBuilderOnboarding({ agent }: { agent: AgentConfigData }) {
                       </div>
                     </div>
                   </div>
+                  </StrokeSpotlight>
                 </div>
               </div>
             </div>

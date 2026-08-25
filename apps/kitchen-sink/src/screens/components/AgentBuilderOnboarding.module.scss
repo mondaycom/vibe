@@ -1,7 +1,7 @@
 /* Override the radii so the prompt box matches the existing chat input
    (12px visible radius, ~111px min-height) instead of the hero composers'
    bigger 16px radius. */
-.composerBorder {
+.composerShell {
   width: 100%;
   border-radius: 13px;
 }
@@ -15,6 +15,9 @@
   justify-content: space-between;
   padding: 12px 0 8px;
   min-height: 111px;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
 }
 
 .iconButton {

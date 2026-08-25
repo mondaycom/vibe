@@ -13,7 +13,8 @@ import {
   Work,
 } from "@mondaydotcomorg/icons";
 import styles from "./SidekickPage.module.scss";
-import { useCursorGlow } from "../hooks/useCursorGlow";
+import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
+import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
 
 type ShortcutColorVar = `var(--color-${string})`;
 
@@ -85,7 +86,6 @@ const SUGGESTED_STARTERS = [
 ] as const;
 
 export function SidekickPage() {
-  const composerRef = useCursorGlow<HTMLDivElement>();
   return (
     <Box className={styles.root}>
       <div className={styles.heroBlock}>
@@ -98,52 +98,68 @@ export function SidekickPage() {
           </Heading>
         </div>
 
-        <div ref={composerRef} className={styles.composerBorder}>
-          <div className={styles.composerWrap}>
-            <textarea
-              className={styles.composerInput}
-              aria-label="Ask Sidekick"
-              placeholder="@ Mention boards and docs..."
-            />
-            <Flex
-              align="center"
-              justify="space-between"
-              className={styles.composerFooter}
-            >
-              <Flex align="center" gap="xs">
-                <IconButton
-                  icon={Apps}
-                  size="small"
-                  kind="tertiary"
-                  aria-label="Add widget"
-                />
-                <IconButton
-                  icon={AttachSlanted}
-                  size="small"
-                  kind="tertiary"
-                  aria-label="Attach file"
-                />
-                <button type="button" className={styles.contextButton}>
-                  @ Add context
-                </button>
+        <div className={styles.composerShell}>
+          <StrokeSpotlight
+            palette="sidekick"
+            spread={40}
+            proximity={64}
+            inactiveZone={0.01}
+            borderWidth={1.5}
+            glowBlur={12}
+          >
+            <div className={styles.composerWrap}>
+              <textarea
+                className={styles.composerInput}
+                aria-label="Ask Sidekick"
+                placeholder="@ Mention boards and docs..."
+              />
+              <Flex
+                align="center"
+                justify="space-between"
+                className={styles.composerFooter}
+              >
+                <Flex align="center" gap="xs">
+                  <IconButton
+                    icon={Apps}
+                    size="small"
+                    kind="tertiary"
+                    aria-label="Add widget"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  />
+                  <IconButton
+                    icon={AttachSlanted}
+                    size="small"
+                    kind="tertiary"
+                    aria-label="Attach file"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  />
+                  <button
+                    type="button"
+                    className={styles.contextButton}
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  >
+                    @ Add context
+                  </button>
+                </Flex>
+                <Flex align="center" gap="xs">
+                  <IconButton
+                    icon={Microphone}
+                    size="small"
+                    kind="tertiary"
+                    aria-label="Voice input"
+                    {...{ [STROKE_NO_PULSE_ATTR]: true }}
+                  />
+                  <IconButton
+                    icon={MoveArrowUp}
+                    kind="primary"
+                    color="primary"
+                    size="small"
+                    aria-label="Send message"
+                  />
+                </Flex>
               </Flex>
-              <Flex align="center" gap="xs">
-                <IconButton
-                  icon={Microphone}
-                  size="small"
-                  kind="tertiary"
-                  aria-label="Voice input"
-                />
-                <IconButton
-                  icon={MoveArrowUp}
-                  kind="primary"
-                  color="primary"
-                  size="small"
-                  aria-label="Send message"
-                />
-              </Flex>
-            </Flex>
-          </div>
+            </div>
+          </StrokeSpotlight>
         </div>
 
         <Box className={styles.shortcutRow}>

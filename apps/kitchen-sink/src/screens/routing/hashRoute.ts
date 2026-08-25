@@ -48,6 +48,7 @@ export const DEFAULT_HASH_ROUTE: HashRoute = {
 
 const RAIL_ITEMS = [
   "workspace",
+  "home-modes",
   "sidekick",
   "agents",
   "vibe",
