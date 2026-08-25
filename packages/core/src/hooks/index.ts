@@ -1,9 +1,9 @@
 export { default as useKeyEvent } from "./useKeyEvent";
 export { default as useEventListener } from "./useEventListener";
-export { default as useDebounceEvent } from "./useDebounceEvent";
 export {
   useAfterFirstRender,
   useClickOutside,
+  useDebounceEvent,
   useIsOverflowing,
   usePrevious,
   useResizeObserver,

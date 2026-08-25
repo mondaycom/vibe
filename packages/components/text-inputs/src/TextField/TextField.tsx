@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { type ChangeEventHandler, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import useDebounceEvent from "../hooks/useDebounceEvent";
+import { useDebounceEvent } from "@vibe/hooks";
 import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
 import { Text } from "@vibe/typography";
