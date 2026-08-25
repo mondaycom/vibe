@@ -3,7 +3,7 @@ export * from "@vibe/alert-banner";
 export * from "@vibe/attention-box";
 export * from "@vibe/avatar";
 export * from "./AvatarGroup";
-export * from "./Badge";
+export * from "@vibe/badge";
 export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
 export { ButtonGroup, type ButtonGroupProps } from "@vibe/button-group";

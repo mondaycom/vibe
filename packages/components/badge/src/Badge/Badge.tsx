@@ -1,16 +1,20 @@
 import React, { forwardRef, useRef } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { useMergeRef, getStyle } from "@vibe/shared";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import {
+  useMergeRef,
+  getStyle,
+  getTestId,
+  ComponentDefaultTestId,
+  ComponentVibeId,
+  type VibeComponentProps
+} from "@vibe/shared";
 import { type BadgeAlignments, type BadgeAnchor, type BadgeType } from "./Badge.types";
 import Indicator, { type IndicatorProps } from "./Indicator/Indicator";
 import { Counter, type CounterProps, type CounterColor } from "@vibe/counter";
 
 import { type IndicatorColor } from "./Indicator/Indicator.types";
 import styles from "./Badge.module.scss";
-import { type VibeComponentProps } from "../../types";
 
 export interface BadgeBaseProps extends VibeComponentProps {
   /**
