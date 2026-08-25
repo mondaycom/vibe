@@ -37,6 +37,7 @@ exports[`exports > should export all components 1`] = `
   "EditableText",
   "EmptyState",
   "ExpandCollapse",
+  "FieldLabel",
   "Flex",
   "FormattedNumber",
   "GridKeyboardNavigationContext",
