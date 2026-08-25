@@ -70,7 +70,7 @@ export * from "./TextField";
 export * from "@vibe/text-with-highlight";
 export * from "@vibe/theme-provider";
 export * from "./Tipseen";
-export * from "./Toast";
+export * from "@vibe/toast";
 // TODO: export * after removing enums
 export { Toggle, type ToggleProps } from "@vibe/toggle";
 // TODO: export * after removing enums

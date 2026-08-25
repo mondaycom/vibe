@@ -128,6 +128,7 @@
     "@vibe/tabs": "4.0.5",
     "@vibe/text-with-highlight": "4.0.5",
     "@vibe/theme-provider": "4.0.4",
+    "@vibe/toast": "4.0.0",
     "@vibe/toggle": "4.0.4",
     "@vibe/tooltip": "4.0.16",
     "@vibe/transitions": "4.0.4",

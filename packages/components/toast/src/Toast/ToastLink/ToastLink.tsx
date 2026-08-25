@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import cx from "classnames";
 import React, { type FC } from "react";
 import { Link, type LinkProps } from "@vibe/link";
