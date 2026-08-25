@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { debounce } from "es-toolkit";
-import TextField from "../TextField/TextField";
+import { TextField } from "@vibe/text-inputs";
 import { useSliderActions, useSliderSelection } from "./SliderContext";
 import { type InfixKind } from "./Slider.types";
 import type VibeComponentProps from "../../types/VibeComponentProps";

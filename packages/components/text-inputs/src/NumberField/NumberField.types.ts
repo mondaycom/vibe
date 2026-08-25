@@ -1,7 +1,7 @@
 import { type InputHTMLAttributes } from "react";
 import { type SubIcon } from "@vibe/icon";
-import type VibeComponentProps from "../../types/VibeComponentProps";
-import { type FormElementProps } from "../../types/FormElement";
+import { type VibeComponentProps } from "@vibe/shared";
+import { type FormElementProps } from "../types/FormElement";
 
 type NumberFieldNativeInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

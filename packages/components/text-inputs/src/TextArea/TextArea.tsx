@@ -1,7 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import cx from "classnames";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
+import { ComponentDefaultTestId, ComponentVibeId, getTestId } from "@vibe/shared";
 import styles from "./TextArea.module.scss";
 import { type TextAreaProps, type TextAreaSize } from "./TextArea.types";
 import { Text } from "@vibe/typography";

@@ -1,5 +1,9 @@
 @import "~@vibe/style/dist/mixins";
-@import "../../styles/typography";
+
+@mixin font-input {
+  @include vibe-text(text2, normal);
+  @include smoothing-text;
+}
 
 .textField {
   position: relative;

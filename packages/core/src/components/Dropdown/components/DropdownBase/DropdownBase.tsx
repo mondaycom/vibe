@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import FieldLabel from "../../../FieldLabel/FieldLabel";
+import { FieldLabel } from "@vibe/text-inputs";
 import { Text } from "@vibe/typography";
 import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
