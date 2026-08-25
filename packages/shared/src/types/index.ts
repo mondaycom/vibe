@@ -4,4 +4,5 @@ export * from "./ArrayLastElement";
 export * from "./SplitString";
 export * from "./ElementContent";
 export * from "./Colors";
+export * from "./FormElement";
 export * from "./MoveBy";
