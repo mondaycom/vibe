@@ -48,6 +48,7 @@
     "@vibe/layout": "4.0.10",
     "@vibe/loader": "4.0.8",
     "@vibe/shared": "4.0.8",
+    "@vibe/style": "4.1.0",
     "@vibe/tooltip": "4.0.16",
     "@vibe/typography": "4.0.16",
     "classnames": "^2.5.1"
