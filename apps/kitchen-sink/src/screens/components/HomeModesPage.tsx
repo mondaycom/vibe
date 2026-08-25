@@ -52,19 +52,18 @@ const MODE_COPY: Record<
   { title: string; subtitle: string; placeholder: string }
 > = {
   sidekick: {
-    title: "Do your work",
-    subtitle: "Hey Naama, what do you want to work on today?",
+    title: "Hey Naama",
+    subtitle: "what do you want to work on today?",
     placeholder: "Create reports",
   },
   agents: {
-    title: "Build your agents",
-    subtitle:
-      "Hey Naama, pick a pre-built agent or build with a simple description",
+    title: "Hey Naama",
+    subtitle: "build your agent with a simple description",
     placeholder: "Build your agent",
   },
   vibe: {
-    title: "Build your ideas",
-    subtitle: "Hey Naama, build a new Vibe app with a simple description",
+    title: "Hey Naama",
+    subtitle: "build a new Vibe app with a simple description",
     placeholder: "Build your new application",
   },
 };

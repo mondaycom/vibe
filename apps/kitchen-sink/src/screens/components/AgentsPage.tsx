@@ -75,7 +75,7 @@ export function AgentsPage() {
       <div className={styles.heroBlock}>
         <div className={styles.hero}>
           <Heading type="h1" weight="bold" className={styles.heroTitle}>
-            Build your <span className={styles.gradientWord}>agent</span>
+            Hey Naama
           </Heading>
           <Text
             type="text1"

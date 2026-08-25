@@ -91,7 +91,7 @@ export function SidekickPage() {
       <div className={styles.heroBlock}>
         <div className={styles.hero}>
           <Heading type="h1" weight="bold" className={styles.heroGreeting}>
-            Hi Alex,
+            Hey Naama
           </Heading>
           <Heading type="h2" className={styles.heroQuestion}>
             What would you like to work on today?
