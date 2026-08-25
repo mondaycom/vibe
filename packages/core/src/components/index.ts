@@ -52,7 +52,19 @@ export * from "./ListTitle";
 export * from "@vibe/loader";
 export * from "./Menu";
 export * from "./MenuButton";
-export * from "@vibe/text-inputs";
+// FieldLabel is intentionally not re-exported — it stays internal to @vibe/core (matches pre-extraction API)
+export {
+  TextField,
+  type TextFieldProps,
+  type TextFieldType,
+  type TextFieldFeedbackState,
+  type TextFieldSize,
+  TextArea,
+  type TextAreaProps,
+  type TextAreaSize,
+  NumberField,
+  type NumberFieldProps
+} from "@vibe/text-inputs";
 export * from "./Modal";
 export * from "./MultiStepIndicator";
 export * from "@vibe/progress-bars";
