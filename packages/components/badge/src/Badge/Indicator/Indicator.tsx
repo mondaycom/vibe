@@ -2,9 +2,7 @@ import React from "react";
 import cx from "classnames";
 import styles from "./Indicator.module.scss";
 import { type IndicatorColor } from "./Indicator.types";
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { type VibeComponentProps } from "../../../types";
-import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, type VibeComponentProps, getTestId } from "@vibe/shared";
 
 export interface IndicatorProps extends VibeComponentProps {
   /**
