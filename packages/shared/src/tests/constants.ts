@@ -162,6 +162,7 @@ export enum ComponentVibeId {
   DIALOG = "Dialog",
   DIVIDER = "Divider",
   DROPDOWN = "Dropdown",
+  EMPTY_STATE = "EmptyState",
   EDITABLE_HEADING = "EditableHeading",
   EDITABLE_TEXT = "EditableText",
   EXPAND_COLLAPSE = "ExpandCollapse",

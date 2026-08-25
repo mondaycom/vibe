@@ -4,11 +4,9 @@ import { Flex } from "@vibe/layout";
 import { Heading, Text } from "@vibe/typography";
 import { type EmptyStateProps } from "./EmptyState.types";
 import styles from "./EmptyState.module.scss";
-import { getStyle } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { getStyle, ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
 import { Button, type ButtonProps } from "@vibe/button";
 import { Link, type LinkProps } from "@vibe/link";
-import { ComponentVibeId } from "../../tests/constants";
 
 const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
   (

@@ -32,7 +32,7 @@ export {
 export * from "@vibe/divider";
 export * from "./Dropdown";
 export * from "@vibe/editable";
-export * from "./EmptyState";
+export * from "@vibe/empty-state";
 export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
 export * from "@vibe/layout";
 export * from "@vibe/formatted-number";
