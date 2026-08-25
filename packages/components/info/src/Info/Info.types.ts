@@ -1,4 +1,4 @@
-import { type VibeComponentProps } from "../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type DialogPosition } from "@vibe/dialog";
 import { type InfoLinkProps } from "./components";
 

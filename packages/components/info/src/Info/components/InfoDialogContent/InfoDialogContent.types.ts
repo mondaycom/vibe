@@ -1,4 +1,4 @@
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type InfoLinkProps } from "../InfoLink/InfoLink";
 
 export interface InfoDialogContentProps extends VibeComponentProps {

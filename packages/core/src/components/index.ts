@@ -40,7 +40,7 @@ export * from "@vibe/a11y";
 export { Heading, type HeadingProps, type HeadingType, type HeadingWeight } from "@vibe/typography";
 export * from "@vibe/icon";
 export * from "@vibe/icon-button";
-export * from "./Info";
+export * from "@vibe/info";
 export * from "@vibe/label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
 export * from "@vibe/link";

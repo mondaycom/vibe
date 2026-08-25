@@ -4,8 +4,7 @@ import { IconButton } from "@vibe/icon-button";
 import { Dialog, type DialogEvent } from "@vibe/dialog";
 import { InfoDialogContent } from "./components";
 import { type InfoProps } from "./Info.types";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, ComponentVibeId, getTestId } from "@vibe/shared";
 import { useMergeRef } from "@vibe/shared";
 
 const Info = forwardRef(
