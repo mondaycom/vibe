@@ -1,6 +1,6 @@
 {
   "name": "@vibe/accordion",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Vibe sub-package for Accordion component",
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/expand-collapse": "4.0.8",
-    "@vibe/shared": "4.0.6",
+    "@vibe/expand-collapse": "4.0.9",
+    "@vibe/shared": "4.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/a11y",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for accessibility components",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.6",
+    "@vibe/shared": "4.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

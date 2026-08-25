@@ -1,6 +1,6 @@
 {
   "name": "@vibe/theme-provider",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for ThemeProvider component",
   "repository": {
     "type": "git",
@@ -38,14 +38,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.6",
+    "@vibe/shared": "4.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@vibe/button": "4.0.8",
+    "@vibe/button": "4.0.9",
     "@vibe/config": "4.0.2",
-    "@vibe/layout": "4.0.8",
+    "@vibe/layout": "4.0.9",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

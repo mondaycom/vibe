@@ -1,6 +1,6 @@
 {
   "name": "@vibe/layer",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "description": "Vibe sub-package for layering components",
   "repository": {
     "type": "git",
@@ -38,9 +38,9 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/icon": "4.0.6",
-    "@vibe/loader": "4.0.6",
-    "@vibe/shared": "4.0.6",
+    "@vibe/icon": "4.0.7",
+    "@vibe/loader": "4.0.7",
+    "@vibe/shared": "4.0.7",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

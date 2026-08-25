@@ -1,6 +1,6 @@
 {
   "name": "@vibe/formatted-number",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Vibe sub-package for FormattedNumber component",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.6",
+    "@vibe/shared": "4.0.7",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/attention-box",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Vibe sub-package for AttentionBox component",
   "repository": {
     "type": "git",
@@ -38,14 +38,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/button": "4.0.8",
-    "@vibe/icon": "4.0.6",
-    "@vibe/icon-button": "4.0.14",
+    "@vibe/button": "4.0.9",
+    "@vibe/icon": "4.0.7",
+    "@vibe/icon-button": "4.0.15",
     "@vibe/icons": "4.1.0",
-    "@vibe/layout": "4.0.8",
-    "@vibe/link": "4.0.4",
-    "@vibe/shared": "4.0.6",
-    "@vibe/typography": "4.0.14",
+    "@vibe/layout": "4.0.9",
+    "@vibe/link": "4.0.5",
+    "@vibe/shared": "4.0.7",
+    "@vibe/typography": "4.0.15",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
