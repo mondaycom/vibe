@@ -7,7 +7,14 @@ import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import { FEEDBACK_CLASSES, SIZE_MAPPER, TextFieldAriaLabel } from "./TextFieldConstants";
 import { type TextFieldType, type TextFieldSize } from "./TextField.types";
-import { useMergeRef, NOOP, ComponentDefaultTestId, ComponentVibeId, getTestId, type VibeComponentProps } from "@vibe/shared";
+import {
+  useMergeRef,
+  NOOP,
+  ComponentDefaultTestId,
+  ComponentVibeId,
+  getTestId,
+  type VibeComponentProps
+} from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "@vibe/tooltip";
