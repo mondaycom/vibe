@@ -10,8 +10,8 @@ import {
 } from "@mondaydotcomorg/icons";
 import { PromptChip } from "./AppMainContent";
 import { useAgentBuilder } from "../context/AgentBuilderContext";
-import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
-import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
+import { StrokeSpotlight } from "@vibe/core";
+import { STROKE_NO_PULSE_ATTR } from "@vibe/core";
 import agentElena from "../assets/agents/elena-wide.png";
 import agentSarah from "../assets/agents/sarah-wide.png";
 import agentBrittany from "../assets/agents/brittany-wide.png";

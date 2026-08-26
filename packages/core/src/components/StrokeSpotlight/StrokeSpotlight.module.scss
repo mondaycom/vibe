@@ -1,17 +1,6 @@
-/* Port of mf-agents-management StrokeSpotlight — kitchen-sink Home composer. */
+/* stylelint-disable monday-ui-style/use-defined-css-var-when-available -- brand stroke stops are product palettes, not semantic tokens */
 
-:root {
-  --duration-short-20: 20ms;
-  --duration-short-50: 50ms;
-  --duration-short-70: 70ms;
-  --duration-medium-150: 150ms;
-  --duration-long-300: 300ms;
-  --duration-attention-650: 650ms;
-  --ease-transition: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-linear: linear;
-}
-
-@keyframes scale-grow-emphasized {
+@keyframes stroke-spotlight-scale-grow {
   0% {
     transform: scale(1);
   }
@@ -37,7 +26,7 @@
 }
 
 .root {
-  /* Stroke palette defaults — Sidekick / Agents / Vibe override via modifiers. */
+  /* Stroke palette defaults — Sidekick / Vibe override via modifiers. */
   --stroke-stop-1: #04f7fb;
   --stroke-stop-2: #0074fd;
   --stroke-stop-3: #9450fd;
@@ -62,6 +51,12 @@
   --click-pulse-strength: 0.2;
   --click-pulse-end-scale-x: 3.2;
   --click-pulse-end-scale-y: 4.5;
+  --stroke-duration-short: 20ms;
+  --stroke-duration-scale: var(--motion-productive-long, 150ms);
+  --stroke-duration-wash: 650ms;
+  --stroke-duration-fade: var(--motion-expressive-short, 250ms);
+  --stroke-duration-reduced: var(--motion-productive-short, 70ms);
+  --stroke-ease: var(--motion-timing-transition, cubic-bezier(0.4, 0, 0.2, 1));
 
   position: relative;
   isolation: isolate;
@@ -131,16 +126,14 @@
   mask-clip: padding-box, border-box;
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
-  -webkit-mask-image:
-    linear-gradient(#0000, #0000),
+  -webkit-mask-image: linear-gradient(#0000, #0000),
     conic-gradient(
       from calc((var(--start) - var(--spread)) * 1deg),
       #00000000 0deg,
       #fff,
       #00000000 calc(var(--spread) * 2deg)
     );
-  mask-image:
-    linear-gradient(#0000, #0000),
+  mask-image: linear-gradient(#0000, #0000),
     conic-gradient(
       from calc((var(--start) - var(--spread)) * 1deg),
       #00000000 0deg,
@@ -154,7 +147,7 @@
 
   pointer-events: none;
   opacity: calc(var(--active) * var(--stroke-strength));
-  transition: opacity var(--duration-long-300) var(--ease-linear);
+  transition: opacity var(--stroke-duration-fade) linear;
   z-index: 2;
 }
 
@@ -177,7 +170,7 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: calc(var(--active) * var(--glow-strength));
-  transition: opacity var(--duration-long-300) var(--ease-linear);
+  transition: opacity var(--stroke-duration-fade) linear;
 }
 
 .glow::after {
@@ -187,19 +180,17 @@
 }
 
 .root:global(.is-click-pulsing) {
-  animation: scale-grow-emphasized var(--duration-medium-150) var(--ease-transition)
-    forwards;
+  animation: stroke-spotlight-scale-grow var(--stroke-duration-scale) var(--stroke-ease) forwards;
 
   .clickPulse {
     animation:
-      click-pulse-expand var(--duration-attention-650) var(--ease-transition) both,
-      click-pulse-blur var(--duration-attention-650) var(--ease-transition) both,
-      click-pulse-fade var(--duration-attention-650) var(--ease-linear)
-        var(--duration-short-20) both;
+      stroke-spotlight-click-expand var(--stroke-duration-wash) var(--stroke-ease) both,
+      stroke-spotlight-click-blur var(--stroke-duration-wash) var(--stroke-ease) both,
+      stroke-spotlight-click-fade var(--stroke-duration-wash) linear var(--stroke-duration-short) both;
   }
 }
 
-@keyframes click-pulse-expand {
+@keyframes stroke-spotlight-click-expand {
   0% {
     transform: scale(1, 1);
   }
@@ -209,7 +200,7 @@
   }
 }
 
-@keyframes click-pulse-blur {
+@keyframes stroke-spotlight-click-blur {
   0% {
     filter: blur(var(--click-pulse-blur));
   }
@@ -219,7 +210,7 @@
   }
 }
 
-@keyframes click-pulse-fade {
+@keyframes stroke-spotlight-click-fade {
   0% {
     opacity: var(--click-pulse-strength);
   }
@@ -241,8 +232,7 @@
     transform: scale(1);
 
     .clickPulse {
-      animation: click-pulse-fade-reduced var(--duration-short-70) var(--ease-linear)
-        forwards;
+      animation: stroke-spotlight-click-fade-reduced var(--stroke-duration-reduced) linear forwards;
     }
   }
 
@@ -251,7 +241,7 @@
   }
 }
 
-@keyframes click-pulse-fade-reduced {
+@keyframes stroke-spotlight-click-fade-reduced {
   0% {
     opacity: var(--click-pulse-strength);
   }

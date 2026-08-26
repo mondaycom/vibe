@@ -1,0 +1,50 @@
+import { Meta } from "@storybook/blocks";
+import { UsageGuidelines } from "vibe-storybook-components";
+import * as StrokeSpotlightStories from "./StrokeSpotlight.stories";
+
+<Meta of={StrokeSpotlightStories} />
+
+# StrokeSpotlight
+
+A pointer-following conic stroke and glow that wraps chat composers and similar surfaces. Move the pointer near the box to travel the highlight; click to pulse; focus inside to suppress the traveling stroke.
+
+## Overview
+
+Move your pointer around the composer to see the stroke follow. Click the surface for a one-shot pulse. Focus the textarea to pause the traveling stroke.
+
+<Canvas of={StrokeSpotlightStories.Overview} />
+
+## Import path
+
+```tsx
+import { StrokeSpotlight, STROKE_NO_PULSE_ATTR } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Wrap a chat composer or similarly elevated prompt surface — not arbitrary cards or lists.",
+    "Pick a palette that matches the product context: default (Agents), sidekick, or vibe.",
+    "Mark controls that should not fire the click pulse (attach, model picker, etc.) with STROKE_NO_PULSE_ATTR.",
+    "Respect prefers-reduced-motion: the component disables the traveling stroke and pulse automatically."
+  ]}
+/>
+
+## Variants
+
+### Palettes
+
+Stroke color stops for Agents (default), Sidekick, and Vibe home composers.
+
+<Canvas of={StrokeSpotlightStories.Palettes} />
+
+### Chat composer
+
+Typical Sidekick-style prompt box with no-pulse controls on secondary actions.
+
+<Canvas of={StrokeSpotlightStories.ChatComposerExample} />
