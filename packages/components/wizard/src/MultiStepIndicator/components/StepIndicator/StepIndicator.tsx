@@ -1,23 +1,24 @@
 import { camelCase } from "es-toolkit";
-import { getStyle, NOOP } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
+import {
+  getStyle,
+  NOOP,
+  ComponentDefaultTestId,
+  getTestId,
+  keyCodes,
+  useEventListener,
+  useKeyEvent,
+  type VibeComponentProps
+} from "@vibe/shared";
 import cx from "classnames";
-import { keyCodes } from "../../../../constants/keyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import useEventListener from "../../../../hooks/useEventListener";
-import useKeyEvent from "../../../../hooks/useKeyEvent";
-import { Icon } from "@vibe/icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import { Check } from "@vibe/icons";
 import { Divider } from "@vibe/divider";
-
 import { HiddenText } from "@vibe/a11y";
 import { Clickable } from "@vibe/clickable";
 import { type MultiStepSize, type MultiStepType, type StepStatus } from "../../MultiStep.types";
 import styles from "./StepIndicator.module.scss";
-import classNames from "classnames";
-import { type VibeComponentProps } from "../../../../types";
-import { type SubIcon } from "@vibe/icon";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -54,7 +55,7 @@ const StepCircleDisplay: React.FC<StepCircleDisplayProps> = ({
   return status === "fulfilled" && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
-      className={classNames(styles.numberContainerTextCheckIcon)}
+      className={cx(styles.numberContainerTextCheckIcon)}
       type={fulfilledStepIconType}
       ignoreFocusStyle
       aria-hidden={true}

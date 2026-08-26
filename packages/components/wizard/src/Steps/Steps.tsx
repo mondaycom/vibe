@@ -1,14 +1,18 @@
 import React, { forwardRef, type ReactElement, useRef } from "react";
 import cx from "classnames";
-import { NOOP, useMergeRef } from "@vibe/shared";
+import {
+  NOOP,
+  useMergeRef,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  type VibeComponentProps
+} from "@vibe/shared";
 
 import { StepsHeader } from "./StepsHeader";
 import { type StepsColor, type StepsType } from "./Steps.types";
 import { type ButtonProps } from "@vibe/button";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
-import { type VibeComponentProps } from "../../types";
 import styles from "./Steps.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface StepsProps extends VibeComponentProps {
   /**

@@ -1,5 +1,4 @@
 @import "~@vibe/style/dist/mixins";
-@import "../../styles/states";
 
 @mixin active-step-dot {
   background: var(--primary-color);
