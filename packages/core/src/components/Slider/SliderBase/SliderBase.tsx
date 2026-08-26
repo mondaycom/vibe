@@ -84,7 +84,12 @@ const SliderBase: FC<SliderBaseProps> = forwardRef(({ className }, _ref) => {
       data-testid={shapeTestId("base")}
       onKeyDown={handleKeyDown}
     >
-      <SliderRail onClick={handleRailClick} size={size} ref={railRef}>
+      <SliderRail
+        onClick={handleRailClick}
+        size={size}
+        ref={railRef}
+        className={cx({ [styles.railDisabled]: disabled })}
+      >
         <SliderTrack color={color} />
         {railRef.current && (
           <>

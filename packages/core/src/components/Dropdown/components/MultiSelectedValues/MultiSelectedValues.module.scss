@@ -3,7 +3,7 @@
   flex-grow: 1;
 
   &.singleChip {
-    > div:first-child {
+    > .chipWrapperWithOverflow:first-child {
       min-width: 50px;
       flex-shrink: 1;
 
@@ -14,7 +14,8 @@
   }
 
   &.measuring {
-    > div:not(.hiddenChip) {
+    > .chipWrapperWithOverflow:not(.hiddenChip),
+    > .inputAndCounterWrapper {
       opacity: 0;
     }
   }
