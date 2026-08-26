@@ -1,5 +1,5 @@
 import { camelCase } from "es-toolkit";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, NOOP, getStyle, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import React, { type ReactElement, useCallback, useEffect, useMemo, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
@@ -12,9 +12,7 @@ import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
 import { type ToastType, type ToastAction } from "./Toast.types";
 import { getIcon } from "./ToastHelpers";
-import { NOOP, getStyle } from "@vibe/shared";
 
-import { type VibeComponentProps } from "../../types";
 import styles from "./Toast.module.scss";
 import { IconButton } from "@vibe/icon-button";
 import { usePrevious } from "@vibe/hooks";

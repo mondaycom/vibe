@@ -1,7 +1,6 @@
 import { Button, type ButtonProps } from "@vibe/button";
 import React, { type FC } from "react";
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 
 export type ToastButtonProps = ButtonProps;
 
