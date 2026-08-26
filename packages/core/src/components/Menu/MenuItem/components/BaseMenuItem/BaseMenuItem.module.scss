@@ -7,11 +7,15 @@
   margin: unset;
   display: flex;
   flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
   padding: var(--spacing-xs) var(--spacing-small);
   cursor: pointer;
   user-select: none;
   align-items: center;
+  overflow: visible;
   border: 1px solid transparent;
+  border-radius: var(--border-radius-medium);
   outline: none;
 
   &.splitMenuItem {
@@ -26,7 +30,6 @@
   &.focused {
     &:not(.disabled) {
       background-color: var(--primary-background-hover-color);
-      border-radius: var(--border-radius-small);
 
       &:not(:hover):not(.initialSelected) {
         @include focus-style-css();
@@ -36,6 +39,5 @@
 
   &.selected:not(.disabled) {
     background-color: var(--primary-selected-color);
-    border-radius: var(--border-radius-small);
   }
 }

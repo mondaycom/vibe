@@ -7,7 +7,7 @@
   display: inline-flex;
   overflow: hidden;
   height: 24px;
-  border-radius: 4px;
+  border-radius: var(--border-radius-full);
   padding: 0 8px;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,18 @@
   user-select: none;
   @include smoothing-text;
   color: var(--primary-text-color);
+  /* The fill comes from --chips-surface: semantic colors set it via the color-* classes
+     below, content colors pass it in as an inline custom property. Keeping
+     `background-color` itself in CSS means hover is a plain :hover rule (no React state)
+     and consumers can override the fill without !important. */
+  background-color: var(--chips-surface);
   animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
+
+  &.clickable:hover,
+  &.clickable:focus-within {
+    background-color: var(--chips-surface-hover, var(--chips-surface));
+  }
+
   &.border {
     border: 1px solid var(--primary-background-color);
   }
@@ -25,6 +36,72 @@
   }
   &.noMargin {
     margin: 0;
+  }
+
+  /* Medium: 8px default; 4px on sides that have an icon */
+  &.withLeftIcon {
+    padding-inline-start: var(--spacing-xs);
+  }
+
+  &.withRightIcon {
+    padding-inline-end: var(--spacing-xs);
+  }
+
+  &.withClose {
+    position: relative;
+    box-sizing: border-box;
+
+    .label {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .icon.close {
+      position: absolute;
+      inset-inline-end: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus-within {
+      /* Keep overall width stable; carve space for the close control inside the chip */
+      padding-inline-end: 26px;
+
+      .icon.close {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &.small:hover,
+    &.small:focus-within {
+      padding-inline-end: 22px;
+    }
+  }
+
+  &.small {
+    height: 20px;
+    /* Small: 4px default; 2px on sides that have an icon */
+    padding: 0 var(--spacing-xs);
+
+    &.withLeftIcon {
+      padding-inline-start: var(--space-2);
+    }
+
+    &.withRightIcon {
+      padding-inline-end: var(--space-2);
+    }
+
+    .icon,
+    .avatar,
+    .customRenderer {
+      min-width: 14px;
+    }
   }
 
   .label {
@@ -47,11 +124,59 @@
     }
     &.close {
       margin-left: var(--spacing-xs);
-      color: var(--primary-text-color);
     }
   }
 
+  /* Icons and the close IconButton track the chip's colour, which for semantic colors
+     is --text-on-surface-* (set inline on the root). This beats IconButton's own
+     `.kindTertiary { color: --primary-text-color }` on specificity. */
+  .icon {
+    color: currentColor;
+  }
+
+  /* Semantic colors: surface + its paired text, same `color-*` class pattern Label uses.
+     Hover keeps the existing *-color-selected-hover tokens. */
+  &.colorPrimary {
+    --chips-surface: var(--surface-primary);
+    --chips-surface-hover: var(--ui-background-hover-color);
+    color: var(--text-on-surface-primary);
+  }
+
+  &.colorPositive {
+    --chips-surface: var(--surface-positive);
+    --chips-surface-hover: var(--positive-color-selected-hover);
+    color: var(--text-on-surface-positive);
+  }
+
+  &.colorNegative {
+    --chips-surface: var(--surface-negative);
+    --chips-surface-hover: var(--negative-color-selected-hover);
+    color: var(--text-on-surface-negative);
+  }
+
+  &.colorWarning {
+    --chips-surface: var(--surface-warning);
+    --chips-surface-hover: var(--warning-color-selected-hover);
+    color: var(--text-on-surface-warning);
+  }
+
+  &.colorInfo {
+    --chips-surface: var(--surface-info);
+    --chips-surface-hover: var(--info-color-selected-hover);
+    color: var(--text-on-surface-info);
+  }
+
+  &.colorNeutral {
+    --chips-surface: var(--surface-neutral);
+    --chips-surface-hover: var(--ui-background-hover-color);
+    color: var(--text-on-surface-neutral);
+  }
+
+  /* After the color-* classes so it wins the tie on equal specificity. */
   &.disabled {
+    --chips-surface: var(--disabled-background-color);
+    --chips-surface-hover: var(--disabled-background-color);
+
     .icon {
       color: var(--disabled-text-color);
     }
@@ -62,6 +187,43 @@
 
   &.defaultCursor {
     cursor: default;
+  }
+
+  &.readOnly {
+    cursor: default;
+  }
+
+  &.filterable {
+    background-color: var(--ui-background-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+
+    .icon,
+    .label {
+      color: currentColor;
+    }
+
+    &:hover:not(.disabled):not(.pressed),
+    &:active:not(.disabled):not(.pressed) {
+      background-color: var(--ui-background-hover-color);
+      color: var(--primary-text-color);
+    }
+
+    &.pressed:not(.disabled) {
+      background-color: var(--primary-color);
+      color: var(--text-color-on-inverted);
+
+      .icon,
+      .label,
+      .close {
+        color: currentColor;
+      }
+    }
+
+    &.disabled {
+      background-color: var(--disabled-background-color);
+      cursor: not-allowed;
+    }
   }
 
   &.clickable {

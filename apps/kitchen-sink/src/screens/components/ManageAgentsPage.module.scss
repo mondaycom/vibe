@@ -1,0 +1,248 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  padding: var(--space-32) 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-40);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--space-24);
+  letter-spacing: -0.1px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-shrink: 0;
+}
+
+.listSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  width: 100%;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.filterLabel {
+  font-size: var(--font-size-20);
+  font-weight: 600;
+  line-height: var(--space-20);
+  color: var(--primary-text-color);
+}
+
+.filterRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.viewToggle {
+  display: inline-flex;
+  align-items: center;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: var(--border-width) solid var(--layout-border-color);
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 300px)
+    130px
+    154px
+    154px
+    140px
+    var(--space-32);
+  align-items: center;
+  column-gap: var(--space-16);
+  width: 100%;
+}
+
+.tableHeader {
+  min-height: var(--space-48);
+  border-bottom: var(--border-width) solid var(--layout-border-color);
+}
+
+.colHeader {
+  font-size: var(--font-size-20);
+  line-height: var(--space-20);
+  color: var(--secondary-text-color);
+}
+
+.colHeaderStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding-left: var(--space-16);
+}
+
+.tableRow {
+  padding: var(--space-16) 0;
+  border-bottom: var(--border-width) solid var(--layout-border-color);
+  background-color: var(--primary-background-color);
+}
+
+.agentCell {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
+  min-width: 0;
+}
+
+.agentAvatar {
+  width: var(--space-64);
+  height: var(--space-64);
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: var(--space-12);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+}
+
+.agentAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.agentCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+  height: fit-content;
+}
+
+/* Vibe's Text component adds a 24px margin between adjacent <p> elements
+   (p.text + p). Neutralize it so the flex gap is the only spacing. */
+.agentCopy .agentName,
+.agentCopy .agentCreator {
+  margin-block: 0;
+}
+
+.agentName {
+  font-size: var(--font-size-30);
+  font-weight: var(--font-weight-normal);
+  line-height: 22px;
+  color: var(--primary-text-color);
+}
+
+.agentCreator {
+  font-size: var(--font-size-20);
+  line-height: var(--space-20);
+  color: var(--secondary-text-color);
+}
+
+.toolsCell {
+  display: flex;
+  align-items: center;
+  padding-left: var(--space-16);
+}
+
+.toolStack {
+  display: flex;
+  align-items: center;
+}
+
+.toolBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-24);
+  height: var(--space-24);
+  margin-right: calc(-1 * var(--space-6));
+  border-radius: 50%;
+  background-color: var(--primary-background-color);
+  overflow: hidden;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.toolBadgeImage {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.toolOverflow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--space-24);
+  padding: 0 var(--space-8);
+  margin-left: var(--space-2);
+  border: var(--border-width) solid var(--primary-background-color);
+  border-radius: 100px;
+  background-color: var(--ui-background-color);
+  color: var(--primary-text-color);
+  font-size: var(--font-size-20);
+  line-height: var(--space-20);
+}
+
+.statusCell,
+.activityCell,
+.creditsCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-left: var(--space-16);
+  font-size: var(--font-size-20);
+  line-height: var(--space-20);
+  color: var(--primary-text-color);
+}
+
+.statusDot {
+  width: var(--space-20);
+  height: var(--space-20);
+  flex: 0 0 auto;
+  object-fit: contain;
+  display: block;
+}
+
+.statusDotLive {
+  filter: none;
+}
+
+.statusDotPaused {
+  filter: grayscale(100%);
+}
+
+.rowMenu {
+  justify-self: end;
+}

@@ -354,4 +354,22 @@ describe("TextField Tests", () => {
       expect(handleChange).toHaveBeenCalledWith("new value", expect.anything());
     });
   });
+
+  describe("iconPosition", () => {
+    it("should not mark the wrapper as icon-left by default", () => {
+      const { container } = render(<TextField placeholder="Search" iconName="fa-search" />);
+      expect(container.querySelector("[class*='inputWrapperIconLeft']")).toBeNull();
+    });
+
+    it("should mark the wrapper and the icon container as icon-left", () => {
+      const { container } = render(<TextField placeholder="Search" iconName="fa-search" iconPosition="left" />);
+      expect(container.querySelector("[class*='inputWrapperIconLeft']")).not.toBeNull();
+      expect(container.querySelector("[class*='iconContainerLeft']")).not.toBeNull();
+    });
+
+    it("should ignore iconPosition when there is no icon", () => {
+      const { container } = render(<TextField placeholder="Search" iconPosition="left" />);
+      expect(container.querySelector("[class*='inputWrapperIconLeft']")).toBeNull();
+    });
+  });
 });

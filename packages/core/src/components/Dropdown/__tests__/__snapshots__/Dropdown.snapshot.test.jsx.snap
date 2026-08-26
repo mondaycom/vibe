@@ -1500,22 +1500,16 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
           >
             <div
               aria-label="Primary"
-              className="chips chips multiselect-chip-multi-line noAnimation"
+              className="chips chips multiselect-chip-multi-line colorPrimary noAnimation withClose"
               data-testid="value-container-chip"
+              data-variant="default"
               data-vibe="Chips"
               id="primary"
               onClick={[Function]}
               onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                {
-                  "backgroundColor": "var(--primary-selected-color)",
-                }
-              }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Primary
@@ -1524,7 +1518,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
-                className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                 data-testid="value-container-chip-close"
                 data-vibe="Button"
                 onBlur={[Function]}
@@ -1561,22 +1555,16 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
             </div>
             <div
               aria-label="Positive"
-              className="chips chips multiselect-chip-multi-line noAnimation"
+              className="chips chips multiselect-chip-multi-line colorPositive noAnimation withClose"
               data-testid="value-container-chip"
+              data-variant="default"
               data-vibe="Chips"
               id="positive"
               onClick={[Function]}
               onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                {
-                  "backgroundColor": "var(--positive-color-selected)",
-                }
-              }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Positive
@@ -1585,7 +1573,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                 aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
-                className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                 data-testid="value-container-chip-close"
                 data-vibe="Button"
                 onBlur={[Function]}
@@ -1625,22 +1613,16 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
             >
               <div
                 aria-label="Negative"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="chips chips multiselect-chip-multi-line colorNegative noAnimation withClose"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="negative"
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  {
-                    "backgroundColor": "var(--negative-color-selected)",
-                  }
-                }
               >
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Negative
@@ -1649,7 +1631,7 @@ exports[`Dropdown renders correctly > with chip colors 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
-                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                  className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="value-container-chip-close"
                   data-vibe="Button"
                   onBlur={[Function]}
@@ -2336,19 +2318,13 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="chips chips multiselect-chip-multi-line colorPrimary noAnimation withClose withLeftIcon"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="ocean"
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  {
-                    "backgroundColor": "var(--primary-selected-color)",
-                  }
-                }
               >
                 <div
                   className="avatar large avatar left"
@@ -2375,7 +2351,7 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                   </div>
                 </div>
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Ocean
@@ -2384,7 +2360,7 @@ exports[`Dropdown renders correctly > with leftAvatar 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
-                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                  className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="value-container-chip-close"
                   data-vibe="Button"
                   onBlur={[Function]}
@@ -2570,19 +2546,13 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
             >
               <div
                 aria-label="Ocean"
-                className="chips chips multiselect-chip-multi-line noAnimation"
+                className="chips chips multiselect-chip-multi-line colorPrimary noAnimation withClose withLeftIcon"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="ocean"
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  {
-                    "backgroundColor": "var(--primary-selected-color)",
-                  }
-                }
               >
                 <svg
                   aria-hidden={true}
@@ -2602,7 +2572,7 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
                   />
                 </svg>
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Ocean
@@ -2611,7 +2581,7 @@ exports[`Dropdown renders correctly > with leftIcon 1`] = `
                   aria-busy={false}
                   aria-disabled={false}
                   aria-label="Remove"
-                  className="icon close button sizeMedium kindTertiary colorOnPrimaryColor noSidePadding"
+                  className="icon close button sizeMedium kindTertiary colorPrimary noSidePadding"
                   data-testid="value-container-chip-close"
                   data-vibe="Button"
                   onBlur={[Function]}
@@ -2930,22 +2900,16 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
+              className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled colorPrimary disabled noAnimation"
               data-testid="value-container-chip"
+              data-variant="default"
               data-vibe="Chips"
               id="ocean"
               onClick={[Function]}
               onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                {
-                  "backgroundColor": undefined,
-                }
-              }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Ocean
@@ -2956,22 +2920,16 @@ exports[`Dropdown renders correctly > with multi and disabled 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled disabled noAnimation"
+                className="chips chips multiselect-chip-single-line-medium multiselect-chip-disabled colorPrimary disabled noAnimation"
                 data-testid="value-container-chip"
+                data-variant="default"
                 data-vibe="Chips"
                 id="blue"
                 onClick={[Function]}
                 onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  {
-                    "backgroundColor": undefined,
-                  }
-                }
               >
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Blue
@@ -3103,22 +3061,14 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
           >
             <div
               aria-label="Ocean"
-              className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
+              className="chips chips multiselect-chip-single-line-medium colorPrimary noAnimation withUserSelect readOnly defaultCursor"
               data-testid="value-container-chip"
+              data-variant="readOnly"
               data-vibe="Chips"
               id="ocean"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                {
-                  "backgroundColor": "var(--primary-selected-color)",
-                }
-              }
             >
               <div
-                className="typography primary start singleLineEllipsis text text2Normal label"
+                className="typography inherit start singleLineEllipsis text text2Normal label"
                 data-testid="text"
               >
                 Ocean
@@ -3129,22 +3079,14 @@ exports[`Dropdown renders correctly > with multi and readonly 1`] = `
             >
               <div
                 aria-label="Blue"
-                className="chips chips multiselect-chip-single-line-medium noAnimation withUserSelect"
+                className="chips chips multiselect-chip-single-line-medium colorPrimary noAnimation withUserSelect readOnly defaultCursor"
                 data-testid="value-container-chip"
+                data-variant="readOnly"
                 data-vibe="Chips"
                 id="blue"
-                onClick={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  {
-                    "backgroundColor": "var(--primary-selected-color)",
-                  }
-                }
               >
                 <div
-                  className="typography primary start singleLineEllipsis text text2Normal label"
+                  className="typography inherit start singleLineEllipsis text text2Normal label"
                   data-testid="text"
                 >
                   Blue

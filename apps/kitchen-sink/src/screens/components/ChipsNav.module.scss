@@ -1,0 +1,128 @@
+.nav {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 32px;
+  overflow: hidden;
+}
+
+.scroller {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+@media (hover: hover) {
+  .navControl {
+    opacity: 0;
+    transition: opacity var(--motion-productive-short, 0.1s) ease;
+  }
+
+  .arrowSlot.navControl {
+    pointer-events: none;
+  }
+
+  .nav:hover .navControl,
+  .nav:focus-within .navControl {
+    opacity: 1;
+  }
+
+  .nav:hover .arrowSlot.navControl,
+  .nav:focus-within .arrowSlot.navControl {
+    pointer-events: auto;
+  }
+}
+
+.edgeFade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.edgeFadeLeft {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--primary-background-color),
+    transparent
+  );
+}
+
+.edgeFadeRight {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--primary-background-color),
+    transparent
+  );
+}
+
+[dir="rtl"] .edgeFadeLeft {
+  left: auto;
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--primary-background-color),
+    transparent
+  );
+}
+
+[dir="rtl"] .edgeFadeRight {
+  right: auto;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--primary-background-color),
+    transparent
+  );
+}
+
+.arrowSlot {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  transform: translateY(-50%);
+}
+
+.arrowSlotLeft {
+  left: var(--space-4);
+}
+
+.arrowSlotRight {
+  right: var(--space-4);
+}
+
+[dir="rtl"] .arrowSlotLeft {
+  left: auto;
+  right: var(--space-4);
+}
+
+[dir="rtl"] .arrowSlotRight {
+  right: auto;
+  left: var(--space-4);
+}
+
+.arrowButton {
+  background-color: var(--primary-background-color) !important;
+  box-shadow: none !important;
+}

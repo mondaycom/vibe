@@ -23,23 +23,26 @@
     animation: attentionBoxAnimation 200ms var(--motion-timing-transition);
   }
 
+  /* Semantic surfaces, per Facelift "surface colors" (Figma 630:106200).
+     Text stays --primary-text-color: the design keeps attention box copy neutral
+     and carries the semantic in the fill and icon. */
   &.primary {
-    background-color: var(--primary-selected-color);
+    background-color: var(--surface-primary);
   }
 
   &.positive {
-    background-color: var(--positive-color-selected);
+    background-color: var(--surface-positive);
   }
 
   &.negative {
-    background-color: var(--negative-color-selected);
+    background-color: var(--surface-negative);
   }
 
   &.warning {
-    background-color: var(--warning-color-selected);
+    background-color: var(--surface-warning);
   }
 
   &.neutral {
-    background-color: var(--allgrey-background-color);
+    background-color: var(--surface-neutral);
   }
 }

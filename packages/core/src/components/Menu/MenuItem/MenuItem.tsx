@@ -224,7 +224,7 @@ const MenuItem = forwardRef(
     const renderLabel = useMemo(() => {
       if (!label) return;
       if (typeof label === "string") {
-        return <Label kind="line" text={label} />;
+        return <Label text={label} size="small" />;
       }
       if (React.isValidElement(label) && label.type === Label) {
         return label;

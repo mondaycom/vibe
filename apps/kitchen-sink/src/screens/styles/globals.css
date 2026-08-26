@@ -1,0 +1,1047 @@
+:root {
+  --boards-font-family: var(
+    --font-family,
+    "Figtree",
+    "Poppins",
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif
+  );
+
+  /* Scrim — overlay color used behind modals and side panels.
+     Defined per-theme so dialogs read correctly across every palette. */
+  --app-scrim-color: rgba(34, 80, 145, 0.8); /* #225091 @ 80% */
+}
+
+:root.slick {
+  --boards-font-family:
+    "Geist", "Figtree", "Poppins", "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  /* Typography - Geist replaces Poppins (title) + Figtree (body) */
+  --font-family: var(--boards-font-family);
+  --title-font-family: var(--boards-font-family);
+
+  /* Primary color - near-black replaces monday blue */
+  /* Primary action stays blue */
+  --primary-color: #0073ea;
+  --primary-hover-color: #0060c2;
+  --primary-selected-color: #f2e4e0;
+  --primary-selected-hover-color: #e8d4cf;
+  --primary-highlighted-color: #f9f7f7;
+
+  /* Surfaces — warm greige cast */
+  --primary-background-color: #fefefe;
+  --primary-background-hover-color: rgba(99, 92, 90, 0.08);
+  --primary-surface-color: #f9f7f7;
+  --secondary-background-color: #f9f7f7;
+  --allgrey-background-color: #f9f7f7;
+  --grey-background-color: #f9f7f7;
+  --ui-background-color: #edeae9;
+  --ui-background-hover-color: #e3dedc;
+
+  /* Borders — warm grey-pink */
+  --layout-border-color: #ddd7d5;
+  --ui-border-color: #c9c3c1;
+
+  /* Text & icons — warm dark grey / deep warm charcoal */
+  --primary-text-color: #302b2a;
+  --secondary-text-color: #635c5a;
+  --icon-color: #8a8482;
+  --placeholder-color: #635c5a;
+  --link-color: #0073ea;
+
+  /* Border radius — rounder, more modern */
+  --border-radius-small: 8px;
+  --border-radius-medium: 12px;
+  --border-radius-big: 24px;
+
+  /* Scrim — deep navy with warm undertone to match slick palette */
+  --app-scrim-color: rgba(48, 43, 42, 0.75);
+}
+
+/* Scrim — dark mode variants need a heavier, blacker overlay */
+:root.dark-app-theme,
+:root.black-app-theme {
+  --app-scrim-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Glaze — editorial facelift: cool-neutral surface, hairline borders */
+:root.glaze {
+  /* Primary — refined charcoal */
+  --primary-color: #404643;
+  --primary-hover-color: #000000;
+  --primary-selected-color: #eef0ef;
+  --primary-selected-hover-color: #e6e8e7;
+  --primary-highlighted-color: #f4f5f3;
+
+  /* Surfaces — canvas via --primary-surface-color */
+  --primary-background-color: #ffffff;
+  --primary-background-hover-color: #f2f3f2;
+  --primary-background-hover-on-secondary-color: #eaeceb;
+  --primary-surface-color: #f4f5f3;
+  --secondary-background-color: #ffffff;
+  --allgrey-background-color: #f4f5f3;
+  --grey-background-color: #f4f5f3;
+  --ui-background-color: #f2f3f2;
+  --ui-background-hover-color: #eaeceb;
+  --dark-background-color: #f4f5f3;
+  --modal-background-color: #ffffff;
+  --dialog-background-color: #ffffff;
+  --disabled-background-color: #f2f3f2;
+  --label-background-color: #f4f5f3;
+
+  /* Borders */
+  --layout-border-color: #e9ebea;
+  --ui-border-color: #e2e4e3;
+
+  /* Text & icons */
+  --primary-text-color: #323338;
+  --secondary-text-color: #676879;
+  --icon-color: #babbbc;
+  --placeholder-color: #a6a8a7;
+  --link-color: #404643;
+  --text-color-on-primary: #f9faf9;
+  --text-color-on-inverted: #ffffff;
+  --inverted-color-background: #323338;
+
+  /* Radius */
+  --border-radius-small: 8px;
+  --border-radius-medium: 8px;
+  --border-radius-big: 14px;
+
+  --app-scrim-color: rgba(50, 51, 56, 0.7);
+}
+
+/* Warmth — warm-cast variant of Glaze (blush-grey canvas, taupe borders, vibrant blue action) */
+:root.warmth {
+  --boards-font-family:
+    "DM Sans", system-ui, "Figtree", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
+  --font-family: var(--boards-font-family);
+  --title-font-family: var(--boards-font-family);
+
+  /* Primary — vibrant blue-indigo */
+  --primary-color: #3543fc;
+  --primary-hover-color: #2434e8;
+
+  /* Semantic */
+  --positive-color: #166d30;
+  --positive-color-hover: #1a7e38;
+  --negative-color: #cd0026;
+  --negative-color-hover: #b50020;
+
+  /* Primary selected — oklch L @ C=0.00274 H=77.988 (aligned with mf-topbar warmth) */
+  --primary-selected-color: #eae9e7;
+  --primary-selected-hover-color: #dfdedc;
+  --primary-highlighted-color: #f3f1f0;
+
+  /* Surfaces — same OKLCH axis (near-neutral greige) */
+  --primary-background-color: #fdfcfa;
+  --primary-background-hover-color: #f3f1f0;
+  --primary-background-hover-on-secondary-color: #e5e4e2;
+  --primary-surface-color: #f3f1f0;
+  --secondary-background-color: #fffffd;
+  --allgrey-background-color: #f4f2f1;
+  --grey-background-color: #f4f2f1;
+  --ui-background-color: #eae8e7;
+  --ui-background-hover-color: #dddbda;
+  --dark-background-color: #fdfcfa;
+  --modal-background-color: #fdfcfa;
+  --dialog-background-color: #fdfcfa;
+  --disabled-background-color: #f7f6f4;
+  --label-background-color: #fdfcfa;
+
+  /* Borders */
+  --layout-border-color: #e9e8e6;
+  --ui-border-color: #cfcdcc;
+  --glaze-input-focus-border-color: #cfcdcc;
+
+  /* Text & icons — warm charcoal + brown-grey */
+  --primary-text-color: #232221;
+  --secondary-text-color: #494846;
+  --icon-color: #656362;
+  --glaze-icon-color-primary: #494846;
+  --glaze-icon-color-secondary: #82817f;
+  --icon-hover: #737270;
+  --placeholder-color: #82817f;
+  --link-color: #3543fc;
+  --text-color-on-primary: #ffffff;
+  --text-color-on-inverted: #ffffff;
+  --inverted-color-background: #343332;
+
+  /* Radius — match mf-topbar warmth */
+  --border-radius-small: 8px;
+  --border-radius-medium: 12px;
+  --border-radius-big: 16px;
+  --border-radius-full: 9999px;
+
+  /* Shared Glaze tokens — warm-shifted rail selection, identical shadows/brand */
+  --glaze-rail-selected-color: #eae9e7;
+  --glaze-rail-selected-hover-color: #dfdedc;
+  --glaze-layout-gap: var(--space-8);
+  --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --glaze-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --glaze-border-hairline: rgba(0, 0, 0, 0.04);
+  --glaze-brand-done: #00ca72;
+  --glaze-brand-working: #fdab3d;
+  --glaze-brand-stuck: #df2f4a;
+  --glaze-brand-bright-blue: #579bfc;
+  --glaze-brand-dark-blue: #007eb5;
+  --glaze-brand-dark-purple: #784bd1;
+  --glaze-brand-purple: #9d50dd;
+  --glaze-brand-lipstick: #ff5ac4;
+  --glaze-brand-sunset: #ff7575;
+  --glaze-brand-dark-orange: #ff6d3b;
+  --glaze-brand-egg-yolk: #ffcb00;
+  --glaze-brand-private: #f65f7c;
+
+  /* Scrim — matches inverted charcoal */
+  --app-scrim-color: rgba(52, 51, 50, 0.55);
+}
+
+/* Glaze Neue — Glaze layout with warmer surfaces, Warmth blue primary, Hanken Grotesk headings */
+:root.glaze-neue {
+  --boards-font-family:
+    "DM Sans", system-ui, "Figtree", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
+  --font-family: var(--boards-font-family);
+  --title-font-family:
+    "Hanken Grotesk", system-ui, "Figtree", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
+
+  /* Primary — Warmth vibrant blue */
+  --primary-color: #2d5bff;
+  --primary-hover-color: #1f47e0;
+  --primary-selected-color: #ebe6e3;
+  --primary-selected-hover-color: #e2dcd8;
+  --primary-highlighted-color: #f4f3f1;
+
+  /* Surfaces — Glaze-like, slightly warmer cast */
+  --primary-background-color: #ffffff;
+  --primary-background-hover-color: #f1f0ee;
+  --primary-background-hover-on-secondary-color: #eae9e7;
+  --primary-surface-color: #f4f3f1;
+  --secondary-background-color: #ffffff;
+  --allgrey-background-color: #f4f3f1;
+  --grey-background-color: #f4f3f1;
+  --ui-background-color: #f1f0ee;
+  --ui-background-hover-color: #eae9e7;
+  --dark-background-color: #f4f3f1;
+  --modal-background-color: #ffffff;
+  --dialog-background-color: #ffffff;
+  --disabled-background-color: #f1f0ee;
+  --label-background-color: #f4f3f1;
+
+  /* Borders — Glaze cool-gray hairlines */
+  --layout-border-color: #e9ebea;
+  --ui-border-color: #e2e4e3;
+  --glaze-input-focus-border-color: #babbbc;
+
+  /* Text & icons — Glaze */
+  --primary-text-color: #323338;
+  --secondary-text-color: #676879;
+  --icon-color: #babbbc;
+  --glaze-icon-color-primary: #676879;
+  --glaze-icon-color-secondary: #babbbc;
+  --icon-hover: #676879;
+  --placeholder-color: #a6a8a7;
+  --link-color: #2d5bff;
+  --text-color-on-primary: #ffffff;
+  --text-color-on-inverted: #ffffff;
+  --inverted-color-background: #323338;
+
+  /* Radius — match Glaze */
+  --glaze-radius-control: 8px;
+  --border-radius-small: var(--glaze-radius-control);
+  --border-radius-medium: var(--glaze-radius-control);
+  --border-radius-big: 14px;
+
+  /* Glaze-specific tokens */
+  --glaze-rail-selected-color: #e0e2e1;
+  --glaze-rail-selected-hover-color: #dadcdb;
+  --glaze-layout-gap: var(--space-8);
+  --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --glaze-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --glaze-border-hairline: rgba(0, 0, 0, 0.04);
+  --glaze-brand-done: #00ca72;
+  --glaze-brand-working: #fdab3d;
+  --glaze-brand-stuck: #df2f4a;
+  --glaze-brand-bright-blue: #579bfc;
+  --glaze-brand-dark-blue: #007eb5;
+  --glaze-brand-dark-purple: #784bd1;
+  --glaze-brand-purple: #9d50dd;
+  --glaze-brand-lipstick: #ff5ac4;
+  --glaze-brand-sunset: #ff7575;
+  --glaze-brand-dark-orange: #ff6d3b;
+  --glaze-brand-egg-yolk: #ffcb00;
+  --glaze-brand-private: #f65f7c;
+
+  /* Scrim — cool charcoal (Glaze) */
+  --app-scrim-color: rgba(50, 51, 56, 0.7);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--boards-font-family);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--boards-font-family);
+  font-synthesis: none;
+  background-color: var(--primary-background-color, #ffffff);
+}
+
+/* Invisible scrollbars — preserve scroll, hide chrome (Firefox + WebKit) */
+.main-area--no-padding * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.main-area--no-padding *::-webkit-scrollbar {
+  display: none;
+}
+
+.dev {
+  --primary-surface-color: #ebf5ef;
+}
+
+.service {
+  --primary-surface-color: #f5eff1;
+}
+
+.crm {
+  --primary-surface-color: #e7f4f6;
+}
+
+/* Vibe icons use currentColor — set icon-color on all icon SVGs except primary buttons */
+svg[class*="icon_"] {
+  color: var(--icon-color);
+  transition: color 150ms ease;
+}
+
+/* Button icons should follow the button's own color (per kind + color prop),
+   not the standalone icon-color. Let Vibe drive them via inherit. */
+[class*="kindPrimary"] svg[class*="icon_"],
+[class*="kindSecondary"] svg[class*="icon_"],
+[class*="kindTertiary"] svg[class*="icon_"] {
+  color: inherit;
+}
+
+/* Form-control checkmarks (Checkbox/Radio) set their own on-primary color; the broad
+   icon-color rule above would otherwise darken the check. Restore it. */
+[class*="checkbox_"] svg[class*="icon_"],
+[class*="radio"] svg[class*="icon_"] {
+  color: var(--text-color-on-primary);
+}
+
+/* Warm-theme hover: non-primary Vibe button icons shift from inherit to
+   --secondary-text-color. Primary buttons already use color: inherit on icons
+   and keep on-primary / on-inverted text on hover — only the background changes. */
+[class*="button_"]:not([class*="kindPrimary"]):hover svg[class*="icon_"],
+[class*="iconButton"]:not([class*="kindPrimary"]):hover svg[class*="icon_"],
+[class*="kindTertiary"]:hover svg[class*="icon_"],
+[class*="kindSecondary"]:hover svg[class*="icon_"] {
+  color: var(--secondary-text-color);
+}
+
+/* Editorial — Amber: structured, confident — bold Lora titles + Inter body */
+:root.editorial-amber {
+  --font-family: "Inter", sans-serif;
+  --title-font-family: "Lora", serif;
+}
+
+/* Editorial — Terracotta: high-contrast magazine — Playfair Display titles + DM Sans body */
+:root.editorial-terracotta {
+  --font-family: "DM Sans", sans-serif;
+  --title-font-family: "Playfair Display", serif;
+}
+
+/* Editorial — Espresso: refined luxury — Cormorant Garamond titles + Source Sans 3 body */
+:root.editorial-espresso {
+  --font-family: "Source Sans 3", sans-serif;
+  --title-font-family: "Cormorant Garamond", serif;
+}
+
+/* Editorial — Amber: earthy, confident, structured radius */
+:root.editorial-amber {
+  --title-font-weight: 700;
+  /* Primary — amber/gold */
+  --primary-color: #b45309;
+  --primary-hover-color: #92400e;
+  --primary-selected-color: #fef3c7;
+  --primary-selected-hover-color: #fde68a;
+  --primary-highlighted-color: #fffbeb;
+
+  /* Surfaces — cream */
+  --primary-surface-color: #fdf8f0;
+  --secondary-background-color: #fdf8f0;
+  --allgrey-background-color: #fdf8f0;
+  --grey-background-color: #fdf8f0;
+  --ui-background-color: #f5ead8;
+  --ui-background-hover-color: #edd9b8;
+
+  /* Borders */
+  --layout-border-color: #e8e0d5;
+  --ui-border-color: #d5c9b8;
+
+  /* Text & icons */
+  --primary-text-color: #1c1309;
+  --secondary-text-color: #78716c;
+  --icon-color: #78716c;
+  --placeholder-color: #78716c;
+  --link-color: #b45309;
+
+  /* Border radius — structured */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-big: 16px;
+
+  /* Scrim — warm amber-cast brown */
+  --app-scrim-color: rgba(94, 50, 12, 0.78);
+}
+
+/* Editorial — Terracotta: bold, editorial-magazine, sharpest radius */
+:root.editorial-terracotta {
+  /* Primary — rust/terracotta */
+  --primary-color: #c2410c;
+  --primary-hover-color: #9a3412;
+  --primary-selected-color: #ffedd5;
+  --primary-selected-hover-color: #fed7aa;
+  --primary-highlighted-color: #fff7ed;
+
+  /* Surfaces — warm off-white */
+  --primary-surface-color: #fdf4ef;
+  --secondary-background-color: #fdf4ef;
+  --allgrey-background-color: #fdf4ef;
+  --grey-background-color: #fdf4ef;
+  --ui-background-color: #f5e4d8;
+  --ui-background-hover-color: #edcfb8;
+
+  /* Borders */
+  --layout-border-color: #e8ddd5;
+  --ui-border-color: #d5c4b8;
+
+  /* Text & icons */
+  --primary-text-color: #1c0e08;
+  --secondary-text-color: #78716c;
+  --icon-color: #78716c;
+  --placeholder-color: #78716c;
+  --link-color: #c2410c;
+
+  /* Border radius — sharpest */
+  --border-radius-small: 2px;
+  --border-radius-medium: 4px;
+  --border-radius-big: 8px;
+
+  /* Scrim — rust to match terracotta primary */
+  --app-scrim-color: rgba(120, 50, 20, 0.78);
+}
+
+/* Editorial — Espresso: sophisticated, neutral-warm, softest radius */
+:root.editorial-espresso {
+  /* Primary — deep brown */
+  --primary-color: #3d2a1e;
+  --primary-hover-color: #2a1c12;
+  --primary-selected-color: #f0e8e0;
+  --primary-selected-hover-color: #e2d4c8;
+  --primary-highlighted-color: #faf7f4;
+
+  /* Surfaces — parchment */
+  --primary-surface-color: #f7f3ef;
+  --secondary-background-color: #f7f3ef;
+  --allgrey-background-color: #f7f3ef;
+  --grey-background-color: #f7f3ef;
+  --ui-background-color: #ede4da;
+  --ui-background-hover-color: #e0d0c0;
+
+  /* Borders */
+  --layout-border-color: #e2d8cf;
+  --ui-border-color: #cfc4b8;
+
+  /* Text & icons */
+  --primary-text-color: #1c1309;
+  --secondary-text-color: #7c6f65;
+  --icon-color: #7c6f65;
+  --placeholder-color: #7c6f65;
+  --link-color: #3d2a1e;
+
+  /* Border radius — softest */
+  --border-radius-small: 8px;
+  --border-radius-medium: 14px;
+  --border-radius-big: 28px;
+
+  /* Scrim — deep espresso brown */
+  --app-scrim-color: rgba(45, 30, 22, 0.82);
+}
+
+/* Default theme — dark mode */
+:root.dark-app-theme:not(.slick):not(.glaze):not(.glaze-neue):not(.warmth):not(
+    .editorial-amber
+  ):not(.editorial-terracotta):not(.editorial-espresso) {
+  --primary-background-color: #2a3040;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.08);
+  --primary-background-hover-on-secondary-color: #484e60;
+  --primary-surface-color: #363d4e;
+  --secondary-background-color: #2e3444;
+  --allgrey-background-color: #2e3444;
+  --grey-background-color: #2a3040;
+  --dark-background-color: #363d4e;
+  --modal-background-color: #2a3040;
+  --dialog-background-color: #363d4e;
+  --disabled-background-color: #323848;
+  --label-background-color: #404858;
+  --inverted-color-background: #e6e9ef;
+  --primary-text-color: #d5d8e0;
+  --secondary-text-color: #8890a4;
+  --icon-color: #8890a4;
+  --placeholder-color: #525a6e;
+  --link-color: #6eb1ff;
+  --ui-background-color: #404858;
+  --ui-background-hover-color: #484e60;
+  --ui-border-color: #525a6e;
+  --layout-border-color: #484e60;
+  --primary-selected-color: #484e60;
+  --primary-selected-hover-color: #525a6e;
+  --primary-highlighted-color: #363d4e;
+}
+
+/* Default theme — black mode */
+:root.black-app-theme:not(.slick):not(.glaze):not(.glaze-neue):not(.warmth):not(
+    .editorial-amber
+  ):not(.editorial-terracotta):not(.editorial-espresso) {
+  --primary-background-color: #000000;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.05);
+  --primary-background-hover-on-secondary-color: #1a1e2a;
+  --primary-surface-color: #0c0f18;
+  --secondary-background-color: #060810;
+  --allgrey-background-color: #060810;
+  --grey-background-color: #000000;
+  --dark-background-color: #0c0f18;
+  --modal-background-color: #000000;
+  --dialog-background-color: #0c0f18;
+  --disabled-background-color: #141826;
+  --label-background-color: #1a1e2c;
+  --inverted-color-background: #e6e9ef;
+  --primary-text-color: #e0e2e8;
+  --secondary-text-color: #6e7688;
+  --icon-color: #6e7688;
+  --placeholder-color: #404858;
+  --link-color: #6eb1ff;
+  --ui-background-color: #141826;
+  --ui-background-hover-color: #1a1e2a;
+  --ui-border-color: #262c3a;
+  --layout-border-color: #1c2030;
+  --primary-selected-color: #121828;
+  --primary-selected-hover-color: #1a2234;
+  --primary-highlighted-color: #0a0e1a;
+}
+
+/* Glaze — dark mode */
+:root.glaze.dark-app-theme {
+  --primary-color: #d4d2ce;
+  --primary-hover-color: #f0eeea;
+  --text-color-on-primary: #1a1a19;
+  --text-color-on-inverted: #1a1a19;
+  --primary-background-color: #2a2a28;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.08);
+  --primary-background-hover-on-secondary-color: #363634;
+  --primary-surface-color: #363634;
+  --secondary-background-color: #2e2e2c;
+  --allgrey-background-color: #2e2e2c;
+  --grey-background-color: #2a2a28;
+  --dark-background-color: #363634;
+  --modal-background-color: #2a2a28;
+  --dialog-background-color: #323230;
+  --disabled-background-color: #323230;
+  --label-background-color: #363634;
+  --inverted-color-background: #e8e6e2;
+  --primary-text-color: #e4e2de;
+  --secondary-text-color: #9a9894;
+  --icon-color: #6e6c68;
+  --placeholder-color: #5a5854;
+  --link-color: #d4d2ce;
+  --ui-background-color: #3e3e3c;
+  --ui-background-hover-color: #464644;
+  --ui-border-color: #525250;
+  --layout-border-color: #4a4a48;
+  --primary-selected-color: #424240;
+  --primary-selected-hover-color: #4a4a48;
+  --primary-highlighted-color: #323230;
+}
+
+/* Glaze — black mode */
+:root.glaze.black-app-theme {
+  --primary-color: #e0deda;
+  --primary-hover-color: #f2f3f2;
+  --text-color-on-primary: #090908;
+  --text-color-on-inverted: #090908;
+  --primary-background-color: #090908;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-on-secondary-color: #121211;
+  --primary-surface-color: #111110;
+  --secondary-background-color: #0d0d0c;
+  --allgrey-background-color: #0b0b0a;
+  --grey-background-color: #090908;
+  --dark-background-color: #111110;
+  --modal-background-color: #090908;
+  --dialog-background-color: #10100f;
+  --disabled-background-color: #121211;
+  --label-background-color: #171716;
+  --inverted-color-background: #e8e6e2;
+  --primary-text-color: #eceae6;
+  --secondary-text-color: #8a8884;
+  --icon-color: #5e5c58;
+  --placeholder-color: #4a4844;
+  --link-color: #e0deda;
+  --ui-background-color: #121211;
+  --ui-background-hover-color: #171716;
+  --ui-border-color: #20201f;
+  --layout-border-color: #181817;
+  --primary-selected-color: #151514;
+  --primary-selected-hover-color: #1a1a19;
+  --primary-highlighted-color: #111110;
+}
+
+/* Warmth — dark mode */
+:root.warmth.dark-app-theme {
+  --positive-color: #2aad52;
+  --positive-color-hover: #35c060;
+  --negative-color: #e8003a;
+  --negative-color-hover: #f52050;
+  --primary-color: #7080ff;
+  --primary-hover-color: #8a9aff;
+  --text-color-on-primary: #1a1716;
+  --text-color-on-inverted: #1a1716;
+  --primary-surface-color: #383432;
+  --dark-background-color: #2c2826;
+  --grey-background-color: #2c2826;
+  --allgrey-background-color: #302c2a;
+  --primary-background-color: #2c2826;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.08);
+  --primary-background-hover-on-secondary-color: #363230;
+  --secondary-background-color: #302c2a;
+  --ui-background-color: #34302e;
+  --ui-background-hover-color: #3a3634;
+  --modal-background-color: #2c2826;
+  --dialog-background-color: #32302e;
+  --disabled-background-color: #302c2a;
+  --label-background-color: #3a3634;
+  --inverted-color-background: #ece4e2;
+  --primary-text-color: #ece4e2;
+  --secondary-text-color: #a89e9b;
+  --icon-color: #948a87;
+  --glaze-icon-color-primary: #a89e9b;
+  --glaze-icon-color-secondary: #948a87;
+  --icon-hover: #c4bab7;
+  --placeholder-color: #645a57;
+  --link-color: #8a9aff;
+  --ui-border-color: #5a5452;
+  --layout-border-color: #524c49;
+  --glaze-input-focus-border-color: #948a87;
+  --glaze-rail-selected-color: #484442;
+  --glaze-rail-selected-hover-color: #524e4c;
+  --primary-selected-color: #484442;
+  --primary-selected-hover-color: #524e4c;
+  --primary-highlighted-color: #32302e;
+}
+
+/* Warmth — black mode */
+:root.warmth.black-app-theme {
+  --positive-color: #35c060;
+  --positive-color-hover: #42d06e;
+  --negative-color: #f03050;
+  --negative-color-hover: #f85070;
+  --primary-color: #8b97ff;
+  --primary-hover-color: #a4b0ff;
+  --text-color-on-primary: #0a0807;
+  --text-color-on-inverted: #0a0807;
+  --primary-surface-color: #242220;
+  --dark-background-color: #060504;
+  --grey-background-color: #060504;
+  --allgrey-background-color: #0a0807;
+  --primary-background-color: #0f0d0c;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.07);
+  --primary-background-hover-on-secondary-color: #171514;
+  --secondary-background-color: #131110;
+  --ui-background-color: #171514;
+  --ui-background-hover-color: #1b1918;
+  --modal-background-color: #060504;
+  --dialog-background-color: #0a0807;
+  --disabled-background-color: #0c0a09;
+  --label-background-color: #1a1716;
+  --inverted-color-background: #efe7e5;
+  --primary-text-color: #efe7e5;
+  --secondary-text-color: #948a87;
+  --icon-color: #948a87;
+  --glaze-icon-color-primary: #948a87;
+  --glaze-icon-color-secondary: #948a87;
+  --icon-hover: #b4aaa7;
+  --placeholder-color: #4d4441;
+  --link-color: #a4b0ff;
+  --ui-border-color: #443e3b;
+  --layout-border-color: #383432;
+  --glaze-input-focus-border-color: #948a87;
+  --glaze-rail-selected-color: #302c2a;
+  --glaze-rail-selected-hover-color: #3a3634;
+  --primary-selected-color: #302c2a;
+  --primary-selected-hover-color: #3a3634;
+  --primary-highlighted-color: #0a0807;
+}
+
+/* Glaze Neue — dark mode */
+:root.glaze-neue.dark-app-theme {
+  --primary-color: #6e8eff;
+  --primary-hover-color: #8aa3ff;
+  --text-color-on-primary: #1a1716;
+  --text-color-on-inverted: #1a1716;
+  --primary-background-color: #2a2a28;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.08);
+  --primary-background-hover-on-secondary-color: #363634;
+  --primary-surface-color: #363634;
+  --secondary-background-color: #2e2e2c;
+  --allgrey-background-color: #2e2e2c;
+  --grey-background-color: #2a2a28;
+  --dark-background-color: #363634;
+  --modal-background-color: #2a2a28;
+  --dialog-background-color: #323230;
+  --disabled-background-color: #323230;
+  --label-background-color: #363634;
+  --inverted-color-background: #e8e6e2;
+  --primary-text-color: #e4e2de;
+  --secondary-text-color: #9a9894;
+  --icon-color: #6e6c68;
+  --glaze-icon-color-primary: #9a9894;
+  --glaze-icon-color-secondary: #6e6c68;
+  --icon-hover: #9a9894;
+  --placeholder-color: #5a5854;
+  --link-color: #8aa3ff;
+  --ui-background-color: #3e3e3c;
+  --ui-background-hover-color: #464644;
+  --ui-border-color: #525250;
+  --layout-border-color: #4a4a48;
+  --glaze-input-focus-border-color: #6e6c68;
+  --glaze-rail-selected-color: #424240;
+  --glaze-rail-selected-hover-color: #4a4a48;
+  --primary-selected-color: #424240;
+  --primary-selected-hover-color: #4a4a48;
+  --primary-highlighted-color: #323230;
+}
+
+/* Glaze Neue — black mode */
+:root.glaze-neue.black-app-theme {
+  --primary-color: #8aa3ff;
+  --primary-hover-color: #a6b8ff;
+  --text-color-on-primary: #090908;
+  --text-color-on-inverted: #090908;
+  --primary-background-color: #090908;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-on-secondary-color: #121211;
+  --primary-surface-color: #111110;
+  --secondary-background-color: #0d0d0c;
+  --allgrey-background-color: #0b0b0a;
+  --grey-background-color: #090908;
+  --dark-background-color: #111110;
+  --modal-background-color: #090908;
+  --dialog-background-color: #10100f;
+  --disabled-background-color: #121211;
+  --label-background-color: #171716;
+  --inverted-color-background: #e8e6e2;
+  --primary-text-color: #eceae6;
+  --secondary-text-color: #8a8884;
+  --icon-color: #5e5c58;
+  --glaze-icon-color-primary: #8a8884;
+  --glaze-icon-color-secondary: #5e5c58;
+  --icon-hover: #8a8884;
+  --placeholder-color: #4a4844;
+  --link-color: #a6b8ff;
+  --ui-background-color: #121211;
+  --ui-background-hover-color: #171716;
+  --ui-border-color: #20201f;
+  --layout-border-color: #181817;
+  --glaze-input-focus-border-color: #5e5c58;
+  --glaze-rail-selected-color: #1c1816;
+  --glaze-rail-selected-hover-color: #221d1b;
+  --primary-selected-color: #161830;
+  --primary-selected-hover-color: #1c1f3a;
+  --primary-highlighted-color: #111110;
+}
+
+/* Slick — dark mode */
+:root.slick.dark-app-theme {
+  --primary-color: #c0c0c8;
+  --primary-hover-color: #d0d0d8;
+  --text-color-on-primary: #1d1d1f;
+  --text-color-on-inverted: #1d1d1f;
+  --primary-background-color: #252528;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.06);
+  --primary-background-hover-on-secondary-color: #4a4a54;
+  --primary-surface-color: #303036;
+  --secondary-background-color: #2c2c32;
+  --allgrey-background-color: #2c2c32;
+  --grey-background-color: #252528;
+  --dark-background-color: #303036;
+  --modal-background-color: #252528;
+  --dialog-background-color: #303036;
+  --disabled-background-color: #32323c;
+  --label-background-color: #3a3a46;
+  --inverted-color-background: #e8e8ed;
+  --primary-text-color: #d5d5d8;
+  --secondary-text-color: #9090a0;
+  --icon-color: #9090a0;
+  --placeholder-color: #5a5a68;
+  --link-color: #9a9aa2;
+  --ui-background-color: #3e3e46;
+  --ui-background-hover-color: #4a4a54;
+  --ui-border-color: #52525e;
+  --layout-border-color: #42424e;
+  --primary-selected-color: #32323c;
+  --primary-selected-hover-color: #3a3a46;
+  --primary-highlighted-color: #2c2c34;
+}
+
+/* Slick — black mode */
+:root.slick.black-app-theme {
+  --primary-color: #c8c8d0;
+  --primary-hover-color: #d8d8e0;
+  --text-color-on-primary: #1d1d1f;
+  --text-color-on-inverted: #1d1d1f;
+  --primary-background-color: #000000;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.05);
+  --primary-background-hover-on-secondary-color: #242428;
+  --primary-surface-color: #111113;
+  --secondary-background-color: #0d0d0f;
+  --allgrey-background-color: #0d0d0f;
+  --grey-background-color: #000000;
+  --dark-background-color: #111113;
+  --modal-background-color: #000000;
+  --dialog-background-color: #111113;
+  --disabled-background-color: #1a1a1e;
+  --label-background-color: #222226;
+  --inverted-color-background: #e8e8ed;
+  --primary-text-color: #e0e0e3;
+  --secondary-text-color: #737380;
+  --icon-color: #737380;
+  --placeholder-color: #4a4a56;
+  --link-color: #909098;
+  --ui-background-color: #1c1c20;
+  --ui-background-hover-color: #242428;
+  --ui-border-color: #303036;
+  --layout-border-color: #222226;
+  --primary-selected-color: #1e1e26;
+  --primary-selected-hover-color: #242430;
+  --primary-highlighted-color: #18181c;
+}
+
+/* Amber — dark mode */
+:root.editorial-amber.dark-app-theme {
+  --primary-color: #c97c30;
+  --primary-hover-color: #d98f48;
+  --text-color-on-inverted: #1c1309;
+  --primary-background-color: #231f18;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.05);
+  --primary-background-hover-on-secondary-color: #463c2e;
+  --primary-surface-color: #2e2820;
+  --secondary-background-color: #231f18;
+  --allgrey-background-color: #28221a;
+  --grey-background-color: #231f18;
+  --dark-background-color: #2e2820;
+  --modal-background-color: #231f18;
+  --dialog-background-color: #2e2820;
+  --disabled-background-color: #342c22;
+  --label-background-color: #3c3228;
+  --inverted-color-background: #fdf8f0;
+  --primary-text-color: #ead6b8;
+  --secondary-text-color: #a08868;
+  --icon-color: #a08868;
+  --placeholder-color: #6a5840;
+  --link-color: #c97c30;
+  --ui-background-color: #3c3228;
+  --ui-background-hover-color: #463c2e;
+  --ui-border-color: #564535;
+  --layout-border-color: #46382a;
+  --primary-selected-color: #362c20;
+  --primary-selected-hover-color: #40342a;
+  --primary-highlighted-color: #2a2318;
+}
+
+/* Amber — black mode */
+:root.editorial-amber.black-app-theme {
+  --primary-color: #d4924a;
+  --primary-hover-color: #e0a860;
+  --text-color-on-inverted: #1c1309;
+  --primary-background-color: #110e09;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-on-secondary-color: #2a221a;
+  --primary-surface-color: #181410;
+  --secondary-background-color: #110e09;
+  --allgrey-background-color: #14110c;
+  --grey-background-color: #110e09;
+  --dark-background-color: #181410;
+  --modal-background-color: #110e09;
+  --dialog-background-color: #181410;
+  --disabled-background-color: #1e1810;
+  --label-background-color: #221c16;
+  --inverted-color-background: #fdf8f0;
+  --primary-text-color: #f0e4d0;
+  --secondary-text-color: #847060;
+  --icon-color: #847060;
+  --placeholder-color: #584838;
+  --link-color: #d4924a;
+  --ui-background-color: #221c16;
+  --ui-background-hover-color: #2a221a;
+  --ui-border-color: #382e24;
+  --layout-border-color: #2c2420;
+  --primary-selected-color: #201810;
+  --primary-selected-hover-color: #281e16;
+  --primary-highlighted-color: #1a1510;
+}
+
+/* Terracotta — dark mode */
+:root.editorial-terracotta.dark-app-theme {
+  --primary-color: #ea580c;
+  --primary-hover-color: #f97316;
+  --text-color-on-inverted: #1c0e08;
+  --primary-background-color: #211810;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.05);
+  --primary-background-hover-on-secondary-color: #42301e;
+  --primary-surface-color: #2a2018;
+  --secondary-background-color: #211810;
+  --allgrey-background-color: #261c14;
+  --grey-background-color: #211810;
+  --dark-background-color: #2a2018;
+  --modal-background-color: #211810;
+  --dialog-background-color: #2a2018;
+  --disabled-background-color: #302018;
+  --label-background-color: #382818;
+  --inverted-color-background: #fdf4ef;
+  --primary-text-color: #ead4c4;
+  --secondary-text-color: #9c8070;
+  --icon-color: #9c8070;
+  --placeholder-color: #685040;
+  --link-color: #ea580c;
+  --ui-background-color: #382818;
+  --ui-background-hover-color: #42301e;
+  --ui-border-color: #523c28;
+  --layout-border-color: #443020;
+  --primary-selected-color: #342418;
+  --primary-selected-hover-color: #3e2e20;
+  --primary-highlighted-color: #271e14;
+}
+
+/* Terracotta — black mode */
+:root.editorial-terracotta.black-app-theme {
+  --primary-color: #f97316;
+  --primary-hover-color: #fb923c;
+  --text-color-on-inverted: #1c0e08;
+  --primary-background-color: #100c07;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-on-secondary-color: #231a12;
+  --primary-surface-color: #151009;
+  --secondary-background-color: #100c07;
+  --allgrey-background-color: #130e08;
+  --grey-background-color: #100c07;
+  --dark-background-color: #151009;
+  --modal-background-color: #100c07;
+  --dialog-background-color: #151009;
+  --disabled-background-color: #1a1208;
+  --label-background-color: #1c1510;
+  --inverted-color-background: #fdf4ef;
+  --primary-text-color: #f0d8c8;
+  --secondary-text-color: #8a6e60;
+  --icon-color: #8a6e60;
+  --placeholder-color: #564030;
+  --link-color: #f97316;
+  --ui-background-color: #1c1510;
+  --ui-background-hover-color: #231a12;
+  --ui-border-color: #30221a;
+  --layout-border-color: #261c14;
+  --primary-selected-color: #1c1210;
+  --primary-selected-hover-color: #241816;
+  --primary-highlighted-color: #16100c;
+}
+
+/* Espresso — dark mode */
+:root.editorial-espresso.dark-app-theme {
+  --primary-color: #c4a882;
+  --primary-hover-color: #d4b896;
+  --text-color-on-primary: #1c1309;
+  --text-color-on-inverted: #1c1309;
+  --primary-background-color: #1c1610;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.05);
+  --primary-background-hover-on-secondary-color: #3a2e20;
+  --primary-surface-color: #241e18;
+  --secondary-background-color: #1c1610;
+  --allgrey-background-color: #201a14;
+  --grey-background-color: #1c1610;
+  --dark-background-color: #241e18;
+  --modal-background-color: #1c1610;
+  --dialog-background-color: #241e18;
+  --disabled-background-color: #2a2218;
+  --label-background-color: #302618;
+  --inverted-color-background: #f7f3ef;
+  --primary-text-color: #e2d5c8;
+  --secondary-text-color: #9a8878;
+  --icon-color: #9a8878;
+  --placeholder-color: #645448;
+  --link-color: #c4a882;
+  --ui-background-color: #302618;
+  --ui-background-hover-color: #3a2e20;
+  --ui-border-color: #4a3c2a;
+  --layout-border-color: #3c2e20;
+  --primary-selected-color: #2c2218;
+  --primary-selected-hover-color: #382c20;
+  --primary-highlighted-color: #221a12;
+}
+
+/* Espresso — black mode */
+:root.editorial-espresso.black-app-theme {
+  --primary-color: #d4b896;
+  --primary-hover-color: #e0c8a8;
+  --text-color-on-primary: #1c1309;
+  --text-color-on-inverted: #1c1309;
+  --primary-background-color: #0e0b08;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.04);
+  --primary-background-hover-on-secondary-color: #221a12;
+  --primary-surface-color: #141009;
+  --secondary-background-color: #0e0b08;
+  --allgrey-background-color: #110d08;
+  --grey-background-color: #0e0b08;
+  --dark-background-color: #141009;
+  --modal-background-color: #0e0b08;
+  --dialog-background-color: #141009;
+  --disabled-background-color: #181210;
+  --label-background-color: #1c1610;
+  --inverted-color-background: #f7f3ef;
+  --primary-text-color: #ede0d2;
+  --secondary-text-color: #887868;
+  --icon-color: #887868;
+  --placeholder-color: #504038;
+  --link-color: #d4b896;
+  --ui-background-color: #1c1610;
+  --ui-background-hover-color: #221a12;
+  --ui-border-color: #302418;
+  --layout-border-color: #261c14;
+  --primary-selected-color: #181210;
+  --primary-selected-hover-color: #201816;
+  --primary-highlighted-color: #150f0a;
+}

@@ -1,0 +1,106 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  padding: var(--space-32) var(--space-40);
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionTitle {
+  display: block;
+  margin-bottom: var(--space-16);
+}
+
+.upcomingStrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-12);
+}
+
+.upcomingCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  border: 1px solid var(--ui-border-color);
+  border-radius: var(--border-radius-medium);
+  background: var(--primary-background-color);
+}
+
+.nextBadge {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--border-radius-small);
+  background: var(--positive-color);
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cardTime {
+  display: block;
+}
+
+.inviteBtn {
+  margin-top: var(--space-4);
+  width: 100%;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16) 0 var(--space-12);
+  gap: var(--space-16);
+}
+
+.filterSearch {
+  width: 240px;
+}
+
+.meetingTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  text-align: left;
+  padding: var(--space-8) var(--space-12);
+  border-bottom: 1px solid var(--ui-border-color);
+}
+
+.tr {
+  cursor: pointer;
+  transition: background 0.1s ease;
+
+  &:hover {
+    background: var(--primary-background-hover-color);
+  }
+}
+
+.td {
+  padding: var(--space-12);
+  border-bottom: 1px solid var(--ui-border-color);
+  vertical-align: middle;
+}
+
+.recordingDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--positive-color);
+  flex-shrink: 0;
+}
+
+.upcomingTabContent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+}

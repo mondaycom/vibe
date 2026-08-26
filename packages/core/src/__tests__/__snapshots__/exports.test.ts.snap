@@ -75,6 +75,7 @@ exports[`exports > should export all components 1`] = `
   "NumberField",
   "RadioButton",
   "Search",
+  "SegmentedControl",
   "Skeleton",
   "Slider",
   "SplitButton",

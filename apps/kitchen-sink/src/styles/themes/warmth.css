@@ -1,0 +1,241 @@
+/*
+ * Warmth theme — token overrides for the kitchen sink.
+ *
+ * A port of mf-topbar/src/styles/themes/warmth.css. Values are copied verbatim
+ * from that file (itself sourced from Figma "Facelift — Vibe to Sense" → colors,
+ * node 684:115861) so the kitchen sink and mf-topbar render the same palette.
+ * Keep the two in sync; only the selectors differ.
+ *
+ * mf-topbar puts `.warmth` on <html> and relies on the host's light/dark/black
+ * class on <body>. The kitchen sink's AppThemeShell instead puts
+ * `facelift-<mode>-app-theme` on <body>, so the selectors are rewritten to match.
+ * They stay qualified with `body`: the style package defines
+ * `.facelift-*-app-theme` at the same one-class specificity, and in dev its CSS is
+ * injected after this file, so an unqualified selector would lose on source order.
+ *
+ * Only base tokens are set for light mode. Dark/black set explicit --surface-*
+ * overrides: 8% semantic tint on solid fill (--primary-background-color).
+ */
+
+/* ============================== LIGHT ============================== */
+/*
+ * Surface / border / hover overrides from Figma
+ * Facelift — Vibe to Sense → colors (684:115861)
+ * https://www.figma.com/design/KjthywmxSm5hyCSa1Ln4tA/Facelift---Vibe-to-Sense?node-id=684-115861
+ */
+body.facelift-light-app-theme {
+  --boards-font-family: 'DM Sans', system-ui, 'Figtree', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family: var(--boards-font-family);
+  --title-font-family: var(--boards-font-family);
+
+  /* Primary — vibrant blue-indigo */
+  --primary-color: #3543fc;
+  --primary-hover-color: #2434e8;
+
+  /* Semantic */
+  --positive-color: #166d30;
+  --positive-color-hover: #1a7e38;
+  --negative-color: #cd0026;
+  --negative-color-hover: #b50020;
+  --primary-selected-color: #eeeceb;
+  --primary-selected-hover-color: #e8e6e6;
+  --primary-highlighted-color: #f6f4f1;
+
+  /* Surfaces — Figma light overrides */
+  --primary-background-color: #fffefc; /* surface color (card) */
+  --primary-background-hover-color: #eeeceb; /* hover/active color */
+  --primary-background-hover-on-secondary-color: #e8e6e6; /* hover/active on surface */
+  --primary-surface-color: #f6f4f1; /* layout surface color */
+  --secondary-background-color: #fffefc; /* surface color (card) */
+  --allgrey-background-color: #f6f4f1;
+  --grey-background-color: #f6f4f1;
+  --ui-background-color: #ece8e3; /* ui background color */
+  --ui-background-hover-color: #e8e6e6;
+  --dark-background-color: #f6f4f1;
+  --modal-background-color: #fffefc;
+  --dialog-background-color: #fffefc;
+  --disabled-background-color: #eeeceb;
+  --label-background-color: #f6f4f1;
+
+  /* Borders — Figma light overrides */
+  --layout-border-color: #edeaea; /* layout border color */
+  --ui-border-color: #dcd6d8; /* ui border color */
+  --glaze-input-focus-border-color: #dad8da; /* ui border color 2 */
+
+  /* Text & icons — warm charcoal + brown-grey */
+  --primary-text-color: #323338;
+  --secondary-text-color: #5d5552;
+  --icon-color: #b5acaa;
+  --glaze-icon-color-primary: #635c5a;
+  --glaze-icon-color-secondary: #b5acaa;
+  --icon-hover: #574f4d;
+  --placeholder-color: #a89e9b;
+  --link-color: #3543fc;
+  --text-color-on-primary: #ffffff;
+  --text-color-on-inverted: #ffffff;
+  --inverted-color-background: #323338;
+
+  /* Radius — matches Glaze */
+  --glaze-radius-control: 8px;
+  --border-radius-small: var(--glaze-radius-control);
+  --border-radius-medium: var(--glaze-radius-control);
+  --border-radius-big: 14px;
+
+  /* Shared Glaze tokens — warm-shifted rail selection, identical shadows/brand */
+  --glaze-rail-selected-color: #e6e1de;
+  --glaze-rail-selected-hover-color: #ddd7d3;
+  --glaze-layout-gap: var(--space-8);
+  --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --glaze-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --glaze-border-hairline: rgba(0, 0, 0, 0.04);
+  --glaze-brand-done: #00ca72;
+  --glaze-brand-working: #fdab3d;
+  --glaze-brand-stuck: #df2f4a;
+  --glaze-brand-bright-blue: #579bfc;
+  --glaze-brand-dark-blue: #007eb5;
+  --glaze-brand-dark-purple: #784bd1;
+  --glaze-brand-purple: #9d50dd;
+  --glaze-brand-lipstick: #ff5ac4;
+  --glaze-brand-sunset: #ff7575;
+  --glaze-brand-dark-orange: #ff6d3b;
+  --glaze-brand-egg-yolk: #ffcb00;
+  --glaze-brand-private: #f65f7c;
+
+  /* Scrim — neutral charcoal with a faint warm tint */
+  --app-scrim-color: rgba(58, 52, 49, 0.55);
+
+  /* RGB companions (for rgba() usage) */
+  --primary-selected-color-rgb: 238, 236, 235;
+  --primary-background-color-rgb: 255, 254, 252;
+  --secondary-background-color-rgb: 255, 254, 252;
+}
+
+/* ============================== DARK ================================ */
+body.facelift-dark-app-theme {
+  --positive-color: #2aad52;
+  --positive-color-hover: #35c060;
+  --negative-color: #e8003a;
+  --negative-color-hover: #f52050;
+  --primary-color: #7080ff;
+  --primary-hover-color: #8a9aff;
+  --text-color-on-primary: #1a1716;
+  --text-color-on-inverted: #1a1716;
+
+  /* Surfaces — platform-style dark grey (lighter base, elevated layers) */
+  --primary-surface-color: #383432;
+  --dark-background-color: #2c2826;
+  --grey-background-color: #2c2826;
+  --allgrey-background-color: #2e2a28;
+  --primary-background-color: #2c2826;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.08);
+  --primary-background-hover-on-secondary-color: #363230;
+  --secondary-background-color: #302c2a;
+  --ui-background-color: #34302e;
+  --ui-background-hover-color: #3a3634;
+  --modal-background-color: #2c2826;
+  --dialog-background-color: #32302e;
+  --disabled-background-color: #302c2a;
+  --label-background-color: #3a3634;
+  --inverted-color-background: #ece4e2;
+  --primary-text-color: #ece4e2;
+  --secondary-text-color: #a89e9b;
+  --icon-color: #948a87;
+  --glaze-icon-color-primary: #a89e9b;
+  --glaze-icon-color-secondary: #948a87;
+  --icon-hover: #c4bab7;
+  --placeholder-color: #645a57;
+  --link-color: #8a9aff;
+  --ui-border-color: #5a5452;
+  --layout-border-color: #524c49;
+  --glaze-input-focus-border-color: #948a87;
+  --glaze-rail-selected-color: #484442;
+  --glaze-rail-selected-hover-color: #524e4c;
+  --primary-selected-color: #484442;
+  --primary-selected-hover-color: #524e4c;
+  --primary-highlighted-color: #32302e;
+
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
+
+  /* RGB companions */
+  --primary-selected-color-rgb: 72, 68, 66;
+  --primary-background-color-rgb: 44, 40, 38;
+  --secondary-background-color-rgb: 48, 44, 42;
+}
+
+/* ============================== BLACK ================================ */
+body.facelift-black-app-theme {
+  --positive-color: #35c060;
+  --positive-color-hover: #42d06e;
+  --negative-color: #f03050;
+  --negative-color-hover: #f85070;
+  --primary-color: #8b97ff;
+  --primary-hover-color: #a4b0ff;
+  --text-color-on-primary: #0a0807;
+  --text-color-on-inverted: #0a0807;
+
+  /* Surfaces — dark base → lighter surface → lightest secondary */
+  --primary-surface-color: #242220;
+  --dark-background-color: #060504;
+  --grey-background-color: #060504;
+  --allgrey-background-color: #0a0807;
+  --primary-background-color: #0f0d0c;
+  --primary-background-hover-color: rgba(255, 255, 255, 0.07);
+  --primary-background-hover-on-secondary-color: #171514;
+  --secondary-background-color: #131110;
+  --ui-background-color: #171514;
+  --ui-background-hover-color: #1b1918;
+  --modal-background-color: #060504;
+  --dialog-background-color: #0a0807;
+  --disabled-background-color: #0c0a09;
+  --label-background-color: #1a1716;
+  --inverted-color-background: #efe7e5;
+  --primary-text-color: #efe7e5;
+  --secondary-text-color: #948a87;
+  --icon-color: #948a87;
+  --glaze-icon-color-primary: #948a87;
+  --glaze-icon-color-secondary: #948a87;
+  --icon-hover: #b4aaa7;
+  --placeholder-color: #4d4441;
+  --link-color: #a4b0ff;
+  --ui-border-color: #443e3b;
+  --layout-border-color: #383432;
+  --glaze-input-focus-border-color: #948a87;
+  --glaze-rail-selected-color: #302c2a;
+  --glaze-rail-selected-hover-color: #3a3634;
+  --primary-selected-color: #302c2a;
+  --primary-selected-hover-color: #3a3634;
+  --primary-highlighted-color: #0a0807;
+
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
+
+  /* RGB companions */
+  --primary-selected-color-rgb: 48, 44, 42;
+  --primary-background-color-rgb: 15, 13, 12;
+  --secondary-background-color-rgb: 19, 17, 16;
+}
+

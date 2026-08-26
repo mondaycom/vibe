@@ -183,7 +183,7 @@ const MenuButton = forwardRef(
       dialogOffset = MOVE_BY,
       dialogPosition = Dialog.positions.BOTTOM_START,
       dialogClassName,
-      dialogPaddingSize = DialogContentContainer.sizes.SMALL,
+      dialogPaddingSize = DialogContentContainer.sizes.NONE,
       dialogShowTriggerIgnoreClass,
       dialogHideTriggerIgnoreClass,
       onMenuHide = NOOP,

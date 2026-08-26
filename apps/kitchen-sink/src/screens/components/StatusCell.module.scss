@@ -1,0 +1,31 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity var(--motion-productive-medium)
+    var(--motion-timing-transition);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}

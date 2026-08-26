@@ -1,4 +1,5 @@
 .icon {
-  color: var(--primary-text-color);
+  /* Track the attention box's text colour rather than pinning it. */
+  color: currentColor;
   flex-shrink: 0;
 }

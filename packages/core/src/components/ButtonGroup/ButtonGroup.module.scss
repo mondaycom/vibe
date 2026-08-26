@@ -20,35 +20,32 @@
   }
 
   .button {
-    border-style: solid;
-    border-width: 1px 0;
+    border-style: var(--border-style);
+    border-width: var(--border-width) 0;
     background-color: var(--primary-background-color);
-    border-color: var(--ui-border-color);
+    border-color: var(--layout-border-color);
 
-    // &:first-of-type {
-    //   border-inline-start-width: 1px;
-    // }
-
-    // &:last-of-type {
-    //   border-inline-end-width: 1px;
-    // }
-
-    &.activeButton {
-      background-color: var(--primary-selected-color);
+    &.activeButton:not(.disabled) {
+      background-color: var(--primary-color);
+      color: var(--text-color-on-primary);
       border-color: var(--primary-color);
-      border-inline-start-width: 1px;
-      border-inline-end-width: 1px;
+      border-inline-width: var(--border-width);
 
-      &:hover {
-        background-color: var(--primary-selected-color);
+      &:hover:not(.disabled) {
+        background-color: var(--primary-hover-color);
+        border-color: var(--primary-hover-color);
       }
     }
 
     &.disabled,
     &.buttonDisabled {
       background-color: var(--disabled-background-color);
-      opacity: 0.5;
+      color: var(--disabled-text-color);
       cursor: not-allowed;
+
+      &:hover {
+        background-color: var(--disabled-background-color);
+      }
     }
 
     &.startBorder {

@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Syne:wght@600;700&display=swap");
+
+.root {
+  --vibe-app-bg: #edf3ed;
+  --vibe-app-primary: #2d6a4f;
+  --vibe-app-primary-light: #7aa193;
+  --vibe-app-text: #163326;
+  --vibe-app-text-secondary: #5f7866;
+  --vibe-app-glass-border: rgba(255, 255, 255, 0.55);
+  --vibe-app-shadow: 0 8px 24px rgba(45, 106, 79, 0.1);
+  --vibe-app-shadow-soft: 0 8px 12px rgba(45, 106, 79, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 680px;
+  overflow: hidden;
+  border-radius: var(--border-radius-medium);
+  background-color: #ffffff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 60px;
+  padding-inline: 32px;
+  border-bottom: 1px solid var(--vibe-app-glass-border);
+  background: rgba(237, 243, 237, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-shrink: 0;
+}
+
+.brandMark {
+  width: 22px;
+  height: 22px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2d6a4f 14.645%, #96b4a7 85.355%);
+}
+
+.brandName {
+  font-family: "Syne", var(--boards-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.28px;
+  color: var(--vibe-app-text);
+}
+
+.navLinks {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 28px;
+  min-width: 0;
+  padding-left: 32px;
+  overflow: hidden;
+}
+
+.navLink {
+  flex-shrink: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 12px;
+  color: var(--vibe-app-text-secondary);
+  white-space: nowrap;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-shrink: 0;
+}
+
+.navButtonSecondary,
+.navButtonPrimary,
+.heroCtaPrimary,
+.heroCtaSecondary {
+  border: 1px solid var(--vibe-app-glass-border);
+  cursor: pointer;
+  font-family: "Playfair Display", serif;
+  white-space: nowrap;
+}
+
+.navButtonSecondary {
+  height: 34px;
+  padding-inline: 14px;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: var(--vibe-app-shadow-soft);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vibe-app-text-secondary);
+}
+
+.navButtonPrimary {
+  height: 34px;
+  padding-inline: 14px;
+  border-radius: 12px;
+  background-color: var(--vibe-app-primary);
+  box-shadow: var(--vibe-app-shadow);
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 48px 64px;
+  background-color: var(--vibe-app-bg);
+  text-align: center;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 90% 72% at 50% 83%,
+    rgba(45, 106, 79, 0.14) 0%,
+    transparent 60%
+  );
+}
+
+.heroBadge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: 5px 12px 5px 5px;
+  border: 1px solid var(--vibe-app-glass-border);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--vibe-app-shadow);
+}
+
+.badgeNew {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background-color: var(--vibe-app-primary);
+  font-family: "Playfair Display", serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.badgeText {
+  font-family: "Playfair Display", serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--vibe-app-text-secondary);
+}
+
+.heroTitle {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  max-width: 920px;
+  font-family: "Syne", var(--boards-font-family);
+  font-size: clamp(40px, 5.5vw, 80px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--vibe-app-text);
+}
+
+.heroTitleLine {
+  display: block;
+}
+
+.heroTitleAccent {
+  background: linear-gradient(160.89deg, #2d6a4f 13.4%, #7aa193 86.6%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  max-width: 580px;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--vibe-app-text-secondary);
+}
+
+.heroActions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-8);
+  margin-top: 22px;
+}
+
+.heroCtaPrimary {
+  height: 46px;
+  padding-inline: 22px;
+  border-radius: 12px;
+  background-color: var(--vibe-app-primary);
+  box-shadow: var(--vibe-app-shadow);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.heroCtaSecondary {
+  height: 46px;
+  padding-inline: 22px;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: var(--vibe-app-shadow-soft);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vibe-app-text-secondary);
+}
+
+.heroNote {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  font-family: "Playfair Display", serif;
+  font-size: 11px;
+  color: var(--vibe-app-text-secondary);
+  opacity: 0.67;
+}

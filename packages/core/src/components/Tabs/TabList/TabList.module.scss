@@ -1,22 +1,62 @@
 @import "../../../styles/typography";
 
+/* Tokens — remove once design system Sense motion tokens are live */
+/* Pattern: slide-transition · Tokens: position · ease-transition · duration-long-250 */
+.tabsWrapper {
+  position: relative;
+  --duration-long-250: 250ms;
+  --duration-short-70: 70ms;
+  --ease-transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-linear: linear;
+}
+
 .tabsWrapper .tabsList {
   display: flex;
   flex-direction: row;
   list-style-type: none;
   font-size: 0;
   position: relative;
-  height: 40px;
+  /* Medium: 32px button + 2px gap + 2px selected underline */
+  height: 36px;
   outline: none;
   padding: 0;
 }
 
+.tabsWrapper .selectedIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 1px;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition:
+    left var(--duration-long-250) var(--ease-transition),
+    width var(--duration-long-250) var(--ease-transition),
+    opacity var(--duration-short-70) var(--ease-linear);
+}
+
+.tabsWrapper .selectedIndicator.visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabsWrapper .selectedIndicator {
+    transition: opacity var(--duration-short-70) var(--ease-linear);
+  }
+}
+
 .tabsWrapper .tabsList.sm {
+  /* Small: 28px button + 2px gap + 2px underline */
   height: 32px;
 }
 
 .tabsWrapper .tabsList.lg {
-  height: 48px;
+  /* Large: 36px button + 2px gap + 2px underline */
+  height: 40px;
 }
 
 .tabsWrapper.stretched .tabsList {
@@ -39,5 +79,5 @@
 }
 
 .tabsWrapper.stretchedUnderline {
-  border-bottom: 2px solid var(--ui-background-color);
+  border-bottom: none;
 }

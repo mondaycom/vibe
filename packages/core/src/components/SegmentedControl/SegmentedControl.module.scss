@@ -1,0 +1,148 @@
+.segmentedControl {
+  --track-padding: var(--space-2);
+  --segment-radius: var(--border-radius-small);
+
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(var(--segment-count), 1fr);
+  gap: var(--space-2);
+  align-items: stretch;
+  padding: var(--track-padding);
+  background: var(--allgrey-background-color);
+  border-radius: calc(var(--segment-radius) + var(--track-padding));
+  isolation: isolate;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.thumb {
+  position: absolute;
+  z-index: 0;
+  inset-block: var(--track-padding);
+  inset-inline-start: var(--track-padding);
+  width: calc((100% - var(--track-padding) * 2) / var(--segment-count));
+  transform: translateX(calc(var(--selected-index) * 100%));
+  background: var(--primary-background-color);
+
+  border-radius: var(--segment-radius);
+  box-shadow: var(--box-shadow-xs), 0 0 3px 1px var(--ui-border-color);
+  transition: transform var(--motion-expressive-short) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.thumbHidden {
+  opacity: 0;
+}
+
+.segment {
+  position: relative;
+  z-index: 1;
+  gap: var(--space-4);
+  padding-inline: var(--space-12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--segment-radius);
+  color: var(--primary-text-color);
+  font: inherit;
+  white-space: nowrap;
+  transition: color var(--motion-productive-long) var(--motion-timing-transition),
+    background var(--motion-productive-short) var(--motion-timing-transition),
+    scale var(--motion-productive-short) var(--motion-timing-transition);
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    color: var(--primary-text-color);
+    background: color-mix(in srgb, currentColor 8%, transparent);
+  }
+
+  &:active {
+    color: var(--primary-text-color);
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    scale: 0.98;
+  }
+}
+
+.segment:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px;
+}
+
+.segment[aria-checked="true"] {
+  color: var(--primary-text-color);
+
+  &:hover,
+  &:active {
+    background: transparent;
+    scale: 1;
+  }
+}
+
+.segment[aria-disabled="true"] {
+  color: var(--disabled-text-color);
+  cursor: not-allowed;
+
+  &:hover,
+  &:active {
+    color: var(--disabled-text-color);
+    background: transparent;
+    scale: 1;
+  }
+}
+
+.segmentContent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.segmentIcon {
+  color: var(--icon-color);
+}
+
+.segment:hover .segmentIcon,
+.segment:active .segmentIcon,
+.segment[aria-checked="true"] .segmentIcon {
+  color: var(--primary-text-color);
+}
+
+.segment[aria-disabled="true"] .segmentIcon {
+  color: var(--disabled-text-color);
+}
+
+.sizeXs {
+  height: 24px;
+  font-size: 12px;
+}
+
+.sizeSmall {
+  height: 32px;
+  font-size: 14px;
+}
+
+.sizeMedium {
+  height: 40px;
+  font-size: 14px;
+}
+
+.sizeLarge {
+  height: 48px;
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb,
+  .segment {
+    transition: none;
+  }
+}

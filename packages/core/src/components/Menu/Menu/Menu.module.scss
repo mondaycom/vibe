@@ -2,8 +2,11 @@
 
 .menu {
   margin: unset;
-  padding: unset;
+  padding: 8px;
   position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .menu:focus {
@@ -11,13 +14,13 @@
 }
 
 .small {
-  width: 200px;
+  min-width: 200px;
 }
 
 .medium {
-  width: 220px;
+  min-width: 220px;
 }
 
 .large {
-  width: 240px;
+  min-width: 240px;
 }

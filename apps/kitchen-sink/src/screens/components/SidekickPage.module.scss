@@ -1,0 +1,217 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-48);
+  padding: var(--space-48) var(--space-48);
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-24);
+  width: 100%;
+  max-width: 720px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.heroGreeting {
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.heroQuestion {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--secondary-text-color);
+}
+
+/* Shell for StrokeSpotlight (animated stroke replaces static gradient border). */
+.composerShell {
+  width: 100%;
+}
+
+.composerWrap {
+  border-radius: 16px;
+  background: var(--primary-background-color);
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
+}
+
+.composerInput {
+  width: 100%;
+  min-height: 88px;
+  padding: var(--space-20) var(--space-20) var(--space-8);
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+
+  &::placeholder {
+    color: var(--secondary-text-color);
+  }
+}
+
+.composerFooter {
+  padding: var(--space-8) var(--space-12) var(--space-12);
+}
+
+.contextButton {
+  display: inline-flex;
+  align-items: center;
+  height: var(--space-32);
+  padding: 0 var(--space-8);
+  border: none;
+  border-radius: var(--border-radius-small);
+  background: transparent;
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+
+  &:hover {
+    background: var(--primary-background-hover-color);
+  }
+}
+
+.sendButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-32);
+  height: var(--space-32);
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--disabled-background-color);
+  color: var(--icon-color);
+  cursor: pointer;
+  transition:
+    background 0.1s ease,
+    color 0.1s ease;
+
+  &:hover {
+    background: var(--primary-color);
+    color: var(--text-color-on-primary);
+  }
+}
+
+/* Action shortcuts: colored circular icon badge with the label below. */
+.shortcutRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: 84px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover .shortcutCircle {
+    filter: brightness(0.96);
+  }
+}
+
+.shortcutCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--chip-bg, var(--primary-selected-color));
+  color: var(--primary-text-color);
+  transition: filter 0.1s ease;
+}
+
+.shortcutLabel {
+  text-align: center;
+  line-height: 1.3;
+}
+
+.cardsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+.sectionTitle {
+  text-align: center;
+}
+
+.starterGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-16);
+  width: 100%;
+}
+
+.starterCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-16);
+  min-height: 150px;
+  padding: var(--space-16);
+  border: 1px solid var(--ui-border-color);
+  border-radius: 12px;
+  background: var(--primary-background-color);
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.starterCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.starterTitle {
+  display: block;
+}
+
+.starterChip {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--border-radius-small);
+  background: var(--primary-selected-color);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}

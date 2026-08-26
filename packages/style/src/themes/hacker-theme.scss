@@ -5,6 +5,26 @@
   --primary-selected-hover-color: #0d2e65;
   --primary-highlighted-color: #0b2858;
   --primary-surface-color: #111111;
+  --info-color: #0073ea;
+  --info-color-selected: #cce4ff;
+  --info-color-selected-hover: #b8d9ff;
+  /* Semantic surfaces — the semantic's own colour at 8% over the theme background
+     (Facelift "surface colors"). Opaque, not translucent: a translucent surface
+     picks up whatever sits behind it, so nested surfaces compounded.
+     color-mix keeps them derived: each theme's --primary-color etc. flows straight
+     through, so facelift's indigo primary yields an indigo surface for free. */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--info-color) 8%, var(--primary-background-color));
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
 
   --primary-text-color: #d5d8df;
   --secondary-text-color: #9699a6;

@@ -1,0 +1,360 @@
+.productPage {
+  --app-accent: var(--primary-color);
+  --app-accent-soft: var(--primary-highlighted-color);
+
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: clamp(var(--space-16), 2vw, var(--space-32));
+  width: 100%;
+  min-height: 100%;
+  padding: clamp(var(--space-24), 4vw, var(--space-48))
+    clamp(var(--space-16), 4vw, var(--space-40));
+  color: var(--primary-text-color);
+  font-family: var(--boards-font-family);
+}
+
+.sidekick {
+  --app-accent: #6161ff;
+  --app-accent-soft: color-mix(in srgb, #6161ff 10%, transparent);
+}
+
+.agents {
+  --app-accent: #7f56d9;
+  --app-accent-soft: color-mix(in srgb, #7f56d9 12%, transparent);
+}
+
+.vibe {
+  --app-accent: #00a86b;
+  --app-accent-soft: color-mix(in srgb, #00a86b 12%, transparent);
+}
+
+.notetaker {
+  --app-accent: #0073ea;
+  --app-accent-soft: color-mix(in srgb, #0073ea 12%, transparent);
+}
+
+.utility {
+  --app-accent: var(--primary-color);
+  --app-accent-soft: var(--primary-highlighted-color);
+}
+
+.productHero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--space-16);
+  align-items: flex-start;
+  padding: clamp(var(--space-20), 3vw, var(--space-32));
+  border: var(--border-width) solid var(--layout-border-color);
+  border-radius: var(--border-radius-big);
+  background:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--app-accent) 14%, transparent),
+      transparent 30%
+    ),
+    var(--primary-background-color);
+  box-shadow: var(--box-shadow-xs);
+}
+
+.heroIcon,
+.templateIcon,
+.meetingIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--app-accent);
+  background: var(--app-accent-soft);
+}
+
+.heroIcon {
+  width: var(--space-48);
+  height: var(--space-48);
+  border-radius: var(--border-radius-medium);
+}
+
+.heroCopy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.eyebrow {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0;
+}
+
+.heroDescription {
+  max-width: 44rem;
+}
+
+.heroActions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.sidekickGrid,
+.builderLayout,
+.notetakerLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
+  gap: var(--space-20);
+  align-items: start;
+}
+
+.chatPanel,
+.contextPanel,
+.builderCard,
+.cardStack,
+.myAgents,
+.vibePrompt,
+.appGallery,
+.meetingsColumn,
+.summaryColumn,
+.utilityGrid {
+  border: var(--border-width) solid var(--layout-border-color);
+  border-radius: var(--border-radius-big);
+  background: var(--primary-background-color);
+  box-shadow: var(--box-shadow-xs);
+}
+
+.chatPanel,
+.builderCard,
+.vibePrompt {
+  display: flex;
+  min-height: 28rem;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding: clamp(var(--space-20), 3vw, var(--space-32));
+}
+
+.contextPanel,
+.cardStack,
+.myAgents,
+.appGallery,
+.meetingsColumn,
+.summaryColumn,
+.utilityGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-20);
+}
+
+.chatGreeting,
+.builderTitle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.composer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-12);
+  border: var(--border-width) solid var(--ui-border-color);
+  border-radius: var(--border-radius-big);
+  background: var(--secondary-background-color);
+}
+
+.composerInput {
+  min-height: 7rem;
+  width: 100%;
+  resize: vertical;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--primary-text-color);
+  font-family: var(--boards-font-family);
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  &::placeholder {
+    color: var(--placeholder-color);
+  }
+}
+
+.composerFooter {
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.promptRow {
+  flex-wrap: wrap;
+}
+
+.promptChip {
+  min-height: var(--space-32);
+  padding: 0 var(--space-12);
+  border: var(--border-width) solid var(--ui-border-color);
+  border-radius: 999px;
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-family: var(--boards-font-family);
+  font-size: 0.75rem;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--app-accent);
+    outline: none;
+  }
+}
+
+.chatTranscript {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-top: auto;
+}
+
+.userBubble,
+.assistantBubble {
+  max-width: 42rem;
+  padding: var(--space-16);
+  border-radius: var(--border-radius-big);
+}
+
+.userBubble {
+  align-self: flex-end;
+  background: var(--app-accent);
+  color: var(--fixed-light-color);
+}
+
+.assistantBubble {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-self: flex-start;
+  border: var(--border-width) solid var(--layout-border-color);
+  background: var(--primary-background-color);
+}
+
+.assistantHeader {
+  color: var(--app-accent);
+}
+
+.sectionHeader {
+  gap: var(--space-8);
+  min-height: var(--space-32);
+}
+
+.templateCard,
+.meetingCard,
+.agentRow {
+  display: flex;
+  gap: var(--space-12);
+  align-items: flex-start;
+  padding: var(--space-16);
+  border: var(--border-width) solid var(--layout-border-color);
+  border-radius: var(--border-radius-medium);
+  background: var(--primary-background-color);
+}
+
+.templateCard {
+  min-height: 6.5rem;
+}
+
+.templateIcon,
+.meetingIcon {
+  width: var(--space-40);
+  height: var(--space-40);
+  border-radius: var(--border-radius-medium);
+}
+
+.templateCopy,
+.meetingCopy {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--space-20);
+  padding: 0 var(--space-8);
+  border-radius: 999px;
+  background: var(--app-accent-soft);
+  color: var(--app-accent);
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+}
+
+.builderLayout {
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.7fr);
+}
+
+.agentConfigGrid,
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+.myAgents {
+  grid-column: 1 / -1;
+}
+
+.agentRow {
+  align-items: center;
+}
+
+.liveDot {
+  width: var(--space-8);
+  height: var(--space-8);
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--positive-color);
+}
+
+.vibeBuilder {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-20);
+  align-items: start;
+}
+
+.vibePrompt {
+  background:
+    radial-gradient(
+      circle at 90% 0,
+      color-mix(in srgb, var(--app-accent) 16%, transparent),
+      transparent 35%
+    ),
+    var(--primary-background-color);
+}
+
+.notetakerLayout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.meetingCard {
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .productHero,
+  .sidekickGrid,
+  .builderLayout,
+  .vibeBuilder,
+  .notetakerLayout,
+  .agentConfigGrid,
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroActions {
+    justify-content: flex-start;
+  }
+}

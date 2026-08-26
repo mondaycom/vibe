@@ -1,0 +1,76 @@
+.iconButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-small);
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.avatarButton {
+  border: none;
+  cursor: pointer;
+  background-color: var(--allgrey-background-color);
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  transition: transform 0.15s ease;
+}
+
+.avatarButtonHover:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.colorButton {
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  position: relative;
+  border-radius: 12px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.onboardButton {
+  border: none;
+  cursor: pointer;
+  background-color: #333;
+  transition: background-color 0.15s ease;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #222;
+  }
+  &:active {
+    background-color: #111;
+  }
+}
+
+@keyframes agentCursorBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.titleCursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background-color: var(--primary-text-color);
+  margin-left: 1px;
+  vertical-align: middle;
+  animation: agentCursorBlink 1s step-end infinite;
+}

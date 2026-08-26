@@ -44,6 +44,10 @@ exports[`TabList renders correctly > with activeTabId 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;
 
@@ -74,6 +78,10 @@ exports[`TabList renders correctly > with children 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;
 
@@ -104,6 +112,10 @@ exports[`TabList renders correctly > with className 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;
 
@@ -135,6 +147,10 @@ exports[`TabList renders correctly > with id 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;
 
@@ -182,6 +198,10 @@ exports[`TabList renders correctly > with size 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;
 
@@ -229,6 +249,10 @@ exports[`TabList renders correctly > with stretchedUnderline 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;
 
@@ -276,5 +300,9 @@ exports[`TabList renders correctly > with tabType 1`] = `
       </div>
     </li>
   </ul>
+  <span
+    aria-hidden={true}
+    className="selectedIndicator"
+  />
 </div>
 `;

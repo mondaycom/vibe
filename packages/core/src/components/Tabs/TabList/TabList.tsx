@@ -6,6 +6,7 @@ import React, {
   type ReactElement,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState
@@ -19,6 +20,8 @@ import { type TabProps } from "../Tab/Tab";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { getStyle } from "../../../helpers/typesciptCssModulesHelper";
 import styles from "./TabList.module.scss";
+
+const SELECTED_INDICATOR_INSET_PX = 4;
 
 export interface TabListProps extends VibeComponentProps {
   /**
@@ -69,8 +72,13 @@ const TabList: FC<TabListProps> = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRef(ref, componentRef);
     const tabRefs = useRef<Record<number, HTMLElement | null>>({});
+    const ulRef = useRef<HTMLUListElement>(null);
+    const indicatorRef = useRef<HTMLSpanElement>(null);
+    const indicatorReadyRef = useRef(false);
+    const lastGeometryRef = useRef<{ left: number; width: number } | null>(null);
 
     const [activeTabState, setActiveTabState] = useState<number>(activeTabId);
+    const [indicatorVisible, setIndicatorVisible] = useState(false);
 
     const prevActiveTabIdProp = usePrevious(activeTabId);
     const prevActiveTabState = usePrevious(activeTabState);
@@ -122,7 +130,6 @@ const TabList: FC<TabListProps> = forwardRef(
     );
     const getItemByIndex = useCallback((index: number): ReactElement<TabProps> => children[index], [children]);
     const disabledIndexes = useMemo(() => Array.from(disabledTabIds), [disabledTabIds]);
-    const ulRef = useRef();
     const { activeIndex: focusIndex, onSelectionAction } = useGridKeyboardNavigation({
       ref: ulRef,
       numberOfItemsInLine: children?.length,
@@ -140,6 +147,73 @@ const TabList: FC<TabListProps> = forwardRef(
         tabRefs.current[focusIndex]?.focus();
       }
     }, [focusIndex, prevFocusIndex]);
+
+    const updateSelectedIndicator = useCallback(
+      (animate: boolean) => {
+        const wrapper = componentRef.current as HTMLElement | null;
+        const indicator = indicatorRef.current;
+        const tab = tabRefs.current[activeTabState];
+        if (!wrapper || !indicator || !tab) return;
+
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const tabRect = tab.getBoundingClientRect();
+        const toLeft = tabRect.left - wrapperRect.left + wrapper.scrollLeft + SELECTED_INDICATOR_INSET_PX;
+        const toWidth = Math.max(0, tabRect.width - SELECTED_INDICATOR_INSET_PX * 2);
+
+        // A non-animated update that lands on the geometry we already applied would only
+        // cancel an in-flight glide. ResizeObserver.observe() always fires one such callback,
+        // so bail out unless the target actually moved.
+        const lastGeometry = lastGeometryRef.current;
+        if (!animate && lastGeometry && lastGeometry.left === toLeft && lastGeometry.width === toWidth) {
+          setIndicatorVisible(true);
+          return;
+        }
+        lastGeometryRef.current = { left: toLeft, width: toWidth };
+
+        const prefersReducedMotion =
+          typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const shouldAnimate = animate && indicatorReadyRef.current && !prefersReducedMotion;
+
+        if (!shouldAnimate) {
+          const previousTransition = indicator.style.transition;
+          indicator.style.transition = "none";
+          indicator.style.left = `${toLeft}px`;
+          indicator.style.width = `${toWidth}px`;
+          void indicator.offsetWidth;
+          indicator.style.transition = previousTransition;
+        } else {
+          indicator.style.left = `${toLeft}px`;
+          indicator.style.width = `${toWidth}px`;
+        }
+
+        indicatorReadyRef.current = true;
+        setIndicatorVisible(true);
+      },
+      [activeTabState]
+    );
+
+    // Lets the ResizeObserver stay subscribed across tab changes.
+    const updateSelectedIndicatorRef = useRef(updateSelectedIndicator);
+    updateSelectedIndicatorRef.current = updateSelectedIndicator;
+
+    useLayoutEffect(() => {
+      updateSelectedIndicator(true);
+    }, [activeTabState, children, size, tabType, updateSelectedIndicator]);
+
+    useEffect(() => {
+      const wrapper = componentRef.current as HTMLElement | null;
+      if (!wrapper || typeof ResizeObserver === "undefined") return;
+
+      const resizeObserver = new ResizeObserver(() => {
+        updateSelectedIndicatorRef.current(false);
+      });
+      resizeObserver.observe(wrapper);
+      Object.values(tabRefs.current).forEach(tab => {
+        if (tab) resizeObserver.observe(tab);
+      });
+
+      return () => resizeObserver.disconnect();
+    }, [children]);
 
     const tabsToRender = useMemo(() => {
       const childrenToRender = React.Children.map(children, (child, index) => {
@@ -177,6 +251,11 @@ const TabList: FC<TabListProps> = forwardRef(
         <ul ref={ulRef} className={cx(styles.tabsList, [getStyle(styles, size)])} role="tablist">
           {tabsToRender}
         </ul>
+        <span
+          ref={indicatorRef}
+          className={cx(styles.selectedIndicator, { [styles.visible]: indicatorVisible })}
+          aria-hidden
+        />
       </div>
     );
   }

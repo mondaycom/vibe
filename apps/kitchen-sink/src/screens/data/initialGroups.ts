@@ -1,0 +1,103 @@
+import type { Group } from "@/components/types";
+import {
+  DEMO_AVATAR_1,
+  DEMO_AVATAR_2,
+  DEMO_PERSON_1_NAME,
+  DEMO_PERSON_2_NAME,
+} from "@/demo/demoPeople";
+
+export const INITIAL_GROUPS: Group[] = [
+  {
+    id: "g1",
+    title: "This Month",
+    color: "var(--primary-color)",
+    items: [
+      {
+        id: "1",
+        name: "Website Redesign",
+        status: "Working on it",
+        date: "2023-10-25",
+        priority: "High",
+        agents: [2, 3],
+        person: DEMO_AVATAR_1,
+        personName: DEMO_PERSON_1_NAME,
+      },
+      {
+        id: "2",
+        name: "Q4 Marketing Plan - Comprehensive Strategy for Global Expansion",
+        status: "Done",
+        date: "2023-10-20",
+        priority: "High",
+        agents: [1],
+        person: DEMO_AVATAR_2,
+        personName: DEMO_PERSON_2_NAME,
+      },
+      {
+        id: "3",
+        name: "Social Media Campaign",
+        status: "Stuck",
+        date: "2023-10-28",
+        priority: "Medium",
+        agents: [4, 2, 1],
+      },
+      {
+        id: "6",
+        name: "Competitor Analysis",
+        status: "Done",
+        date: "2023-10-22",
+        priority: "Medium",
+        agents: [3],
+        person: DEMO_AVATAR_2,
+        personName: DEMO_PERSON_2_NAME,
+      },
+      {
+        id: "7",
+        name: "Update Analytics",
+        status: "Working on it",
+        date: "2023-10-30",
+        priority: "Low",
+      },
+    ],
+  },
+  {
+    id: "g2",
+    title: "Next Month",
+    color: "var(--color-dark_purple)",
+    items: [
+      {
+        id: "4",
+        name: "Product Launch",
+        status: "Waiting",
+        date: "2023-11-15",
+        priority: "High",
+        agents: [1, 2],
+        person: DEMO_AVATAR_1,
+        personName: DEMO_PERSON_1_NAME,
+      },
+      {
+        id: "5",
+        name: "Blog Content Strategy",
+        status: "Sync with other team",
+        date: "2023-11-05",
+        priority: "Low",
+      },
+      {
+        id: "8",
+        name: "Newsletter Draft",
+        status: "Waiting",
+        date: "2023-11-08",
+        priority: "Medium",
+        agents: [4],
+        person: DEMO_AVATAR_2,
+        personName: DEMO_PERSON_2_NAME,
+      },
+      {
+        id: "9",
+        name: "Client Meeting Preparation",
+        status: "Working on it",
+        date: "2023-11-12",
+        priority: "High",
+      },
+    ],
+  },
+];

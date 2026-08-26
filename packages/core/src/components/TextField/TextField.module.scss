@@ -62,7 +62,7 @@
   background-color: var(--secondary-background-color);
   border: 1px solid;
   border-color: var(--ui-border-color);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-medium);
   transition: border-color var(--motion-productive-medium) ease-in;
   padding: var(--spacing-small) var(--spacing-medium);
   white-space: nowrap;
@@ -142,6 +142,26 @@
   opacity: 0;
   pointer-events: none;
   -webkit-appearance: none;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerLeft {
+  left: var(--spacing-small);
+  right: auto;
+  opacity: 1;
+}
+
+.textField .inputWrapper .iconContainer.iconContainerLeft .icon {
+  opacity: 1;
+  transform: none;
+}
+
+.textField .inputWrapper.inputWrapperIconLeft .input {
+  padding-left: 36px;
+}
+
+.textField .inputWrapper.inputWrapperIconLeft .input.inputHasIcon {
+  padding-left: 36px;
+  padding-right: var(--spacing-medium);
 }
 
 .textField .inputWrapper .iconContainer.iconContainerActive.iconContainerHasIcon.iconContainerClickable {
@@ -250,11 +270,11 @@
 }
 
 .textField .inputWrapper.wrapperSizeMedium {
-  height: 40px;
+  height: 36px;
 }
 
 .textField .inputWrapper.wrapperSizeMedium .input {
-  @include vibe-text(text1, normal);
+  @include vibe-text(text2, normal);
   @include smoothing-text;
 }
 
@@ -278,7 +298,7 @@
 }
 
 .textField .inputWrapper.wrapperSizeLarge {
-  height: 48px;
+  height: 40px;
 }
 
 .textField .inputWrapper.wrapperSizeLarge .input {
