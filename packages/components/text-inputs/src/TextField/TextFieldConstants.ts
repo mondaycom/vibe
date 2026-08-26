@@ -1,4 +1,4 @@
-import { BASE_SIZES } from "../../constants";
+import { BASE_SIZES } from "@vibe/shared";
 import styles from "./TextField.module.scss";
 
 export enum TextFieldAriaLabel {

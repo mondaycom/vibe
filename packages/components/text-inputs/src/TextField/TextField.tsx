@@ -1,18 +1,21 @@
 import cx from "classnames";
 import React, { type ChangeEventHandler, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import useDebounceEvent from "../../hooks/useDebounceEvent";
+import { useDebounceEvent } from "@vibe/hooks";
 import { Icon } from "@vibe/icon";
 import { Loader } from "@vibe/loader";
 import { Text } from "@vibe/typography";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import { FEEDBACK_CLASSES, SIZE_MAPPER, TextFieldAriaLabel } from "./TextFieldConstants";
 import { type TextFieldType, type TextFieldSize } from "./TextField.types";
-import { useMergeRef, NOOP } from "@vibe/shared";
+import {
+  useMergeRef,
+  NOOP,
+  ComponentDefaultTestId,
+  ComponentVibeId,
+  getTestId,
+  type VibeComponentProps
+} from "@vibe/shared";
 import { Clickable } from "@vibe/clickable";
-import { getTestId } from "../../tests/test-ids-utils";
-
-import { ComponentDefaultTestId, ComponentVibeId } from "../../tests/constants";
-import { type VibeComponentProps } from "../../types";
 import styles from "./TextField.module.scss";
 import { Tooltip } from "@vibe/tooltip";
 import { HiddenText } from "@vibe/a11y";
