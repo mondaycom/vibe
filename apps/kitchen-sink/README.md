@@ -1,6 +1,6 @@
 # Facelift Kitchen Sink
 
-An interactive playground for exploring 9 [@vibe/core](https://www.npmjs.com/package/@vibe/core) components. Click any card to tweak its state, customize theme tokens, compare your design against defaults, and pick up where you left off — everything persists in the browser.
+An interactive playground for exploring [@vibe/core](https://www.npmjs.com/package/@vibe/core) components. Click any card to tweak its state, customize theme tokens, compare your design against defaults, and pick up where you left off — everything persists in the browser.
 
 ## Run it
 
@@ -52,7 +52,7 @@ Compare mode is **not** persisted — it resets to off on reload.
 
 ## Components (fixed order)
 
-Icon Button, Button, Button Group, Tabs, Label, Chip, Text Field, Dropdown, Toast
+Icon Button, Button, Button Group, Tabs, Label, Chip, Text Field, Dropdown, Toast, Stroke Spotlight
 
 Each lives in `src/sections/*.section.tsx` and exports `{ id, title, defaultState, controls, Demo }`. Files are auto-collected via `import.meta.glob` and sorted by the order above.
 

@@ -11,6 +11,7 @@ import { SegmentedControlGalleryView } from "./SegmentedControlGalleryView";
 import { TabsGalleryView } from "./TabsGalleryView";
 import { TextFieldGalleryView } from "./TextFieldGalleryView";
 import { ToastGalleryView } from "./ToastGalleryView";
+import { StrokeSpotlightGalleryView } from "./StrokeSpotlightGalleryView";
 
 const LazyDropdownGalleryView = lazy(() =>
   import("./DropdownGalleryView").then((m) => ({ default: m.DropdownGalleryView }))
@@ -35,6 +36,7 @@ const ALL_COMPONENT_GALLERIES: ComponentGalleryId[] = [
   "text-field",
   "dropdown",
   "toast",
+  "stroke-spotlight",
 ];
 
 export const COMPONENT_GALLERY_ORDER = ALL_COMPONENT_GALLERIES;
@@ -56,6 +58,7 @@ export const COMPONENT_GALLERY_LABELS: Record<ComponentGalleryId, string> = {
   "text-field": "Text Field",
   dropdown: "Dropdown",
   toast: "Toast",
+  "stroke-spotlight": "Stroke Spotlight",
 };
 
 export const componentGalleries: Record<ComponentGalleryId, ComponentType> = {
@@ -70,6 +73,7 @@ export const componentGalleries: Record<ComponentGalleryId, ComponentType> = {
   "text-field": TextFieldGalleryView,
   dropdown: DropdownGalleryEntry,
   toast: ToastGalleryView,
+  "stroke-spotlight": StrokeSpotlightGalleryView,
 };
 
 export function migrateComponentSubPage(page: ComponentSubPage): ComponentSubPage {

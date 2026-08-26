@@ -36,8 +36,8 @@ import gmailIcon from "../assets/home-modes/gmail.svg";
 import slackIcon from "../assets/home-modes/slack.png";
 import outlookIcon from "../assets/home-modes/outlook.svg";
 import styles from "./HomeModesPage.module.scss";
-import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
-import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
+import { StrokeSpotlight } from "@vibe/core";
+import { STROKE_NO_PULSE_ATTR } from "@vibe/core";
 
 type HomeMode = "sidekick" | "agents" | "vibe";
 

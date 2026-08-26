@@ -7,7 +7,7 @@ import {
   type AgentConfigData,
 } from "../context/AgentBuilderContext";
 import styles from "./AgentBuilderOnboarding.module.scss";
-import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
+import { StrokeSpotlight } from "@vibe/core";
 
 const C_TEXT = "var(--primary-text-color)";
 const C_SUB = "var(--secondary-text-color)";

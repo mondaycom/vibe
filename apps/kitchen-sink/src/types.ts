@@ -16,7 +16,8 @@ export type ComponentGalleryId =
   | "text-field"
   | "dropdown"
   | "menu"
-  | "toast";
+  | "toast"
+  | "stroke-spotlight";
 
 export type ComponentSubPage = "grid" | ComponentGalleryId;
 

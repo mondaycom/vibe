@@ -13,8 +13,8 @@ import {
   Work,
 } from "@mondaydotcomorg/icons";
 import styles from "./SidekickPage.module.scss";
-import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
-import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
+import { StrokeSpotlight } from "@vibe/core";
+import { STROKE_NO_PULSE_ATTR } from "@vibe/core";
 
 type ShortcutColorVar = `var(--color-${string})`;
 

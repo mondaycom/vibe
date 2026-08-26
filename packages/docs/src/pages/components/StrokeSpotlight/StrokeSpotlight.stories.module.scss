@@ -1,0 +1,70 @@
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 280px;
+  padding: var(--space-48);
+  box-sizing: border-box;
+}
+
+.shell {
+  width: 100%;
+  max-width: 560px;
+}
+
+.composer {
+  border-radius: 16px;
+  background: var(--primary-background-color);
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 88px;
+  padding: var(--space-20) var(--space-20) var(--space-8);
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--secondary-text-color);
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12) var(--space-12);
+}
+
+.paletteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-32);
+  width: 100%;
+  padding: var(--space-32);
+  box-sizing: border-box;
+}
+
+.paletteItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.paletteLabel {
+  text-align: center;
+}

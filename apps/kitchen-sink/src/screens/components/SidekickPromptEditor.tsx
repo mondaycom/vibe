@@ -6,8 +6,8 @@ import {
   MoveArrowUp,
 } from "@mondaydotcomorg/icons";
 import styles from "./SidekickPromptEditor.module.scss";
-import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
-import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
+import { StrokeSpotlight } from "@vibe/core";
+import { STROKE_NO_PULSE_ATTR } from "@vibe/core";
 
 interface SidekickPromptEditorProps {
   onSend?: (message: string) => void;

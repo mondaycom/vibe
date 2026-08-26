@@ -21,7 +21,7 @@ const DEFAULTS = {
   inactiveZone: 0.01,
   edgeFade: 48,
   spread: 40,
-  movementDuration: 1.5,
+  movementDuration: 1.5
 } as const;
 
 /** Mark controls that should not trigger the click pulse (e.g. attach, model picker). */
@@ -37,7 +37,7 @@ export function useStrokeSpotlight(
   ref: RefObject<HTMLElement | null>,
   activeClassName: string,
   clickPulsingClassName: string,
-  options: StrokeSpotlightOptions = {},
+  options: StrokeSpotlightOptions = {}
 ) {
   const proximity = options.proximity ?? DEFAULTS.proximity;
   const inactiveZone = options.inactiveZone ?? DEFAULTS.inactiveZone;
@@ -79,8 +79,7 @@ export function useStrokeSpotlight(
       }
     };
 
-    const easeOutExpo = (t: number) =>
-      t >= 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    const easeOutExpo = (t: number) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
     const tickAngle = (now: number) => {
       const t = Math.min(1, (now - angleStartMs) / (movementDuration * 1000));
@@ -119,8 +118,7 @@ export function useStrokeSpotlight(
       const centerX = rect.left + rect.width * 0.5;
       const centerY = rect.top + rect.height * 0.5;
       const distanceFromCenter = Math.hypot(clientX - centerX, clientY - centerY);
-      const inactiveRadius =
-        0.5 * Math.min(rect.width, rect.height) * inactiveZone;
+      const inactiveRadius = 0.5 * Math.min(rect.width, rect.height) * inactiveZone;
 
       if (distanceFromCenter < inactiveRadius) {
         deactivate();
@@ -144,17 +142,13 @@ export function useStrokeSpotlight(
       const outsideY = Math.max(0 - localY, 0, localY - rect.height);
       const distOutside = Math.sqrt(outsideX * outsideX + outsideY * outsideY);
       const fadeRange = edgeFade > 0 ? edgeFade : proximity;
-      const active =
-        distOutside <= 0
-          ? 1
-          : Math.max(0, Math.min(1, 1 - distOutside / fadeRange));
+      const active = distOutside <= 0 ? 1 : Math.max(0, Math.min(1, 1 - distOutside / fadeRange));
 
       el.style.setProperty("--active", String(active));
       el.classList.add(activeClassName);
 
       const currentAngle = parseFloat(el.style.getPropertyValue("--start")) || 0;
-      const targetAngle =
-        (180 * Math.atan2(clientY - centerY, clientX - centerX)) / Math.PI + 90;
+      const targetAngle = (180 * Math.atan2(clientY - centerY, clientX - centerX)) / Math.PI + 90;
       const angleDiff = ((targetAngle - currentAngle + 180) % 360) - 180;
       animateAngle(currentAngle, currentAngle + angleDiff);
     };
@@ -190,12 +184,7 @@ export function useStrokeSpotlight(
         return;
       }
 
-      if (
-        e.clientX < 0 ||
-        e.clientY < 0 ||
-        e.clientX > window.innerWidth ||
-        e.clientY > window.innerHeight
-      ) {
+      if (e.clientX < 0 || e.clientY < 0 || e.clientX > window.innerWidth || e.clientY > window.innerHeight) {
         if (!el.matches(":focus-within")) engaged = false;
         hasPointer = false;
         deactivate();
@@ -243,8 +232,7 @@ export function useStrokeSpotlight(
     const onDown = (e: PointerEvent) => {
       if (reducedMotion) return;
       const target = e.target;
-      if (target instanceof Element && target.closest(STROKE_NO_PULSE_SELECTOR))
-        return;
+      if (target instanceof Element && target.closest(STROKE_NO_PULSE_SELECTOR)) return;
       if (engaged || el.matches(":focus-within")) {
         deactivate();
         return;
@@ -255,7 +243,7 @@ export function useStrokeSpotlight(
     };
 
     window.addEventListener("pointermove", onWindowPointerMove, {
-      passive: true,
+      passive: true
     });
     window.addEventListener("blur", onWindowBlur);
     window.addEventListener("scroll", refreshRect, { passive: true });
@@ -281,14 +269,5 @@ export function useStrokeSpotlight(
       el.removeEventListener("focusout", onFocusOut);
       pulseEl?.removeEventListener("animationend", onPulseAnimationEnd);
     };
-  }, [
-    ref,
-    activeClassName,
-    clickPulsingClassName,
-    proximity,
-    inactiveZone,
-    edgeFade,
-    spread,
-    movementDuration,
-  ]);
+  }, [ref, activeClassName, clickPulsingClassName, proximity, inactiveZone, edgeFade, spread, movementDuration]);
 }

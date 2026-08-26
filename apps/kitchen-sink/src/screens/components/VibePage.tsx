@@ -24,8 +24,8 @@ import {
 } from "../data/vibeHome";
 import { PROMPT_CHIPS } from "../data/promptChips";
 import mondayVibeLogo from "../assets/vibe-logo-colored.png";
-import { StrokeSpotlight } from "./StrokeSpotlight/StrokeSpotlight";
-import { STROKE_NO_PULSE_ATTR } from "./StrokeSpotlight/useStrokeSpotlight";
+import { StrokeSpotlight } from "@vibe/core";
+import { STROKE_NO_PULSE_ATTR } from "@vibe/core";
 import styles from "./VibePage.module.scss";
 
 const MAX_NAMED_CHIPS = 2;

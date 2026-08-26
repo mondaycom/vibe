@@ -3,6 +3,7 @@ export enum ComponentDefaultTestId {
   // plop_marker:default-data-testid-declarations
   LIST_TITLE = "list-title",
   EMPTY_STATE = "empty-state",
+  STROKE_SPOTLIGHT = "stroke-spotlight",
   TRANSITION_VIEW = "transition-view",
   TEXT_AREA = "text-area",
   EDITABLE_TEXT = "editable-text",
@@ -168,6 +169,7 @@ export enum ComponentVibeId {
   EDITABLE_HEADING = "EditableHeading",
   EDITABLE_TEXT = "EditableText",
   EMPTY_STATE = "EmptyState",
+  STROKE_SPOTLIGHT = "StrokeSpotlight",
   EXPAND_COLLAPSE = "ExpandCollapse",
   FLEX = "Flex",
   HEADING = "Heading",

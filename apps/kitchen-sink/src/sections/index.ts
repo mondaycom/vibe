@@ -11,6 +11,7 @@ const SECTION_ORDER = [
   "dropdown",
   "menu",
   "toast",
+  "stroke-spotlight",
 ] as const;
 
 const modules = import.meta.glob<{ default: Section }>("./*.section.tsx", {
