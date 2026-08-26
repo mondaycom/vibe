@@ -665,6 +665,53 @@ body {
   background: var(--allgrey-background-color, #f6f7fb);
 }
 
+.stroke-spotlight-gallery .component-gallery-item-preview {
+  align-items: stretch;
+  min-height: 160px;
+  padding: 24px;
+  background: var(--primary-background-color, #ffffff);
+}
+
+.stroke-spotlight-gallery-shell {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.stroke-spotlight-gallery-composer {
+  border-radius: 16px;
+  background: var(--primary-background-color, #ffffff);
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
+}
+
+.stroke-spotlight-gallery-input {
+  display: block;
+  width: 100%;
+  min-height: 88px;
+  padding: 20px 20px 8px;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+  box-sizing: border-box;
+}
+
+.stroke-spotlight-gallery-input::placeholder {
+  color: var(--secondary-text-color);
+}
+
+.stroke-spotlight-gallery-hint {
+  display: block;
+  padding: 8px 12px 12px;
+}
+
 .button-gallery,
 .chips-gallery,
 .tabs-gallery,
