@@ -1,6 +1,6 @@
 {
   "name": "@vibe/toast",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for Toast component",
   "repository": {
     "type": "git",
@@ -38,16 +38,16 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/button": "4.0.10",
-    "@vibe/hooks": "4.0.11",
-    "@vibe/icon": "4.0.8",
-    "@vibe/icon-button": "4.0.16",
+    "@vibe/button": "4.0.11",
+    "@vibe/hooks": "4.0.12",
+    "@vibe/icon": "4.0.9",
+    "@vibe/icon-button": "4.0.17",
     "@vibe/icons": "4.1.0",
-    "@vibe/layout": "4.0.10",
-    "@vibe/link": "4.0.6",
-    "@vibe/loader": "4.0.8",
-    "@vibe/shared": "4.0.8",
-    "@vibe/typography": "4.0.16",
+    "@vibe/layout": "4.0.11",
+    "@vibe/link": "4.0.7",
+    "@vibe/loader": "4.0.9",
+    "@vibe/shared": "4.0.9",
+    "@vibe/typography": "4.0.17",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-transition-group": "^4.4.5"

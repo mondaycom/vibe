@@ -1,6 +1,6 @@
 {
   "name": "@vibe/hooks",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "Vibe sub-package for React hooks",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.8",
+    "@vibe/shared": "4.0.9",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

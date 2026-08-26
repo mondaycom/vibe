@@ -1,6 +1,6 @@
 {
   "name": "@vibe/divider",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Vibe sub-package for Divider component",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/shared": "4.0.8",
+    "@vibe/shared": "4.0.9",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

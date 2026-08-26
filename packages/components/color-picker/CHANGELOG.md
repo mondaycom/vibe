@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.6](https://github.com/mondaycom/vibe/compare/@vibe/color-picker@4.0.5...@vibe/color-picker@4.0.6) (2026-08-26)
+
+**Note:** Version bump only for package @vibe/color-picker
+
+
+
+
+
 ## [4.0.5](https://github.com/mondaycom/vibe/compare/@vibe/color-picker@4.0.4...@vibe/color-picker@4.0.5) (2026-08-25)
 
 **Note:** Version bump only for package @vibe/color-picker

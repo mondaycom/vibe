@@ -1,6 +1,6 @@
 {
   "name": "@vibe/badge",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for Badge component",
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/counter": "4.0.8",
-    "@vibe/shared": "4.0.8",
+    "@vibe/counter": "4.0.9",
+    "@vibe/shared": "4.0.9",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

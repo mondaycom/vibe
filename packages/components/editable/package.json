@@ -1,6 +1,6 @@
 {
   "name": "@vibe/editable",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "Vibe sub-package for Editable components",
   "repository": {
     "type": "git",
@@ -38,11 +38,11 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "4.0.11",
-    "@vibe/shared": "4.0.8",
+    "@vibe/hooks": "4.0.12",
+    "@vibe/shared": "4.0.9",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.16",
-    "@vibe/typography": "4.0.16",
+    "@vibe/tooltip": "4.0.17",
+    "@vibe/typography": "4.0.17",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
