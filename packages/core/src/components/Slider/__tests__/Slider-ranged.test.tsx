@@ -6,8 +6,8 @@ import { renderSliderInRangeMode } from "./sliderTestUtils.jsx";
 
 vi.useFakeTimers();
 
-vi.mock("../../TextField/TextField", () => ({
-  default: props => {
+vi.mock("@vibe/text-inputs", () => ({
+  TextField: props => {
     return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
   }
 }));

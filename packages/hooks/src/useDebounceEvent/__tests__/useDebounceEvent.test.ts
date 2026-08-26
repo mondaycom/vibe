@@ -1,6 +1,6 @@
 import { vi, beforeEach, afterEach, describe, it, expect, type Mock } from "vitest";
 import { renderHook, cleanup, act, type RenderHookResult } from "@testing-library/react-hooks";
-import useDebounceEvent, { type UseDebounceResult } from "../useDebounceEvent";
+import useDebounceEvent, { type UseDebounceResult } from "../index";
 import { type ChangeEvent } from "react";
 
 describe("useDebounceEvent", () => {

@@ -179,6 +179,7 @@ export enum ComponentVibeId {
   MENU_BUTTON = "MenuButton",
   MODAL = "Modal",
   MULTI_STEP_INDICATOR = "MultiStepIndicator",
+  NUMBER_FIELD = "NumberField",
   RADIO_BUTTON = "RadioButton",
   SEARCH = "Search",
   SKELETON = "Skeleton",

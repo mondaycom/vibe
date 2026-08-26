@@ -126,6 +126,7 @@
     "@vibe/skeleton": "4.0.4",
     "@vibe/style": "4.1.0",
     "@vibe/tabs": "4.0.5",
+    "@vibe/text-inputs": "4.0.0",
     "@vibe/text-with-highlight": "4.0.5",
     "@vibe/theme-provider": "4.0.4",
     "@vibe/toast": "4.0.0",
