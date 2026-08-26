@@ -130,53 +130,55 @@
   --positive-color-hover: #1a7e38;
   --negative-color: #cd0026;
   --negative-color-hover: #b50020;
-  --primary-selected-color: #ebe6e3;
-  --primary-selected-hover-color: #e2dcd8;
-  --primary-highlighted-color: #f5f4f2;
 
-  /* Surfaces — neutral greige with a faint warm tint (white surfaces preserved) */
-  --primary-background-color: #ffffff;
-  --primary-background-hover-color: #f0eeec;
-  --primary-background-hover-on-secondary-color: #e8e6e3;
-  --primary-surface-color: #f5f4f2;
-  --secondary-background-color: #ffffff;
-  --allgrey-background-color: #f5f4f2;
-  --grey-background-color: #f5f4f2;
-  --ui-background-color: #f0eeec;
-  --ui-background-hover-color: #e8e6e3;
-  --dark-background-color: #f5f4f2;
-  --modal-background-color: #ffffff;
-  --dialog-background-color: #ffffff;
-  --disabled-background-color: #f0eeec;
-  --label-background-color: #f5f4f2;
+  /* Primary selected — oklch L @ C=0.00274 H=77.988 (aligned with mf-topbar warmth) */
+  --primary-selected-color: #eae9e7;
+  --primary-selected-hover-color: #dfdedc;
+  --primary-highlighted-color: #f3f1f0;
 
-  /* Borders — warm taupe / mauve-grey */
-  --layout-border-color: #c9c0bc;
-  --ui-border-color: #c9c0bc;
-  --glaze-input-focus-border-color: #b0a6a2;
+  /* Surfaces — same OKLCH axis (near-neutral greige) */
+  --primary-background-color: #fdfcfa;
+  --primary-background-hover-color: #f3f1f0;
+  --primary-background-hover-on-secondary-color: #e5e4e2;
+  --primary-surface-color: #f3f1f0;
+  --secondary-background-color: #fffffd;
+  --allgrey-background-color: #f4f2f1;
+  --grey-background-color: #f4f2f1;
+  --ui-background-color: #eae8e7;
+  --ui-background-hover-color: #dddbda;
+  --dark-background-color: #fdfcfa;
+  --modal-background-color: #fdfcfa;
+  --dialog-background-color: #fdfcfa;
+  --disabled-background-color: #f7f6f4;
+  --label-background-color: #fdfcfa;
+
+  /* Borders */
+  --layout-border-color: #e9e8e6;
+  --ui-border-color: #cfcdcc;
+  --glaze-input-focus-border-color: #cfcdcc;
 
   /* Text & icons — warm charcoal + brown-grey */
-  --primary-text-color: #323338;
-  --secondary-text-color: #5d5552;
-  --icon-color: #b5acaa;
-  --glaze-icon-color-primary: #635c5a;
-  --glaze-icon-color-secondary: #b5acaa;
-  --icon-hover: #574f4d;
-  --placeholder-color: #a89e9b;
+  --primary-text-color: #232221;
+  --secondary-text-color: #494846;
+  --icon-color: #656362;
+  --glaze-icon-color-primary: #494846;
+  --glaze-icon-color-secondary: #82817f;
+  --icon-hover: #737270;
+  --placeholder-color: #82817f;
   --link-color: #3543fc;
   --text-color-on-primary: #ffffff;
   --text-color-on-inverted: #ffffff;
-  --inverted-color-background: #323338;
+  --inverted-color-background: #343332;
 
-  /* Radius — match Glaze */
-  --glaze-radius-control: 8px;
-  --border-radius-small: var(--glaze-radius-control);
-  --border-radius-medium: var(--glaze-radius-control);
-  --border-radius-big: 14px;
+  /* Radius — match mf-topbar warmth */
+  --border-radius-small: 8px;
+  --border-radius-medium: 12px;
+  --border-radius-big: 16px;
+  --border-radius-full: 9999px;
 
   /* Shared Glaze tokens — warm-shifted rail selection, identical shadows/brand */
-  --glaze-rail-selected-color: #e6e1de;
-  --glaze-rail-selected-hover-color: #ddd7d3;
+  --glaze-rail-selected-color: #eae9e7;
+  --glaze-rail-selected-hover-color: #dfdedc;
   --glaze-layout-gap: var(--space-8);
   --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
   --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -195,8 +197,8 @@
   --glaze-brand-egg-yolk: #ffcb00;
   --glaze-brand-private: #f65f7c;
 
-  /* Scrim — neutral charcoal with a faint warm tint */
-  --app-scrim-color: rgba(58, 52, 49, 0.55);
+  /* Scrim — matches inverted charcoal */
+  --app-scrim-color: rgba(52, 51, 50, 0.55);
 }
 
 /* Glaze Neue — Glaze layout with warmer surfaces, Warmth blue primary, Hanken Grotesk headings */

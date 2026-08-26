@@ -23,7 +23,7 @@ Open the URL Vite prints (usually http://localhost:5173).
 
 The **left pane** is the only navigation:
 
-- **Components** — 3×3 grid of all nine demos with a control bar below for the focused card
+- **Components** — grid of component demos with a control bar below for the focused card
 - **Theme** — token editors with sub-pages: Colors, Radius, Spacing, Typography
 - **Light / Dark / Black** — global theme mode toggles at the bottom of the left pane (always visible)
 

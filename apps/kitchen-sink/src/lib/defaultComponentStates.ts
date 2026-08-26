@@ -37,6 +37,7 @@ export const defaultComponentStates: ComponentStateMap = {
   dropdown: { size: "medium", disabled: false, multi: false },
   menu: { size: "medium", withIcons: false },
   toast: { type: "positive", withAction: false },
+  "stroke-spotlight": { palette: "default", borderWidth: "1.5" },
 };
 
 export function mergeWithDefaults(
