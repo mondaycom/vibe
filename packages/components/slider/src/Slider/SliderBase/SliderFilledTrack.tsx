@@ -1,7 +1,6 @@
 import React, { type FC } from "react";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
-import { getStyle } from "@vibe/shared";
+import { getStyle, type VibeComponentProps } from "@vibe/shared";
 import styles from "./SliderFilledTrack.module.scss";
 import { type SliderColor } from "../Slider.types";
 

@@ -8,7 +8,8 @@ import {
   isHomeEvent,
   isPageDownEvent,
   isPageUpEvent,
-  getStyle
+  getStyle,
+  type VibeComponentProps
 } from "@vibe/shared";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import { calcDimensions, calculatePageStep, getNearest, moveToPx } from "../SliderHelpers";
@@ -17,7 +18,6 @@ import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import styles from "./SliderBase.module.scss";
 

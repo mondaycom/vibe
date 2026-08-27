@@ -1,4 +1,4 @@
-import { type BASE_SIZES } from "../../constants";
+import { type BASE_SIZES } from "@vibe/shared";
 import { type DialogPosition } from "@vibe/dialog";
 import { type TypographyColor } from "@vibe/typography";
 

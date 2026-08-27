@@ -126,6 +126,7 @@
     "@vibe/radio-button": "4.0.10",
     "@vibe/shared": "4.0.9",
     "@vibe/skeleton": "4.0.5",
+    "@vibe/slider": "4.0.0",
     "@vibe/style": "4.1.0",
     "@vibe/tabs": "4.0.6",
     "@vibe/text-inputs": "4.0.1",
