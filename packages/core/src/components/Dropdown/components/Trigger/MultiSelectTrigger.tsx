@@ -3,7 +3,7 @@ import { Flex } from "@vibe/layout";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import DropdownInput from "./DropdownInput";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseItemData } from "../../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import TriggerActions from "./TriggerActions";
 import styles from "./Trigger.module.scss";
 import { getStyle } from "@vibe/shared";

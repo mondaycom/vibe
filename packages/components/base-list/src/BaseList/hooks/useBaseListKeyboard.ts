@@ -1,6 +1,5 @@
 import { useCallback } from "react";
-import useKeyEvent from "../../../hooks/useKeyEvent";
-import { keyCodes } from "../../../constants/keyCodes";
+import { useKeyEvent, keyCodes as sharedKeyCodes } from "@vibe/shared";
 import {
   findAdjacentFocusableIndex,
   findFirstFocusableIndex,
@@ -8,6 +7,12 @@ import {
   getItemId,
   isFocusableListItem
 } from "../utils/baseListUtils";
+
+const keyCodes = {
+  ...sharedKeyCodes,
+  PAGE_UP: "PageUp",
+  PAGE_DOWN: "PageDown"
+};
 
 export interface UseBaseListKeyboardProps {
   /**

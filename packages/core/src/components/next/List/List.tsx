@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
-import BaseList from "../../BaseList/BaseList";
+import { BaseList } from "@vibe/base-list";
 import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
 import { ComponentVibeId } from "../../../tests/constants";
 import { type ListProps } from "./List.types";

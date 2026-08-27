@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { normalizeOptions } from "../utils/dropdownUtils";
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 import { type DropdownGroupOption } from "../Dropdown.types";
 

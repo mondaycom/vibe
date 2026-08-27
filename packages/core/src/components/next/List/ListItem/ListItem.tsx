@@ -1,6 +1,5 @@
 import React, { forwardRef, useCallback, useMemo } from "react";
-import BaseItem from "../../../BaseItem/BaseItem";
-import { type BaseItemData } from "../../../BaseItem";
+import { BaseItem, type BaseItemData } from "@vibe/base-list";
 import { type ListItemProps } from "./ListItem.types";
 
 const ListItem = forwardRef(

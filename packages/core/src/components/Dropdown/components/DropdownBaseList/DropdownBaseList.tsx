@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import BaseItem from "../../../BaseItem/BaseItem";
+import { BaseItem } from "@vibe/base-list";
 import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
 import { Flex } from "@vibe/layout";

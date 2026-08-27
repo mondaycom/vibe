@@ -3,7 +3,7 @@ import cx from "classnames";
 import { BaseInput } from "@vibe/base";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseItemData } from "../../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { Text } from "@vibe/typography";
 
 // Screen-reader announcement of the current multi-select selection, surfaced via aria-describedby.
