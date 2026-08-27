@@ -1,7 +1,14 @@
 import type React from "react";
 import { useCallback, useMemo } from "react";
-import { ARROW_DOWN_KEYS, ARROW_UP_KEYS, ENTER_KEYS, HOME_KEYS, END_KEYS, NavDirections } from "@vibe/shared";
-import { useKeyEvent } from "@vibe/shared";
+import {
+  ARROW_DOWN_KEYS,
+  ARROW_UP_KEYS,
+  ENTER_KEYS,
+  HOME_KEYS,
+  END_KEYS,
+  NavDirections,
+  useKeyEvent
+} from "@vibe/shared";
 
 export default function useMenuKeyboardNavigation({
   hasOpenSubMenu,

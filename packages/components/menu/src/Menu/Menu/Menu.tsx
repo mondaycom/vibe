@@ -1,9 +1,17 @@
 import cx from "classnames";
-import { SIZES } from "@vibe/shared";
 import React, { forwardRef, type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useMergeRef, useIsomorphicLayoutEffect, getStyle } from "@vibe/shared";
-
-import { useClickOutside } from "@vibe/hooks";
+import {
+  SIZES,
+  useMergeRef,
+  useIsomorphicLayoutEffect,
+  getStyle,
+  getTestId,
+  ComponentDefaultTestId,
+  ComponentVibeId,
+  type ElementContent,
+  type VibeComponentProps
+} from "@vibe/shared";
+import { useClickOutside, usePrevious } from "@vibe/hooks";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
@@ -11,11 +19,6 @@ import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../hooks/useFocusWithin";
-import { usePrevious } from "@vibe/hooks";
-import { type ElementContent, type VibeComponentProps } from "@vibe/shared";
-
-import { getTestId } from "@vibe/shared";
-import { ComponentDefaultTestId, ComponentVibeId } from "@vibe/shared";
 import { useFocusOnMount } from "./hooks/useFocusOnMount";
 import { useMenuId } from "./hooks/useMenuId";
 import { type CloseMenuOption, type MenuChild } from "./MenuConstants";

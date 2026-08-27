@@ -1,7 +1,6 @@
 import type React from "react";
 import { useCallback } from "react";
-import { useKeyEvent } from "@vibe/shared";
-import { keyCodes } from "@vibe/shared";
+import { useKeyEvent, keyCodes } from "@vibe/shared";
 import { type CloseMenuOption } from "../../Menu/MenuConstants";
 
 const KEYS = [keyCodes.ENTER, keyCodes.RIGHT_ARROW];

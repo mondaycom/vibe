@@ -1,11 +1,9 @@
 import React from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { getStyle } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { getStyle, ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import { Text } from "@vibe/typography";
 import { type MenuTitleCaptionPosition } from "./MenuTitle.type";
-import { type VibeComponentProps } from "@vibe/shared";
 import styles from "./MenuTitle.module.scss";
 
 export interface MenuTitleProps extends VibeComponentProps {

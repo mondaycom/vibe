@@ -1,16 +1,19 @@
 import cx from "classnames";
 import React, { useRef } from "react";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import {
+  ComponentDefaultTestId,
+  getTestId,
+  useMergeRef,
+  type VibeComponentProps,
+  type ElementContent
+} from "@vibe/shared";
 import { Button, type ButtonType } from "@vibe/button";
-import { Tooltip } from "@vibe/tooltip";
-import { useMergeRef } from "@vibe/shared";
+import { Tooltip, type TooltipPositions } from "@vibe/tooltip";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-import { type VibeComponentProps, type ElementContent } from "@vibe/shared";
 import { type SubIcon } from "@vibe/icon";
 import { Text } from "@vibe/typography";
 import styles from "./MenuItemButton.module.scss";
-import { type TooltipPositions } from "@vibe/tooltip";
 
 export interface MenuItemButtonProps extends VibeComponentProps {
   /**

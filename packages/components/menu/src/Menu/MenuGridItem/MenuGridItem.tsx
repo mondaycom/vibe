@@ -1,12 +1,10 @@
 import React, { forwardRef, type ReactElement, useCallback, useRef } from "react";
-import { useMergeRef } from "@vibe/shared";
+import { useMergeRef, ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import { GridKeyboardNavigationContext } from "@vibe/a11y";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../hooks/useFocusWithin";
-import { type VibeComponentProps } from "@vibe/shared";
 import { type CloseMenuOption } from "../Menu/MenuConstants";
-import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 
 export interface MenuGridItemProps extends VibeComponentProps {
   /**
