@@ -80,14 +80,22 @@ export {
   type NumberFieldProps
 } from "@vibe/text-inputs";
 export * from "./Modal";
-export * from "./MultiStepIndicator";
+export { Steps, type StepsProps, type StepsType, type StepsDotAriaCurrent, type StepsColor } from "@vibe/wizard";
+export {
+  MultiStepIndicator,
+  type MultiStepIndicatorProps,
+  type MultiStepType,
+  type StepStatus,
+  type TextPlacement,
+  type MultiStepSize,
+  type Step
+} from "@vibe/wizard";
 export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
 export * from "./Search";
 export * from "@vibe/skeleton";
 export * from "./Slider";
 export * from "./SplitButton";
-export * from "./Steps";
 export * from "./Table";
 export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";

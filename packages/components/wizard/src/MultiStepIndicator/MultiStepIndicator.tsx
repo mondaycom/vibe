@@ -3,12 +3,9 @@ import React, { forwardRef, useCallback, useMemo } from "react";
 import { Check } from "@vibe/icons";
 import { type SubIcon } from "@vibe/icon";
 import { Divider } from "@vibe/divider";
-import { NOOP } from "@vibe/shared";
+import { NOOP, getTestId, ComponentDefaultTestId, type VibeComponentProps } from "@vibe/shared";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { type MultiStepType, type MultiStepSize, type TextPlacement, type Step } from "./MultiStep.types";
-import { getTestId } from "../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { type VibeComponentProps } from "../../types";
 import styles from "./MultiStepIndicator.module.scss";
 
 export interface MultiStepIndicatorProps extends VibeComponentProps {
