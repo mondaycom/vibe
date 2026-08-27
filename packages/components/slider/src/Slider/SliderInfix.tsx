@@ -1,8 +1,7 @@
 import React, { type FC } from "react";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
 import cx from "classnames";
-import { getStyle } from "@vibe/shared";
-import { type VibeComponentProps } from "../../types";
+import { getStyle, type VibeComponentProps } from "@vibe/shared";
 import styles from "./SliderInfix.module.scss";
 import { type InfixKind } from "./Slider.types";
 

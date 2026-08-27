@@ -1,7 +1,6 @@
 import React, { type ForwardedRef, forwardRef, type ReactElement } from "react";
-import { NOOP, getStyle } from "@vibe/shared";
+import { NOOP, getStyle, type VibeComponentProps } from "@vibe/shared";
 import { useSliderUi } from "../SliderContext";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 
 import styles from "./SliderRail.module.scss";
