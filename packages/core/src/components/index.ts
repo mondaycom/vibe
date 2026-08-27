@@ -50,7 +50,21 @@ export * from "./ListItemAvatar";
 export * from "./ListItemIcon";
 export * from "./ListTitle";
 export * from "@vibe/loader";
-export * from "./Menu";
+export {
+  Menu,
+  type MenuProps,
+  MenuItem,
+  type MenuItemProps,
+  MenuItemButton,
+  type MenuItemButtonProps,
+  MenuDivider,
+  type MenuDividerProps,
+  MenuTitle,
+  type MenuTitleProps,
+  MenuGridItem,
+  type MenuGridItemProps,
+  type MenuTitleCaptionPosition
+} from "@vibe/menu";
 export * from "./MenuButton";
 // FieldLabel is intentionally not re-exported — it stays internal to @vibe/core (matches pre-extraction API)
 export {

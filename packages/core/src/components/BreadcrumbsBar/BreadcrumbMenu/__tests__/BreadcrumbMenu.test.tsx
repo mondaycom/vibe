@@ -9,10 +9,11 @@ import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../
 
 vi.useFakeTimers();
 
-vi.mock("../../../Menu/MenuItem/MenuItem", () => {
+vi.mock("@vibe/menu", async () => {
+  const actual = await vi.importActual<typeof import("@vibe/menu")>("@vibe/menu");
   return {
-    __esModule: true,
-    default: vi.fn(props => {
+    ...actual,
+    MenuItem: vi.fn(props => {
       if (props.onClick && props.title === "Click Test") {
         props.onClick({});
       }

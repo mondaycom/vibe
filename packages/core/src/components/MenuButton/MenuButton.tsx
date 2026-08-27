@@ -14,7 +14,7 @@ import { useIsomorphicLayoutEffect, useMergeRef, NOOP, getStyle } from "@vibe/sh
 
 import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type MenuButtonComponentPosition, type MenuButtonSize } from "./MenuButton.types";
-import { type MenuChild } from "../Menu/Menu/MenuConstants";
+import { type MenuChild } from "@vibe/menu";
 
 import { Menu } from "@vibe/icons";
 

@@ -4,7 +4,7 @@ import { getTestId } from "../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import styles from "./TableRowMenu.module.scss";
 import MenuButton from "../../MenuButton/MenuButton";
-import { Menu } from "../../Menu";
+import { Menu } from "@vibe/menu";
 import { createPortal } from "react-dom";
 import { useTable } from "../context/TableContext/TableContext";
 import { getStyle } from "@vibe/shared";

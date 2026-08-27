@@ -120,6 +120,7 @@
     "@vibe/layout": "4.0.11",
     "@vibe/link": "4.0.7",
     "@vibe/loader": "4.0.9",
+    "@vibe/menu": "4.0.0",
     "@vibe/progress-bars": "4.0.7",
     "@vibe/radio-button": "4.0.10",
     "@vibe/shared": "4.0.9",

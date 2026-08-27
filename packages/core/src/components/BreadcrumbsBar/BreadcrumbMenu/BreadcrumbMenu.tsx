@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import MenuButton from "../../MenuButton/MenuButton";
-import { Menu } from "../../Menu";
+import { Menu } from "@vibe/menu";
 import { type VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbsMenu.module.scss";
 import { ComponentDefaultTestId } from "../../../tests/constants";
