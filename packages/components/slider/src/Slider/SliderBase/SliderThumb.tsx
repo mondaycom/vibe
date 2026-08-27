@@ -1,9 +1,8 @@
 import React, { type FC, useEffect, useRef } from "react";
-import { NOOP, getStyle } from "@vibe/shared";
+import { NOOP, getStyle, type VibeComponentProps } from "@vibe/shared";
 import { Tooltip } from "@vibe/tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import type VibeComponentProps from "../../../types/VibeComponentProps";
 import cx from "classnames";
 import styles from "./SliderThumb.module.scss";
 

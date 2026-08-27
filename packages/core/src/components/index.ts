@@ -94,7 +94,7 @@ export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
 export * from "./Search";
 export * from "@vibe/skeleton";
-export * from "./Slider";
+export * from "@vibe/slider";
 export * from "./SplitButton";
 export * from "./Table";
 export * from "@vibe/tabs";
