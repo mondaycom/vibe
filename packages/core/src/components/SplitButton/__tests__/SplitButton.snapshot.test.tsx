@@ -4,8 +4,7 @@ import renderer from "react-test-renderer";
 import SplitButton from "../SplitButton";
 import { Delete } from "@vibe/icons";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
-import Menu from "../../Menu/Menu/Menu";
+import { Menu, MenuItem } from "@vibe/menu";
 
 const secondaryContentText = "Test secondary dialog content";
 const secondaryContent = <div>{secondaryContentText}</div>;

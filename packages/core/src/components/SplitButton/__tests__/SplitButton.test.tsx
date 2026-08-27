@@ -6,7 +6,7 @@ import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
 import { ComponentDefaultTestId } from "../../../tests/constants";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
+import { MenuItem } from "@vibe/menu";
 import { getTestId } from "../../../tests/test-ids-utils";
 
 const text = "Click Me!";

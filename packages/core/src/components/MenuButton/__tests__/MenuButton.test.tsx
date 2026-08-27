@@ -5,8 +5,7 @@ import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved } from "@
 import MenuButton from "../MenuButton";
 import { Bolt } from "@vibe/icons";
 import { Button } from "@vibe/button";
-import MenuItem from "../../Menu/MenuItem/MenuItem";
-import Menu from "../../Menu/Menu/Menu";
+import { Menu, MenuItem } from "@vibe/menu";
 import userEvent from "@testing-library/user-event";
 
 describe("MenuButton", () => {

@@ -2,7 +2,7 @@ import { beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import { render } from "@testing-library/react";
 import SplitButtonMenu from "../SplitButtonMenu";
-import MenuItem from "../../../Menu/MenuItem/MenuItem";
+import { MenuItem } from "@vibe/menu";
 import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 

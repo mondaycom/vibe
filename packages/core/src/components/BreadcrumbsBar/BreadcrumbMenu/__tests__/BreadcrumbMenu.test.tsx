@@ -6,13 +6,15 @@ import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
+import type * as VibeMenu from "@vibe/menu";
 
 vi.useFakeTimers();
 
-vi.mock("../../../Menu/MenuItem/MenuItem", () => {
+vi.mock("@vibe/menu", async () => {
+  const actual = await vi.importActual<typeof VibeMenu>("@vibe/menu");
   return {
-    __esModule: true,
-    default: vi.fn(props => {
+    ...actual,
+    MenuItem: vi.fn(props => {
       if (props.onClick && props.title === "Click Test") {
         props.onClick({});
       }

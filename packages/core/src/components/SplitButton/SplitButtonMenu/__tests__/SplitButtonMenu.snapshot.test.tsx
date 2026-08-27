@@ -2,7 +2,7 @@ import { beforeEach, afterEach, describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import SplitButtonMenu from "../SplitButtonMenu";
-import MenuItem from "../../../Menu/MenuItem/MenuItem";
+import { MenuItem } from "@vibe/menu";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
 
 const SplitButtonMenuWithItems = (
