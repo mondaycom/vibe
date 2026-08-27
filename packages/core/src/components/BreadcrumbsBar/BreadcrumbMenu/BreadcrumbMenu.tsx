@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import MenuButton from "../../MenuButton/MenuButton";
+import { MenuButton } from "@vibe/menu-button";
 import { Menu } from "@vibe/menu";
 import { type VibeComponentProps } from "../../../types";
 import styles from "./BreadcrumbsMenu.module.scss";

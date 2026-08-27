@@ -10,18 +10,25 @@ import {
   type DialogTriggerEvent
 } from "@vibe/dialog";
 import { Tooltip, type TooltipProps } from "@vibe/tooltip";
-import { useIsomorphicLayoutEffect, useMergeRef, NOOP, getStyle } from "@vibe/shared";
+import {
+  useIsomorphicLayoutEffect,
+  useMergeRef,
+  NOOP,
+  getStyle,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  type ElementContent,
+  type VibeComponentProps
+} from "@vibe/shared";
 
-import { type ElementContent, type VibeComponentProps } from "../../types";
 import { type MenuButtonComponentPosition, type MenuButtonSize } from "./MenuButton.types";
 import { type MenuChild } from "@vibe/menu";
 
 import { Menu } from "@vibe/icons";
 
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./MenuButton.module.scss";
 import { type TooltipPositions } from "@vibe/tooltip";
-import { ComponentVibeId } from "../../tests/constants";
 
 const MOVE_BY = { main: 8, secondary: 0 };
 const CLOSE_KEYS: DialogTriggerEvent[] = ["esckey", "tab"];

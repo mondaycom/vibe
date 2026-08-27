@@ -65,7 +65,7 @@ export {
   type MenuGridItemProps,
   type MenuTitleCaptionPosition
 } from "@vibe/menu";
-export * from "./MenuButton";
+export * from "@vibe/menu-button";
 // FieldLabel is intentionally not re-exported — it stays internal to @vibe/core (matches pre-extraction API)
 export {
   TextField,
