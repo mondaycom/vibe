@@ -5,7 +5,7 @@ import { Flex } from "@vibe/layout";
 import { Loader } from "@vibe/loader";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseItemData } from "../../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 
 const sizeMap = {
   large: "medium",

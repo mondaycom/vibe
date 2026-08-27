@@ -6,7 +6,7 @@ import styles from "./DropdownBase.module.scss";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId, ComponentVibeId } from "../../../../tests/constants";
 import { useDropdownContext } from "../../context/DropdownContext";
-import { type BaseItemData } from "../../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { Tooltip } from "@vibe/tooltip";
 
 interface DropdownBaseProps {

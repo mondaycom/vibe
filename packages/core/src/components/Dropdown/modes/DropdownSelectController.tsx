@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { type DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownSelect from "../hooks/useDropdownSelect";
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
 

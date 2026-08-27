@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useCombobox } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownGroupOption } from "../Dropdown.types";
 
 function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(

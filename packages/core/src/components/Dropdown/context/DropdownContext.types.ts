@@ -1,5 +1,5 @@
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type TooltipProps } from "@vibe/tooltip";
 

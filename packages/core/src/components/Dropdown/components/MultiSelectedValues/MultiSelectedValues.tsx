@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, useCallback, createRef } from "react";
-import { type BaseItemData } from "../../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { Chips } from "@vibe/chips";
 import { Flex } from "@vibe/layout";
 import { DialogContentContainer, Dialog } from "@vibe/dialog";

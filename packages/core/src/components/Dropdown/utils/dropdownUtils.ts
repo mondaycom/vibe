@@ -1,4 +1,4 @@
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
 export function normalizeOptions<Item extends BaseItemData>(

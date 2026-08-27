@@ -3,7 +3,7 @@ import React from "react";
 import { render, fireEvent, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { type BaseDropdownProps } from "../Dropdown.types";
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 
 const defaultOptions = [

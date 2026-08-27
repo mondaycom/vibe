@@ -1,6 +1,6 @@
 import React from "react";
 import { Chips, type ChipsProps } from "@vibe/chips";
-import { type BaseItemData } from "../../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 
 const getChipPropsFromItemElements = (item: BaseItemData<Record<string, unknown>>): Partial<ChipsProps> => {
   const chipProps: Partial<ChipsProps> = {};

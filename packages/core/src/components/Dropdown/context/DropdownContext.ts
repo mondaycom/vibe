@@ -1,7 +1,7 @@
 import type React from "react";
 import { createContext, useContext } from "react";
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
-import { type BaseItemData } from "../../BaseItem";
+import { type BaseItemData } from "@vibe/base-list";
 import { type BaseDropdownProps, type DropdownSizes } from "../Dropdown.types";
 import { type DropdownContextProps } from "./DropdownContext.types";
 

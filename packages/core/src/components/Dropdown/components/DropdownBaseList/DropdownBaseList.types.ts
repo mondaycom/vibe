@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import type React from "react";
 import { type VibeComponentProps } from "../../../../types";
-import { type BaseItemData, type BaseItemSizes, type BaseItemDirection } from "../../../BaseItem";
+import { type BaseItemData, type BaseItemSizes, type BaseItemDirection } from "@vibe/base-list";
 
 export interface DropdownBaseListProps<Item = Record<string, unknown>>
   extends React.HTMLAttributes<HTMLUListElement>,
