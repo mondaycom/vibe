@@ -1,9 +1,6 @@
 import React, { forwardRef, type PropsWithChildren, type ReactNode, useContext, useMemo, useRef } from "react";
 import cx from "classnames";
-import { useMergeRef, getStyle } from "@vibe/shared";
-import { type VibeComponentProps } from "../../../types";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { useMergeRef, getStyle, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import styles from "./TipseenMedia.module.scss";
 import { TipseenContext } from "../Tipseen";
 

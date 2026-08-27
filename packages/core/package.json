@@ -131,6 +131,7 @@
     "@vibe/text-inputs": "4.0.1",
     "@vibe/text-with-highlight": "4.0.6",
     "@vibe/theme-provider": "4.0.5",
+    "@vibe/tipseen": "4.0.0",
     "@vibe/toast": "4.0.1",
     "@vibe/toggle": "4.0.5",
     "@vibe/tooltip": "4.0.17",
