@@ -6,11 +6,12 @@ import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
 import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
+import type * as VibeMenu from "@vibe/menu";
 
 vi.useFakeTimers();
 
 vi.mock("@vibe/menu", async () => {
-  const actual = await vi.importActual<typeof import("@vibe/menu")>("@vibe/menu");
+  const actual = await vi.importActual<typeof VibeMenu>("@vibe/menu");
   return {
     ...actual,
     MenuItem: vi.fn(props => {
