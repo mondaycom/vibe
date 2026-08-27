@@ -1,6 +1,6 @@
 {
   "name": "@vibe/tipseen",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for tipseen components",
   "repository": {
     "type": "git",
