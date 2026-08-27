@@ -25,7 +25,7 @@ import {
 import styles from "./Combobox.module.scss";
 import { type ComboboxSizes } from "./Combobox.types";
 import type { IconButton } from "@vibe/icon-button";
-import type MenuButton from "../MenuButton/MenuButton";
+import { type MenuButton } from "@vibe/menu-button";
 import { ComponentVibeId } from "../../tests/constants";
 import { type SubIcon } from "@vibe/icon";
 

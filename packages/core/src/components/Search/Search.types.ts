@@ -3,7 +3,7 @@ import { type VibeComponentProps } from "../../types";
 import { type SubIcon } from "@vibe/icon";
 import { type InputSize } from "@vibe/base";
 import type { IconButton } from "@vibe/icon-button";
-import type MenuButton from "../MenuButton/MenuButton";
+import { type MenuButton } from "@vibe/menu-button";
 
 export interface SearchProps extends VibeComponentProps {
   /**

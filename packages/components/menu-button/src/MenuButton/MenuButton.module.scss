@@ -1,6 +1,4 @@
 @import "~@vibe/style/dist/mixins";
-@import "../../styles/typography";
-@import "../../styles/states";
 
 .wrapper {
   @include reset-button();

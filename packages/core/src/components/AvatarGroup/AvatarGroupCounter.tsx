@@ -2,7 +2,7 @@ import React, { type ReactElement, useCallback, useRef } from "react";
 import cx from "classnames";
 import { type AvatarProps, type AvatarSize, type AvatarType } from "@vibe/avatar";
 import { Counter } from "@vibe/counter";
-import MenuButton from "../MenuButton/MenuButton";
+import { MenuButton } from "@vibe/menu-button";
 import { Menu, AvatarMenuItem } from "@vibe/menu";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import type VibeComponentProps from "../../types/VibeComponentProps";
