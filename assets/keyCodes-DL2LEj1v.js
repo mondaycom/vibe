@@ -1,1 +1,0 @@
-const E={ENTER:"Enter",SPACE:" ",ESCAPE:"Escape",DOWN_ARROW:"ArrowDown",UP_ARROW:"ArrowUp",TAB:"Tab",HOME:"Home",END:"End",PAGE_UP:"PageUp",PAGE_DOWN:"PageDown"},A=[E.ENTER,E.SPACE],R=[E.UP_ARROW,E.DOWN_ARROW];export{A as S,R as U,E as k};

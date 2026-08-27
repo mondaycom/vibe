@@ -1,0 +1,11 @@
+import{j as r}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as m}from"./index-BfNsOeqz.js";import{M as p,C as s}from"./index-B0f9S8px.js";import{U as a,O as u}from"./usePrevious.stories-Q5EEK5hw.js";import{e as o,d as i}from"./function-arguments-Cjbh7Tou.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-D1qOVrd4.js";import"./index-C4_fQpFy.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./index-BxdhJjph.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./ssr-utils-Do6V6AqB.js";import"./Flex-C1guINwO.js";import"./index-BpvXyOxN.js";import"./Clickable-CiK3QIo7.js";import"./useClickableProps-CHMXaGyE.js";import"./keyCodes-Bl0ZAmu_.js";import"./useMergeRef-Do2VYePL.js";import"./constants-DSKsPEup.js";import"./noop-DX6rZLP_.js";import"./camelCase-CO1PkVrH.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Counter-kYgASRBk.js";import"./index-DPTcyynS.js";import"./SwitchTransition-C88AiGZf.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./useEventListener-CkU0kzyk.js";import"./Button-Bo3zAm7S.js";import"./Icon-D74ZAp4x.js";import"./useKeyEvent-BeN1aNjK.js";import"./Loader-CZgt3wxP.js";function n(t){const e={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...m(),...t.components};return r.jsxs(r.Fragment,{children:[r.jsx(p,{of:a}),`
+`,r.jsx(e.h1,{id:"useprevious",children:"usePrevious"}),`
+`,r.jsx(e.p,{children:"Hook for keeping previous state value."}),`
+`,r.jsx(s,{of:u}),`
+`,r.jsx(e.h3,{id:"import",children:"Import"}),`
+`,r.jsx(e.pre,{children:r.jsx(e.code,{className:"language-js",children:`import { usePrevious } from "@vibe/core";
+`})}),`
+`,r.jsx(e.h2,{id:"arguments",children:"Arguments"}),`
+`,r.jsx(o,{children:r.jsx(i,{name:"value",type:"any",description:r.jsx(r.Fragment,{children:"State value to keep track of."}),required:!0})}),`
+`,r.jsx(e.h2,{id:"returns",children:"Returns"}),`
+`,r.jsx(o,{children:r.jsx(i,{name:"value",type:"any",description:r.jsx(r.Fragment,{children:"Previous value of the argument."})})})]})}function K(t={}){const{wrapper:e}={...m(),...t.components};return e?r.jsx(e,{...t,children:r.jsx(n,{...t})}):n(t)}export{K as default};
