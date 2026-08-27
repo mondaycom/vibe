@@ -101,7 +101,7 @@ export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "@vibe/text-with-highlight";
 export * from "@vibe/theme-provider";
-export * from "./Tipseen";
+export * from "@vibe/tipseen";
 export * from "@vibe/toast";
 // TODO: export * after removing enums
 export { Toggle, type ToggleProps } from "@vibe/toggle";

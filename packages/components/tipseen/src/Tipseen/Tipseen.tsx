@@ -1,21 +1,22 @@
-import { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, Fragment, type ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { type DialogAnimationType, type DialogMiddleware, type DialogTriggerEvent } from "@vibe/dialog";
-import { useMergeRef } from "@vibe/shared";
-import { Tooltip } from "@vibe/tooltip";
+import {
+  useMergeRef,
+  type ElementContent,
+  type VibeComponentProps,
+  type MoveBy,
+  ComponentDefaultTestId,
+  getTestId
+} from "@vibe/shared";
+import { Tooltip, type TooltipPositions } from "@vibe/tooltip";
 import { IconButton } from "@vibe/icon-button";
 import { CloseSmall } from "@vibe/icons";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 import { type TipseenCloseButtonTheme, type TipseenColor } from "./Tipseen.types";
-import { type ElementContent, type VibeComponentProps } from "../../types";
-import { type MoveBy } from "../../types/MoveBy";
-import { ComponentDefaultTestId } from "../../tests/constants";
-import { getTestId } from "../../tests/test-ids-utils";
 import { Text } from "@vibe/typography";
 import styles from "./Tipseen.module.scss";
-import React from "react";
-import { type TooltipPositions } from "@vibe/tooltip";
 
 export interface TipseenProps extends VibeComponentProps {
   /**
