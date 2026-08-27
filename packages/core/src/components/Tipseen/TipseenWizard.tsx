@@ -1,6 +1,6 @@
 import React, { type FC, useContext, useMemo } from "react";
 import cx from "classnames";
-import Steps, { type StepsProps } from "../Steps/Steps";
+import { Steps, type StepsProps } from "@vibe/wizard";
 import TipseenBasicContent from "./TipseenBasicContent";
 import styles from "./TipseenWizard.module.scss";
 import { TipseenContext } from "./Tipseen";

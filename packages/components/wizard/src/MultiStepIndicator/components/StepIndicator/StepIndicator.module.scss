@@ -1,6 +1,25 @@
 @import "~@vibe/style/dist/mixins";
-@import "../../../../styles/typography";
-@import "../../../../styles/keyframes";
+
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin pop-elastic() {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(1.2);
+  }
+  66% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .indicator {
   @include vibe-text(text2, normal);

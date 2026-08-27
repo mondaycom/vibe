@@ -3,7 +3,7 @@ import ModalFooterBase from "../ModalFooterBase/ModalFooterBase";
 import { getTestId } from "../../../../tests/test-ids-utils";
 import { ComponentDefaultTestId } from "../../../../tests/constants";
 import styles from "./ModalFooterWizard.module.scss";
-import { StepsGalleryHeader } from "../../../Steps/StepsGalleryHeader";
+import { StepsGalleryHeader } from "@vibe/wizard";
 import { type ModalFooterWizardProps } from "./ModalFooterWizard.types";
 import { getPropsForButton } from "../utils/getPropsForButton";
 
