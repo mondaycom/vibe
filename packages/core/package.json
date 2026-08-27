@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "4.5.22",
+  "version": "4.5.23",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -97,7 +97,7 @@
     "@vibe/avatar": "4.0.9",
     "@vibe/badge": "4.0.3",
     "@vibe/base": "4.0.10",
-    "@vibe/base-list": "4.0.0",
+    "@vibe/base-list": "4.0.1",
     "@vibe/button": "4.0.11",
     "@vibe/button-group": "4.0.11",
     "@vibe/checkbox": "4.0.11",
@@ -132,7 +132,7 @@
     "@vibe/text-inputs": "4.0.1",
     "@vibe/text-with-highlight": "4.0.6",
     "@vibe/theme-provider": "4.0.5",
-    "@vibe/tipseen": "4.0.0",
+    "@vibe/tipseen": "4.0.1",
     "@vibe/toast": "4.0.1",
     "@vibe/toggle": "4.0.5",
     "@vibe/tooltip": "4.0.17",
