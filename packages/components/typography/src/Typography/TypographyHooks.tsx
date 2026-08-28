@@ -32,7 +32,7 @@ export function useTooltipProps(
   overflowTolerance: number
 ) {
   const isOverflowing = useIsOverflowing({
-    ref: ellipsis ? ref : null,
+    ref: ellipsis && !withoutTooltip ? ref : null,
     ignoreHeightOverflow,
     tolerance: overflowTolerance
   });
