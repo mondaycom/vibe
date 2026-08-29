@@ -44,11 +44,7 @@ export * from "@vibe/info";
 export * from "@vibe/label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
 export * from "@vibe/link";
-export * from "./List";
-export * from "./ListItem";
-export * from "./ListItemAvatar";
-export * from "./ListItemIcon";
-export * from "./ListTitle";
+export * from "@vibe/list";
 export * from "@vibe/loader";
 export {
   Menu,

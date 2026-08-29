@@ -1,8 +1,7 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import { BaseList } from "@vibe/base-list";
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
-import { ComponentVibeId } from "../../../tests/constants";
+import { ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
 import { type ListProps } from "./List.types";
 import styles from "./List.module.scss";
 

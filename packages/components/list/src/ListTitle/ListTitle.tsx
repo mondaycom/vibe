@@ -1,7 +1,6 @@
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
-import { useMergeRef } from "@vibe/shared";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { useMergeRef, type VibeComponentProps } from "@vibe/shared";
 import { Text } from "@vibe/typography";
 import styles from "./ListTitle.module.scss";
 
