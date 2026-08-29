@@ -5,7 +5,7 @@ import { act } from "react-dom/test-utils";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbMenu from "../BreadcrumbMenu";
 import BreadcrumbMenuItem from "../BreadcrumbMenuItem/BreadcrumbMenuItem";
-import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../tests/test-utils";
 import type * as VibeMenu from "@vibe/menu";
 
 vi.useFakeTimers();

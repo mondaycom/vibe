@@ -1,13 +1,11 @@
 import React, { type ReactElement } from "react";
 import cx from "classnames";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, ComponentVibeId, type VibeComponentProps } from "@vibe/shared";
 import { NavigationChevronRight } from "@vibe/icons";
 import { type BreadcrumbsBarType } from "./Breadcrumbs.types";
 import { type BreadcrumbItemProps } from "./BreadcrumbItem/BreadcrumbItem";
-import { type VibeComponentProps } from "../../types";
 import styles from "./BreadcrumbsBar.module.scss";
 import { type BreadcrumbMenuProps } from "./BreadcrumbMenu/BreadcrumbMenu";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface BreadcrumbBarProps extends VibeComponentProps {
   /**

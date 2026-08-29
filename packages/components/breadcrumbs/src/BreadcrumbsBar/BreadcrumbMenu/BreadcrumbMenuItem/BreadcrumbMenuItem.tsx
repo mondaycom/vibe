@@ -1,7 +1,6 @@
 import React, { forwardRef, type ForwardRefExoticComponent, type RefAttributes } from "react";
 import { MenuItem, type MenuItemProps } from "@vibe/menu";
-import { getTestId } from "../../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../../tests/constants";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
 
 export interface BreadcrumbMenuItemProps extends MenuItemProps {
   /** Link to navigate to when item is clicked */

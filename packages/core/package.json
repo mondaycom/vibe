@@ -98,6 +98,7 @@
     "@vibe/badge": "4.0.3",
     "@vibe/base": "4.0.10",
     "@vibe/base-list": "4.0.1",
+    "@vibe/breadcrumbs": "4.0.0",
     "@vibe/button": "4.0.11",
     "@vibe/button-group": "4.0.11",
     "@vibe/checkbox": "4.0.11",
