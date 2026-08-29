@@ -4,7 +4,7 @@ import { Chips } from "@vibe/chips";
 import { Flex } from "@vibe/layout";
 import { DialogContentContainer, Dialog } from "@vibe/dialog";
 import { useMergeRef } from "@vibe/shared";
-import useItemsOverflow from "../../../../hooks/useItemsOverflow/useItemsOverflow";
+import useItemsOverflow from "../../hooks/useItemsOverflow";
 import styles from "./MultiSelectedValues.module.scss";
 import cx from "classnames";
 import DropdownChip from "../Trigger/DropdownChip";
