@@ -1,14 +1,44 @@
-import React, { type CSSProperties, type RefObject, useCallback } from "react";
-import useKeyEvent from "../../hooks/useKeyEvent";
+import React, { type CSSProperties, type RefObject, useCallback, useRef } from "react";
 import { Flex } from "@vibe/layout";
 import { Avatar, type AvatarProps, type AvatarType } from "@vibe/avatar";
 import { ClickableWrapper } from "@vibe/clickable";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
-import useEventListener from "../../hooks/useEventListener";
-import useListenFocusTriggers from "../../hooks/useListenFocusTriggers";
-import { type ElementContent } from "../../types";
+import { useKeyEvent, useEventListener, keyCodes, type ElementContent } from "@vibe/shared";
 import { AVATAR_GROUP_COUNTER_AVATAR_SIZE, AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
-import { keyCodes } from "../../constants";
+
+function useListenFocusTriggers({
+  ref,
+  onFocusByKeyboard,
+  onFocusByMouse
+}: {
+  ref: RefObject<HTMLElement>;
+  onFocusByKeyboard?: (event: FocusEvent) => void;
+  onFocusByMouse?: (event: FocusEvent) => void;
+}) {
+  const isElementMouseDown = useRef(false);
+
+  const onMouseDown = useCallback(() => {
+    isElementMouseDown.current = true;
+  }, [isElementMouseDown]);
+
+  const onFocus = useCallback(
+    (e: FocusEvent) => {
+      if (isElementMouseDown.current) {
+        onFocusByMouse?.(e);
+      } else {
+        onFocusByKeyboard?.(e);
+      }
+    },
+    [onFocusByKeyboard, onFocusByMouse]
+  );
+  const onMouseUp = useCallback(() => {
+    isElementMouseDown.current = false;
+  }, [isElementMouseDown]);
+
+  useEventListener({ eventName: "mousedown", ref, callback: onMouseDown });
+  useEventListener({ eventName: "focus", ref, callback: onFocus });
+  useEventListener({ eventName: "mouseup", ref, callback: onMouseUp });
+}
 
 const TAB = [keyCodes.TAB];
 const ESC = [keyCodes.ESCAPE];

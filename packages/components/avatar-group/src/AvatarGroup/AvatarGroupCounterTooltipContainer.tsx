@@ -3,7 +3,7 @@ import { Tooltip, type TooltipProps } from "@vibe/tooltip";
 import { type AvatarProps, type AvatarType } from "@vibe/avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps } from "@vibe/shared";
 import { AVATAR_GROUP_COUNTER_TOOLTIP_SHOW_DELAY } from "./AvatarGroupConstants";
 
 export interface AvatarGroupCounterTooltipContainerProps extends VibeComponentProps {
