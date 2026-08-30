@@ -30,7 +30,7 @@ export {
   type DialogEvent
 } from "@vibe/dialog";
 export * from "@vibe/divider";
-export * from "./Dropdown";
+export * from "@vibe/dropdown";
 export * from "@vibe/editable";
 export * from "@vibe/empty-state";
 export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
