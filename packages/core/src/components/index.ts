@@ -4,7 +4,7 @@ export * from "@vibe/attention-box";
 export * from "@vibe/avatar";
 export * from "./AvatarGroup";
 export * from "@vibe/badge";
-export * from "./BreadcrumbsBar";
+export * from "@vibe/breadcrumbs";
 export * from "@vibe/button";
 export { ButtonGroup, type ButtonGroupProps } from "@vibe/button-group";
 export * from "@vibe/checkbox";

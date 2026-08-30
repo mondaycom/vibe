@@ -1,10 +1,9 @@
-import { ComponentDefaultTestId, getTestId } from "../../../tests/test-ids-utils";
+import { ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
 import React, { useRef } from "react";
 import { useIsOverflowing } from "@vibe/hooks";
 import { Tooltip } from "@vibe/tooltip";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import { type VibeComponentProps } from "../../../types";
 import { type SubIcon } from "@vibe/icon";
 import styles from "./BreadcrumbItem.module.scss";
 

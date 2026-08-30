@@ -1,11 +1,11 @@
 {
-  "name": "@vibe/dropdown",
+  "name": "@vibe/breadcrumbs",
   "version": "4.0.1",
-  "description": "Vibe sub-package for Dropdown component",
+  "description": "Vibe sub-package for BreadcrumbsBar component",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mondaycom/vibe.git",
-    "directory": "packages/components/dropdown"
+    "directory": "packages/components/breadcrumbs"
   },
   "bugs": {
     "url": "https://github.com/mondaycom/vibe/issues"
@@ -38,23 +38,15 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.1.2",
-    "@vibe/base": "4.0.10",
-    "@vibe/base-list": "4.0.1",
-    "@vibe/chips": "4.0.3",
-    "@vibe/dialog": "4.1.12",
-    "@vibe/divider": "4.0.7",
-    "@vibe/icon-button": "4.0.17",
+    "@vibe/hooks": "4.0.12",
+    "@vibe/icon": "4.0.9",
     "@vibe/icons": "4.1.0",
-    "@vibe/layout": "4.0.11",
-    "@vibe/loader": "4.0.9",
+    "@vibe/menu": "4.0.1",
+    "@vibe/menu-button": "4.0.1",
     "@vibe/shared": "4.0.9",
     "@vibe/style": "4.1.0",
-    "@vibe/text-inputs": "4.0.1",
     "@vibe/tooltip": "4.0.17",
-    "@vibe/typography": "4.0.17",
-    "classnames": "^2.5.1",
-    "downshift": "^9.0.8"
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",
