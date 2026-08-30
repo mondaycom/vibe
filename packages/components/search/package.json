@@ -46,7 +46,6 @@
     "@vibe/loader": "4.0.9",
     "@vibe/menu-button": "4.0.1",
     "@vibe/shared": "4.0.9",
-    "@vibe/style": "4.1.0",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
