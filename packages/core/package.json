@@ -107,6 +107,7 @@
     "@vibe/counter": "4.0.9",
     "@vibe/dialog": "4.1.12",
     "@vibe/divider": "4.0.7",
+    "@vibe/dropdown": "4.0.0",
     "@vibe/editable": "4.0.9",
     "@vibe/empty-state": "4.0.2",
     "@vibe/expand-collapse": "4.0.11",

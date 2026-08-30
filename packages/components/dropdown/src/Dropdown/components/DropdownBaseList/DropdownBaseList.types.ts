@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import type React from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type BaseItemData, type BaseItemSizes, type BaseItemDirection } from "@vibe/base-list";
 
 export interface DropdownBaseListProps<Item = Record<string, unknown>>
