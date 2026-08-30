@@ -1,5 +1,5 @@
 // Constants
-import { keyCodes } from "../../constants";
+import { keyCodes } from "@vibe/shared";
 import type { DialogTriggerEvent } from "@vibe/dialog";
 
 export const DIALOG_MOVE_BY = { main: 8, secondary: 0 };

@@ -3,7 +3,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import SplitButtonMenu from "../SplitButtonMenu";
 import { MenuItem } from "@vibe/menu";
-import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "./test-utils";
 
 const SplitButtonMenuWithItems = (
   <SplitButtonMenu id="menu">
