@@ -1,10 +1,8 @@
 import React, { forwardRef } from "react";
 import { MenuButton } from "@vibe/menu-button";
 import { Menu } from "@vibe/menu";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import styles from "./BreadcrumbsMenu.module.scss";
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { getTestId } from "../../../tests/test-ids-utils";
 
 export interface BreadcrumbMenuProps extends VibeComponentProps {
   children: React.ReactNode;
