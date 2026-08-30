@@ -5,7 +5,7 @@ import { noop as NOOP, camelCase } from "es-toolkit";
 import { getStyle, useMergeRef, useWarnDeprecated } from "@vibe/shared";
 import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 
-import Search from "../Search/Search";
+import { Search } from "@vibe/search";
 import { Button } from "@vibe/button";
 import { Text } from "@vibe/typography";
 
