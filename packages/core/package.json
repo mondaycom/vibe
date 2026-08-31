@@ -95,6 +95,7 @@
     "@vibe/alert-banner": "4.0.5",
     "@vibe/attention-box": "4.0.4",
     "@vibe/avatar": "4.0.9",
+    "@vibe/avatar-group": "4.0.0",
     "@vibe/badge": "4.0.3",
     "@vibe/base": "4.0.10",
     "@vibe/base-list": "4.0.1",

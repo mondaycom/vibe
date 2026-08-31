@@ -2,7 +2,7 @@ export * from "@vibe/accordion";
 export * from "@vibe/alert-banner";
 export * from "@vibe/attention-box";
 export * from "@vibe/avatar";
-export * from "./AvatarGroup";
+export * from "@vibe/avatar-group";
 export * from "@vibe/badge";
 export * from "@vibe/breadcrumbs";
 export * from "@vibe/button";

@@ -1,8 +1,7 @@
 import React, { type CSSProperties, type ReactElement, type Ref, useMemo } from "react";
 import { VirtualizedList, type VirtualizedListItem } from "@vibe/virtualized-list";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps, type ElementContent } from "@vibe/shared";
 import { type AvatarProps, type AvatarType } from "@vibe/avatar";
-import { type ElementContent } from "../../types";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
 const LIST_OPTIONS = Object.freeze({
