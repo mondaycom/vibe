@@ -2,12 +2,11 @@ import React, { type ReactElement, useMemo } from "react";
 import cx from "classnames";
 import { type AvatarProps, type AvatarSize, type AvatarType } from "@vibe/avatar";
 import AvatarGroupCounter from "./AvatarGroupCounter";
-import type VibeComponentProps from "../../types/VibeComponentProps";
+import { type VibeComponentProps, ComponentVibeId } from "@vibe/shared";
 import { avatarOnClick } from "./AvatarGroupHelper";
 import { type TooltipProps } from "@vibe/tooltip";
 import styles from "./AvatarGroup.module.scss";
 import { type AvatarGroupCounterVisualProps } from "./AvatarGroup.types";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface AvatarGroupProps extends VibeComponentProps {
   /**

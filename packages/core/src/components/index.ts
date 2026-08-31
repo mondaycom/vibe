@@ -2,7 +2,7 @@ export * from "@vibe/accordion";
 export * from "@vibe/alert-banner";
 export * from "@vibe/attention-box";
 export * from "@vibe/avatar";
-export * from "./AvatarGroup";
+export * from "@vibe/avatar-group";
 export * from "@vibe/badge";
 export * from "@vibe/breadcrumbs";
 export * from "@vibe/button";
@@ -92,7 +92,7 @@ export {
 } from "@vibe/wizard";
 export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
-export * from "./Search";
+export * from "@vibe/search";
 export * from "@vibe/skeleton";
 export * from "@vibe/slider";
 export * from "@vibe/split-button";
