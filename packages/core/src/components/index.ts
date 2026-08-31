@@ -92,7 +92,7 @@ export {
 } from "@vibe/wizard";
 export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
-export * from "./Search";
+export * from "@vibe/search";
 export * from "@vibe/skeleton";
 export * from "@vibe/slider";
 export * from "./SplitButton";
