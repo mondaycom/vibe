@@ -96,7 +96,7 @@ export * from "@vibe/search";
 export * from "@vibe/skeleton";
 export * from "@vibe/slider";
 export * from "./SplitButton";
-export * from "./Table";
+export * from "@vibe/table";
 export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "@vibe/text-with-highlight";

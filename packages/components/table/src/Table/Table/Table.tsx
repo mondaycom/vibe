@@ -8,18 +8,15 @@ import React, {
   useState
 } from "react";
 import cx from "classnames";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId, ComponentVibeId, useMergeRef } from "@vibe/shared";
 import { type TableHeaderProps } from "../TableHeader/TableHeader";
 import { type TableBodyProps } from "../TableBody/TableBody";
 import { getTableRowLayoutStyles } from "./tableHelpers";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId, ComponentVibeId } from "../../../tests/constants";
 import { RowHeights } from "./TableConsts";
 import { type RowSizes } from "./Table.types";
 import styles from "./Table.module.scss";
 import { TableProvider } from "../context/TableContext/TableContext";
 import { TableRowMenuProvider } from "../context/TableRowMenuContext/TableRowMenuContext";
-import { useMergeRef } from "@vibe/shared";
 import { type TableProviderValue } from "../context/TableContext/TableContext.types";
 import { type TableRowMenuProviderValue } from "../context/TableRowMenuContext/TableRowMenuContext.types";
 import { type SubIcon } from "@vibe/icon";

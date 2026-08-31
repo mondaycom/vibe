@@ -1,13 +1,11 @@
 import React, { forwardRef, useCallback } from "react";
 import cx from "classnames";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId, ComponentDefaultTestId, getStyle } from "@vibe/shared";
 import styles from "./TableRowMenu.module.scss";
 import { MenuButton } from "@vibe/menu-button";
 import { Menu } from "@vibe/menu";
 import { createPortal } from "react-dom";
 import { useTable } from "../context/TableContext/TableContext";
-import { getStyle } from "@vibe/shared";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
 import { useTableContainer } from "../context/TableContainerContext/TableContainerContext";
 import { type TableMenuProps } from "./TableRowMenu.types";

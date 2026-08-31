@@ -1,10 +1,8 @@
 import React, { forwardRef } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import { Text } from "@vibe/typography";
 import styles from "./TableCell.module.scss";
 import cx from "classnames";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface TableCellProps extends VibeComponentProps {
   /**
