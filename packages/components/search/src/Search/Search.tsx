@@ -1,8 +1,7 @@
 import cx from "classnames";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { useMergeRef } from "@vibe/shared";
+import { useMergeRef, ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
 import { CloseSmall as CloseSmallIcon, Search as SearchIcon } from "@vibe/icons";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import styles from "./Search.module.scss";
 import { BaseInput } from "@vibe/base";
 import { useDebounceEvent } from "@vibe/hooks";
@@ -10,7 +9,6 @@ import { IconButton } from "@vibe/icon-button";
 import { Icon } from "@vibe/icon";
 import { type SearchProps } from "./Search.types";
 import { Loader } from "@vibe/loader";
-import { ComponentVibeId } from "../../tests/constants";
 
 const Search = forwardRef(
   (

@@ -127,6 +127,7 @@
     "@vibe/menu-button": "4.0.1",
     "@vibe/progress-bars": "4.0.7",
     "@vibe/radio-button": "4.0.10",
+    "@vibe/search": "4.0.0",
     "@vibe/shared": "4.0.9",
     "@vibe/skeleton": "4.0.5",
     "@vibe/slider": "4.0.1",
