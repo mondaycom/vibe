@@ -1,6 +1,6 @@
 {
   "name": "@vibe/date-picker",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for DatePicker component",
   "repository": {
     "type": "git",
