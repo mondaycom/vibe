@@ -2,9 +2,9 @@ export * from "@vibe/accordion";
 export * from "@vibe/alert-banner";
 export * from "@vibe/attention-box";
 export * from "@vibe/avatar";
-export * from "./AvatarGroup";
+export * from "@vibe/avatar-group";
 export * from "@vibe/badge";
-export * from "./BreadcrumbsBar";
+export * from "@vibe/breadcrumbs";
 export * from "@vibe/button";
 export { ButtonGroup, type ButtonGroupProps } from "@vibe/button-group";
 export * from "@vibe/checkbox";
@@ -12,9 +12,9 @@ export * from "@vibe/chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "@vibe/color-picker";
-export * from "./Combobox";
+export * from "@vibe/combobox";
 export * from "@vibe/counter";
-export * from "./DatePicker";
+export * from "@vibe/date-picker";
 // TODO: export * after removing enums
 export {
   Dialog,
@@ -30,7 +30,7 @@ export {
   type DialogEvent
 } from "@vibe/dialog";
 export * from "@vibe/divider";
-export * from "./Dropdown";
+export * from "@vibe/dropdown";
 export * from "@vibe/editable";
 export * from "@vibe/empty-state";
 export { ExpandCollapse, type ExpandCollapseProps } from "@vibe/expand-collapse";
@@ -75,7 +75,7 @@ export {
   NumberField,
   type NumberFieldProps
 } from "@vibe/text-inputs";
-export * from "./Modal";
+export * from "@vibe/modal";
 export { Steps, type StepsProps, type StepsType, type StepsDotAriaCurrent, type StepsColor } from "@vibe/wizard";
 export {
   MultiStepIndicator,
@@ -88,11 +88,11 @@ export {
 } from "@vibe/wizard";
 export * from "@vibe/progress-bars";
 export * from "@vibe/radio-button";
-export * from "./Search";
+export * from "@vibe/search";
 export * from "@vibe/skeleton";
 export * from "@vibe/slider";
-export * from "./SplitButton";
-export * from "./Table";
+export * from "@vibe/split-button";
+export * from "@vibe/table";
 export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "@vibe/text-with-highlight";

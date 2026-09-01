@@ -1,0 +1,38 @@
+import React, { forwardRef } from "react";
+import { MenuButton } from "@vibe/menu-button";
+import { Menu } from "@vibe/menu";
+import { type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import styles from "./BreadcrumbsMenu.module.scss";
+
+export interface BreadcrumbMenuProps extends VibeComponentProps {
+  children: React.ReactNode;
+}
+const BreadcrumbMenu = forwardRef(
+  (
+    { children, id, "data-testid": dataTestId, ...props }: BreadcrumbMenuProps,
+    ref: React.ForwardedRef<HTMLLIElement>
+  ) => {
+    const menuButtonId = id || "breadcrumb-menu-button";
+    const menuId = `${menuButtonId}-menu`;
+
+    return (
+      <li className={styles.breadcrumbMenuWrapper} {...props}>
+        <MenuButton
+          id={menuButtonId}
+          size={"xxs"}
+          closeMenuOnItemClick
+          aria-label={"Hidden breadcrumbs menu"}
+          data-testid={dataTestId || getTestId(ComponentDefaultTestId.BREADCRUMB_MENU, id)}
+          aria-controls={menuId}
+          ref={ref}
+        >
+          <Menu id={menuId} size={"medium"} focusItemIndexOnMount={0} aria-label="Expanded breadcrumbs menu">
+            {children}
+          </Menu>
+        </MenuButton>
+      </li>
+    );
+  }
+);
+
+export default BreadcrumbMenu;

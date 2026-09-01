@@ -1,0 +1,32 @@
+import React, { forwardRef } from "react";
+import cx from "classnames";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import styles from "./ModalMediaLayout.module.scss";
+import { type ModalMediaLayoutProps } from "./ModalMediaLayout.types";
+import { Flex } from "@vibe/layout";
+
+const ModalMediaLayout = forwardRef(
+  (
+    { children, className, id, "data-testid": dataTestId }: ModalMediaLayoutProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
+    const [media, header, content] = React.Children.toArray(children);
+
+    return (
+      <Flex
+        ref={ref}
+        direction="column"
+        align="start"
+        className={cx(styles.layout, className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_MEDIA_LAYOUT, id)}
+      >
+        <div className={styles.media}>{media}</div>
+        <div className={styles.header}>{header}</div>
+        <div className={styles.content}>{content}</div>
+      </Flex>
+    );
+  }
+);
+
+export default ModalMediaLayout;
