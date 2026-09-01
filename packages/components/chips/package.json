@@ -1,6 +1,6 @@
 {
   "name": "@vibe/chips",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for Chips component",
   "repository": {
     "type": "git",
@@ -38,15 +38,15 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/avatar": "4.0.9",
+    "@vibe/avatar": "4.0.10",
     "@vibe/clickable": "4.0.10",
-    "@vibe/hooks": "4.0.12",
+    "@vibe/hooks": "4.0.13",
     "@vibe/icon": "4.0.9",
-    "@vibe/icon-button": "4.0.17",
+    "@vibe/icon-button": "4.0.18",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.9",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.17",
+    "@vibe/typography": "4.0.18",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

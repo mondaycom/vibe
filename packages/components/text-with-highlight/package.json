@@ -1,6 +1,6 @@
 {
   "name": "@vibe/text-with-highlight",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Vibe sub-package for TextWithHighlight component",
   "repository": {
     "type": "git",
@@ -38,10 +38,10 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "4.0.12",
+    "@vibe/hooks": "4.0.13",
     "@vibe/shared": "4.0.9",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.17",
+    "@vibe/tooltip": "4.0.18",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
