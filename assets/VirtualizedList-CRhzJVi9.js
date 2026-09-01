@@ -1,0 +1,16 @@
+import{j as o}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as m}from"./index-BfNsOeqz.js";import{M as p,C as a}from"./index-BQ_sYqFJ.js";import{T as d}from"./VirtualizedList.stories.helpers-BpaV6CdA.js";import{V as l,O as c}from"./VirtualizedList.stories-cimOAsQ-.js";import{r as h}from"./usage-guidelines-DaF3e-2f.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-CgC3tXp5.js";import"./index-CaS7iL0U.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./tip-CK87uV3P.js";import"./index-BpvXyOxN.js";import"./Flex-qb9MRXYX.js";import"./withStaticProps-DibdfTK_.js";import"./VirtualizedList-CzOmQB_k.js";import"./index.esm-XHNhqDsf.js";import"./extends-CCbyfPlC.js";import"./assertThisInitialized-B9jnkVVz.js";import"./CSSTransition-Dhcv5TuQ.js";import"./react-virtualized-auto-sizer.esm-CJUwJr1b.js";import"./index-BxdhJjph.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./ssr-utils-Do6V6AqB.js";import"./index-DYsUIVgG.js";import"./debounce-D3NSP8gs.js";import"./useMergeRef-Do2VYePL.js";import"./keyCodes-BSF8ohG1.js";import"./constants-pMeS5eGn.js";import"./Flex-BWirvMOr.js";import"./Clickable-wFssOZ0Q.js";import"./useClickableProps-DF5jkYWQ.js";import"./noop-DX6rZLP_.js";import"./camelCase-CO1PkVrH.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Heading-Bn2y7u3k.js";import"./Typography-BeT2um-6.js";import"./index-CqkoFCDi.js";import"./Tooltip-DWmBfcsK.js";import"./Icon-BIpRhjOr.js";import"./useEventListener-CkU0kzyk.js";import"./useKeyEvent-BeN1aNjK.js";import"./index-BKMrxRLL.js";function n(t){const i={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...m(),...t.components},{PropsTable:r,RelatedComponents:e}=i;return r||s("PropsTable"),e||s("RelatedComponents"),o.jsxs(o.Fragment,{children:[o.jsx(p,{of:l}),`
+`,o.jsx(i.h1,{id:"virtualizedlist",children:"VirtualizedList"}),`
+`,o.jsx(i.p,{children:"VirtualizedList is a component which only renders visible list items, it is a logic component and doesn't change and look and feel"}),`
+`,o.jsx(i.p,{children:"The VirtualizedList can be Vertical or Horizontal"}),`
+`,o.jsxs(i.p,{children:["Under the hood we are using - ",o.jsx(i.a,{href:"https://github.com/bvaughn/react-window",rel:"nofollow",children:"react-window"})," and ",o.jsx(i.a,{href:"https://github.com/bvaughn/react-virtualized-auto-sizer",rel:"nofollow",children:"react-virtualized-auto-sizer"})]}),`
+`,o.jsx(a,{of:c}),`
+`,o.jsx(i.h3,{id:"import",children:"Import"}),`
+`,o.jsx(i.pre,{children:o.jsx(i.code,{className:"language-js",children:`import { VirtualizedList } from "@vibe/core";
+`})}),`
+`,o.jsx(i.h2,{id:"props",children:"Props"}),`
+`,o.jsx(r,{}),`
+`,o.jsx(i.h2,{id:"usage",children:"Usage"}),`
+`,o.jsx(h,{guidelines:["Use this when you expect to have many items in your list"]}),`
+`,o.jsx(d,{}),`
+`,o.jsx(i.h2,{id:"related-components",children:"Related components"}),`
+`,o.jsx(e,{componentsNames:["List","VirtualizedGrid","Table"]})]})}function no(t={}){const{wrapper:i}={...m(),...t.components};return i?o.jsx(i,{...t,children:o.jsx(n,{...t})}):n(t)}function s(t,i){throw new Error("Expected component `"+t+"` to be defined: you likely forgot to import, pass, or provide it.")}export{no as default};

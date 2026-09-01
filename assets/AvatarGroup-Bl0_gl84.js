@@ -1,0 +1,49 @@
+import{j as o}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as l}from"./index-BfNsOeqz.js";import{M as d}from"./index-BQ_sYqFJ.js";import{A as c,O as h,S as x,C as u,H as j,D as f,M as v,a as g,G as b,V as y,b as C,L as w,c as M}from"./AvatarGroup.stories-XhuNKFi3.js";import{r as p}from"./usage-guidelines-DaF3e-2f.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-CgC3tXp5.js";import"./index-CaS7iL0U.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./createStoryMetaSettingsDecorator-Bbe8Ja5t.js";import"./index-DXCg-GMl.js";import"./Invite-0V4zx4R3.js";import"./AddSmall-B_5viru5.js";import"./Workspace-BRy0vdK8.js";import"./Calendar-DUM0ORSW.js";import"./Table-COtoXgIc.js";import"./Check-BhuJDOHf.js";import"./CloseSmall-s783aDlP.js";import"./Delete-rsE7lq-b.js";import"./Drag-Ds0nT9eq.js";import"./Remove-BN6wnPjE.js";import"./DropdownChevronRight-C951c-JF.js";import"./Settings-DHIMnErx.js";import"./Wand-CDIW39RM.js";import"./NewTab-BAQw6vct.js";import"./Info-LYrK74vc.js";import"./NavigationChevronRight-BDrJkoFj.js";import"./Person-C6oC2dzb.js";import"./Search-B-LsiQVE.js";import"./SortDescending-zUObFE7J.js";import"./Upgrade-CdQgCbE5.js";import"./index-B-lxVbXh.js";import"./v4-CtRu48qb.js";import"./person1-D9Wcho68.js";import"./person2-D4QHDNDB.js";import"./person3-BX6ktRh1.js";import"./person4-BP0PoOnj.js";import"./story-description-B8U8K6Zm.js";import"./index-BpvXyOxN.js";import"./withStaticProps-DibdfTK_.js";import"./Flex-qb9MRXYX.js";import"./AvatarGroup-CIG6o4M9.js";import"./MenuItem-YMWmSKEM.js";import"./index-CqkoFCDi.js";import"./debounce-D3NSP8gs.js";import"./Flex-BWirvMOr.js";import"./Clickable-wFssOZ0Q.js";import"./useClickableProps-DF5jkYWQ.js";import"./keyCodes-BSF8ohG1.js";import"./useMergeRef-Do2VYePL.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./ssr-utils-Do6V6AqB.js";import"./constants-pMeS5eGn.js";import"./noop-DX6rZLP_.js";import"./camelCase-CO1PkVrH.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./Divider-BGS0umBc.js";import"./IconButton-DkpLOJ1I.js";import"./sizes-BOsbvv4u.js";import"./Tooltip-DWmBfcsK.js";import"./Icon-BIpRhjOr.js";import"./useEventListener-CkU0kzyk.js";import"./useKeyEvent-BeN1aNjK.js";import"./index-BKMrxRLL.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./Button-DcLj8BcI.js";import"./Loader-y1NnLGcY.js";import"./DialogContentContainer-XM8DRDr3.js";import"./useMenuItemKeyboardEvents-DTtNKgpf.js";import"./index-BxdhJjph.js";import"./navDirections-CG353sxs.js";import"./Text-zbgCNSGD.js";import"./Typography-BeT2um-6.js";import"./Label-nIxRdTjE.js";import"./colors-vars-map-DuPRA0tY.js";import"./Avatar-CpuXKnYD.js";import"./isNil-CHIgUVhi.js";import"./VirtualizedList-CzOmQB_k.js";import"./index.esm-XHNhqDsf.js";import"./assertThisInitialized-B9jnkVVz.js";import"./react-virtualized-auto-sizer.esm-CJUwJr1b.js";import"./index-DYsUIVgG.js";import"./Counter-BIpCTgkC.js";import"./index-DPTcyynS.js";import"./SwitchTransition-C88AiGZf.js";import"./MenuButton-BHEGW2qQ.js";import"./Slider-CGs1HD8M.js";import"./TextField-gUFO1Hrp.js";import"./index-BHzG1aTI.js";import"./FieldLabel-DgxI_HLJ.js";import"./HiddenText-BLH5xZiQ.js";import"./TableBody-DUhRvQSN.js";import"./Skeleton-CQts2mT9.js";function m(r){const i={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...l(),...r.components},{Canvas:t,PropsTable:s,RelatedComponents:a,StorybookLink:e}=i;return t||n("Canvas"),s||n("PropsTable"),a||n("RelatedComponents"),e||n("StorybookLink"),o.jsxs(o.Fragment,{children:[o.jsx(d,{of:c}),`
+`,o.jsx(i.h1,{id:"avatargroup",children:"AvatarGroup"}),`
+`,o.jsx(i.p,{children:"Use this component if you need to stack avatars as a group."}),`
+`,o.jsx(t,{of:h}),`
+`,o.jsx(i.h3,{id:"import",children:"Import"}),`
+`,o.jsx(i.pre,{children:o.jsx(i.code,{className:"language-js",children:`import { AvatarGroup } from "@vibe/core";
+`})}),`
+`,o.jsx(i.h2,{id:"props",children:"Props"}),`
+`,o.jsx(s,{}),`
+`,o.jsx(i.h2,{id:"usage",children:"Usage"}),`
+`,o.jsx(p,{guidelines:[o.jsxs(o.Fragment,{children:["Use ",o.jsx(e,{page:"Components/Tooltip",children:"tooltip"})," component while hovering on the counter when you need only to display the content"]}),o.jsxs(o.Fragment,{children:["If clickable and navigable list is required on counter, use"," ",o.jsx(e,{page:"Components/Menu/Menu",children:"Menu"})," component"]})]}),`
+`,o.jsx(i.h2,{id:"accessibility",children:"Accessibility"}),`
+`,o.jsx(p,{guidelines:[o.jsxs(o.Fragment,{children:["Use the ",o.jsx(i.code,{children:"counterAriaLabel"}),' prop to provide a descriptive accessible name for the counter (e.g., "3 additional team members", "5 more participants", "2 hidden collaborators").']}),o.jsxs(o.Fragment,{children:["Ensure each ",o.jsx(i.code,{children:"Avatar"})," in the group has a meaningful ",o.jsx(i.code,{children:"ariaLabel"}),' prop that describes the person or entity (e.g., "John Smith", "Sarah Johnson", "Design Team").']})]}),`
+`,o.jsx(i.h2,{id:"variants",children:"Variants"}),`
+`,o.jsx(i.h3,{id:"size",children:"Size"}),`
+`,o.jsx(i.p,{children:"Avatar Group appears in 4 sizes: XS, Small, Medium, and Large."}),`
+`,o.jsx(t,{of:x}),`
+`,o.jsx(i.h3,{id:"color-variants",children:"Color variants"}),`
+`,o.jsx(i.p,{children:"You can use Light or Dark counter color to maintain visual hierarchy."}),`
+`,o.jsx(t,{of:u}),`
+`,o.jsx(i.h3,{id:"clickable-vs-hover",children:"Clickable vs. Hover"}),`
+`,o.jsxs(i.p,{children:["If avatars are clickable, they will be displayed via ",o.jsx(e,{page:"Components/Menu/Menu",children:"Menu"}),` and user will be able to navigate each additional item.
+Otherwise, avatars will be displayed in a Tooltip with no item's navigation.`]}),`
+`,o.jsx(t,{of:j}),`
+`,o.jsx(i.h3,{id:"disabled",children:"Disabled"}),`
+`,o.jsx(i.p,{children:"Use when the avatar group is inactive in the specific context."}),`
+`,o.jsx(t,{of:f}),`
+`,o.jsx(i.h3,{id:"max-avatars-shown",children:"Max avatars shown"}),`
+`,o.jsx(i.p,{children:"Choose the ammount of avatars you want to show"}),`
+`,o.jsx(t,{of:v}),`
+`,o.jsx(i.h3,{id:"custom-counter",children:"Custom counter"}),`
+`,o.jsxs(i.p,{children:["You can pass ",o.jsx(i.code,{children:"counterProps"})," to specify counter params."]}),`
+`,o.jsx(t,{of:g}),`
+`,o.jsx(i.h3,{id:"grid-tooltip",children:"Grid tooltip"}),`
+`,o.jsx(i.p,{children:"When tooltip text for additional avatars is not passed, extra avatars will be displayed in a grid mode."}),`
+`,o.jsx(t,{of:b}),`
+`,o.jsx(i.h3,{id:"virtualized-list",children:"Virtualized list"}),`
+`,o.jsx(i.p,{children:"Should be used only to display large amount of avatars in default counter tooltip"}),`
+`,o.jsx(t,{of:y}),`
+`,o.jsx(i.h3,{id:"counter-custom-tooltip-content",children:"Counter custom tooltip content"}),`
+`,o.jsx(i.p,{children:"Counter tooltip props can be specified in order to render tooltip with custom content."}),`
+`,o.jsx(t,{of:C}),`
+`,o.jsx(i.h2,{id:"use-cases-and-examples",children:"Use cases and examples"}),`
+`,o.jsx(i.h3,{id:"last-seen-users",children:"Last seen users"}),`
+`,o.jsx(t,{of:w}),`
+`,o.jsx(i.h3,{id:"displaying-teams",children:"Displaying teams"}),`
+`,o.jsx(t,{of:M}),`
+`,o.jsx(i.h2,{id:"related-components",children:"Related components"}),`
+`,o.jsx(a,{componentsNames:["Avatar","Badge","Counter"]})]})}function ui(r={}){const{wrapper:i}={...l(),...r.components};return i?o.jsx(i,{...r,children:o.jsx(m,{...r})}):m(r)}function n(r,i){throw new Error("Expected component `"+r+"` to be defined: you likely forgot to import, pass, or provide it.")}export{ui as default};
