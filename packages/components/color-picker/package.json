@@ -1,6 +1,6 @@
 {
   "name": "@vibe/color-picker",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Vibe sub-package for ColorPicker component",
   "repository": {
     "type": "git",
@@ -41,11 +41,11 @@
     "@vibe/a11y": "4.0.6",
     "@vibe/button": "4.0.11",
     "@vibe/clickable": "4.0.10",
-    "@vibe/dialog": "4.1.12",
+    "@vibe/dialog": "4.1.13",
     "@vibe/icon": "4.0.9",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.9",
-    "@vibe/tooltip": "4.0.17",
+    "@vibe/tooltip": "4.0.18",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

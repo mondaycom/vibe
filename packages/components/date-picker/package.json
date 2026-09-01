@@ -1,6 +1,6 @@
 {
   "name": "@vibe/date-picker",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Vibe sub-package for DatePicker component",
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/dropdown": "4.0.1",
-    "@vibe/icon-button": "4.0.17",
+    "@vibe/dropdown": "4.0.2",
+    "@vibe/icon-button": "4.0.18",
     "@vibe/icons": "4.1.0",
     "@vibe/layout": "4.0.11",
     "@vibe/shared": "4.0.9",

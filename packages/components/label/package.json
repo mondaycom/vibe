@@ -1,6 +1,6 @@
 {
   "name": "@vibe/label",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "Vibe sub-package for Label component",
   "repository": {
     "type": "git",
@@ -39,10 +39,10 @@
   },
   "dependencies": {
     "@vibe/clickable": "4.0.10",
-    "@vibe/hooks": "4.0.12",
+    "@vibe/hooks": "4.0.13",
     "@vibe/shared": "4.0.9",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.17",
+    "@vibe/typography": "4.0.18",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
