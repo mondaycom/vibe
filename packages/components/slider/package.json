@@ -1,6 +1,6 @@
 {
   "name": "@vibe/slider",
-  "version": "4.0.1",
+  "version": "4.0.3",
   "description": "Vibe sub-package for slider components",
   "repository": {
     "type": "git",
@@ -38,14 +38,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/dialog": "4.1.12",
-    "@vibe/hooks": "4.0.12",
-    "@vibe/icon": "4.0.9",
-    "@vibe/shared": "4.0.9",
+    "@vibe/dialog": "4.1.14",
+    "@vibe/hooks": "4.0.14",
+    "@vibe/icon": "4.0.10",
+    "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/text-inputs": "4.0.1",
-    "@vibe/tooltip": "4.0.17",
-    "@vibe/typography": "4.0.17",
+    "@vibe/text-inputs": "4.0.3",
+    "@vibe/tooltip": "4.0.19",
+    "@vibe/typography": "4.0.19",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

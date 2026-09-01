@@ -1,6 +1,6 @@
 {
   "name": "@vibe/avatar",
-  "version": "4.0.9",
+  "version": "4.0.11",
   "description": "Vibe sub-package for Avatar component",
   "repository": {
     "type": "git",
@@ -39,11 +39,11 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/clickable": "4.0.10",
-    "@vibe/icon": "4.0.9",
-    "@vibe/shared": "4.0.9",
+    "@vibe/clickable": "4.0.11",
+    "@vibe/icon": "4.0.10",
+    "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.17",
+    "@vibe/tooltip": "4.0.19",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

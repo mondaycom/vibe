@@ -1,6 +1,6 @@
 {
   "name": "@vibe/virtualized-grid",
-  "version": "4.0.4",
+  "version": "4.0.6",
   "description": "Vibe sub-package for VirtualizedGrid component",
   "repository": {
     "type": "git",
@@ -38,8 +38,8 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "4.0.12",
-    "@vibe/shared": "4.0.9",
+    "@vibe/hooks": "4.0.14",
+    "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",
     "react-virtualized-auto-sizer": "^1.0.7",

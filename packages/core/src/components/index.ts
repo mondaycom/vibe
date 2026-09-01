@@ -12,7 +12,7 @@ export * from "@vibe/chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "@vibe/color-picker";
-export * from "./Combobox";
+export * from "@vibe/combobox";
 export * from "@vibe/counter";
 export * from "@vibe/date-picker";
 // TODO: export * after removing enums
@@ -44,11 +44,7 @@ export * from "@vibe/info";
 export * from "@vibe/label";
 export { LayerProvider, type LayerProviderType } from "@vibe/layer";
 export * from "@vibe/link";
-export * from "./List";
-export * from "./ListItem";
-export * from "./ListItemAvatar";
-export * from "./ListItemIcon";
-export * from "./ListTitle";
+export * from "@vibe/list";
 export * from "@vibe/loader";
 export {
   Menu,
@@ -79,7 +75,7 @@ export {
   NumberField,
   type NumberFieldProps
 } from "@vibe/text-inputs";
-export * from "./Modal";
+export * from "@vibe/modal";
 export { Steps, type StepsProps, type StepsType, type StepsDotAriaCurrent, type StepsColor } from "@vibe/wizard";
 export {
   MultiStepIndicator,
@@ -96,7 +92,7 @@ export * from "@vibe/search";
 export * from "@vibe/skeleton";
 export * from "@vibe/slider";
 export * from "@vibe/split-button";
-export * from "./Table";
+export * from "@vibe/table";
 export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";
 export * from "@vibe/text-with-highlight";

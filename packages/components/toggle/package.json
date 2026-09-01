@@ -1,6 +1,6 @@
 {
   "name": "@vibe/toggle",
-  "version": "4.0.5",
+  "version": "4.0.7",
   "description": "Vibe sub-package for Toggle and Switch components",
   "repository": {
     "type": "git",
@@ -38,10 +38,10 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "4.0.12",
-    "@vibe/shared": "4.0.9",
+    "@vibe/hooks": "4.0.14",
+    "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.17",
+    "@vibe/typography": "4.0.19",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

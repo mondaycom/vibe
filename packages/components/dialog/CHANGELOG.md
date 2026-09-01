@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.14](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.13...@vibe/dialog@4.1.14) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.13](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.12...@vibe/dialog@4.1.13) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
 ## [4.1.12](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.11...@vibe/dialog@4.1.12) (2026-08-26)
 
 **Note:** Version bump only for package @vibe/dialog

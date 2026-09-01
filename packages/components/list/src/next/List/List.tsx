@@ -1,0 +1,50 @@
+import React, { forwardRef } from "react";
+import cx from "classnames";
+import { BaseList } from "@vibe/base-list";
+import { ComponentDefaultTestId, getTestId, ComponentVibeId } from "@vibe/shared";
+import { type ListProps } from "./List.types";
+import styles from "./List.module.scss";
+
+const List = forwardRef(
+  (
+    {
+      className,
+      id,
+      as = "ul",
+      children,
+      "aria-label": ariaLabel,
+      "aria-describedby": ariaDescribedBy,
+      role = "listbox",
+      size = "small",
+      maxHeight,
+      focusOnMount = false,
+      defaultFocusIndex,
+      onFocusChange,
+      "data-testid": dataTestId
+    }: ListProps,
+    ref: React.ForwardedRef<HTMLElement>
+  ) => {
+    return (
+      <BaseList
+        ref={ref}
+        id={id}
+        className={cx(styles.list, className)}
+        as={as}
+        aria-label={ariaLabel}
+        aria-describedby={ariaDescribedBy}
+        role={role}
+        size={size}
+        maxHeight={maxHeight}
+        focusOnMount={focusOnMount}
+        defaultFocusIndex={defaultFocusIndex}
+        onFocusChange={onFocusChange}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.LIST, id)}
+        data-vibe={ComponentVibeId.LIST}
+      >
+        {children}
+      </BaseList>
+    );
+  }
+);
+
+export default List;

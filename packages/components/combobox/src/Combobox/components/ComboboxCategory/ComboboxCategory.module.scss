@@ -1,0 +1,8 @@
+@import "~@vibe/style/dist/mixins";
+
+.comboboxCategory {
+  color: var(--placeholder-color);
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-8);
+}

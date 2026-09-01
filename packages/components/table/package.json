@@ -1,0 +1,85 @@
+{
+  "name": "@vibe/table",
+  "version": "4.0.2",
+  "description": "Vibe sub-package for Table component",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mondaycom/vibe.git",
+    "directory": "packages/components/table"
+  },
+  "bugs": {
+    "url": "https://github.com/mondaycom/vibe/issues"
+  },
+  "homepage": "https://github.com/mondaycom/vibe#readme",
+  "author": "monday.com",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./mockedClassNames": {
+      "import": "./dist/mocked_classnames/index.js",
+      "default": "./dist/mocked_classnames/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c && yarn build:mocked-classnames",
+    "build:mocked-classnames": "[ \"$SKIP_RELEASE_ARTIFACTS\" = \"true\" ] || mock_classnames=on rollup -c",
+    "test": "vitest run",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
+  },
+  "dependencies": {
+    "@vibe/icon": "4.0.10",
+    "@vibe/icon-button": "4.0.19",
+    "@vibe/icons": "4.1.0",
+    "@vibe/layout": "4.0.12",
+    "@vibe/menu": "4.0.3",
+    "@vibe/menu-button": "4.0.3",
+    "@vibe/shared": "4.0.10",
+    "@vibe/skeleton": "4.0.6",
+    "@vibe/style": "4.1.0",
+    "@vibe/tooltip": "4.0.19",
+    "@vibe/typography": "4.0.19",
+    "@vibe/virtualized-list": "4.0.6",
+    "classnames": "^2.5.1",
+    "es-toolkit": "^1.39.10",
+    "react-virtualized-auto-sizer": "^1.0.7",
+    "react-window": "^1.8.7"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^12.1.2",
+    "@types/react-virtualized-auto-sizer": "^1.0.1",
+    "@types/react-window": "^1.8.5",
+    "@vibe/config": "4.0.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-test-renderer": "16",
+    "typescript": "^5.9.3",
+    "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "sideEffects": [
+    "*.scss",
+    "*.css",
+    "*.scss.js",
+    "*.css.js"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "../../../node_modules/@vibe/config/.eslintrc.cjs"
+    ]
+  }
+}

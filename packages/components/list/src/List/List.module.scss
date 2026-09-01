@@ -1,0 +1,9 @@
+@import "~@vibe/style/dist/mixins";
+
+.list {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  @include scroller();
+  @include smoothing-text;
+}
