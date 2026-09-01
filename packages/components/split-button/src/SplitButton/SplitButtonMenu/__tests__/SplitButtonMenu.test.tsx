@@ -3,8 +3,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import SplitButtonMenu from "../SplitButtonMenu";
 import { MenuItem } from "@vibe/menu";
-import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
-import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "../../../../tests/__tests__/test-utils";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { mockRequestAnimationFrame, restoreRequestAnimationFrameMock } from "./test-utils";
 
 const id = "menu";
 const menuDataTestId = getTestId(ComponentDefaultTestId.MENU, id);

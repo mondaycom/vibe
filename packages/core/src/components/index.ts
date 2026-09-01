@@ -14,7 +14,7 @@ export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickab
 export * from "@vibe/color-picker";
 export * from "@vibe/combobox";
 export * from "@vibe/counter";
-export * from "./DatePicker";
+export * from "@vibe/date-picker";
 // TODO: export * after removing enums
 export {
   Dialog,
@@ -95,7 +95,7 @@ export * from "@vibe/radio-button";
 export * from "@vibe/search";
 export * from "@vibe/skeleton";
 export * from "@vibe/slider";
-export * from "./SplitButton";
+export * from "@vibe/split-button";
 export * from "./Table";
 export * from "@vibe/tabs";
 export { Text, type TextProps, type TextType, type TextWeight } from "@vibe/typography";

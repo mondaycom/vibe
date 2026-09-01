@@ -4,10 +4,9 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import SplitButton from "../SplitButton";
 import userEvent from "@testing-library/user-event";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import SplitButtonMenu from "../SplitButtonMenu/SplitButtonMenu";
 import { MenuItem } from "@vibe/menu";
-import { getTestId } from "../../../tests/test-ids-utils";
 
 const text = "Click Me!";
 const className = "test-class";
