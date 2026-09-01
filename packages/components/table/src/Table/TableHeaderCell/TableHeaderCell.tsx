@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import cx from "classnames";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId, getStyle } from "@vibe/shared";
 import styles from "./TableHeaderCell.module.scss";
 import { Icon, type SubIcon } from "@vibe/icon";
 import { IconButton } from "@vibe/icon-button";
@@ -9,9 +9,6 @@ import { Text } from "@vibe/typography";
 import { Flex } from "@vibe/layout";
 import { getAriaSort, getNextSortState, getSortIcon } from "../Table/tableHelpers";
 import { Tooltip } from "@vibe/tooltip";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
-import { getStyle } from "@vibe/shared";
 
 export interface TableHeaderCellProps extends VibeComponentProps {
   /**

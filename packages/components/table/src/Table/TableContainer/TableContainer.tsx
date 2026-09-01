@@ -1,8 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import { TableContainerProvider } from "../context/TableContainerContext/TableContainerContext";
 import { type TableContainerProps } from "./TableContainer.types";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import cx from "classnames";
 import styles from "./TableContainer.module.scss";
 

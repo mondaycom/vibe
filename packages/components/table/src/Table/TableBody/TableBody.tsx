@@ -1,6 +1,6 @@
 import React, { type ReactElement, type ComponentProps, forwardRef } from "react";
 import cx from "classnames";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import TableRow, { type TableRowProps } from "../TableRow/TableRow";
 import type { VirtualizedList } from "@vibe/virtualized-list";
 import styles from "./TableBody.module.scss";
@@ -8,8 +8,6 @@ import { useTable } from "../context/TableContext/TableContext";
 import TableCellSkeleton from "../TableCellSkeleton/TableCellSkeleton";
 import { SKELETON_ROWS_AMOUNT } from "../Table/TableConsts";
 import { getLoadingTypeForCell } from "../Table/tableHelpers";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
 
 export interface TableBodyProps extends VibeComponentProps {
   /**

@@ -1,9 +1,6 @@
 import React, { forwardRef, useCallback, useRef } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, useMergeRef, getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import { type TableCellProps } from "../TableCell/TableCell";
-import { useMergeRef } from "@vibe/shared";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
 import cx from "classnames";
 import styles from "./TableRow.module.scss";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";

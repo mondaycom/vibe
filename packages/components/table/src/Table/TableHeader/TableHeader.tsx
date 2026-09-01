@@ -1,12 +1,9 @@
 import React, { forwardRef } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId, useMergeRef } from "@vibe/shared";
 import styles from "./TableHeader.module.scss";
 import { type TableHeaderCellProps } from "../TableHeaderCell/TableHeaderCell";
 import cx from "classnames";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
 import { useTable } from "../context/TableContext/TableContext";
-import { useMergeRef } from "@vibe/shared";
 
 export interface TableHeaderProps extends VibeComponentProps {
   /**

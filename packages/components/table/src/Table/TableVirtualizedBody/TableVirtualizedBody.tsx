@@ -1,12 +1,10 @@
 import React, { type ComponentType, forwardRef, useCallback, useEffect, useMemo } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps, getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import TableBody from "../TableBody/TableBody";
 import styles from "./TableVirtualizedBody.module.scss";
 import { FixedSizeList as List, type ListChildComponentProps, type ScrollDirection } from "react-window";
 import { useTable } from "../context/TableContext/TableContext";
 import cx from "classnames";
-import { getTestId } from "../../../tests/test-ids-utils";
-import { ComponentDefaultTestId } from "../../../tests/constants";
 import { RowHeights } from "../Table/TableConsts";
 import AutoSizer, { type Size as AutoSizerSize } from "react-virtualized-auto-sizer";
 import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
