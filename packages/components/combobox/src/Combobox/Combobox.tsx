@@ -2,8 +2,16 @@ import cx from "classnames";
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import { isFunction } from "es-toolkit";
 import { noop as NOOP, camelCase } from "es-toolkit";
-import { getStyle, useMergeRef, useWarnDeprecated } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import {
+  getStyle,
+  useMergeRef,
+  useWarnDeprecated,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  type ElementContent,
+  type VibeComponentProps
+} from "@vibe/shared";
 
 import { Search } from "@vibe/search";
 import { Button } from "@vibe/button";
@@ -14,7 +22,6 @@ import { ComboboxItems } from "./components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "./components/StickyCategoryHeader/StickyCategoryHeader";
 import { useItemsData, useKeyboardNavigation } from "./ComboboxHelpers/ComboboxHelpers";
 import { getOptionId } from "./helpers";
-import { type ElementContent, type VibeComponentProps } from "../../types";
 import {
   type IComboboxCategoryMap,
   type IComboboxItem,
@@ -26,7 +33,6 @@ import styles from "./Combobox.module.scss";
 import { type ComboboxSizes } from "./Combobox.types";
 import type { IconButton } from "@vibe/icon-button";
 import { type MenuButton } from "@vibe/menu-button";
-import { ComponentVibeId } from "../../tests/constants";
 import { type SubIcon } from "@vibe/icon";
 
 export interface ComboboxProps extends VibeComponentProps {

@@ -1,5 +1,4 @@
-@import "../../styles/typography";
-@import "../../styles/states";
+@import "~@vibe/style/dist/mixins";
 
 .combobox {
   @include smoothing-text;

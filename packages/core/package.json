@@ -106,6 +106,7 @@
     "@vibe/chips": "4.0.3",
     "@vibe/clickable": "4.0.10",
     "@vibe/color-picker": "4.0.6",
+    "@vibe/combobox": "4.0.0",
     "@vibe/counter": "4.0.9",
     "@vibe/dialog": "4.1.12",
     "@vibe/divider": "4.0.7",
