@@ -11,15 +11,20 @@ import React, {
   useRef,
   useState
 } from "react";
-import { useMergeRef } from "@vibe/shared";
-import useKeyEvent from "../../hooks/useKeyEvent";
+import {
+  useMergeRef,
+  useKeyEvent,
+  keyCodes,
+  UP_DOWN_ARROWS,
+  type VibeComponentProps,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId
+} from "@vibe/shared";
 import { VirtualizedListItems } from "./VirtualizedListItems/VirtualizedListItems";
-import { keyCodes, UP_DOWN_ARROWS } from "../../constants/keyCodes";
-import { type VibeComponentProps } from "../../types";
 import { type ListItemProps } from "../ListItem/ListItem";
 import { type ListTitleProps } from "../ListTitle/ListTitle";
 import { type ListElement } from "./List.types";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
 import { ListContext } from "./utils/ListContext";
 import {
   getListItemComponentType,
@@ -31,7 +36,6 @@ import {
   useListId
 } from "./utils/ListUtils";
 import styles from "./List.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface ListProps extends VibeComponentProps {
   /**

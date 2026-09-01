@@ -1,1 +1,1 @@
-export * from "./next/index";
+export * from "@vibe/list/next";

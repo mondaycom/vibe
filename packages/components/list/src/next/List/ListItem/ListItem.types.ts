@@ -1,6 +1,6 @@
 import type React from "react";
 import { type AriaRole } from "react";
-import { type VibeComponentProps } from "../../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type BaseItemDirection, type BaseItemData, type StartElement, type EndElement } from "@vibe/base-list";
 
 /**

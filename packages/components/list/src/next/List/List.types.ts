@@ -1,5 +1,5 @@
 import { type ReactElement, type AriaRole } from "react";
-import { type VibeComponentProps } from "../../../types";
+import { type VibeComponentProps } from "@vibe/shared";
 import { type BaseListSizes, type BaseListElement } from "@vibe/base-list";
 
 export type ListSize = BaseListSizes;

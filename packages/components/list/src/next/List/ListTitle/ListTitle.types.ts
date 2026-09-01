@@ -1,4 +1,4 @@
-import type { VibeComponentProps } from "../../../../types";
+import type { VibeComponentProps } from "@vibe/shared";
 import type { BaseListSizes } from "@vibe/base-list";
 
 export interface ListTitleProps extends VibeComponentProps {

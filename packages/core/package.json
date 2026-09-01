@@ -125,6 +125,7 @@
     "@vibe/layer": "4.0.10",
     "@vibe/layout": "4.0.11",
     "@vibe/link": "4.0.7",
+    "@vibe/list": "4.0.0",
     "@vibe/loader": "4.0.9",
     "@vibe/menu": "4.0.2",
     "@vibe/menu-button": "4.0.2",
