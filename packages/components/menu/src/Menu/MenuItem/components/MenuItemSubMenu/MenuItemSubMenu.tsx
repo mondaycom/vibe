@@ -43,7 +43,7 @@ const MenuItemSubMenu = ({
       reference: anchorRef?.current
     },
     whileElementsMounted: (reference, floating, update) =>
-      autoUpdate(reference, floating, update, { elementResize: !!autoAdjustOnSubMenuContentResize })
+      autoUpdate(reference, floating, update, { animationFrame: !!autoAdjustOnSubMenuContentResize })
   });
 
   const subMenu: MenuChild = children && React.Children.only(children);
