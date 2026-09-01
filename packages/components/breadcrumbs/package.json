@@ -1,6 +1,6 @@
 {
   "name": "@vibe/breadcrumbs",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for BreadcrumbsBar component",
   "repository": {
     "type": "git",
@@ -38,14 +38,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/hooks": "4.0.13",
-    "@vibe/icon": "4.0.9",
+    "@vibe/hooks": "4.0.14",
+    "@vibe/icon": "4.0.10",
     "@vibe/icons": "4.1.0",
-    "@vibe/menu": "4.0.2",
-    "@vibe/menu-button": "4.0.2",
-    "@vibe/shared": "4.0.9",
+    "@vibe/menu": "4.0.3",
+    "@vibe/menu-button": "4.0.3",
+    "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.18",
+    "@vibe/tooltip": "4.0.19",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

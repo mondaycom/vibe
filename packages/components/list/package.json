@@ -1,6 +1,6 @@
 {
   "name": "@vibe/list",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Vibe sub-package for list components",
   "repository": {
     "type": "git",
@@ -50,14 +50,14 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/avatar": "4.0.10",
-    "@vibe/base-list": "4.0.2",
-    "@vibe/icon": "4.0.9",
-    "@vibe/shared": "4.0.9",
+    "@vibe/avatar": "4.0.11",
+    "@vibe/base-list": "4.0.3",
+    "@vibe/icon": "4.0.10",
+    "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.18",
-    "@vibe/typography": "4.0.18",
-    "@vibe/virtualized-list": "4.0.5",
+    "@vibe/tooltip": "4.0.19",
+    "@vibe/typography": "4.0.19",
+    "@vibe/virtualized-list": "4.0.6",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

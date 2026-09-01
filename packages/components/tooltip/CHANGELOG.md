@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.19](https://github.com/mondaycom/vibe/compare/@vibe/tooltip@4.0.18...@vibe/tooltip@4.0.19) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/tooltip
+
+
+
+
+
 ## [4.0.18](https://github.com/mondaycom/vibe/compare/@vibe/tooltip@4.0.17...@vibe/tooltip@4.0.18) (2026-09-01)
 
 **Note:** Version bump only for package @vibe/tooltip
