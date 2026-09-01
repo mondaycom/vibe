@@ -1,4 +1,4 @@
-import useEventListener from "../useEventListener";
+import { useEventListener } from "@vibe/shared";
 import { type RefObject, useCallback, useRef } from "react";
 
 export default function useListenFocusTriggers({

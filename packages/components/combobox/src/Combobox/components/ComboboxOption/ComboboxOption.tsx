@@ -3,11 +3,10 @@ import React, { type RefObject, useCallback, useEffect, useMemo, useRef } from "
 import { Icon, type SubIcon } from "@vibe/icon";
 import { Tooltip } from "@vibe/tooltip";
 import { useIsOverflowing } from "@vibe/hooks";
-import { keyCodes } from "../../../../constants";
+import { keyCodes, ComponentDefaultTestId, getTestId } from "@vibe/shared";
 import { getOptionId } from "../../helpers";
 import { type IComboboxOption, type IComboboxOptionEvents } from "../ComboboxConstants";
 import { type ComboboxOptionIconType } from "../../Combobox.types";
-import { ComponentDefaultTestId, getTestId } from "../../../../tests/test-ids-utils";
 import styles from "./ComboboxOption.module.scss";
 
 export interface ComboboxOptionProps extends IComboboxOptionEvents {

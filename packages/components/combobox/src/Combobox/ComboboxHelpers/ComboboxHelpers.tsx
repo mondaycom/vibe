@@ -14,7 +14,7 @@ import {
   type IOptionItemRendererArgs,
   type IComboboxOptionEvents
 } from "../components/ComboboxConstants";
-import useActiveDescendantListFocus from "../../../hooks/useActiveDescendantListFocus";
+import { useActiveDescendantListFocus } from "@vibe/hooks";
 import { getOptionsByCategories } from "../ComboboxService";
 import comboboxItemsStyles from "../components/ComboboxItems/ComboboxItems.module.scss";
 import styles from "./ComboboxHelpers.module.scss";

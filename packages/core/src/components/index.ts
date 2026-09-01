@@ -12,7 +12,7 @@ export * from "@vibe/chips";
 // TODO: export * after removing ClickableWrapper from @vibe/clickable
 export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickable";
 export * from "@vibe/color-picker";
-export * from "./Combobox";
+export * from "@vibe/combobox";
 export * from "@vibe/counter";
 export * from "@vibe/date-picker";
 // TODO: export * after removing enums

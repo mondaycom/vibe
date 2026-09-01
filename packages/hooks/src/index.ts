@@ -1,3 +1,4 @@
+export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
 export { default as useAfterFirstRender } from "./useAfterFirstRender";
 export { default as useClickOutside } from "./useClickOutside";
 export { default as useDebounceEvent } from "./useDebounceEvent";
