@@ -14,7 +14,7 @@ export { Clickable, type ClickableProps, useClickableProps } from "@vibe/clickab
 export * from "@vibe/color-picker";
 export * from "./Combobox";
 export * from "@vibe/counter";
-export * from "./DatePicker";
+export * from "@vibe/date-picker";
 // TODO: export * after removing enums
 export {
   Dialog,
