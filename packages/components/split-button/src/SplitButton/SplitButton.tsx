@@ -1,7 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { camelCase } from "es-toolkit";
-import { getStyle, NOOP, isInsideClass } from "@vibe/shared";
-import { ComponentDefaultTestId, getTestId } from "../../tests/test-ids-utils";
+import {
+  getStyle,
+  NOOP,
+  isInsideClass,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  useKeyEvent,
+  useEventListener
+} from "@vibe/shared";
 import cx from "classnames";
 // Libraries import
 import React, { type ReactElement, useCallback, useMemo, useRef, useState } from "react";
@@ -15,11 +23,6 @@ import {
   SECONDARY_BUTTON_WRAPPER_CLASSNAME,
   type SplitButtonSecondaryContentPositionType
 } from "./SplitButtonConstants";
-// Utils import
-
-// Hooks import
-import useKeyEvent from "../../hooks/useKeyEvent";
-import useEventListener from "../../hooks/useEventListener";
 // Components import
 import { Button, type ButtonProps } from "@vibe/button";
 import { DropdownChevronDown } from "@vibe/icons";
@@ -33,7 +36,6 @@ import {
   type DialogPosition
 } from "@vibe/dialog";
 import styles from "./SplitButton.module.scss";
-import { ComponentVibeId } from "../../tests/constants";
 
 export interface SplitButtonProps extends ButtonProps {
   /**
