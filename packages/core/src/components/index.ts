@@ -79,7 +79,7 @@ export {
   NumberField,
   type NumberFieldProps
 } from "@vibe/text-inputs";
-export * from "./Modal";
+export * from "@vibe/modal";
 export { Steps, type StepsProps, type StepsType, type StepsDotAriaCurrent, type StepsColor } from "@vibe/wizard";
 export {
   MultiStepIndicator,

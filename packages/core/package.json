@@ -128,6 +128,7 @@
     "@vibe/loader": "4.0.9",
     "@vibe/menu": "4.0.2",
     "@vibe/menu-button": "4.0.2",
+    "@vibe/modal": "4.0.0",
     "@vibe/progress-bars": "4.0.7",
     "@vibe/radio-button": "4.0.11",
     "@vibe/search": "4.0.2",
