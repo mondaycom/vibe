@@ -1,6 +1,6 @@
 {
   "name": "@vibe/table",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for Table component",
   "repository": {
     "type": "git",
@@ -42,8 +42,8 @@
     "@vibe/icon-button": "4.0.19",
     "@vibe/icons": "4.1.0",
     "@vibe/layout": "4.0.12",
-    "@vibe/menu": "4.0.3",
-    "@vibe/menu-button": "4.0.3",
+    "@vibe/menu": "4.0.4",
+    "@vibe/menu-button": "4.0.4",
     "@vibe/shared": "4.0.10",
     "@vibe/skeleton": "4.0.6",
     "@vibe/style": "4.1.0",

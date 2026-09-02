@@ -1,6 +1,6 @@
 {
   "name": "@vibe/search",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for search components",
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "@vibe/icon-button": "4.0.19",
     "@vibe/icons": "4.1.0",
     "@vibe/loader": "4.0.10",
-    "@vibe/menu-button": "4.0.3",
+    "@vibe/menu-button": "4.0.4",
     "@vibe/shared": "4.0.10",
     "classnames": "^2.5.1"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/menu-button",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for menu-button components",
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@vibe/dialog": "4.1.14",
     "@vibe/icons": "4.1.0",
-    "@vibe/menu": "4.0.3",
+    "@vibe/menu": "4.0.4",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
     "@vibe/tooltip": "4.0.19",

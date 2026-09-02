@@ -1,6 +1,6 @@
 {
   "name": "@vibe/modal",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Vibe sub-package for modal components",
   "repository": {
     "type": "git",
@@ -45,7 +45,7 @@
     "@vibe/icons": "4.1.0",
     "@vibe/layer": "4.0.11",
     "@vibe/layout": "4.0.12",
-    "@vibe/menu-button": "4.0.3",
+    "@vibe/menu-button": "4.0.4",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
     "@vibe/tooltip": "4.0.19",
