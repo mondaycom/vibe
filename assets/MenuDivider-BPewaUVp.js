@@ -1,0 +1,14 @@
+import{j as i}from"./jsx-runtime-lwGtIXvq.js";import{useMDXComponents as n}from"./index-BfNsOeqz.js";import{M as p,C as e}from"./index-DBPcRFbf.js";import{M as s,O as d,a,S as c}from"./MenuDivider.stories-CaHTsbnA.js";import"./index-CTZeEbLr.js";import"./_commonjsHelpers-BosuxZz1.js";import"./iframe-C596Zd1L.js";import"./index-Cy2hz5jx.js";import"./index-BrqHMYbN.js";import"./index-BedKbVpA.js";import"./index-DrFu-skq.js";import"./MenuDivider-CHASJyWy.js";import"./index-BpvXyOxN.js";import"./Divider-BGS0umBc.js";import"./constants-pMeS5eGn.js";import"./typesciptCssModulesHelper-Ji7rRrZn.js";import"./createComponentTemplate-B08h-OOW.js";import"./useMenuItemKeyboardEvents-DTtNKgpf.js";import"./index-BKMrxRLL.js";import"./ssr-utils-Do6V6AqB.js";import"./useEventListener-CkU0kzyk.js";import"./index-BxdhJjph.js";import"./useIsomorphicLayoutEffect-BBiFUoiz.js";import"./keyCodes-BSF8ohG1.js";import"./useKeyEvent-BeN1aNjK.js";import"./navDirections-CG353sxs.js";import"./useMergeRef-Do2VYePL.js";import"./sizes-BOsbvv4u.js";import"./MenuItem-CBHaN_hg.js";import"./index-CqkoFCDi.js";import"./debounce-D3NSP8gs.js";import"./DropdownChevronRight-C951c-JF.js";import"./Flex-BWirvMOr.js";import"./Clickable-wFssOZ0Q.js";import"./useClickableProps-DF5jkYWQ.js";import"./noop-DX6rZLP_.js";import"./camelCase-CO1PkVrH.js";import"./IconButton-BS37l3TZ.js";import"./AddSmall-B_5viru5.js";import"./Tooltip-oGjpHbVm.js";import"./Icon-BIpRhjOr.js";import"./CSSTransition-Dhcv5TuQ.js";import"./extends-CCbyfPlC.js";import"./Button-DcLj8BcI.js";import"./Loader-y1NnLGcY.js";import"./DialogContentContainer-XM8DRDr3.js";import"./Text-CR6dPjaD.js";import"./Typography-DU9vZIeE.js";import"./Label-B7w166qr.js";import"./colors-vars-map-DuPRA0tY.js";function m(o){const r={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...n(),...o.components},{PropsTable:t}=r;return t||h("PropsTable"),i.jsxs(i.Fragment,{children:[i.jsx(p,{of:s}),`
+`,i.jsx(r.h1,{id:"menu-divider",children:"Menu Divider"}),`
+`,i.jsx(r.p,{children:"Use menu divider for create separation between to menu items inside a menu"}),`
+`,i.jsx(e,{of:d}),`
+`,i.jsx(r.h3,{id:"import",children:"Import"}),`
+`,i.jsx(r.pre,{children:i.jsx(r.code,{className:"language-js",children:`import { MenuDivider } from "@vibe/core";
+`})}),`
+`,i.jsx(r.h2,{id:"props",children:"Props"}),`
+`,i.jsx(t,{}),`
+`,i.jsx(r.h2,{id:"use-cases-and-examples",children:"Use cases and examples"}),`
+`,i.jsx(r.h3,{id:"menu-with-divider",children:"Menu with divider"}),`
+`,i.jsx(e,{of:a}),`
+`,i.jsx(r.h3,{id:"sub-menu-with-divider",children:"Sub menu with divider"}),`
+`,i.jsx(e,{of:c})]})}function di(o={}){const{wrapper:r}={...n(),...o.components};return r?i.jsx(r,{...o,children:i.jsx(m,{...o})}):m(o)}function h(o,r){throw new Error("Expected component `"+o+"` to be defined: you likely forgot to import, pass, or provide it.")}export{di as default};
