@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.27](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.26...@vibe/docs@4.2.27) (2026-09-08)
+
+
+### Bug Fixes
+
+* **TextField:** associate validation text with input via aria-describedby ([#3508](https://github.com/mondaycom/vibe/issues/3508)) ([8facf2c](https://github.com/mondaycom/vibe/commit/8facf2c066745f390bd9939e3acbf78b8df8650a))
+
+
+
+
+
 ## [4.2.26](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.25...@vibe/docs@4.2.26) (2026-09-02)
 
 **Note:** Version bump only for package @vibe/docs
