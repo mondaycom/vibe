@@ -339,6 +339,62 @@ describe("TextField Tests", () => {
     expect(input.value).toBe(value.trim());
   });
 
+  describe("validation text association", () => {
+    it("should point aria-describedby at the rendered validation text element", () => {
+      const { container } = render(
+        <TextField onChange={onChangeStub} id="described" validation={{ status: "error", text: "Invalid Email" }} />
+      );
+      const input = container.querySelector("#described");
+
+      expect(input.getAttribute("aria-describedby")).toBe("described-validation-text");
+      expect(container.querySelector("#described-validation-text").textContent).toBe("Invalid Email");
+    });
+
+    it("should associate the required error text once the field is blurred while empty", () => {
+      const { container } = render(
+        <TextField onChange={onChangeStub} id="described" required requiredErrorText="This field is required" />
+      );
+      const input = container.querySelector("#described");
+      act(() => {
+        fireEvent.blur(input, { target: { value: "" } });
+      });
+
+      expect(input.getAttribute("aria-describedby")).toBe("described-validation-text");
+      expect(container.querySelector("#described-validation-text").textContent).toBe("This field is required");
+    });
+
+    it("should compose the validation text id with the max length hint id", () => {
+      const { container } = render(
+        <TextField
+          onChange={onChangeStub}
+          id="described"
+          showCharCount
+          maxLength={5}
+          allowExceedingMaxLength
+          validation={{ status: "error", text: "Invalid Email" }}
+        />
+      );
+
+      expect(container.querySelector("#described").getAttribute("aria-describedby")).toBe(
+        "described-validation-text described-allow-exceeding-max-length-text"
+      );
+    });
+
+    it("should not set aria-describedby when there is no validation text", () => {
+      const { container } = render(<TextField onChange={onChangeStub} id="described" />);
+
+      expect(container.querySelector("#described").hasAttribute("aria-describedby")).toBe(false);
+    });
+
+    it("should omit aria-owns and aria-activedescendant when they are empty", () => {
+      const { container } = render(<TextField onChange={onChangeStub} id="described" />);
+      const input = container.querySelector("#described");
+
+      expect(input.hasAttribute("aria-owns")).toBe(false);
+      expect(input.hasAttribute("aria-activedescendant")).toBe(false);
+    });
+  });
+
   describe("controlled", () => {
     it("should call onChange with the new value when controlled is true", () => {
       const handleChange = vi.fn();
