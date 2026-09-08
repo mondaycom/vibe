@@ -1,6 +1,6 @@
 {
   "name": "@vibe/theme-provider",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Vibe sub-package for ThemeProvider component",
   "repository": {
     "type": "git",
@@ -45,7 +45,7 @@
     "@testing-library/react": "^12.1.2",
     "@vibe/button": "4.0.12",
     "@vibe/config": "4.0.2",
-    "@vibe/layout": "4.0.12",
+    "@vibe/layout": "4.0.13",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

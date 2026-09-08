@@ -1,6 +1,6 @@
 {
   "name": "@vibe/tipseen",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for tipseen components",
   "repository": {
     "type": "git",
@@ -41,13 +41,13 @@
     "@vibe/button": "4.0.12",
     "@vibe/dialog": "4.1.14",
     "@vibe/icon": "4.0.10",
-    "@vibe/icon-button": "4.0.19",
+    "@vibe/icon-button": "4.0.20",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.19",
-    "@vibe/typography": "4.0.19",
-    "@vibe/wizard": "4.0.3",
+    "@vibe/tooltip": "4.0.20",
+    "@vibe/typography": "4.0.20",
+    "@vibe/wizard": "4.0.4",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

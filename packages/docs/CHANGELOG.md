@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.28](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.27...@vibe/docs@4.2.28) (2026-09-08)
+
+
+### Bug Fixes
+
+* **Clickable:** allow aria-haspopup to accept ARIA popup tokens, not just boolean ([#3509](https://github.com/mondaycom/vibe/issues/3509)) ([708e2fa](https://github.com/mondaycom/vibe/commit/708e2fa52882ee5b9f1e26863d31e159894c59a9))
+
+
+
+
+
 ## [4.2.27](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.26...@vibe/docs@4.2.27) (2026-09-08)
 
 

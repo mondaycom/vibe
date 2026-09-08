@@ -1,6 +1,6 @@
 {
   "name": "@vibe/layout",
-  "version": "4.0.12",
+  "version": "4.0.13",
   "description": "Vibe sub-package for layout components",
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/clickable": "4.0.11",
+    "@vibe/clickable": "4.0.12",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",

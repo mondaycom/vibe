@@ -1,6 +1,6 @@
 {
   "name": "@vibe/clickable",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "Vibe sub-package for Clickable component",
   "repository": {
     "type": "git",

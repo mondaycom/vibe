@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.9](https://github.com/mondaycom/vibe/compare/@vibe/tabs@4.0.8...@vibe/tabs@4.0.9) (2026-09-08)
+
+**Note:** Version bump only for package @vibe/tabs
+
+
+
+
+
 ## [4.0.8](https://github.com/mondaycom/vibe/compare/@vibe/tabs@4.0.7...@vibe/tabs@4.0.8) (2026-09-01)
 
 **Note:** Version bump only for package @vibe/tabs

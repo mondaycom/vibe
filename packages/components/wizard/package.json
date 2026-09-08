@@ -1,6 +1,6 @@
 {
   "name": "@vibe/wizard",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for wizard components",
   "repository": {
     "type": "git",
@@ -40,13 +40,13 @@
   "dependencies": {
     "@vibe/a11y": "4.0.7",
     "@vibe/button": "4.0.12",
-    "@vibe/clickable": "4.0.11",
+    "@vibe/clickable": "4.0.12",
     "@vibe/divider": "4.0.8",
     "@vibe/icon": "4.0.10",
     "@vibe/icons": "4.1.0",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.19",
+    "@vibe/typography": "4.0.20",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-transition-group": "^4.4.5"

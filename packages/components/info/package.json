@@ -1,6 +1,6 @@
 {
   "name": "@vibe/info",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Vibe sub-package for Info component",
   "repository": {
     "type": "git",
@@ -39,12 +39,12 @@
   },
   "dependencies": {
     "@vibe/dialog": "4.1.14",
-    "@vibe/icon-button": "4.0.19",
+    "@vibe/icon-button": "4.0.20",
     "@vibe/icons": "4.1.0",
-    "@vibe/layout": "4.0.12",
+    "@vibe/layout": "4.0.13",
     "@vibe/link": "4.0.8",
     "@vibe/shared": "4.0.10",
-    "@vibe/typography": "4.0.19",
+    "@vibe/typography": "4.0.20",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
