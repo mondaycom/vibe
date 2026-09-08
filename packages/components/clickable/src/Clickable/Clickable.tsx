@@ -47,9 +47,11 @@ export interface ClickableProps extends VibeComponentProps {
    */
   "aria-hidden"?: boolean;
   /**
-   * Indicates the presence of a popup associated with the element.
+   * Indicates the presence and type of popup associated with the element.
+   * Accepts the ARIA popup tokens (e.g. `"dialog"`, `"menu"`, `"listbox"`) in addition to a boolean,
+   * so assistive technology announces the correct popup type rather than defaulting to "menu".
    */
-  "aria-haspopup"?: boolean;
+  "aria-haspopup"?: React.AriaAttributes["aria-haspopup"];
   /**
    * If true, indicates that the associated popup is open.
    */
