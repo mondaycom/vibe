@@ -43,8 +43,10 @@ import { TextField } from "@vibe/core";
       clear to all users.
     </>,
     <>
-      When using <code>title</code> or validation text, you must also provide an <code>id</code>. This is crucial, as it
-      allows screen readers to correctly associate the input with its label and description.
+      When using <code>title</code> or validation text, you must also provide a unique <code>id</code>. This is crucial,
+      as the label is associated through it and the validation text is exposed to screen readers as{" "}
+      <code>aria-describedby="&#123;id&#125;-validation-text"</code>. Two fields sharing an <code>id</code> on the same
+      page produce duplicate description targets.
     </>,
     <>
       For required fields, use the <code>required</code> prop to ensure proper screen reader announcements and native
