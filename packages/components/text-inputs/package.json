@@ -1,6 +1,6 @@
 {
   "name": "@vibe/text-inputs",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Vibe sub-package for TextField, TextArea, NumberField, FieldLabel and InfoText components",
   "repository": {
     "type": "git",
