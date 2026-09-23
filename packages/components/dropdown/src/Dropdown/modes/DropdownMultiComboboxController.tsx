@@ -113,13 +113,13 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     },
     reset: hookReset,
     contextOnClear: () => {
-      hookReset();
-      if (value === undefined) {
-        setMultiSelectedItemsState([]);
-      }
+      const current = value ?? multiSelectedItemsState;
+      const retained = current.filter(item => item.removable === false);
+      hookReset(retained);
       onClear?.();
     },
     contextOnOptionRemove: (option: Item) => {
+      if (option.removable === false) return;
       if (hookRemoveSelectedItem) {
         hookRemoveSelectedItem(option);
       }

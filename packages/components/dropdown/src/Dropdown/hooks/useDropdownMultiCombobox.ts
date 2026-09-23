@@ -36,6 +36,21 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
   const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem } = useMultipleSelection<T>({
     selectedItems: currentSelectedItems,
     initialSelectedItems: defaultValue,
+    stateReducer: (state, { type, changes }) => {
+      // Block keyboard-driven removal (Backspace/Delete) of non-removable items.
+      if (
+        type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownBackspace ||
+        type === useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete
+      ) {
+        const removedItem = state.selectedItems.find(
+          item => !(changes.selectedItems || []).some(si => si.value === item.value)
+        );
+        if (removedItem?.removable === false) {
+          return { ...changes, selectedItems: state.selectedItems };
+        }
+      }
+      return changes;
+    },
     onSelectedItemsChange: ({ selectedItems }) => {
       if (value === undefined) {
         setSelectedItems(selectedItems || []);
@@ -98,6 +113,8 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       if (!newSelectedItem) return;
       const existingItem = currentSelectedItems.find(item => item.value === newSelectedItem.value);
       if (existingItem) {
+        // Re-selecting a non-removable item must not toggle it off.
+        if (existingItem.removable === false) return;
         removeSelectedItem(existingItem);
         onOptionRemove?.(existingItem);
       } else {
@@ -134,13 +151,16 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     }
   });
 
-  const reset = useCallback(() => {
-    if (value === undefined) {
-      setSelectedItems([]);
-    }
-    downshiftReset();
-    onChange?.([]);
-  }, [value, setSelectedItems, downshiftReset, onChange]);
+  const reset = useCallback(
+    (keepItems: T[] = []) => {
+      if (value === undefined) {
+        setSelectedItems(keepItems);
+      }
+      downshiftReset();
+      onChange?.(keepItems);
+    },
+    [value, setSelectedItems, downshiftReset, onChange]
+  );
 
   return {
     isOpen,
