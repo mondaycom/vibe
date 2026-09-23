@@ -1,9 +1,13 @@
 import type React from "react";
 
-export interface TableRowMenuContext extends Pick<TableRowMenuProviderValue, "resetHoveredRow"> {
-  hoveredRowId: string;
+export interface TableRowMenuCallbacksContext {
   onMouseOverRow: (rowRef: React.MutableRefObject<HTMLDivElement>) => void;
   onMouseLeaveRow: () => void;
+  resetHoveredRow: () => void;
+}
+
+export interface TableRowMenuContext {
+  hoveredRowId: string;
   onMouseOverRowMenu: () => void;
   onMouseLeaveRowMenu: () => void;
   menuButtonPosition: number;
@@ -13,11 +17,8 @@ export interface TableRowMenuContext extends Pick<TableRowMenuProviderValue, "re
 
 export interface TableRowMenuProviderValue {
   tableRootRef: React.RefObject<HTMLDivElement>;
-  hoveredRowRef: React.RefObject<HTMLDivElement>;
-  isMenuOpen: boolean;
-  resetHoveredRow: () => void;
-  setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement>) => void;
-  setIsMenuOpen: (isOpen: boolean) => void;
+  /** Populated by the provider with its internal reset function so callers (e.g. scroll handler) can trigger a reset without owning the state. */
+  resetRef: React.MutableRefObject<() => void>;
 }
 
 export type TableRowMenuProviderProps = {

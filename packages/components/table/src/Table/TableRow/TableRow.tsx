@@ -1,9 +1,9 @@
-import React, { forwardRef, useCallback, useRef } from "react";
+import React, { forwardRef, memo, useCallback, useRef } from "react";
 import { type VibeComponentProps, useMergeRef, getTestId, ComponentDefaultTestId } from "@vibe/shared";
 import { type TableCellProps } from "../TableCell/TableCell";
 import cx from "classnames";
 import styles from "./TableRow.module.scss";
-import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
+import { useTableRowMenuCallbacks } from "../context/TableRowMenuContext/TableRowMenuContext";
 
 export interface TableRowProps extends VibeComponentProps {
   /**
@@ -27,7 +27,7 @@ const TableRow = forwardRef(
   ) => {
     const componentRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(componentRef, ref);
-    const { onMouseOverRow, onMouseLeaveRow } = useTableRowMenu();
+    const { onMouseOverRow, onMouseLeaveRow } = useTableRowMenuCallbacks();
 
     const onMouseEnter = useCallback(() => {
       onMouseOverRow(componentRef);
@@ -52,4 +52,4 @@ const TableRow = forwardRef(
   }
 );
 
-export default TableRow;
+export default memo(TableRow);
