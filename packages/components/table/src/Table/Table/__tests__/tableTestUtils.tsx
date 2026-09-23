@@ -3,7 +3,10 @@ import { vi } from "vitest";
 import * as TableContextModule from "../../context/TableContext/TableContext";
 import { type TableContext } from "../../context/TableContext/TableContext.types";
 import * as TableRowMenuContextModule from "../../context/TableRowMenuContext/TableRowMenuContext";
-import { type TableRowMenuContext } from "../../context/TableRowMenuContext/TableRowMenuContext.types";
+import {
+  type TableRowMenuCallbacksContext,
+  type TableRowMenuContext
+} from "../../context/TableRowMenuContext/TableRowMenuContext.types";
 import { RowSizes } from "../TableConsts";
 
 export function mockUseTable() {
@@ -29,14 +32,22 @@ export function mockUseTable() {
   return mockUseTable;
 }
 
+export function mockUseTableRowMenuCallbacks() {
+  return vi.spyOn(TableRowMenuContextModule, "useTableRowMenuCallbacks").mockImplementation(
+    () =>
+      ({
+        onMouseOverRow: vi.fn(),
+        onMouseLeaveRow: vi.fn(),
+        resetHoveredRow: vi.fn()
+      } satisfies TableRowMenuCallbacksContext)
+  );
+}
+
 export function mockUseTableRowMenu() {
-  const mockUseTableRowMenu = vi.spyOn(TableRowMenuContextModule, "useTableRowMenu").mockImplementation(
+  return vi.spyOn(TableRowMenuContextModule, "useTableRowMenu").mockImplementation(
     () =>
       ({
         hoveredRowId: null,
-        resetHoveredRow: vi.fn(),
-        onMouseOverRow: vi.fn(),
-        onMouseLeaveRow: vi.fn(),
         onMouseOverRowMenu: vi.fn(),
         onMouseLeaveRowMenu: vi.fn(),
         menuButtonPosition: 0,
@@ -44,6 +55,4 @@ export function mockUseTableRowMenu() {
         setTableMenuHidden: vi.fn()
       } satisfies TableRowMenuContext)
   );
-
-  return mockUseTableRowMenu;
 }
