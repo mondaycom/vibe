@@ -675,42 +675,47 @@ export const StickyColumn = {
 };
 
 export const RowMenu = {
-  render: () => {
-    return (
-      <TableContainer style={{ paddingInlineStart: 48 }}>
-        <Table
-          errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
-          emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
-          columns={emailColumns}
-        >
-          <TableHeader>
-            {emailColumns.map((headerCell, index) => (
-              <TableHeaderCell key={index} title={headerCell.title} />
-            ))}
-          </TableHeader>
-          <TableBody>
-            {emailTableData.map(rowItem => (
-              <TableRow key={rowItem.id} id={rowItem.id}>
-                <TableCell>{rowItem.sentOn}</TableCell>
-                <TableCell>{rowItem.subject}</TableCell>
-                <TableCell>
-                  <TableAvatar text={rowItem.sentBy} />
-                </TableCell>
-                <TableCell>
-                  <Label text={rowItem.status} color="positive" />
-                </TableCell>
-                <TableCell>{rowItem.emailsSent}</TableCell>
-                <TableRowMenu rowId={rowItem.id}>
-                  <MenuItem title="Edit" />
-                  <MenuItem title="Delete" />
-                </TableRowMenu>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
-  },
+  render: () => (
+    <TableContainer>
+      <Table
+        errorState={<h1 style={{ textAlign: "center" }}>Error State</h1>}
+        emptyState={<h1 style={{ textAlign: "center" }}>Empty State</h1>}
+        columns={emailColumns}
+      >
+        <TableHeader>
+          {emailColumns.map((headerCell, index) => (
+            <TableHeaderCell key={index} title={headerCell.title} />
+          ))}
+        </TableHeader>
+        <TableBody>
+          {emailTableData.map(rowItem => (
+            <TableRow key={rowItem.id} id={rowItem.id}>
+              <TableCell>{rowItem.sentOn}</TableCell>
+              <TableCell>{rowItem.subject}</TableCell>
+              <TableCell>
+                <TableAvatar text={rowItem.sentBy} />
+              </TableCell>
+              <TableCell>
+                <Label text={rowItem.status} color="positive" />
+              </TableCell>
+              <TableCell>{rowItem.emailsSent}</TableCell>
+              <TableRowMenu rowId={rowItem.id}>
+                <MenuItem title="Edit" />
+                <MenuItem title="Delete" />
+              </TableRowMenu>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  ),
+  decorators: [
+    (Story: typeof React.Component) => (
+      <div style={{ paddingInlineStart: 56, width: "100%" }}>
+        <Story />
+      </div>
+    )
+  ],
   parameters: {
     docs: {
       liveEdit: {
