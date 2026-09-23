@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.28](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.27...@vibe/docs@4.2.28) (2026-09-08)
+
+
+### Bug Fixes
+
+* **Clickable:** allow aria-haspopup to accept ARIA popup tokens, not just boolean ([#3509](https://github.com/mondaycom/vibe/issues/3509)) ([708e2fa](https://github.com/mondaycom/vibe/commit/708e2fa52882ee5b9f1e26863d31e159894c59a9))
+
+
+
+
+
+## [4.2.27](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.26...@vibe/docs@4.2.27) (2026-09-08)
+
+
+### Bug Fixes
+
+* **TextField:** associate validation text with input via aria-describedby ([#3508](https://github.com/mondaycom/vibe/issues/3508)) ([8facf2c](https://github.com/mondaycom/vibe/commit/8facf2c066745f390bd9939e3acbf78b8df8650a))
+
+
+
+
+
+## [4.2.26](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.25...@vibe/docs@4.2.26) (2026-09-02)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.25](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.24...@vibe/docs@4.2.25) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
 ## [4.2.24](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.23...@vibe/docs@4.2.24) (2026-09-01)
 
 **Note:** Version bump only for package @vibe/docs

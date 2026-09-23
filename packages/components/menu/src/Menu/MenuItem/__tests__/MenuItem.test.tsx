@@ -72,6 +72,47 @@ describe("<MenuItem />", () => {
     });
   });
 
+  it("should flip the submenu away from the edge when it would overflow the viewport", async () => {
+    const title = "Main Item";
+    const submenuTitle = "Sub Item";
+
+    // Force the anchor to sit against the right viewport edge so a right-opening
+    // submenu would overflow and the flip middleware must move it to the left.
+    const rectSpy = vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockReturnValue({
+      x: window.innerWidth - 10,
+      y: 100,
+      top: 100,
+      left: window.innerWidth - 10,
+      right: window.innerWidth - 10 + 200,
+      bottom: 140,
+      width: 200,
+      height: 40,
+      toJSON: () => ({})
+    } as DOMRect);
+
+    try {
+      const { queryByText, container } = render(
+        <MenuItem index={0} activeItemIndex={0} title={title} isParentMenuVisible hasOpenSubMenu>
+          <Menu>
+            <MenuItem title={submenuTitle} />
+          </Menu>
+        </MenuItem>
+      );
+      const menuItemElement = queryByText(title);
+      await act(async () => {
+        fireEvent.mouseEnter(menuItemElement);
+      });
+
+      await waitFor(() => {
+        const subMenuElement = container.querySelector("[data-popper-placement]");
+        expect(subMenuElement).toBeVisible();
+        expect(subMenuElement.getAttribute("data-popper-placement")).toContain("left");
+      });
+    } finally {
+      rectSpy.mockRestore();
+    }
+  });
+
   it("should render Label when pass a string", () => {
     const labelText = "Label Text";
     const { getByText } = render(<MenuItem title={title} label={labelText} />);

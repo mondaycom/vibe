@@ -48,3 +48,20 @@ export const States = {
   name: "States",
   play: statesPlaySuite
 };
+
+export const WithDialogPopup = {
+  render: () => (
+    <Clickable
+      onClick={() => alert("clicked")}
+      aria-label="open filter dialog"
+      aria-haspopup="dialog"
+      aria-expanded={false}
+    >
+      <Box border padding="small" rounded="small">
+        I open a dialog
+      </Box>
+    </Clickable>
+  ),
+
+  name: "With dialog popup"
+};

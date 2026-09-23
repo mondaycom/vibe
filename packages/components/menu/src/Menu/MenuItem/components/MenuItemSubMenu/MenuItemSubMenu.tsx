@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from "react";
 import { DialogContentContainer } from "@vibe/dialog";
-import { useFloating, flip, type Placement } from "@floating-ui/react-dom";
+import { useFloating, flip, shift, autoUpdate, type Placement } from "@floating-ui/react-dom";
 import { type MenuChild } from "../../../Menu/MenuConstants";
 import { type MenuItemSubMenuProps } from "./MenuItemSubMenu.types";
 import { useIsomorphicLayoutEffect } from "@vibe/shared";
@@ -13,7 +13,8 @@ const MenuItemSubMenu = ({
   autoFocusOnMount,
   onClose,
   children,
-  submenuPosition
+  submenuPosition,
+  autoAdjustOnSubMenuContentResize
 }: MenuItemSubMenuProps) => {
   const childRef = useRef<HTMLDivElement>(null);
 
@@ -37,10 +38,12 @@ const MenuItemSubMenu = ({
     placement: actualPlacement
   } = useFloating({
     placement,
-    middleware: [flip({ fallbackPlacements: DEFAULT_FALLBACK_PLACEMENTS })],
+    middleware: [flip({ fallbackPlacements: DEFAULT_FALLBACK_PLACEMENTS }), shift()],
     elements: {
       reference: anchorRef?.current
-    }
+    },
+    whileElementsMounted: (reference, floating, update) =>
+      autoUpdate(reference, floating, update, { animationFrame: !!autoAdjustOnSubMenuContentResize })
   });
 
   const subMenu: MenuChild = children && React.Children.only(children);

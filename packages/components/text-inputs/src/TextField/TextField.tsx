@@ -339,14 +339,16 @@ const TextField = forwardRef(
     }, [maxLength, validation, isRequiredAndEmpty, inputValue]);
 
     const hasIcon = iconName || secondaryIconName;
-    const shouldShowExtraText =
-      showCharCount || (validation && validation.text) || (isRequiredAndEmpty && requiredErrorText);
+    const hasValidationText = !!((validation && validation.text) || (isRequiredAndEmpty && requiredErrorText));
+    const shouldShowExtraText = showCharCount || hasValidationText;
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
     const shouldFocusOnPrimaryIcon =
       (onIconClick !== NOOP || iconLabel || iconTooltipContent) && inputValue && iconName.length && isPrimary;
     const shouldFocusOnSecondaryIcon = (secondaryIconName || secondaryTooltipContent) && isSecondary && !!inputValue;
     const allowExceedingMaxLengthTextId = allowExceedingMaxLength ? `${id}-allow-exceeding-max-length-text` : undefined;
+    const validationTextId = hasValidationText ? `${id}-validation-text` : undefined;
+    const describedBy = [validationTextId, allowExceedingMaxLengthTextId].filter(Boolean).join(" ") || undefined;
 
     useEffect(() => {
       if (!inputRef?.current || !autoFocus) {
@@ -401,10 +403,10 @@ const TextField = forwardRef(
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}
               aria-invalid={(validation && validation.status === "error") || isRequiredAndEmpty}
-              aria-owns={searchResultsContainerId}
-              aria-activedescendant={activeDescendant}
+              aria-owns={searchResultsContainerId || undefined}
+              aria-activedescendant={activeDescendant || undefined}
               aria-required={required}
-              aria-describedby={allowExceedingMaxLengthTextId}
+              aria-describedby={describedBy}
               required={required}
               tabIndex={tabIndex}
               dir={dir}
@@ -473,8 +475,8 @@ const TextField = forwardRef(
           </div>
           {shouldShowExtraText && (
             <Text type="text2" color="secondary" className={cx(styles.subTextContainer)}>
-              {((validation && validation.text) || (isRequiredAndEmpty && requiredErrorText)) && (
-                <span className={cx(styles.subTextContainerStatus)}>
+              {hasValidationText && (
+                <span id={validationTextId} className={cx(styles.subTextContainerStatus)}>
                   {isRequiredAndEmpty ? requiredErrorText : validation.text}
                 </span>
               )}
