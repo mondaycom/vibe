@@ -1,6 +1,6 @@
 {
   "name": "@vibe/list",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Vibe sub-package for list components",
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@vibe/avatar": "4.0.12",
-    "@vibe/base-list": "4.0.4",
+    "@vibe/base-list": "4.1.0",
     "@vibe/icon": "4.0.10",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
