@@ -125,6 +125,7 @@ These props are no longer available in the new implementation:
 - **`insideLayerContext`** - Handled automatically
 - **`popupsContainerSelector`** - Handled automatically
 - **`tooltipContent`** - Use `tooltipProps` instead for enhanced tooltip support
+- **`withMandatoryDefaultOptions`** - Removed. Mark individual options with `removable: false` instead (see [Non-Removable Options](#non-removable-options-))
 
 ### Changed Props
 
@@ -293,6 +294,28 @@ const optionsWithElements = [
   // Chip colors are controlled via chipColor property
 />;
 ```
+
+### Non-Removable Options 📌
+
+In the old Dropdown, keeping specific chips from being removed in multi-select mode required the dropdown-level `withMandatoryDefaultOptions` prop together with an option-level `isMandatory: true` flag. The new Dropdown replaces both with a single, self-describing option-level `removable` flag. Set `removable: false` on an option to render its chip read-only (no remove button) and protect it from keyboard deletion and clear-all.
+
+<DiffCodeBlock
+  code={`- <Dropdown
+-   multi
+-   withMandatoryDefaultOptions
+-   options={[
+-     { id: 1, text: "Owner", isMandatory: true },
+-     { id: 2, text: "Editor" }
+-   ]}
+- />
++ <Dropdown
++   multi
++   options={[
++     { value: 1, label: "Owner", removable: false },
++     { value: 2, label: "Editor" }
++   ]}
++ />`}
+/>
 
 ## Type Safety Improvements 🛡️
 

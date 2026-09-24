@@ -61,6 +61,8 @@ function useDropdownMultiSelect<T extends BaseItemData<Record<string, unknown>>>
       if (!newSelectedItem) return;
       const existingItem = currentSelectedItems.find(item => item.value === newSelectedItem.value);
       if (existingItem) {
+        // Re-selecting a non-removable item must not toggle it off.
+        if (existingItem.removable === false) return;
         removeSelectedItem(existingItem);
       } else {
         addSelectedItem(newSelectedItem);
@@ -82,13 +84,16 @@ function useDropdownMultiSelect<T extends BaseItemData<Record<string, unknown>>>
     }
   });
 
-  const reset = useCallback(() => {
-    if (value === undefined) {
-      setSelectedItems([]);
-    }
-    downshiftReset();
-    onChange?.([]);
-  }, [value, setSelectedItems, downshiftReset, onChange]);
+  const reset = useCallback(
+    (keepItems: T[] = []) => {
+      if (value === undefined) {
+        setSelectedItems(keepItems);
+      }
+      downshiftReset();
+      onChange?.(keepItems);
+    },
+    [value, setSelectedItems, downshiftReset, onChange]
+  );
 
   const getInputProps = () => ({});
 

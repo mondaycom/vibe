@@ -58,7 +58,7 @@ const DropdownChip = <Item extends BaseItemData<Record<string, unknown>>>({
       closeButtonAriaLabel={`Remove ${item.label}`}
       onDelete={onDelete}
       disabled={disabled}
-      readOnly={readOnly}
+      readOnly={readOnly || item.removable === false}
       noMargin
       className={className}
       color={item.chipColor || "primary"}

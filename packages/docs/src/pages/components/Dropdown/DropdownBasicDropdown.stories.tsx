@@ -230,6 +230,37 @@ export const MultiSelect: Story = {
   }
 };
 
+export const NonRemovableOptions: Story = {
+  render: () => {
+    const options = useMemo(
+      () => [
+        { value: "1", label: "Owner", removable: false },
+        { value: "2", label: "Chip two" },
+        { value: "3", label: "Chip three" },
+        { value: "4", label: "Chip four" }
+      ],
+      []
+    );
+
+    return (
+      <Flex direction="column" gap="medium">
+        <Text>Set removable: false on an option to keep its chip from being removed.</Text>
+        <div style={{ width: "350px", marginBottom: "50px" }}>
+          <Dropdown
+            id="multi-select-non-removable"
+            aria-label="Multi select with a non-removable option"
+            placeholder="Select options"
+            defaultValue={[options[0], options[1]]}
+            options={options}
+            multi
+            clearAriaLabel="Clear"
+          />
+        </div>
+      </Flex>
+    );
+  }
+};
+
 export const DropdownWithIconOrAvatar: Story = {
   render: () => {
     const optionsIcons: any = useMemo(

@@ -87,6 +87,11 @@ export type BaseItemData<Item = Record<string, unknown>> = Item & {
    */
   chipColor?: ChipsProps["color"];
   /**
+   * If false, the item cannot be removed in multi-select mode. Its chip is rendered read-only
+   * (no remove button) and it is protected from keyboard deletion and clear-all. Defaults to true.
+   */
+  removable?: boolean;
+  /**
    * The index of the item in the list.
    */
   index?: number;
