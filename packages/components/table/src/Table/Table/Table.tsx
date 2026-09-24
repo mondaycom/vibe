@@ -113,13 +113,7 @@ const Table = forwardRef(
     const tableRootRef = useRef<HTMLDivElement>(null);
     const mergedRef = useMergeRef(ref, tableRootRef);
 
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const [hoveredRowRef, setHoveredRowRef] = useState<React.RefObject<HTMLDivElement>>(null);
-
-    const resetHoveredRow = useCallback(() => {
-      setIsMenuOpen(false);
-      setHoveredRowRef(null);
-    }, []);
+    const rowMenuResetRef = useRef<() => void>(null);
 
     const [isVirtualized, setIsVirtualized] = useState<boolean>(false);
     const markTableAsVirtualized = useCallback(() => {
@@ -130,14 +124,14 @@ const Table = forwardRef(
 
     const onScroll = useCallback<UIEventHandler<HTMLDivElement>>(
       e => {
-        resetHoveredRow();
+        rowMenuResetRef.current?.();
         if (!isVirtualized) {
           const newLeft = (e.target as HTMLDivElement).scrollLeft;
           const hasScroll = newLeft > 0;
           setIsScrolled(prevScroll => (prevScroll !== hasScroll ? hasScroll : prevScroll));
         }
       },
-      [resetHoveredRow, isVirtualized]
+      [isVirtualized]
     );
 
     const { gridTemplateColumns } = getTableRowLayoutStyles(columns);
@@ -169,15 +163,8 @@ const Table = forwardRef(
     );
 
     const tableRowMenuProviderValue = useMemo<TableRowMenuProviderValue>(
-      () => ({
-        tableRootRef,
-        hoveredRowRef,
-        isMenuOpen,
-        resetHoveredRow,
-        setHoveredRowRef: (rowRef: React.RefObject<HTMLDivElement>) => setHoveredRowRef(rowRef),
-        setIsMenuOpen: (isOpen: boolean) => setIsMenuOpen(isOpen)
-      }),
-      [hoveredRowRef, isMenuOpen, resetHoveredRow, setHoveredRowRef]
+      () => ({ tableRootRef, resetRef: rowMenuResetRef }),
+      []
     );
 
     return (
