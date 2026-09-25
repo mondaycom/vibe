@@ -188,6 +188,7 @@ export {default as Numbers} from './Numbers';
 export {default as Offline} from './Offline';
 export {default as Open} from './Open';
 export {default as Page} from './Page';
+export {default as ParentItem} from './ParentItem';
 export {default as Paste} from './Paste';
 export {default as Pause} from './Pause';
 export {default as PDF} from './PDF';
