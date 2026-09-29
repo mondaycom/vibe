@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useSelect } from "downshift";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownGroupOption } from "../Dropdown.types";
+
+const EMPTY_GET_INPUT_PROPS = () => ({});
 
 function useDropdownSelect<T extends BaseItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
@@ -69,15 +71,15 @@ function useDropdownSelect<T extends BaseItemData<Record<string, unknown>>>(
     }
   });
 
-  const reset = () => {
+  const reset = useCallback(() => {
     if (value === undefined) {
       setCurrentSelectedItem(null);
     }
     downshiftReset();
     onChange?.(null);
-  };
+  }, [value, downshiftReset, onChange]);
 
-  const getInputProps = () => ({});
+  const getInputProps = EMPTY_GET_INPUT_PROPS;
 
   return {
     isOpen,

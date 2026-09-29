@@ -162,18 +162,8 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     [value, setSelectedItems, downshiftReset, onChange]
   );
 
-  return {
-    isOpen,
-    inputValue,
-    highlightedIndex,
-    selectedItems: currentSelectedItems,
-    getSelectedItemProps,
-    getDropdownProps,
-    addSelectedItem,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
+  const wrappedGetInputProps = useCallback(
+    (options?: Parameters<typeof getInputProps>[0]) =>
       getInputProps({
         ...options,
         onKeyDown: event => {
@@ -190,6 +180,21 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
           }
         }
       }),
+    [getInputProps, isOpen, highlightedIndex, flatOptions, selectItem]
+  );
+
+  return {
+    isOpen,
+    inputValue,
+    highlightedIndex,
+    selectedItems: currentSelectedItems,
+    getSelectedItemProps,
+    getDropdownProps,
+    addSelectedItem,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getInputProps: wrappedGetInputProps,
     getItemProps,
     reset,
     removeSelectedItem,
