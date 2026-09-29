@@ -8,7 +8,7 @@ import TableRow from "../../TableRow/TableRow";
 import TableHeaderCell, { type TableHeaderCellProps } from "../../TableHeaderCell/TableHeaderCell";
 import TableHeader from "../../TableHeader/TableHeader";
 import TableCellSkeleton from "../../TableCellSkeleton/TableCellSkeleton";
-import { mockUseTable, mockUseTableRowMenu } from "./tableTestUtils";
+import { mockUseTable, mockUseTableRowMenu, mockUseTableRowMenuCallbacks } from "./tableTestUtils";
 import TableVirtualizedBody from "../../TableVirtualizedBody/TableVirtualizedBody";
 
 interface TableNode {
@@ -75,6 +75,7 @@ describe("Table", () => {
     beforeEach(() => {
       mockUseTable();
       mockUseTableRowMenu();
+      mockUseTableRowMenuCallbacks();
     });
 
     afterEach(() => {
