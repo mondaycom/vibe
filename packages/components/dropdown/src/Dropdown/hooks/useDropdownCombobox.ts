@@ -139,15 +139,8 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     }
   });
 
-  return {
-    isOpen,
-    inputValue,
-    highlightedIndex,
-    selectedItem,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
+  const wrappedGetInputProps = useCallback(
+    (options?: Parameters<typeof getInputProps>[0]) =>
       getInputProps({
         ...options,
         ref: inputRef,
@@ -165,14 +158,28 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
           }
         }
       }),
+    [getInputProps, isOpen, highlightedIndex, flatOptions, selectItem]
+  );
+
+  const stableReset = useCallback(() => {
+    if (value === undefined) {
+      setCurrentSelectedItem(null);
+    }
+    reset();
+    filterOptions("");
+  }, [value, reset, filterOptions]);
+
+  return {
+    isOpen,
+    inputValue,
+    highlightedIndex,
+    selectedItem,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getInputProps: wrappedGetInputProps,
     getItemProps,
-    reset: () => {
-      if (value === undefined) {
-        setCurrentSelectedItem(null);
-      }
-      reset();
-      filterOptions("");
-    },
+    reset: stableReset,
     filteredOptions,
     openMenu,
     toggleMenu,
