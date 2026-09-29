@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, memo } from "react";
 import { BaseItem } from "@vibe/base-list";
 import styles from "./DropdownBaseList.module.scss";
 import { type DropdownBaseListProps } from "./DropdownBaseList.types";
@@ -7,7 +7,7 @@ import { Text, type TextType } from "@vibe/typography";
 import cx from "classnames";
 import { Divider } from "@vibe/divider";
 
-const DropdownBaseList = forwardRef(
+const DropdownBaseListInner = forwardRef(
   <Item extends Record<string, unknown>>(
     {
       options,
@@ -103,6 +103,8 @@ const DropdownBaseList = forwardRef(
     );
   }
 );
+
+const DropdownBaseList = memo(DropdownBaseListInner);
 
 export default DropdownBaseList as <Item extends Record<string, unknown>>(
   props: DropdownBaseListProps<Item> & { ref?: React.Ref<HTMLUListElement> }

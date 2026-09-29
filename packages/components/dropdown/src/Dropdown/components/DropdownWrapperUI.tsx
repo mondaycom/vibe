@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { DropdownContext } from "../context/DropdownContext";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownPopup from "./DropdownPopup/DropdownPopup";
@@ -17,8 +17,13 @@ const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(p
   // Id linking the helper text to the combobox/trigger via aria-describedby (WCAG SC 1.3.1).
   const helperTextId = contextValue.helperText && contextValue.id ? `${contextValue.id}-helper-text` : undefined;
 
+  const providerValue = useMemo(
+    () => ({ ...contextValue, helperTextId }),
+    [contextValue, helperTextId]
+  );
+
   return (
-    <DropdownContext.Provider value={{ ...contextValue, helperTextId }}>
+    <DropdownContext.Provider value={providerValue}>
       <DropdownBase dropdownRef={dropdownRef}>
         {contextValue.boxMode ? <DropdownBoxMode /> : <DropdownPopup />}
       </DropdownBase>

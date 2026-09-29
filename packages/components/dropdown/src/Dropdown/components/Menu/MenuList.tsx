@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import BaseList from "../DropdownBaseList/DropdownBaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "@vibe/base-list";
@@ -26,12 +26,18 @@ const MenuList = <Item extends BaseItemData<Record<string, unknown>>>() => {
     boxMode
   } = useDropdownContext<Item>();
 
-  const currentSelection = selectedItems?.length > 0 ? selectedItems : selectedItem ? [selectedItem] : [];
+  const currentSelection = useMemo(
+    () => (selectedItems?.length > 0 ? selectedItems : selectedItem ? [selectedItem] : []),
+    [selectedItems, selectedItem]
+  );
 
-  const enhancedGetMenuProps = (props?: Record<string, unknown>) => {
-    const baseProps = getMenuProps?.(props) || {};
-    return multi ? { ...baseProps, "aria-multiselectable": "true" } : baseProps;
-  };
+  const enhancedGetMenuProps = useCallback(
+    (props?: Record<string, unknown>) => {
+      const baseProps = getMenuProps?.(props) || {};
+      return multi ? { ...baseProps, "aria-multiselectable": "true" } : baseProps;
+    },
+    [getMenuProps, multi]
+  );
 
   return (
     <BaseList<Item>

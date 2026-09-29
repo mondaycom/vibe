@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { type DropdownSingleControllerProps } from "../Dropdown.types";
 import useDropdownCombobox from "../hooks/useDropdownCombobox";
 import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
+
+const noop = () => {};
 
 const DropdownComboboxController = <Item extends BaseItemData<Record<string, unknown>>>(
   props: DropdownSingleControllerProps<Item>
@@ -37,17 +39,43 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
     readOnly,
     disabled,
     boxMode = false,
-    inlineSelectedValue = false
+    inlineSelectedValue = false,
+    label,
+    required,
+    className,
+    "aria-label": ariaLabel,
+    "data-testid": dataTestId,
+    error,
+    helperText,
+    dir,
+    optionRenderer,
+    valueRenderer,
+    menuRenderer,
+    noOptionsMessage,
+    placeholder,
+    withGroupDivider,
+    stickyGroupTitle,
+    maxMenuHeight,
+    inputAriaLabel,
+    menuAriaLabel,
+    clearAriaLabel,
+    menuWrapperClassName,
+    borderless,
+    onScroll,
+    tooltipProps
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleOptionSelect = (item: Item | null) => {
-    onOptionSelect?.(item);
-    if (item) {
-      setIsFocused(false);
-    }
-  };
+  const handleOptionSelect = useCallback(
+    (item: Item | null) => {
+      onOptionSelect?.(item);
+      if (item) {
+        setIsFocused(false);
+      }
+    },
+    [onOptionSelect]
+  );
 
   const {
     isOpen,
@@ -81,19 +109,8 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
     inlineSelectedValue
   );
 
-  const contextValue: DropdownContextProps<Item> = {
-    ...props,
-    isOpen: boxMode ? true : isOpen,
-    inputValue: hookInputValue ?? null,
-    highlightedIndex,
-    selectedItem: hookSelectedItem,
-    selectedItems: [],
-    filteredOptions,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    getInputProps: (inputOptions?: any) => {
+  const wrappedGetInputProps = useCallback(
+    (inputOptions?: any) => {
       return hookGetInputProps!({
         ...(inputOptions || {}),
         disabled: readOnly || disabled,
@@ -113,23 +130,87 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
         }
       });
     },
-    reset: hookReset,
-    contextOnClear: () => {
-      hookReset();
-      onClear?.();
-    },
-    contextOnOptionRemove: () => {},
-    addSelectedItem: undefined,
-    removeSelectedItem: undefined,
-    isFocused,
-    clearable,
-    searchable,
-    multi,
-    closeMenuOnSelect,
-    size,
-    toggleMenu,
-    loading
-  };
+    [hookGetInputProps, readOnly, disabled, onFocus, onBlur, onKeyDown]
+  );
+
+  const contextOnClear = useCallback(() => {
+    hookReset();
+    onClear?.();
+  }, [hookReset, onClear]);
+
+  const contextValue = useMemo<DropdownContextProps<Item>>(
+    () => ({
+      label,
+      required,
+      className,
+      "aria-label": ariaLabel,
+      "data-testid": dataTestId,
+      error,
+      helperText,
+      dir,
+      disabled,
+      readOnly,
+      optionRenderer,
+      valueRenderer,
+      inlineSelectedValue,
+      menuRenderer,
+      noOptionsMessage,
+      placeholder,
+      withGroupDivider,
+      stickyGroupTitle,
+      maxMenuHeight,
+      inputAriaLabel,
+      menuAriaLabel,
+      clearAriaLabel,
+      closeMenuOnSelect,
+      menuWrapperClassName,
+      boxMode,
+      borderless,
+      onKeyDown,
+      onScroll,
+      onClear,
+      onFocus,
+      onBlur,
+      tooltipProps,
+      searchable,
+      multi,
+      autoFocus,
+      clearable,
+      size,
+      loading,
+      id,
+      isOpen: boxMode ? true : isOpen,
+      inputValue: hookInputValue ?? null,
+      highlightedIndex,
+      selectedItem: hookSelectedItem,
+      selectedItems: [],
+      filteredOptions,
+      getToggleButtonProps,
+      getLabelProps,
+      getMenuProps,
+      getItemProps,
+      getInputProps: wrappedGetInputProps,
+      reset: hookReset,
+      contextOnClear,
+      contextOnOptionRemove: noop,
+      addSelectedItem: undefined,
+      removeSelectedItem: undefined,
+      isFocused,
+      toggleMenu
+    }),
+    [
+      label, required, className, ariaLabel, dataTestId, error, helperText, dir,
+      disabled, readOnly, optionRenderer, valueRenderer, inlineSelectedValue, menuRenderer,
+      noOptionsMessage, placeholder, withGroupDivider, stickyGroupTitle, maxMenuHeight,
+      inputAriaLabel, menuAriaLabel, clearAriaLabel, closeMenuOnSelect, menuWrapperClassName,
+      boxMode, borderless, onKeyDown, onScroll, onClear, onFocus, onBlur, tooltipProps,
+      searchable, multi, autoFocus, clearable, size, loading, id,
+      isOpen, hookInputValue, highlightedIndex, hookSelectedItem, filteredOptions,
+      getToggleButtonProps, getLabelProps, getMenuProps, getItemProps,
+      wrappedGetInputProps, hookReset, contextOnClear, isFocused, toggleMenu
+    ]
+  );
+
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
 };
 
