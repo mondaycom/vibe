@@ -1,6 +1,6 @@
 {
   "name": "@vibe/dropdown",
-  "version": "4.0.5",
+  "version": "4.1.0",
   "description": "Vibe sub-package for Dropdown component",
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@vibe/base": "4.0.11",
-    "@vibe/base-list": "4.0.4",
+    "@vibe/base-list": "4.1.0",
     "@vibe/chips": "4.0.6",
     "@vibe/dialog": "4.1.14",
     "@vibe/divider": "4.0.8",

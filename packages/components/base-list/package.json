@@ -1,6 +1,6 @@
 {
   "name": "@vibe/base-list",
-  "version": "4.0.4",
+  "version": "4.1.0",
   "description": "Vibe sub-package for base list components",
   "repository": {
     "type": "git",

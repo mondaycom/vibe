@@ -131,15 +131,15 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
   );
 
   const contextOnClear = useCallback(() => {
-    hookReset();
-    if (value === undefined) {
-      setMultiSelectedItemsState([]);
-    }
+    const current = value ?? multiSelectedItemsState;
+    const retained = current.filter(item => item.removable === false);
+    hookReset(retained);
     onClear?.();
-  }, [hookReset, value, onClear]);
+  }, [hookReset, value, multiSelectedItemsState, onClear]);
 
   const contextOnOptionRemove = useCallback(
     (option: Item) => {
+      if (option.removable === false) return;
       hookRemoveSelectedItem?.(option);
       onOptionRemove?.(option);
     },

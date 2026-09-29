@@ -824,6 +824,73 @@ describe("DropdownNew", () => {
       expect(onOptionRemove).toHaveBeenCalledWith(expect.objectContaining({ value: "opt1", label: "Option 1" }));
     });
 
+    describe("non-removable options (removable: false)", () => {
+      it("should not render a remove button on a non-removable chip", () => {
+        const { getByTestId, queryByRole } = renderDropdown({
+          multi: true,
+          defaultValue: [{ label: "Option 1", value: "opt1", index: 0, removable: false }]
+        });
+
+        expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+        expect(queryByRole("button", { name: "Remove Option 1" })).not.toBeInTheDocument();
+      });
+
+      it("should still render a remove button on a removable chip", () => {
+        const { getByRole } = renderDropdown({
+          multi: true,
+          defaultValue: [{ label: "Option 3", value: "opt3", index: 2 }]
+        });
+
+        expect(getByRole("button", { name: "Remove Option 3" })).toBeInTheDocument();
+      });
+
+      it("should not remove a non-removable option when clear-all is clicked", () => {
+        const onChange = vi.fn();
+        const { getByTestId, queryByTestId } = renderDropdown({
+          multi: true,
+          clearable: true,
+          onChange,
+          defaultValue: [
+            { label: "Option 1", value: "opt1", index: 0, removable: false },
+            { label: "Option 3", value: "opt3", index: 2 }
+          ]
+        });
+
+        fireEvent.click(getByTestId("dropdown-clear-button"));
+
+        expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+        expect(queryByTestId("dropdown-chip-opt3")).not.toBeInTheDocument();
+        expect(onChange).toHaveBeenCalledWith([expect.objectContaining({ value: "opt1" })]);
+      });
+
+      it("should not toggle off a non-removable option when it is re-selected", () => {
+        const onOptionRemove = vi.fn();
+        const options = [
+          {
+            label: "Group",
+            options: [
+              { label: "Option 1", value: "opt1", index: 0, removable: false },
+              { label: "Option 3", value: "opt3", index: 2 }
+            ]
+          }
+        ];
+        const { getByPlaceholderText, getByRole, getByTestId } = renderDropdown({
+          multi: true,
+          options: options as any,
+          onOptionRemove
+        });
+
+        fireEvent.click(getByPlaceholderText("Select an option"));
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+
+        // Re-select the same option; it must not be toggled off.
+        fireEvent.click(within(getByRole("listbox")).getByText("Option 1"));
+        expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+        expect(onOptionRemove).not.toHaveBeenCalled();
+      });
+    });
+
     it("should keep selected chips after closing the menu", () => {
       const { getByPlaceholderText, getByText, getByTestId } = renderDropdown({
         multi: true
