@@ -149,6 +149,11 @@ export interface DialogProps extends VibeComponentProps {
    */
   isOpen?: boolean;
   /**
+   * Whether Floating UI tracks the dialog's position (gated by the shown state). Defaults to `true`;
+   * pass your own open state for a permanently-mounted dialog to avoid always-on tracking.
+   */
+  positioningActive?: boolean;
+  /**
    * CSS class names that, when present on target, prevent showing the dialog.
    */
   showTriggerIgnoreClass?: string | string[];

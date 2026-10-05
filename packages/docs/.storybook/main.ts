@@ -90,6 +90,7 @@ export default {
           "@vibe/icons": path.resolve(__dirname, "../../icons/src/react/index.ts"),
           "@vibe/core/interactionsTests": path.resolve(__dirname, "../../core/src/tests/interactions-utils.ts"),
           "@vibe/core/next": path.resolve(__dirname, "../../core/src/components/next.ts"),
+          "@vibe/list/next": path.resolve(__dirname, "../../components/list/src/next/index.ts"),
           "@vibe/core": path.resolve(__dirname, "../../core/src/index.ts"),
           "@vibe/base": path.resolve(__dirname, "../../base/src/index.ts"),
           ...components

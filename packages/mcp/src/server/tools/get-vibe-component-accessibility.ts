@@ -1,17 +1,45 @@
 import { z } from "zod";
+import { exec } from "child_process";
+import { promisify } from "util";
 import { getErrorMessage, MCPTool } from "../index.js";
-import fs from "fs/promises";
-import path from "path";
-import { fileURLToPath } from "url";
+import { detectVibeVersion } from "../version-detector.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const execAsync = promisify(exec);
+
+const cache = new Map<string, string>();
 
 const ComponentNameParamsSchema = z.object({
   componentName: z
     .string()
     .describe("The name of the component to get accessibility requirements for (e.g., Button, Checkbox, TextField)")
 });
+
+async function fetchAccessibility(componentName: string, version: number): Promise<string> {
+  const cacheKey = `${version}:${componentName}`;
+  if (cache.has(cacheKey)) {
+    return cache.get(cacheKey)!;
+  }
+
+  const url = `https://unpkg.com/@vibe/core@${version}/dist/metadata/accessibility/${componentName}.md`;
+
+  let content: string;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    content = await response.text();
+  } catch (fetchError) {
+    const { stdout } = await execAsync(`curl -s -L "${url}"`);
+    if (!stdout.trim()) {
+      throw fetchError;
+    }
+    content = stdout;
+  }
+
+  cache.set(cacheKey, content);
+  return content;
+}
 
 export const getVibeComponentAccessibility: MCPTool<typeof ComponentNameParamsSchema.shape> = {
   name: "get-vibe-component-accessibility",
@@ -23,44 +51,19 @@ export const getVibeComponentAccessibility: MCPTool<typeof ComponentNameParamsSc
 
     if (!componentName) {
       return {
-        content: [
-          {
-            type: "text",
-            text: "Error: componentName is required"
-          }
-        ],
+        content: [{ type: "text", text: "Error: componentName is required" }],
         isError: true
       };
     }
 
     try {
-      // Read from pre-generated accessibility file
-      const accessibilityFilePath = path.resolve(
-        __dirname,
-        "../../../dist/generated/accessibility/",
-        `${componentName}.md`
-      );
-
-      let accessibilityContent: string;
-      try {
-        accessibilityContent = await fs.readFile(accessibilityFilePath, "utf-8");
-      } catch (readError) {
-        return {
-          content: [
-            {
-              type: "text",
-              text: `Error: Could not find accessibility documentation for component "${componentName}". Expected file: ${accessibilityFilePath}`
-            }
-          ],
-          isError: true
-        };
-      }
-
+      const version = await detectVibeVersion();
+      const content = await fetchAccessibility(componentName, version);
       return {
         content: [
           {
             type: "text",
-            text: accessibilityContent
+            text: content
           }
         ]
       };

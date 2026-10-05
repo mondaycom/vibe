@@ -48,5 +48,20 @@ describe("Clickable tests", () => {
       const element = getByLabelText(ariaLabel);
       expect(element).toBeTruthy();
     });
+
+    it("should render the aria-haspopup token verbatim rather than coercing it to a boolean", () => {
+      const { getByTestId } = renderComponent({ "aria-haspopup": "dialog" });
+      expect(getByTestId(defaultTestId).getAttribute("aria-haspopup")).toBe("dialog");
+    });
+
+    it("should still support a boolean aria-haspopup", () => {
+      const { getByTestId } = renderComponent({ "aria-haspopup": true });
+      expect(getByTestId(defaultTestId).getAttribute("aria-haspopup")).toBe("true");
+    });
+
+    it("should omit aria-haspopup when it is not provided", () => {
+      const { getByTestId } = renderComponent({});
+      expect(getByTestId(defaultTestId).hasAttribute("aria-haspopup")).toBe(false);
+    });
   });
 });

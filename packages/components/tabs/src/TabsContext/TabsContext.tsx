@@ -1,0 +1,94 @@
+import React, {
+  type FC,
+  forwardRef,
+  type ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useMemo
+} from "react";
+import { useMergeRef, type VibeComponentProps, ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { usePrevious } from "@vibe/hooks";
+
+export interface TabsContextProps extends VibeComponentProps {
+  /**
+   * The index of the currently active tab.
+   */
+  activeTabId?: number;
+  /**
+   * The child elements representing the tab list and tab panels.
+   */
+  children?: ReactElement | ReactElement[];
+}
+
+type TabsChild = ReactElement & {
+  type: Record<string, unknown>;
+};
+
+const TabsContext: FC<TabsContextProps> = forwardRef(
+  ({ className, id, activeTabId = 0, children, "data-testid": dataTestId }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRef(ref, componentRef);
+
+    const [previousActiveTabIdState, setPreviousActiveTabIdState] = useState(activeTabId);
+    const [activeTabIdState, setActiveTabIdState] = useState(activeTabId);
+    const prevActiveTabIdProp = usePrevious(activeTabId);
+
+    useEffect(() => {
+      // Update active tab if changed from props
+      if (activeTabId !== prevActiveTabIdProp && activeTabId !== activeTabIdState) {
+        setPreviousActiveTabIdState(activeTabIdState);
+        setActiveTabIdState(activeTabId);
+      }
+    }, [activeTabId, activeTabIdState, prevActiveTabIdProp]);
+
+    const onTabClick = useCallback(
+      (tabId: number) => {
+        setPreviousActiveTabIdState(activeTabIdState);
+        setActiveTabIdState(tabId);
+      },
+      [activeTabIdState]
+    );
+
+    // Collect TabPanel ids for aria-controls relationship
+    const tabPanelIds = useMemo(() => {
+      const ids: string[] = [];
+      React.Children.forEach(children, (child: TabsChild) => {
+        if (child.type.isTabPanels) {
+          React.Children.forEach(child.props.children, (panelChild: ReactElement, index: number) => {
+            ids[index] = panelChild.props.id;
+          });
+        }
+      });
+      return ids;
+    }, [children]);
+
+    return (
+      <div
+        ref={mergedRef}
+        className={className}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.TABS_CONTEXT, id)}
+      >
+        {React.Children.map(children, (child: TabsChild) => {
+          if (child.type.isTabList) {
+            const originalOnTabChange = child.props.onTabChange;
+            const onTabChange = (tabId: number) => {
+              onTabClick(tabId);
+              originalOnTabChange?.(tabId);
+            };
+            return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange, tabPanelIds });
+          }
+          if (child.type.isTabPanels) {
+            const animationDirection = previousActiveTabIdState < activeTabIdState ? "ltr" : "rtl";
+            return React.cloneElement(child, { activeTabId: activeTabIdState, animationDirection });
+          }
+          return child;
+        })}
+      </div>
+    );
+  }
+);
+
+export default TabsContext;

@@ -3,6 +3,361 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.33](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.32...@vibe/core@4.5.33) (2026-09-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.32](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.31...@vibe/core@4.5.32) (2026-09-08)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.31](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.30...@vibe/core@4.5.31) (2026-09-08)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.30](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.29...@vibe/core@4.5.30) (2026-09-02)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.29](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.28...@vibe/core@4.5.29) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.28](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.27...@vibe/core@4.5.28) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.27](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.26...@vibe/core@4.5.27) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.26](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.25...@vibe/core@4.5.26) (2026-08-31)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.25](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.24...@vibe/core@4.5.25) (2026-08-30)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.24](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.23...@vibe/core@4.5.24) (2026-08-27)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.23](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.22...@vibe/core@4.5.23) (2026-08-27)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.22](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.21...@vibe/core@4.5.22) (2026-08-27)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.21](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.20...@vibe/core@4.5.21) (2026-08-26)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.20](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.19...@vibe/core@4.5.20) (2026-08-25)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.19](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.18...@vibe/core@4.5.19) (2026-08-25)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.18](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.17...@vibe/core@4.5.18) (2026-08-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.17](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.16...@vibe/core@4.5.17) (2026-08-24)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.16](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.15...@vibe/core@4.5.16) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.15](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.14...@vibe/core@4.5.15) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.14](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.13...@vibe/core@4.5.14) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.13](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.12...@vibe/core@4.5.13) (2026-08-20)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.12](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.11...@vibe/core@4.5.12) (2026-08-20)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.11](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.10...@vibe/core@4.5.11) (2026-08-19)
+
+
+### Performance Improvements
+
+* **Dialog:** add positioningActive to gate Floating UI position tracking ([#3465](https://github.com/mondaycom/vibe/issues/3465)) ([f6150b4](https://github.com/mondaycom/vibe/commit/f6150b4628877261eb0e19184494d27a0ffdcd7b))
+
+
+
+
+
+## [4.5.10](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.9...@vibe/core@4.5.10) (2026-08-19)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.9](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.8...@vibe/core@4.5.9) (2026-08-18)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.8](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.7...@vibe/core@4.5.8) (2026-08-16)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.7](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.6...@vibe/core@4.5.7) (2026-08-16)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.6](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.5...@vibe/core@4.5.6) (2026-08-13)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.5](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.4...@vibe/core@4.5.5) (2026-08-11)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.4](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.3...@vibe/core@4.5.4) (2026-08-11)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.3](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.2...@vibe/core@4.5.3) (2026-07-12)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.5.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.1...@vibe/core@4.5.2) (2026-07-06)
+
+
+### Bug Fixes
+
+* **Dropdown:** accessibility fixes for searchable single & multi select ([#3413](https://github.com/mondaycom/vibe/issues/3413)) ([4693f16](https://github.com/mondaycom/vibe/commit/4693f16794c3aa805751809ecb343beb7f58932c))
+
+
+
+
+
+## [4.5.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.5.0...@vibe/core@4.5.1) (2026-07-01)
+
+
+### Bug Fixes
+
+* **MultiStepIndicator:** fix invisible text on dark type pending hover ([#3412](https://github.com/mondaycom/vibe/issues/3412)) ([31acc6a](https://github.com/mondaycom/vibe/commit/31acc6a1d6cbd9a030ef2657d044f1ee2d89eaae))
+
+
+
+
+
+# [4.5.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.4.0...@vibe/core@4.5.0) (2026-06-30)
+
+
+### Features
+
+* **Chips:** add size prop with small variant ([#3409](https://github.com/mondaycom/vibe/issues/3409)) ([5ef809a](https://github.com/mondaycom/vibe/commit/5ef809a9d7b8cc49d34280df650f43cbf3d1146f))
+
+
+
+
+
+# [4.4.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.3.0...@vibe/core@4.4.0) (2026-06-15)
+
+
+### Features
+
+* **Modal:** add useFixedPosition prop to fix RTL centering ([#3408](https://github.com/mondaycom/vibe/issues/3408)) ([a76b655](https://github.com/mondaycom/vibe/commit/a76b65502c8a8bca235f3a0635c62e1516fd0b1b))
+
+
+
+
+
+# [4.3.0](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.6...@vibe/core@4.3.0) (2026-06-09)
+
+
+### Features
+
+* **mcp:** auto-detect Vibe version for correct metadata ([#3393](https://github.com/mondaycom/vibe/issues/3393)) ([cdea3a4](https://github.com/mondaycom/vibe/commit/cdea3a4aefa846fb064896e7d09c937bd1086fe3))
+
+
+
+
+
+## [4.2.6](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.5...@vibe/core@4.2.6) (2026-06-04)
+
+
+### Bug Fixes
+
+* **TextArea:** link character count to aria-describedby when showCharCount is used ([#3396](https://github.com/mondaycom/vibe/issues/3396)) ([42f7270](https://github.com/mondaycom/vibe/commit/42f727074e83f28ee06347f60b71ae248b6c57ff))
+
+
+
+
+
+## [4.2.5](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.4...@vibe/core@4.2.5) (2026-06-03)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.2.4](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.3...@vibe/core@4.2.4) (2026-05-31)
+
+**Note:** Version bump only for package @vibe/core
+
+
+
+
+
+## [4.2.3](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.2...@vibe/core@4.2.3) (2026-05-25)
+
+
+### Bug Fixes
+
+* sync TextArea character count with controlled value prop changes ([#3342](https://github.com/mondaycom/vibe/issues/3342)) ([8c7b7f6](https://github.com/mondaycom/vibe/commit/8c7b7f69f54f11f19fbdb6bdcf1352022c86b9d4))
+
+
+
+
+
+## [4.2.2](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.1...@vibe/core@4.2.2) (2026-05-24)
+
+
+### Bug Fixes
+
+* allow DatePicker dependency with React 19 ([#3361](https://github.com/mondaycom/vibe/issues/3361)) ([90a99df](https://github.com/mondaycom/vibe/commit/90a99df5b471b4d869a82793d911db3ef8192710))
+
+
+
+
+
 ## [4.2.1](https://github.com/mondaycom/vibe/compare/@vibe/core@4.2.0...@vibe/core@4.2.1) (2026-05-13)
 
 

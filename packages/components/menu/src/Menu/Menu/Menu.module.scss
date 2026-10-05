@@ -1,0 +1,23 @@
+@import "~@vibe/style/dist/mixins";
+
+.menu {
+  margin: unset;
+  padding: unset;
+  position: relative;
+}
+
+.menu:focus {
+  outline: none;
+}
+
+.small {
+  width: 200px;
+}
+
+.medium {
+  width: 220px;
+}
+
+.large {
+  width: 240px;
+}

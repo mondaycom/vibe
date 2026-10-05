@@ -1,0 +1,296 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import { camelCase } from "es-toolkit";
+import {
+  getStyle,
+  NOOP,
+  isInsideClass,
+  ComponentDefaultTestId,
+  getTestId,
+  ComponentVibeId,
+  useKeyEvent,
+  useEventListener
+} from "@vibe/shared";
+import cx from "classnames";
+// Libraries import
+import React, { type ReactElement, useCallback, useMemo, useRef, useState } from "react";
+// Constants import
+import {
+  DEFAULT_DIALOG_HIDE_TRIGGER,
+  DEFAULT_DIALOG_SHOW_TRIGGER,
+  DIALOG_MOVE_BY,
+  ENTER_KEYS,
+  SECONDARY_BUTTON_ARIA_LABEL,
+  SECONDARY_BUTTON_WRAPPER_CLASSNAME,
+  type SplitButtonSecondaryContentPositionType
+} from "./SplitButtonConstants";
+// Components import
+import { Button, type ButtonProps } from "@vibe/button";
+import { DropdownChevronDown } from "@vibe/icons";
+import {
+  DialogContentContainer,
+  type DialogSize,
+  type DialogStartingEdge,
+  type DialogTriggerEvent,
+  Dialog,
+  type DialogEvent,
+  type DialogPosition
+} from "@vibe/dialog";
+import styles from "./SplitButton.module.scss";
+
+export interface SplitButtonProps extends ButtonProps {
+  /**
+   * The element or renderer that is displayed inside the dialog opened by clicking the secondary button.
+   */
+  secondaryDialogContent?: ReactElement | (() => string | ReactElement);
+  /**
+   * Callback fired when the secondary dialog is shown.
+   */
+  onSecondaryDialogDidShow?: () => void;
+  /**
+   * Callback fired when the secondary dialog is hidden.
+   */
+  onSecondaryDialogDidHide?: () => void;
+  /**
+   * The z-index applied to the secondary dialog.
+   */
+  zIndex?: number;
+  /**
+   * Class name applied to the wrapper of the secondary dialog.
+   */
+  secondaryDialogClassName?: string;
+  /**
+   * The position of the secondary dialog.
+   */
+  secondaryDialogPosition?: SplitButtonSecondaryContentPositionType;
+  /**
+   * The padding size inside the secondary dialog.
+   */
+  dialogPaddingSize?: DialogSize;
+  /**
+   * The CSS selector of the container where the dialog should be rendered.
+   */
+  dialogContainerSelector?: string;
+  /**
+   * If true, clicking inside the dialog will close it.
+   */
+  shouldCloseOnClickInsideDialog?: boolean;
+}
+
+const SplitButton = ({
+  secondaryDialogContent,
+  onSecondaryDialogDidShow = NOOP,
+  onSecondaryDialogDidHide = NOOP,
+  shouldCloseOnClickInsideDialog,
+  zIndex = null,
+  secondaryDialogClassName = "",
+  secondaryDialogPosition = "bottom-start",
+  dialogContainerSelector,
+  dialogPaddingSize = "medium",
+  disabled,
+  // success mode not working right now, need to fix it in different pr
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  success,
+  loading,
+  kind = "primary",
+  color = "primary",
+  className,
+  leftIcon,
+  rightIcon,
+  onClick,
+  children,
+  marginLeft,
+  marginRight,
+  active,
+  id,
+  "data-testid": dataTestId,
+  ...buttonProps
+}: SplitButtonProps) => {
+  // State //
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [isHovered, setIsHover] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
+  // Refs //
+  const ref = useRef(null);
+  const secondaryButtonRef = useRef(null);
+
+  // Callbacks //
+  const setHovered = useCallback(() => setIsHover(true), [setIsHover]);
+  const setNotHovered = useCallback(() => setIsHover(false), [setIsHover]);
+
+  const shouldSetActive = useCallback(
+    (e: React.KeyboardEvent<HTMLElement>) => {
+      if (disabled) return false;
+      return !isInsideClass(e.target as HTMLElement, SECONDARY_BUTTON_WRAPPER_CLASSNAME);
+    },
+    [disabled]
+  );
+
+  const setActive = useCallback(
+    (e: React.KeyboardEvent<HTMLElement>) => {
+      if (!shouldSetActive(e)) return;
+      setIsActive(true);
+    },
+    [setIsActive, shouldSetActive]
+  );
+  const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
+  const setActiveOnEnter = useCallback(
+    (e: React.KeyboardEvent<HTMLElement>) => {
+      if (!shouldSetActive(e)) return;
+      setIsActive(true);
+    },
+    [setIsActive, shouldSetActive]
+  );
+
+  const showDialog = useCallback(() => {
+    setDialogOpen(true);
+    onSecondaryDialogDidShow();
+  }, [setDialogOpen, onSecondaryDialogDidShow]);
+
+  const hideDialog = useCallback(
+    (_: DialogEvent, eventName: DialogTriggerEvent) => {
+      setDialogOpen(false);
+      onSecondaryDialogDidHide();
+      if (eventName === "esckey") {
+        secondaryButtonRef.current.focus();
+      }
+    },
+    [setDialogOpen, onSecondaryDialogDidHide]
+  );
+
+  // Event listeners //
+
+  // Used to set both buttons as hovered no matter what button was hovered
+  useEventListener({ eventName: "mouseenter", callback: setHovered, ref });
+  useEventListener({ eventName: "mouseleave", callback: setNotHovered, ref });
+
+  useEventListener({ eventName: "mousedown", callback: setActive, ref });
+  useEventListener({ eventName: "mouseup", callback: setNotActive, ref });
+
+  // Used to finish active transition if clicked on enter
+  useEventListener({ eventName: "transitionend", callback: setNotActive, ref });
+
+  // Key events
+  useKeyEvent({ keys: ENTER_KEYS, ref, callback: setActiveOnEnter });
+
+  const classNames = useMemo(
+    () =>
+      cx(
+        styles.button,
+        getStyle(styles, camelCase("kind-" + kind)),
+        getStyle(styles, camelCase("color-" + color)),
+        {
+          [styles.mainActive]: active,
+          [styles.active]: isActive,
+          [styles.splitContentOpen]: isDialogOpen,
+          [styles.hovered]: isHovered,
+          [styles.disabled]: disabled
+        },
+        className
+      ),
+    [className, kind, color, active, isActive, isDialogOpen, isHovered, disabled]
+  );
+
+  const dialogShowTrigger = useMemo(() => (disabled ? [] : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
+
+  const dialogHideTrigger = useMemo(() => {
+    if (shouldCloseOnClickInsideDialog)
+      return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"] as DialogTriggerEvent[];
+    return DEFAULT_DIALOG_HIDE_TRIGGER;
+  }, [shouldCloseOnClickInsideDialog]);
+
+  const actionsContent = useCallback(() => {
+    const content = typeof secondaryDialogContent === "function" ? secondaryDialogContent() : secondaryDialogContent;
+    return (
+      <DialogContentContainer type="popover" size={dialogPaddingSize}>
+        {content}
+      </DialogContentContainer>
+    );
+  }, [secondaryDialogContent, dialogPaddingSize]);
+
+  const animationEdgePosition: DialogStartingEdge | undefined = useMemo(() => {
+    if (secondaryDialogPosition === "bottom") {
+      return undefined;
+    }
+    if (secondaryDialogPosition === "bottom-start") {
+      return "bottom";
+    }
+
+    return "top";
+  }, [secondaryDialogPosition]);
+
+  return (
+    <div
+      className={classNames}
+      ref={ref}
+      id={id}
+      data-testid={dataTestId || getTestId(ComponentDefaultTestId.SPLIT_BUTTON, id)}
+      data-vibe={ComponentVibeId.SPLIT_BUTTON}
+    >
+      <Button
+        {
+          ...buttonProps /* We are enriching button with other props so we must use spreading */
+        }
+        preventClickAnimation
+        leftIcon={leftIcon}
+        rightIcon={rightIcon}
+        rightFlat
+        color={color}
+        kind={kind}
+        active={active}
+        onClick={onClick}
+        className={styles.mainButton}
+        marginLeft={marginLeft}
+        onFocus={setHovered}
+        onBlur={setNotHovered}
+        disabled={disabled}
+        loading={loading}
+        data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_PRIMARY_BUTTON, id)}
+      >
+        {children}
+      </Button>
+      <div className={styles.secondaryButtonWrapper}>
+        <Dialog
+          wrapperClassName={secondaryDialogClassName}
+          zIndex={zIndex}
+          content={actionsContent}
+          position={secondaryDialogPosition as DialogPosition}
+          containerSelector={dialogContainerSelector}
+          startingEdge={animationEdgePosition}
+          animationType="expand"
+          moveBy={DIALOG_MOVE_BY}
+          onDialogDidShow={showDialog}
+          onDialogDidHide={hideDialog}
+          showTrigger={dialogShowTrigger}
+          hideTrigger={dialogHideTrigger}
+        >
+          <Button
+            {...buttonProps}
+            ref={secondaryButtonRef}
+            preventClickAnimation
+            leftFlat
+            noSidePadding
+            color={color}
+            kind={kind}
+            className={styles.secondaryButton}
+            active={isDialogOpen}
+            marginRight={marginRight}
+            onFocus={setHovered}
+            onBlur={setNotHovered}
+            disabled={disabled}
+            aria-label={SECONDARY_BUTTON_ARIA_LABEL}
+            aria-haspopup
+            aria-expanded={isDialogOpen}
+            data-testid={getTestId(ComponentDefaultTestId.SPLIT_BUTTON_SECONDARY_BUTTON, id)}
+          >
+            <div className={styles.secondaryButtonIconWrapper}>
+              <DropdownChevronDown aria-hidden="true" />
+            </div>
+          </Button>
+        </Dialog>
+      </div>
+    </div>
+  );
+};
+
+export default SplitButton;

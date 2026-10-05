@@ -1,0 +1,45 @@
+import React, { type ForwardedRef, forwardRef, type ReactElement } from "react";
+import { NOOP, getStyle, type VibeComponentProps } from "@vibe/shared";
+import { useSliderUi } from "../SliderContext";
+import cx from "classnames";
+
+import styles from "./SliderRail.module.scss";
+import { type SliderSize } from "../Slider.types";
+
+export interface SliderRailProps extends VibeComponentProps {
+  /**
+   * Callback fired when the rail is clicked.
+   */
+  onClick?: (event: React.MouseEvent) => void;
+  /**
+   * The child elements inside the slider rail.
+   */
+  children?: ReactElement | ReactElement[];
+  /**
+   * The size of the slider rail.
+   */
+  size: SliderSize;
+}
+
+const SliderRail = forwardRef<unknown, SliderRailProps>(
+  ({ className, children, onClick = NOOP, size }: SliderRailProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const { shapeTestId } = useSliderUi();
+    function handleClick(e: React.MouseEvent) {
+      onClick(e);
+    }
+
+    return (
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+      <div
+        data-testid={shapeTestId("rail")}
+        className={cx(styles.rail, getStyle(styles, size), className)}
+        onClick={handleClick}
+        ref={ref}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+export default SliderRail;

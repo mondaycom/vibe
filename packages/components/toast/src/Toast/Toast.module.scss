@@ -1,0 +1,144 @@
+.toast {
+  box-shadow: var(--box-shadow-medium);
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+  margin: var(--space-16);
+  position: fixed;
+  left: 50%;
+  top: 0;
+  margin-inline: auto;
+  padding: var(--space-8);
+  align-items: center;
+  display: flex;
+  min-width: 200px;
+  width: auto;
+  border-radius: var(--border-radius-small);
+  color: var(--fixed-light-color);
+  transform: translateX(-50%);
+  transition: background-color 80ms cubic-bezier(0.6, 0, 0.4, 1), width 200ms cubic-bezier(0, 0, 0.4, 1);
+
+  &.typeNormal {
+    background-color: var(--primary-color);
+  }
+
+  &.typePositive {
+    background-color: var(--positive-color);
+  }
+
+  &.typeNegative {
+    background-color: var(--negative-color);
+  }
+
+  &.typeWarning {
+    background-color: var(--warning-color);
+    color: var(--fixed-dark-color);
+
+    .closeButton {
+      color: var(--fixed-dark-color);
+    }
+
+    .actionButton,
+    .actionLink {
+      color: var(--fixed-dark-color);
+      border-color: var(--fixed-dark-color);
+    }
+  }
+
+  &.typeDark {
+    background-color: var(--inverted-color-background);
+    color: var(--text-color-on-inverted);
+
+    .closeButton {
+      color: var(--text-color-on-inverted);
+    }
+
+    .actionButton,
+    .actionLink {
+      color: var(--text-color-on-inverted);
+      border-color: var(--text-color-on-inverted);
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  margin-inline-start: var(--space-8);
+}
+
+.actionButton.withTransition {
+  opacity: 0;
+  animation: bounceIn 150ms cubic-bezier(0, 0, 0.4, 1);
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+}
+
+.content {
+  margin: 0 var(--space-8);
+  flex: 1;
+}
+
+.textContent {
+  display: inline-flex;
+  flex-grow: 1;
+}
+
+.enterActive {
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: slideIn;
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.exitActive {
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: slideOut;
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.closeButton {
+  margin-inline-start: var(--space-8);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translate(-50%, -100px);
+  }
+
+  40% {
+    transform: translate(-50%, 16px);
+  }
+
+  100% {
+    transform: translate(-50%, 0px);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    transform: translate(-50%, -100px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

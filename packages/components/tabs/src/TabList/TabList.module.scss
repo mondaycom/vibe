@@ -1,0 +1,43 @@
+
+
+.tabsWrapper .tabsList {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  font-size: 0;
+  position: relative;
+  height: 40px;
+  outline: none;
+  padding: 0;
+}
+
+.tabsWrapper .tabsList.sm {
+  height: 32px;
+}
+
+.tabsWrapper .tabsList.lg {
+  height: 48px;
+}
+
+.tabsWrapper.stretched .tabsList {
+  width: 100%;
+}
+
+.tabsWrapper.stretched .tabsList .tabListTabWrapper {
+  width: 100%;
+}
+
+.tabsWrapper.stretched .tabsList .tabListTabWrapper .tabListTabInner {
+  width: 100%;
+}
+
+.tabsWrapper.disabled {
+  opacity: 0;
+  height: 0;
+  padding-bottom: 5px;
+  pointer-events: none;
+}
+
+.tabsWrapper.stretchedUnderline {
+  border-bottom: 2px solid var(--ui-background-color);
+}

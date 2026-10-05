@@ -103,6 +103,7 @@ export enum ComponentDefaultTestId {
   ICON = "icon",
   RESPONSIVE_LIST = "responsive-list",
   LIST = "list",
+  LIST_TITLE = "list-title",
   MODAL = "modal",
   MODAL_OVERLAY = "modal-overlay",
   MODAL_HEADER = "modal-header",
@@ -127,7 +128,8 @@ export enum ComponentDefaultTestId {
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
   TABLE_ROW = "table-row",
-  TABLE_ROW_MENU = "table-row-menu"
+  TABLE_ROW_MENU = "table-row-menu",
+  INFO = "info"
 }
 
 export enum NavigationCommand {
@@ -161,6 +163,7 @@ export enum ComponentVibeId {
   DIALOG = "Dialog",
   DIVIDER = "Divider",
   DROPDOWN = "Dropdown",
+  EMPTY_STATE = "EmptyState",
   EDITABLE_HEADING = "EditableHeading",
   EDITABLE_TEXT = "EditableText",
   EXPAND_COLLAPSE = "ExpandCollapse",
@@ -172,11 +175,13 @@ export enum ComponentVibeId {
   PROGRESS_BAR = "ProgressBar",
   LINK = "Link",
   LIST = "List",
+  LIST_TITLE = "ListTitle",
   LOADER = "Loader",
   MENU = "Menu",
   MENU_BUTTON = "MenuButton",
   MODAL = "Modal",
   MULTI_STEP_INDICATOR = "MultiStepIndicator",
+  NUMBER_FIELD = "NumberField",
   RADIO_BUTTON = "RadioButton",
   SEARCH = "Search",
   SKELETON = "Skeleton",
@@ -195,5 +200,6 @@ export enum ComponentVibeId {
   TOGGLE = "Toggle",
   TOOLTIP = "Tooltip",
   VIRTUALIZED_GRID = "VirtualizedGrid",
-  VIRTUALIZED_LIST = "VirtualizedList"
+  VIRTUALIZED_LIST = "VirtualizedList",
+  INFO = "Info"
 }

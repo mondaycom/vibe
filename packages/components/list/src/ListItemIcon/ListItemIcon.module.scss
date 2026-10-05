@@ -1,0 +1,13 @@
+.listItemIcon {
+  display: flex;
+  align-items: center;
+  color: var(--primary-text-color);
+}
+
+.start {
+  margin-inline-end: var(--space-8);
+}
+
+.end {
+  margin-inline-start: var(--space-8);
+}

@@ -1,0 +1,26 @@
+import React, { forwardRef } from "react";
+import { ComponentDefaultTestId, getTestId } from "@vibe/shared";
+import { type ModalContentProps } from "./ModalContent.types";
+import { useModal } from "../context/ModalContext";
+
+const ModalContent = forwardRef(
+  (
+    { children, className, id, "data-testid": dataTestId }: ModalContentProps,
+    ref: React.ForwardedRef<HTMLDivElement>
+  ) => {
+    const { autoFocus } = useModal();
+    return (
+      <div
+        ref={ref}
+        className={className}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.MODAL_CONTENT, id)}
+        data-autofocus-inside={autoFocus}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+
+export default ModalContent;

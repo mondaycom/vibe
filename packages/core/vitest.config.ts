@@ -36,6 +36,7 @@ export default defineConfig({
     alias: {
       "~@vibe/style": path.resolve(process.cwd(), "../../node_modules/@vibe/style"),
       "~": path.resolve(process.cwd(), "../../node_modules"),
+      "@vibe/list/next": path.join(componentsFolder, "list/src/next/index.ts"),
       ...components
     }
   },

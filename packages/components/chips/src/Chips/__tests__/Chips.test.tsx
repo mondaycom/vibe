@@ -1,0 +1,43 @@
+import { vi, describe, it, expect } from "vitest";
+import React from "react";
+import { render, fireEvent, screen } from "@testing-library/react";
+import Chips from "../Chips";
+import { getTestId, ComponentDefaultTestId } from "@vibe/shared";
+
+describe("Chips tests", () => {
+  const label = "Chip";
+  const defaultTestId = getTestId(ComponentDefaultTestId.CHIP);
+  const className = "test-class";
+
+  it("Should call the onDelete callback when on close button clicked", () => {
+    const testId = `${defaultTestId}-close`;
+    const onDeletedMock = vi.fn();
+    render(<Chips className={className} onDelete={onDeletedMock} label={label} />);
+    fireEvent.click(screen.getByTestId(testId));
+    expect(onDeletedMock.mock.calls.length).toBe(1);
+  });
+  it("Should call onClick callback when chips clicked", () => {
+    const onClick = vi.fn();
+    render(<Chips className={className} onClick={onClick} label={label} />);
+    fireEvent.click(screen.getByTestId(defaultTestId));
+    expect(onClick.mock.calls.length).toBe(1);
+  });
+  it("Should call the onMousedown callback when mouse down", () => {
+    const onMouseDown = vi.fn();
+    render(<Chips className={className} onMouseDown={onMouseDown} label={label} />);
+    fireEvent.mouseDown(screen.getByTestId(defaultTestId));
+    expect(onMouseDown.mock.calls.length).toBe(1);
+  });
+  it("Should not call onClick callback when chips clicked with disabled state", () => {
+    const onClick = vi.fn();
+    render(<Chips className={className} onClick={onClick} label={label} disabled />);
+    fireEvent.click(screen.getByTestId(defaultTestId));
+    expect(onClick.mock.calls.length).toBe(0);
+  });
+  it("Should call the onMousedown callback when mouse down with disabled state", () => {
+    const onMouseDown = vi.fn();
+    render(<Chips className={className} onMouseDown={onMouseDown} label={label} disabled />);
+    fireEvent.click(screen.getByTestId(defaultTestId));
+    expect(onMouseDown.mock.calls.length).toBe(0);
+  });
+});

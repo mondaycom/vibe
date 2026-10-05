@@ -138,6 +138,7 @@ The following changes are **complementary to the migration codemod** and may req
 **Dropdown**
 
 - The old `react-select`-based Dropdown has been removed. The new custom Dropdown (previously at `@vibe/core/next`) is now the default with a completely different API. See the [Dropdown Migration Guide](?path=/docs/components-dropdown-migration-guide--docs) for full details
+- The dropdown-level `withMandatoryDefaultOptions` prop and the option-level `isMandatory: true` flag are replaced by a single option-level `removable: false` flag to keep a chip from being removed in multi-select mode
 
 **Combobox**
 

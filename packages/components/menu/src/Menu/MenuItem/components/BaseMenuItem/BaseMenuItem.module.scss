@@ -1,0 +1,39 @@
+@import "~@vibe/style/dist/mixins";
+
+.item {
+  @include smoothing-text;
+  margin: unset;
+  display: flex;
+  flex-direction: row;
+  padding: var(--space-4) var(--space-8);
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  border: 1px solid transparent;
+  outline: none;
+
+  &.splitMenuItem {
+    padding: 0 0 0 var(--space-8);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--disabled-text-color);
+  }
+
+  &.focused {
+    &:not(.disabled) {
+      background-color: var(--primary-background-hover-color);
+      border-radius: var(--border-radius-small);
+
+      &:not(:hover):not(.initialSelected) {
+        @include focus-style-css();
+      }
+    }
+  }
+
+  &.selected:not(.disabled) {
+    background-color: var(--primary-selected-color);
+    border-radius: var(--border-radius-small);
+  }
+}

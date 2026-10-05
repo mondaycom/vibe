@@ -3,6 +3,352 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.28...@vibe/docs@4.3.0) (2026-09-24)
+
+
+### Features
+
+* **Dropdown:** add per-option removable flag for non-removable chips ([#3519](https://github.com/mondaycom/vibe/issues/3519)) ([5498bd5](https://github.com/mondaycom/vibe/commit/5498bd539ba47bc6f3264322ffa19ee97e5443ce))
+
+
+
+
+
+## [4.2.28](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.27...@vibe/docs@4.2.28) (2026-09-08)
+
+
+### Bug Fixes
+
+* **Clickable:** allow aria-haspopup to accept ARIA popup tokens, not just boolean ([#3509](https://github.com/mondaycom/vibe/issues/3509)) ([708e2fa](https://github.com/mondaycom/vibe/commit/708e2fa52882ee5b9f1e26863d31e159894c59a9))
+
+
+
+
+
+## [4.2.27](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.26...@vibe/docs@4.2.27) (2026-09-08)
+
+
+### Bug Fixes
+
+* **TextField:** associate validation text with input via aria-describedby ([#3508](https://github.com/mondaycom/vibe/issues/3508)) ([8facf2c](https://github.com/mondaycom/vibe/commit/8facf2c066745f390bd9939e3acbf78b8df8650a))
+
+
+
+
+
+## [4.2.26](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.25...@vibe/docs@4.2.26) (2026-09-02)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.25](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.24...@vibe/docs@4.2.25) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.24](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.23...@vibe/docs@4.2.24) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.23](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.22...@vibe/docs@4.2.23) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.22](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.21...@vibe/docs@4.2.22) (2026-08-31)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.21](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.20...@vibe/docs@4.2.21) (2026-08-30)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.20](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.19...@vibe/docs@4.2.20) (2026-08-27)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.19](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.18...@vibe/docs@4.2.19) (2026-08-27)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.18](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.17...@vibe/docs@4.2.18) (2026-08-27)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.17](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.16...@vibe/docs@4.2.17) (2026-08-26)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.16](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.15...@vibe/docs@4.2.16) (2026-08-25)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.15](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.14...@vibe/docs@4.2.15) (2026-08-25)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.14](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.13...@vibe/docs@4.2.14) (2026-08-24)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.13](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.12...@vibe/docs@4.2.13) (2026-08-24)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.12](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.11...@vibe/docs@4.2.12) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.11](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.10...@vibe/docs@4.2.11) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.10](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.9...@vibe/docs@4.2.10) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.9](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.8...@vibe/docs@4.2.9) (2026-08-20)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.8](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.7...@vibe/docs@4.2.8) (2026-08-20)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.7](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.6...@vibe/docs@4.2.7) (2026-08-19)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.6](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.5...@vibe/docs@4.2.6) (2026-08-19)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.5](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.4...@vibe/docs@4.2.5) (2026-08-18)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.4](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.3...@vibe/docs@4.2.4) (2026-08-16)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.2...@vibe/docs@4.2.3) (2026-08-16)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.1...@vibe/docs@4.2.2) (2026-08-13)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.2.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.2.0...@vibe/docs@4.2.1) (2026-08-11)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.1.3...@vibe/docs@4.2.0) (2026-08-11)
+
+
+### Features
+
+* **styles:** add numeric border-radius tokens ([#3435](https://github.com/mondaycom/vibe/issues/3435)) ([36f476e](https://github.com/mondaycom/vibe/commit/36f476e9bc21062c1bbefc7f06114d52438424cc))
+
+
+
+
+
+## [4.1.3](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.1.2...@vibe/docs@4.1.3) (2026-07-12)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.1.2](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.1.1...@vibe/docs@4.1.2) (2026-07-06)
+
+
+### Bug Fixes
+
+* **Dropdown:** accessibility fixes for searchable single & multi select ([#3413](https://github.com/mondaycom/vibe/issues/3413)) ([4693f16](https://github.com/mondaycom/vibe/commit/4693f16794c3aa805751809ecb343beb7f58932c))
+
+
+
+
+
+## [4.1.1](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.1.0...@vibe/docs@4.1.1) (2026-07-01)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.11...@vibe/docs@4.1.0) (2026-06-30)
+
+
+### Features
+
+* **Chips:** add size prop with small variant ([#3409](https://github.com/mondaycom/vibe/issues/3409)) ([5ef809a](https://github.com/mondaycom/vibe/commit/5ef809a9d7b8cc49d34280df650f43cbf3d1146f))
+
+
+
+
+
+## [4.0.11](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.10...@vibe/docs@4.0.11) (2026-06-15)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.10](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.9...@vibe/docs@4.0.10) (2026-06-09)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.9](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.8...@vibe/docs@4.0.9) (2026-06-04)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.8](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.7...@vibe/docs@4.0.8) (2026-06-03)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.7](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.6...@vibe/docs@4.0.7) (2026-05-31)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.6](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.5...@vibe/docs@4.0.6) (2026-05-25)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
+## [4.0.5](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.4...@vibe/docs@4.0.5) (2026-05-24)
+
+**Note:** Version bump only for package @vibe/docs
+
+
+
+
+
 ## [4.0.4](https://github.com/mondaycom/vibe/compare/@vibe/docs@4.0.3...@vibe/docs@4.0.4) (2026-05-13)
 
 **Note:** Version bump only for package @vibe/docs

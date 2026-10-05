@@ -1,0 +1,7 @@
+@import "~@vibe/style/dist/mixins";
+
+.listTitle {
+  @include smoothing-text;
+  padding: var(--space-16) var(--space-16) var(--space-8);
+  border-radius: var(--border-radius-small);
+}

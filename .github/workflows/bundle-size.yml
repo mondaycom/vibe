@@ -50,7 +50,7 @@ jobs:
           git checkout $BASE
           yarn install --frozen-lockfile
           yarn build
-          yarn add --dev -W size-limit @size-limit/preset-small-lib
+          yarn add --dev -W size-limit@12 @size-limit/preset-small-lib@12
           ./node_modules/.bin/size-limit --json > scripts/bundle-check/reports/base.json
         continue-on-error: true
 

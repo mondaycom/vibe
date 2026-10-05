@@ -134,6 +134,29 @@ export const Validation: Story = {
   )
 };
 
+export const ValidationInAForm: Story = {
+  render: () => (
+    <Flex align="stretch" direction="column" gap="medium" style={{ width: 300 }}>
+      <TextField
+        id="signin-email"
+        title="Email"
+        size="medium"
+        placeholder="email@monday.com"
+        validation={{ status: "error", text: "Invalid email" }}
+      />
+      <TextField
+        id="signin-password"
+        title="Password"
+        type="password"
+        size="medium"
+        required
+        requiredErrorText="Password is required"
+      />
+    </Flex>
+  ),
+  name: "Validation in a form"
+};
+
 export const TextFieldInAForm: Story = {
   render: () => (
     <Flex align="stretch" direction="column" gap="large" style={{ width: 300 }}>

@@ -1,0 +1,87 @@
+@import "~@vibe/style/dist/mixins";
+
+.wrapper {
+  @include reset-button();
+  border-radius: var(--border-radius-small);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--motion-productive-short) var(--motion-timing-transition);
+  color: var(--primary-text-color);
+  @include focus-style();
+}
+
+.wrapper:focus,
+.wrapper:hover {
+  background-color: var(--primary-background-hover-color);
+}
+
+.wrapper:active {
+  transform: scale(0.95);
+}
+
+.active {
+  background-color: var(--primary-selected-color);
+}
+
+.active:focus {
+  background-color: var(--primary-selected-color);
+}
+
+.active:hover {
+  background-color: var(--primary-selected-color);
+}
+
+.sizeXxs {
+  width: 16px;
+  height: 16px;
+  @include vibe-text(text2, normal);
+  @include smoothing-text;
+}
+
+.sizeXs {
+  width: 24px;
+  height: 24px;
+  @include vibe-text(text1, normal);
+  @include smoothing-text;
+}
+
+.sizeSmall {
+  width: 32px;
+  height: 32px;
+  @include vibe-text(text1, normal);
+  @include smoothing-text;
+}
+
+.sizeMedium {
+  width: 40px;
+  height: 40px;
+  @include vibe-heading(h3, normal);
+}
+
+.sizeLarge {
+  width: 48px;
+  height: 48px;
+  @include vibe-heading(h2, normal);
+}
+
+.disabled {
+  border-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+.text {
+  width: 100%;
+}
+
+.innerText {
+  margin: 0 var(--space-8);
+}

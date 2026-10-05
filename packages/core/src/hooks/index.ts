@@ -1,17 +1,21 @@
 export { default as useKeyEvent } from "./useKeyEvent";
 export { default as useEventListener } from "./useEventListener";
-export { default as useDebounceEvent } from "./useDebounceEvent";
-export { useClickOutside, useIsOverflowing, useResizeObserver } from "@vibe/hooks";
-export { default as useAfterFirstRender } from "./useAfterFirstRender";
+export {
+  useAfterFirstRender,
+  useClickOutside,
+  useDebounceEvent,
+  useIsOverflowing,
+  usePrevious,
+  useResizeObserver,
+  useSetFocus,
+  useSwitch
+} from "@vibe/hooks";
 export { default as useTimeout } from "./useTimeout";
-export { default as usePrevious } from "./usePrevious";
-export { default as useSetFocus } from "./useSetFocus";
 export { default as useIsMouseOver } from "./useIsMouseOver";
 export { default as useHover } from "./useHover/useHover";
-export { default as useGridKeyboardNavigation } from "./useGridKeyboardNavigation/useGridKeyboardNavigation";
-export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
+export { useGridKeyboardNavigation } from "@vibe/a11y";
+export { useActiveDescendantListFocus } from "@vibe/hooks";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
-export { default as useSwitch } from "./useSwitch";
 export { default as useElementsOverflowingIndex } from "./useElementsOverflowingIndex";
 export { default as useWizard } from "./useWizard/useWizard";

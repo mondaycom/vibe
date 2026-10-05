@@ -1,0 +1,80 @@
+@import "~@vibe/style/dist/mixins";
+
+
+
+.tabWrapper {
+  position: relative;
+  display: inline-block;
+  padding-inline: 1px;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid;
+  border-bottom-color: var(--ui-background-color);
+  color: var(--primary-text-color);
+  text-align: center;
+  height: 100%;
+  margin: 0;
+
+  &.stretchedUnderline {
+    border-bottom: 0;
+  }
+}
+
+.tabWrapper:after {
+  display: block;
+  position: absolute;
+  inset-inline: 0;
+  content: "";
+  border-bottom: solid 2px;
+  border-bottom-color: var(--primary-color);
+  transform: scaleX(0);
+  z-index: 0;
+}
+
+.tabWrapper .tabInner {
+  $margin-bottom: 1px;
+  height: calc(100% - #{$margin-bottom});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 4px 16px;
+  @include vibe-text(text1, normal);
+  user-select: none;
+  margin-bottom: $margin-bottom;
+  cursor: pointer;
+  color: var(--primary-text-color);
+}
+
+.tabWrapper .tabInner:focus {
+  outline: none;
+}
+
+.tabWrapper .tabInner .tabIcon {
+  color: var(--icon-color);
+  margin-inline-end: var(--space-8);
+}
+
+.tabWrapper .tabInner .tabIcon.right {
+  margin-inline-end: 0;
+  margin-inline-start: var(--space-8);
+}
+
+.tabWrapper.tabFocusVisibleInset {
+  @include focus-style-css-inset(3px, 3px);
+  position: relative;
+}
+
+.tabWrapper.active:after {
+  transform: scaleX(1);
+  transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
+}
+
+.tabWrapper.disabled .tabInner {
+  color: var(--disabled-text-color);
+  cursor: not-allowed;
+}
+
+.tabWrapper:not(.disabled) .tabInner:hover {
+  border-radius: 4px;
+  background-color: var(--primary-background-hover-color);
+}

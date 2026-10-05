@@ -1,0 +1,40 @@
+import React, { forwardRef } from "react";
+import cx from "classnames";
+import { Divider } from "@vibe/divider";
+import { Icon } from "@vibe/icon";
+import { Flex } from "@vibe/layout";
+import { IconButton } from "@vibe/icon-button";
+import { DropdownChevronRight } from "@vibe/icons";
+import styles from "./MenuItemSubMenuIcon.module.scss";
+import { type MenuItemSubMenuIconProps } from "./MenuItemSubMenuIcon.types";
+
+const MenuItemSubMenuIcon = forwardRef((props: MenuItemSubMenuIconProps, ref: React.ForwardedRef<HTMLDivElement>) => (
+  <Flex justify="center" className={styles.subMenuIconWrapper}>
+    {props.isSplit === true ? (
+      <>
+        <Divider direction="vertical" className={styles.divider} />
+        <IconButton
+          icon={DropdownChevronRight}
+          className={styles.splitMenuItemIconButton}
+          kind="tertiary"
+          size={null} // Customizing size via className
+          iconClassName={cx(styles.splitSubMenuIcon, { [styles.disabled]: props.disabled })}
+          tabIndex={-1}
+          ref={ref}
+          active={props.active}
+          disabled={props.disabled}
+        />
+      </>
+    ) : (
+      <Icon
+        icon={DropdownChevronRight}
+        label={props.label}
+        className={cx(styles.subMenuIcon, { [styles.disabled]: props.disabled })}
+        ignoreFocusStyle
+        size={18}
+      />
+    )}
+  </Flex>
+));
+
+export default MenuItemSubMenuIcon;

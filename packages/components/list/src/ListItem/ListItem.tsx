@@ -1,0 +1,162 @@
+import cx from "classnames";
+import React, {
+  type AriaAttributes,
+  type AriaRole,
+  forwardRef,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef
+} from "react";
+import { camelCase } from "es-toolkit";
+import {
+  getStyle,
+  NOOP,
+  useMergeRef,
+  SIZES,
+  SELECTION_KEYS,
+  useKeyEvent,
+  type VibeComponentProps,
+  type ElementContent
+} from "@vibe/shared";
+import { Text } from "@vibe/typography";
+
+import { ListContext } from "../List/utils/ListContext";
+import { type ListItemElement, type ListItemSize } from "./ListItem.types";
+import { type TooltipProps } from "@vibe/tooltip";
+import styles from "./ListItem.module.scss";
+
+export interface ListItemProps extends VibeComponentProps {
+  /**
+   * The HTML element used for the list item.
+   */
+  component?: ListItemElement;
+  /**
+   * The textual content inside the list item.
+   */
+  children?: ElementContent;
+  /**
+   * Callback fired when the item is clicked.
+   */
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent, id: string) => void;
+  /**
+   * Callback fired when the item is hovered.
+   */
+  onHover?: (event: React.MouseEvent | React.FocusEvent, id: string) => void;
+  /**
+   * If true, disables the item and prevents interactions.
+   */
+  disabled?: boolean;
+  /**
+   * If true, marks the item as selected.
+   */
+  selected?: boolean;
+  /**
+   * The size of the list item.
+   */
+  size?: ListItemSize;
+  /**
+   * The tab index of the list item for keyboard navigation.
+   */
+  tabIndex?: number;
+  /**
+   * Indicates the current state of the item in a set of items.
+   */
+  "aria-current"?: AriaAttributes["aria-current"];
+  /**
+   * The ARIA role of the list item.
+   */
+  role?: AriaRole;
+  /**
+   * Props passed to the tooltip displayed when hovering over the text.
+   */
+  tooltipProps?: Partial<TooltipProps>;
+}
+
+const ListItem = forwardRef(
+  (
+    {
+      className,
+      id,
+      component = "div",
+      onClick = NOOP,
+      onHover = NOOP,
+      selected,
+      disabled = false,
+      size = SIZES.SMALL,
+      tabIndex = 0,
+      children,
+      "aria-current": ariaCurrent,
+      "data-testid": dataTestId,
+      role = "option",
+      tooltipProps
+    }: ListItemProps,
+    ref: React.ForwardedRef<HTMLElement>
+  ) => {
+    const { updateFocusedItem } = useContext(ListContext);
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRef(ref, componentRef);
+
+    useEffect(() => {
+      if (selected) {
+        updateFocusedItem?.(id);
+      }
+    }, [selected, id, updateFocusedItem]);
+
+    const componentOnClick = useCallback(
+      (event: React.MouseEvent | React.KeyboardEvent) => {
+        if (disabled) return;
+        onClick(event, id);
+      },
+      [disabled, onClick, id]
+    );
+
+    const onKeyboardSelect = useCallback((event: React.KeyboardEvent) => componentOnClick(event), [componentOnClick]);
+
+    useKeyEvent({
+      keys: SELECTION_KEYS,
+      ref: componentRef,
+      callback: onKeyboardSelect
+    });
+
+    const componentOnHover = useCallback(
+      (event: React.MouseEvent | React.FocusEvent) => {
+        if (disabled) return;
+        onHover(event, id);
+      },
+      [disabled, onHover, id]
+    );
+
+    return (
+      <Text
+        element={component}
+        data-testid={dataTestId || id}
+        ref={mergedRef}
+        className={cx(styles.listItem, className, getStyle(styles, camelCase(size)), {
+          [styles.selected]: selected && !disabled,
+          [styles.disabled]: disabled
+        })}
+        id={id}
+        type="text2"
+        aria-disabled={disabled}
+        aria-selected={selected}
+        onClick={componentOnClick}
+        onMouseEnter={componentOnHover}
+        onFocus={componentOnHover}
+        role={role}
+        tabIndex={tabIndex}
+        aria-current={ariaCurrent}
+        tooltipProps={tooltipProps}
+      >
+        {children}
+      </Text>
+    );
+  }
+);
+
+Object.assign(ListItem, {
+  // Used by VirtualizedListItems
+  displayName: "ListItem"
+});
+
+export default ListItem;

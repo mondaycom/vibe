@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "SmartCall",
+    file: "SmartCall.svg",
+    description: "Smart call icon for Internal (Outline)",
+    tags: "Smart, Call, Phone, Internal, Platform, AI, Sparkle, Outline",
+    category: [PLATFORM]
+  },
+  {
     name: "ZoomIn",
     file: "ZoomIn.svg",
     description: "Zoom In icon for external views",

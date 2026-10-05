@@ -20,7 +20,8 @@ function generateSizeLimitConfig() {
       const relativePath = match[1];
       const fullPath = path.join("packages/core/dist/src/", relativePath).replace(/\\/g, "/");
       allComponents.push({
-        path: fullPath
+        path: fullPath,
+        ignore: ["react", "react-dom"]
       });
     }
     console.log(`Found ${allComponents.length} core components.`);
@@ -39,7 +40,8 @@ function generateSizeLimitConfig() {
       const relativePath = match[1];
       const fullPath = path.join("packages/core/dist/src/components/", relativePath).replace(/\\/g, "/");
       allComponents.push({
-        path: fullPath
+        path: fullPath,
+        ignore: ["react", "react-dom"]
       });
       nextComponentsCount++;
     }
@@ -60,7 +62,8 @@ function generateSizeLimitConfig() {
       if (fs.existsSync(packageDistPath)) {
         const relativePath = path.join("packages/components", packageName, "dist/index.js").replace(/\\/g, "/");
         allComponents.push({
-          path: relativePath
+          path: relativePath,
+          ignore: ["react", "react-dom"]
         });
         console.log(`Added component package: ${packageName}`);
       } else {

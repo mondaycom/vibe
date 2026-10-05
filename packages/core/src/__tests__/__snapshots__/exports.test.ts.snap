@@ -112,6 +112,7 @@ exports[`exports > should export all components 1`] = `
   "VirtualizedGrid",
   "VirtualizedList",
   "useClickableProps",
+  "useGridKeyboardNavigation",
   "useGridKeyboardNavigationContext",
 ]
 `;

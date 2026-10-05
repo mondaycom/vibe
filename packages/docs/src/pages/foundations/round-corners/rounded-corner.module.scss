@@ -1,0 +1,33 @@
+@import "~@vibe/style/dist/mixins";
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+  flex: 1;
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border-top: 3px solid var(--sb-primary-color);
+  border-left: 3px solid var(--sb-primary-color);
+}
+
+.token {
+  @include vibe-text(text2, bold);
+  color: var(--sb-primary-text-color);
+}
+
+.value {
+  @include vibe-text(text2, normal);
+  color: var(--sb-secondary-text-color);
+}

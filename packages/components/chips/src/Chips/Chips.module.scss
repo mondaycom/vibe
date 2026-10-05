@@ -1,0 +1,115 @@
+@import "~@vibe/style/dist/mixins";
+
+@mixin keyframe($animation_name) {
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin pop-in-emphasized() {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.chips {
+  display: inline-flex;
+  overflow: hidden;
+  height: 24px;
+  border-radius: 4px;
+  padding: 0 8px;
+  align-items: center;
+  justify-content: center;
+  margin: var(--chips-margin, #{0 var(--space-4)});
+  user-select: none;
+  @include smoothing-text;
+  color: var(--primary-text-color);
+  animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
+  &.border {
+    border: 1px solid var(--primary-background-color);
+  }
+  &.withUserSelect {
+    user-select: text;
+    cursor: text;
+  }
+  &.noMargin {
+    margin: 0;
+  }
+
+  &.small {
+    height: 20px;
+    padding: 0 4px;
+
+    .icon,
+    .avatar,
+    .customRenderer {
+      &.left {
+        margin-inline-end: var(--space-2);
+      }
+      &.right {
+        margin-inline-start: var(--space-2);
+      }
+      &.close {
+        margin-inline-start: var(--space-2);
+      }
+    }
+  }
+
+  .label {
+    @include ellipsis();
+  }
+
+  &.noAnimation {
+    animation: none;
+  }
+
+  .icon,
+  .avatar,
+  .customRenderer {
+    min-width: 18px;
+    &.left {
+      margin-inline-end: var(--space-4);
+    }
+    &.right {
+      margin-inline-start: var(--space-4);
+    }
+    &.close {
+      margin-inline-start: var(--space-4);
+      color: var(--primary-text-color);
+    }
+  }
+
+  &.disabled {
+    .icon {
+      color: var(--disabled-text-color);
+    }
+    .label {
+      color: var(--disabled-text-color);
+    }
+  }
+
+  &.defaultCursor {
+    cursor: default;
+  }
+
+  &.clickable {
+    @include clickable;
+    &.disabled {
+      @include clickable-disabled;
+    }
+    &.disableTextSelection {
+      @include clickable-disable-text-selection;
+    }
+  }
+}
+
+@include keyframe(chips-pop-in-emphasized) {
+  @include pop-in-emphasized();
+}

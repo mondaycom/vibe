@@ -3,6 +3,140 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.14](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.13...@vibe/dialog@4.1.14) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.13](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.12...@vibe/dialog@4.1.13) (2026-09-01)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.12](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.11...@vibe/dialog@4.1.12) (2026-08-26)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.11](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.10...@vibe/dialog@4.1.11) (2026-08-25)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.10](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.9...@vibe/dialog@4.1.10) (2026-08-25)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.9](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.8...@vibe/dialog@4.1.9) (2026-08-24)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.8](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.7...@vibe/dialog@4.1.8) (2026-08-23)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.7](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.6...@vibe/dialog@4.1.7) (2026-08-20)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.6](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.5...@vibe/dialog@4.1.6) (2026-08-20)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.5](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.4...@vibe/dialog@4.1.5) (2026-08-19)
+
+
+### Performance Improvements
+
+* **Dialog:** add positioningActive to gate Floating UI position tracking ([#3465](https://github.com/mondaycom/vibe/issues/3465)) ([f6150b4](https://github.com/mondaycom/vibe/commit/f6150b4628877261eb0e19184494d27a0ffdcd7b))
+
+
+
+
+
+## [4.1.4](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.3...@vibe/dialog@4.1.4) (2026-08-19)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.3](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.2...@vibe/dialog@4.1.3) (2026-08-18)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.2](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.1...@vibe/dialog@4.1.2) (2026-08-11)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+## [4.1.1](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.1.0...@vibe/dialog@4.1.1) (2026-06-03)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.2...@vibe/dialog@4.1.0) (2026-05-31)
+
+
+### Features
+
+* **Dialog:** skip floating-ui computation when closed ([#3379](https://github.com/mondaycom/vibe/issues/3379)) ([0893696](https://github.com/mondaycom/vibe/commit/0893696849cdb24d5eacb8bf0ac3b04e3cac6b78))
+
+
+
+
+
+## [4.0.2](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.1...@vibe/dialog@4.0.2) (2026-05-25)
+
+**Note:** Version bump only for package @vibe/dialog
+
+
+
+
+
 ## [4.0.1](https://github.com/mondaycom/vibe/compare/@vibe/dialog@4.0.0...@vibe/dialog@4.0.1) (2026-04-16)
 
 **Note:** Version bump only for package @vibe/dialog

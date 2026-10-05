@@ -1,11 +1,12 @@
 import { z } from "zod";
+import { exec } from "child_process";
+import { promisify } from "util";
 import { getErrorMessage, MCPTool } from "../index.js";
-import fs from "fs/promises";
-import path from "path";
-import { fileURLToPath } from "url";
+import { detectVibeVersion } from "../version-detector.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const execAsync = promisify(exec);
+
+const cache = new Map<string, string>();
 
 const ComponentNameParamsSchema = z.object({
   componentName: z
@@ -16,6 +17,33 @@ const ComponentNameParamsSchema = z.object({
     )
 });
 
+async function fetchExamples(componentName: string, version: number): Promise<string> {
+  const cacheKey = `${version}:${componentName}`;
+  if (cache.has(cacheKey)) {
+    return cache.get(cacheKey)!;
+  }
+
+  const url = `https://unpkg.com/@vibe/core@${version}/dist/metadata/examples/${componentName}.md`;
+
+  let content: string;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    content = await response.text();
+  } catch (fetchError) {
+    const { stdout } = await execAsync(`curl -s -L "${url}"`);
+    if (!stdout.trim()) {
+      throw fetchError;
+    }
+    content = stdout;
+  }
+
+  cache.set(cacheKey, content);
+  return content;
+}
+
 export const getVibeComponentExamples: MCPTool<typeof ComponentNameParamsSchema.shape> = {
   name: "get-vibe-component-examples",
   description:
@@ -24,16 +52,16 @@ export const getVibeComponentExamples: MCPTool<typeof ComponentNameParamsSchema.
   execute: async (input: z.infer<typeof ComponentNameParamsSchema>) => {
     const { componentName } = input;
     try {
-      const contextFilePath = path.resolve(__dirname, "../../../dist/generated/", `${componentName}.md`);
-      const contextFileContents = await fs.readFile(contextFilePath, "utf-8");
+      const version = await detectVibeVersion();
+      const content = await fetchExamples(componentName ?? "", version);
       return {
         content: [
           { type: "text", text: componentName ?? "" },
-          { type: "text", text: contextFileContents }
+          { type: "text", text: content }
         ]
       };
     } catch (e) {
-      const message = (e instanceof Error ? e.message : e) || "Failed to get code samples";
+      const message = getErrorMessage(e) || "Failed to get code samples";
       return {
         content: [
           {

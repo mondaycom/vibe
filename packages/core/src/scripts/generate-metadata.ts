@@ -566,10 +566,16 @@ async function main() {
     const finalJson = mergeResults(aggregatorRecords, docgenResults, storyMap);
     console.log(`Final output contains ${finalJson.length} component entries`);
 
-    const outPath = path.resolve(__dirname, "../../dist/metadata.json");
-    fs.mkdirSync(path.dirname(outPath), { recursive: true });
-    fs.writeFileSync(outPath, JSON.stringify(finalJson, null, 2), "utf-8");
-    console.log(`Done! Wrote metadata to: ${outPath}`);
+    const metadataDir = path.resolve(__dirname, "../../dist/metadata");
+    fs.mkdirSync(metadataDir, { recursive: true });
+
+    const canonicalPath = path.join(metadataDir, "components.json");
+    fs.writeFileSync(canonicalPath, JSON.stringify(finalJson, null, 2), "utf-8");
+    console.log(`Wrote metadata to: ${canonicalPath}`);
+
+    const legacyPath = path.resolve(__dirname, "../../dist/metadata.json");
+    fs.copyFileSync(canonicalPath, legacyPath);
+    console.log(`Wrote backwards-compat copy to: ${legacyPath}`);
   } catch (error) {
     console.error("Failed to generate documentation:", error.message);
     process.exit(1);

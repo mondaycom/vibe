@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/style@4.0.0...@vibe/style@4.1.0) (2026-08-11)
+
+
+### Features
+
+* **styles:** add numeric border-radius tokens ([#3435](https://github.com/mondaycom/vibe/issues/3435)) ([36f476e](https://github.com/mondaycom/vibe/commit/36f476e9bc21062c1bbefc7f06114d52438424cc))
+
+
+
+
+
 ## [0.26.2](https://github.com/mondaycom/vibe/compare/monday-ui-style@0.26.1...monday-ui-style@0.26.2) (2025-11-26)
 
 **Note:** Version bump only for package monday-ui-style

@@ -133,6 +133,51 @@ export const Clickable = {
   name: "Clickable"
 };
 
+export const Sizes = {
+  render: () => (
+    <Flex direction="column" gap="medium" align="start">
+      <Flex gap="medium" align="center">
+        <Chips id="size-medium" aria-label="Medium chip" label="Medium chip" readOnly />
+        <Chips id="size-medium-icon" aria-label="Medium chip with icon" label="With icon" leftIcon={Email} readOnly />
+        <Chips
+          id="size-medium-avatar"
+          aria-label="Medium chip with avatar"
+          label="With avatar"
+          leftAvatar={person1}
+          readOnly
+        />
+      </Flex>
+      <Flex gap="medium" align="center">
+        <Chips id="size-small" aria-label="Small chip" label="Small chip" size="small" readOnly />
+        <Chips
+          id="size-small-icon"
+          aria-label="Small chip with icon"
+          label="With icon"
+          size="small"
+          leftIcon={Email}
+          readOnly
+        />
+        <Chips
+          id="size-small-avatar"
+          aria-label="Small chip with avatar"
+          label="With avatar"
+          size="small"
+          leftAvatar={person1}
+          readOnly
+        />
+      </Flex>
+    </Flex>
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Email, person1 }
+      }
+    }
+  },
+  name: "Sizes"
+};
+
 export const ChipsPalette = {
   render: () => {
     const excludedColors = ["dark_indigo", "blackish"];
