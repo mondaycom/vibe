@@ -49,8 +49,7 @@
     "@vibe/shared": "4.0.10",
     "@vibe/typography": "4.0.20",
     "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10",
-    "react-transition-group": "^4.4.5"
+    "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",

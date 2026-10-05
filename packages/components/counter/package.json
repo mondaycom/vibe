@@ -42,12 +42,10 @@
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
     "classnames": "^2.5.1",
-    "es-toolkit": "^1.39.10",
-    "react-transition-group": "^4.4.5"
+    "es-toolkit": "^1.39.10"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
-    "@types/react-transition-group": "^4.4.5",
     "@vibe/config": "4.0.2",
     "@vibe/icons": "4.1.0",
     "react": "^16.13.0",
