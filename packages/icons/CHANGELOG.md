@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@4.1.0...@vibe/icons@4.2.0) (2026-10-06)
+
+
+### Features
+
+* **icons:** add ButtonIndicator icon ([#3527](https://github.com/mondaycom/vibe/issues/3527)) ([881e5ab](https://github.com/mondaycom/vibe/commit/881e5ab4588b69b97cce3b2367f4cf4024d2e3f2))
+
+
+
+
+
 # [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/icons@4.0.2...@vibe/icons@4.1.0) (2026-06-03)
 
 

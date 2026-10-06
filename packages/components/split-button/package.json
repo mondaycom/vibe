@@ -1,6 +1,6 @@
 {
   "name": "@vibe/split-button",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "Vibe sub-package for split-button components",
   "repository": {
     "type": "git",
@@ -38,10 +38,10 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/button": "4.0.12",
-    "@vibe/dialog": "4.1.14",
-    "@vibe/icons": "4.1.0",
-    "@vibe/menu": "4.0.5",
+    "@vibe/button": "4.0.13",
+    "@vibe/dialog": "4.1.15",
+    "@vibe/icons": "4.2.0",
+    "@vibe/menu": "4.0.6",
     "@vibe/shared": "4.0.10",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"

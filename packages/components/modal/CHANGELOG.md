@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/mondaycom/vibe/compare/@vibe/modal@4.0.3...@vibe/modal@4.0.4) (2026-10-06)
+
+**Note:** Version bump only for package @vibe/modal
+
+
+
+
+
 ## [4.0.3](https://github.com/mondaycom/vibe/compare/@vibe/modal@4.0.2...@vibe/modal@4.0.3) (2026-09-08)
 
 **Note:** Version bump only for package @vibe/modal

@@ -1,6 +1,6 @@
 {
   "name": "@vibe/avatar",
-  "version": "4.0.12",
+  "version": "4.0.13",
   "description": "Vibe sub-package for Avatar component",
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
     "@vibe/icon": "4.0.10",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.20",
+    "@vibe/tooltip": "4.0.21",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
@@ -51,7 +51,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@vibe/config": "4.0.2",
-    "@vibe/icons": "4.1.0",
+    "@vibe/icons": "4.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

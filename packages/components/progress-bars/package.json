@@ -1,6 +1,6 @@
 {
   "name": "@vibe/progress-bars",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "Vibe sub-package for ProgressBars components",
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@vibe/config": "4.0.2",
-    "@vibe/icons": "4.1.0",
+    "@vibe/icons": "4.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-test-renderer": "16",

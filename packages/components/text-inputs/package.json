@@ -1,6 +1,6 @@
 {
   "name": "@vibe/text-inputs",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "Vibe sub-package for TextField, TextArea, NumberField, FieldLabel and InfoText components",
   "repository": {
     "type": "git",
@@ -43,14 +43,14 @@
     "@vibe/clickable": "4.0.12",
     "@vibe/hooks": "4.0.14",
     "@vibe/icon": "4.0.10",
-    "@vibe/icon-button": "4.0.20",
-    "@vibe/icons": "4.1.0",
+    "@vibe/icon-button": "4.0.21",
+    "@vibe/icons": "4.2.0",
     "@vibe/layout": "4.0.13",
     "@vibe/loader": "4.0.10",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.20",
-    "@vibe/typography": "4.0.20",
+    "@vibe/tooltip": "4.0.21",
+    "@vibe/typography": "4.0.21",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
