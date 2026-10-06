@@ -15,8 +15,8 @@ export default [
   {
     name: "ButtonIndicator",
     file: "ButtonIndicator.svg",
-    description: "Button indicator icon (Outline)",
-    tags: "Outline, Columns, Boards, UI layer, Button, Click, Action, CTA, Indicator"
+    description: "ButtonIndicator",
+    tags: "Columns, Boards, UI layer, Button, Click, Action, CTA, Indicator"
   },
   {
     name: "SmartCall",
