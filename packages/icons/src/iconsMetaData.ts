@@ -13,6 +13,13 @@ export default [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "ButtonIndicator",
+    file: "ButtonIndicator.svg",
+    description: "Button indicator icon (Outline)",
+    tags: "Outline, Columns, Boards, UI layer, Button, Click, Action, CTA, Indicator",
+    category: [PLATFORM]
+  },
+  {
     name: "SmartCall",
     file: "SmartCall.svg",
     description: "Smart call icon for Internal (Outline)",
