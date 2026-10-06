@@ -33,6 +33,7 @@ export {default as Bug} from './Bug';
 export {default as Bullet} from './Bullet';
 export {default as Bullets} from './Bullets';
 export {default as Bulllet} from './Bulllet';
+export {default as ButtonIndicator} from './ButtonIndicator';
 export {default as Calendar} from './Calendar';
 export {default as Chart} from './Chart';
 export {default as Check} from './Check';
