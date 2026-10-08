@@ -8,6 +8,8 @@ import {
   type VibeComponentProps
 } from "@vibe/shared";
 import useIconScreenReaderAccessProps from "../hooks/useIconScreenReaderAccessProps";
+import { sanitizeSvgContent } from "./sanitizeSvgContent";
+import { sanitizeSvgSrc } from "./sanitizeSvgSrc";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
@@ -74,14 +76,17 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
 
   const svgProcessor = useCallback(
     (svg: string) => {
-      if (replaceToCurrentColor) return modifySvgCode(svg, "currentColor");
-      if (customColor) return modifySvgCode(svg, customColor);
-      return svg;
+      if (replaceToCurrentColor) return sanitizeSvgContent(modifySvgCode(svg, "currentColor"));
+      if (customColor) return sanitizeSvgContent(modifySvgCode(svg, customColor));
+      return sanitizeSvgContent(svg);
     },
     [replaceToCurrentColor, customColor]
   );
 
   if (typeof src !== "string") return null;
+
+  const safeSrc = sanitizeSvgSrc(src);
+  if (!safeSrc) return null;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const SVGComponent = (SVG.default || SVG) as React.FC<any>; // fix esm issue
@@ -97,7 +102,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       innerRef={ref}
       {...screenReaderAccessProps}
       loader={PlaceHolder} // avoid flickering
-      src={src}
+      src={safeSrc}
       className={className}
       preProcessor={svgProcessor}
       width={size}

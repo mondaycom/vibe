@@ -40,6 +40,7 @@
   "dependencies": {
     "@vibe/shared": "4.0.10",
     "classnames": "^2.5.1",
+    "dompurify": "^3.4.16",
     "es-toolkit": "^1.39.10",
     "react-inlinesvg": "^4.1.3"
   },
