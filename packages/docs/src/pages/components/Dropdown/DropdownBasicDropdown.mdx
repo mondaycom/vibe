@@ -163,10 +163,6 @@ For performance optimization with large datasets, the Dropdown supports virtuali
 
 <Canvas of={DropdownBasicDropdownStories.DropdownWithVirtualization} />
 
-### Many dropdowns on one page
-
-When a page renders many dropdowns at once, for example one per row in a table, set the `lazy` prop. Each dropdown then renders a lightweight replica with the same look and the same accessible name, role and value, and mounts the full interactive dropdown only when the user clicks, taps or focuses it. Once the menu is closed, focus has left and the pointer is away, it returns to the replica. Behavior and callbacks are the same as without `lazy`.
-
 ## Related components
 
 <RelatedComponents componentsNames={["DropdownBoxMode", "Combobox", "Menu"]} />
