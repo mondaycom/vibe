@@ -284,9 +284,19 @@ export type BaseDropdownProps<Item extends BaseItemData<Record<string, unknown>>
      * If true, displays a loading indicator in the dropdown controls.
      */
     loading?: boolean;
+    /**
+     * If true, renders a lightweight replica of the dropdown that looks and is announced the same, and mounts
+     * the full interactive dropdown only when the user clicks, taps or focuses it. It returns to the replica
+     * once the menu is closed, focus has left and the pointer is away. Use it when rendering many dropdowns at
+     * once (e.g. in table cells). While the replica is shown, the forwarded ref points to the replica's element.
+     * Has no effect when `boxMode` is true.
+     */
+    lazy?: boolean;
   } & (MultiSelectSpecifics<Item> | SingleSelectSpecifics<Item>);
 
 export type DropdownSizes = "small" | "medium" | "large";
+
+export type DropdownLazyRootProps = React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> };
 
 export type DropdownDirection = "ltr" | "rtl" | "auto";
 
@@ -297,6 +307,7 @@ export type DropdownMultiControllerProps<Item extends BaseItemData<Record<string
   BoxModeConstraint &
   MultiSelectSpecifics<Item> & {
     dropdownRef: React.Ref<HTMLDivElement>;
+    lazyRootProps?: DropdownLazyRootProps;
   };
 
 export type DropdownSingleControllerProps<Item extends BaseItemData<Record<string, unknown>>> = Omit<
@@ -306,4 +317,5 @@ export type DropdownSingleControllerProps<Item extends BaseItemData<Record<strin
   BoxModeConstraint &
   SingleSelectSpecifics<Item> & {
     dropdownRef: React.Ref<HTMLDivElement>;
+    lazyRootProps?: DropdownLazyRootProps;
   };
