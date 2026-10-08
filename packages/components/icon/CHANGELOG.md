@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.11](https://github.com/mondaycom/vibe/compare/@vibe/icon@4.0.10...@vibe/icon@4.0.11) (2026-10-08)
+
+
+### Bug Fixes
+
+* **Icon:** sanitize src URL and SVG content for type="src" icons ([#3533](https://github.com/mondaycom/vibe/issues/3533)) ([5347ac4](https://github.com/mondaycom/vibe/commit/5347ac44a8d9804560f1ff15c3f4e144e5ad14c4))
+
+
+
+
+
 ## [4.0.10](https://github.com/mondaycom/vibe/compare/@vibe/icon@4.0.9...@vibe/icon@4.0.10) (2026-09-01)
 
 **Note:** Version bump only for package @vibe/icon
