@@ -5,14 +5,16 @@ import DropdownPopup from "./DropdownPopup/DropdownPopup";
 import DropdownBoxMode from "./DropdownBoxMode/DropdownBoxMode";
 import { type BaseItemData } from "@vibe/base-list";
 import DropdownBase from "./DropdownBase/DropdownBase";
+import DropdownStaticTrigger from "./DropdownStaticTrigger/DropdownStaticTrigger";
 
 interface DropdownWrapperUIProps<Item extends BaseItemData<Record<string, unknown>>> {
   contextValue: DropdownContextProps<Item>;
   dropdownRef: React.Ref<HTMLDivElement>;
+  isStatic?: boolean;
 }
 
 const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(props: DropdownWrapperUIProps<Item>) => {
-  const { contextValue, dropdownRef } = props;
+  const { contextValue, dropdownRef, isStatic } = props;
 
   // Id linking the helper text to the combobox/trigger via aria-describedby (WCAG SC 1.3.1).
   const helperTextId = contextValue.helperText && contextValue.id ? `${contextValue.id}-helper-text` : undefined;
@@ -20,7 +22,7 @@ const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(p
   return (
     <DropdownContext.Provider value={{ ...contextValue, helperTextId }}>
       <DropdownBase dropdownRef={dropdownRef}>
-        {contextValue.boxMode ? <DropdownBoxMode /> : <DropdownPopup />}
+        {contextValue.boxMode ? <DropdownBoxMode /> : isStatic ? <DropdownStaticTrigger /> : <DropdownPopup />}
       </DropdownBase>
     </DropdownContext.Provider>
   );
