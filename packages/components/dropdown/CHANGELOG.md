@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/mondaycom/vibe/compare/@vibe/dropdown@4.1.2...@vibe/dropdown@4.1.3) (2026-10-12)
+
+
+### Bug Fixes
+
+* **Dropdown:** truncate long chips in multiline multi-select ([#3540](https://github.com/mondaycom/vibe/issues/3540)) ([39badb1](https://github.com/mondaycom/vibe/commit/39badb15b3648f7133bce27b3765325ee1b87659))
+
+
+
+
+
 ## [4.1.2](https://github.com/mondaycom/vibe/compare/@vibe/dropdown@4.1.1...@vibe/dropdown@4.1.2) (2026-10-08)
 
 **Note:** Version bump only for package @vibe/dropdown
