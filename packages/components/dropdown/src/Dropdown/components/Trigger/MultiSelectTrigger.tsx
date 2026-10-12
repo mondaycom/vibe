@@ -84,8 +84,8 @@ const MultiSelectTrigger = () => {
           ) : (
             <Flex gap="xs" wrap>
               {selectedItems.map((item, index) => (
-                <Flex key={String(item.id ?? item.value ?? index)}>
-                  <div style={{ flexShrink: 0 }}>
+                <Flex key={String(item.id ?? item.value ?? index)} className={styles.multilineItem}>
+                  <div className={styles.multilineChip}>
                     <DropdownChip
                       item={item}
                       onDelete={() => {
@@ -93,6 +93,7 @@ const MultiSelectTrigger = () => {
                       }}
                       readOnly={readOnly}
                       disabled={disabled}
+                      className={styles.multilineChipRoot}
                     />
                   </div>
                   {index === selectedItems.length - 1 && <DropdownInput inputSize="small" />}
