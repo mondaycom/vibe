@@ -102,6 +102,21 @@
   width: 100%;
 }
 
+.multilineItem {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.multilineChip {
+  min-width: 0;
+  max-width: 100%;
+  flex-shrink: 1;
+}
+
+.multilineChipRoot {
+  max-width: 100%;
+}
+
 .actionsWrapper {
   padding: 0 var(--space-4);
 }
