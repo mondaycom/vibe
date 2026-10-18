@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/dropdown@4.1.3...@vibe/dropdown@4.2.0) (2026-10-18)
+
+
+### Features
+
+* **Dropdown:** add lazy prop to defer mounting the interactive dropdown ([#3532](https://github.com/mondaycom/vibe/issues/3532)) ([aac8d6e](https://github.com/mondaycom/vibe/commit/aac8d6ecfb66b7c59c2af6f623be4a2048d96700))
+
+
+
+
+
 ## [4.1.3](https://github.com/mondaycom/vibe/compare/@vibe/dropdown@4.1.2...@vibe/dropdown@4.1.3) (2026-10-12)
 
 
