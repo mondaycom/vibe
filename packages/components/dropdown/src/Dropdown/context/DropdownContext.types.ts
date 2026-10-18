@@ -1,6 +1,6 @@
 import { type DropdownListGroup } from "../components/DropdownBaseList/DropdownBaseList.types";
 import { type BaseItemData } from "@vibe/base-list";
-import { type BaseDropdownProps } from "../Dropdown.types";
+import { type BaseDropdownProps, type DropdownLazyRootProps } from "../Dropdown.types";
 import { type TooltipProps } from "@vibe/tooltip";
 
 type PropGetter = (options?: any) => Record<string, any>;
@@ -82,4 +82,5 @@ export interface DropdownContextProps<Item extends BaseItemData<Record<string, u
   interactiveChips?: boolean;
   /** Id of the helper text element, linked to the combobox/trigger via aria-describedby. */
   helperTextId?: string;
+  lazyRootProps?: DropdownLazyRootProps;
 }

@@ -32,7 +32,8 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     dir,
     tooltipProps,
     boxMode,
-    borderless
+    borderless,
+    lazyRootProps
   } = useDropdownContext<BaseItemData>();
 
   const coreDropdownElement = (
@@ -60,7 +61,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
   );
 
   return (
-    <div dir={dir} className={styles.outerWrapper}>
+    <div dir={dir} className={styles.outerWrapper} {...lazyRootProps}>
       {label && <FieldLabel labelText={label} required={required} {...getLabelProps()} />}
       <Tooltip {...tooltipProps} content={tooltipProps?.content}>
         {coreDropdownElement}
