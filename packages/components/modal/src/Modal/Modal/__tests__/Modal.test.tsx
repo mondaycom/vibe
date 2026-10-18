@@ -1,25 +1,10 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "../Modal";
 import ModalContent from "../../ModalContent/ModalContent";
 import ModalHeader from "../../ModalHeader/ModalHeader";
-
-vi.mock("react-transition-group", () => ({
-  CSSTransition: ({
-    in: inProp,
-    children,
-    unmountOnExit
-  }: {
-    in?: boolean;
-    children: React.ReactNode;
-    unmountOnExit?: boolean;
-  }) => {
-    if (!inProp && unmountOnExit) return null;
-    return <>{children}</>;
-  }
-}));
 
 describe("Modal", () => {
   const id = "modal-id";
@@ -202,6 +187,7 @@ describe("Modal", () => {
   });
 
   it("should release focus lock from inside the modal when closed", () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
     const { rerender, getByText } = render(
       <>
         <button type="button">Focusable outside 1</button>
@@ -223,10 +209,15 @@ describe("Modal", () => {
       </>
     );
 
+    act(() => {
+      vi.runAllTimers();
+    });
+
     userEvent.tab();
     expect(getByText("Focusable outside 1")).toHaveFocus();
     userEvent.tab();
     expect(getByText("Focusable outside 2")).toHaveFocus();
+    vi.useRealTimers();
   });
 
   it("traps and moves focus between modal elements", () => {

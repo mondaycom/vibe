@@ -54,8 +54,7 @@
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10",
     "react-focus-lock": "^2.13.2",
-    "react-remove-scroll": "^2.6.0",
-    "react-transition-group": "^4.4.5"
+    "react-remove-scroll": "^2.6.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",
