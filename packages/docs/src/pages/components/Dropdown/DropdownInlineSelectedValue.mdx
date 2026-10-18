@@ -1,0 +1,115 @@
+import { Meta } from "@storybook/blocks";
+import * as DropdownInlineSelectedValueStories from "./DropdownInlineSelectedValue.stories";
+
+<Meta of={DropdownInlineSelectedValueStories} />
+
+# Dropdown inline selected value
+
+A searchable single select is an editable combobox: its trigger is a real text input. `inlineSelectedValue` keeps the selected option's label inside that input as its value, so screen readers announce the selection, and renders the option's `startElement` and `endElement` as decorative chrome around the text inside the field.
+
+## The problem it solves
+
+By default, selecting an option **empties the input** and paints the selected value in a layer on top of it. That layer is what sighted users see, but assistive technology reads the input — and the input has no value. The field is announced as blank, which fails WCAG 4.1.2 (Name, Role, Value).
+
+Simply putting the label into the input fixes the announcement but costs the avatar or icon, because a native input's value can only ever be a string.
+
+`inlineSelectedValue` resolves both: the label is the input's real value, and the option's side elements sit **beside** that text as siblings of the input rather than in a layer over it. There is only ever one piece of text in the field, so the two can never disagree.
+
+<Canvas of={DropdownInlineSelectedValueStories.TheProblem} />
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      The selected option's label is the input's <code>value</code>. It is never cleared in order to show chrome.
+    </>,
+    <>
+      Side elements carry <code>aria-hidden="true"</code> — the label beside them is already the accessible value, so
+      announcing them too would duplicate it.
+    </>,
+    <>
+      The chrome describes the <em>selection</em>, not the text, so it stays in place while the user types a query. It
+      is dropped only when the field is emptied, where a lone icon beside a placeholder reads as broken.
+    </>,
+    <>
+      Focus stays on the input after selecting, and the menu closes. <code>aria-expanded</code>,{" "}
+      <code>aria-controls</code> and <code>aria-activedescendant</code> are unaffected.
+    </>
+  ]}
+/>
+
+## Variants
+
+### Start element
+
+All three `startElement` types that can lead an option are supported, and render exactly as they do in the menu. Use `type: "custom"` for anything avatar and icon do not cover, such as a status dot or a colored swatch.
+
+<Canvas of={DropdownInlineSelectedValueStories.StartElements} />
+
+The fourth type, `indent`, is ignored here. It exists to align nested options in a list tree and carries no meaning about the value itself.
+
+### End element
+
+`endElement` renders after the text and before the clear and open controls. Options that have no `endElement` simply show none, as the third option in this example does.
+
+<Canvas of={DropdownInlineSelectedValueStories.WithEndElement} />
+
+## Custom rendering: optionRenderer vs valueRenderer
+
+The Dropdown has two rendering props, and they draw in two different places:
+
+| Prop | Draws | In this mode |
+| --- | --- | --- |
+| `optionRenderer` | each option **in the menu** | works as usual |
+| `valueRenderer` | the selected value **in the collapsed field** | ignored |
+
+The menu is ordinary DOM, so `optionRenderer` is unaffected. The collapsed field is a native `<input>` whose text **is** the accessible value — and the text inside an input cannot be wrapped in markup, so `valueRenderer` has nothing to render into.
+
+### Anyone using valueRenderer today will lose it
+
+The two fields below are given **one shared props object**, spread into both. The only difference between them is `inlineSelectedValue`. The renderer draws the name plus a team badge, and it is passed to `optionRenderer` and `valueRenderer` alike.
+
+On the left — today's behavior — the collapsed field shows the rendered value, badge included. On the right the badge is gone and the field shows the plain label. Open either list and the options render identically, because `optionRenderer` is untouched.
+
+<Canvas of={DropdownInlineSelectedValueStories.OptionRendererVsValueRenderer} />
+
+This is a **visual regression for existing consumers**, not just an unsupported new case: turning `inlineSelectedValue` on silently discards a `valueRenderer` that was working. Anyone relying on one needs to be told before they opt in.
+
+Use a custom `startElement` or `endElement` for decoration beside the label. If the **label text itself** must be restyled — bold, colored, two lines — this mode cannot express it; the default behavior is the only one that can, at the cost of the announcement.
+
+## Limitations
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Searchable single select only. Non-searchable single select has no input to hold a value, and multi select
+      already keeps its selection in chips that are announced through the input's <code>aria-describedby</code>.
+    </>,
+    <>
+      The label is plain text, so it truncates with an ellipsis like any input value. It cannot be wrapped onto a
+      second line.
+    </>
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Side elements are hidden from assistive technology, so anything they convey must also be in the option's{" "}
+      <code>label</code>. If a leading icon carries meaning of its own — a column type, a person vs. a team — put that
+      meaning in the label too, or screen reader users lose it.
+    </>,
+    <>
+      Give the field an accessible name with either <code>label</code> or <code>aria-label</code> — neither is required
+      by the API, and a field with no name is announced as just "combobox". Prefer a visible <code>label</code>. A{" "}
+      <code>placeholder</code> is not an accessible name.
+    </>,
+    <>
+      Pass <code>clearAriaLabel</code> whenever the field is clearable.
+    </>,
+    <>
+      Verify with a screen reader that focusing a field with a selection announces the label rather than a blank field.
+    </>
+  ]}
+/>

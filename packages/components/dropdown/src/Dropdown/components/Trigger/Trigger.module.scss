@@ -81,6 +81,13 @@
     }
   }
 
+  .valuePrefix,
+  .valueSuffix {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
   .placeholderText {
     padding-inline-start: var(--space-12);
     width: 100%;
