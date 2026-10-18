@@ -2,7 +2,7 @@ import React from "react";
 import { camelCase } from "es-toolkit";
 import { getStyle, ComponentDefaultTestId, getTestId, type VibeComponentProps } from "@vibe/shared";
 import cx from "classnames";
-import { Icon, CustomSvgIcon, type SubIcon } from "@vibe/icon";
+import { Icon, type SubIcon } from "@vibe/icon";
 import { type AvatarSize } from "./Avatar.types";
 import styles from "./AvatarBadge.module.scss";
 import { ClickableWrapper } from "@vibe/clickable";
@@ -55,7 +55,7 @@ const AvatarBadge = ({
     );
   }
 
-  const svgIcon = <CustomSvgIcon src={src} className={classNames} {...otherProps} data-testid={testId} />;
+  const svgIcon = <img src={src} alt="" className={classNames} id={id} data-testid={testId} />;
 
   return src ? (
     isClickable ? (

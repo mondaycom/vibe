@@ -103,29 +103,41 @@ exports[`Avatar renders correctly > renders correctly with badges 1`] = `
     <div
       className="badge badgeTopLeft"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="https://cdn7.monday.com/images/working-status/wfh.svg"
       />
     </div>
     <div
       className="badge badgeTopRight"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="https://cdn7.monday.com/images/working-status/wfh.svg"
       />
     </div>
     <div
       className="badge badgeBottomLeft"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="https://cdn7.monday.com/images/working-status/wfh.svg"
       />
     </div>
     <div
       className="badge badgeBottomRight"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="https://cdn7.monday.com/images/working-status/wfh.svg"
       />
     </div>
   </div>
@@ -160,29 +172,41 @@ exports[`Avatar renders correctly > renders correctly with damaged src badges 1`
     <div
       className="badge badgeTopLeft"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="not valid"
       />
     </div>
     <div
       className="badge badgeTopRight"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="not valid"
       />
     </div>
     <div
       className="badge badgeBottomLeft"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="not valid"
       />
     </div>
     <div
       className="badge badgeBottomRight"
     >
-      <div
-        data-testid="custom-icon-mock"
+      <img
+        alt=""
+        className="badgeLarge"
+        data-testid="avatar-badge"
+        src="not valid"
       />
     </div>
   </div>

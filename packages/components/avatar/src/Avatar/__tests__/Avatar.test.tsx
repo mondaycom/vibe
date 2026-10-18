@@ -21,4 +21,12 @@ describe("avatar", () => {
     fireEvent.click(component);
     expect(onClickCallback.mock.calls.length).toBe(1);
   });
+
+  it("renders badge src as an img so the SVG is not inlined or sanitized", () => {
+    const src = "https://cdn.monday.com/images/sidekick.svg";
+    const { getByTestId } = renderComponent({ bottomRightBadgeProps: { src } });
+    const badge = getByTestId(ComponentDefaultTestId.AVATAR_BADGE);
+    expect(badge.tagName).toBe("IMG");
+    expect(badge.getAttribute("src")).toBe(src);
+  });
 });
