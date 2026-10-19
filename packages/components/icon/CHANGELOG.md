@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.12](https://github.com/mondaycom/vibe/compare/@vibe/icon@4.0.11...@vibe/icon@4.0.12) (2026-10-19)
+
+
+### Bug Fixes
+
+* **Icon:** render src svgs containing foreignObject as img instead of stripping them ([#3543](https://github.com/mondaycom/vibe/issues/3543)) ([bd6add9](https://github.com/mondaycom/vibe/commit/bd6add90853736501f27aa711a918897b767c258))
+
+
+
+
+
 ## [4.0.11](https://github.com/mondaycom/vibe/compare/@vibe/icon@4.0.10...@vibe/icon@4.0.11) (2026-10-08)
 
 

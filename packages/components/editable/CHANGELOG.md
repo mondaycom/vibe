@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.15](https://github.com/mondaycom/vibe/compare/@vibe/editable@4.0.14...@vibe/editable@4.0.15) (2026-10-19)
+
+**Note:** Version bump only for package @vibe/editable
+
+
+
+
+
 ## [4.0.14](https://github.com/mondaycom/vibe/compare/@vibe/editable@4.0.13...@vibe/editable@4.0.14) (2026-10-08)
 
 **Note:** Version bump only for package @vibe/editable

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.11](https://github.com/mondaycom/vibe/compare/@vibe/date-picker@4.0.10...@vibe/date-picker@4.0.11) (2026-10-19)
+
+**Note:** Version bump only for package @vibe/date-picker
+
+
+
+
+
 ## [4.0.10](https://github.com/mondaycom/vibe/compare/@vibe/date-picker@4.0.9...@vibe/date-picker@4.0.10) (2026-10-18)
 
 **Note:** Version bump only for package @vibe/date-picker

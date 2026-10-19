@@ -1,6 +1,6 @@
 {
   "name": "@vibe/base-list",
-  "version": "4.1.2",
+  "version": "4.1.3",
   "description": "Vibe sub-package for base list components",
   "repository": {
     "type": "git",
@@ -38,13 +38,13 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "@vibe/avatar": "4.0.14",
-    "@vibe/chips": "4.0.8",
-    "@vibe/icon": "4.0.11",
+    "@vibe/avatar": "4.0.15",
+    "@vibe/chips": "4.0.9",
+    "@vibe/icon": "4.0.12",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
-    "@vibe/tooltip": "4.0.22",
-    "@vibe/typography": "4.0.22",
+    "@vibe/tooltip": "4.0.23",
+    "@vibe/typography": "4.0.23",
     "classnames": "^2.5.1"
   },
   "devDependencies": {
