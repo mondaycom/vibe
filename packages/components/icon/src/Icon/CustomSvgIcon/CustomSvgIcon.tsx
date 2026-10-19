@@ -1,4 +1,4 @@
-import React, { type FunctionComponent, useCallback, type AriaRole, type Ref } from "react";
+import React, { type FunctionComponent, useCallback, useState, type AriaRole, type Ref } from "react";
 import SVG from "react-inlinesvg";
 import {
   ComponentDefaultTestId,
@@ -10,6 +10,7 @@ import {
 import useIconScreenReaderAccessProps from "../hooks/useIconScreenReaderAccessProps";
 import { sanitizeSvgContent } from "./sanitizeSvgContent";
 import { sanitizeSvgSrc } from "./sanitizeSvgSrc";
+import { FOREIGN_OBJECT_FALLBACK_MESSAGE, hasForeignObject, toImgSrc } from "./foreignObjectFallback";
 
 function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
@@ -73,9 +74,19 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   });
 
   const isMounted = useIsMounted();
+  const [imgFallbackSrc, setImgFallbackSrc] = useState<string | null>(null);
+  const safeSrc = typeof src === "string" ? sanitizeSvgSrc(src) : null;
+
+  const handleError = useCallback(
+    (error: Error) => {
+      if (safeSrc && error.message === FOREIGN_OBJECT_FALLBACK_MESSAGE) setImgFallbackSrc(safeSrc);
+    },
+    [safeSrc]
+  );
 
   const svgProcessor = useCallback(
     (svg: string) => {
+      if (hasForeignObject(svg)) throw new Error(FOREIGN_OBJECT_FALLBACK_MESSAGE);
       if (replaceToCurrentColor) return sanitizeSvgContent(modifySvgCode(svg, "currentColor"));
       if (customColor) return sanitizeSvgContent(modifySvgCode(svg, customColor));
       return sanitizeSvgContent(svg);
@@ -83,9 +94,6 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
     [replaceToCurrentColor, customColor]
   );
 
-  if (typeof src !== "string") return null;
-
-  const safeSrc = sanitizeSvgSrc(src);
   if (!safeSrc) return null;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -97,6 +105,22 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
     // placeholder for server side rendering
     return PlaceHolder;
   }
+  if (imgFallbackSrc === safeSrc) {
+    return (
+      <img
+        {...screenReaderAccessProps}
+        src={toImgSrc(safeSrc)}
+        alt={ariaLabel || ""}
+        className={className}
+        width={size}
+        height={size}
+        id={id}
+        data-testid={dataTestId || getTestId(ComponentDefaultTestId.SVG_ICON, id)}
+        data-vibe={ComponentVibeId.ICON}
+      />
+    );
+  }
+
   return (
     <SVGComponent
       innerRef={ref}
@@ -105,6 +129,7 @@ const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
       src={safeSrc}
       className={className}
       preProcessor={svgProcessor}
+      onError={handleError}
       width={size}
       height={size}
       id={id}
