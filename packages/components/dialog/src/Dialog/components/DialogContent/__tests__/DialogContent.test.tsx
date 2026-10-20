@@ -5,7 +5,7 @@ import DialogContent from "src/Dialog/components/DialogContent/DialogContent";
 
 const TRANSITION_DELAY = 100;
 
-describe("DialogContent animation phases", () => {
+describe("DialogContent declarative animation", () => {
   beforeEach(() => {
     vi.useFakeTimers();
   });
@@ -16,7 +16,7 @@ describe("DialogContent animation phases", () => {
   });
 
   it.each(["expand", "opacity-and-slide"] as const)(
-    "preserves the content classes throughout the %s animation",
+    "keeps content classes stable through %s opening and closing",
     animationType => {
       const { rerender } = render(
         <DialogContent position="bottom" isOpen animationType={animationType} showDelay={TRANSITION_DELAY}>
@@ -25,29 +25,26 @@ describe("DialogContent animation phases", () => {
       );
       const content = screen.getByRole("button", { name: "Content" }).parentElement!;
       const originalClasses = content.className;
-      const phase = animationType === "expand" ? "expand" : "opacity-slide";
 
-      expect(content.hasAttribute(`data-vibe-dialog-${phase}-appear`)).toBe(true);
-      expect(content.hasAttribute(`data-vibe-dialog-${phase}-appear-active`)).toBe(true);
+      expect(content.getAttribute("data-vibe-dialog-animation")).toBe(`${animationType}-entering`);
       act(() => vi.advanceTimersByTime(TRANSITION_DELAY));
+      expect(content.getAttribute("data-vibe-dialog-animation")).toBe(`${animationType}-entered`);
       expect(content.className).toBe(originalClasses);
-      expect(content.hasAttribute(`data-vibe-dialog-${phase}-appear`)).toBe(false);
-      expect(content.hasAttribute(`data-vibe-dialog-${phase}-appear-active`)).toBe(false);
 
       rerender(
         <DialogContent position="bottom" isOpen={false} animationType={animationType} showDelay={TRANSITION_DELAY}>
           <button type="button">Content</button>
         </DialogContent>
       );
+      expect(content.getAttribute("data-vibe-dialog-animation")).toBe(`${animationType}-exiting`);
       expect(content.className).toBe(originalClasses);
-      expect(content.hasAttribute("data-vibe-dialog-expand-exit")).toBe(animationType === "expand");
       act(() => vi.advanceTimersByTime(TRANSITION_DELAY));
+      expect(content.getAttribute("data-vibe-dialog-animation")).toBe(`${animationType}-exited`);
       expect(content.className).toBe(originalClasses);
-      expect(content.hasAttribute("data-vibe-dialog-expand-exit")).toBe(false);
     }
   );
 
-  it("clears appear and exit phases when a transition is interrupted", () => {
+  it("recovers from interrupted opening and closing without a stale phase", () => {
     const { rerender } = render(
       <DialogContent position="bottom" isOpen showDelay={TRANSITION_DELAY}>
         <button type="button">Content</button>
@@ -61,17 +58,16 @@ describe("DialogContent animation phases", () => {
         <button type="button">Content</button>
       </DialogContent>
     );
-    expect(content.hasAttribute("data-vibe-dialog-expand-appear")).toBe(false);
-    expect(content.hasAttribute("data-vibe-dialog-expand-appear-active")).toBe(false);
-    expect(content.hasAttribute("data-vibe-dialog-expand-exit")).toBe(true);
+    expect(content.getAttribute("data-vibe-dialog-animation")).toBe("expand-exiting");
 
     rerender(
       <DialogContent position="bottom" isOpen showDelay={TRANSITION_DELAY}>
         <button type="button">Content</button>
       </DialogContent>
     );
-    expect(content.hasAttribute("data-vibe-dialog-expand-exit")).toBe(false);
+    expect(content.getAttribute("data-vibe-dialog-animation")).toBe("expand-entered");
     act(() => vi.advanceTimersByTime(TRANSITION_DELAY));
+    expect(content.getAttribute("data-vibe-dialog-animation")).toBe("expand-entered");
     expect(content.className).toBe(originalClasses);
     expect(screen.getByRole("button", { name: "Content" })).toBeVisible();
   });

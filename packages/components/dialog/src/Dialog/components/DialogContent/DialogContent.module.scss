@@ -56,44 +56,49 @@
 
 $translate-minus-px: calc(var(--space-16) * -1);
 
-:where(.contentComponent)[data-vibe-dialog-opacity-slide-appear] {
-  opacity: 0;
+:where(.contentComponent)[data-vibe-dialog-animation="opacity-and-slide-entering"] {
+  --dialog-slide-x: 0px;
+  --dialog-slide-y: 0px;
+  animation: opacityAppear 0.2s ease, slideAppear 0.2s ease-out;
+  pointer-events: none;
 
   &.top {
-    transform: translateY(var(--space-16));
+    --dialog-slide-y: var(--space-16);
   }
 
   &.right {
-    transform: translateX($translate-minus-px);
+    --dialog-slide-x: #{$translate-minus-px};
   }
 
   &.bottom {
-    transform: translateY($translate-minus-px);
+    --dialog-slide-y: #{$translate-minus-px};
   }
 
   &.left {
-    transform: translateX(var(--space-16));
+    --dialog-slide-x: var(--space-16);
   }
 }
 
-:where(.contentComponent)[data-vibe-dialog-opacity-slide-appear-active] {
-  transition: opacity 0.2s ease, transform 0.2s ease-out;
-  opacity: 1;
-  pointer-events: none;
-
-  &.top,
-  &.bottom {
-    transform: translateY(0);
+@keyframes opacityAppear {
+  from {
+    opacity: 0;
   }
-
-  &.right,
-  &.left {
-    transform: translateX(0);
+  to {
+    opacity: 1;
   }
 }
 
-:where(.contentComponent)[data-vibe-dialog-expand-appear],
-:where(.contentComponent)[data-vibe-dialog-expand-exit] {
+@keyframes slideAppear {
+  from {
+    transform: translate(var(--dialog-slide-x), var(--dialog-slide-y));
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+:where(.contentComponent)[data-vibe-dialog-animation="expand-entering"],
+:where(.contentComponent)[data-vibe-dialog-animation="expand-exiting"] {
   transition: transform 0.1s $expand-animation-timing;
   &.top,
   &.topStart,
@@ -148,12 +153,8 @@ $translate-minus-px: calc(var(--space-16) * -1);
   }
 }
 
-:where(.contentComponent)[data-vibe-dialog-expand-exit] {
-  transition: transform 0.1s $expand-animation-timing;
-}
-
-:where(.contentComponent)[data-vibe-dialog-expand-appear-active] {
-  transition: transform 0.1s $expand-animation-timing;
+:where(.contentComponent)[data-vibe-dialog-animation="expand-entering"] {
+  animation: expandAppear 0.1s $expand-animation-timing;
   pointer-events: none;
 
   &.top,
@@ -168,6 +169,15 @@ $translate-minus-px: calc(var(--space-16) * -1);
   &.left,
   &.leftStart,
   &.leftEnd {
+    transform: scale(1);
+  }
+}
+
+@keyframes expandAppear {
+  from {
+    transform: scale(0.8);
+  }
+  to {
     transform: scale(1);
   }
 }
