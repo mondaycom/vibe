@@ -10,8 +10,7 @@ import React, {
 } from "react";
 import cx from "classnames";
 import { camelCase } from "es-toolkit";
-import { CSSTransition } from "react-transition-group";
-import { type CSSTransitionProps } from "react-transition-group/CSSTransition";
+import { Transition } from "react-transition-group";
 import { useClickOutside } from "@vibe/hooks";
 import {
   chainFunctions,
@@ -182,24 +181,6 @@ const DialogContent = forwardRef<HTMLElement, DialogContentProps>(
       }
     }, [disableContainerScroll, disableScroll, enableScroll, isOpen]);
 
-    const transitionOptions: Partial<CSSTransitionProps> = { classNames: undefined };
-
-    switch (animationType) {
-      case "expand":
-        transitionOptions.classNames = {
-          appear: styles.expandAppear,
-          appearActive: styles.expandAppearActive,
-          exit: styles.expandExit
-        };
-        break;
-      case "opacity-and-slide":
-        transitionOptions.classNames = {
-          appear: styles.opacitySlideAppear,
-          appearActive: styles.opacitySlideAppearActive
-        };
-        break;
-    }
-
     // Clone children to attach mouse event handlers, with proper type checking
     const childrenWithHandlers = React.Children.map(children, child => {
       // Only clone valid React elements, pass through primitives unchanged
@@ -223,23 +204,20 @@ const DialogContent = forwardRef<HTMLElement, DialogContentProps>(
         onClickCapture={onClick}
         data-dialog-reference-hidden={isReferenceHidden}
       >
-        <CSSTransition
-          classNames={transitionOptions.classNames}
-          nodeRef={contentRef}
-          in={isOpen}
-          appear={!!animationType}
-          timeout={showDelay}
-        >
-          <div
-            className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
-              [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
-              [styles.hasTooltip]: hasTooltip
-            })}
-            ref={contentRef}
-          >
-            {childrenWithHandlers}
-          </div>
-        </CSSTransition>
+        <Transition nodeRef={contentRef} in={isOpen} appear={!!animationType} enter={false} timeout={showDelay}>
+          {state => (
+            <div
+              className={cx(styles.contentComponent, getStyle(styles, camelCase(position)), {
+                [getStyle(styles, camelCase("edge-" + startingEdge))]: startingEdge,
+                [styles.hasTooltip]: hasTooltip
+              })}
+              ref={contentRef}
+              data-vibe-dialog-animation={animationType ? `${animationType}-${state}` : undefined}
+            >
+              {childrenWithHandlers}
+            </div>
+          )}
+        </Transition>
       </span>
     );
   }
