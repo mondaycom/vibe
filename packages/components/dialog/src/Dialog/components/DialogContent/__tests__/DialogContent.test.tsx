@@ -1,7 +1,7 @@
 import React from "react";
 import { act, cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import DialogContent from "src/Dialog/components/DialogContent/DialogContent";
+import DialogContent from "../DialogContent";
 
 const TRANSITION_DELAY = 100;
 
