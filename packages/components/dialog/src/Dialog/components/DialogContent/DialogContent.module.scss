@@ -56,7 +56,7 @@
 
 $translate-minus-px: calc(var(--space-16) * -1);
 
-.opacitySlideAppear {
+:where(.contentComponent)[data-vibe-dialog-opacity-slide-appear] {
   opacity: 0;
 
   &.top {
@@ -76,7 +76,7 @@ $translate-minus-px: calc(var(--space-16) * -1);
   }
 }
 
-.opacitySlideAppearActive {
+:where(.contentComponent)[data-vibe-dialog-opacity-slide-appear-active] {
   transition: opacity 0.2s ease, transform 0.2s ease-out;
   opacity: 1;
   pointer-events: none;
@@ -92,8 +92,8 @@ $translate-minus-px: calc(var(--space-16) * -1);
   }
 }
 
-.expandAppear,
-.expandExit {
+:where(.contentComponent)[data-vibe-dialog-expand-appear],
+:where(.contentComponent)[data-vibe-dialog-expand-exit] {
   transition: transform 0.1s $expand-animation-timing;
   &.top,
   &.topStart,
@@ -148,11 +148,11 @@ $translate-minus-px: calc(var(--space-16) * -1);
   }
 }
 
-.expandExit {
+:where(.contentComponent)[data-vibe-dialog-expand-exit] {
   transition: transform 0.1s $expand-animation-timing;
 }
 
-.expandAppearActive {
+:where(.contentComponent)[data-vibe-dialog-expand-appear-active] {
   transition: transform 0.1s $expand-animation-timing;
   pointer-events: none;
 
