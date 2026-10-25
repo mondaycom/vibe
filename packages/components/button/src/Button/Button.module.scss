@@ -195,7 +195,8 @@ $disabled-on-primary-color-opacity: 0.5;
 .kindPrimary.colorOnPrimaryColorActive,
 .kindPrimary.colorOnPrimaryColor:hover,
 .kindPrimary.colorOnPrimaryColor:focus {
-  background-color: #e6e9ef;
+  // State layer: the button's content colour at 8% over its on-primary fill, so the label keeps contrast in every theme.
+  background-color: color-mix(in srgb, var(--primary-color) 8%, var(--text-color-on-primary));
   backdrop-filter: brightness(85%);
   @include focus-style-on-primary();
 }
