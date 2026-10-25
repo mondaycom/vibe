@@ -44,7 +44,7 @@ body.light-app-theme.rebrand-theme {
   --primary-text-color: #181714;
   --secondary-text-color: #3e3d3a;
   --icon-color: #585653;
-  --placeholder-color: #74736f;
+  --placeholder-color: #6c6b68;
   --link-color: #424ef9;
   --text-color-on-inverted: #fefdf9;
   --inverted-color-background: #32312e;
@@ -64,13 +64,13 @@ body.light-app-theme.rebrand-theme {
 }
 
 body.dark-app-theme.rebrand-theme {
-  --positive-color: #007e23;
+  --positive-color: #3ca349;
   --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
-  --negative-color: #e70039;
+  --negative-color: #ff4e60;
   --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
-  --primary-color: #424ef9;
+  --primary-color: #6a86ff;
   --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
-  --text-color-on-primary: #ffffff;
+  --text-color-on-primary: #201e24;
   --brand-color: var(--primary-color);
   --brand-hover-color: var(--primary-hover-color);
   --text-color-on-brand: var(--text-color-on-primary);
@@ -123,13 +123,13 @@ body.dark-app-theme.rebrand-theme {
 }
 
 body.black-app-theme.rebrand-theme {
-  --positive-color: #007e1e;
+  --positive-color: #56bb5c;
   --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
-  --negative-color: #de1442;
+  --negative-color: #ff7d8d;
   --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
-  --primary-color: #424ef9;
+  --primary-color: #82a3ff;
   --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
-  --text-color-on-primary: #ffffff;
+  --text-color-on-primary: #201e24;
   --brand-color: var(--primary-color);
   --brand-hover-color: var(--primary-hover-color);
   --text-color-on-brand: var(--text-color-on-primary);
@@ -156,7 +156,7 @@ body.black-app-theme.rebrand-theme {
   --primary-text-color: #e7e4df;
   --secondary-text-color: #bdbab6;
   --icon-color: #bdbab6;
-  --placeholder-color: #73706c;
+  --placeholder-color: #a9a5a1;
   --link-color: #a4b0ff;
   --ui-border-color: #8f9098;
   --layout-border-color: #4a4844;
