@@ -5,31 +5,35 @@
  */
 
 body.light-app-theme.rebrand-theme {
-  --primary-color: #3543fc;
-  --primary-hover-color: #2434e8;
+  --primary-color: #424ef9;
+  --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #ffffff;
   --brand-color: var(--primary-color);
   --brand-hover-color: var(--primary-hover-color);
   --text-color-on-brand: var(--text-color-on-primary);
+  --primary-on-secondary-color: var(--primary-color);
+  --primary-hover-on-secondary-color: var(--primary-hover-color);
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
+  --link-on-secondary-color: var(--link-color);
   --positive-color: #166d30;
-  --positive-color-hover: #1a7e38;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
   --negative-color: #cd0026;
-  --negative-color-hover: #b50020;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
   --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 14%, transparent);
-  --brand-selected-color: var(--primary-selected-color);
-  --brand-selected-hover-color: var(--primary-selected-hover-color);
+  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
+  --brand-selected-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
+  --brand-selected-hover-color: color-mix(in srgb, var(--primary-color) 19%, transparent);
   --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
   --color-highlight_blue: var(--primary-highlighted-color); /* stylelint-disable-line custom-property-pattern */
   --primary-background-color: #fffffb;
   --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
+  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-surface-color: #f6f4f1;
   --secondary-background-color: #fffffb;
   --allgrey-background-color: #f8f6f4;
   --grey-background-color: #f3f2ee;
   --ui-background-color: #eeece8;
-  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
+  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --dark-background-color: #fffefa;
   --modal-background-color: #fffefa;
   --dialog-background-color: #fffefa;
@@ -41,13 +45,13 @@ body.light-app-theme.rebrand-theme {
   --secondary-text-color: #3e3d3a;
   --icon-color: #585653;
   --placeholder-color: #74736f;
-  --link-color: #3543fc;
+  --link-color: #424ef9;
   --text-color-on-inverted: #fefdf9;
   --inverted-color-background: #32312e;
-  --primary-selected-color-rgb: 230, 229, 225;
+  --primary-selected-color-rgb: 237, 236, 233;
   --primary-background-color-rgb: 255, 255, 251;
   --secondary-background-color-rgb: 255, 255, 251;
-  --color-highlight_blue-rgb: 230, 229, 225; /* stylelint-disable-line custom-property-pattern */
+  --color-highlight_blue-rgb: 241, 241, 237; /* stylelint-disable-line custom-property-pattern */
   --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
   --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
@@ -60,16 +64,20 @@ body.light-app-theme.rebrand-theme {
 }
 
 body.dark-app-theme.rebrand-theme {
-  --positive-color: #2aad52;
-  --positive-color-hover: #35c060;
-  --negative-color: #e8003a;
-  --negative-color-hover: #f52050;
-  --primary-color: #3543fc;
-  --primary-hover-color: #2434e8;
+  --positive-color: #007e23;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #e70039;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+  --primary-color: #424ef9;
+  --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #ffffff;
   --brand-color: var(--primary-color);
   --brand-hover-color: var(--primary-hover-color);
   --text-color-on-brand: var(--text-color-on-primary);
+  --primary-on-secondary-color: var(--primary-color);
+  --primary-hover-on-secondary-color: var(--primary-hover-color);
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
+  --link-on-secondary-color: var(--link-color);
   --text-color-on-inverted: #1a1814;
   --primary-surface-color: #211f1b;
   --dark-background-color: #25231e;
@@ -77,10 +85,10 @@ body.dark-app-theme.rebrand-theme {
   --allgrey-background-color: #211f1b;
   --primary-background-color: #191713;
   --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
+  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --secondary-background-color: #1d1b16;
   --ui-background-color: #211f1a;
-  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
+  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --modal-background-color: #25231e;
   --dialog-background-color: #25231e;
   --disabled-background-color: #25231e;
@@ -94,15 +102,15 @@ body.dark-app-theme.rebrand-theme {
   --ui-border-color: #8f9098;
   --layout-border-color: #322f2b;
   --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 14%, transparent);
-  --brand-selected-color: var(--primary-selected-color);
-  --brand-selected-hover-color: var(--primary-selected-hover-color);
+  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
+  --brand-selected-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
+  --brand-selected-hover-color: color-mix(in srgb, var(--primary-color) 19%, transparent);
   --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
   --color-highlight_blue: var(--primary-highlighted-color); /* stylelint-disable-line custom-property-pattern */
-  --primary-selected-color-rgb: 56, 53, 49;
+  --primary-selected-color-rgb: 41, 39, 35;
   --primary-background-color-rgb: 25, 23, 19;
   --secondary-background-color-rgb: 29, 27, 22;
-  --color-highlight_blue-rgb: 56, 53, 49; /* stylelint-disable-line custom-property-pattern */
+  --color-highlight_blue-rgb: 37, 35, 31; /* stylelint-disable-line custom-property-pattern */
   --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
   --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
@@ -115,27 +123,31 @@ body.dark-app-theme.rebrand-theme {
 }
 
 body.black-app-theme.rebrand-theme {
-  --positive-color: #35c060;
-  --positive-color-hover: #42d06e;
-  --negative-color: #f03050;
-  --negative-color-hover: #f85070;
-  --primary-color: #3543fc;
-  --primary-hover-color: #2434e8;
+  --positive-color: #007e1e;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #de1442;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+  --primary-color: #424ef9;
+  --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #ffffff;
   --brand-color: var(--primary-color);
   --brand-hover-color: var(--primary-hover-color);
   --text-color-on-brand: var(--text-color-on-primary);
+  --primary-on-secondary-color: var(--primary-color);
+  --primary-hover-on-secondary-color: var(--primary-hover-color);
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
+  --link-on-secondary-color: var(--link-color);
   --text-color-on-inverted: #0c0a07;
   --primary-surface-color: #111111;
   --dark-background-color: #3c3c3c;
   --grey-background-color: #111111;
   --allgrey-background-color: #111111;
   --primary-background-color: #010101;
-  --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 7%, transparent);
-  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 5%, transparent);
+  --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --secondary-background-color: #0f0f0f;
   --ui-background-color: #2f2f2f;
-  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 5%, transparent);
+  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --modal-background-color: #3c3c3c;
   --dialog-background-color: #3c3c3c;
   --disabled-background-color: #3f3f3f;
@@ -149,15 +161,15 @@ body.black-app-theme.rebrand-theme {
   --ui-border-color: #8f9098;
   --layout-border-color: #4a4844;
   --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 14%, transparent);
-  --brand-selected-color: var(--primary-selected-color);
-  --brand-selected-hover-color: var(--primary-selected-hover-color);
+  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
+  --brand-selected-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
+  --brand-selected-hover-color: color-mix(in srgb, var(--primary-color) 19%, transparent);
   --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
   --color-highlight_blue: var(--primary-highlighted-color); /* stylelint-disable-line custom-property-pattern */
-  --primary-selected-color-rgb: 18, 18, 18;
+  --primary-selected-color-rgb: 19, 19, 19;
   --primary-background-color-rgb: 1, 1, 1;
   --secondary-background-color-rgb: 15, 15, 15;
-  --color-highlight_blue-rgb: 18, 18, 18; /* stylelint-disable-line custom-property-pattern */
+  --color-highlight_blue-rgb: 15, 15, 14; /* stylelint-disable-line custom-property-pattern */
   --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
   --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
