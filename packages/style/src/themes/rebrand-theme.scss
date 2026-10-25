@@ -5,6 +5,7 @@
  */
 
 body.light-app-theme.rebrand-theme {
+  --title-font-family: "monday Saans", Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
   --primary-color: #424ef9;
   --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #ffffff;
@@ -61,9 +62,11 @@ body.light-app-theme.rebrand-theme {
   --border-radius-medium: 8px;
   --border-radius-big: 12px;
   --border-radius-full: 9999px;
+  --border-radius-prompt-box: 12px;
 }
 
 body.dark-app-theme.rebrand-theme {
+  --title-font-family: "monday Saans", Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
   --positive-color: #3ca349;
   --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
   --negative-color: #ff4e60;
@@ -120,9 +123,11 @@ body.dark-app-theme.rebrand-theme {
   --border-radius-medium: 8px;
   --border-radius-big: 12px;
   --border-radius-full: 9999px;
+  --border-radius-prompt-box: 12px;
 }
 
 body.black-app-theme.rebrand-theme {
+  --title-font-family: "monday Saans", Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
   --positive-color: #56bb5c;
   --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
   --negative-color: #ff7d8d;
@@ -179,4 +184,5 @@ body.black-app-theme.rebrand-theme {
   --border-radius-medium: 8px;
   --border-radius-big: 12px;
   --border-radius-full: 9999px;
+  --border-radius-prompt-box: 12px;
 }
