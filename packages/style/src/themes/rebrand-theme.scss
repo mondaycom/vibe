@@ -5,7 +5,10 @@
  */
 
 body.light-app-theme.rebrand-theme {
+  /* Typography */
   --title-font-family: "monday Saans", Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
+
+  /* Primary, brand and links */
   --primary-color: #424ef9;
   --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #ffffff;
@@ -14,50 +17,66 @@ body.light-app-theme.rebrand-theme {
   --text-color-on-brand: var(--text-color-on-primary);
   --primary-on-secondary-color: var(--primary-color);
   --primary-hover-on-secondary-color: var(--primary-hover-color);
-  --primary-selected-on-secondary-color: var(--primary-selected-color);
   --link-on-secondary-color: var(--link-color);
+  --link-color: #424ef9;
+
+  /* Semantic colours */
   --positive-color: #166d30;
   --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
   --negative-color: #cd0026;
   --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Interaction states (M3 state layers) */
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
   --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
   --brand-selected-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
   --brand-selected-hover-color: color-mix(in srgb, var(--primary-color) 19%, transparent);
   --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
   --color-highlight_blue: var(--primary-highlighted-color); /* stylelint-disable-line custom-property-pattern */
-  --primary-background-color: #fffffb;
   --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+
+  /* Backgrounds */
+  --primary-background-color: #fffffb;
   --primary-surface-color: #f6f4f1;
   --secondary-background-color: #fffffb;
   --allgrey-background-color: #f8f6f4;
   --grey-background-color: #f3f2ee;
   --ui-background-color: #eeece8;
-  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --dark-background-color: #fffefa;
   --modal-background-color: #fffefa;
   --dialog-background-color: #fffefa;
   --disabled-background-color: #f7f5f1;
   --label-background-color: #fefcf8;
+  --inverted-color-background: #32312e;
+
+  /* Borders */
   --layout-border-color: #e9e8e4;
   --ui-border-color: #8f9098;
+
+  /* Text and icons */
   --primary-text-color: #181714;
   --secondary-text-color: #3e3d3a;
   --icon-color: #585653;
   --placeholder-color: #6c6b68;
-  --link-color: #424ef9;
   --text-color-on-inverted: #fefdf9;
-  --inverted-color-background: #32312e;
+
+  /* RGB companions (painted colour, for rgba(var(--*-rgb), 1) hosts) */
   --primary-selected-color-rgb: 237, 236, 233;
   --primary-background-color-rgb: 255, 255, 251;
   --secondary-background-color-rgb: 255, 255, 251;
   --color-highlight_blue-rgb: 241, 241, 237; /* stylelint-disable-line custom-property-pattern */
+
+  /* Semantic surfaces: the semantic colour at 8% over the theme background */
   --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
   --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
   --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
   --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+
+  /* Radius */
   --border-radius-small: 6px;
   --border-radius-medium: 8px;
   --border-radius-big: 12px;
@@ -66,11 +85,10 @@ body.light-app-theme.rebrand-theme {
 }
 
 body.dark-app-theme.rebrand-theme {
+  /* Typography */
   --title-font-family: "monday Saans", Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
-  --positive-color: #3ca349;
-  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
-  --negative-color: #ff4e60;
-  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Primary, brand and links */
   --primary-color: #6a86ff;
   --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #201e24;
@@ -79,46 +97,66 @@ body.dark-app-theme.rebrand-theme {
   --text-color-on-brand: var(--text-color-on-primary);
   --primary-on-secondary-color: var(--primary-color);
   --primary-hover-on-secondary-color: var(--primary-hover-color);
-  --primary-selected-on-secondary-color: var(--primary-selected-color);
   --link-on-secondary-color: var(--link-color);
-  --text-color-on-inverted: #1a1814;
-  --primary-surface-color: #211f1b;
-  --dark-background-color: #25231e;
-  --grey-background-color: #211f1b;
-  --allgrey-background-color: #211f1b;
-  --primary-background-color: #191713;
+  --link-color: #8a9aff;
+
+  /* Semantic colours */
+  --positive-color: #3ca349;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #ff4e60;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Interaction states (M3 state layers) */
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
   --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --secondary-background-color: #1d1b16;
-  --ui-background-color: #211f1a;
   --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --modal-background-color: #25231e;
-  --dialog-background-color: #25231e;
-  --disabled-background-color: #25231e;
-  --label-background-color: #25231e;
-  --inverted-color-background: #e9e6e1;
-  --primary-text-color: #e7e4df;
-  --secondary-text-color: #c0bdb8;
-  --icon-color: #b0ada9;
-  --placeholder-color: #a19e99;
-  --link-color: #8a9aff;
-  --ui-border-color: #8f9098;
-  --layout-border-color: #322f2b;
   --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
   --brand-selected-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
   --brand-selected-hover-color: color-mix(in srgb, var(--primary-color) 19%, transparent);
   --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
   --color-highlight_blue: var(--primary-highlighted-color); /* stylelint-disable-line custom-property-pattern */
+
+  /* Backgrounds */
+  --primary-surface-color: #211f1b;
+  --dark-background-color: #25231e;
+  --grey-background-color: #211f1b;
+  --allgrey-background-color: #211f1b;
+  --primary-background-color: #191713;
+  --secondary-background-color: #1d1b16;
+  --ui-background-color: #211f1a;
+  --modal-background-color: #25231e;
+  --dialog-background-color: #25231e;
+  --disabled-background-color: #25231e;
+  --label-background-color: #25231e;
+  --inverted-color-background: #e9e6e1;
+
+  /* Borders */
+  --ui-border-color: #8f9098;
+  --layout-border-color: #322f2b;
+
+  /* Text and icons */
+  --text-color-on-inverted: #1a1814;
+  --primary-text-color: #e7e4df;
+  --secondary-text-color: #c0bdb8;
+  --icon-color: #b0ada9;
+  --placeholder-color: #a19e99;
+
+  /* RGB companions (painted colour, for rgba(var(--*-rgb), 1) hosts) */
   --primary-selected-color-rgb: 41, 39, 35;
   --primary-background-color-rgb: 25, 23, 19;
   --secondary-background-color-rgb: 29, 27, 22;
   --color-highlight_blue-rgb: 37, 35, 31; /* stylelint-disable-line custom-property-pattern */
+
+  /* Semantic surfaces: the semantic colour at 8% over the theme background */
   --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
   --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
   --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
   --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+
+  /* Radius */
   --border-radius-small: 6px;
   --border-radius-medium: 8px;
   --border-radius-big: 12px;
@@ -127,11 +165,10 @@ body.dark-app-theme.rebrand-theme {
 }
 
 body.black-app-theme.rebrand-theme {
+  /* Typography */
   --title-font-family: "monday Saans", Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
-  --positive-color: #56bb5c;
-  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
-  --negative-color: #ff7d8d;
-  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Primary, brand and links */
   --primary-color: #82a3ff;
   --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
   --text-color-on-primary: #201e24;
@@ -140,46 +177,66 @@ body.black-app-theme.rebrand-theme {
   --text-color-on-brand: var(--text-color-on-primary);
   --primary-on-secondary-color: var(--primary-color);
   --primary-hover-on-secondary-color: var(--primary-hover-color);
-  --primary-selected-on-secondary-color: var(--primary-selected-color);
   --link-on-secondary-color: var(--link-color);
-  --text-color-on-inverted: #0c0a07;
-  --primary-surface-color: #111111;
-  --dark-background-color: #3c3c3c;
-  --grey-background-color: #111111;
-  --allgrey-background-color: #111111;
-  --primary-background-color: #010101;
+  --link-color: #a4b0ff;
+
+  /* Semantic colours */
+  --positive-color: #56bb5c;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #ff7d8d;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Interaction states (M3 state layers) */
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
   --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --secondary-background-color: #0f0f0f;
-  --ui-background-color: #2f2f2f;
   --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
-  --modal-background-color: #3c3c3c;
-  --dialog-background-color: #3c3c3c;
-  --disabled-background-color: #3f3f3f;
-  --label-background-color: #3c3c3c;
-  --inverted-color-background: #ece9e4;
-  --primary-text-color: #e7e4df;
-  --secondary-text-color: #bdbab6;
-  --icon-color: #bdbab6;
-  --placeholder-color: #a9a5a1;
-  --link-color: #a4b0ff;
-  --ui-border-color: #8f9098;
-  --layout-border-color: #4a4844;
   --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
   --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
   --brand-selected-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
   --brand-selected-hover-color: color-mix(in srgb, var(--primary-color) 19%, transparent);
   --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
   --color-highlight_blue: var(--primary-highlighted-color); /* stylelint-disable-line custom-property-pattern */
+
+  /* Backgrounds */
+  --primary-surface-color: #111111;
+  --dark-background-color: #3c3c3c;
+  --grey-background-color: #111111;
+  --allgrey-background-color: #111111;
+  --primary-background-color: #010101;
+  --secondary-background-color: #0f0f0f;
+  --ui-background-color: #2f2f2f;
+  --modal-background-color: #3c3c3c;
+  --dialog-background-color: #3c3c3c;
+  --disabled-background-color: #3f3f3f;
+  --label-background-color: #3c3c3c;
+  --inverted-color-background: #ece9e4;
+
+  /* Borders */
+  --ui-border-color: #8f9098;
+  --layout-border-color: #4a4844;
+
+  /* Text and icons */
+  --text-color-on-inverted: #0c0a07;
+  --primary-text-color: #e7e4df;
+  --secondary-text-color: #bdbab6;
+  --icon-color: #bdbab6;
+  --placeholder-color: #a9a5a1;
+
+  /* RGB companions (painted colour, for rgba(var(--*-rgb), 1) hosts) */
   --primary-selected-color-rgb: 19, 19, 19;
   --primary-background-color-rgb: 1, 1, 1;
   --secondary-background-color-rgb: 15, 15, 15;
   --color-highlight_blue-rgb: 15, 15, 14; /* stylelint-disable-line custom-property-pattern */
+
+  /* Semantic surfaces: the semantic colour at 8% over the theme background */
   --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
   --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
   --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
   --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
   --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+
+  /* Radius */
   --border-radius-small: 6px;
   --border-radius-medium: 8px;
   --border-radius-big: 12px;
