@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { type DropdownMultiControllerProps } from "../Dropdown.types";
 import useDropdownMultiCombobox from "../hooks/useDropdownMultiCombobox";
 import { type BaseItemData } from "@vibe/base-list";
@@ -36,7 +36,33 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     size = "medium",
     id,
     boxMode = false,
-    interactiveChips
+    interactiveChips,
+    label,
+    required,
+    className,
+    "aria-label": ariaLabel,
+    "data-testid": dataTestId,
+    error,
+    helperText,
+    dir,
+    disabled,
+    readOnly,
+    multiline,
+    optionRenderer,
+    menuRenderer,
+    noOptionsMessage,
+    placeholder,
+    withGroupDivider,
+    stickyGroupTitle,
+    maxMenuHeight,
+    inputAriaLabel,
+    menuAriaLabel,
+    clearAriaLabel,
+    menuWrapperClassName,
+    minVisibleCount,
+    borderless,
+    onScroll,
+    tooltipProps
   } = props;
 
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
@@ -80,21 +106,11 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     onOptionRemove
   );
 
-  const contextValue: DropdownContextProps<Item> = {
-    ...props,
-    isOpen: boxMode ? true : isOpen,
-    inputValue: hookInputValue ?? null,
-    highlightedIndex,
-    selectedItems: hookSelectedItems || [],
-    filteredOptions,
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    getInputProps: (inputOptions?: any) => {
+  const wrappedGetInputProps = useCallback(
+    (inputOptions?: any) => {
       return hookGetInputProps!({
         ...(inputOptions || {}),
-        disabled: props.readOnly || props.disabled,
+        disabled: readOnly || disabled,
         onFocus: (event: React.FocusEvent<HTMLInputElement>) => {
           setIsFocused(true);
           onFocus?.(event as any);
@@ -111,34 +127,101 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
         }
       });
     },
-    reset: hookReset,
-    contextOnClear: () => {
-      const current = value ?? multiSelectedItemsState;
-      const retained = current.filter(item => item.removable === false);
-      hookReset(retained);
-      onClear?.();
-    },
-    contextOnOptionRemove: (option: Item) => {
+    [hookGetInputProps, readOnly, disabled, onFocus, onBlur, onKeyDown]
+  );
+
+  const contextOnClear = useCallback(() => {
+    const current = value ?? multiSelectedItemsState;
+    const retained = current.filter(item => item.removable === false);
+    hookReset(retained);
+    onClear?.();
+  }, [hookReset, value, multiSelectedItemsState, onClear]);
+
+  const contextOnOptionRemove = useCallback(
+    (option: Item) => {
       if (option.removable === false) return;
-      if (hookRemoveSelectedItem) {
-        hookRemoveSelectedItem(option);
-      }
+      hookRemoveSelectedItem?.(option);
       onOptionRemove?.(option);
     },
-    addSelectedItem: hookAddSelectedItem,
-    removeSelectedItem: hookRemoveSelectedItem,
-    getSelectedItemProps: hookGetSelectedItemProps,
-    isFocused,
-    clearable,
-    searchable,
-    multi,
-    closeMenuOnSelect,
-    size,
-    getDropdownProps,
-    toggleMenu,
-    loading,
-    interactiveChips
-  };
+    [hookRemoveSelectedItem, onOptionRemove]
+  );
+
+  const contextValue = useMemo<DropdownContextProps<Item>>(
+    () => ({
+      label,
+      required,
+      className,
+      "aria-label": ariaLabel,
+      "data-testid": dataTestId,
+      error,
+      helperText,
+      dir,
+      disabled,
+      readOnly,
+      multiline,
+      optionRenderer,
+      menuRenderer,
+      noOptionsMessage,
+      placeholder,
+      withGroupDivider,
+      stickyGroupTitle,
+      maxMenuHeight,
+      inputAriaLabel,
+      menuAriaLabel,
+      clearAriaLabel,
+      closeMenuOnSelect,
+      menuWrapperClassName,
+      minVisibleCount,
+      boxMode,
+      borderless,
+      onKeyDown,
+      onScroll,
+      onClear,
+      onFocus,
+      onBlur,
+      tooltipProps,
+      interactiveChips,
+      multi,
+      searchable,
+      autoFocus,
+      clearable,
+      size,
+      loading,
+      id,
+      isOpen: boxMode ? true : isOpen,
+      inputValue: hookInputValue ?? null,
+      highlightedIndex,
+      selectedItems: hookSelectedItems || [],
+      filteredOptions,
+      getToggleButtonProps,
+      getLabelProps,
+      getMenuProps,
+      getItemProps,
+      getInputProps: wrappedGetInputProps,
+      reset: hookReset,
+      contextOnClear,
+      contextOnOptionRemove,
+      addSelectedItem: hookAddSelectedItem,
+      removeSelectedItem: hookRemoveSelectedItem,
+      getSelectedItemProps: hookGetSelectedItemProps,
+      isFocused,
+      getDropdownProps,
+      toggleMenu
+    }),
+    [
+      label, required, className, ariaLabel, dataTestId, error, helperText, dir,
+      disabled, readOnly, multiline, optionRenderer, menuRenderer, noOptionsMessage,
+      placeholder, withGroupDivider, stickyGroupTitle, maxMenuHeight, inputAriaLabel,
+      menuAriaLabel, clearAriaLabel, closeMenuOnSelect, menuWrapperClassName, minVisibleCount,
+      boxMode, borderless, onKeyDown, onScroll, onClear, onFocus, onBlur, tooltipProps,
+      interactiveChips, multi, searchable, autoFocus, clearable, size, loading, id,
+      isOpen, hookInputValue, highlightedIndex, hookSelectedItems, filteredOptions,
+      getToggleButtonProps, getLabelProps, getMenuProps, getItemProps,
+      wrappedGetInputProps, hookReset, contextOnClear, contextOnOptionRemove,
+      hookAddSelectedItem, hookRemoveSelectedItem, hookGetSelectedItemProps,
+      isFocused, getDropdownProps, toggleMenu
+    ]
+  );
 
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
 };
