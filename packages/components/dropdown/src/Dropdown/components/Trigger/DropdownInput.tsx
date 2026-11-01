@@ -18,12 +18,20 @@ const DropdownInput = ({
   inputSize,
   fullWidth,
   onKeyDown: externalKeyDown,
-  inputRef: externalInputRef
+  inputRef: externalInputRef,
+  valuePrefix,
+  valueSuffix
 }: {
   inputSize?: "small" | "medium" | "large";
   fullWidth?: boolean;
   onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   inputRef?: RefObject<HTMLInputElement>;
+  /**
+   * Decorative elements rendered around the input's text, inside the field. Hidden from assistive
+   * tech by the caller, which reads the input's own value instead.
+   */
+  valuePrefix?: React.ReactNode;
+  valueSuffix?: React.ReactNode;
 }) => {
   const {
     inputValue,
@@ -44,7 +52,8 @@ const DropdownInput = ({
     getLabelProps,
     getInputProps,
     interactiveChips,
-    helperTextId
+    helperTextId,
+    inlineSelectedValue
   } = useDropdownContext<BaseItemData>();
 
   const internalRef = useRef<HTMLInputElement>(null);
@@ -81,11 +90,15 @@ const DropdownInput = ({
               ...multipleSelectionDropdownProps
             })}
             inputRole="combobox"
+            renderLeft={valuePrefix}
+            renderRight={valueSuffix}
             value={inputValue || ""}
             autoFocus={autoFocus}
             size={inputSize || size}
             className={cx(styles.inputWrapper, {
-              [styles.hasSelected]: !multi && selectedItem && !inputValue,
+              // Stretching the input over the overlay only applies when there is an overlay to cover;
+              // inlineSelectedValue has none, so the input stays in flow beside its prefix.
+              [styles.hasSelected]: !multi && selectedItem && !inputValue && !inlineSelectedValue,
               [styles.small]: inputSize === "small",
               [styles.multi]: multi && hasSelection,
               [styles.multiSelected]: multi && hasSelection && inputSize === "small",
