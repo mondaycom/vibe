@@ -1,0 +1,26 @@
+diff --git a/packages/core/src/components/SegmentedControl/SegmentedControl.module.scss b/packages/core/src/components/SegmentedControl/SegmentedControl.module.scss
+index f170895..cc519cf 100644
+--- a/packages/core/src/components/SegmentedControl/SegmentedControl.module.scss
++++ b/packages/core/src/components/SegmentedControl/SegmentedControl.module.scss
+@@ -32,7 +32,7 @@
+   background: var(--primary-background-color);
+ 
+   border-radius: var(--segment-radius);
+-  box-shadow: var(--box-shadow-xs), 0 0 3px 1px var(--ui-border-color);
++  box-shadow: var(--box-shadow-xs), 0 0 0 1px var(--layout-border-color);
+   transition: transform var(--motion-expressive-short) cubic-bezier(0.22, 1, 0.36, 1);
+ }
+ 
+diff --git a/packages/core/src/components/Tabs/TabList/TabList.module.scss b/packages/core/src/components/Tabs/TabList/TabList.module.scss
+index 3fa4bf3..c411797 100644
+--- a/packages/core/src/components/Tabs/TabList/TabList.module.scss
++++ b/packages/core/src/components/Tabs/TabList/TabList.module.scss
+@@ -28,7 +28,7 @@
+   left: 0;
+   width: 0;
+   height: 2px;
+-  background-color: var(--primary-color);
++  background-color: var(--brand-color);
+   border-radius: 1px;
+   opacity: 0;
+   z-index: 2;

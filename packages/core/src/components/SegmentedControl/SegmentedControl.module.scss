@@ -32,7 +32,7 @@
   background: var(--primary-background-color);
 
   border-radius: var(--segment-radius);
-  box-shadow: var(--box-shadow-xs), 0 0 3px 1px var(--ui-border-color);
+  box-shadow: var(--box-shadow-xs), 0 0 0 1px var(--layout-border-color);
   transition: transform var(--motion-expressive-short) cubic-bezier(0.22, 1, 0.36, 1);
 }
 
