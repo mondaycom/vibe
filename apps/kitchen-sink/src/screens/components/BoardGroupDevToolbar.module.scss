@@ -1,0 +1,21 @@
+/* Sprint “active” pill — sizes from spacing scale (was ad-hoc px in Figma). */
+.sprintStatusOuter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--space-12) + var(--space-2));
+  height: var(--space-12);
+  border-radius: calc(var(--space-16) + var(--space-4));
+  background-color: color-mix(
+    in srgb,
+    var(--color-done-green) 30%,
+    transparent
+  );
+}
+
+.sprintStatusInner {
+  width: calc(var(--space-4) + var(--space-2));
+  height: calc(var(--space-4) + var(--space-2));
+  border-radius: var(--space-8);
+  background-color: var(--color-done-green);
+}

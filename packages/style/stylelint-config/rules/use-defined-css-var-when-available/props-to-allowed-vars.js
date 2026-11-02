@@ -20,7 +20,12 @@ const SPACINGS = [
   "--spacing-xxxl"
 ];
 
-const BORDER_RADIUSES = ["--border-radius-small", "--border-radius-medium", "--border-radius-big"];
+const BORDER_RADIUSES = [
+  "--border-radius-small",
+  "--border-radius-medium",
+  "--border-radius-big",
+  "--border-radius-full"
+];
 
 const BORDER_WIDTHS = ["--border-width"];
 

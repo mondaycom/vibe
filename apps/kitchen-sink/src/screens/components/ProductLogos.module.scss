@@ -1,0 +1,56 @@
+.productLogoLarge {
+  position: absolute;
+  aspect-ratio: 1;
+  left: 15.63%;
+  right: 15.63%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.productLogoUnion {
+  position: absolute;
+  inset: 8.14% 6.65% 7.93% 6.51%;
+}
+
+.productLogoSmall {
+  overflow: visible;
+  position: relative;
+  border-radius: var(--border-radius-medium);
+  flex-shrink: 0;
+  width: var(--space-32);
+  height: var(--space-32);
+}
+
+.productLogoFull {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: var(--space-40);
+  padding-right: var(--space-8);
+  position: relative;
+  border-radius: var(--border-radius-small);
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.productLogoProductLabel {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mondayMark {
+  overflow: clip;
+  position: relative;
+  flex-shrink: 0;
+  width: var(--space-32);
+  height: var(--space-32);
+}
+
+.mondayMarkSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}

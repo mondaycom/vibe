@@ -1,0 +1,475 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--primary-surface-color);
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.topBarSlot {
+  height: var(--space-48);
+  width: 100%;
+  flex-shrink: 0;
+  background-color: var(--primary-surface-color);
+}
+
+.topBar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 0 var(--space-24) 0 var(--space-4);
+  position: relative;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.topBarLeft {
+  display: flex;
+  min-width: 0;
+  flex: 0 1 24rem;
+  align-items: center;
+  gap: var(--space-8);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.topBarProductButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Rail icons center at 36px from the shell edge; the top bar's 4px left padding
+     means a 64px (4rem) button centers the 32px mark at exactly 36px. */
+  width: 4rem;
+  height: var(--space-40);
+  flex: 0 0 auto;
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+}
+
+.topBarRight {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 0%;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  z-index: 1;
+}
+
+.topBarSearchSlot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  width: min(25rem, 36vw);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.globalSearch {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--space-32);
+  gap: calc(var(--space-4) + var(--space-2));
+  padding: 0 var(--space-8);
+  border: var(--border-width) solid transparent;
+  border-radius: 100px;
+  background-color: var(--primary-background-color);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  font: inherit;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--primary-highlighted-color);
+    border-color: var(--ui-border-color);
+    outline: none;
+  }
+}
+
+.globalSearchIcon {
+  flex: 0 0 auto;
+  color: var(--secondary-text-color);
+}
+
+.globalSearchLabel {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--boards-font-family);
+  font-size: 0.75rem;
+}
+
+.globalSearchShortcut {
+  flex: 0 0 auto;
+  color: var(--secondary-text-color);
+  font-family: var(--boards-font-family);
+  font-size: 0.6875rem;
+  opacity: 0.72;
+}
+
+.avatarButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-32);
+  height: var(--space-32);
+  padding: 0;
+  border: 0;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--primary-background-hover-color);
+    outline: none;
+  }
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Positioning wrapper so the notification badge/counter can overlay the Vibe IconButton. */
+.topBarAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--primary-text-color);
+}
+
+.topBarActionIcon {
+  display: block;
+  width: var(--space-20);
+  height: var(--space-20);
+  flex: 0 0 auto;
+}
+
+.topBarNotificationBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  min-width: var(--space-16);
+  height: var(--space-16);
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-4);
+  border: var(--border-width) solid var(--primary-surface-color);
+  border-radius: 999px;
+  background-color: var(--negative-color);
+  color: var(--fixed-light-color);
+  font-family: var(--boards-font-family);
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+}
+
+.topBarCounter {
+  position: absolute;
+  top: 0;
+  right: var(--space-2);
+  color: var(--primary-text-color);
+  font-family: var(--boards-font-family);
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--space-12);
+}
+
+.divider28 {
+  height: calc(var(--space-24) + var(--space-4));
+  align-self: center;
+  margin-inline: var(--space-4);
+}
+
+.vibeWrap {
+  display: inline-flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.contentRow {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  align-items: stretch;
+  flex: 1 1 0%;
+  gap: 0;
+  isolation: isolate;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  background-color: transparent;
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+  position: relative;
+  margin-top: 0;
+  border-top: var(--border-width) solid var(--layout-border-color);
+  border-top-left-radius: 0;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: none;
+  transition: border-top-left-radius var(--motion-productive-medium) ease;
+}
+
+.pageWithCollapsedWorkspacePanel {
+  border-left: var(--border-width) solid var(--layout-border-color);
+  border-top-left-radius: var(--border-radius-big);
+}
+
+.pageWithCollapsedWorkspacePanel .pageScroll {
+  border-top-left-radius: var(--border-radius-big);
+}
+
+.pageScroll {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-height: 0;
+  min-width: 0;
+  align-items: stretch;
+  align-content: stretch;
+  padding-bottom: clamp(var(--space-16), 4vw, var(--space-32));
+  padding-left: clamp(
+    var(--space-8),
+    5vw,
+    calc(var(--space-24) + var(--space-12))
+  );
+  padding-right: clamp(var(--space-4), 2vw, var(--space-12));
+  width: 100%;
+  max-width: 100%;
+  border-top-left-radius: 0;
+  clip-path: none;
+  background-color: var(--primary-background-color);
+  overflow: auto;
+}
+
+/* Sidekick chat surface is full-bleed: it manages its own padding.
+   Qualified with .page so it outranks theme overrides such as
+   :global(html.glaze) .pageScroll (specificity 0,2,1). */
+.page .pageScroll.pageScrollFullBleed {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.leftNav {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 0;
+  min-height: 0;
+  flex-shrink: 0;
+  z-index: 2;
+  color: var(--primary-text-color);
+  background-color: var(--primary-surface-color);
+}
+
+.workspacePanel {
+  display: flex;
+  flex-direction: column;
+  width: var(--workspace-panel-width, 17.3125rem);
+  min-width: 15rem;
+  max-width: 22.5rem;
+  flex-shrink: 0;
+  align-self: flex-start;
+  height: calc(100% - var(--space-4));
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary-background-color);
+  border: var(--border-width) solid var(--layout-border-color);
+  border-bottom: 0;
+  border-top-left-radius: var(--border-radius-big);
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    width var(--motion-productive-medium) ease,
+    min-width var(--motion-productive-medium) ease,
+    max-width var(--motion-productive-medium) ease,
+    opacity var(--motion-productive-short) ease,
+    transform var(--motion-productive-medium) ease,
+    border-color var(--motion-productive-short) ease,
+    visibility 0s linear 0s;
+  will-change: width, opacity, transform;
+}
+
+.workspacePanelClosed {
+  width: 0;
+  min-width: 0;
+  max-width: 0;
+  border-color: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(calc(-1 * var(--space-8)));
+  visibility: hidden;
+  transition:
+    width var(--motion-productive-medium) ease,
+    min-width var(--motion-productive-medium) ease,
+    max-width var(--motion-productive-medium) ease,
+    opacity var(--motion-productive-short) ease,
+    transform var(--motion-productive-medium) ease,
+    border-color var(--motion-productive-short) ease,
+    visibility 0s linear var(--motion-productive-medium);
+}
+
+.workspacePanelOpen {
+  visibility: visible;
+}
+
+.workspacePanelScroll {
+  width: 100%;
+  height: calc(100% - var(--space-4));
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-top-left-radius: var(--border-radius-big);
+}
+
+.toolPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-height: 100%;
+  padding: var(--space-20) var(--space-16);
+  font-family: var(--boards-font-family);
+  color: var(--primary-text-color);
+}
+
+.toolPanelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.toolPanelTitle {
+  margin: 0;
+  color: var(--primary-text-color);
+  font-family: var(--boards-font-family);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.toolPanelDescription {
+  margin: var(--space-4) 0 0;
+  color: var(--secondary-text-color);
+  font-family: var(--boards-font-family);
+  font-size: 0.75rem;
+  line-height: var(--space-16);
+}
+
+.closeToolPanelButton {
+  transform: rotate(180deg);
+}
+
+.toolPanelList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.toolPanelItem {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-32);
+  padding: 0 var(--space-8);
+  border: none;
+  border-radius: var(--border-radius-small);
+  background: transparent;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-family: var(--boards-font-family);
+  font-size: 0.75rem;
+  text-align: start;
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+}
+
+.leftpaneResizer {
+  position: absolute;
+  top: calc(-1 * var(--border-width));
+  right: calc(-1 * var(--border-width));
+  bottom: calc(-1 * (var(--space-4) + var(--border-width)));
+  width: var(--space-4);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  z-index: 4;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: var(--space-2);
+    bottom: 0;
+    width: var(--border-width);
+    background-color: transparent;
+    content: "";
+    transition: background-color var(--motion-productive-short) ease;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    background-color: var(--primary-color);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workspacePanel,
+  .workspacePanelClosed {
+    transition: none;
+  }
+}

@@ -1,0 +1,358 @@
+.groupTitle {
+  * {
+    color: currentcolor;
+  }
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: visible;
+  margin-bottom: var(--space-2);
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: visible;
+  cursor: pointer;
+  flex: 1 1 0%;
+}
+
+.completeBtn {
+  border: var(--border-width) solid var(--ui-border-color);
+}
+
+.gridHeader {
+  overflow: visible;
+  display: grid;
+  border-bottom: var(--border-width) solid var(--layout-border-color);
+  border-top: var(--border-width) solid var(--layout-border-color);
+  border-right: var(--border-width) solid var(--layout-border-color);
+  background-color: var(--secondary-background-color);
+  border-top-right-radius: var(--border-radius-small);
+}
+
+.cellCheckboxHead {
+  height: calc(var(--space-32) + var(--space-4));
+  width: 100%;
+  border-right: var(--border-width) solid var(--layout-border-color);
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Offset the left stripe so the checkbox is optically centered in the visible cell. */
+  padding-left: calc(var(--space-4) + var(--space-2));
+}
+
+.stripe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--space-4) + var(--space-2));
+  z-index: 1;
+}
+
+.stripeHeader {
+  height: calc(var(--space-32) + var(--space-8) - var(--space-2));
+  border-top-left-radius: var(--border-radius-small);
+}
+
+.colHead {
+  height: calc(var(--space-32) + var(--space-4));
+  border-right: var(--border-width) solid var(--layout-border-color);
+  position: relative;
+}
+
+.colHeadTask {
+  padding-left: var(--space-8);
+}
+
+.colHeadAdd {
+  color: var(--secondary-text-color);
+}
+
+.row {
+  overflow: visible;
+  display: grid;
+  border-bottom: var(--border-width) solid var(--layout-border-color);
+  border-right: var(--border-width) solid var(--layout-border-color);
+  background-color: var(--secondary-background-color);
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+
+    .cellCheckbox,
+    .stripeRow {
+      background-color: var(--primary-background-hover-color);
+    }
+
+    .taskActions {
+      opacity: 1;
+    }
+  }
+
+  .cellCheckbox,
+  .stripeRow {
+    background-color: var(--secondary-background-color);
+  }
+}
+
+.cellCheckbox {
+  height: calc(var(--space-32) + var(--space-8) - var(--space-2));
+  width: 100%;
+  border-right: var(--border-width) solid var(--layout-border-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Offset the left stripe so the checkbox is optically centered in the visible cell. */
+  padding-left: calc(var(--space-4) + var(--space-2));
+}
+
+.stripeRow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100% + var(--border-width));
+  width: calc(var(--space-4) + var(--space-2));
+  z-index: 1;
+}
+
+.cellTask {
+  height: calc(var(--space-32) + var(--space-8) - var(--space-2));
+  padding-left: var(--space-16);
+  padding-right: 0;
+  border-right: var(--border-width) solid var(--layout-border-color);
+  overflow: visible;
+}
+
+.taskActions {
+  opacity: 0;
+  transition: opacity var(--motion-productive-medium)
+    var(--motion-timing-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--space-48) + var(--space-8));
+  height: 100%;
+  border-left: var(--border-width) solid var(--layout-border-color);
+}
+
+.taskActionsIcon {
+  color: var(--secondary-text-color);
+  flex-shrink: 0;
+}
+
+.ownerStack {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  isolation: isolate;
+}
+
+.ownerStackItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ownerStackItem + .ownerStackItem {
+  margin-inline-start: -8px;
+}
+
+.unassignedAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(
+    --primary-background-hover-color,
+    rgba(103, 104, 121, 0.1)
+  );
+  color: var(--secondary-text-color);
+  flex-shrink: 0;
+}
+
+.cellStandard {
+  display: flex;
+  align-items: stretch;
+  height: calc(var(--space-32) + var(--space-8) - var(--space-2));
+  border-right: var(--border-width) solid var(--layout-border-color);
+}
+
+.cellEmpty {
+  height: calc(var(--space-32) + var(--space-8) - var(--space-2));
+}
+
+.addRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: calc(var(--space-32) + var(--space-4));
+  background-color: var(--secondary-background-color);
+  border-bottom: var(--border-width) solid var(--layout-border-color);
+  border-right: var(--border-width) solid var(--layout-border-color);
+  position: relative;
+}
+
+.addRowCheck {
+  height: calc(var(--space-32) + var(--space-4));
+  /* Fixed 50px = the grid checkbox column; .addRow is flex, so it must not grow. */
+  width: calc(var(--space-48) + var(--space-2));
+  flex: 0 0 auto;
+  border-right: var(--border-width) solid var(--layout-border-color);
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Offset the left stripe for optical centering, matching the data-row checkbox. */
+  padding-left: calc(var(--space-4) + var(--space-2));
+}
+
+.addRowCheck :global([class*="checkbox"]) {
+  opacity: var(--disabled-component-opacity);
+}
+
+.stripeAdd {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--space-4) + var(--space-2));
+  z-index: 1;
+  border-bottom-left-radius: var(--border-radius-small);
+}
+
+.addItem {
+  display: flex;
+  opacity: var(--disabled-component-opacity);
+  flex: 1 1 0%;
+  padding-left: var(--space-24);
+  align-items: center;
+  gap: var(--space-8);
+  cursor: pointer;
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+  padding-right: var(--space-8);
+  border-radius: var(--border-radius-small);
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+}
+
+.footerSpacer {
+  display: grid;
+  height: calc(var(--space-32) + var(--space-4));
+}
+
+.footerSpacerInner {
+  grid-column: 1 / 3;
+}
+
+.footer {
+  display: grid;
+  background-color: var(--secondary-background-color);
+  border: var(--border-width) solid var(--layout-border-color);
+  border-top: 0;
+  border-bottom-left-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-small);
+}
+
+.footerCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: var(--border-width) solid var(--layout-border-color);
+}
+
+.footerCellPadded {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+
+.barTrack {
+  display: flex;
+  flex-direction: row;
+  height: var(--space-24);
+  width: 100%;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.barSeg {
+  height: 100%;
+}
+
+.barSeg30 {
+  width: 30%;
+}
+
+.barSeg40 {
+  width: 40%;
+}
+
+.barSeg50 {
+  width: 50%;
+}
+
+.barSeg20 {
+  width: 20%;
+}
+
+.barSegColorDone {
+  background-color: var(--color-done-green);
+}
+
+.barSegColorWorking {
+  background-color: var(--color-working_orange);
+}
+
+.barSegColorStuck {
+  background-color: var(--color-stuck-red);
+}
+
+.barSegColorDarkBlue {
+  background-color: var(--color-dark-blue);
+}
+
+.barSegColorPurple {
+  background-color: var(--color-purple);
+}
+
+.barSegColorGray {
+  background-color: var(--color-american_gray);
+}
+
+.resizeHandle {
+  position: absolute;
+  right: calc(-1 * var(--space-4));
+  top: 0;
+  bottom: 0;
+  width: calc(var(--space-8) + var(--border-width));
+  cursor: col-resize;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity var(--motion-productive-medium)
+    var(--motion-timing-transition);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.resizeHandleLine {
+  width: var(--border-width);
+  height: 100%;
+  background-color: var(--primary-color);
+  margin-left: auto;
+  margin-right: auto;
+}

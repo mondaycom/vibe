@@ -5,46 +5,41 @@
 .tabWrapper {
   position: relative;
   display: inline-block;
-  padding-left: 1px;
-  padding-right: 1px;
-  border-top: 1px solid transparent;
-  border-bottom: 2px solid;
-  border-bottom-color: var(--ui-background-color);
-  color: var(--primary-text-color);
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  color: var(--secondary-text-color);
   text-align: center;
   height: 100%;
   margin: 0;
+  box-sizing: border-box;
 
   &.stretchedUnderline {
     border-bottom: 0;
   }
 }
 
+/* Selected stroke is rendered once on TabList (slide-transition) */
 .tabWrapper:after {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  content: "";
-  border-bottom: solid 2px;
-  border-bottom-color: var(--primary-color);
-  transform: scaleX(0);
-  z-index: 0;
+  display: none;
 }
 
 .tabWrapper .tabInner {
-  $margin-bottom: 1px;
-  height: calc(100% - #{$margin-bottom});
+  /* Leaves 2px gap + 2px underline within the list height */
+  height: calc(100% - 4px);
+  width: fit-content;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 4px 16px;
+  padding: var(--spacing-xs) var(--spacing-small);
+  border-radius: var(--border-radius-medium);
   @include vibe-text(text1, normal);
   user-select: none;
-  margin-bottom: $margin-bottom;
+  margin-bottom: 0;
   cursor: pointer;
-  color: var(--primary-text-color);
+  color: var(--secondary-text-color);
 }
 
 .tabWrapper .tabInner:focus {
@@ -52,7 +47,7 @@
 }
 
 .tabWrapper .tabInner .tabIcon {
-  color: var(--icon-color);
+  color: var(--secondary-text-color);
   margin-right: var(--spacing-small);
 }
 
@@ -66,9 +61,16 @@
   position: relative;
 }
 
-.tabWrapper.active:after {
-  transform: scaleX(1);
-  transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
+.tabWrapper.active {
+  color: var(--primary-text-color);
+
+  .tabInner {
+    color: var(--primary-text-color);
+  }
+
+  .tabInner .tabIcon {
+    color: var(--primary-text-color);
+  }
 }
 
 .tabWrapper.disabled .tabInner {
@@ -76,7 +78,22 @@
   cursor: not-allowed;
 }
 
-.tabWrapper:not(.disabled) .tabInner:hover {
-  border-radius: 4px;
+.tabWrapper.disabled .tabInner .tabIcon {
+  color: var(--disabled-text-color);
+}
+
+.tabWrapper:not(.disabled):not(.active) .tabInner:hover {
+  border-radius: var(--border-radius-medium);
   background-color: var(--primary-background-hover-color);
+  color: var(--primary-text-color);
+
+  .tabIcon {
+    color: var(--primary-text-color);
+  }
+}
+
+.tabWrapper.active:not(.disabled) .tabInner:hover {
+  border-radius: var(--border-radius-medium);
+  background-color: var(--primary-background-hover-color);
+  color: var(--primary-text-color);
 }

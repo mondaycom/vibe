@@ -1,0 +1,11 @@
+.fallback {
+  display: inline-block;
+  background-color: var(--allgrey-background-color);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fallbackInner {
+  width: 100%;
+  height: 100%;
+}

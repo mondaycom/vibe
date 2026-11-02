@@ -1,0 +1,95 @@
+/* Override the radii so the prompt box matches the existing chat input
+   (12px visible radius, ~111px min-height) instead of the hero composers'
+   bigger 16px radius. */
+.composerShell {
+  width: 100%;
+  border-radius: 13px;
+}
+
+.composerWrap {
+  border-radius: 12px;
+  background: var(--primary-background-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 0 8px;
+  min-height: 111px;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
+}
+
+.iconButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-small);
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.followUpButton {
+  border: none;
+  background-color: var(--primary-background-color);
+  height: 36px;
+  position: relative;
+  border-radius: 8px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+}
+
+.editButton {
+  border: none;
+  background-color: var(--primary-background-color);
+  display: flex;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+  &:active {
+    background-color: var(--ui-background-color);
+  }
+}
+
+.plainButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  position: relative;
+  flex-shrink: 0;
+}

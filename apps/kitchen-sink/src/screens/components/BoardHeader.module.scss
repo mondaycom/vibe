@@ -1,0 +1,32 @@
+.root {
+  overflow: visible;
+  background-color: var(--primary-background-color);
+  padding-top: calc(var(--space-16) + var(--space-2));
+}
+
+.titleRow {
+  overflow: visible;
+  margin-bottom: var(--space-12);
+}
+
+.cluster {
+  overflow: visible;
+}
+
+.dividerShort {
+  height: calc(var(--space-16) + var(--space-4));
+  margin-left: var(--space-4);
+  margin-right: var(--space-4);
+}
+
+.dividerTall {
+  height: var(--space-24);
+}
+
+/* MenuButton merges fixed 32×32 wrapper classes onto custom triggers — reset so
+   the secondary Button hugs its label again. */
+.vibeAppMenuIcon {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}

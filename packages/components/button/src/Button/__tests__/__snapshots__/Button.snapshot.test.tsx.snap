@@ -393,7 +393,7 @@ exports[`Button renders correctly > renders correctly with leftIcon 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="button sizeMedium kindPrimary colorPrimary"
+  className="button sizeMedium kindPrimary colorPrimary hasLeftIcon"
   data-testid="button"
   data-vibe="Button"
   onBlur={[Function]}
@@ -405,7 +405,7 @@ exports[`Button renders correctly > renders correctly with leftIcon 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon leftIcon noFocusStyle"
+    className="icon noFocusStyle"
     data-testid="icon"
     data-vibe="Icon"
     fill="currentColor"
@@ -445,7 +445,7 @@ exports[`Button renders correctly > renders correctly with rightIcon 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="button sizeMedium kindPrimary colorPrimary"
+  className="button sizeMedium kindPrimary colorPrimary hasRightIcon"
   data-testid="button"
   data-vibe="Button"
   onBlur={[Function]}
@@ -458,7 +458,7 @@ exports[`Button renders correctly > renders correctly with rightIcon 1`] = `
   Button
   <svg
     aria-hidden={true}
-    className="icon rightIcon noFocusStyle"
+    className="icon noFocusStyle"
     data-testid="icon"
     data-vibe="Icon"
     fill="currentColor"

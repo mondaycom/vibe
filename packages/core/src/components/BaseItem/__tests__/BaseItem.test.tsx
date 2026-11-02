@@ -74,6 +74,23 @@ describe("BaseItem", () => {
       expect(getByText("Default Item").parentNode).toHaveClass("selected");
     });
 
+    it("should show a check icon when selected", () => {
+      const { getByTestId } = renderBaseItem({
+        item: { label, value: "item1" },
+        selected: true
+      });
+      expect(getByTestId("icon")).toBeInTheDocument();
+    });
+
+    it("should not show a check icon when selected and read-only", () => {
+      const { queryByTestId } = renderBaseItem({
+        item: { label, value: "item1" },
+        selected: true,
+        readOnly: true
+      });
+      expect(queryByTestId("icon")).not.toBeInTheDocument();
+    });
+
     it("should apply the disabled class", () => {
       const { getByText } = renderBaseItem({
         item: {

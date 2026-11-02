@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Bounding box for a 40px tile rotated 5° = 40 * (cos5° + sin5°) ≈ 43.34px */
+  width: calc(var(--glass-tile-size, 40px) * 1.0833);
+  height: calc(var(--glass-tile-size, 40px) * 1.0833);
+  flex: 0 0 calc(var(--glass-tile-size, 40px) * 1.0833);
+  overflow: visible;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: var(--glass-tile-size, 40px);
+  height: var(--glass-tile-size, 40px);
+  border-radius: calc(var(--glass-tile-size, 40px) * 0.2153);
+  background-color: var(--glass-tile-bg);
+  box-shadow: 0 calc(var(--glass-tile-size, 40px) * 0.07178)
+    calc(var(--glass-tile-size, 40px) * 0.14353) 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: rotate(-5deg);
+  transform-origin: 50% 50%;
+}
+
+.image {
+  position: absolute;
+  display: block;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}

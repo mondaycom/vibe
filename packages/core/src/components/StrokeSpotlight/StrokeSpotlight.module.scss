@@ -1,0 +1,252 @@
+/* stylelint-disable monday-ui-style/use-defined-css-var-when-available -- brand stroke stops are product palettes, not semantic tokens */
+
+@keyframes stroke-spotlight-scale-grow {
+  0% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@mixin prompt-conic-gradient($from: 0deg) {
+  background: conic-gradient(
+    from $from at 57.6% 61.3%,
+    var(--stroke-stop-1) 0deg,
+    var(--stroke-stop-2) var(--stroke-stop-2-at),
+    var(--stroke-stop-3) var(--stroke-stop-3-at),
+    var(--stroke-stop-4) var(--stroke-stop-4-at),
+    var(--stroke-stop-1) 1turn
+  );
+}
+
+.root {
+  /* Stroke palette defaults — Sidekick / Vibe override via modifiers. */
+  --stroke-stop-1: #04f7fb;
+  --stroke-stop-2: #0074fd;
+  --stroke-stop-3: #9450fd;
+  --stroke-stop-4: #04f7fb;
+  --stroke-stop-2-at: 120deg;
+  --stroke-stop-3-at: 240deg;
+  --stroke-stop-4-at: 300deg;
+
+  --radius: 16;
+  --border: 2;
+  --border-size: calc(var(--border, 2) * 1px);
+  --start: 0;
+  --active: 0;
+  --spread: 22;
+  --outer-radius: calc((var(--radius) + var(--border)) * 1px);
+  --glow-blur: 12px;
+  --glow-strength: 0.25;
+  --glow-saturation: 0.55;
+  --stroke-strength: 0.8;
+  --click-pulse-blur: 32px;
+  --click-pulse-blur-spread: 96px;
+  --click-pulse-strength: 0.2;
+  --click-pulse-end-scale-x: 3.2;
+  --click-pulse-end-scale-y: 4.5;
+  --stroke-duration-short: 20ms;
+  --stroke-duration-scale: var(--motion-productive-long, 150ms);
+  --stroke-duration-wash: 650ms;
+  --stroke-duration-fade: var(--motion-expressive-short, 250ms);
+  --stroke-duration-reduced: var(--motion-productive-short, 70ms);
+  --stroke-ease: var(--motion-timing-transition, cubic-bezier(0.4, 0, 0.2, 1));
+
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform-origin: center center;
+  border-radius: var(--outer-radius);
+  background-color: transparent;
+  border: var(--border-size) solid transparent;
+  touch-action: none;
+  box-sizing: border-box;
+}
+
+/* Sidekick home: lilac → teal → green */
+.paletteSidekick {
+  --stroke-stop-1: #8181ff;
+  --stroke-stop-2: #33dbdb;
+  --stroke-stop-3: #33d58e;
+  --stroke-stop-4: #8181ff;
+  --stroke-stop-2-at: 120deg;
+  --stroke-stop-3-at: 240deg;
+  --stroke-stop-4-at: 300deg;
+}
+
+/* Vibe home: gold → orange → pink → orchid */
+.paletteVibe {
+  --stroke-stop-1: #f0c020;
+  --stroke-stop-2: #ff9e52;
+  --stroke-stop-3: #ff74cd;
+  --stroke-stop-4: #ff92e8;
+  --stroke-stop-2-at: 90deg;
+  --stroke-stop-3-at: 180deg;
+  --stroke-stop-4-at: 270deg;
+}
+
+.surface {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+.clickPulse {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--radius) * 1px);
+  z-index: 0;
+  opacity: 0;
+  @include prompt-conic-gradient;
+  filter: blur(var(--click-pulse-blur));
+  transform-origin: center center;
+}
+
+@mixin traveling-arc($band) {
+  content: "";
+  position: absolute;
+  inset: calc(#{$band} * -1);
+  box-sizing: border-box;
+  border-radius: calc(var(--radius) * 1px + #{$band});
+  border: #{$band} solid transparent;
+  @include prompt-conic-gradient;
+  -webkit-mask-clip: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start) - var(--spread)) * 1deg),
+      #00000000 0deg,
+      #fff,
+      #00000000 calc(var(--spread) * 2deg)
+    );
+  mask-image: linear-gradient(#0000, #0000),
+    conic-gradient(
+      from calc((var(--start) - var(--spread)) * 1deg),
+      #00000000 0deg,
+      #fff,
+      #00000000 calc(var(--spread) * 2deg)
+    );
+}
+
+.root::after {
+  @include traveling-arc(var(--border-size));
+
+  pointer-events: none;
+  opacity: calc(var(--active) * var(--stroke-strength));
+  transition: opacity var(--stroke-duration-fade) linear;
+  z-index: 2;
+}
+
+.glow {
+  --glow-band: var(--border-size);
+  --halo: calc(var(--glow-band) + var(--glow-blur) * 3);
+
+  pointer-events: none;
+  position: absolute;
+  inset: calc(var(--halo) * -1);
+  box-sizing: border-box;
+  border: var(--halo) solid transparent;
+  border-radius: calc(var(--radius) * 1px + var(--halo));
+  z-index: 1;
+  filter: blur(var(--glow-blur)) saturate(var(--glow-saturation));
+  -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  -webkit-mask-clip: border-box, padding-box;
+  mask-clip: border-box, padding-box;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: calc(var(--active) * var(--glow-strength));
+  transition: opacity var(--stroke-duration-fade) linear;
+}
+
+.glow::after {
+  @include traveling-arc(var(--glow-band));
+
+  pointer-events: none;
+}
+
+.root:global(.is-click-pulsing) {
+  animation: stroke-spotlight-scale-grow var(--stroke-duration-scale) var(--stroke-ease) forwards;
+
+  .clickPulse {
+    animation:
+      stroke-spotlight-click-expand var(--stroke-duration-wash) var(--stroke-ease) both,
+      stroke-spotlight-click-blur var(--stroke-duration-wash) var(--stroke-ease) both,
+      stroke-spotlight-click-fade var(--stroke-duration-wash) linear var(--stroke-duration-short) both;
+  }
+}
+
+@keyframes stroke-spotlight-click-expand {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(var(--click-pulse-end-scale-x), var(--click-pulse-end-scale-y));
+  }
+}
+
+@keyframes stroke-spotlight-click-blur {
+  0% {
+    filter: blur(var(--click-pulse-blur));
+  }
+
+  100% {
+    filter: blur(var(--click-pulse-blur-spread));
+  }
+}
+
+@keyframes stroke-spotlight-click-fade {
+  0% {
+    opacity: var(--click-pulse-strength);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root::after,
+  .glow {
+    transition: none;
+    opacity: 0;
+  }
+
+  .root:global(.is-click-pulsing) {
+    animation: none;
+    transform: scale(1);
+
+    .clickPulse {
+      animation: stroke-spotlight-click-fade-reduced var(--stroke-duration-reduced) linear forwards;
+    }
+  }
+
+  .clickPulse {
+    opacity: 0;
+  }
+}
+
+@keyframes stroke-spotlight-click-fade-reduced {
+  0% {
+    opacity: var(--click-pulse-strength);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

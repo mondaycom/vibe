@@ -47,6 +47,10 @@ exports[`TabsContext renders correctly > with activeTabId 1`] = `
         </div>
       </li>
     </ul>
+    <span
+      aria-hidden={true}
+      className="selectedIndicator"
+    />
   </div>
   <div
     className="tabPanelsWrapper"
@@ -94,6 +98,10 @@ exports[`TabsContext renders correctly > with className 1`] = `
         </div>
       </li>
     </ul>
+    <span
+      aria-hidden={true}
+      className="selectedIndicator"
+    />
   </div>
   <div
     className="tabPanelsWrapper"
@@ -140,6 +148,10 @@ exports[`TabsContext renders correctly > with empty props 1`] = `
         </div>
       </li>
     </ul>
+    <span
+      aria-hidden={true}
+      className="selectedIndicator"
+    />
   </div>
   <div
     className="tabPanelsWrapper"
@@ -187,6 +199,10 @@ exports[`TabsContext renders correctly > with id 1`] = `
         </div>
       </li>
     </ul>
+    <span
+      aria-hidden={true}
+      className="selectedIndicator"
+    />
   </div>
   <div
     className="tabPanelsWrapper"

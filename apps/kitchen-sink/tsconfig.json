@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "ES2022.Intl", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["vite/client"],
+    "paths": {
+      "@/*": ["./src/screens/*"],
+      "@vibe/core/tokens": ["./node_modules/@vibe/core/dist/tokens/tokens.css"],
+      "@vibe/core/next": ["../../packages/core/src/components/next.ts"],
+      "@vibe/core": ["../../packages/core/src/index.ts"],
+      "@vibe/icons": ["../../packages/icons/src/react/index.ts"],
+      "@vibe/hooks": ["../../packages/hooks/src/index.ts"],
+      "@vibe/shared": ["../../packages/shared/src/index.ts"],
+      "@vibe/base": ["../../packages/base/src/index.ts"],
+      "@vibe/button": ["../../packages/components/button/src/index.ts"],
+      "@vibe/clickable": ["../../packages/components/clickable/src/index.ts"],
+      "@vibe/dialog": ["../../packages/components/dialog/src/index.ts"],
+      "@vibe/icon": ["../../packages/components/icon/src/index.ts"],
+      "@vibe/icon-button": ["../../packages/components/icon-button/src/index.ts"],
+      "@vibe/layer": ["../../packages/components/layer/src/index.ts"],
+      "@vibe/layout": ["../../packages/components/layout/src/index.ts"],
+      "@vibe/loader": ["../../packages/components/loader/src/index.ts"],
+      "@vibe/tooltip": ["../../packages/components/tooltip/src/index.ts"],
+      "@vibe/typography": ["../../packages/components/typography/src/index.ts"]
+    }
+  },
+  "include": ["src"]
+}

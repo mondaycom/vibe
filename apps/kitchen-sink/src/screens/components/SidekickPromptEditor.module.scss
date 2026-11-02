@@ -1,0 +1,145 @@
+/* Match the chat input's existing radius/size — the hero composer
+   defaults use 16px; this one uses a smaller radius via StrokeSpotlight. */
+.composerShell {
+  width: 100%;
+  z-index: 2;
+}
+
+.composerWrap {
+  width: 100%;
+  border-radius: var(--border-radius-big);
+  background-color: var(--primary-background-color);
+  min-height: 100px;
+  overflow: hidden;
+  box-shadow:
+    rgba(50, 50, 93, 0.06) 0 4px 10px -2px,
+    rgba(0, 0, 0, 0.08) 0 2px 4px -1px;
+}
+
+.editor {
+  width: 100%;
+  border-radius: var(--border-radius-big);
+  background-color: var(--primary-background-color);
+  min-height: 100px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px;
+  padding: var(--space-12) var(--space-16);
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--primary-text-color);
+  caret-color: var(--primary-text-color);
+
+  &::placeholder {
+    color: var(--secondary-text-color);
+  }
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.leftActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--border-radius-small);
+  width: var(--space-24);
+  height: var(--space-24);
+  cursor: pointer;
+  color: var(--primary-text-color);
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+}
+
+.addContext {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--space-24);
+  padding: 0 var(--space-8);
+  border: none;
+  background: transparent;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  color: var(--primary-text-color);
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--primary-background-hover-color);
+  }
+}
+
+.addContextLabel {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--primary-text-color);
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.sendButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  width: var(--space-24);
+  height: var(--space-24);
+  cursor: pointer;
+  background-color: var(--disabled-background-color);
+  color: var(--disabled-text-color);
+  transition: background-color 0.15s ease;
+
+  &:not(:disabled) {
+    background-color: var(--inverted-color-background);
+    color: var(--text-color-on-inverted);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}

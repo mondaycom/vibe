@@ -77,6 +77,26 @@ export const colorsMap = [
     color: "--warning-color-selected-hover",
     description: "Use to indicate hover state on a warning-selected items"
   },
+  {
+    color: "--info-color",
+    description: "Use to indicate an informational action/state; stays blue when the brand primary does not"
+  },
+  // semantic surfaces
+  {
+    color: "--surface-primary",
+    description: "Tinted surface for primary/brand semantics (Chips, Label, AttentionBox)"
+  },
+  { color: "--surface-positive", description: "Tinted surface for positive semantics" },
+  { color: "--surface-negative", description: "Tinted surface for negative semantics" },
+  { color: "--surface-warning", description: "Tinted surface for warning semantics" },
+  { color: "--surface-neutral", description: "Tinted surface for neutral semantics" },
+  { color: "--surface-info", description: "Tinted surface for informational semantics" },
+  { color: "--text-on-surface-primary", description: "Text and icon color on --surface-primary" },
+  { color: "--text-on-surface-positive", description: "Text and icon color on --surface-positive" },
+  { color: "--text-on-surface-negative", description: "Text and icon color on --surface-negative" },
+  { color: "--text-on-surface-warning", description: "Text and icon color on --surface-warning" },
+  { color: "--text-on-surface-neutral", description: "Text and icon color on --surface-neutral" },
+  { color: "--text-on-surface-info", description: "Text and icon color on --surface-info" },
   // borders
   { color: "--ui-border-color", description: "Border color for ui elements and components (Button, Input...)" },
   { color: "--ui-border-on-secondary-color", description: "Border color for ui elements on secondary color" },
@@ -231,6 +251,7 @@ export enum StateSelectedColor {
   NEGATIVE = "negative",
   PRIMARY = "primary",
   WARNING = "warning",
+  INFO = "info",
   NEUTRAL = "neutral"
 }
 
@@ -241,6 +262,7 @@ export enum StateSelectedHoverColor {
   POSITIVE = "positive",
   NEGATIVE = "negative",
   PRIMARY = "primary",
+  INFO = "info",
   NEUTRAL = "neutral"
 }
 

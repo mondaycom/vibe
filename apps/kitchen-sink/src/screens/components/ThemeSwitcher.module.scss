@@ -1,0 +1,332 @@
+.container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  // Pin the switcher to its own font stack so picking a new font for the app
+  // doesn't restyle this menu. Children inherit unless they opt in (e.g. the
+  // font-row labels preview themselves in their own font).
+  font-family:
+    "Figtree", "Poppins", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+.popover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid;
+  box-shadow: var(--box-shadow-medium);
+}
+
+.popoverInner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+}
+
+.sectionLabel {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.swatchRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  border-radius: var(--border-radius-small);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  transition:
+    color 0.15s,
+    background-color 0.15s,
+    border-color 0.15s;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font: inherit;
+
+  &:hover {
+    background: var(--primary-highlighted-color);
+  }
+
+  &.active {
+    background: var(--primary-selected-color);
+  }
+
+  &:not(.active) {
+    background: var(--primary-background-color);
+  }
+}
+
+.swatchColors {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.swatch {
+  height: 20px;
+  width: 20px;
+  border-radius: var(--border-radius-small);
+}
+
+.swatchBordered {
+  height: 20px;
+  width: 20px;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--ui-border-color);
+}
+
+.swatchLabel {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.activeCheck {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.divider {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-top: 1px solid var(--ui-border-color);
+}
+
+.modeButtons {
+  display: flex;
+  gap: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+.modeButton {
+  flex: 1;
+  border-radius: var(--border-radius-small);
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    color 0.15s,
+    background-color 0.15s,
+    border-color 0.15s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.fontSubsection {
+  display: flex;
+  flex-direction: column;
+}
+
+.fontSubsectionHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--border-radius-small);
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font: inherit;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background: var(--primary-highlighted-color);
+  }
+}
+
+.fontSubsectionChevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text-color);
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.chevronExpanded {
+  transform: rotate(90deg);
+}
+
+.fontSubsectionTitle {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fontSubsectionValue {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+.fontSubsectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 0 8px 12px;
+}
+
+.fontRowWrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  border-radius: var(--border-radius-small);
+  transition: background-color 0.15s;
+
+  &:hover {
+    background: var(--primary-highlighted-color);
+
+    .removeFontButton {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &.active {
+    background: var(--primary-selected-color);
+  }
+}
+
+.fontRow {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  border-radius: var(--border-radius-small);
+  padding: 8px 12px;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font: inherit;
+  transition: color 0.15s;
+}
+
+.removeFontButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  margin-right: 4px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--border-radius-small);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s,
+    color 0.15s,
+    background-color 0.15s;
+
+  &:hover {
+    color: var(--negative-color, #d83a52);
+    background: var(--primary-background-color);
+  }
+
+  &:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
+  }
+}
+
+.fontLabel {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.customFontRow {
+  display: flex;
+  gap: 4px;
+  padding: 4px 4px 4px 4px;
+}
+
+.customFontInput {
+  flex: 1;
+  min-width: 0;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--ui-border-color);
+  padding: 6px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+}
+
+.customFontApply {
+  border-radius: var(--border-radius-small);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background: var(--primary-color);
+  color: #ffffff;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.customFontAdd {
+  border-radius: var(--border-radius-small);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  background: var(--ui-background-color);
+  color: var(--primary-text-color);
+  border: 1px solid var(--ui-border-color);
+
+  &:hover:not(:disabled) {
+    background: var(--primary-highlighted-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.triggerWrap {
+  overflow: hidden;
+  border-radius: 9999px;
+  box-shadow: var(--box-shadow-small);
+}

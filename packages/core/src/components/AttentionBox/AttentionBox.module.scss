@@ -24,13 +24,14 @@
     animation: entryAnimation 200ms cubic-bezier(0.00, 0.00, 0.40, 1.00) forwards;
   }
 
-  // Overriding on primary icon color should be with bigger specificity than the original color
+  // Needs more specificity than IconButton's own color; currentColor tracks the box's text
   & .closeIconWrapper .closeIcon {
-    color: var(--primary-text-color);
+    color: currentColor;
   }
 
   .icon {
     flex-shrink: 0;
+    color: currentColor;
   }
 }
 
@@ -44,26 +45,27 @@
   color: var(--primary-text-color);
 }
 
+/* Semantic surfaces, per Facelift "surface colors" (Figma 630:106200). */
 .typePrimary {
   color: var(--primary-text-color);
-  background-color: var(--primary-selected-color);
+  background-color: var(--surface-primary);
 }
 
 .typeDanger {
-  background-color: var(--negative-color-selected);
+  background-color: var(--surface-negative);
 }
 
 .typeSuccess {
-  background-color: var(--positive-color-selected);
+  background-color: var(--surface-positive);
 }
 
 .typeDark {
-  background-color: var(--ui-background-color);
+  background-color: var(--surface-neutral);
   color: var(--primary-text-color);
 }
 
 .typeWarning {
-  background-color: var(--warning-color-selected);
+  background-color: var(--surface-warning);
   color: var(--primary-text-color);
 }
 

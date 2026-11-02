@@ -227,7 +227,7 @@ exports[`SplitButton renders correctly > with left icon 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
+    className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation hasLeftIcon"
     data-testid="split-button-primary-button"
     data-vibe="Button"
     onBlur={[Function]}
@@ -239,7 +239,7 @@ exports[`SplitButton renders correctly > with left icon 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon leftIcon noFocusStyle"
+      className="icon noFocusStyle"
       data-testid="icon"
       data-vibe="Icon"
       fill="currentColor"
@@ -460,7 +460,7 @@ exports[`SplitButton renders correctly > with right icon 1`] = `
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation"
+    className="mainButton button sizeMedium kindPrimary colorPrimary rightFlat preventClickAnimation hasRightIcon"
     data-testid="split-button-primary-button"
     data-vibe="Button"
     onBlur={[Function]}
@@ -473,7 +473,7 @@ exports[`SplitButton renders correctly > with right icon 1`] = `
     split button
     <svg
       aria-hidden={true}
-      className="icon rightIcon noFocusStyle"
+      className="icon noFocusStyle"
       data-testid="icon"
       data-vibe="Icon"
       fill="currentColor"

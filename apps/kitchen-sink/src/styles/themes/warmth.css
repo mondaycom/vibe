@@ -1,0 +1,341 @@
+/*
+ * Warmth theme — token overrides for the kitchen sink.
+ *
+ * A port of mf-topbar/src/styles/themes/facelift.css (formerly warmth.css) in its
+ * default state: purple logo, default CTA, brand purple layer. Values are copied
+ * verbatim so the kitchen sink and the cluster render the same palette. Keep the
+ * two in sync; only the selectors differ. Fonts stay the kitchen sink's own.
+ *
+ * mf-topbar puts `.facelift` on <html> and relies on the host's light/dark/black
+ * class on <body>. The kitchen sink's AppThemeShell instead puts
+ * `facelift-<mode>-app-theme` on <body>, so the selectors are rewritten to match.
+ * They stay qualified with `body`: the style package defines
+ * `.facelift-*-app-theme` at the same one-class specificity, and in dev its CSS is
+ * injected after this file, so an unqualified selector would lose on source order.
+ *
+ * Interaction states follow the M3 state-layer model: transparent layers of
+ * --state-layer-color (light) or --primary-text-color (dark, black).
+ */
+
+/* ============================== LIGHT ============================== */
+body.facelift-light-app-theme {
+  --boards-font-family: 'DM Sans', system-ui, 'Figtree', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family: var(--boards-font-family);
+  --title-font-family: var(--boards-font-family);
+
+  /* Radius */
+  --glaze-radius-control: 8px;
+  --border-radius-small: 6px;
+  --border-radius-medium: var(--glaze-radius-control);
+  --border-radius-big: 12px;
+  --border-radius-full: 9999px;
+  --border-radius-prompt-box: 12px;
+
+  /* Prompt box shadows */
+  --facelift-shadow-prompt: color-mix(in srgb, var(--ui-border-color) 50%, transparent) 0px 0px 0px 1px;
+  --facelift-shadow-prompt-focus: rgba(149, 157, 165, 0.2) 0px 8px 24px, var(--ui-border-color) 0px 0px 0px 1px;
+  --facelift-shadow-prompt-motion: var(--motion-productive-medium) var(--motion-timing-transition);
+
+  /* Primary — near-black CTA (default purple logo) */
+  --primary-color: #242424;
+  --primary-hover-color: #121212;
+  --text-color-on-primary: #ffffff;
+  --primary-on-secondary-color: var(--primary-color);
+  --primary-hover-on-secondary-color: var(--primary-hover-color);
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
+  --link-on-secondary-color: var(--link-color);
+
+  /* Brand — accessible logo purple (built on #9450FD) */
+  --brand-color: #792cdc;
+  --brand-hover-color: color-mix(in srgb, #000000 12%, var(--brand-color));
+  --text-color-on-brand: #ffffff;
+  --brand-selected-color: color-mix(in srgb, var(--brand-color) 10%, transparent);
+  --brand-selected-hover-color: color-mix(in srgb, var(--brand-color) 19%, transparent);
+
+  /* Semantic */
+  --positive-color: #166d30;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #cd0026;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Selected / highlight — tinted state layers */
+  --state-layer-color: #382d00;
+  --primary-selected-color: color-mix(in srgb, var(--state-layer-color) 11%, transparent);
+  --primary-selected-hover-color: color-mix(in srgb, var(--state-layer-color) 15%, transparent);
+  --primary-highlighted-color: color-mix(in srgb, var(--state-layer-color) 6%, transparent);
+  --primary-highlight-color: var(--primary-highlighted-color);
+  --color-highlight_blue: var(--primary-highlight-color);
+
+  /* Backgrounds — canvas lightest; shell + legacy surfaces one step darker */
+  --primary-background-color: #ffffff;
+  --primary-background-hover-color: color-mix(in srgb, var(--state-layer-color) 8%, transparent);
+  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--state-layer-color) 8%, transparent);
+  --primary-surface-color: #f5f4ef;
+  --secondary-background-color: #fefefd;
+  --allgrey-background-color: #f6f5f1;
+  --grey-background-color: #f8f7f3;
+  --ui-background-color: #edebe3;
+  --ui-background-hover-color: color-mix(in srgb, var(--state-layer-color) 8%, transparent);
+  --dark-background-color: #fefdfd;
+  --modal-background-color: #fefdfd;
+  --dialog-background-color: #fefdfd;
+  --disabled-background-color: #f5f3ee;
+  --label-background-color: #fcfcfa;
+  --pulse-background-color: var(--secondary-background-color);
+  --pulse-background-color-opacity: color-mix(in srgb, var(--secondary-background-color) 50%, transparent);
+
+  /* Borders */
+  --layout-border-color: #e8e6de;
+  --ui-border-color: #94908c;
+  --glaze-input-focus-border-color: var(--ui-border-color);
+
+  /* Text & icons */
+  --primary-text-color: #242424;
+  --secondary-text-color: #6e6e6e;
+  --icon-color: #6e6e6e;
+  --glaze-icon-color-primary: var(--icon-color);
+  --glaze-icon-color-secondary: var(--icon-color);
+  --icon-hover: #636363;
+  --placeholder-color: #6d6a67;
+  --link-color: #3543fc;
+  --text-color-on-inverted: #ffffff;
+  --inverted-color-background: #242424;
+
+  /* Kitchen sink extras — rail selection follows the selected state layers */
+  --glaze-rail-selected-color: var(--primary-selected-color);
+  --glaze-rail-selected-hover-color: var(--primary-selected-hover-color);
+  --glaze-layout-gap: var(--space-8);
+  --glaze-shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --glaze-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --glaze-shadow-small: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --glaze-border-hairline: rgba(0, 0, 0, 0.04);
+  --glaze-brand-done: #00ca72;
+  --glaze-brand-working: #fdab3d;
+  --glaze-brand-stuck: #df2f4a;
+  --glaze-brand-bright-blue: #579bfc;
+  --glaze-brand-dark-blue: #007eb5;
+  --glaze-brand-dark-purple: #784bd1;
+  --glaze-brand-purple: #9d50dd;
+  --glaze-brand-lipstick: #ff5ac4;
+  --glaze-brand-sunset: #ff7575;
+  --glaze-brand-dark-orange: #ff6d3b;
+  --glaze-brand-egg-yolk: #ffcb00;
+  --glaze-brand-private: #f65f7c;
+
+  /* Scrim — matches inverted charcoal */
+  --app-scrim-color: rgba(50, 49, 46, 0.55);
+
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+
+  /* RGB companions (for rgba() usage) */
+  --primary-selected-color-rgb: 233, 232, 227;
+  --primary-background-color-rgb: 255, 255, 255;
+  --secondary-background-color-rgb: 254, 254, 253;
+  --pulse-background-color-rgb: var(--secondary-background-color-rgb);
+  --color-highlight_blue-rgb: 243, 242, 240;
+}
+
+/* ============================== DARK ================================ */
+body.facelift-dark-app-theme {
+  --border-radius-small: 6px;
+  --border-radius-medium: 8px;
+  --border-radius-big: 12px;
+  --border-radius-full: 9999px;
+  --border-radius-prompt-box: 12px;
+
+  --facelift-shadow-prompt: var(--layout-border-color) 0px 0px 0px 1px;
+  --facelift-shadow-prompt-focus: rgba(149, 157, 165, 0.2) 0px 8px 24px, var(--ui-border-color) 0px 0px 0px 1px;
+  --facelift-shadow-prompt-motion: var(--motion-productive-medium) var(--motion-timing-transition);
+
+  --positive-color: #2aad52;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #ff4e61;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Primary — white CTA (default purple logo) */
+  --primary-color: #ffffff;
+  --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
+  --text-color-on-primary: #201e24;
+  --primary-on-secondary-color: var(--primary-color);
+  --primary-hover-on-secondary-color: var(--primary-hover-color);
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
+  --link-on-secondary-color: var(--link-color);
+
+  /* Brand — accessible logo purple, lighter step for dark */
+  --brand-color: #c48fff;
+  --brand-hover-color: color-mix(in srgb, var(--text-color-on-brand) 8%, var(--brand-color));
+  --text-color-on-brand: #201e24;
+  --brand-selected-color: color-mix(in srgb, var(--brand-color) 10%, transparent);
+  --brand-selected-hover-color: color-mix(in srgb, var(--brand-color) 19%, transparent);
+
+  --text-color-on-inverted: #1a1814;
+
+  /* Surfaces */
+  --primary-surface-color: #201f1e;
+  --dark-background-color: #242321;
+  --grey-background-color: #201f1e;
+  --allgrey-background-color: #201f1e;
+  --primary-background-color: #181716;
+  --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --secondary-background-color: #1c1b19;
+  --ui-background-color: #201f1d;
+  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --modal-background-color: #242321;
+  --dialog-background-color: #242321;
+  --disabled-background-color: #242321;
+  --label-background-color: #242321;
+  --pulse-background-color: var(--secondary-background-color);
+  --pulse-background-color-opacity: color-mix(in srgb, var(--secondary-background-color) 50%, transparent);
+
+  --inverted-color-background: #e9e6e1;
+  --primary-text-color: #e7e4df;
+  --secondary-text-color: #c0bdb8;
+  --icon-color: #b0ada9;
+  --facelift-icon-color-primary: #a19f9a;
+  --facelift-icon-color-secondary: #8d8b86;
+  --glaze-icon-color-primary: var(--facelift-icon-color-primary);
+  --glaze-icon-color-secondary: var(--facelift-icon-color-secondary);
+  --icon-hover: #bab7b2;
+  --placeholder-color: #a19e99;
+  --link-color: #8a9aff;
+  --ui-border-color: #8f9098;
+  --layout-border-color: #302f2e;
+  --facelift-input-focus-border-color: #6d6a66;
+  --glaze-input-focus-border-color: var(--facelift-input-focus-border-color);
+  --facelift-rail-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --facelift-rail-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 12%, var(--primary-background-color));
+  --glaze-rail-selected-color: var(--facelift-rail-selected-color);
+  --glaze-rail-selected-hover-color: var(--facelift-rail-selected-hover-color);
+  --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 11%, transparent);
+  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
+  --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
+  --primary-highlight-color: var(--primary-highlighted-color);
+  --color-highlight_blue: var(--primary-highlight-color);
+
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
+
+  /* RGB companions */
+  --primary-selected-color-rgb: 47, 46, 44;
+  --primary-background-color-rgb: 24, 23, 22;
+  --secondary-background-color-rgb: 28, 27, 25;
+  --pulse-background-color-rgb: var(--secondary-background-color-rgb);
+  --color-highlight_blue-rgb: 36, 35, 34;
+}
+
+/* ============================== BLACK ================================ */
+body.facelift-black-app-theme {
+  --border-radius-small: 6px;
+  --border-radius-medium: 8px;
+  --border-radius-big: 12px;
+  --border-radius-full: 9999px;
+  --border-radius-prompt-box: 12px;
+
+  --facelift-shadow-prompt: var(--layout-border-color) 0px 0px 0px 1px;
+  --facelift-shadow-prompt-focus: rgba(149, 157, 165, 0.2) 0px 8px 24px, var(--ui-border-color) 0px 0px 0px 1px;
+  --facelift-shadow-prompt-motion: var(--motion-productive-medium) var(--motion-timing-transition);
+
+  --positive-color: #35c060;
+  --positive-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--positive-color));
+  --negative-color: #ff7d8d;
+  --negative-color-hover: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--negative-color));
+
+  /* Primary — white CTA (default purple logo) */
+  --primary-color: #ffffff;
+  --primary-hover-color: color-mix(in srgb, var(--text-color-on-primary) 8%, var(--primary-color));
+  --text-color-on-primary: #201e24;
+  --primary-on-secondary-color: var(--primary-color);
+  --primary-hover-on-secondary-color: var(--primary-hover-color);
+  --primary-selected-on-secondary-color: var(--primary-selected-color);
+  --link-on-secondary-color: var(--link-color);
+
+  /* Brand — accessible logo purple, lighter step for black */
+  --brand-color: #c48fff;
+  --brand-hover-color: color-mix(in srgb, var(--text-color-on-brand) 8%, var(--brand-color));
+  --text-color-on-brand: #201e24;
+  --brand-selected-color: color-mix(in srgb, var(--brand-color) 10%, transparent);
+  --brand-selected-hover-color: color-mix(in srgb, var(--brand-color) 19%, transparent);
+
+  --text-color-on-inverted: #0c0a07;
+
+  /* Surfaces */
+  --primary-surface-color: #111111;
+  --dark-background-color: #3c3c3c;
+  --grey-background-color: #111111;
+  --allgrey-background-color: #111111;
+  --primary-background-color: #010101;
+  --primary-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --primary-background-hover-on-secondary-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --secondary-background-color: #0f0f0f;
+  --ui-background-color: #2f2f2f;
+  --ui-background-hover-color: color-mix(in srgb, var(--primary-text-color) 8%, transparent);
+  --modal-background-color: #3c3c3c;
+  --dialog-background-color: #3c3c3c;
+  --disabled-background-color: #3f3f3f;
+  --label-background-color: #3c3c3c;
+  --pulse-background-color: var(--secondary-background-color);
+  --pulse-background-color-opacity: color-mix(in srgb, var(--secondary-background-color) 50%, transparent);
+
+  --inverted-color-background: #ece9e4;
+  --primary-text-color: #e7e4df;
+  --secondary-text-color: #bdbab6;
+  --icon-color: #bdbab6;
+  --facelift-icon-color-primary: #bdbab6;
+  --facelift-icon-color-secondary: #bdbab6;
+  --glaze-icon-color-primary: var(--facelift-icon-color-primary);
+  --glaze-icon-color-secondary: var(--facelift-icon-color-secondary);
+  --icon-hover: #dfdcd7;
+  --placeholder-color: #a9a5a1;
+  --link-color: #a4b0ff;
+  --ui-border-color: #8f9098;
+  --layout-border-color: #4a4844;
+  --facelift-input-focus-border-color: #a5a39e;
+  --glaze-input-focus-border-color: var(--facelift-input-focus-border-color);
+  --facelift-rail-selected-color: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --facelift-rail-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 12%, var(--primary-background-color));
+  --glaze-rail-selected-color: var(--facelift-rail-selected-color);
+  --glaze-rail-selected-hover-color: var(--facelift-rail-selected-hover-color);
+  --primary-selected-color: color-mix(in srgb, var(--primary-text-color) 11%, transparent);
+  --primary-selected-hover-color: color-mix(in srgb, var(--primary-text-color) 15%, transparent);
+  --primary-highlighted-color: color-mix(in srgb, var(--primary-text-color) 6%, transparent);
+  --primary-highlight-color: var(--primary-highlighted-color);
+  --color-highlight_blue: var(--primary-highlight-color);
+
+  /* Semantic surfaces — 8% tint on solid fill */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
+  --surface-info: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --text-on-surface-primary: var(--primary-color);
+  --text-on-surface-positive: var(--positive-color);
+  --text-on-surface-negative: var(--negative-color);
+  --text-on-surface-warning: var(--warning-color);
+  --text-on-surface-neutral: var(--primary-text-color);
+  --text-on-surface-info: var(--primary-color);
+
+  /* RGB companions */
+  --primary-selected-color-rgb: 26, 26, 25;
+  --primary-background-color-rgb: 1, 1, 1;
+  --secondary-background-color-rgb: 15, 15, 15;
+  --pulse-background-color-rgb: var(--secondary-background-color-rgb);
+  --color-highlight_blue-rgb: 15, 15, 14;
+}

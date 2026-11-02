@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
-  border-radius: var(--border-radius-small);
+  border-radius: 6px;
   color: var(--primary-text-color);
   cursor: pointer;
   @include focus-style-inset();
@@ -21,15 +21,6 @@
 
   &.readOnly {
     cursor: default;
-  }
-
-  &.selected {
-    background-color: var(--primary-selected-color);
-
-    &.highlighted,
-    &:hover:not(.disabled):not(.readOnly) {
-      background-color: var(--primary-selected-hover-color);
-    }
   }
 
   &.small {
@@ -57,5 +48,12 @@
     padding-inline-start: var(--spacing-small);
     margin-inline-start: auto;
     display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .selectedCheck {
+    flex-shrink: 0;
+    color: var(--icon-color);
   }
 }

@@ -44,12 +44,12 @@ describe("<Button />", () => {
       expect(container.firstChild).toBeEmptyDOMElement();
     });
 
-    it("should add leftIcon className when children are renderable", () => {
+    it("should add hasLeftIcon className when children are renderable", () => {
       const { getByTestId } = render(<Button leftIcon="icon">Child</Button>);
-      expect(getByTestId("icon")).toHaveClass("leftIcon");
+      expect(getByTestId("button")).toHaveClass("hasLeftIcon");
     });
 
-    it("should not add leftIcon className when children are non-renderable", () => {
+    it("should not add hasLeftIcon className when children are non-renderable", () => {
       const { getByTestId } = render(
         <Button leftIcon="icon">
           {false}
@@ -57,7 +57,7 @@ describe("<Button />", () => {
           {undefined}
         </Button>
       );
-      expect(getByTestId("icon")).not.toHaveClass("leftIcon");
+      expect(getByTestId("button")).not.toHaveClass("hasLeftIcon");
     });
   });
 
