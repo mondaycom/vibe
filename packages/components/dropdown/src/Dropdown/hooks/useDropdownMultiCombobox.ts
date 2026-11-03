@@ -89,6 +89,9 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     itemToString: item => item?.label ?? "",
     itemToKey: item => (item?.value !== undefined ? String(item.value) : ""),
     isItemDisabled: item => Boolean(item.disabled),
+    // The selection lives in useMultipleSelection. Keeping combobox's own selectedItem null makes
+    // every click fire onSelectedItemChange, so re-clicking the last picked option toggles it off.
+    selectedItem: null,
     isOpen: isMenuOpen,
     initialIsOpen: autoFocus,
     initialInputValue: inputValueProp ?? "",
