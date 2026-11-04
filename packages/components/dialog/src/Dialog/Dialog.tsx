@@ -165,7 +165,7 @@ function Dialog({
     middleware: floatingMiddleware,
     whileElementsMounted: isPositioningActive ? whileElementsMounted : undefined,
     elements: {
-      reference: referenceElement
+      reference: isPositioningActive ? referenceElement : null
     }
   });
 
