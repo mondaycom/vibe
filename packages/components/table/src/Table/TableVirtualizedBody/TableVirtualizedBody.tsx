@@ -7,7 +7,7 @@ import { useTable } from "../context/TableContext/TableContext";
 import cx from "classnames";
 import { RowHeights } from "../Table/TableConsts";
 import AutoSizer, { type Size as AutoSizerSize } from "react-virtualized-auto-sizer";
-import { useTableRowMenu } from "../context/TableRowMenuContext/TableRowMenuContext";
+import { useTableRowMenuCallbacks } from "../context/TableRowMenuContext/TableRowMenuContext";
 import { type TableColumn } from "../Table/Table";
 
 export type TableVirtualizedRow = Record<string, unknown> & { id: string };
@@ -74,7 +74,7 @@ const TableVirtualizedBody = forwardRef(
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
     const { size, virtualizedListRef, onVirtualizedListScroll, markTableAsVirtualized, dataState } = useTable();
-    const { resetHoveredRow } = useTableRowMenu();
+    const { resetHoveredRow } = useTableRowMenuCallbacks();
     const virtualizedWithHeader = !!columns && !!headerRenderer;
     const { isLoading } = dataState || {};
 
