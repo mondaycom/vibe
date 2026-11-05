@@ -430,4 +430,39 @@ describe("Modal", () => {
       expect(getByRole("dialog")).not.toHaveAttribute("aria-describedby");
     });
   });
+
+  describe("anchor measurement", () => {
+    const rect = { left: 100, top: 200, width: 40, height: 20, right: 140, bottom: 220, x: 100, y: 200 } as DOMRect;
+
+    const renderWithAnchor = (show: boolean, anchor: HTMLElement, extra: React.ReactNode = null) => (
+      <>
+        <Modal id={id} show={show} onClose={() => {}} anchorElementRef={{ current: anchor }}>
+          {childrenContent}
+        </Modal>
+        {extra}
+      </>
+    );
+
+    it("should not measure the anchor while the modal is closed", () => {
+      const anchor = document.createElement("button");
+      const spy = vi.spyOn(anchor, "getBoundingClientRect").mockReturnValue(rect);
+      const { rerender } = render(renderWithAnchor(false, anchor));
+      rerender(renderWithAnchor(false, anchor, <span>parent update</span>));
+      expect(spy).not.toHaveBeenCalled();
+    });
+
+    it("should measure once on open and set the animation start position", () => {
+      const anchor = document.createElement("button");
+      const spy = vi.spyOn(anchor, "getBoundingClientRect").mockReturnValue(rect);
+      const { rerender, getByRole } = render(renderWithAnchor(false, anchor));
+
+      rerender(renderWithAnchor(true, anchor));
+      rerender(renderWithAnchor(true, anchor, <span>parent update</span>));
+
+      expect(spy).toHaveBeenCalledTimes(1);
+      const dialog = getByRole("dialog");
+      expect(dialog.style.getPropertyValue("--modal-start-x")).toBe("120px");
+      expect(dialog.style.getPropertyValue("--modal-start-y")).toBe("210px");
+    });
+  });
 });
