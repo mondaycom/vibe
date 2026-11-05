@@ -226,7 +226,8 @@ const EditableTypography = forwardRef(
     }, [autoSelectTextOnEditMode, isEditing]);
 
     useIsomorphicLayoutEffect(() => {
-      if (!typographyRef.current) {
+      // The input only exists in edit mode, so skip the measurement (and the forced layout it causes) otherwise
+      if (!isEditing || !typographyRef.current || !inputRef.current) {
         return;
       }
 

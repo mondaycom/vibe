@@ -1,4 +1,4 @@
-import { vi, afterEach, describe, it, expect } from "vitest";
+import { vi, afterEach, beforeEach, describe, it, expect } from "vitest";
 import React from "react";
 import { fireEvent, render, cleanup, screen, within } from "@testing-library/react";
 import EditableTypography from "../EditableTypography";
@@ -113,5 +113,42 @@ describe("EditableTypography - IME composition with onKeyDown", () => {
 
     expect(within(screen.getByRole("button")).getByText("Editable text")).toBeInTheDocument();
     expect(onChange).not.toHaveBeenCalled();
+  });
+});
+
+describe("EditableTypography - input size measurement", () => {
+  let measuredElements: Element[] = [];
+
+  beforeEach(() => {
+    measuredElements = [];
+    vi.spyOn(Element.prototype, "getBoundingClientRect").mockImplementation(function (this: Element) {
+      measuredElements.push(this);
+      return { width: 120, height: 20, top: 0, left: 0, right: 120, bottom: 20, x: 0, y: 0, toJSON: () => {} };
+    });
+  });
+
+  afterEach(() => {
+    cleanup();
+    vi.restoreAllMocks();
+  });
+
+  it("should not measure the typography while not in edit mode", () => {
+    const { rerender } = render(
+      <EditableTypography value="Editable text" component={Text} typographyClassName="typography" />
+    );
+    rerender(<EditableTypography value="Updated text" component={Text} typographyClassName="typography" />);
+
+    const typography = screen.getByText("Updated text");
+    expect(measuredElements).not.toContain(typography);
+  });
+
+  it("should size the input from the typography when entering edit mode", () => {
+    render(<EditableTypography value="Editable text" component={Text} typographyClassName="typography" />);
+    const typography = screen.getByText("Editable text");
+
+    fireEvent.click(screen.getByRole("button"));
+
+    expect(measuredElements).toContain(typography);
+    expect(screen.getByRole("input").style.getPropertyValue("--input-width")).toBe("120px");
   });
 });

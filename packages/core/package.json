@@ -1,6 +1,6 @@
 {
   "name": "@vibe/core",
-  "version": "4.5.38",
+  "version": "4.5.39",
   "description": "Official monday.com UI resources for application development in React.js",
   "repository": {
     "type": "git",
@@ -112,7 +112,7 @@
     "@vibe/dialog": "4.1.17",
     "@vibe/divider": "4.0.8",
     "@vibe/dropdown": "4.2.1",
-    "@vibe/editable": "4.0.15",
+    "@vibe/editable": "4.0.16",
     "@vibe/empty-state": "4.0.8",
     "@vibe/expand-collapse": "4.0.17",
     "@vibe/formatted-number": "4.0.8",
