@@ -50,7 +50,9 @@ jobs:
   testkit-tests:
     name: Testkit Unit Tests
     if: ${{ inputs.has_changes == 'true' }}
-    runs-on: ubuntu-latest
+    # Pinned: `playwright install --with-deps` (Playwright 1.57) fails on Ubuntu 26.04, which ubuntu-latest is migrating to
+    # (https://github.com/actions/runner-images/issues/14748). Unpin after upgrading Playwright to a version that supports 26.04.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
