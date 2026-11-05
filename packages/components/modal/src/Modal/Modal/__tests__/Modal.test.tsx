@@ -464,5 +464,36 @@ describe("Modal", () => {
       expect(dialog.style.getPropertyValue("--modal-start-x")).toBe("120px");
       expect(dialog.style.getPropertyValue("--modal-start-y")).toBe("210px");
     });
+
+    it("should keep measuring while open until the anchor is available", () => {
+      const anchor = document.createElement("button");
+      const spy = vi.spyOn(anchor, "getBoundingClientRect").mockReturnValue(rect);
+      const anchorRef: React.MutableRefObject<HTMLElement | null> = { current: null };
+      const renderModal = (extra: React.ReactNode = null) => (
+        <>
+          <Modal id={id} show onClose={() => {}} anchorElementRef={anchorRef}>
+            {childrenContent}
+          </Modal>
+          {extra}
+        </>
+      );
+      const { rerender, getByRole } = render(renderModal());
+
+      anchorRef.current = anchor;
+      rerender(renderModal(<span>update 1</span>));
+      rerender(renderModal(<span>update 2</span>));
+
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(getByRole("dialog").style.getPropertyValue("--modal-start-x")).toBe("120px");
+    });
+
+    it("should measure again when the modal is reopened", () => {
+      const anchor = document.createElement("button");
+      const spy = vi.spyOn(anchor, "getBoundingClientRect").mockReturnValue(rect);
+      const { rerender } = render(renderWithAnchor(true, anchor));
+      rerender(renderWithAnchor(false, anchor));
+      rerender(renderWithAnchor(true, anchor));
+      expect(spy).toHaveBeenCalledTimes(2);
+    });
   });
 });
