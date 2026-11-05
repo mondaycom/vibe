@@ -39,11 +39,17 @@ const MenuItemSubMenu = ({
   } = useFloating({
     placement,
     middleware: [flip({ fallbackPlacements: DEFAULT_FALLBACK_PLACEMENTS }), shift()],
+    open,
     elements: {
       reference: anchorRef?.current
     },
-    whileElementsMounted: (reference, floating, update) =>
-      autoUpdate(reference, floating, update, { animationFrame: !!autoAdjustOnSubMenuContentResize })
+    // The wrapper stays mounted while the submenu is closed, so only track position while it is open.
+    // Otherwise every closed submenu keeps listening to scroll/resize (or runs a rAF loop with
+    // autoAdjustOnSubMenuContentResize) and re-measures its anchor for a position nobody sees.
+    whileElementsMounted: open
+      ? (reference, floating, update) =>
+          autoUpdate(reference, floating, update, { animationFrame: !!autoAdjustOnSubMenuContentResize })
+      : undefined
   });
 
   const subMenu: MenuChild = children && React.Children.only(children);

@@ -1,10 +1,16 @@
-import { vi, describe, it, expect } from "vitest";
+import { vi, describe, it, expect, beforeEach } from "vitest";
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { autoUpdate } from "@floating-ui/react-dom";
 import MenuItemSubMenu from "../MenuItemSubMenu";
 // import { MenuChild } from "../../../../Menu/MenuConstants";
 import { type MenuProps } from "../../../../Menu/Menu";
+
+vi.mock("@floating-ui/react-dom", async importOriginal => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return { ...actual, autoUpdate: vi.fn(() => vi.fn()) };
+});
 
 const mockConsoleError = () => {
   const originalConsoleError = console.error;
@@ -68,5 +74,46 @@ describe("MenuItemSubMenu", () => {
       </MenuItemSubMenu>
     );
     expect(container).toBeEmptyDOMElement();
+  });
+
+  describe("position tracking", () => {
+    beforeEach(() => {
+      vi.mocked(autoUpdate).mockClear();
+    });
+
+    it("should not track the position while closed", () => {
+      const mockAnchor = document.createElement("div");
+      render(
+        <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open={false}>
+          <MockMenuChild />
+        </MenuItemSubMenu>
+      );
+      expect(autoUpdate).not.toHaveBeenCalled();
+    });
+
+    it("should start tracking when opened and stop when closed", () => {
+      const mockAnchor = document.createElement("div");
+      const cleanup = vi.fn();
+      vi.mocked(autoUpdate).mockReturnValue(cleanup);
+      const { rerender } = render(
+        <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open={false}>
+          <MockMenuChild />
+        </MenuItemSubMenu>
+      );
+
+      rerender(
+        <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open>
+          <MockMenuChild />
+        </MenuItemSubMenu>
+      );
+      expect(autoUpdate).toHaveBeenCalledTimes(1);
+
+      rerender(
+        <MenuItemSubMenu anchorRef={{ current: mockAnchor }} open={false}>
+          <MockMenuChild />
+        </MenuItemSubMenu>
+      );
+      expect(cleanup).toHaveBeenCalledTimes(1);
+    });
   });
 });
