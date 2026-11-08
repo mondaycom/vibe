@@ -37,6 +37,7 @@ const DropdownInput = ({
     inputAriaLabel,
     "aria-label": ariaLabel,
     searchable,
+    searchInMenu,
     size,
     label,
     isOpen,
@@ -66,7 +67,7 @@ const DropdownInput = ({
 
   return (
     <>
-      {searchable ? (
+      {searchable && !searchInMenu ? (
         <>
           <BaseInput
             {...getInputProps({

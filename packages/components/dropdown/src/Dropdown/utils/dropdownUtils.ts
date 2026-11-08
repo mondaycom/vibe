@@ -50,3 +50,15 @@ export function normalizeOptions<Item extends BaseItemData>(
         }
       ];
 }
+
+export function isSearchInMenu({
+  searchable,
+  searchPlacement,
+  boxMode
+}: {
+  searchable?: boolean;
+  searchPlacement?: "trigger" | "menu";
+  boxMode?: boolean;
+}): boolean {
+  return Boolean(searchable && searchPlacement === "menu" && !boxMode);
+}

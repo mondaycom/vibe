@@ -7,6 +7,7 @@ import { useDropdownContext } from "../../context/DropdownContext";
 import { Flex } from "@vibe/layout";
 import TriggerActions from "./TriggerActions";
 import { getStyle } from "@vibe/shared";
+import useTriggerToggleProps from "./useTriggerToggleProps";
 
 const SingleSelectTrigger = () => {
   const {
@@ -14,47 +15,30 @@ const SingleSelectTrigger = () => {
     isFocused,
     selectedItem,
     searchable,
+    searchInMenu,
     size,
     valueRenderer,
-    getToggleButtonProps,
     disabled,
-    readOnly,
-    error,
-    label,
-    getLabelProps,
-    "aria-label": ariaLabel,
-    helperTextId,
     inlineSelectedValue
   } = useDropdownContext<BaseItemData>();
+  const toggleProps = useTriggerToggleProps();
+  const inputInTrigger = searchable && !searchInMenu;
 
   // inlineSelectedValue puts the selected label inside the input, so the overlay only renders for
   // non-searchable single select. Without it (default), the selection is shown via the overlay —
   // including in searchable mode, faded while the input is focused (the original behavior).
-  const showSelectedOverlay = (inlineSelectedValue ? !searchable : !inputValue) && !!selectedItem;
+  const showSelectedOverlay = !!selectedItem && (!inputInTrigger || (!inlineSelectedValue && !inputValue));
 
   return (
     <Flex justify="space-between" align="center">
-      <div
-        className={cx(styles.triggerWrapper, getStyle(styles, size))}
-        {...(!searchable
-          ? getToggleButtonProps({
-              "aria-haspopup": "dialog",
-              "aria-labelledby": label ? getLabelProps().id : undefined,
-              "aria-label": label ? undefined : ariaLabel,
-              "aria-describedby": helperTextId,
-              "aria-disabled": disabled ? "true" : undefined,
-              "aria-invalid": error ? "true" : undefined,
-              "aria-readonly": readOnly ? "true" : undefined
-            })
-          : {})}
-      >
+      <div className={cx(styles.triggerWrapper, getStyle(styles, size))} {...toggleProps}>
         <DropdownInput />
 
         {showSelectedOverlay && (
           <div
             className={cx(
               styles.selectedItem,
-              { [styles.faded]: !inlineSelectedValue && isFocused && searchable },
+              { [styles.faded]: !inlineSelectedValue && isFocused && inputInTrigger },
               getStyle(styles, size)
             )}
           >

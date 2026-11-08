@@ -9,6 +9,7 @@ import styles from "./Trigger.module.scss";
 import { getStyle } from "@vibe/shared";
 import cx from "classnames";
 import DropdownChip from "./DropdownChip";
+import useTriggerToggleProps from "./useTriggerToggleProps";
 
 const MultiSelectTrigger = () => {
   const {
@@ -18,23 +19,20 @@ const MultiSelectTrigger = () => {
     multiline,
     disabled,
     readOnly,
-    error,
     size,
     searchable,
-    getToggleButtonProps,
-    label,
-    getLabelProps,
-    "aria-label": ariaLabel,
+    searchInMenu,
     minVisibleCount,
-    interactiveChips,
-    helperTextId
+    interactiveChips
   } = useDropdownContext<BaseItemData>();
+  const toggleProps = useTriggerToggleProps();
+  const inputInTrigger = searchable && !searchInMenu;
 
   const showChips = selectedItems.length > 0;
   const overflowBadgeRef = useRef<HTMLDivElement>(null);
 
   const renderTriggerContent = () => {
-    if (interactiveChips && searchable && !readOnly) {
+    if (interactiveChips && inputInTrigger && !readOnly) {
       if (selectedItems.length === 0) {
         return <DropdownInput />;
       }
@@ -78,7 +76,7 @@ const MultiSelectTrigger = () => {
               onRemove={item => {
                 contextOnOptionRemove?.(item);
               }}
-              renderInput={searchable ? () => <DropdownInput inputSize="small" fullWidth /> : undefined}
+              renderInput={inputInTrigger ? () => <DropdownInput inputSize="small" fullWidth /> : undefined}
               minVisibleCount={minVisibleCount}
             />
           ) : (
@@ -110,20 +108,7 @@ const MultiSelectTrigger = () => {
 
   return (
     <Flex justify="space-between" align="center">
-      <div
-        className={cx(styles.triggerWrapper, getStyle(styles, size))}
-        {...(!searchable
-          ? getToggleButtonProps({
-              "aria-haspopup": "dialog",
-              "aria-labelledby": label ? getLabelProps().id : undefined,
-              "aria-label": label ? undefined : ariaLabel,
-              "aria-describedby": helperTextId,
-              "aria-disabled": disabled ? "true" : undefined,
-              "aria-invalid": error ? "true" : undefined,
-              "aria-readonly": readOnly ? "true" : undefined
-            })
-          : {})}
-      >
+      <div className={cx(styles.triggerWrapper, getStyle(styles, size))} {...toggleProps}>
         {renderTriggerContent()}
       </div>
       <TriggerActions />

@@ -5,3 +5,13 @@
 .menuHidden {
   visibility: hidden;
 }
+
+.searchMenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+
+  &.closed .menuSearch {
+    display: none;
+  }
+}

@@ -135,6 +135,12 @@ The dropdown can also function as a search for a specific item within the list.
 
 <Canvas of={DropdownBasicDropdownStories.Searchable} />
 
+### Search inside the menu
+
+Set <code>searchPlacement="menu"</code> on a searchable dropdown to keep the trigger showing the selected value and render the search field at the top of the opened menu. Opening the menu moves focus to the search field; closing it with <code>Escape</code> or by selecting an option returns focus to the trigger. Has no effect in box mode.
+
+<Canvas of={DropdownBasicDropdownStories.SearchInMenu} />
+
 ### Dropdown with groups
 
 Dropdown can be organized into groups, either with titled sections or dividers. Group titles can be configured to remain sticky or non-sticky.

@@ -4,6 +4,7 @@ import useDropdownCombobox from "../hooks/useDropdownCombobox";
 import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
+import { isSearchInMenu } from "../utils/dropdownUtils";
 
 const DropdownComboboxController = <Item extends BaseItemData<Record<string, unknown>>>(
   props: DropdownSingleControllerProps<Item>
@@ -41,6 +42,7 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+  const searchInMenu = isSearchInMenu({ searchable, searchPlacement: props.searchPlacement, boxMode });
 
   const handleOptionSelect = (item: Item | null) => {
     onOptionSelect?.(item);
@@ -61,7 +63,8 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
     reset: hookReset,
     filteredOptions,
     selectedItem: hookSelectedItem,
-    toggleMenu
+    toggleMenu,
+    focusToggleButton
   } = useDropdownCombobox<Item>(
     options,
     boxMode ? undefined : isMenuOpenProp,
@@ -78,7 +81,8 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
     filterOption,
     showSelectedOptions,
     id,
-    inlineSelectedValue
+    inlineSelectedValue && !searchInMenu,
+    searchInMenu
   );
 
   const contextValue: DropdownContextProps<Item> = {
@@ -128,6 +132,7 @@ const DropdownComboboxController = <Item extends BaseItemData<Record<string, unk
     closeMenuOnSelect,
     size,
     toggleMenu,
+    focusTrigger: focusToggleButton,
     loading
   };
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
