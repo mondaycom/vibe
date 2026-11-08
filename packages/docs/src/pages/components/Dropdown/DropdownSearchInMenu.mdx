@@ -1,0 +1,106 @@
+import { Meta } from "@storybook/blocks";
+import * as DropdownSearchInMenuStories from "./DropdownSearchInMenu.stories";
+
+<Meta of={DropdownSearchInMenuStories} />
+
+# Dropdown search in menu
+
+A searchable dropdown whose search field is rendered at the top of the opened menu instead of in the trigger. The trigger keeps showing the selected value (or placeholder), so the field looks the same as a regular dropdown until it's opened. Enable it with <code>searchable</code> and <code>searchPlacement="menu"</code>.
+
+<Canvas of={DropdownSearchInMenuStories.Overview} />
+
+### Import
+
+```js
+import { Dropdown } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use when the list is long enough to need search, but the field should keep showing the selected value like a regular dropdown.",
+    'Use the default trigger search (searchPlacement="trigger") when typing directly into the field is the main interaction.',
+    "searchPlacement has no effect in box mode, where the search is always shown above the list."
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      The trigger is a button (<code>aria-haspopup="listbox"</code>). It opens with click, <code>Enter</code>,{" "}
+      <code>Space</code>, <code>ArrowDown</code> or <code>ArrowUp</code>, and its accessible name includes the{" "}
+      <code>label</code> and the selected value (including all selected chips in multi select).
+    </>,
+    <>
+      Opening the menu moves focus to the search field. Arrow keys move through the options and <code>Enter</code>{" "}
+      selects.
+    </>,
+    <>
+      <code>Escape</code> or selecting an option closes the menu and returns focus to the trigger. <code>Tab</code> and{" "}
+      <code>Shift+Tab</code> close the menu and continue the tab order from the trigger.
+    </>,
+    <>
+      The search field is named by <code>inputAriaLabel</code>, falling back to <code>label</code> and then{" "}
+      <code>aria-label</code>.
+    </>
+  ]}
+/>
+
+## Variants
+
+### Single and multi select
+
+Multi select keeps the menu open between selections and shows the selected items as chips in the trigger.
+
+<Canvas of={DropdownSearchInMenuStories.SingleAndMulti} />
+
+### Sizes
+
+The search field matches the dropdown size: small (32px), medium (40px) and large (48px).
+
+<Canvas of={DropdownSearchInMenuStories.Sizes} />
+
+### States
+
+<Canvas of={DropdownSearchInMenuStories.States} />
+
+### Multi select chips
+
+Selected chips can be shown in a single line (with an overflow counter) or across multiple lines.
+
+<Canvas of={DropdownSearchInMenuStories.MultiSelect} />
+
+### With start element
+
+Options can include an icon or avatar. The selected option's start element is shown in the trigger.
+
+<Canvas of={DropdownSearchInMenuStories.WithStartElement} />
+
+## Use cases and examples
+
+### With groups
+
+<Canvas of={DropdownSearchInMenuStories.WithGroups} />
+
+### No results
+
+Use <code>noOptionsMessage</code> to customize the message shown when the search matches nothing.
+
+<Canvas of={DropdownSearchInMenuStories.NoResults} />
+
+### Long list
+
+Combine with <code>maxMenuHeight</code> so the list scrolls while the search field stays in place.
+
+<Canvas of={DropdownSearchInMenuStories.LongList} />
+
+## Related components
+
+<RelatedComponents componentsNames={["Dropdown", "Search", "Combobox"]} />

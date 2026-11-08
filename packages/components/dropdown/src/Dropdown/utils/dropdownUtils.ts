@@ -51,6 +51,17 @@ export function normalizeOptions<Item extends BaseItemData>(
       ];
 }
 
+export function getSelectedValueText(selectedItems: BaseItemData[]): string {
+  return selectedItems
+    .map(item => item.label || item.value || "")
+    .filter(Boolean)
+    .join(", ");
+}
+
+export function getSelectedValueId(labelId: string): string {
+  return `${labelId}-selected-value`;
+}
+
 export function isSearchInMenu({
   searchable,
   searchPlacement,

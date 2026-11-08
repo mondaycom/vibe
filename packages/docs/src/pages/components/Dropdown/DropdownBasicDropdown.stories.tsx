@@ -399,51 +399,6 @@ export const Searchable: Story = {
   }
 };
 
-export const SearchInMenu: Story = {
-  render: () => {
-    const options = useMemo(
-      () => [
-        { value: "apple", label: "Apple" },
-        { value: "banana", label: "Banana" },
-        { value: "cherry", label: "Cherry" },
-        { value: "grape", label: "Grape" },
-        { value: "mango", label: "Mango" },
-        { value: "orange", label: "Orange" }
-      ],
-      []
-    );
-
-    return (
-      <Flex gap="large" align="start">
-        <div style={{ width: "300px" }}>
-          <Dropdown
-            id="search-in-menu-single"
-            label="Single select"
-            placeholder="Select a fruit"
-            helperText="The search field is shown inside the menu"
-            options={options}
-            searchable
-            searchPlacement="menu"
-            clearAriaLabel="Clear"
-          />
-        </div>
-        <div style={{ width: "300px" }}>
-          <Dropdown
-            id="search-in-menu-multi"
-            label="Multi select"
-            placeholder="Select fruits"
-            options={options}
-            searchable
-            searchPlacement="menu"
-            multi
-            clearAriaLabel="Clear"
-          />
-        </div>
-      </Flex>
-    );
-  }
-};
-
 export const DropdownWithGroups: Story = {
   render: () => {
     const options = useMemo(

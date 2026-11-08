@@ -198,6 +198,27 @@ describe("Dropdown with searchPlacement='menu'", () => {
       expect(getSearchInput()).toHaveValue("");
     });
 
+    it("should include the selected chips in the trigger's accessible name", () => {
+      renderDropdown({ multi: true, defaultValue: [options[0], options[2]] } as Partial<
+        BaseDropdownProps<BaseItemData>
+      >);
+
+      expect(screen.getByRole("button", { name: "Fruit Apple, Cherry" })).toBeInTheDocument();
+    });
+
+    it("should describe the trigger with the selected chips when there is no visible label", () => {
+      renderDropdown({
+        multi: true,
+        label: undefined,
+        "aria-label": "Fruits",
+        defaultValue: [options[1]]
+      } as Partial<BaseDropdownProps<BaseItemData>>);
+
+      const trigger = screen.getByRole("button", { name: "Fruits", description: "Banana" });
+      expect(trigger).toHaveAttribute("aria-haspopup", "listbox");
+      expect(trigger).toHaveAccessibleDescription("Banana");
+    });
+
     it("should return focus to the trigger on Escape", () => {
       renderDropdown({ multi: true } as Partial<BaseDropdownProps<BaseItemData>>);
 

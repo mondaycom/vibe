@@ -10,6 +10,7 @@ import { getStyle } from "@vibe/shared";
 import cx from "classnames";
 import DropdownChip from "./DropdownChip";
 import useTriggerToggleProps from "./useTriggerToggleProps";
+import { getSelectedValueId, getSelectedValueText } from "../../utils/dropdownUtils";
 
 const MultiSelectTrigger = () => {
   const {
@@ -23,7 +24,8 @@ const MultiSelectTrigger = () => {
     searchable,
     searchInMenu,
     minVisibleCount,
-    interactiveChips
+    interactiveChips,
+    getLabelProps
   } = useDropdownContext<BaseItemData>();
   const toggleProps = useTriggerToggleProps();
   const inputInTrigger = searchable && !searchInMenu;
@@ -112,6 +114,11 @@ const MultiSelectTrigger = () => {
         {renderTriggerContent()}
       </div>
       <TriggerActions />
+      {searchInMenu && showChips && (
+        <span id={getSelectedValueId(getLabelProps().id)} className={styles.visuallyHidden}>
+          {getSelectedValueText(selectedItems)}
+        </span>
+      )}
     </Flex>
   );
 };
