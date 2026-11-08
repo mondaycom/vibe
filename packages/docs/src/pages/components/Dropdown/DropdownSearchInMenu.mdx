@@ -9,50 +9,6 @@ A searchable dropdown whose search field is rendered at the top of the opened me
 
 <Canvas of={DropdownSearchInMenuStories.Overview} />
 
-### Import
-
-```js
-import { Dropdown } from "@vibe/core";
-```
-
-## Props
-
-<PropsTable />
-
-## Usage
-
-<UsageGuidelines
-  guidelines={[
-    "Use when the list is long enough to need search, but the field should keep showing the selected value like a regular dropdown.",
-    'Use the default trigger search (searchPlacement="trigger") when typing directly into the field is the main interaction.',
-    "searchPlacement has no effect in box mode, where the search is always shown above the list."
-  ]}
-/>
-
-## Accessibility
-
-<UsageGuidelines
-  guidelines={[
-    <>
-      The trigger is a button (<code>aria-haspopup="listbox"</code>). It opens with click, <code>Enter</code>,{" "}
-      <code>Space</code>, <code>ArrowDown</code> or <code>ArrowUp</code>, and its accessible name includes the{" "}
-      <code>label</code> and the selected value (including all selected chips in multi select).
-    </>,
-    <>
-      Opening the menu moves focus to the search field. Arrow keys move through the options and <code>Enter</code>{" "}
-      selects.
-    </>,
-    <>
-      <code>Escape</code> or selecting an option closes the menu and returns focus to the trigger. <code>Tab</code> and{" "}
-      <code>Shift+Tab</code> close the menu and continue the tab order from the trigger.
-    </>,
-    <>
-      The search field is named by <code>inputAriaLabel</code>, falling back to <code>label</code> and then{" "}
-      <code>aria-label</code>.
-    </>
-  ]}
-/>
-
 ## Variants
 
 ### Single and multi select

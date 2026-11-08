@@ -1,7 +1,6 @@
 import { vi, describe, it, expect } from "vitest";
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, fireEvent, screen, within } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import { type BaseDropdownProps } from "../Dropdown.types";
 import { type BaseItemData } from "@vibe/base-list";
@@ -159,7 +158,10 @@ describe("Dropdown with searchPlacement='menu'", () => {
       const chevron = container.querySelector<HTMLButtonElement>(
         `button[aria-controls="${getTrigger().getAttribute("aria-controls")}"]`
       );
-      userEvent.click(chevron);
+      fireEvent.mouseDown(chevron);
+      chevron.focus();
+      fireEvent.mouseUp(chevron);
+      fireEvent.click(chevron);
 
       expect(getTrigger()).toHaveAttribute("aria-expanded", "false");
     });
@@ -204,6 +206,34 @@ describe("Dropdown with searchPlacement='menu'", () => {
       >);
 
       expect(screen.getByRole("button", { name: "Fruit Apple, Cherry" })).toBeInTheDocument();
+    });
+
+    it("should hide the chips' nested buttons from assistive tech and the tab order", () => {
+      renderDropdown({ multi: true, defaultValue: [options[0], options[1]] } as Partial<
+        BaseDropdownProps<BaseItemData>
+      >);
+
+      const trigger = getTrigger();
+      const chipsWrapper = trigger.querySelector('[aria-hidden="true"]');
+      expect(chipsWrapper).toContainElement(screen.getByTestId("dropdown-chip-apple"));
+      chipsWrapper.querySelectorAll("button, [tabindex]").forEach(element => {
+        expect(element).toHaveAttribute("tabindex", "-1");
+      });
+      expect(screen.queryByRole("button", { name: "Remove Apple" })).not.toBeInTheDocument();
+    });
+
+    it("should still remove a chip with the mouse", () => {
+      const onChange = vi.fn();
+      renderDropdown({
+        multi: true,
+        defaultValue: [options[0], options[1]],
+        onChange
+      } as Partial<BaseDropdownProps<BaseItemData>>);
+
+      fireEvent.click(within(screen.getByTestId("dropdown-chip-apple")).getByTestId("chip-close"));
+
+      expect(onChange).toHaveBeenLastCalledWith([expect.objectContaining({ value: "banana" })]);
+      expect(screen.getByRole("button", { name: "Fruit Banana" })).toBeInTheDocument();
     });
 
     it("should describe the trigger with the selected chips when there is no visible label", () => {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Flex } from "@vibe/layout";
 import MultiSelectedValues from "../MultiSelectedValues/MultiSelectedValues";
 import DropdownInput from "./DropdownInput";
@@ -32,6 +32,17 @@ const MultiSelectTrigger = () => {
 
   const showChips = selectedItems.length > 0;
   const overflowBadgeRef = useRef<HTMLDivElement>(null);
+  const chipsWrapperRef = useRef<HTMLDivElement>(null);
+
+  // With the search inside the menu, the trigger is a single button whose name already lists every
+  // selected value. The chips stay clickable for pointer users but are hidden from assistive tech and
+  // removed from the tab order, so screen readers don't announce the nested remove/overflow buttons.
+  useEffect(() => {
+    if (!searchInMenu) return;
+    chipsWrapperRef.current
+      ?.querySelectorAll<HTMLElement>("button, [tabindex]")
+      .forEach(element => element.setAttribute("tabindex", "-1"));
+  });
 
   const renderTriggerContent = () => {
     if (interactiveChips && inputInTrigger && !readOnly) {
@@ -69,7 +80,7 @@ const MultiSelectTrigger = () => {
     // Default chips mode: original behavior.
     if (showChips) {
       return (
-        <div className={styles.multiWrapper}>
+        <div ref={chipsWrapperRef} className={styles.multiWrapper} aria-hidden={searchInMenu ? "true" : undefined}>
           {!multiline ? (
             <MultiSelectedValues
               disabled={disabled}

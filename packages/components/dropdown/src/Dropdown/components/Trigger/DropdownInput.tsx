@@ -7,7 +7,6 @@ import { type BaseItemData } from "@vibe/base-list";
 import { Text } from "@vibe/typography";
 import { getSelectedValueId, getSelectedValueText } from "../../utils/dropdownUtils";
 
-
 const DropdownInput = ({
   inputSize,
   fullWidth,
