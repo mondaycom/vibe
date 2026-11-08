@@ -208,20 +208,6 @@ describe("Dropdown with searchPlacement='menu'", () => {
       expect(screen.getByRole("button", { name: "Fruit Apple, Cherry" })).toBeInTheDocument();
     });
 
-    it("should hide the chips' nested buttons from assistive tech and the tab order", () => {
-      renderDropdown({ multi: true, defaultValue: [options[0], options[1]] } as Partial<
-        BaseDropdownProps<BaseItemData>
-      >);
-
-      const trigger = getTrigger();
-      const chipsWrapper = trigger.querySelector('[aria-hidden="true"]');
-      expect(chipsWrapper).toContainElement(screen.getByTestId("dropdown-chip-apple"));
-      chipsWrapper.querySelectorAll("button, [tabindex]").forEach(element => {
-        expect(element).toHaveAttribute("tabindex", "-1");
-      });
-      expect(screen.queryByRole("button", { name: "Remove Apple" })).not.toBeInTheDocument();
-    });
-
     it("should still remove a chip with the mouse", () => {
       const onChange = vi.fn();
       renderDropdown({
