@@ -287,6 +287,96 @@ exports[`AvatarGroup renders correctly > renders correctly with counter default-
 </div>
 `;
 
+exports[`AvatarGroup renders correctly > renders correctly with counterAriaLabel 1`] = `
+<div
+  className="avatarGroupContainer"
+  data-vibe="AvatarGroup"
+>
+  <div
+    className="avatar large avatarContainer"
+    data-testid="avatar"
+    data-vibe="Avatar"
+    style={{}}
+  >
+    <div
+      className="clickable clickableWrapper disableTextSelection"
+      data-testid="clickable"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="button"
+      tabIndex={-1}
+    >
+      <div
+        aria-hidden={false}
+        className="circle circleText"
+        style={
+          {
+            "backgroundColor": "var(--color-chili-blue)",
+          }
+        }
+        tabIndex={0}
+      >
+        <span
+          className="contentText contentTextLarge"
+          data-testid="avatar-content"
+        >
+          P1
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer medium light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="3 more agents 2"
+      aria-labelledby=""
+      data-vibe="Counter"
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label="2"
+        className="counter sizeLarge kindFill colorLight"
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +2
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
 exports[`AvatarGroup renders correctly > renders correctly with custom counter tooltip 1`] = `
 <div
   className="avatarGroupContainer"
@@ -453,6 +543,35 @@ exports[`AvatarGroup renders correctly > renders correctly with custom counter v
         </span>
       </div>
     </div>
+  </div>
+  <div
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer medium light"
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 13"
+      aria-labelledby=""
+      data-vibe="Counter"
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label="13"
+        className="counter sizeLarge kindFill colorLight"
+      >
+        <span
+          data-testid="counter"
+          id="counter"
+        >
+          +13
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
   </div>
 </div>
 `;
