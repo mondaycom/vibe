@@ -24,6 +24,8 @@ const THEME_PATTERNS = {
   "hacker_theme-app-theme": [".hacker_theme-app-theme"]
 };
 
+const OPT_IN_THEME_CLASSES = [".rebrand-theme"];
+
 async function generateColors(): Promise<void> {
   const css = fs.readFileSync(CSS_FILE, "utf8");
 
@@ -86,6 +88,12 @@ function flattenThemeToRoot(css: string, themePatterns: string[]): string {
   const allVariables: string[] = [];
 
   ast.walkRules(rule => {
+    // Opt-in theme layers (e.g. `body.light-app-theme.rebrand-theme`) contain the stock theme
+    // classes, so a substring match would merge their values into the stock theme.
+    if (OPT_IN_THEME_CLASSES.some(className => rule.selector.includes(className))) {
+      return;
+    }
+
     const isThemeRule = themePatterns.some(pattern => rule.selector.includes(pattern));
 
     rule.walkDecls(decl => {
