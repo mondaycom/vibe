@@ -3,7 +3,14 @@ import BaseList from "../DropdownBaseList/DropdownBaseList";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "@vibe/base-list";
 
-const MenuList = <Item extends BaseItemData<Record<string, unknown>>>() => {
+interface MenuListProps {
+  /**
+   * Listbox props already obtained from downshift's getMenuProps (used when the menu ref lives on a wrapper).
+   */
+  listboxProps?: Record<string, unknown>;
+}
+
+const MenuList = <Item extends BaseItemData<Record<string, unknown>>>({ listboxProps }: MenuListProps = {}) => {
   const {
     filteredOptions,
     highlightedIndex,
@@ -29,7 +36,7 @@ const MenuList = <Item extends BaseItemData<Record<string, unknown>>>() => {
   const currentSelection = selectedItems?.length > 0 ? selectedItems : selectedItem ? [selectedItem] : [];
 
   const enhancedGetMenuProps = (props?: Record<string, unknown>) => {
-    const baseProps = getMenuProps?.(props) || {};
+    const baseProps = listboxProps ?? (getMenuProps?.(props) || {});
     return multi ? { ...baseProps, "aria-multiselectable": "true" } : baseProps;
   };
 

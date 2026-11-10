@@ -6,6 +6,7 @@ import DropdownBoxMode from "./DropdownBoxMode/DropdownBoxMode";
 import { type BaseItemData } from "@vibe/base-list";
 import DropdownBase from "./DropdownBase/DropdownBase";
 import DropdownStaticTrigger from "./DropdownStaticTrigger/DropdownStaticTrigger";
+import { isSearchInMenu } from "../utils/dropdownUtils";
 
 interface DropdownWrapperUIProps<Item extends BaseItemData<Record<string, unknown>>> {
   contextValue: DropdownContextProps<Item>;
@@ -18,9 +19,10 @@ const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(p
 
   // Id linking the helper text to the combobox/trigger via aria-describedby (WCAG SC 1.3.1).
   const helperTextId = contextValue.helperText && contextValue.id ? `${contextValue.id}-helper-text` : undefined;
+  const searchInMenu = isSearchInMenu(contextValue);
 
   return (
-    <DropdownContext.Provider value={{ ...contextValue, helperTextId }}>
+    <DropdownContext.Provider value={{ ...contextValue, helperTextId, searchInMenu }}>
       <DropdownBase dropdownRef={dropdownRef}>
         {contextValue.boxMode ? <DropdownBoxMode /> : isStatic ? <DropdownStaticTrigger /> : <DropdownPopup />}
       </DropdownBase>

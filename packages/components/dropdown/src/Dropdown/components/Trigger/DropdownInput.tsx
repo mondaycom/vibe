@@ -5,14 +5,7 @@ import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseItemData } from "@vibe/base-list";
 import { Text } from "@vibe/typography";
-
-// Screen-reader announcement of the current multi-select selection, surfaced via aria-describedby.
-function getSelectedValueText(selectedItems: BaseItemData[]): string {
-  return selectedItems
-    .map(item => item.label || item.value || "")
-    .filter(Boolean)
-    .join(", ");
-}
+import { getSelectedValueId, getSelectedValueText } from "../../utils/dropdownUtils";
 
 const DropdownInput = ({
   inputSize,
@@ -37,6 +30,7 @@ const DropdownInput = ({
     inputAriaLabel,
     "aria-label": ariaLabel,
     searchable,
+    searchInMenu,
     size,
     label,
     isOpen,
@@ -60,13 +54,13 @@ const DropdownInput = ({
   // Id for the visually hidden element that announces the current selection (multi-select chips only;
   // single-select keeps the value inside the input). Derived from the downshift-generated label id so
   // it's unique per dropdown instance and stable across SSR/hydration (no Math.random / useId).
-  const selectedValueId = `${getLabelProps().id}-selected-value`;
+  const selectedValueId = getSelectedValueId(getLabelProps().id);
   const describedBy =
     [helperTextId, selectedValueText ? selectedValueId : undefined].filter(Boolean).join(" ") || undefined;
 
   return (
     <>
-      {searchable ? (
+      {searchable && !searchInMenu ? (
         <>
           <BaseInput
             {...getInputProps({

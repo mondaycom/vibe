@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from "react";
+import { useMemo, useCallback, useRef } from "react";
 import useDropdownFiltering from "./useDropdownFiltering";
 import { useMultipleSelection, useCombobox } from "downshift";
 import { type DropdownGroupOption } from "../Dropdown.types";
@@ -21,8 +21,10 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean,
   id?: string,
-  onOptionRemove?: (option: T) => void
+  onOptionRemove?: (option: T) => void,
+  searchInMenu?: boolean
 ) {
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
   // Use controlled value if provided, otherwise use internal state
   const currentSelectedItems = value !== undefined ? value : selectedItems;
 
@@ -123,6 +125,12 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
       onOptionSelect?.(newSelectedItem);
       filterOptions("");
     },
+    onStateChange: ({ type, isOpen: nextIsOpen }) => {
+      // With the search inside the menu, closing via Escape returns focus to the trigger.
+      if (searchInMenu && nextIsOpen === false && type === useCombobox.stateChangeTypes.InputKeyDownEscape) {
+        toggleButtonRef.current?.focus();
+      }
+    },
     stateReducer: (state, actionAndChanges) => {
       const { type, changes } = actionAndChanges;
 
@@ -170,7 +178,9 @@ function useDropdownMultiCombobox<T extends BaseItemData<Record<string, unknown>
     getSelectedItemProps,
     getDropdownProps,
     addSelectedItem,
-    getToggleButtonProps,
+    getToggleButtonProps: (options?: Parameters<typeof getToggleButtonProps>[0]) =>
+      getToggleButtonProps({ ...options, ref: toggleButtonRef }),
+    focusToggleButton: () => toggleButtonRef.current?.focus(),
     getLabelProps,
     getMenuProps,
     getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>

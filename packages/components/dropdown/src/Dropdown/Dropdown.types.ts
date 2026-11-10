@@ -94,12 +94,18 @@ interface SingleSelectSpecifics<Item extends BaseItemData<Record<string, unknown
   minVisibleCount?: never;
 }
 
+export type DropdownSearchPlacement = "trigger" | "menu";
+
 type BoxModeConstraint =
   | {
       /**
        * If true, the dropdown is searchable.
        */
       searchable?: false;
+      /**
+       * Where the search input is rendered. Only available when `searchable` is true.
+       */
+      searchPlacement?: never;
       /**
        * If true, the dropdown menu is displayed inline without a popup/dialog.
        */
@@ -110,6 +116,13 @@ type BoxModeConstraint =
        * If true, the dropdown is searchable.
        */
       searchable: true;
+      /**
+       * Where the search input is rendered when `searchable` is true.
+       * - `"trigger"` (default): the trigger itself is the search input.
+       * - `"menu"`: the trigger shows the selected value, and a search field is rendered at the top of the opened menu.
+       * Has no effect when `boxMode` is true.
+       */
+      searchPlacement?: DropdownSearchPlacement;
       /**
        * If true, the dropdown menu is displayed inline without a popup/dialog.
        */

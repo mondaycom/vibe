@@ -4,6 +4,7 @@ import useDropdownMultiCombobox from "../hooks/useDropdownMultiCombobox";
 import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownContextProps } from "../context/DropdownContext.types";
 import DropdownWrapperUI from "../components/DropdownWrapperUI";
+import { isSearchInMenu } from "../utils/dropdownUtils";
 
 const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string, unknown>>>(
   props: DropdownMultiControllerProps<Item>
@@ -42,6 +43,7 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
   const initialMultiSelectedItems = Array.isArray(defaultValue) ? defaultValue : [];
   const [multiSelectedItemsState, setMultiSelectedItemsState] = useState<Item[]>(initialMultiSelectedItems);
   const [isFocused, setIsFocused] = useState(false);
+  const searchInMenu = isSearchInMenu({ searchable, searchPlacement: props.searchPlacement, boxMode });
 
   const {
     isOpen,
@@ -59,7 +61,8 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     addSelectedItem: hookAddSelectedItem,
     removeSelectedItem: hookRemoveSelectedItem,
     getDropdownProps,
-    getSelectedItemProps: hookGetSelectedItemProps
+    getSelectedItemProps: hookGetSelectedItemProps,
+    focusToggleButton
   } = useDropdownMultiCombobox<Item>(
     options,
     multiSelectedItemsState,
@@ -77,7 +80,8 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     filterOption,
     showSelectedOptions,
     id,
-    onOptionRemove
+    onOptionRemove,
+    searchInMenu
   );
 
   const contextValue: DropdownContextProps<Item> = {
@@ -136,6 +140,7 @@ const DropdownMultiComboboxController = <Item extends BaseItemData<Record<string
     size,
     getDropdownProps,
     toggleMenu,
+    focusTrigger: focusToggleButton,
     loading,
     interactiveChips
   };

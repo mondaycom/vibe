@@ -1,0 +1,62 @@
+import { Meta } from "@storybook/blocks";
+import * as DropdownSearchInMenuStories from "./DropdownSearchInMenu.stories";
+
+<Meta of={DropdownSearchInMenuStories} />
+
+# Dropdown search in menu
+
+A searchable dropdown whose search field is rendered at the top of the opened menu instead of in the trigger. The trigger keeps showing the selected value (or placeholder), so the field looks the same as a regular dropdown until it's opened. Enable it with <code>searchable</code> and <code>searchPlacement="menu"</code>.
+
+<Canvas of={DropdownSearchInMenuStories.Overview} />
+
+## Variants
+
+### Single and multi select
+
+Multi select keeps the menu open between selections and shows the selected items as chips in the trigger.
+
+<Canvas of={DropdownSearchInMenuStories.SingleAndMulti} />
+
+### Sizes
+
+The search field matches the dropdown size: small (32px), medium (40px) and large (48px).
+
+<Canvas of={DropdownSearchInMenuStories.Sizes} />
+
+### States
+
+<Canvas of={DropdownSearchInMenuStories.States} />
+
+### Multi select chips
+
+Selected chips can be shown in a single line (with an overflow counter) or across multiple lines.
+
+<Canvas of={DropdownSearchInMenuStories.MultiSelect} />
+
+### With start element
+
+Options can include an icon or avatar. The selected option's start element is shown in the trigger.
+
+<Canvas of={DropdownSearchInMenuStories.WithStartElement} />
+
+## Use cases and examples
+
+### With groups
+
+<Canvas of={DropdownSearchInMenuStories.WithGroups} />
+
+### No results
+
+Use <code>noOptionsMessage</code> to customize the message shown when the search matches nothing.
+
+<Canvas of={DropdownSearchInMenuStories.NoResults} />
+
+### Long list
+
+Combine with <code>maxMenuHeight</code> so the list scrolls while the search field stays in place.
+
+<Canvas of={DropdownSearchInMenuStories.LongList} />
+
+## Related components
+
+<RelatedComponents componentsNames={["Dropdown", "Search", "Combobox"]} />

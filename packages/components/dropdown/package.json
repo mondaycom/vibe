@@ -48,6 +48,7 @@
     "@vibe/icons": "4.2.0",
     "@vibe/layout": "4.0.13",
     "@vibe/loader": "4.0.10",
+    "@vibe/search": "4.0.8",
     "@vibe/shared": "4.0.10",
     "@vibe/style": "4.1.0",
     "@vibe/text-inputs": "4.0.8",
