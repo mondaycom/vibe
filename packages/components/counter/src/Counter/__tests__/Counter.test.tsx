@@ -34,5 +34,11 @@ describe("Counter tests", () => {
       const counterComponent = getByLabelText(ariaLabel + count);
       expect(counterComponent).toBeTruthy();
     });
+
+    it("should use aria-label as-is when appendCountToAriaLabel is false", () => {
+      const ariaLabel = "3 more agents";
+      const { getByLabelText } = render(<Counter aria-label={ariaLabel} appendCountToAriaLabel={false} count={2} />);
+      expect(getByLabelText(ariaLabel)).toHaveAttribute("aria-label", ariaLabel);
+    });
   });
 });

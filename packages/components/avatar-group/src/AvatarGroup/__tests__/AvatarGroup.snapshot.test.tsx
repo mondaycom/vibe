@@ -49,7 +49,7 @@ describe("AvatarGroup renders correctly", () => {
   it("renders correctly with custom counter value", () => {
     const tree = renderer
       .create(
-        <AvatarGroup max={2} counterValue={13}>
+        <AvatarGroup max={2} counterProps={{ count: 13 }}>
           <Avatar text="P1" />
           <Avatar text="P2" />
         </AvatarGroup>
@@ -111,6 +111,19 @@ describe("AvatarGroup renders correctly", () => {
         <AvatarGroup counterTooltipCustomProps={{ content: "Custom tooltip content" }} max={1}>
           <Avatar text="P1" />
           <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with counterAriaLabel", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup max={1} counterAriaLabel="3 more agents">
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+          <Avatar text="P3" />
         </AvatarGroup>
       )
       .toJSON();
