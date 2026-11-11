@@ -353,7 +353,7 @@ exports[`AvatarGroup renders correctly > renders correctly with counterAriaLabel
     tabIndex={0}
   >
     <span
-      aria-label="3 more agents 2"
+      aria-label="3 more agents"
       aria-labelledby=""
       data-vibe="Counter"
       onMouseDown={[Function]}

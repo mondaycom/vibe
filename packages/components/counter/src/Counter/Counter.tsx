@@ -34,6 +34,11 @@ export interface CounterProps extends VibeComponentProps {
    */
   "aria-label"?: string;
   /**
+   * If true (default), appends the count to the aria-label.
+   * Set to false when the aria-label is already a complete accessible name.
+   */
+  appendCountToAriaLabel?: boolean;
+  /**
    * The size of the counter.
    */
   size?: CounterSize;
@@ -73,6 +78,7 @@ const Counter = ({
   maxDigits = 3,
   "aria-labelledby": ariaLabelledBy = "",
   "aria-label": ariaLabel = "",
+  appendCountToAriaLabel = true,
   id = "",
   prefix = "",
   onMouseDown = NOOP,
@@ -136,7 +142,7 @@ const Counter = ({
   return (
     <span
       className={className}
-      aria-label={`${ariaLabel} ${countText}`}
+      aria-label={appendCountToAriaLabel ? `${ariaLabel} ${countText}` : ariaLabel}
       aria-labelledby={ariaLabelledBy}
       onMouseDown={onMouseDown}
       data-vibe={ComponentVibeId.COUNTER}
