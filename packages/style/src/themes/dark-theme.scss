@@ -5,6 +5,12 @@
   --primary-selected-hover-color: #0d2e65;
   --primary-highlighted-color: #0d2753;
   --primary-surface-color: #181b34;
+  /* Semantic surfaces: the semantic colour at 8% over the theme background. */
+  --surface-primary: color-mix(in srgb, var(--primary-color) 8%, var(--primary-background-color));
+  --surface-positive: color-mix(in srgb, var(--positive-color) 8%, var(--primary-background-color));
+  --surface-negative: color-mix(in srgb, var(--negative-color) 8%, var(--primary-background-color));
+  --surface-warning: color-mix(in srgb, var(--warning-color) 8%, var(--primary-background-color));
+  --surface-neutral: color-mix(in srgb, var(--primary-text-color) 8%, var(--primary-background-color));
 
   --primary-text-color: #d5d8df;
   --secondary-text-color: #9699a6;

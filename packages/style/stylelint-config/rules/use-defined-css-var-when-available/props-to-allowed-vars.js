@@ -14,13 +14,19 @@ const SPACINGS = [
 ];
 
 const BORDER_RADIUSES = [
+  "--border-radius-xsmall",
   "--border-radius-small",
   "--border-radius-medium",
+  "--border-radius-large",
   "--border-radius-big",
+  "--border-radius-xlarge",
+  "--border-radius-2",
   "--border-radius-4",
   "--border-radius-8",
   "--border-radius-12",
-  "--border-radius-16"
+  "--border-radius-16",
+  "--border-radius-full",
+  "--prompt-box-border-radius"
 ];
 
 const BORDER_WIDTHS = ["--border-width"];
@@ -156,7 +162,13 @@ function mapPropsToAllowedVars(propNames, allowedVars, recommended = undefined) 
 
 const PROPS_TO_ALLOWED_VARS = {
   ...mapPropsToAllowedVars(SPACING_PROPS, SPACINGS),
-  ...mapPropsToAllowedVars(BORDER_RADIUSES_PROPS, BORDER_RADIUSES, ["--border-radius-4", "--border-radius-8", "--border-radius-16"]),
+  ...mapPropsToAllowedVars(BORDER_RADIUSES_PROPS, BORDER_RADIUSES, [
+    "--border-radius-2",
+    "--border-radius-4",
+    "--border-radius-8",
+    "--border-radius-12",
+    "--border-radius-16"
+  ]),
   ...mapPropsToAllowedVars(BORDER_WIDTHS_PROPS, BORDER_WIDTHS),
   ...mapPropsToAllowedVars(BORDER_STYLES_PROPS, BORDER_STYLES),
   ...mapPropsToAllowedVars(FONT_FAMILIES_PROPS, FONT_FAMILIES, ["--title-font-family"]),

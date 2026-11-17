@@ -44,7 +44,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
     const tokenValue = referenceTokens[referenceToken];
     let referencedVar = getReferencedPropFromVar(tokenValue);
     while (referenceTokens[referencedVar]) {
-      referencedVar = referenceTokens[referencedVar];
+      referencedVar = getReferencedPropFromVar(referenceTokens[referencedVar]);
     }
     const referencedCanonicalValue = varsToCanonicalValue[referencedVar];
     if (referencedCanonicalValue) {
