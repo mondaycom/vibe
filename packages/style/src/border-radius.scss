@@ -1,12 +1,17 @@
 :root {
+  --border-radius-2: 2px;
   --border-radius-4: 4px;
   --border-radius-8: 8px;
   --border-radius-12: 12px;
   --border-radius-16: 16px;
 
+  --border-radius-xsmall: var(--border-radius-2);
   --border-radius-small: var(--border-radius-4);
   --border-radius-medium: var(--border-radius-8);
-  --border-radius-big: var(--border-radius-16);
+  --border-radius-large: var(--border-radius-12);
+  --border-radius-xlarge: var(--border-radius-16);
+  --border-radius-big: var(--border-radius-xlarge); /* legacy alias */
   --border-radius-full: 9999px;
-  --border-radius-prompt-box: 12px;
+
+  --prompt-box-border-radius: var(--border-radius-large);
 }
