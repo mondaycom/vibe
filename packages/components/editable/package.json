@@ -1,6 +1,6 @@
 {
   "name": "@vibe/editable",
-  "version": "4.0.15",
+  "version": "4.0.16",
   "description": "Vibe sub-package for Editable components",
   "repository": {
     "type": "git",
