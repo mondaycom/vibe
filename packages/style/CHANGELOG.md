@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/mondaycom/vibe/compare/@vibe/style@4.1.0...@vibe/style@4.2.0) (2026-11-23)
+
+
+### Features
+
+* **style:** rebrand overrides for light, dark and black themes ([#3545](https://github.com/mondaycom/vibe/issues/3545)) ([16f6178](https://github.com/mondaycom/vibe/commit/16f6178974db2e0c3dd6b4bcf92a9003123b3b57))
+
+
+
+
+
 # [4.1.0](https://github.com/mondaycom/vibe/compare/@vibe/style@4.0.0...@vibe/style@4.1.0) (2026-08-11)
 
 

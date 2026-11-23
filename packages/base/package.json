@@ -1,6 +1,6 @@
 {
   "name": "@vibe/base",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "Vibe sub-package for base components",
   "repository": {
     "type": "git",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@vibe/shared": "4.0.10",
-    "@vibe/style": "4.1.0",
+    "@vibe/style": "4.2.0",
     "classnames": "^2.5.1"
   },
   "devDependencies": {

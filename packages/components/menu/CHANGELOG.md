@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.9](https://github.com/mondaycom/vibe/compare/@vibe/menu@4.0.8...@vibe/menu@4.0.9) (2026-11-23)
+
+
+### Performance Improvements
+
+* **MenuItem:** skip submenu position tracking while the submenu is closed ([#3552](https://github.com/mondaycom/vibe/issues/3552)) ([38d6c62](https://github.com/mondaycom/vibe/commit/38d6c627eb94955ef910f0e63bd4494222477bc6))
+
+
+
+
+
 ## [4.0.8](https://github.com/mondaycom/vibe/compare/@vibe/menu@4.0.7...@vibe/menu@4.0.8) (2026-10-19)
 
 **Note:** Version bump only for package @vibe/menu

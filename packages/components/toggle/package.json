@@ -1,6 +1,6 @@
 {
   "name": "@vibe/toggle",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "Vibe sub-package for Toggle and Switch components",
   "repository": {
     "type": "git",
@@ -40,8 +40,8 @@
   "dependencies": {
     "@vibe/hooks": "4.0.14",
     "@vibe/shared": "4.0.10",
-    "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.23",
+    "@vibe/style": "4.2.0",
+    "@vibe/typography": "4.0.24",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },

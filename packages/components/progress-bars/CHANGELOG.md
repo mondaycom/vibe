@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.10](https://github.com/mondaycom/vibe/compare/@vibe/progress-bars@4.0.9...@vibe/progress-bars@4.0.10) (2026-11-23)
+
+**Note:** Version bump only for package @vibe/progress-bars
+
+
+
+
+
 ## [4.0.9](https://github.com/mondaycom/vibe/compare/@vibe/progress-bars@4.0.8...@vibe/progress-bars@4.0.9) (2026-10-06)
 
 **Note:** Version bump only for package @vibe/progress-bars

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.17](https://github.com/mondaycom/vibe/compare/@vibe/radio-button@4.0.16...@vibe/radio-button@4.0.17) (2026-11-23)
+
+**Note:** Version bump only for package @vibe/radio-button
+
+
+
+
+
 ## [4.0.16](https://github.com/mondaycom/vibe/compare/@vibe/radio-button@4.0.15...@vibe/radio-button@4.0.16) (2026-10-19)
 
 **Note:** Version bump only for package @vibe/radio-button

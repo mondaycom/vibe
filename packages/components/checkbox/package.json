@@ -1,6 +1,6 @@
 {
   "name": "@vibe/checkbox",
-  "version": "4.0.17",
+  "version": "4.0.18",
   "description": "Vibe sub-package for Checkbox component",
   "repository": {
     "type": "git",
@@ -41,8 +41,8 @@
     "@vibe/icon": "4.0.12",
     "@vibe/icons": "4.2.0",
     "@vibe/shared": "4.0.10",
-    "@vibe/style": "4.1.0",
-    "@vibe/typography": "4.0.23",
+    "@vibe/style": "4.2.0",
+    "@vibe/typography": "4.0.24",
     "classnames": "^2.5.1",
     "es-toolkit": "^1.39.10"
   },
