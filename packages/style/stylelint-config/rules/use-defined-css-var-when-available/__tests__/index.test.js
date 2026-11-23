@@ -67,7 +67,7 @@ describe("@vibe/style/use-defined-css-var-when-available", () => {
     expect(firstWarning.column).toBe(15);
 
     expect(secondWarning.text).toBe(
-      `Expected \"16px\" to be one of vars: \n--border-radius-big\n--border-radius-16\n (@vibe/style/use-defined-css-var-when-available)`
+      `Expected \"16px\" to be one of vars: \n--border-radius-big\n--border-radius-xlarge\n--border-radius-16\n (@vibe/style/use-defined-css-var-when-available)`
     );
     expect(secondWarning.line).toBe(7);
     expect(secondWarning.column).toBe(18);

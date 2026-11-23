@@ -26,6 +26,7 @@ import {
 
 import CanvasWrapper from "../src/layout/canvas-wrapper/CanvasWrapper";
 import withGlobalStyle from "../src/decorators/withGlobalStyle/withGlobalStyle";
+import withRebrandTheme from "../src/decorators/withRebrandTheme/withRebrandTheme";
 import { PropsTable } from "../src/layout/props-table/props-table";
 import { RelatedComponentsDecorator } from "../src/layout/related-components/related-components-decorator";
 import "@vibe/style/dist/index.min.css";
@@ -144,6 +145,7 @@ const preview: Preview = {
   decorators: [
     withLiveEdit,
     withGlobalStyle,
+    withRebrandTheme,
     withMemoryStats,
     withPerformanceProfiler,
     // Should always be the last decorator (stories hooks issues otherwise) - bug in the addon
@@ -157,6 +159,19 @@ const preview: Preview = {
     })
   ],
   globalTypes: {
+    rebrand: {
+      name: "Rebrand",
+      description: "Apply the rebrand theme overrides on top of the selected theme",
+      defaultValue: "off",
+      toolbar: {
+        icon: "paintbrush",
+        dynamicTitle: true,
+        items: [
+          { value: "off", title: "Rebrand: off" },
+          { value: "on", title: "Rebrand: on" }
+        ]
+      }
+    },
     memoryStats: {
       name: "Memory Stats",
       description: "Add Memory Stat tracker",
