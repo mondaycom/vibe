@@ -540,6 +540,10 @@
   .black-app-theme {
     background-color: var(--sb-primary-background-color);
   }
+  /* The rebrand overrides repaint the page background, so don't let the storybook colour mask it */
+  body.rebrand-theme {
+    background-color: var(--primary-background-color);
+  }
   .sbdocs.sbdocs-wrapper,
   .sbdocs.sbdocs-content {
     background: var(--sb-primary-background-color);
@@ -652,7 +656,7 @@
   }
 </style>
 
-    <script type="module" crossorigin src="./assets/iframe-BQ6DIjJt.js"></script>
+    <script type="module" crossorigin src="./assets/iframe--2h3se-4.js"></script>
   </head>
 
   <body>
