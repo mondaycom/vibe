@@ -806,6 +806,28 @@ describe("DropdownNew", () => {
       expect(getByTestId("dropdown-chip-opt3")).toBeInTheDocument();
     });
 
+    it("should remove the last selected item when it is re-clicked in the dropdown", () => {
+      const onChange = vi.fn();
+      const { getByPlaceholderText, getByRole, queryByTestId, getByTestId } = renderDropdown({
+        multi: true,
+        onChange
+      });
+
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
+      fireEvent.click(input);
+      const listbox = getByRole("listbox");
+
+      fireEvent.click(within(listbox).getByText("Option 1"));
+      fireEvent.click(within(listbox).getByText("Option 3"));
+
+      // Re-click Option 3, the most recently selected option, to deselect it.
+      fireEvent.click(within(listbox).getByText("Option 3"));
+
+      expect(onChange).toHaveBeenLastCalledWith([expect.objectContaining({ value: "opt1" })]);
+      expect(getByTestId("dropdown-chip-opt1")).toBeInTheDocument();
+      expect(queryByTestId("dropdown-chip-opt3")).not.toBeInTheDocument();
+    });
+
     it("should call onOptionRemove when a chip's remove button is clicked", () => {
       const onOptionRemove = vi.fn();
       const { getByPlaceholderText, getByRole } = renderDropdown({
