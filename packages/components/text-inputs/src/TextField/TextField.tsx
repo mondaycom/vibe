@@ -326,20 +326,22 @@ const TextField = forwardRef(
       onIconClick(currentStateIconName);
     }, [disabled, clearOnIconClick, onIconClick, currentStateIconName, controlled, onChangeCallback, clearValue]);
 
+    const showRequiredError = isRequiredAndEmpty && !inputValue;
+
     const validationClass = useMemo(() => {
       if (typeof maxLength === "number" && inputValue && inputValue.length > maxLength) {
         return FEEDBACK_CLASSES.error;
       }
 
-      if ((!validation || !validation.status) && !isRequiredAndEmpty) {
+      if ((!validation || !validation.status) && !showRequiredError) {
         return "";
       }
-      const status = isRequiredAndEmpty ? "error" : validation.status;
+      const status = showRequiredError ? "error" : validation.status;
       return FEEDBACK_CLASSES[status];
-    }, [maxLength, validation, isRequiredAndEmpty, inputValue]);
+    }, [maxLength, validation, showRequiredError, inputValue]);
 
     const hasIcon = iconName || secondaryIconName;
-    const hasValidationText = !!((validation && validation.text) || (isRequiredAndEmpty && requiredErrorText));
+    const hasValidationText = !!((validation && validation.text) || (showRequiredError && requiredErrorText));
     const shouldShowExtraText = showCharCount || hasValidationText;
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
@@ -402,7 +404,7 @@ const TextField = forwardRef(
               maxLength={typeof maxLength === "number" && !allowExceedingMaxLength ? maxLength : undefined}
               role={searchResultsContainerId && "combobox"} // For voice reader
               aria-label={inputAriaLabel || placeholder}
-              aria-invalid={(validation && validation.status === "error") || isRequiredAndEmpty}
+              aria-invalid={(validation && validation.status === "error") || showRequiredError}
               aria-owns={searchResultsContainerId || undefined}
               aria-activedescendant={activeDescendant || undefined}
               aria-required={required}
@@ -477,7 +479,7 @@ const TextField = forwardRef(
             <Text type="text2" color="secondary" className={cx(styles.subTextContainer)}>
               {hasValidationText && (
                 <span id={validationTextId} className={cx(styles.subTextContainerStatus)}>
-                  {isRequiredAndEmpty ? requiredErrorText : validation.text}
+                  {showRequiredError ? requiredErrorText : validation.text}
                 </span>
               )}
               {showCharCount && (

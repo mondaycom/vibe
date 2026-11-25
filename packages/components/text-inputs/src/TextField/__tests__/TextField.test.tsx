@@ -409,4 +409,73 @@ describe("TextField Tests", () => {
       expect(handleChange).toHaveBeenCalledWith("new value", expect.anything());
     });
   });
+
+  describe("required error with externally set value", () => {
+    const requiredErrorText = "This field is required";
+
+    const renderBlurredRequiredField = (controlled: boolean) => {
+      const utils = render(
+        <TextField
+          onChange={onChangeStub}
+          id="required"
+          required
+          requiredErrorText={requiredErrorText}
+          value=""
+          controlled={controlled}
+        />
+      );
+      const input = utils.container.querySelector("#required");
+      act(() => {
+        fireEvent.blur(input, { target: { value: "" } });
+      });
+      return { ...utils, input };
+    };
+
+    it.each([true, false])(
+      "should clear the required error when value is set from outside (controlled=%s)",
+      controlled => {
+        const { input, rerender, queryByText } = renderBlurredRequiredField(controlled);
+        expect(input.getAttribute("aria-invalid")).toBe("true");
+        expect(queryByText(requiredErrorText)).toBeTruthy();
+
+        rerender(
+          <TextField
+            onChange={onChangeStub}
+            id="required"
+            required
+            requiredErrorText={requiredErrorText}
+            value="Filled from outside"
+            controlled={controlled}
+          />
+        );
+
+        expect(input.value).toBe("Filled from outside");
+        expect(input.getAttribute("aria-invalid")).toBe("false");
+        expect(input.hasAttribute("aria-describedby")).toBe(false);
+        expect(queryByText(requiredErrorText)).toBeNull();
+      }
+    );
+
+    it("should show the required error again when value is cleared from outside after blur", () => {
+      const { input, rerender, queryByText } = renderBlurredRequiredField(true);
+      const renderWithValue = (value: string) =>
+        rerender(
+          <TextField
+            onChange={onChangeStub}
+            id="required"
+            required
+            requiredErrorText={requiredErrorText}
+            value={value}
+            controlled
+          />
+        );
+
+      renderWithValue("Filled from outside");
+      expect(input.getAttribute("aria-invalid")).toBe("false");
+
+      renderWithValue("");
+      expect(input.getAttribute("aria-invalid")).toBe("true");
+      expect(queryByText(requiredErrorText)).toBeTruthy();
+    });
+  });
 });
