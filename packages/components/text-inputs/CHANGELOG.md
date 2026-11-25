@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.10](https://github.com/mondaycom/vibe/compare/@vibe/text-inputs@4.0.9...@vibe/text-inputs@4.0.10) (2026-11-25)
+
+
+### Bug Fixes
+
+* **TextField:** clear required error when value is set from outside ([#3563](https://github.com/mondaycom/vibe/issues/3563)) ([4ad19de](https://github.com/mondaycom/vibe/commit/4ad19de51c6875ca49dccdb6325b14d80f6be29f))
+
+
+
+
+
 ## [4.0.9](https://github.com/mondaycom/vibe/compare/@vibe/text-inputs@4.0.8...@vibe/text-inputs@4.0.9) (2026-11-23)
 
 **Note:** Version bump only for package @vibe/text-inputs
