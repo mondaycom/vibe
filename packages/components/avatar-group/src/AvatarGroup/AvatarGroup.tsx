@@ -34,6 +34,10 @@ export interface AvatarGroupProps extends VibeComponentProps {
    */
   counterProps?: AvatarGroupCounterVisualProps;
   /**
+   * The label of the counter for accessibility.
+   */
+  counterAriaLabel?: string;
+  /**
    * Props passed to the Tooltip component. See full options in the [Tooltip documentation](https://vibe.monday.com/?path=/docs/components-tooltip--docs).
    */
   counterTooltipCustomProps?: Partial<TooltipProps>;
@@ -56,6 +60,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   type,
   max = 5,
   counterProps,
+  counterAriaLabel,
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList = false,
   disabled
@@ -91,6 +96,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
+        counterAriaLabel={counterAriaLabel}
         counterTooltipCustomProps={counterTooltipCustomProps}
         counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
         size={size}
