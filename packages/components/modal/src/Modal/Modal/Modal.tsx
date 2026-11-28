@@ -97,13 +97,27 @@ const Modal = forwardRef(
 
     const animationType = size === "full-view" ? "fullView" : anchorElementRef?.current ? "anchorPop" : "centerPop";
 
-    const anchorRect = anchorElementRef?.current?.getBoundingClientRect();
-    const anchorVars = anchorRect
-      ? ({
+    // The anchor position is only used by the open/close animation, so measure it once per opening instead of on
+    // every render (including every render while closed). Until a measurement succeeds (e.g. the anchor's ref is
+    // not attached yet on the first render of a modal mounted open) keep trying on the following renders, like before.
+    // The close animation reuses the open-time position; scroll is locked while the modal is open.
+    const anchorVarsRef = useRef<React.CSSProperties>({});
+    const hasMeasuredAnchorRef = useRef(false);
+    if (!show) {
+      hasMeasuredAnchorRef.current = false;
+    } else if (!hasMeasuredAnchorRef.current) {
+      const anchorRect = anchorElementRef?.current?.getBoundingClientRect();
+      if (anchorRect) {
+        anchorVarsRef.current = {
           "--modal-start-x": `${anchorRect.left + anchorRect.width / 2}px`,
           "--modal-start-y": `${anchorRect.top + anchorRect.height / 2}px`
-        } as React.CSSProperties)
-      : {};
+        } as React.CSSProperties;
+        hasMeasuredAnchorRef.current = true;
+      } else {
+        anchorVarsRef.current = {};
+      }
+    }
+    const anchorVars = anchorVarsRef.current;
 
     const zIndexStyle = zIndex ? ({ "--monday-modal-z-index": zIndex } as React.CSSProperties) : {};
 
