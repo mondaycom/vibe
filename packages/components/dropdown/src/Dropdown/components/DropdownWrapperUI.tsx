@@ -19,8 +19,10 @@ const DropdownWrapperUI = <Item extends BaseItemData<Record<string, unknown>>>(p
   // Id linking the helper text to the combobox/trigger via aria-describedby (WCAG SC 1.3.1).
   const helperTextId = contextValue.helperText && contextValue.id ? `${contextValue.id}-helper-text` : undefined;
 
+  const isOpen = contextValue.isOpen && !contextValue.disabled;
+
   return (
-    <DropdownContext.Provider value={{ ...contextValue, helperTextId }}>
+    <DropdownContext.Provider value={{ ...contextValue, helperTextId, isOpen }}>
       <DropdownBase dropdownRef={dropdownRef}>
         {contextValue.boxMode ? <DropdownBoxMode /> : isStatic ? <DropdownStaticTrigger /> : <DropdownPopup />}
       </DropdownBase>

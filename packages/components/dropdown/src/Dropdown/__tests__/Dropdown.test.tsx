@@ -34,6 +34,21 @@ function renderDropdown<T extends BaseItemData<Record<string, unknown>>>(props?:
 }
 
 describe("DropdownNew", () => {
+  it("closes a controlled menu when the dropdown becomes disabled", () => {
+    const onChange = vi.fn();
+    const props = {
+      options: [{ label: "Option 1", value: "opt1" }],
+      isMenuOpen: true,
+      onChange
+    };
+    const { getByRole, queryByRole, rerender } = render(<Dropdown {...props} />);
+    expect(getByRole("option", { name: "Option 1" })).toBeVisible();
+
+    rerender(<Dropdown {...props} disabled />);
+    expect(queryByRole("option", { name: "Option 1" })).not.toBeInTheDocument();
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
   it("should render correctly with all props", () => {
     const { getByPlaceholderText, getByText, queryByText } = renderDropdown({
       size: "large",
