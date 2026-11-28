@@ -283,9 +283,9 @@ const Combobox = forwardRef(
 
     const isChildSelectable = useCallback(
       (index: number) => {
-        return index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
+        return !disabled && index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
       },
-      [filteredOptions]
+      [disabled, filteredOptions]
     );
 
     const onAddNewCallback = useCallback(() => {
@@ -344,6 +344,7 @@ const Combobox = forwardRef(
 
     const overrideOnClick = useCallback(
       (_event: React.MouseEvent | React.KeyboardEvent, itemIndex: number) => {
+        if (disabled) return;
         onClick(selectableItems[itemIndex]);
         if (isChildSelectable(itemIndex)) {
           setActiveOptionIndex(itemIndex);
@@ -353,7 +354,7 @@ const Combobox = forwardRef(
           onChangeCallback("");
         }
       },
-      [onClick, selectableItems, isChildSelectable, clearFilterOnSelection, onChangeCallback]
+      [disabled, onClick, selectableItems, isChildSelectable, clearFilterOnSelection, onChangeCallback]
     );
 
     const {

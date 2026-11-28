@@ -34,6 +34,20 @@ describe("Combobox tests", () => {
       clickValueCheckCallback(getByLabelText, onClickMock, "Yellow", "yellow");
     });
 
+    it("ignores options when the combobox becomes disabled", () => {
+      const onClickMock = vi.fn();
+      const props = { onClick: onClickMock, options: mockOptions };
+      const { getByLabelText, rerender } = render(<Combobox {...props} />);
+
+      rerender(<Combobox {...props} disabled />);
+      fireEvent.click(getByLabelText("Yellow"));
+      expect(onClickMock).not.toHaveBeenCalled();
+
+      rerender(<Combobox {...props} />);
+      fireEvent.click(getByLabelText("Yellow"));
+      expect(onClickMock).toHaveBeenCalledTimes(1);
+    });
+
     it("should call callback func when onOptionHover", () => {
       const onMouseOverMock = vi.fn();
       const { getByLabelText } = render(<Combobox onOptionHover={onMouseOverMock} options={mockOptions} />);
