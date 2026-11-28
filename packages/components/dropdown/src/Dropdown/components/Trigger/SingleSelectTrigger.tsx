@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { BaseItem, type BaseItemData } from "@vibe/base-list";
+import { BaseItem, renderSideElement, type BaseItemData } from "@vibe/base-list";
 import DropdownInput from "./DropdownInput";
 import styles from "./Trigger.module.scss";
 import { useDropdownContext } from "../../context/DropdownContext";
@@ -27,9 +27,33 @@ const SingleSelectTrigger = () => {
     inlineSelectedValue
   } = useDropdownContext<BaseItemData>();
 
-  // inlineSelectedValue puts the selected label inside the input, so the overlay only renders for
-  // non-searchable single select. Without it (default), the selection is shown via the overlay —
-  // including in searchable mode, faded while the input is focused (the original behavior).
+  // inlineSelectedValue keeps the selected label inside the input as its real, visible value, so AT
+  // reads the input rather than an empty field. The selected option's startElement rides along as a
+  // decorative prefix in BaseInput's renderLeft slot — a flex sibling of the input, not an overlay
+  // over it, so there is only ever one piece of text in the field.
+  const isSearchableInline = !!inlineSelectedValue && !!searchable;
+  const startElement = selectedItem?.startElement;
+  // The prefix describes the selection, which outlives a search query, so it stays put while the user
+  // types. It's only dropped once the field is emptied, where a lone icon beside a placeholder reads
+  // as broken.
+  const showValuePrefix = isSearchableInline && !!inputValue && !!startElement && startElement.type !== "indent";
+  const textVariant = size === "small" ? "text2" : "text1";
+  const valuePrefix = showValuePrefix ? (
+    <span aria-hidden="true" className={styles.valuePrefix}>
+      {renderSideElement(startElement, !!disabled, textVariant)}
+    </span>
+  ) : undefined;
+
+  const endElement = selectedItem?.endElement;
+  const valueSuffix =
+    isSearchableInline && !!inputValue && !!endElement ? (
+      <span aria-hidden="true" className={styles.valueSuffix}>
+        {renderSideElement(endElement, !!disabled, textVariant)}
+      </span>
+    ) : undefined;
+
+  // Without inlineSelectedValue (default), the input is emptied on selection and the overlay is the
+  // only representation of it — faded while the input is focused (the original behavior).
   const showSelectedOverlay = (inlineSelectedValue ? !searchable : !inputValue) && !!selectedItem;
 
   return (
@@ -48,7 +72,7 @@ const SingleSelectTrigger = () => {
             })
           : {})}
       >
-        <DropdownInput />
+        <DropdownInput valuePrefix={valuePrefix} valueSuffix={valueSuffix} />
 
         {showSelectedOverlay && (
           <div

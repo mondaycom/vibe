@@ -384,6 +384,86 @@ describe("DropdownNew", () => {
       expect(input).toHaveValue("Option 1");
     });
 
+    it("should render the selected option's startElement as a decorative prefix (inlineSelectedValue)", () => {
+      const options = [
+        {
+          label: "People",
+          options: [
+            {
+              label: "Julia Martinez",
+              value: "jm",
+              index: 0,
+              startElement: { type: "custom" as const, render: () => <span data-testid="prefix">JM</span> }
+            }
+          ]
+        }
+      ];
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        inlineSelectedValue: true,
+        options: options as any
+      });
+
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
+      fireEvent.click(input);
+      fireEvent.click(getByText("Julia Martinez"));
+
+      // Scoped to the field itself — the menu's own options render the same startElement.
+      const field = () => within(input.parentElement as HTMLElement);
+
+      // The label is the input's own value (what AT reads); the prefix is decorative chrome beside it.
+      expect(input).toHaveValue("Julia Martinez");
+      const prefix = field().queryByTestId("prefix");
+      expect(prefix).not.toBeNull();
+      expect(prefix?.closest("[aria-hidden='true']")).not.toBeNull();
+
+      // The prefix describes the selection, so typing a query does not remove it.
+      fireEvent.change(input, { target: { value: "Jul" } });
+      expect(input).toHaveValue("Jul");
+      expect(field().queryByTestId("prefix")).not.toBeNull();
+
+      // Emptying the field would leave a lone icon beside a placeholder, so it is dropped there.
+      fireEvent.change(input, { target: { value: "" } });
+      expect(field().queryByTestId("prefix")).toBeNull();
+    });
+
+    it("should render the selected option's endElement as a decorative suffix (inlineSelectedValue)", () => {
+      const options = [
+        {
+          label: "Statuses",
+          options: [{ label: "Done", value: "done", index: 0, endElement: { type: "suffix" as const, value: "⌘D" } }]
+        }
+      ];
+      const { getByPlaceholderText, getByText } = renderDropdown({
+        inlineSelectedValue: true,
+        options: options as any
+      });
+
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
+      fireEvent.click(input);
+      fireEvent.click(getByText("Done"));
+
+      const field = within(input.parentElement as HTMLElement);
+      expect(input).toHaveValue("Done");
+      const suffix = field.queryByText("⌘D");
+      expect(suffix).not.toBeNull();
+      expect(suffix?.closest("[aria-hidden='true']")).not.toBeNull();
+    });
+
+    it("should not duplicate the selected label in an overlay (inlineSelectedValue)", () => {
+      const { getByPlaceholderText, getByText, queryAllByText } = renderDropdown({
+        inlineSelectedValue: true
+      });
+
+      const input = getByPlaceholderText("Select an option") as HTMLInputElement;
+      fireEvent.click(input);
+      fireEvent.click(getByText("Option 1"));
+
+      // The menu is closed, so the only "Option 1" left is the input's value — no second copy of the
+      // text rendered over the field.
+      expect(input).toHaveValue("Option 1");
+      expect(queryAllByText("Option 1")).toHaveLength(0);
+    });
+
     it("should show the selection in an overlay (not the input) by default", () => {
       const { getByPlaceholderText, getByText } = renderDropdown({ placeholder: "Select an option" });
 
