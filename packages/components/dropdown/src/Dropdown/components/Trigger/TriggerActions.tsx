@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { CloseSmall, DropdownChevronDown, DropdownChevronUp } from "@vibe/icons";
 import { IconButton } from "@vibe/icon-button";
 import { Flex } from "@vibe/layout";
@@ -33,8 +33,12 @@ const TriggerActions = () => {
     label,
     getLabelProps,
     "aria-label": ariaLabel,
-    inputAriaLabel
+    inputAriaLabel,
+    searchInMenu
   } = useDropdownContext<BaseItemData>();
+  // With the search inside the menu, a press on the chevron while open is already handled as an outside
+  // click by downshift (closing the menu), so the click must not toggle it open again.
+  const wasOpenOnPointerDownRef = useRef(false);
 
   const hasSelection = multi ? selectedItems?.length > 0 : !!selectedItem;
   const iconButtonSize = sizeMap[size] || "small";
@@ -59,6 +63,9 @@ const TriggerActions = () => {
     <div
       onKeyDown={e => {
         e.stopPropagation();
+      }}
+      onMouseDownCapture={() => {
+        wasOpenOnPointerDownRef.current = isOpen;
       }}
     >
       <Flex className={styles.actionsWrapper}>
@@ -88,6 +95,9 @@ const TriggerActions = () => {
             hideTooltip
             tabIndex={-1}
             onClick={() => {
+              if (searchInMenu && wasOpenOnPointerDownRef.current) {
+                return;
+              }
               toggleMenu();
             }}
           />

@@ -19,6 +19,7 @@ type InheritedDropdownProps<Item extends BaseItemData<Record<string, unknown>>> 
     | "helperText"
     | "dir"
     | "searchable"
+    | "searchPlacement"
     | "multi"
     | "multiline"
     | "disabled"
@@ -80,6 +81,10 @@ export interface DropdownContextProps<Item extends BaseItemData<Record<string, u
   getSelectedItemProps?: (options: { selectedItem: any; index: number }) => Record<string, any>;
   isFocused?: boolean;
   interactiveChips?: boolean;
+  /** True when the search input is rendered inside the menu instead of the trigger (`searchPlacement="menu"`). */
+  searchInMenu?: boolean;
+  /** Moves focus to the trigger (toggle button). Used by the menu search to keep a natural tab order. */
+  focusTrigger?: () => void;
   /** Id of the helper text element, linked to the combobox/trigger via aria-describedby. */
   helperTextId?: string;
   lazyRootProps?: DropdownLazyRootProps;

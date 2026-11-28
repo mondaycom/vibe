@@ -4,6 +4,13 @@ import useDropdownFiltering from "./useDropdownFiltering";
 import { type BaseItemData } from "@vibe/base-list";
 import { type DropdownGroupOption } from "../Dropdown.types";
 
+const MENU_SEARCH_FOCUS_RETURN_TYPES: string[] = [
+  useCombobox.stateChangeTypes.InputKeyDownEscape,
+  useCombobox.stateChangeTypes.InputKeyDownEnter,
+  useCombobox.stateChangeTypes.ItemClick,
+  useCombobox.stateChangeTypes.FunctionSelectItem
+];
+
 function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
   options: DropdownGroupOption<T>,
   isMenuOpen?: boolean,
@@ -20,10 +27,12 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
   filterOption?: (option: T, inputValue: string) => boolean,
   showSelectedOptions?: boolean,
   id?: string,
-  inlineSelectedValue?: boolean
+  inlineSelectedValue?: boolean,
+  searchInMenu?: boolean
 ) {
   const [currentSelectedItem, setCurrentSelectedItem] = useState<T | null>(defaultValue || null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
 
   // Use controlled value if provided, otherwise use internal state
   const selectedItem = value !== undefined ? value : currentSelectedItem;
@@ -104,7 +113,14 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
       [value, onOptionSelect, filterOptions, onChange]
     ),
     onStateChange: useCallback(
-      ({ type }) => {
+      ({ type, isOpen: nextIsOpen }) => {
+        // With the search inside the menu, closing via keyboard or selection returns focus to the trigger.
+        if (searchInMenu) {
+          if (nextIsOpen === false && MENU_SEARCH_FOCUS_RETURN_TYPES.includes(type)) {
+            toggleButtonRef.current?.focus();
+          }
+          return;
+        }
         // Keep focus on the input after selecting via click or Enter so focus is never lost
         // (the menu still closes through the stateReducer's isOpen change).
         if (
@@ -114,10 +130,15 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
           inputRef.current?.focus();
         }
       },
-      [closeMenuOnSelect]
+      [closeMenuOnSelect, searchInMenu]
     ),
     stateReducer: (state, actionAndChanges) => {
-      const { type, changes } = actionAndChanges;
+      const { type } = actionAndChanges;
+      // The menu search is cleared whenever the menu closes, so reopening shows the full list.
+      const changes =
+        searchInMenu && state.isOpen && actionAndChanges.changes.isOpen === false
+          ? { ...actionAndChanges.changes, inputValue: null }
+          : actionAndChanges.changes;
       switch (type) {
         // FunctionSelectItem (Space selecting the highlighted option, see getInputProps below) is
         // handled the same as Enter/click selection.
@@ -144,7 +165,9 @@ function useDropdownCombobox<T extends BaseItemData<Record<string, unknown>>>(
     inputValue,
     highlightedIndex,
     selectedItem,
-    getToggleButtonProps,
+    getToggleButtonProps: (options?: Parameters<typeof getToggleButtonProps>[0]) =>
+      getToggleButtonProps({ ...options, ref: toggleButtonRef }),
+    focusToggleButton: () => toggleButtonRef.current?.focus(),
     getLabelProps,
     getMenuProps,
     getInputProps: (options?: Parameters<typeof getInputProps>[0]) =>
