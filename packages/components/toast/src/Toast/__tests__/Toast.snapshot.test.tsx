@@ -1,18 +1,7 @@
-import { vi, describe, it, expect } from "vitest";
+import { describe, it, expect } from "vitest";
 import React from "react";
 import renderer from "react-test-renderer";
 import Toast from "../Toast";
-
-vi.mock("react-transition-group", () => {
-  const FakeTransition = vi.fn(({ children }) => children);
-  const FakeSwitchTransition = vi.fn(({ children }) => children);
-  const FakeCSSTransition = vi.fn(({ children }) => children);
-  return {
-    CSSTransition: FakeCSSTransition,
-    Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
-  };
-});
 
 describe("Toast renders correctly", () => {
   it("(renders nothing) with empty props", () => {
@@ -92,7 +81,13 @@ describe("Toast renders correctly", () => {
   });
 
   it("when icon is hidden", () => {
-    const tree = renderer.create(<Toast hideIcon>Something Happened</Toast>).toJSON();
+    const tree = renderer
+      .create(
+        <Toast open hideIcon>
+          Something Happened
+        </Toast>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
